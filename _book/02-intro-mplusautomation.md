@@ -1,0 +1,70 @@
+
+
+
+
+# Introduction to `MplusAutomation`
+
+---
+
+ `MplusAutomation`[@hallquist2018] is designed to streamline the use of Mplus, a powerful statistical software for modeling complex data developed by Muthen and Muten (https://www.statmodel.com). With `MplusAutomation`, researchers can automate the process of estimating latent variable models, running batches of models, extracting results, and generating data visualizations - all within the R environment. 
+
+--- 
+
+**WHAT?**
+
+-   `MplusAutomation` is an `R` package
+-   It "wraps around" the `Mplus` program
+-   Requires both `R` & `Mplus` software
+-   Requires learning some basics of 2 programming languages
+-   Car metaphor: R/Rstudio is the *steering wheel or dashboard* & Mplus is the *engine*
+
+---
+
+**WHY?**
+
+-   `MplusAutomation` can provide clearly organized work procedures in which every research decision can be documented in a single place
+-   Increase reproducibility, organization, efficiency, and transparency
+
+---
+
+**HOW?**
+
+-   The interface for MplusAutomation is entirely within R-Studio. You do not need to open Mplus
+-   The code presented will be very repetitive by design
+
+---
+
+Below is a template for `mplusObject()` & `mplusModeler()` functions. Use this template to run statistical models with Mplus. 
+
+
+``` r
+m_template  <- mplusObject(
+  
+  TITLE = 
+    "", 
+  
+  VARIABLE = 
+    "",
+  
+  ANALYSIS = 
+    "",
+  
+  PLOT = 
+    "",
+  
+  OUTPUT = 
+    "",
+ 
+  usevariables = colnames(), 
+  rdata =  )
+
+m_template_fit <- mplusModeler(m_template, 
+                  dataout=here("", ".dat"),
+                  modelout=here("", ".inp"),
+                  check=TRUE, run = TRUE, hashfilename = FALSE)
+
+```
+
+
+<div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>
+
