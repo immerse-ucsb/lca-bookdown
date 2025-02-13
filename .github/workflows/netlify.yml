@@ -10,5 +10,5 @@ jobs:
     steps:
       - uses: immerse-ucsb/action-netlify-deploy@v2.0.0
         with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.MY_TOKEN_SECRET }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_DEPLOY_TO_PROD: true
