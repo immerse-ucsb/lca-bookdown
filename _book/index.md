@@ -1,7 +1,7 @@
 --- 
 title: "Latent Class Analysis with `MplusAutomation`"
 author: "Dina Arch"
-date: "2025-02-07"
+date: "2025-02-13"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -12,9 +12,9 @@ biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-# Latent Class Analysis with `MplusAutomation` {-}
+# Mixture Modeling with `MplusAutomation` {-}
 
-<img src="images/immerse_hex.png" class="cover" width="250" height="193"/> Welcome! This book will teach you how to apply Latent Class Analysis (LCA) using Mplus[@muthen2017] and `MplusAutomation`[@hallquist2018]! This bookdown serves as your comprehensive guide to understanding and applying LCA using Mplus and its automation capabilities with `MplusAutomation`. Here, you will learn from start to finish how to apply mixture modeling using Mplus with the `MplusAutomation` package.
+<img src="images/immerse_hex.png" class="cover" width="250" height="193"/> Welcome! This will be a collection of resources that will teach you how to apply mixture modeling using Mplus[@muthen2017] and `MplusAutomation`[@hallquist2018]! These resources will serve as a comprehensive guide to understanding and applying LCA using Mplus and its automation capabilities with `MplusAutomation`. Here, you will learn from start to finish how to apply mixture modeling using Mplus with the `MplusAutomation` package.
 
 ## Stay in touch! {-}
 
@@ -32,6 +32,6 @@ csl: chicago-fullnote-bibliography.csl
 How to reference this workshop: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025).
 IMMERSE Online Resources (IES No. 305B220021).
 Institute of Education Sciences.
-<https://bookdown.org/dina_arch/lca-bookdown/>
+<https://bookdown.org/education_immerse/lca-bookdown/>
 
 <div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>

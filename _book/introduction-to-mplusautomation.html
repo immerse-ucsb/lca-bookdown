@@ -69,7 +69,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Latent Class Analysis with MplusAutomation</a></li>
+<li><a class="" href="index.html">Mixture Modeling with MplusAutomation</a></li>
 <li><a class="" href="introduction-to-r-and-rstudio.html"><span class="header-section-number">1</span> Introduction to R and RStudio</a></li>
 <li><a class="active" href="introduction-to-mplusautomation.html"><span class="header-section-number">2</span> Introduction to MplusAutomation</a></li>
 <li><a class="" href="lca-enumeration.html"><span class="header-section-number">3</span> LCA Enumeration</a></li>
@@ -112,9 +112,9 @@
 <li>The code presented will be very repetitive by design</li>
 </ul>
 <hr>
-<p>Below is a template for <code><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject()</a></code> &amp; <code><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler()</a></code> functions. Use this template to run statistical models with Mplus.</p>
+<p>Below is a template for <code>mplusObject()</code> &amp; <code>mplusModeler()</code> functions. Use this template to run statistical models with Mplus.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">m_template</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">m_template</span>  <span class="op">&lt;-</span> <span class="fu">mplusObject</span><span class="op">(</span></span>
 <span>  </span>
 <span>  TITLE <span class="op">=</span> </span>
 <span>    <span class="st">""</span>, </span>
@@ -134,7 +134,7 @@
 <span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="op">)</span>, </span>
 <span>  rdata <span class="op">=</span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="va">m_template_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">m_template</span>, </span>
+<span><span class="va">m_template_fit</span> <span class="op">&lt;-</span> <span class="fu">mplusModeler</span><span class="op">(</span><span class="va">m_template</span>, </span>
 <span>                  dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">".dat"</span><span class="op">)</span>,</span>
 <span>                  modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">".inp"</span><span class="op">)</span>,</span>
 <span>                  check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -166,7 +166,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Latent Class Analysis with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-02-07.</p>
+    <p>"<strong>Latent Class Analysis with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-02-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
