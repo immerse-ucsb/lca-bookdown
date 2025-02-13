@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 This walkthrough is presented by the IMMERSE team and will go through some common tasks carried out in R.
 There are many free resources available to get started with R and RStudio.
-One of our favorites is [*R for Data Science*](https://r4ds.had.co.nz/).
+One of our favorites is [*R for Data Science*](https://r4ds.had.co.nz/). There are many others
 
 ------------------------------------------------------------------------
 
