@@ -36,29 +36,504 @@ library(DiagrammeR)
 
 ## Variable Description
 
-\begin{table}[!t]
-\caption*{
-{\large LCA indicators\textsuperscript{\textit{1}}}
-} 
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{0.75\linewidth}{@{\extracolsep{\fill}}lll}
-\toprule
-Name & Label & Values \\ 
-\midrule\addlinespace[2.5pt]
-leaid & District Identification Code &  \\ 
-ncessch & School Identification Code &  \\ 
-report\_dis & Number of students harassed or bullied on the basis of disability & 0 = No reported incidents, 1 = At least one reported incident \\ 
-report\_race & Number of students harassed or bullied on the basis of race, color, or national origin & 0 = No reported incidents, 1 = At least one reported incident \\ 
-report\_sex & Number of students harassed or bullied on the basis of sex & 0 = No reported incidents, 1 = At least one reported incident \\ 
-counselors\_fte & Number of full time equivalent counselors hired as school staff & 0 = No staff present, 1 = At least one staff present \\ 
-psych\_fte & Number of full time equivalent psychologists hired as school staff & 0 = No staff present, 1 = At least one staff present \\ 
-law\_fte & Number of full time equivalent law enforcement officers hired as school staff & 0 = No staff present, 1 = At least one staff present \\ 
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-\textsuperscript{\textit{1}}Civil Rights Data Collection (CRDC)\\
-\end{minipage}
-\end{table}
+
+```{=html}
+<div id="rhybfbfcpm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rhybfbfcpm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#rhybfbfcpm thead, #rhybfbfcpm tbody, #rhybfbfcpm tfoot, #rhybfbfcpm tr, #rhybfbfcpm td, #rhybfbfcpm th {
+  border-style: none;
+}
+
+#rhybfbfcpm p {
+  margin: 0;
+  padding: 0;
+}
+
+#rhybfbfcpm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 75%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#rhybfbfcpm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rhybfbfcpm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rhybfbfcpm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rhybfbfcpm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rhybfbfcpm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rhybfbfcpm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rhybfbfcpm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rhybfbfcpm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rhybfbfcpm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#rhybfbfcpm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rhybfbfcpm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rhybfbfcpm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rhybfbfcpm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rhybfbfcpm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rhybfbfcpm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rhybfbfcpm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rhybfbfcpm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rhybfbfcpm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rhybfbfcpm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rhybfbfcpm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rhybfbfcpm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rhybfbfcpm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rhybfbfcpm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rhybfbfcpm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rhybfbfcpm .gt_left {
+  text-align: left;
+}
+
+#rhybfbfcpm .gt_center {
+  text-align: center;
+}
+
+#rhybfbfcpm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rhybfbfcpm .gt_font_normal {
+  font-weight: normal;
+}
+
+#rhybfbfcpm .gt_font_bold {
+  font-weight: bold;
+}
+
+#rhybfbfcpm .gt_font_italic {
+  font-style: italic;
+}
+
+#rhybfbfcpm .gt_super {
+  font-size: 65%;
+}
+
+#rhybfbfcpm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#rhybfbfcpm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rhybfbfcpm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#rhybfbfcpm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#rhybfbfcpm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#rhybfbfcpm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#rhybfbfcpm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#rhybfbfcpm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#rhybfbfcpm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>LCA indicators<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></td>
+    </tr>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Name">Name</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Label">Label</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Values">Values</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Name" class="gt_row gt_left">leaid</td>
+<td headers="Label" class="gt_row gt_left">District Identification Code</td>
+<td headers="Values" class="gt_row gt_left"></td></tr>
+    <tr><td headers="Name" class="gt_row gt_left">ncessch</td>
+<td headers="Label" class="gt_row gt_left">School Identification Code</td>
+<td headers="Values" class="gt_row gt_left"></td></tr>
+    <tr><td headers="Name" class="gt_row gt_left">report_dis</td>
+<td headers="Label" class="gt_row gt_left">Number of students harassed or bullied on the basis of disability</td>
+<td headers="Values" class="gt_row gt_left">0 = No reported incidents, 1 = At least one reported incident</td></tr>
+    <tr><td headers="Name" class="gt_row gt_left">report_race</td>
+<td headers="Label" class="gt_row gt_left">Number of students harassed or bullied on the basis of race, color, or national origin</td>
+<td headers="Values" class="gt_row gt_left">0 = No reported incidents, 1 = At least one reported incident</td></tr>
+    <tr><td headers="Name" class="gt_row gt_left">report_sex</td>
+<td headers="Label" class="gt_row gt_left">Number of students harassed or bullied on the basis of sex</td>
+<td headers="Values" class="gt_row gt_left">0 = No reported incidents, 1 = At least one reported incident</td></tr>
+    <tr><td headers="Name" class="gt_row gt_left">counselors_fte</td>
+<td headers="Label" class="gt_row gt_left">Number of full time equivalent counselors hired as school staff</td>
+<td headers="Values" class="gt_row gt_left">0 = No staff present, 1 = At least one staff present</td></tr>
+    <tr><td headers="Name" class="gt_row gt_left">psych_fte</td>
+<td headers="Label" class="gt_row gt_left">Number of full time equivalent psychologists hired as school staff</td>
+<td headers="Values" class="gt_row gt_left">0 = No staff present, 1 = At least one staff present</td></tr>
+    <tr><td headers="Name" class="gt_row gt_left">law_fte</td>
+<td headers="Label" class="gt_row gt_left">Number of full time equivalent law enforcement officers hired as school staff</td>
+<td headers="Values" class="gt_row gt_left">0 = No staff present, 1 = At least one staff present</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="3"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Civil Rights Data Collection (CRDC)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+```
 
 
 
@@ -75,7 +550,11 @@ Schools with no staff of the designated type are indicated as `0` for the dichot
 ------------------------------------------------------------------------
 
 
-\begin{center}\includegraphics{03-enumeration_files/figure-latex/unnamed-chunk-3-1} \end{center}
+```{=html}
+<div class="grViz html-widget html-fill-item" id="htmlwidget-e845dd5578402eb7d407" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e845dd5578402eb7d407">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    report_dis report_race report_sex counselors_fte psych_fte law_fte;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Bullying <br/>C<sub>k<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {report_dis report_race report_sex counselors_fte psych_fte law_fte}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+```
+
 
 ------------------------------------------------------------------------
 
@@ -127,53 +606,548 @@ prop_table <- prop_df %>%
 prop_table
 ```
 
-\begin{table}[!t]
-\caption*{
-{\large Variable Proportions}
-} 
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}l|rr}
-\toprule
-\emph{Values} & \emph{N} & \emph{Proportion} \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{3}{l}{counselors\_fte} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-0 & 1081 & 0.533 \\ 
-1 & 919 & 0.453 \\ 
-NA & 27 & 0.013 \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{3}{l}{law\_fte} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-0 & 1749 & 0.863 \\ 
-1 & 251 & 0.124 \\ 
-NA & 27 & 0.013 \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{3}{l}{psych\_fte} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-0 & 1050 & 0.518 \\ 
-1 & 947 & 0.467 \\ 
-NA & 30 & 0.015 \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{3}{l}{report\_dis} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-0 & 1915 & 0.945 \\ 
-1 & 85 & 0.042 \\ 
-NA & 27 & 0.013 \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{3}{l}{report\_race} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-0 & 1794 & 0.885 \\ 
-1 & 206 & 0.102 \\ 
-NA & 27 & 0.013 \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{3}{l}{report\_sex} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-0 & 1660 & 0.819 \\ 
-1 & 340 & 0.168 \\ 
-NA & 27 & 0.013 \\ 
-\bottomrule
-\end{tabular*}
-\end{table}
+
+```{=html}
+<div id="ifvyaoxuhl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ifvyaoxuhl table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ifvyaoxuhl thead, #ifvyaoxuhl tbody, #ifvyaoxuhl tfoot, #ifvyaoxuhl tr, #ifvyaoxuhl td, #ifvyaoxuhl th {
+  border-style: none;
+}
+
+#ifvyaoxuhl p {
+  margin: 0;
+  padding: 0;
+}
+
+#ifvyaoxuhl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ifvyaoxuhl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ifvyaoxuhl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ifvyaoxuhl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ifvyaoxuhl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ifvyaoxuhl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ifvyaoxuhl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ifvyaoxuhl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ifvyaoxuhl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ifvyaoxuhl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ifvyaoxuhl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ifvyaoxuhl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ifvyaoxuhl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ifvyaoxuhl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ifvyaoxuhl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ifvyaoxuhl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ifvyaoxuhl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ifvyaoxuhl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ifvyaoxuhl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ifvyaoxuhl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ifvyaoxuhl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ifvyaoxuhl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ifvyaoxuhl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ifvyaoxuhl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ifvyaoxuhl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ifvyaoxuhl .gt_left {
+  text-align: left;
+}
+
+#ifvyaoxuhl .gt_center {
+  text-align: center;
+}
+
+#ifvyaoxuhl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ifvyaoxuhl .gt_font_normal {
+  font-weight: normal;
+}
+
+#ifvyaoxuhl .gt_font_bold {
+  font-weight: bold;
+}
+
+#ifvyaoxuhl .gt_font_italic {
+  font-style: italic;
+}
+
+#ifvyaoxuhl .gt_super {
+  font-size: 65%;
+}
+
+#ifvyaoxuhl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ifvyaoxuhl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ifvyaoxuhl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ifvyaoxuhl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ifvyaoxuhl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ifvyaoxuhl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ifvyaoxuhl .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ifvyaoxuhl .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ifvyaoxuhl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border" style><span class='gt_from_md'>Variable Proportions</span></td>
+    </tr>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="a::stub"><span class='gt_from_md'><em>Values</em></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n"><span class='gt_from_md'><em>N</em></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="prop"><span class='gt_from_md'><em>Proportion</em></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="counselors_fte">counselors_fte</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_right gt_stub">0</th>
+<td headers="counselors_fte stub_1_1 n" class="gt_row gt_right">1081</td>
+<td headers="counselors_fte stub_1_1 prop" class="gt_row gt_right">0.533</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_right gt_stub">1</th>
+<td headers="counselors_fte stub_1_2 n" class="gt_row gt_right">919</td>
+<td headers="counselors_fte stub_1_2 prop" class="gt_row gt_right">0.453</td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_right gt_stub">NA</th>
+<td headers="counselors_fte stub_1_3 n" class="gt_row gt_right">27</td>
+<td headers="counselors_fte stub_1_3 prop" class="gt_row gt_right">0.013</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="law_fte">law_fte</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_4" scope="row" class="gt_row gt_right gt_stub">0</th>
+<td headers="law_fte stub_1_4 n" class="gt_row gt_right">1749</td>
+<td headers="law_fte stub_1_4 prop" class="gt_row gt_right">0.863</td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_right gt_stub">1</th>
+<td headers="law_fte stub_1_5 n" class="gt_row gt_right">251</td>
+<td headers="law_fte stub_1_5 prop" class="gt_row gt_right">0.124</td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_right gt_stub">NA</th>
+<td headers="law_fte stub_1_6 n" class="gt_row gt_right">27</td>
+<td headers="law_fte stub_1_6 prop" class="gt_row gt_right">0.013</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="psych_fte">psych_fte</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_7" scope="row" class="gt_row gt_right gt_stub">0</th>
+<td headers="psych_fte stub_1_7 n" class="gt_row gt_right">1050</td>
+<td headers="psych_fte stub_1_7 prop" class="gt_row gt_right">0.518</td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_right gt_stub">1</th>
+<td headers="psych_fte stub_1_8 n" class="gt_row gt_right">947</td>
+<td headers="psych_fte stub_1_8 prop" class="gt_row gt_right">0.467</td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_right gt_stub">NA</th>
+<td headers="psych_fte stub_1_9 n" class="gt_row gt_right">30</td>
+<td headers="psych_fte stub_1_9 prop" class="gt_row gt_right">0.015</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="report_dis">report_dis</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_10" scope="row" class="gt_row gt_right gt_stub">0</th>
+<td headers="report_dis stub_1_10 n" class="gt_row gt_right">1915</td>
+<td headers="report_dis stub_1_10 prop" class="gt_row gt_right">0.945</td></tr>
+    <tr><th id="stub_1_11" scope="row" class="gt_row gt_right gt_stub">1</th>
+<td headers="report_dis stub_1_11 n" class="gt_row gt_right">85</td>
+<td headers="report_dis stub_1_11 prop" class="gt_row gt_right">0.042</td></tr>
+    <tr><th id="stub_1_12" scope="row" class="gt_row gt_right gt_stub">NA</th>
+<td headers="report_dis stub_1_12 n" class="gt_row gt_right">27</td>
+<td headers="report_dis stub_1_12 prop" class="gt_row gt_right">0.013</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="report_race">report_race</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_13" scope="row" class="gt_row gt_right gt_stub">0</th>
+<td headers="report_race stub_1_13 n" class="gt_row gt_right">1794</td>
+<td headers="report_race stub_1_13 prop" class="gt_row gt_right">0.885</td></tr>
+    <tr><th id="stub_1_14" scope="row" class="gt_row gt_right gt_stub">1</th>
+<td headers="report_race stub_1_14 n" class="gt_row gt_right">206</td>
+<td headers="report_race stub_1_14 prop" class="gt_row gt_right">0.102</td></tr>
+    <tr><th id="stub_1_15" scope="row" class="gt_row gt_right gt_stub">NA</th>
+<td headers="report_race stub_1_15 n" class="gt_row gt_right">27</td>
+<td headers="report_race stub_1_15 prop" class="gt_row gt_right">0.013</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="report_sex">report_sex</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_16" scope="row" class="gt_row gt_right gt_stub">0</th>
+<td headers="report_sex stub_1_16 n" class="gt_row gt_right">1660</td>
+<td headers="report_sex stub_1_16 prop" class="gt_row gt_right">0.819</td></tr>
+    <tr><th id="stub_1_17" scope="row" class="gt_row gt_right gt_stub">1</th>
+<td headers="report_sex stub_1_17 n" class="gt_row gt_right">340</td>
+<td headers="report_sex stub_1_17 prop" class="gt_row gt_right">0.168</td></tr>
+    <tr><th id="stub_1_18" scope="row" class="gt_row gt_right gt_stub">NA</th>
+<td headers="report_sex stub_1_18 n" class="gt_row gt_right">27</td>
+<td headers="report_sex stub_1_18 prop" class="gt_row gt_right">0.013</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+```
 
 
 Save as image
@@ -349,33 +1323,560 @@ locations = cells_title()
 fit_table1
 ```
 
-\begin{table}[!t]
-\caption*{
-{\large \textbf{Model Fit Summary Table}\textsuperscript{\textit{1}}}
-} 
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrrrr}
-\toprule
-Classes & Par & \emph{LL} & BIC & aBIC & CAIC & AWE & BLRT & VLMR & BF & \emph{cmPk} \\ 
-\midrule\addlinespace[2.5pt]
-1-Class & 6 & -5,443.41 & 10,932.50 & 10,913.44 & 10,938.50 & 10,996.19 & – & – & 0.00 & <.001 \\ 
-2-Class & 13 & -5,194.14 & 10,487.26 & 10,445.96 & 10,500.26 & 10,625.24 & <.001 & <.001 & 0.00 & <.001 \\ 
-3-Class & 20 & -5,122.48 & {\bfseries 10,397.24} & {\bfseries 10,333.70} & {\bfseries 10,417.24} & {\bfseries 10,609.53} & <.001 & <.001 & {\bfseries >100} & {\bfseries 1.00} \\ 
-4-Class & 27 & -5,111.76 & 10,429.10 & 10,343.32 & 10,456.10 & 10,715.69 & {\bfseries <.001} & {\bfseries 0.01} & {\bfseries >100} & <.001 \\ 
-5-Class & 34 & -5,105.59 & 10,470.07 & 10,362.04 & 10,504.06 & 10,830.95 & 0.29 & 0.18 & {\bfseries >100} & <.001 \\ 
-6-Class & 41 & -5,099.88 & 10,511.95 & 10,381.69 & 10,552.95 & 10,947.14 & 0.38 & 0.18 & – & <.001 \\ 
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-\textsuperscript{\textit{1}}\emph{Note.} Par = Parameters; \emph{LL} = model log likelihood;
+
+```{=html}
+<div id="opfpcwkfjq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#opfpcwkfjq table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#opfpcwkfjq thead, #opfpcwkfjq tbody, #opfpcwkfjq tfoot, #opfpcwkfjq tr, #opfpcwkfjq td, #opfpcwkfjq th {
+  border-style: none;
+}
+
+#opfpcwkfjq p {
+  margin: 0;
+  padding: 0;
+}
+
+#opfpcwkfjq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#opfpcwkfjq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#opfpcwkfjq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#opfpcwkfjq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#opfpcwkfjq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#opfpcwkfjq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#opfpcwkfjq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#opfpcwkfjq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#opfpcwkfjq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#opfpcwkfjq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#opfpcwkfjq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#opfpcwkfjq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#opfpcwkfjq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#opfpcwkfjq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#opfpcwkfjq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#opfpcwkfjq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#opfpcwkfjq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#opfpcwkfjq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#opfpcwkfjq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#opfpcwkfjq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#opfpcwkfjq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#opfpcwkfjq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#opfpcwkfjq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#opfpcwkfjq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#opfpcwkfjq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#opfpcwkfjq .gt_left {
+  text-align: left;
+}
+
+#opfpcwkfjq .gt_center {
+  text-align: center;
+}
+
+#opfpcwkfjq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#opfpcwkfjq .gt_font_normal {
+  font-weight: normal;
+}
+
+#opfpcwkfjq .gt_font_bold {
+  font-weight: bold;
+}
+
+#opfpcwkfjq .gt_font_italic {
+  font-style: italic;
+}
+
+#opfpcwkfjq .gt_super {
+  font-size: 65%;
+}
+
+#opfpcwkfjq .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#opfpcwkfjq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#opfpcwkfjq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#opfpcwkfjq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#opfpcwkfjq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#opfpcwkfjq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#opfpcwkfjq .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#opfpcwkfjq .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#opfpcwkfjq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="11" class="gt_heading gt_title gt_font_normal gt_bottom_border" style><span class='gt_from_md'><strong>Model Fit Summary Table</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></td>
+    </tr>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Title">Classes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Parameters"><span class='gt_from_md'>Par</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="LL"><span class='gt_from_md'><em>LL</em></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="BIC">BIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="aBIC">aBIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CAIC">CAIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="AWE">AWE</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="BLRT_PValue">BLRT</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="T11_VLMR_PValue">VLMR</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="BF"><span class='gt_from_md'>BF</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="cmPk"><span class='gt_from_md'><em>cmPk</em></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Title" class="gt_row gt_left">1-Class</td>
+<td headers="Parameters" class="gt_row gt_right">6</td>
+<td headers="LL" class="gt_row gt_right">−5,443.41</td>
+<td headers="BIC" class="gt_row gt_right">10,932.50</td>
+<td headers="aBIC" class="gt_row gt_right">10,913.44</td>
+<td headers="CAIC" class="gt_row gt_right">10,938.50</td>
+<td headers="AWE" class="gt_row gt_right">10,996.19</td>
+<td headers="BLRT_PValue" class="gt_row gt_right">–</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right">–</td>
+<td headers="BF" class="gt_row gt_right">0.00</td>
+<td headers="cmPk" class="gt_row gt_right"><.001</td></tr>
+    <tr><td headers="Title" class="gt_row gt_left">2-Class</td>
+<td headers="Parameters" class="gt_row gt_right">13</td>
+<td headers="LL" class="gt_row gt_right">−5,194.14</td>
+<td headers="BIC" class="gt_row gt_right">10,487.26</td>
+<td headers="aBIC" class="gt_row gt_right">10,445.96</td>
+<td headers="CAIC" class="gt_row gt_right">10,500.26</td>
+<td headers="AWE" class="gt_row gt_right">10,625.24</td>
+<td headers="BLRT_PValue" class="gt_row gt_right"><.001</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right"><.001</td>
+<td headers="BF" class="gt_row gt_right">0.00</td>
+<td headers="cmPk" class="gt_row gt_right"><.001</td></tr>
+    <tr><td headers="Title" class="gt_row gt_left">3-Class</td>
+<td headers="Parameters" class="gt_row gt_right">20</td>
+<td headers="LL" class="gt_row gt_right">−5,122.48</td>
+<td headers="BIC" class="gt_row gt_right" style="font-weight: bold;">10,397.24</td>
+<td headers="aBIC" class="gt_row gt_right" style="font-weight: bold;">10,333.70</td>
+<td headers="CAIC" class="gt_row gt_right" style="font-weight: bold;">10,417.24</td>
+<td headers="AWE" class="gt_row gt_right" style="font-weight: bold;">10,609.53</td>
+<td headers="BLRT_PValue" class="gt_row gt_right"><.001</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right"><.001</td>
+<td headers="BF" class="gt_row gt_right" style="font-weight: bold;">>100</td>
+<td headers="cmPk" class="gt_row gt_right" style="font-weight: bold;">1.00</td></tr>
+    <tr><td headers="Title" class="gt_row gt_left">4-Class</td>
+<td headers="Parameters" class="gt_row gt_right">27</td>
+<td headers="LL" class="gt_row gt_right">−5,111.76</td>
+<td headers="BIC" class="gt_row gt_right">10,429.10</td>
+<td headers="aBIC" class="gt_row gt_right">10,343.32</td>
+<td headers="CAIC" class="gt_row gt_right">10,456.10</td>
+<td headers="AWE" class="gt_row gt_right">10,715.69</td>
+<td headers="BLRT_PValue" class="gt_row gt_right" style="font-weight: bold;"><.001</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right" style="font-weight: bold;">0.01</td>
+<td headers="BF" class="gt_row gt_right" style="font-weight: bold;">>100</td>
+<td headers="cmPk" class="gt_row gt_right"><.001</td></tr>
+    <tr><td headers="Title" class="gt_row gt_left">5-Class</td>
+<td headers="Parameters" class="gt_row gt_right">34</td>
+<td headers="LL" class="gt_row gt_right">−5,105.59</td>
+<td headers="BIC" class="gt_row gt_right">10,470.07</td>
+<td headers="aBIC" class="gt_row gt_right">10,362.04</td>
+<td headers="CAIC" class="gt_row gt_right">10,504.06</td>
+<td headers="AWE" class="gt_row gt_right">10,830.95</td>
+<td headers="BLRT_PValue" class="gt_row gt_right">0.29</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right">0.18</td>
+<td headers="BF" class="gt_row gt_right" style="font-weight: bold;">>100</td>
+<td headers="cmPk" class="gt_row gt_right"><.001</td></tr>
+    <tr><td headers="Title" class="gt_row gt_left">6-Class</td>
+<td headers="Parameters" class="gt_row gt_right">41</td>
+<td headers="LL" class="gt_row gt_right">−5,099.88</td>
+<td headers="BIC" class="gt_row gt_right">10,511.95</td>
+<td headers="aBIC" class="gt_row gt_right">10,381.69</td>
+<td headers="CAIC" class="gt_row gt_right">10,552.95</td>
+<td headers="AWE" class="gt_row gt_right">10,947.14</td>
+<td headers="BLRT_PValue" class="gt_row gt_right">0.38</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right">0.18</td>
+<td headers="BF" class="gt_row gt_right">–</td>
+<td headers="cmPk" class="gt_row gt_right"><.001</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="11"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'><em>Note.</em> Par = Parameters; <em>LL</em> = model log likelihood;
 BIC = Bayesian information criterion;
 aBIC = sample size adjusted BIC; CAIC = consistent Akaike information criterion;
 AWE = approximate weight of evidence criterion;
 BLRT = bootstrapped likelihood ratio test p-value;
 VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
-\emph{cmPk} = approximate correct model probability.\\
-\end{minipage}
-\end{table}
+<em>cmPk</em> = approximate correct model probability.</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+```
 
 
 ------------------------------------------------------------------------
@@ -423,7 +1924,7 @@ allFit %>%
   )
 ```
 
-![](03-enumeration_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
+<img src="03-enumeration_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 ------------------------------------------------------------------------
 
@@ -484,7 +1985,7 @@ ggplot(
                           axis.text.x = element_text(angle = -45, hjust = -.1))                            
 ```
 
-![](03-enumeration_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
+<img src="03-enumeration_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 ------------------------------------------------------------------------
 
@@ -509,7 +2010,7 @@ source("plot_lca.txt")
 plot_lca(model_name = output_bully$c3_bully.out)
 ```
 
-![](03-enumeration_files/figure-latex/unnamed-chunk-15-1.pdf)<!-- --> 
+<img src="03-enumeration_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 ------------------------------------------------------------------------
 
@@ -656,54 +2157,726 @@ resp_table <- response_patterns %>%
 resp_table
 ```
 
-\begin{table}[!t]
-\caption*{
-{\large Observed Response Patterns} \\ 
-{\small Response patterns, estimated frequencies, estimated posterior class probabilities and modal assignments}
-} 
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ccccccccccc}
-\toprule
-<i>f</i><sub>r</sub> & Harrassment: Disability & Harrassment: Race & Harrassment: Sex & Staff: Counselor & Staff: Psychologist & Staff: Law Enforcement & P<sub><i>k</i></sub>=1 & P<sub><i>k</i></sub>=2 & P<sub><i>k</i></sub>=3 & \emph{k} \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{11}{l}{Unconditional response patterns} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-525 & 0 & 0 & 0 & 0 & 0 & 0 & 0.023 & 0.002 & 0.976 & 3 \\ 
-299 & 0 & 0 & 0 & 0 & 1 & 0 & 0.139 & 0.007 & 0.854 & 3 \\ 
-293 & 0 & 0 & 0 & 1 & 0 & 0 & 0.146 & 0.004 & 0.850 & 3 \\ 
-251 & 0 & 0 & 0 & 1 & 1 & 0 & 0.541 & 0.009 & 0.449 & 1 \\ 
-75 & 0 & 0 & 0 & 1 & 1 & 1 & 0.959 & 0.011 & 0.030 & 1 \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{11}{l}{\emph{k} = 1 Conditional response patterns} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-251 & 0 & 0 & 0 & 1 & 1 & 0 & 0.541 & 0.009 & 0.449 & 1 \\ 
-75 & 0 & 0 & 0 & 1 & 1 & 1 & 0.959 & 0.011 & 0.030 & 1 \\ 
-72 & 0 & 0 & 1 & 1 & 1 & 0 & 0.803 & 0.088 & 0.108 & 1 \\ 
-38 & 0 & 0 & 1 & 0 & 1 & 0 & 0.431 & 0.139 & 0.430 & 1 \\ 
-34 & 0 & 0 & 0 & 0 & 1 & 1 & 0.789 & 0.027 & 0.184 & 1 \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{11}{l}{\emph{k} = 2 Conditional response patterns} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-24 & 0 & 1 & 0 & 0 & 1 & 0 & 0.000 & 0.561 & 0.439 & 2 \\ 
-20 & 0 & 1 & 1 & 0 & 1 & 0 & 0.000 & 0.981 & 0.019 & 2 \\ 
-19 & 0 & 1 & 1 & 1 & 1 & 0 & 0.000 & 0.992 & 0.008 & 2 \\ 
-18 & 0 & 1 & 1 & 1 & 0 & 0 & 0.000 & 0.967 & 0.033 & 2 \\ 
-12 & 0 & 1 & 1 & 1 & 1 & 1 & 0.000 & 1.000 & 0.000 & 2 \\ 
-\midrule\addlinespace[2.5pt]
-\multicolumn{11}{l}{\emph{k} = 3 Conditional response patterns} \\[2.5pt] 
-\midrule\addlinespace[2.5pt]
-525 & 0 & 0 & 0 & 0 & 0 & 0 & 0.023 & 0.002 & 0.976 & 3 \\ 
-299 & 0 & 0 & 0 & 0 & 1 & 0 & 0.139 & 0.007 & 0.854 & 3 \\ 
-293 & 0 & 0 & 0 & 1 & 0 & 0 & 0.146 & 0.004 & 0.850 & 3 \\ 
-36 & 0 & 0 & 1 & 0 & 0 & 0 & 0.117 & 0.060 & 0.823 & 3 \\ 
-27 & 0 & 0 & 0 & NA & NA & NA & 0.236 & 0.006 & 0.758 & 3 \\ 
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-<i>Note.</i> <i>f</i><sub>r</sub> = response pattern frequency; P<sub><i>k</i></sub> = posterior class probabilities\\
-Data Source: \textbf{Civil Rights Data Collection (CRDC)}\\
-\end{minipage}
-\end{table}
+
+```{=html}
+<div id="nayjplddhn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nayjplddhn table {
+  font-family: 'Times New Roman';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#nayjplddhn thead, #nayjplddhn tbody, #nayjplddhn tfoot, #nayjplddhn tr, #nayjplddhn td, #nayjplddhn th {
+  border-style: none;
+}
+
+#nayjplddhn p {
+  margin: 0;
+  padding: 0;
+}
+
+#nayjplddhn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#nayjplddhn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nayjplddhn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nayjplddhn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nayjplddhn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nayjplddhn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nayjplddhn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nayjplddhn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nayjplddhn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#nayjplddhn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#nayjplddhn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nayjplddhn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nayjplddhn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nayjplddhn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nayjplddhn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nayjplddhn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#nayjplddhn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#nayjplddhn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#nayjplddhn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nayjplddhn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#nayjplddhn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nayjplddhn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nayjplddhn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nayjplddhn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nayjplddhn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nayjplddhn .gt_left {
+  text-align: left;
+}
+
+#nayjplddhn .gt_center {
+  text-align: center;
+}
+
+#nayjplddhn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nayjplddhn .gt_font_normal {
+  font-weight: normal;
+}
+
+#nayjplddhn .gt_font_bold {
+  font-weight: bold;
+}
+
+#nayjplddhn .gt_font_italic {
+  font-style: italic;
+}
+
+#nayjplddhn .gt_super {
+  font-size: 65%;
+}
+
+#nayjplddhn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#nayjplddhn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#nayjplddhn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#nayjplddhn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#nayjplddhn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#nayjplddhn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#nayjplddhn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#nayjplddhn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#nayjplddhn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="11" class="gt_heading gt_title gt_font_normal" style>Observed Response Patterns</td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="11" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Response patterns, estimated frequencies, estimated posterior class probabilities and modal assignments</td>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Frequency"><i>f</i><sub>r</sub></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="REPORT_D">Harrassment: Disability</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="REPORT_R">Harrassment: Race</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="REPORT_S">Harrassment: Sex</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="COUNSELO">Staff: Counselor</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="PSYCH_FT">Staff: Psychologist</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="LAW_FTE">Staff: Law Enforcement</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CPROB1">P<sub><i>k</i></sub>=1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CPROB2">P<sub><i>k</i></sub>=2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CPROB3">P<sub><i>k</i></sub>=3</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="C"><span class='gt_from_md'><em>k</em></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="11" class="gt_group_heading" scope="colgroup" id="Unconditional response patterns">Unconditional response patterns</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="Unconditional response patterns  Frequency" class="gt_row gt_center">525</td>
+<td headers="Unconditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  COUNSELO" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  PSYCH_FT" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  CPROB1" class="gt_row gt_center">0.023</td>
+<td headers="Unconditional response patterns  CPROB2" class="gt_row gt_center">0.002</td>
+<td headers="Unconditional response patterns  CPROB3" class="gt_row gt_center">0.976</td>
+<td headers="Unconditional response patterns  C" class="gt_row gt_center">3</td></tr>
+    <tr><td headers="Unconditional response patterns  Frequency" class="gt_row gt_center">299</td>
+<td headers="Unconditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  COUNSELO" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="Unconditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  CPROB1" class="gt_row gt_center">0.139</td>
+<td headers="Unconditional response patterns  CPROB2" class="gt_row gt_center">0.007</td>
+<td headers="Unconditional response patterns  CPROB3" class="gt_row gt_center">0.854</td>
+<td headers="Unconditional response patterns  C" class="gt_row gt_center">3</td></tr>
+    <tr><td headers="Unconditional response patterns  Frequency" class="gt_row gt_center">293</td>
+<td headers="Unconditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="Unconditional response patterns  PSYCH_FT" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  CPROB1" class="gt_row gt_center">0.146</td>
+<td headers="Unconditional response patterns  CPROB2" class="gt_row gt_center">0.004</td>
+<td headers="Unconditional response patterns  CPROB3" class="gt_row gt_center">0.850</td>
+<td headers="Unconditional response patterns  C" class="gt_row gt_center">3</td></tr>
+    <tr><td headers="Unconditional response patterns  Frequency" class="gt_row gt_center">251</td>
+<td headers="Unconditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="Unconditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="Unconditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  CPROB1" class="gt_row gt_center">0.541</td>
+<td headers="Unconditional response patterns  CPROB2" class="gt_row gt_center">0.009</td>
+<td headers="Unconditional response patterns  CPROB3" class="gt_row gt_center">0.449</td>
+<td headers="Unconditional response patterns  C" class="gt_row gt_center">1</td></tr>
+    <tr><td headers="Unconditional response patterns  Frequency" class="gt_row gt_center">75</td>
+<td headers="Unconditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="Unconditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="Unconditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="Unconditional response patterns  LAW_FTE" class="gt_row gt_center">1</td>
+<td headers="Unconditional response patterns  CPROB1" class="gt_row gt_center">0.959</td>
+<td headers="Unconditional response patterns  CPROB2" class="gt_row gt_center">0.011</td>
+<td headers="Unconditional response patterns  CPROB3" class="gt_row gt_center">0.030</td>
+<td headers="Unconditional response patterns  C" class="gt_row gt_center">1</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="11" class="gt_group_heading" scope="colgroup" id="&lt;span class='gt_from_md'&gt;&lt;em&gt;k&lt;/em&gt; = 1 Conditional response patterns&lt;/span&gt;"><span class='gt_from_md'><em>k</em> = 1 Conditional response patterns</span></th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="*k* = 1 Conditional response patterns  Frequency" class="gt_row gt_center">251</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB1" class="gt_row gt_center">0.541</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB2" class="gt_row gt_center">0.009</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB3" class="gt_row gt_center">0.449</td>
+<td headers="*k* = 1 Conditional response patterns  C" class="gt_row gt_center">1</td></tr>
+    <tr><td headers="*k* = 1 Conditional response patterns  Frequency" class="gt_row gt_center">75</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  LAW_FTE" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB1" class="gt_row gt_center">0.959</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB2" class="gt_row gt_center">0.011</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB3" class="gt_row gt_center">0.030</td>
+<td headers="*k* = 1 Conditional response patterns  C" class="gt_row gt_center">1</td></tr>
+    <tr><td headers="*k* = 1 Conditional response patterns  Frequency" class="gt_row gt_center">72</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_S" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB1" class="gt_row gt_center">0.803</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB2" class="gt_row gt_center">0.088</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB3" class="gt_row gt_center">0.108</td>
+<td headers="*k* = 1 Conditional response patterns  C" class="gt_row gt_center">1</td></tr>
+    <tr><td headers="*k* = 1 Conditional response patterns  Frequency" class="gt_row gt_center">38</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_S" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  COUNSELO" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB1" class="gt_row gt_center">0.431</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB2" class="gt_row gt_center">0.139</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB3" class="gt_row gt_center">0.430</td>
+<td headers="*k* = 1 Conditional response patterns  C" class="gt_row gt_center">1</td></tr>
+    <tr><td headers="*k* = 1 Conditional response patterns  Frequency" class="gt_row gt_center">34</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  COUNSELO" class="gt_row gt_center">0</td>
+<td headers="*k* = 1 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  LAW_FTE" class="gt_row gt_center">1</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB1" class="gt_row gt_center">0.789</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB2" class="gt_row gt_center">0.027</td>
+<td headers="*k* = 1 Conditional response patterns  CPROB3" class="gt_row gt_center">0.184</td>
+<td headers="*k* = 1 Conditional response patterns  C" class="gt_row gt_center">1</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="11" class="gt_group_heading" scope="colgroup" id="&lt;span class='gt_from_md'&gt;&lt;em&gt;k&lt;/em&gt; = 2 Conditional response patterns&lt;/span&gt;"><span class='gt_from_md'><em>k</em> = 2 Conditional response patterns</span></th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="*k* = 2 Conditional response patterns  Frequency" class="gt_row gt_center">24</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_R" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  COUNSELO" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB1" class="gt_row gt_center">0.000</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB2" class="gt_row gt_center">0.561</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB3" class="gt_row gt_center">0.439</td>
+<td headers="*k* = 2 Conditional response patterns  C" class="gt_row gt_center">2</td></tr>
+    <tr><td headers="*k* = 2 Conditional response patterns  Frequency" class="gt_row gt_center">20</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_R" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_S" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  COUNSELO" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB1" class="gt_row gt_center">0.000</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB2" class="gt_row gt_center">0.981</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB3" class="gt_row gt_center">0.019</td>
+<td headers="*k* = 2 Conditional response patterns  C" class="gt_row gt_center">2</td></tr>
+    <tr><td headers="*k* = 2 Conditional response patterns  Frequency" class="gt_row gt_center">19</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_R" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_S" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB1" class="gt_row gt_center">0.000</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB2" class="gt_row gt_center">0.992</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB3" class="gt_row gt_center">0.008</td>
+<td headers="*k* = 2 Conditional response patterns  C" class="gt_row gt_center">2</td></tr>
+    <tr><td headers="*k* = 2 Conditional response patterns  Frequency" class="gt_row gt_center">18</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_R" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_S" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB1" class="gt_row gt_center">0.000</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB2" class="gt_row gt_center">0.967</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB3" class="gt_row gt_center">0.033</td>
+<td headers="*k* = 2 Conditional response patterns  C" class="gt_row gt_center">2</td></tr>
+    <tr><td headers="*k* = 2 Conditional response patterns  Frequency" class="gt_row gt_center">12</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_R" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  REPORT_S" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  LAW_FTE" class="gt_row gt_center">1</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB1" class="gt_row gt_center">0.000</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB2" class="gt_row gt_center">1.000</td>
+<td headers="*k* = 2 Conditional response patterns  CPROB3" class="gt_row gt_center">0.000</td>
+<td headers="*k* = 2 Conditional response patterns  C" class="gt_row gt_center">2</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="11" class="gt_group_heading" scope="colgroup" id="&lt;span class='gt_from_md'&gt;&lt;em&gt;k&lt;/em&gt; = 3 Conditional response patterns&lt;/span&gt;"><span class='gt_from_md'><em>k</em> = 3 Conditional response patterns</span></th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="*k* = 3 Conditional response patterns  Frequency" class="gt_row gt_center">525</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  COUNSELO" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB1" class="gt_row gt_center">0.023</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB2" class="gt_row gt_center">0.002</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB3" class="gt_row gt_center">0.976</td>
+<td headers="*k* = 3 Conditional response patterns  C" class="gt_row gt_center">3</td></tr>
+    <tr><td headers="*k* = 3 Conditional response patterns  Frequency" class="gt_row gt_center">299</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  COUNSELO" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">1</td>
+<td headers="*k* = 3 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB1" class="gt_row gt_center">0.139</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB2" class="gt_row gt_center">0.007</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB3" class="gt_row gt_center">0.854</td>
+<td headers="*k* = 3 Conditional response patterns  C" class="gt_row gt_center">3</td></tr>
+    <tr><td headers="*k* = 3 Conditional response patterns  Frequency" class="gt_row gt_center">293</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  COUNSELO" class="gt_row gt_center">1</td>
+<td headers="*k* = 3 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB1" class="gt_row gt_center">0.146</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB2" class="gt_row gt_center">0.004</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB3" class="gt_row gt_center">0.850</td>
+<td headers="*k* = 3 Conditional response patterns  C" class="gt_row gt_center">3</td></tr>
+    <tr><td headers="*k* = 3 Conditional response patterns  Frequency" class="gt_row gt_center">36</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_S" class="gt_row gt_center">1</td>
+<td headers="*k* = 3 Conditional response patterns  COUNSELO" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  LAW_FTE" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB1" class="gt_row gt_center">0.117</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB2" class="gt_row gt_center">0.060</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB3" class="gt_row gt_center">0.823</td>
+<td headers="*k* = 3 Conditional response patterns  C" class="gt_row gt_center">3</td></tr>
+    <tr><td headers="*k* = 3 Conditional response patterns  Frequency" class="gt_row gt_center">27</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_D" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_R" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  REPORT_S" class="gt_row gt_center">0</td>
+<td headers="*k* = 3 Conditional response patterns  COUNSELO" class="gt_row gt_center">NA</td>
+<td headers="*k* = 3 Conditional response patterns  PSYCH_FT" class="gt_row gt_center">NA</td>
+<td headers="*k* = 3 Conditional response patterns  LAW_FTE" class="gt_row gt_center">NA</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB1" class="gt_row gt_center">0.236</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB2" class="gt_row gt_center">0.006</td>
+<td headers="*k* = 3 Conditional response patterns  CPROB3" class="gt_row gt_center">0.758</td>
+<td headers="*k* = 3 Conditional response patterns  C" class="gt_row gt_center">3</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="11"><span class='gt_from_md'>Data Source: <strong>Civil Rights Data Collection (CRDC)</strong></span></td>
+    </tr>
+  </tfoot>
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="11"> <i>Note.</i> <i>f</i><sub>r</sub> = response pattern frequency; P<sub><i>k</i></sub> = posterior class probabilities</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+```
 
 
 ------------------------------------------------------------------------
@@ -838,24 +3011,505 @@ class_table <- class_table %>%
 class_table
 ```
 
-\begin{table}[!t]
-\caption*{
-{\large Model Classification Diagnostics for the 3-Class Solution}
-} 
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ccccccc}
-\toprule
-\emph{k}-Class & \emph{k}-Class Proportions & 95\% CI & McaP<sub>k</sub> & AvePPk & OCCk & Entropy \\ 
-\midrule\addlinespace[2.5pt]
-Class 1 & 0.249 & [0.166, 0.329] & 0.282 & 0.675 & 6.264 & 0.635 \\ 
-Class 2 & 0.106 & [0.083, 0.136] & 0.095 & 0.904 & 79.420 &  \\ 
-Class 3 & 0.644 & [0.561, 0.731] & 0.623 & 0.893 & 4.614 &  \\ 
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-<i>Note.</i> McaP<sub>k</sub> = Modal class assignment proportion; AvePP<sub>k</sub> = Average posterior class probabilities; OCC<sub>k</sub> = Odds of correct classification; \\
-\end{minipage}
-\end{table}
+
+```{=html}
+<div id="rjraimluja" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rjraimluja table {
+  font-family: 'Times New Roman';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#rjraimluja thead, #rjraimluja tbody, #rjraimluja tfoot, #rjraimluja tr, #rjraimluja td, #rjraimluja th {
+  border-style: none;
+}
+
+#rjraimluja p {
+  margin: 0;
+  padding: 0;
+}
+
+#rjraimluja .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rjraimluja .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#rjraimluja .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rjraimluja .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rjraimluja .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rjraimluja .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rjraimluja .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rjraimluja .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rjraimluja .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rjraimluja .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rjraimluja .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rjraimluja .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rjraimluja .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rjraimluja .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#rjraimluja .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rjraimluja .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rjraimluja .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rjraimluja .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rjraimluja .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rjraimluja .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rjraimluja .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rjraimluja .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rjraimluja .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rjraimluja .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rjraimluja .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rjraimluja .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rjraimluja .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rjraimluja .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rjraimluja .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rjraimluja .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rjraimluja .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rjraimluja .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rjraimluja .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rjraimluja .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rjraimluja .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rjraimluja .gt_left {
+  text-align: left;
+}
+
+#rjraimluja .gt_center {
+  text-align: center;
+}
+
+#rjraimluja .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rjraimluja .gt_font_normal {
+  font-weight: normal;
+}
+
+#rjraimluja .gt_font_bold {
+  font-weight: bold;
+}
+
+#rjraimluja .gt_font_italic {
+  font-style: italic;
+}
+
+#rjraimluja .gt_super {
+  font-size: 65%;
+}
+
+#rjraimluja .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#rjraimluja .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rjraimluja .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#rjraimluja .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#rjraimluja .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#rjraimluja .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#rjraimluja .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#rjraimluja .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#rjraimluja div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="7" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Model Classification Diagnostics for the 3-Class Solution</td>
+    </tr>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="model"><span class='gt_from_md'><em>k</em>-Class</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="kclass"><span class='gt_from_md'><em>k</em>-Class Proportions</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CI">95% CI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="mcaPk">McaP<sub>k</sub></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="avePPk"><span class='gt_from_md'>AvePP<sub>k</sub></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="OCCk"><span class='gt_from_md'>OCC<sub>k</sub></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="entropy">Entropy</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="model" class="gt_row gt_center">Class 1</td>
+<td headers="kclass" class="gt_row gt_center">0.249</td>
+<td headers="CI" class="gt_row gt_center">[0.166, 0.329]</td>
+<td headers="mcaPk" class="gt_row gt_center">0.282</td>
+<td headers="avePPk" class="gt_row gt_center">0.675</td>
+<td headers="OCCk" class="gt_row gt_center">6.264</td>
+<td headers="entropy" class="gt_row gt_center">0.635</td></tr>
+    <tr><td headers="model" class="gt_row gt_center">Class 2</td>
+<td headers="kclass" class="gt_row gt_center">0.106</td>
+<td headers="CI" class="gt_row gt_center">[0.083, 0.136]</td>
+<td headers="mcaPk" class="gt_row gt_center">0.095</td>
+<td headers="avePPk" class="gt_row gt_center">0.904</td>
+<td headers="OCCk" class="gt_row gt_center">79.420</td>
+<td headers="entropy" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="model" class="gt_row gt_center">Class 3</td>
+<td headers="kclass" class="gt_row gt_center">0.644</td>
+<td headers="CI" class="gt_row gt_center">[0.561, 0.731]</td>
+<td headers="mcaPk" class="gt_row gt_center">0.623</td>
+<td headers="avePPk" class="gt_row gt_center">0.893</td>
+<td headers="OCCk" class="gt_row gt_center">4.614</td>
+<td headers="entropy" class="gt_row gt_center"><br /></td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="7"> <i>Note.</i> McaP<sub>k</sub> = Modal class assignment proportion; AvePP<sub>k</sub> = Average posterior class probabilities; OCC<sub>k</sub> = Odds of correct classification; </td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+```
 
 
 <div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>
