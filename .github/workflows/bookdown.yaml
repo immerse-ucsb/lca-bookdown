@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout
+        uses: actions/checkout@ref
 
       - name: Setup R
-        uses: r-lib/actions/setup-r
+        uses: r-lib/actions/setup-r@ref
 
       - name: Install pandoc
         run: |
