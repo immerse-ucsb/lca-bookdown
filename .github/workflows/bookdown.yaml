@@ -27,7 +27,7 @@ jobs:
           sudo apt-get install -y libfontconfig1-dev libfreetype6-dev
           sudo apt-get install -y libharfbuzz-dev libfribidi-dev
           sudo apt-get install -y pkg-config
-          sudo apt-get install -y libtiff5-dev libjpeg-dev libpng-de
+          sudo apt-get install -y libtiff5-dev libjpeg-dev libpng-dev
 
       - name: Cache Renv packages
         uses: actions/cache@v4
