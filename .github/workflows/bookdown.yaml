@@ -16,6 +16,8 @@ jobs:
       - name: Install Homebrew and pandoc
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $GITHUB_ENV
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew install pandoc
 
       - name: Cache Renv packages
@@ -51,3 +53,4 @@ jobs:
         run: |
           npm install netlify-cli -g
           netlify deploy --prod --dir _book
+          
