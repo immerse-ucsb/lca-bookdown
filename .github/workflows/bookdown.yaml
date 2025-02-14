@@ -19,6 +19,11 @@ jobs:
           echo "/home/linuxbrew/.linuxbrew/bin" >> $GITHUB_PATH 
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew install pandoc
+          
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev          
 
       - name: Cache Renv packages
         uses: actions/cache@v4
@@ -40,7 +45,7 @@ jobs:
           R -e 'renv::restore()'
 
       - name: Build site
-        run: Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
+        run: Rscript -e 'bookdown::render_book()'
 
       - name: Install npm
         uses: actions/setup-node@v3
