@@ -46,6 +46,7 @@ jobs:
       - name: Install packages
         run: |
           R -e 'install.packages("downlit")'
+          R -e 'install.packages("reshape2")'
           R -e 'install.packages("renv")'
           R -e 'renv::restore()'
 
