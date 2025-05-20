@@ -14,6 +14,11 @@ variable-description
 prepare-data
 descriptive-statistics
 enumeration
+examine-and-extract-mplus-files
+examine-mplus-warnings
+examine-mplus-errors
+examine-convergence-and-loglikelihood-replications
+check-for-loglikelihood-replication
 table-of-fit
 information-criteria-plot
 compare-class-solutions

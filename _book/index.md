@@ -1,7 +1,7 @@
 --- 
 title: "Latent Class Analysis with `MplusAutomation`"
 author: "Dina Arch"
-date: "2025-03-10"
+date: "2025-05-20"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

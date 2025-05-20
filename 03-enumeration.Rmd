@@ -203,6 +203,103 @@ lca_enum_fit <- mplusModeler(lca_enum,
 
 ------------------------------------------------------------------------
 
+## Examine and extract Mplus files
+
+Code by Delwin Carter (2025)
+
+Check all Models for:
+
+1. Warnings  
+2. Errors  
+3. Convergence and Loglikelihood Replication Information
+
+
+```{r}
+source(here("functions", "extract_mplus_info.R"))
+
+# Define the directory where all of the .out files are located.
+output_dir <- here("enum")
+
+# Get all .out files
+output_files <- list.files(output_dir, pattern = "\\.out$", full.names = TRUE)
+
+# Process all .out files into one dataframe
+final_data <- map_dfr(output_files, extract_mplus_info_extended)
+
+# Extract Sample_Size from final_data
+sample_size <- unique(final_data$Sample_Size)
+
+```
+
+### Examine Mplus Warnings
+
+```{r}
+source(here("functions", "extract_warnings.R"))
+
+warnings_table <- extract_warnings(final_data)
+warnings_table
+
+# Save the warnings table
+#gtsave(warnings_table, here("figures", "warnings_table.png"))
+```
+
+### Examine Mplus Errors
+
+```{r}
+source(here("functions", "error_visualization.R"))
+
+# Process errors
+error_table_data <- process_error_data(final_data)
+error_table_data
+
+# Save the errors table
+#gtsave(error_table, here("figures", "error_table.png"))
+```
+
+### Examine Convergence and Loglikelihood Replications
+
+```{r, results='asis', out.width="95%"}
+source(here("functions", "summary_table.R"))
+
+# Print Table with Superheader & Heatmap
+summary_table <- create_flextable(final_data, sample_size)
+summary_table
+
+# Save the flextable as a PNG image
+#invisible(save_as_image(summary_table, path = here("figures", "housekeeping.png")))
+```
+
+
+### Check for Loglikelihood Replication
+
+Visualize and examine loglikelihood replication values for each ouptut file individually
+
+```{r, , results='asis'}
+# Load the function for separate plots
+source(here("functions", "ll_replication_plots.R"))
+
+# Generate individual log-likelihood replication tables
+ll_replication_tables <- generate_ll_replication_plots(final_data)
+ll_replication_tables
+```
+
+
+Visualize and examine loglikelihood replication for each output file together
+
+```{r}
+ll_replication_table_all <- source(here("functions", "ll_replication_processing.R"), local = TRUE)$value
+ll_replication_table_all
+```
+
+```{r, echo=FALSE}
+# Save the flextable as a PNG image
+#invisible(save_as_image(ll_replication_table_all, path = here("figures", "ll_replication_table_all.png")))
+```
+
+![](figures/stophere.png){style=" width="500"}
+
+------------------------------------------------------------------------
+
 ## Table of Fit
 
 First, extract data:
