@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>References | Latent Class Analysis with MplusAutomation</title>
+<title>5 Including Auxiliary Variables | Latent Class Analysis with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
-<meta name="description" content="Hallquist, M. N., and J. F. Wiley. “MplusAutomation: An r Package for Facilitating Large-Scale Latent Variable Analyses in Mplus.” Structural Equation Modeling: A Multidisciplinary Journal 25, no....">
+<meta name="description" content="Example: PISA Student Data Data source: The first example utilizes a dataset on undergraduate Cheating available from the poLCA package (Dayton, 1998): See documentation here The second examples...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="References | Latent Class Analysis with MplusAutomation">
+<meta property="og:title" content="5 Including Auxiliary Variables | Latent Class Analysis with MplusAutomation">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/references.html">
-<meta property="og:description" content="Hallquist, M. N., and J. F. Wiley. “MplusAutomation: An r Package for Facilitating Large-Scale Latent Variable Analyses in Mplus.” Structural Equation Modeling: A Multidisciplinary Journal 25, no....">
+<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/including-auxiliary-variables.html">
+<meta property="og:description" content="Example: PISA Student Data Data source: The first example utilizes a dataset on undergraduate Cheating available from the poLCA package (Dayton, 1998): See documentation here The second examples...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="References | Latent Class Analysis with MplusAutomation">
-<meta name="twitter:description" content="Hallquist, M. N., and J. F. Wiley. “MplusAutomation: An r Package for Facilitating Large-Scale Latent Variable Analyses in Mplus.” Structural Equation Modeling: A Multidisciplinary Journal 25, no....">
+<meta name="twitter:title" content="5 Including Auxiliary Variables | Latent Class Analysis with MplusAutomation">
+<meta name="twitter:description" content="Example: PISA Student Data Data source: The first example utilizes a dataset on undergraduate Cheating available from the poLCA package (Dayton, 1998): See documentation here The second examples...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -75,10 +75,10 @@
 <li><a class="" href="introduction-to-mplusautomation.html"><span class="header-section-number">2</span> Introduction to MplusAutomation</a></li>
 <li><a class="" href="lca-enumeration.html"><span class="header-section-number">3</span> LCA Enumeration</a></li>
 <li><a class="" href="lpa-enumeration.html"><span class="header-section-number">4</span> LPA Enumeration</a></li>
-<li><a class="" href="including-auxiliary-variables.html"><span class="header-section-number">5</span> Including Auxiliary Variables</a></li>
+<li><a class="active" href="including-auxiliary-variables.html"><span class="header-section-number">5</span> Including Auxiliary Variables</a></li>
 <li><a class="" href="automated-three-step.html"><span class="header-section-number">6</span> Automated Three-Step</a></li>
 <li><a class="" href="manual-three-step.html"><span class="header-section-number">7</span> Manual Three-step</a></li>
-<li><a class="active" href="references.html">References</a></li>
+<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -86,55 +86,51 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="references" class="section level1 unnumbered">
-<h1>References<a class="anchor" aria-label="anchor" href="#references"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="including-auxiliary-variables" class="section level1" number="5">
+<h1>
+<span class="header-section-number">5</span> Including Auxiliary Variables<a class="anchor" aria-label="anchor" href="#including-auxiliary-variables"><i class="fas fa-link"></i></a>
 </h1>
-
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-hallquist2018" class="csl-entry">
-Hallquist, M. N., and J. F. Wiley. <span>“MplusAutomation: An r Package for Facilitating Large-Scale Latent Variable Analyses in Mplus.”</span> <em>Structural Equation Modeling: A Multidisciplinary Journal</em> 25, no. 4 (2018): 621–38.
+<hr>
+<p><em>Example: PISA Student Data</em></p>
+<p><strong>Data source:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The first example utilizes a dataset on undergraduate <em>Cheating</em> available from the <code>poLCA</code> package (Dayton, 1998): <a href="https://cran.r-project.org/web/packages/poLCA/poLCA.pdf">See documentation here</a></p></li>
+<li><p>The second examples utilizes the public-use dataset, <em>The Longitudinal Survey of American Youth</em> (<strong>LSAY</strong>): <a href="https://www.lsay.org/">See documentation here</a></p></li>
+</ol>
+<hr>
+<div id="load-packages-1" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Load packages<a class="anchor" aria-label="anchor" href="#load-packages-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co">#collection of R packages designed for data science</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span> <span class="co">#helps with filepaths</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span> <span class="co">#clean_names</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span> <span class="co"># create tables</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span> <span class="co"># a ggplot theme</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rich-iannone.github.io/DiagrammeR/">DiagrammeR</a></span><span class="op">)</span> <span class="co"># create path diagrams</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/">glue</a></span><span class="op">)</span> <span class="co"># allows us to paste expressions into R code</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span> <span class="co"># used for `melt()` function  </span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dlinzer/poLCA">poLCA</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span></span></code></pre></div>
+<hr>
 </div>
-<div id="ref-muthen2017" class="csl-entry">
-Muthén, L. K., and B. O. Muthén. <em>Mplus User’s Guide</em>. 8th ed. Los Angeles, CA: Muthén &amp; Muthén, 2017.
 </div>
-<div id="ref-rcore2017" class="csl-entry">
-R Core Team. <span>“R: A Language and Environment for Statistical Computing,”</span> 2017. <a href="http://www.R-project.org/">http://www.R-project.org/</a>.
-</div>
-<div id="ref-rstudio2020" class="csl-entry">
-RStudio, Inc. <em>RStudio: Integrated Development Environment for r</em>, 2020.
-</div>
-<div id="ref-usdoe2014" class="csl-entry">
-US Department of Education Office for Civil Rights. <span>“Civil Rights Data Collection Data Snapshot: School Discipline,”</span> 2014.
-</div>
-<div id="ref-wickham2019" class="csl-entry">
-Wickham, H. et al. <span>“Welcome to the Tidyverse.”</span> <em>Journal of Open Source Software</em> 4, no. 43 (2019): 1686. https://doi.org/<a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <div class="chapter-nav">
-<div class="prev"><a href="manual-three-step.html"><span class="header-section-number">7</span> Manual Three-step</a></div>
-<div class="empty"></div>
+<div class="prev"><a href="lpa-enumeration.html"><span class="header-section-number">4</span> LPA Enumeration</a></div>
+<div class="next"><a href="automated-three-step.html"><span class="header-section-number">6</span> Automated Three-Step</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#references">References</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#including-auxiliary-variables"><span class="header-section-number">5</span> Including Auxiliary Variables</a></li>
+<li><a class="nav-link" href="#load-packages-1"><span class="header-section-number">5.1</span> Load packages</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/10-references.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/10-references.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/05-three-step.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/05-three-step.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

@@ -6,7 +6,7 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 
-# Latent Profile Enumeration
+# LPA Enumeration
 
 ------------------------------------------------------------------------
 
