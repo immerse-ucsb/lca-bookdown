@@ -17,3 +17,5 @@ gt
 cowplot
 DiagrammeR
 reshape2
+flextable
+officer
