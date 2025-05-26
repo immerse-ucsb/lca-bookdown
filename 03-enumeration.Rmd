@@ -272,7 +272,7 @@ summary_table
 
 ### Check for Loglikelihood Replication
 
-Visualize and examine loglikelihood replication values for each ouptut file individually
+Visualize and examine loglikelihood replication values for each ouput file individually
 
 ```{r, , results='asis'}
 # Load the function for separate plots
@@ -305,11 +305,11 @@ ll_replication_table_all
 First, extract data:
 
 ```{r}
-# 
-output_bully <- readModels(here("enum"), filefilter = "bully", quiet = TRUE)
+output_enum <- readModels(here("enum"), filefilter = "bully", quiet = TRUE)
 
+# Extract fit indices
 enum_extract <- LatexSummaryTable(
-  output_bully,
+  output_enum,
   keepCols = c(
     "Title",
     "Parameters",
@@ -321,9 +321,9 @@ enum_extract <- LatexSummaryTable(
     "Observations"
   ),
   sortBy = "Title"
-) 
+)
 
-
+# Calculate additional fit indices
 allFit <- enum_extract %>%
   mutate(CAIC = -2 * LL + Parameters * (log(Observations) + 1)) %>%
   mutate(AWE = -2 * LL + 2 * Parameters * (log(Observations) + 1.5)) %>%
@@ -331,24 +331,70 @@ allFit <- enum_extract %>%
   mutate(expSIC = exp(SIC - max(SIC))) %>%
   mutate(BF = exp(SIC - lead(SIC))) %>%
   mutate(cmPk = expSIC / sum(expSIC)) %>%
-  dplyr::select(1:5, 9:10, 6:7, 13, 14) %>%
+  dplyr::select(Title, Parameters, LL, BIC, aBIC, CAIC, AWE, BLRT_PValue, T11_VLMR_PValue, BF, cmPk) %>%
   arrange(Parameters)
+
+# Merge columns with LL replications and class size from `final_data`
+merged_table <- allFit %>%
+  mutate(Title = str_trim(Title)) %>%
+  left_join(
+    final_data %>%
+      select(
+        Class_Model,
+        Perc_Convergence,
+        Replicated_LL_Perc,
+        Smallest_Class,
+        Smallest_Class_Perc
+      ),
+    by = c("Title" = "Class_Model")
+  ) %>%
+  mutate(Smallest_Class = coalesce(Smallest_Class, final_data$Smallest_Class[match(Title, final_data$Class_Model)])) %>%
+  relocate(Perc_Convergence, Replicated_LL_Perc, .after = LL) %>%
+  mutate(Smallest_Class_Combined = paste0(Smallest_Class, "\u00A0(", Smallest_Class_Perc, "%)")) %>%
+  select(
+    Title,
+    Parameters,
+    LL,
+    Perc_Convergence,
+    Replicated_LL_Perc,
+    BIC,
+    aBIC,
+    CAIC,
+    AWE,
+    T11_VLMR_PValue,
+    BLRT_PValue,
+    Smallest_Class_Combined,
+    BF,
+    cmPk
+  )
 ```
 
 Then, create table:
 
 ```{r}
-fit_table1 <- allFit %>%
+fit_table1 <- merged_table %>%
+  select(Title, Parameters, LL, Perc_Convergence, Replicated_LL_Perc, 
+         BIC, aBIC, CAIC, AWE, 
+         T11_VLMR_PValue, BLRT_PValue, 
+         Smallest_Class_Combined) %>% 
   gt() %>%
   tab_header(title = md("**Model Fit Summary Table**")) %>%
+  tab_spanner(label = "Model Fit Indices", columns = c(BIC, aBIC, CAIC, AWE)) %>%
+  tab_spanner(label = "LRTs", columns = c(T11_VLMR_PValue, BLRT_PValue)) %>%
+  tab_spanner(label = md("Smallest\u00A0Class"), columns = c(Smallest_Class_Combined)) %>%
   cols_label(
     Title = "Classes",
     Parameters = md("Par"),
     LL = md("*LL*"),
+    Perc_Convergence = "% Converged",
+    Replicated_LL_Perc = "% Replicated",
+    BIC = "BIC",
+    aBIC = "aBIC",
+    CAIC = "CAIC",
+    AWE = "AWE",
     T11_VLMR_PValue = "VLMR",
     BLRT_PValue = "BLRT",
-    BF = md("BF"),
-    cmPk = md("*cmPk*")
+    Smallest_Class_Combined = "n (%)"
   ) %>%
   tab_footnote(
     footnote = md(
@@ -363,57 +409,38 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 locations = cells_title()
   ) %>%
   tab_options(column_labels.font.weight = "bold") %>%
-  fmt_number(c(3:7),
-             decimals = 2) %>%
+  fmt_number(
+    columns = c(3, 6:9), 
+    decimals = 2
+  ) %>%
   sub_missing(1:11,
               missing_text = "--") %>%
   fmt(
-    c(8:9, 11),
+    c(T11_VLMR_PValue, BLRT_PValue),
     fns = function(x)
       ifelse(x < 0.001, "<.001",
              scales::number(x, accuracy = .01))
   ) %>%
-  fmt(
-    10,
-    fns = function (x)
-      ifelse(x > 100, ">100",
-             scales::number(x, accuracy = .01))
-  ) %>%  
+  fmt_percent(
+    columns = c(Perc_Convergence, Replicated_LL_Perc),
+    decimals = 0,
+    scale_values = FALSE
+  ) %>%
+  
+  cols_align(align = "center", columns = everything()) %>%  
   tab_style(
-    style = list(
-      cell_text(weight = "bold")
-      ),
-    locations = list(cells_body(
-     columns = BIC,
-     row = BIC == min(BIC[c(1:6)]) # Change this to the number of classes you are evaluating
-    ),
-    cells_body(
-     columns = aBIC,
-     row = aBIC == min(aBIC[1:6])
-    ),
-    cells_body(
-     columns = CAIC,
-     row = CAIC == min(CAIC[1:6])
-    ),
-    cells_body(
-     columns = AWE,
-     row = AWE == min(AWE[1:6])
-    ),
-    cells_body(
-     columns = cmPk,
-     row =  cmPk == max(cmPk[1:6])
-     ),    
-    cells_body(
-     columns = BF,
-     row =  BF > 10),
-    cells_body( 
-     columns =  T11_VLMR_PValue,
-     row =  ifelse(T11_VLMR_PValue < .05 & lead(T11_VLMR_PValue) > .05, T11_VLMR_PValue < .05, NA)),
-    cells_body(
-     columns =  BLRT_PValue,
-     row =  ifelse(BLRT_PValue < .05 & lead(BLRT_PValue) > .05, BLRT_PValue < .05, NA))
+    style = list(cell_text(weight = "bold")),
+    locations = list(
+      cells_body(columns = BIC, row = BIC == min(BIC)),
+      cells_body(columns = aBIC, row = aBIC == min(aBIC)),
+      cells_body(columns = CAIC, row = CAIC == min(CAIC)),
+      cells_body(columns = AWE, row = AWE == min(AWE)),
+      cells_body(columns = T11_VLMR_PValue, 
+                 row = ifelse(T11_VLMR_PValue < .05 & lead(T11_VLMR_PValue) > .05, T11_VLMR_PValue < .05, NA)),
+      cells_body(columns = BLRT_PValue, 
+                 row = ifelse(BLRT_PValue < .05 & lead(BLRT_PValue) > .05, BLRT_PValue < .05, NA))
+    )
   )
-)
 
 fit_table1
 ```
@@ -478,9 +505,9 @@ Compare probability plots for $K = 1:6$ class solutions
 ```{r}
 model_results <- data.frame()
 
-for (i in 1:length(output_bully)) {
+for (i in 1:length(output_enum)) {
   
-  temp <- output_bully[[i]]$parameters$probability.scale %>%                                       
+  temp <- output_enum[[i]]$parameters$probability.scale %>%                                       
     mutate(model = paste(i,"-Class Model"))                                                  
   
   model_results <- rbind(model_results, temp)
@@ -531,12 +558,12 @@ ggsave(here("figures", "compare_kclass_plot.png"), dpi=300, height=5, width=7, u
 ## 3-Class Probability Plot
 
 Use the `plot_lca` function provided in the folder to plot the item probability plot. This function requires one argument:
-- `model_name`: The name of the Mplus `readModels` object (e.g., `output_bully$c3_bully.out`)
+- `model_name`: The name of the Mplus `readModels` object (e.g., `output_enum$c3_bully.out`)
 
 ```{r, height=5, width=7}
 source("plot_lca.txt")
 
-plot_lca(model_name = output_bully$c3_bully.out)
+plot_lca(model_name = output_enum$c3_bully.out)
 ```
 
 ------------------------------------------------------------------------
@@ -747,13 +774,13 @@ Read in the 3-class model:
 
 ```{r}
 # Read in the 3-class model and extract information needed
-output_bully <- readModels(here("mplus", "class.out"))
+output_enum <- readModels(here("mplus", "class.out"))
 
 # Entropy
-entropy <- c(output_bully$summaries$Entropy, rep(NA, output_bully$summaries$NLatentClasses-1))
+entropy <- c(output_enum$summaries$Entropy, rep(NA, output_enum$summaries$NLatentClasses-1))
 
 # 95% k-Class and k-class 95% Confidence Intervals
-k_ci <- output_bully$parameters$ci.unstandardized %>% 
+k_ci <- output_enum$parameters$ci.unstandardized %>% 
   filter(paramHeader == "New.Additional.Parameters") %>% 
   unite(CI, c(low2.5,up2.5), sep=", ", remove = TRUE) %>% 
   mutate(CI = paste0("[", CI, "]")) %>% 
@@ -761,10 +788,10 @@ k_ci <- output_bully$parameters$ci.unstandardized %>%
   dplyr::select(kclass, CI)
 
 # AvePPk = Average Latent Class Probabilities for Most Likely Latent Class Membership (Row) by Latent Class (Column)
-avePPk <- tibble(avePPk = diag(output_bully$class_counts$avgProbs.mostLikely))
+avePPk <- tibble(avePPk = diag(output_enum$class_counts$avgProbs.mostLikely))
 
 # mcaPk = modal class assignment proportion 
-mcaPk <- round(output_bully$class_counts$mostLikely,3) %>% 
+mcaPk <- round(output_enum$class_counts$mostLikely,3) %>% 
   mutate(model = paste0("Class ", class)) %>% 
   add_column(avePPk, k_ci) %>% 
   rename(mcaPk = proportion) %>% 
