@@ -1,0 +1,514 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+05/26/2025   4:55 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  1-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/poLCA/election.dat";
+  VARIABLE:
+  NAMES = moralb caresb knowb leadb dishonb intelb moralb1 caresb1 knowb1 leadb1
+       dishonb1 intelb1;
+   MISSING=.;
+   categorical = moralb1-intelb1;
+  usevar = moralb1-intelb1;
+  classes = c(1);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 500 100;
+      processors = 10;
+  OUTPUT:
+  sampstat residual tech11 tech14 svalues;
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  19
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+1-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1766
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   MORALB1     CARESB1     KNOWB1      LEADB1      DISHONB1    INTELB1
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/poLCA/election.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            55
+     Number of y missing data patterns           0
+     Number of u missing data patterns          55
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              MORALB1       CARESB1       KNOWB1        LEADB1        DISHONB1
+              ________      ________      ________      ________      ________
+ MORALB1        0.911
+ CARESB1        0.883         0.954
+ KNOWB1         0.896         0.938         0.973
+ LEADB1         0.881         0.919         0.935         0.952
+ DISHONB1       0.850         0.872         0.883         0.871         0.898
+ INTELB1        0.890         0.933         0.952         0.930         0.878
+
+
+           Covariance Coverage
+              INTELB1
+              ________
+ INTELB1        0.969
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    MORALB1
+      Category 1    0.211          340.000
+      Category 2    0.523          841.000
+      Category 3    0.205          330.000
+      Category 4    0.061           98.000
+    CARESB1
+      Category 1    0.092          155.000
+      Category 2    0.371          625.000
+      Category 3    0.334          562.000
+      Category 4    0.203          342.000
+    KNOWB1
+      Category 1    0.159          274.000
+      Category 2    0.543          933.000
+      Category 3    0.220          379.000
+      Category 4    0.077          133.000
+    LEADB1
+      Category 1    0.158          266.000
+      Category 2    0.501          842.000
+      Category 3    0.242          407.000
+      Category 4    0.099          166.000
+    DISHONB1
+      Category 1    0.044           70.000
+      Category 2    0.182          288.000
+      Category 3    0.412          653.000
+      Category 4    0.362          574.000
+    INTELB1
+      Category 1    0.192          329.000
+      Category 2    0.565          967.000
+      Category 3    0.179          306.000
+      Category 4    0.064          110.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -11838.632  342019           301
+          -11838.632  606576           151
+          -11838.632  21132            351
+          -11838.632  700349           401
+          -11838.632  36714            201
+          -11838.632  371246           101
+          -11838.632  85462            51
+          -11838.632  188640           451
+          -11838.632  642909           251
+          -11838.632  unperturbed      0
+          -11838.632  462953           7
+          -11838.632  27071            15
+          -11838.632  153942           31
+          -11838.632  7959             256
+          -11838.632  164305           128
+          -11838.632  871851           257
+          -11838.632  188498           258
+          -11838.632  311214           64
+          -11838.632  814975           129
+          -11838.632  622860           259
+          -11838.632  804660           260
+          -11838.632  509733           130
+          -11838.632  616917           261
+          -11838.632  520177           262
+          -11838.632  626891           32
+          -11838.632  565819           65
+          -11838.632  468036           131
+          -11838.632  349263           263
+          -11838.632  358488           264
+          -11838.632  313407           132
+          -11838.632  467339           66
+          -11838.632  321390           133
+          -11838.632  903369           134
+          -11838.632  76974            16
+          -11838.632  749453           33
+          -11838.632  789985           67
+          -11838.632  437181           135
+          -11838.632  232559           136
+          -11838.632  405079           68
+          -11838.632  341041           34
+          -11838.632  685657           69
+          -11838.632  987090           70
+          -11838.632  285380           1
+          -11838.632  359578           458
+          -11838.632  475420           71
+          -11838.632  783110           72
+          -11838.632  679832           302
+          -11838.632  93468            3
+          -11838.632  790452           303
+          -11838.632  92689            304
+          -11838.632  393232           152
+          -11838.632  81117            305
+          -11838.632  484687           306
+          -11838.632  46437            153
+          -11838.632  534864           307
+          -11838.632  692169           308
+          -11838.632  150531           154
+          -11838.632  879338           309
+          -11838.632  996231           310
+          -11838.632  12477            155
+          -11838.632  479273           156
+          -11838.632  972873           157
+          -11838.632  414284           158
+          -11838.632  383986           159
+          -11838.632  456213           160
+          -11838.632  23012            352
+          -11838.632  374219           353
+          -11838.632  193847           354
+          -11838.632  871722           355
+          -11838.632  360419           356
+          -11838.632  850545           357
+          -11838.632  195763           358
+          -11838.632  349562           359
+          -11838.632  563002           360
+          -11838.632  971853           402
+          -11838.632  471040           403
+          -11838.632  605565           404
+          -11838.632  973369           202
+          -11838.632  596257           405
+          -11838.632  926797           406
+          -11838.632  840078           203
+          -11838.632  772131           407
+          -11838.632  55115            408
+          -11838.632  748692           204
+          -11838.632  605161           409
+          -11838.632  746978           410
+          -11838.632  97158            205
+          -11838.632  891531           206
+          -11838.632  637095           207
+          -11838.632  57226            208
+          -11838.632  30098            209
+          -11838.632  835767           210
+          -11838.632  582296           452
+          -11838.632  879211           453
+          -11838.632  263049           454
+          -11838.632  224950           455
+          -11838.632  922596           456
+          -11838.632  769907           457
+          -11838.632  539751           459
+          -11838.632  112586           494
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       18
+
+Loglikelihood
+
+          H0 Value                      -11838.632
+          H0 Scaling Correction Factor      1.0000
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   23713.264
+          Bayesian (BIC)                 23811.841
+          Sample-Size Adjusted BIC       23754.656
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           8937.013
+          Degrees of Freedom                  4010
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                           3940.452
+          Degrees of Freedom                  4010
+          P-Value                           0.7817
+
+** Of the 15412 cells in the latent class indicator table, 67
+   were deleted in the calculation of chi-square due to extreme values.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                           3024.370
+          Degrees of Freedom                 11262
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                           1033.656
+          Degrees of Freedom                 11262
+          P-Value                           1.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       1766.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       1766.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             1766          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    MORALB1$1         -1.317      0.061    -21.567      0.000
+    MORALB1$2          1.015      0.056     17.990      0.000
+    MORALB1$3          2.736      0.104     26.243      0.000
+    CARESB1$1         -2.289      0.084    -27.154      0.000
+    CARESB1$2         -0.148      0.049     -3.019      0.003
+    CARESB1$3          1.367      0.061     22.569      0.000
+    KNOWB1$1          -1.663      0.066    -25.234      0.000
+    KNOWB1$2           0.858      0.053     16.260      0.000
+    KNOWB1$3           2.479      0.090     27.457      0.000
+    LEADB1$1          -1.671      0.067    -25.010      0.000
+    LEADB1$2           0.659      0.051     12.815      0.000
+    LEADB1$3           2.211      0.082     27.046      0.000
+    DISHONB1$1        -3.075      0.122    -25.150      0.000
+    DISHONB1$2        -1.232      0.060    -20.506      0.000
+    DISHONB1$3         0.566      0.052     10.831      0.000
+    INTELB1$1         -1.436      0.061    -23.410      0.000
+    INTELB1$2          1.136      0.056     20.166      0.000
+    INTELB1$3          2.679      0.099     27.175      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.364E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ MORALB1
+    Category 1         0.211      0.010     20.763      0.000
+    Category 2         0.523      0.012     41.975      0.000
+    Category 3         0.205      0.010     20.375      0.000
+    Category 4         0.061      0.006     10.215      0.000
+ CARESB1
+    Category 1         0.092      0.007     13.066      0.000
+    Category 2         0.371      0.012     31.526      0.000
+    Category 3         0.334      0.011     29.043      0.000
+    Category 4         0.203      0.010     20.716      0.000
+ KNOWB1
+    Category 1         0.159      0.009     18.054      0.000
+    Category 2         0.543      0.012     45.172      0.000
+    Category 3         0.220      0.010     22.050      0.000
+    Category 4         0.077      0.006     12.006      0.000
+ LEADB1
+    Category 1         0.158      0.009     17.777      0.000
+    Category 2         0.501      0.012     41.073      0.000
+    Category 3         0.242      0.010     23.174      0.000
+    Category 4         0.099      0.007     13.572      0.000
+ DISHONB1
+    Category 1         0.044      0.005      8.558      0.000
+    Category 2         0.182      0.010     18.760      0.000
+    Category 3         0.412      0.012     33.324      0.000
+    Category 4         0.362      0.012     29.998      0.000
+ INTELB1
+    Category 1         0.192      0.010     20.181      0.000
+    Category 2         0.565      0.012     47.140      0.000
+    Category 3         0.179      0.009     19.303      0.000
+    Category 4         0.064      0.006     10.842      0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     %C#1%
+
+     [ moralb1$1*-1.31704 ];
+     [ moralb1$2*1.01499 ];
+     [ moralb1$3*2.73556 ];
+     [ caresb1$1*-2.28894 ];
+     [ caresb1$2*-0.14754 ];
+     [ caresb1$3*1.36711 ];
+     [ knowb1$1*-1.66274 ];
+     [ knowb1$2*0.85757 ];
+     [ knowb1$3*2.47862 ];
+     [ leadb1$1*-1.67139 ];
+     [ leadb1$2*0.65943 ];
+     [ leadb1$3*2.21118 ];
+     [ dishonb1$1*-3.07468 ];
+     [ dishonb1$2*-1.23179 ];
+     [ dishonb1$3*0.56607 ];
+     [ intelb1$1*-1.43595 ];
+     [ intelb1$2*1.13635 ];
+     [ intelb1$3*2.67853 ];
+
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+     Beginning Time:  16:55:53
+        Ending Time:  16:56:00
+       Elapsed Time:  00:00:07
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

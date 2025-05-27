@@ -1,0 +1,18 @@
+TITLE:
+5-Class
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/poLCA/election.dat"; 
+VARIABLE:
+NAMES = moralb caresb knowb leadb dishonb intelb moralb1 caresb1 knowb1 leadb1
+     dishonb1 intelb1; 
+ MISSING=.;
+ categorical = moralb1-intelb1; 
+usevar = moralb1-intelb1;
+classes = c(5); 
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 500 100; 
+    processors = 10;
+OUTPUT:
+sampstat residual tech11 tech14 svalues;
