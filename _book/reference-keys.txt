@@ -58,7 +58,6 @@ profile-separation
 including-auxiliary-variables
 load-packages-1
 automated-three-step
-application-undergraduate-cheating-behavior
 du3step
 run-the-du3step-model-with-gpa-as-distal-outcome
 plot-distal-outcome
@@ -74,3 +73,15 @@ wald-test-table
 table-of-distal-outcome-differences
 plot-distal-outcome-1
 d-on-x
+polytomous-lca
+example-elections
+prepare-data-2
+descriptive-statistics-2
+enumeration-2
+table-of-fit-2
+information-criteria-plot-2
+class-probability-plot-1
+apa-formatted-plot
+extract-data-needed-for-plotting
+final-grouped-bar-plot
+alternative

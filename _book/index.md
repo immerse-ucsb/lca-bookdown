@@ -1,7 +1,7 @@
 --- 
-title: "Latent Class Analysis with `MplusAutomation`"
+title: "Mixture Modeling with `MplusAutomation`"
 author: "Dina Arch"
-date: "2025-05-26"
+date: "2025-06-04"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -32,6 +32,6 @@ csl: chicago-fullnote-bibliography.csl
 How to reference this workshop: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025).
 IMMERSE Online Resources (IES No. 305B220021).
 Institute of Education Sciences.
-<https://immerse-mixtures.netlify.app/>
+<https://mixture-modeling.netlify.app/>
 
 <div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>

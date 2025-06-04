@@ -40,16 +40,15 @@ library(reshape2)
 
 ------------------------------------------------------------------------
 
-# Automated Three-Step
+## Automated Three-Step
 
 **Note**: Prior to adding covariates or distals enumeration must be conducted.
 See Lab 6 for examples of enumeration with MplusAutomation.
 
 ------------------------------------------------------------------------
 
-## Application: Undergraduate Cheating behavior
+*Application: Undergraduate Cheating behavior*
 
-------------------------------------------------------------------------
 
 "Dichotomous self-report responses by 319 undergraduates to four questions about cheating behavior" (poLCA, 2016).
 
@@ -75,7 +74,7 @@ detach(package:MASS, unload = TRUE)
 
 ------------------------------------------------------------------------
 
-## DU3STEP
+### DU3STEP
 
 ------------------------------------------------------------------------
 
@@ -116,7 +115,7 @@ grViz(" digraph cfa_model {
 
 ------------------------------------------------------------------------
 
-### Run the **DU3step** model with `gpa` as distal outcome
+#### Run the **DU3step** model with `gpa` as distal outcome
 
 ```{r, cache = TRUE}
 
@@ -152,7 +151,7 @@ m_stepdu_fit <- mplusModeler(m_stepdu,
 
 ------------------------------------------------------------------------
 
-### Plot Distal Outcome 
+#### Plot Distal Outcome 
 
 ```{r}
 modelParams <- readModels(here("three_step", "auto_3step", "c2_du3step.out"))
@@ -210,7 +209,7 @@ ggsave(here("figures","Du3STEP_plot.jpeg"),
 
 ------------------------------------------------------------------------
 
-## R3STEP
+### R3STEP
 
 ------------------------------------------------------------------------
 
@@ -251,7 +250,7 @@ grViz(" digraph cfa_model {
 
 ------------------------------------------------------------------------
 
-### Run the **R3STEP** model with `gpa` as the latent class predictor
+#### Run the **R3STEP** model with `gpa` as the latent class predictor
 
 ```{r, cache = TRUE}
 
@@ -287,7 +286,7 @@ m_stepr_fit <- mplusModeler(m_stepr,
 
 ------------------------------------------------------------------------
 
-### Regression slopes and odds ratios 
+#### Regression slopes and odds ratios 
 
 
 ```
@@ -337,7 +336,7 @@ Parameterization using Reference Class 1
 
 ------------------------------------------------------------------------
 
-# Manual Three-step
+## Manual Three-step
 
 ```{r, echo=FALSE, eval=TRUE, fig.align='center'}
 
@@ -414,11 +413,11 @@ lsay_data <- read_csv(here("three_step","data","lsay_subset.csv")) %>%
 
 ------------------------------------------------------------------------
 
-## ML Method
+### ML Method
 
 ------------------------------------------------------------------------
 
-### Step 1 - Class Enumeration w/ Auxiliary Specification
+#### Step 1 - Class Enumeration w/ Auxiliary Specification
 
 ------------------------------------------------------------------------
 
@@ -476,7 +475,7 @@ plot_lca(model_name = output_lsay)
 
 ------------------------------------------------------------------------
 
-### Step 2 - Determine Measurement Error
+#### Step 2 - Determine Measurement Error
 
 ------------------------------------------------------------------------
 
@@ -502,7 +501,7 @@ colnames(savedata)[colnames(savedata)=="C"] <- "N"
 
 ------------------------------------------------------------------------
 
-### Step 3 - Add Auxiliary Variables
+#### Step 3 - Add Auxiliary Variables
 
 ------------------------------------------------------------------------
 
@@ -594,7 +593,7 @@ step3_fit <- mplusModeler(step3,
 
 ------------------------------------------------------------------------
 
-#### Wald Test Table
+##### Wald Test Table
 
 ```{r}
 modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
@@ -634,7 +633,7 @@ gtsave(wald_table, here("figures","wald_table.docx"))
 
 ------------------------------------------------------------------------
 
-#### Table of Distal Outcome Differences
+##### Table of Distal Outcome Differences
 
 ```{r}
 # Extract information as data frame
@@ -671,7 +670,7 @@ diff %>%
 
 ------------------------------------------------------------------------
 
-#### Plot Distal Outcome
+##### Plot Distal Outcome
 
 ```{r}
 # Extract class size 
@@ -721,7 +720,7 @@ ggsave(here("figures","ManualDistal_Plot.jpeg"),
 
 ------------------------------------------------------------------------
  
-#### D on X
+##### D on X
 
 Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
 

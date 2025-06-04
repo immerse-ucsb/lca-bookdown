@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>2 Introduction to MplusAutomation | Latent Class Analysis with MplusAutomation</title>
+<title>2 Introduction to MplusAutomation | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="MplusAutomation7 is designed to streamline the use of Mplus, a powerful statistical software for modeling complex data developed by Muthen and Muten (https://www.statmodel.com). With...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="2 Introduction to MplusAutomation | Latent Class Analysis with MplusAutomation">
+<meta property="og:title" content="2 Introduction to MplusAutomation | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/introduction-to-mplusautomation.html">
 <meta property="og:description" content="MplusAutomation7 is designed to streamline the use of Mplus, a powerful statistical software for modeling complex data developed by Muthen and Muten (https://www.statmodel.com). With...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2 Introduction to MplusAutomation | Latent Class Analysis with MplusAutomation">
+<meta name="twitter:title" content="2 Introduction to MplusAutomation | Mixture Modeling with MplusAutomation">
 <meta name="twitter:description" content="MplusAutomation7 is designed to streamline the use of Mplus, a powerful statistical software for modeling complex data developed by Muthen and Muten (https://www.statmodel.com). With...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Latent Class Analysis with <code>MplusAutomation</code></a>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -76,8 +76,7 @@
 <li><a class="" href="lca-enumeration.html"><span class="header-section-number">3</span> LCA Enumeration</a></li>
 <li><a class="" href="lpa-enumeration.html"><span class="header-section-number">4</span> LPA Enumeration</a></li>
 <li><a class="" href="including-auxiliary-variables.html"><span class="header-section-number">5</span> Including Auxiliary Variables</a></li>
-<li><a class="" href="automated-three-step.html"><span class="header-section-number">6</span> Automated Three-Step</a></li>
-<li><a class="" href="manual-three-step.html"><span class="header-section-number">7</span> Manual Three-step</a></li>
+<li><a class="" href="polytomous-lca.html"><span class="header-section-number">6</span> Polytomous LCA</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -117,9 +116,9 @@
 <li>The code presented will be very repetitive by design</li>
 </ul>
 <hr>
-<p>Below is a template for <code><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject()</a></code> &amp; <code><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler()</a></code> functions. Use this template to run statistical models with Mplus.</p>
+<p>Below is a template for <code>mplusObject()</code> &amp; <code>mplusModeler()</code> functions. Use this template to run statistical models with Mplus.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">m_template</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">m_template</span>  <span class="op">&lt;-</span> <span class="fu">mplusObject</span><span class="op">(</span></span>
 <span>  </span>
 <span>  TITLE <span class="op">=</span> </span>
 <span>    <span class="st">""</span>, </span>
@@ -139,7 +138,7 @@
 <span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="op">)</span>, </span>
 <span>  rdata <span class="op">=</span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="va">m_template_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">m_template</span>, </span>
+<span><span class="va">m_template_fit</span> <span class="op">&lt;-</span> <span class="fu">mplusModeler</span><span class="op">(</span><span class="va">m_template</span>, </span>
 <span>                  dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">".dat"</span><span class="op">)</span>,</span>
 <span>                  modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">".inp"</span><span class="op">)</span>,</span>
 <span>                  check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -171,7 +170,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Latent Class Analysis with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-05-26.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-06-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -35,16 +35,15 @@ library(reshape2)
 
 ------------------------------------------------------------------------
 
-# Automated Three-Step
+## Automated Three-Step
 
 **Note**: Prior to adding covariates or distals enumeration must be conducted.
 See Lab 6 for examples of enumeration with MplusAutomation.
 
 ------------------------------------------------------------------------
 
-## Application: Undergraduate Cheating behavior
+*Application: Undergraduate Cheating behavior*
 
-------------------------------------------------------------------------
 
 "Dichotomous self-report responses by 319 undergraduates to four questions about cheating behavior" (poLCA, 2016).
 
@@ -71,15 +70,15 @@ detach(package:MASS, unload = TRUE)
 
 ------------------------------------------------------------------------
 
-## DU3STEP
+### DU3STEP
 
 ------------------------------------------------------------------------
 
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-d5a6182b8894940184a2" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-d5a6182b8894940184a2">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-18d4aa744136e9fe8ad8" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-18d4aa744136e9fe8ad8">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -88,7 +87,7 @@ detach(package:MASS, unload = TRUE)
 
 ------------------------------------------------------------------------
 
-### Run the **DU3step** model with `gpa` as distal outcome
+#### Run the **DU3step** model with `gpa` as distal outcome
 
 
 ``` r
@@ -125,7 +124,7 @@ m_stepdu_fit <- mplusModeler(m_stepdu,
 
 ------------------------------------------------------------------------
 
-### Plot Distal Outcome 
+#### Plot Distal Outcome 
 
 
 ``` r
@@ -189,15 +188,15 @@ ggsave(here("figures","Du3STEP_plot.jpeg"),
 
 ------------------------------------------------------------------------
 
-## R3STEP
+### R3STEP
 
 ------------------------------------------------------------------------
 
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-b872a740219559bdb807" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-b872a740219559bdb807">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-f49c45e2e81bdbe09f11" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f49c45e2e81bdbe09f11">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -206,7 +205,7 @@ ggsave(here("figures","Du3STEP_plot.jpeg"),
 
 ------------------------------------------------------------------------
 
-### Run the **R3STEP** model with `gpa` as the latent class predictor
+#### Run the **R3STEP** model with `gpa` as the latent class predictor
 
 
 ``` r
@@ -243,7 +242,7 @@ m_stepr_fit <- mplusModeler(m_stepr,
 
 ------------------------------------------------------------------------
 
-### Regression slopes and odds ratios 
+#### Regression slopes and odds ratios 
 
 
 ```
@@ -293,12 +292,12 @@ Parameterization using Reference Class 1
 
 ------------------------------------------------------------------------
 
-# Manual Three-step
+## Manual Three-step
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-1f85e96689db83cf88a1" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1f85e96689db83cf88a1">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-44dea9d9441aec1c974e" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-44dea9d9441aec1c974e">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -816,11 +815,11 @@ lsay_data <- read_csv(here("three_step","data","lsay_subset.csv")) %>%
 
 ------------------------------------------------------------------------
 
-## ML Method
+### ML Method
 
 ------------------------------------------------------------------------
 
-### Step 1 - Class Enumeration w/ Auxiliary Specification
+#### Step 1 - Class Enumeration w/ Auxiliary Specification
 
 ------------------------------------------------------------------------
 
@@ -882,7 +881,7 @@ plot_lca(model_name = output_lsay)
 
 ------------------------------------------------------------------------
 
-### Step 2 - Determine Measurement Error
+#### Step 2 - Determine Measurement Error
 
 ------------------------------------------------------------------------
 
@@ -911,7 +910,7 @@ colnames(savedata)[colnames(savedata)=="C"] <- "N"
 
 ------------------------------------------------------------------------
 
-### Step 3 - Add Auxiliary Variables
+#### Step 3 - Add Auxiliary Variables
 
 ------------------------------------------------------------------------
 
@@ -1004,7 +1003,7 @@ step3_fit <- mplusModeler(step3,
 
 ------------------------------------------------------------------------
 
-#### Wald Test Table
+##### Wald Test Table
 
 
 ``` r
@@ -1519,7 +1518,7 @@ gtsave(wald_table, here("figures","wald_table.docx"))
 
 ------------------------------------------------------------------------
 
-#### Table of Distal Outcome Differences
+##### Table of Distal Outcome Differences
 
 
 ``` r
@@ -2047,7 +2046,7 @@ diff %>%
 
 ------------------------------------------------------------------------
 
-#### Plot Distal Outcome
+##### Plot Distal Outcome
 
 
 ``` r
@@ -2103,7 +2102,7 @@ ggsave(here("figures","ManualDistal_Plot.jpeg"),
 
 ------------------------------------------------------------------------
  
-#### D on X
+##### D on X
 
 Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
 
