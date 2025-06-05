@@ -1,0 +1,639 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/05/2025  10:55 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Class-4_Time1
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/lta/enum_t1/t1.dat";
+  VARIABLE:
+  NAMES = casenum cohort female minority ab39m ab39t ab39u ab39w ab39x ga33a ga33h
+       ga33i ga33k ga33l math_g7 math_g10 math_g12 op_know op_know2 siok siok2
+       sci_issues7 sci_irt7;
+   MISSING=.;
+   !!! NOTE CHANGE: List of the five 7th grade science attitude indicators !!!
+  categorical = ab39m-ab39x;
+       usevar = ab39m-ab39x;
+
+  classes = c(4);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      !!! NOTE CHANGE: The intial and final start values. Reduce to speed up estimation time
+      starts = 500 100;
+      processors=10;
+  OUTPUT:
+  sampstat residual tech11 tech14;
+  PLOT:
+  type = plot3;
+      series = ab39m-ab39x(*);
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+      !!! NOTE CHANGE: The intial and final start values. Reduce to speed up estimation time.
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  55
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Class-4_Time1
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3061
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   AB39M       AB39T       AB39U       AB39W       AB39X
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/lta/enum_t1/t1.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            21
+     Number of y missing data patterns           0
+     Number of u missing data patterns          21
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              AB39M         AB39T         AB39U         AB39W         AB39X
+              ________      ________      ________      ________      ________
+ AB39M          0.994
+ AB39T          0.972         0.976
+ AB39U          0.972         0.960         0.977
+ AB39W          0.979         0.965         0.966         0.984
+ AB39X          0.989         0.973         0.975         0.982         0.994
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    AB39M
+      Category 1    0.387         1177.000
+      Category 2    0.613         1865.000
+    AB39T
+      Category 1    0.596         1782.000
+      Category 2    0.404         1206.000
+    AB39U
+      Category 1    0.508         1519.000
+      Category 2    0.492         1473.000
+    AB39W
+      Category 1    0.596         1796.000
+      Category 2    0.404         1216.000
+    AB39X
+      Category 1    0.539         1639.000
+      Category 2    0.461         1404.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -8664.090  534483           290
+           -8664.090  197223           332
+           -8664.090  802682           419
+           -8664.090  369602           146
+           -8664.090  576596           99
+           -8664.090  152496           123
+           -8664.090  848331           137
+           -8664.090  939021           8
+           -8664.090  561664           392
+           -8664.090  438144           271
+           -8664.090  275475           413
+           -8664.090  124999           96
+           -8664.090  436460           89
+           -8664.090  648555           113
+           -8664.090  748692           204
+           -8664.090  741484           441
+           -8664.090  606576           151
+           -8664.090  252949           487
+           -8664.090  137305           379
+           -8664.090  268896           124
+           -8664.090  292884           103
+           -8664.090  321390           133
+           -8664.090  496881           192
+           -8664.090  278692           342
+           -8664.090  227563           63
+           -8664.090  939709           112
+           -8664.090  89970            223
+           -8664.090  813779           92
+           -8664.090  673496           218
+           -8664.457  967902           52
+           -8664.457  603842           61
+
+69 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+     IN THE OPTIMIZATION, ONE OR MORE LOGIT THRESHOLDS APPROACHED EXTREME VALUES
+     OF -15.000 AND 15.000 AND WERE FIXED TO STABILIZE MODEL ESTIMATION.  THESE
+     VALUES IMPLY PROBABILITIES OF 0 AND 1.  IN THE MODEL RESULTS SECTION, THESE
+     PARAMETERS HAVE 0 STANDARD ERRORS AND 999 IN THE Z-SCORE AND P-VALUE COLUMNS.
+
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       23
+
+Loglikelihood
+
+          H0 Value                       -8664.090
+          H0 Scaling Correction Factor      1.0056
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   17374.180
+          Bayesian (BIC)                 17512.790
+          Sample-Size Adjusted BIC       17439.709
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                              4.386
+          Degrees of Freedom                     8
+          P-Value                           0.8207
+
+          Likelihood Ratio Chi-Square
+
+          Value                              5.098
+          Degrees of Freedom                     8
+          P-Value                           0.7470
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            161.488
+          Degrees of Freedom                   148
+          P-Value                           0.2119
+
+          Likelihood Ratio Chi-Square
+
+          Value                            128.456
+          Degrees of Freedom                   148
+          P-Value                           0.8751
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        828.83933          0.27077
+       2        781.62350          0.25535
+       3        618.81440          0.20216
+       4        831.72277          0.27172
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        828.83933          0.27077
+       2        781.62350          0.25535
+       3        618.81440          0.20216
+       4        831.72277          0.27172
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              863          0.28193
+       2              621          0.20287
+       3              604          0.19732
+       4              973          0.31787
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.741
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.863    0.024    0.112    0.001
+    2   0.033    0.916    0.001    0.049
+    3   0.104    0.000    0.861    0.034
+    4   0.000    0.197    0.001    0.801
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.899    0.025    0.076    0.000
+    2   0.026    0.728    0.000    0.245
+    3   0.156    0.001    0.841    0.002
+    4   0.001    0.037    0.025    0.937
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      7.784    4.199    5.312    0.000
+    2     -2.228    1.087   -6.772    0.000
+    3      4.387   -0.530    6.070    0.000
+    4     -7.000   -3.236   -3.631    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    AB39M$1           -2.049      0.142    -14.462      0.000
+    AB39T$1           -2.849      0.657     -4.339      0.000
+    AB39U$1           -2.614      0.314     -8.329      0.000
+    AB39W$1           -2.070      0.210     -9.845      0.000
+    AB39X$1           -2.626      0.266     -9.855      0.000
+
+Latent Class 2
+
+ Thresholds
+    AB39M$1           -0.391      0.120     -3.258      0.001
+    AB39T$1            0.599      0.209      2.872      0.004
+    AB39U$1           -0.260      0.137     -1.895      0.058
+    AB39W$1            1.248      0.167      7.458      0.000
+    AB39X$1           15.000      0.000    999.000    999.000
+
+Latent Class 3
+
+ Thresholds
+    AB39M$1           -0.754      0.163     -4.637      0.000
+    AB39T$1            0.926      0.242      3.825      0.000
+    AB39U$1            0.161      0.214      0.755      0.450
+    AB39W$1            0.241      0.194      1.244      0.214
+    AB39X$1          -15.000      0.000    999.000    999.000
+
+Latent Class 4
+
+ Thresholds
+    AB39M$1            0.815      0.118      6.914      0.000
+    AB39T$1           15.000      0.000    999.000    999.000
+    AB39U$1            4.408      3.926      1.123      0.262
+    AB39W$1            2.662      0.225     11.846      0.000
+    AB39X$1            3.667      1.113      3.296      0.001
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.003      0.165     -0.021      0.983
+    C#2               -0.062      0.209     -0.297      0.766
+    C#3               -0.296      0.137     -2.158      0.031
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.110E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ AB39M
+    Category 1         0.114      0.014      7.968      0.000
+    Category 2         0.886      0.014     61.824      0.000
+ AB39T
+    Category 1         0.055      0.034      1.611      0.107
+    Category 2         0.945      0.034     27.816      0.000
+ AB39U
+    Category 1         0.068      0.020      3.420      0.001
+    Category 2         0.932      0.020     46.682      0.000
+ AB39W
+    Category 1         0.112      0.021      5.356      0.000
+    Category 2         0.888      0.021     42.450      0.000
+ AB39X
+    Category 1         0.067      0.017      4.025      0.000
+    Category 2         0.933      0.017     55.609      0.000
+
+Latent Class 2
+
+ AB39M
+    Category 1         0.404      0.029     13.978      0.000
+    Category 2         0.596      0.029     20.662      0.000
+ AB39T
+    Category 1         0.645      0.048     13.517      0.000
+    Category 2         0.355      0.048      7.424      0.000
+ AB39U
+    Category 1         0.435      0.034     12.891      0.000
+    Category 2         0.565      0.034     16.724      0.000
+ AB39W
+    Category 1         0.777      0.029     26.791      0.000
+    Category 2         0.223      0.029      7.693      0.000
+ AB39X
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+
+Latent Class 3
+
+ AB39M
+    Category 1         0.320      0.035      9.048      0.000
+    Category 2         0.680      0.035     19.226      0.000
+ AB39T
+    Category 1         0.716      0.049     14.556      0.000
+    Category 2         0.284      0.049      5.766      0.000
+ AB39U
+    Category 1         0.540      0.053     10.181      0.000
+    Category 2         0.460      0.053      8.663      0.000
+ AB39W
+    Category 1         0.560      0.048     11.737      0.000
+    Category 2         0.440      0.048      9.225      0.000
+ AB39X
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+
+Latent Class 4
+
+ AB39M
+    Category 1         0.693      0.025     27.652      0.000
+    Category 2         0.307      0.025     12.244      0.000
+ AB39T
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ AB39U
+    Category 1         0.988      0.047     21.160      0.000
+    Category 2         0.012      0.047      0.258      0.797
+ AB39W
+    Category 1         0.935      0.014     68.198      0.000
+    Category 2         0.065      0.014      4.761      0.000
+ AB39X
+    Category 1         0.975      0.027     36.073      0.000
+    Category 2         0.025      0.027      0.922      0.357
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ AB39M
+    Category > 1       5.249      0.965      3.661      7.525
+ AB39T
+    Category > 1      31.432     21.554      8.197    120.524
+ AB39U
+    Category > 1      10.520      3.572      5.408     20.465
+ AB39W
+    Category > 1      27.600      7.027     16.757     45.460
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 1 Compared to Latent Class 3
+
+ AB39M
+    Category > 1       3.651      0.756      2.434      5.478
+ AB39T
+    Category > 1      43.578     24.844     14.256    133.213
+ AB39U
+    Category > 1      16.039      4.786      8.937     28.785
+ AB39W
+    Category > 1      10.083      2.247      6.515     15.605
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 1 Compared to Latent Class 4
+
+ AB39M
+    Category > 1      17.523      3.146     12.325     24.914
+ AB39T
+    Category > 1   *********      0.000  *********  *********
+ AB39U
+    Category > 1    1120.286   4369.992      0.536  *********
+ AB39W
+    Category > 1     113.530     34.895     62.155    207.369
+ AB39X
+    Category > 1     540.714    624.748     56.164   5205.656
+
+Latent Class 2 Compared to Latent Class 3
+
+ AB39M
+    Category > 1       0.696      0.135      0.475      1.018
+ AB39T
+    Category > 1       1.386      0.416      0.770      2.495
+ AB39U
+    Category > 1       1.525      0.380      0.935      2.486
+ AB39W
+    Category > 1       0.365      0.087      0.229      0.583
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 2 Compared to Latent Class 4
+
+ AB39M
+    Category > 1       3.338      0.526      2.451      4.547
+ AB39T
+    Category > 1   *********      0.000  *********  *********
+ AB39U
+    Category > 1     106.491    415.326      0.051  *********
+ AB39W
+    Category > 1       4.113      1.234      2.284      7.407
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 3 Compared to Latent Class 4
+
+ AB39M
+    Category > 1       4.799      0.961      3.241      7.106
+ AB39T
+    Category > 1   *********      0.000  *********  *********
+ AB39U
+    Category > 1      69.849    274.488      0.032  *********
+ AB39W
+    Category > 1      11.259      3.397      6.233     20.338
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -8693.569
+          2 Times the Loglikelihood Difference             58.958
+          Difference in the Number of Parameters                6
+          Mean                                              1.315
+          Standard Deviation                                5.036
+          P-Value                                          0.0000
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                            57.758
+          P-Value                                          0.0000
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -8693.569
+          2 Times the Loglikelihood Difference             58.958
+          Difference in the Number of Parameters                6
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                            5
+
+     WARNING:  OF THE 5 BOOTSTRAP DRAWS, 4 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE
+     OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 4-CLASS MODEL.
+     THIS MEANS THAT THE P-VALUE MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.
+     INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+     Beginning Time:  10:55:16
+        Ending Time:  10:55:28
+       Elapsed Time:  00:00:12
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

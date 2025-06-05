@@ -1,0 +1,24 @@
+TITLE:
+Class-5_Time2
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/lta/enum_t2/t2.dat"; 
+VARIABLE:
+NAMES = casenum cohort female minority ab39m ab39t ab39u ab39w ab39x ga33a ga33h
+     ga33i ga33k ga33l math_g7 math_g10 math_g12 op_know op_know2 siok siok2
+     sci_issues7 sci_irt7; 
+ MISSING=.;
+ !!! NOTE CHANGE: List of the five 10th grade science attitude indicators !!!
+categorical = ga33a-ga33l; 
+     usevar = ga33a-ga33l;
+    
+classes = c(5);
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 500 100;
+    processors=10;
+OUTPUT:
+sampstat residual tech11 tech14;
+PLOT:
+type = plot3; 
+    series = ga33a-ga33l(*);

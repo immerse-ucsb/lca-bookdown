@@ -1,0 +1,25 @@
+TITLE:
+Class-4_Time1
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/lta/enum_t1/t1.dat"; 
+VARIABLE:
+NAMES = casenum cohort female minority ab39m ab39t ab39u ab39w ab39x ga33a ga33h
+     ga33i ga33k ga33l math_g7 math_g10 math_g12 op_know op_know2 siok siok2
+     sci_issues7 sci_irt7; 
+ MISSING=.;
+ !!! NOTE CHANGE: List of the five 7th grade science attitude indicators !!!
+categorical = ab39m-ab39x; 
+     usevar = ab39m-ab39x;
+
+classes = c(4);
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    !!! NOTE CHANGE: The intial and final start values. Reduce to speed up estimation time. !!!
+    starts = 500 100;           
+    processors=10;
+OUTPUT:
+sampstat residual tech11 tech14;
+PLOT:
+type = plot3; 
+    series = ab39m-ab39x(*);

@@ -1,0 +1,2452 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/05/2025   2:07 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  ML Three Step LTA Model
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/lta/cov_model/three.dat";
+  VARIABLE:
+  NAMES = AB39M AB39T AB39U AB39W AB39X SCI_ISSU SCI_IRT7 FEMALE CPROB1_x CPROB2_x
+       CPROB3_x CPROB4_x N_T1 CASENUM GA33A GA33H GA33I GA33K GA33L CPROB1_y CPROB2_y
+       CPROB3_y CPROB4_y N_T2;
+   MISSING=.;
+   nominal=N_T1 N_T2;
+    usevar = N_T1 N_T2 SCI_IRT7 FEMALE;
+    classes = c1(4) c2(4);
+  ANALYSIS:
+  estimator = mlr;
+    type = mixture;
+    starts = 0;
+  MODEL:
+  %OVERALL%
+
+   c2 on c1;
+   c1 c2 on  SCI_IRT7 FEMALE;
+
+  MODEL c1:
+
+  %c1#1%
+  [N_T1#1@7.784];
+  [N_T1#2@4.199];
+  [N_T1#3@5.312];
+
+  %c1#2%
+  [N_T1#1@-2.228];
+  [N_T1#2@1.087];
+  [N_T1#3@-6.772];
+
+  %c1#3%
+  [N_T1#1@4.387];
+  [N_T1#2@-0.53];
+  [N_T1#3@6.07];
+
+  %c1#4%
+  [N_T1#1@-7];
+  [N_T1#2@-3.236];
+  [N_T1#3@-3.631];
+
+
+  MODEL c2:
+
+  %c2#1%
+  [N_T2#1@7.634];
+  [N_T2#2@3.788];
+  [N_T2#3@3.839];
+
+  %c2#2%
+  [N_T2#1@-1.1];
+  [N_T2#2@1.459];
+  [N_T2#3@-1.565];
+
+
+  %c2#3%
+  [N_T2#1@0.852];
+  [N_T2#2@0.243];
+  [N_T2#3@1.758];
+
+   %c2#4%
+  [N_T2#1@-10.205];
+  [N_T2#2@-2.435];
+  [N_T2#3@-5.33];
+  OUTPUT:
+  tech15;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  2220
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+ML Three Step LTA Model
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         872
+
+Number of dependent variables                                    2
+Number of independent variables                                  2
+Number of continuous latent variables                            0
+Number of categorical latent variables                           2
+
+Observed dependent variables
+
+  Unordered categorical (nominal)
+   N_T1        N_T2
+
+Observed independent variables
+   SCI_IRT7    FEMALE
+
+Categorical latent variables
+   C1          C2
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-03
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-03
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Parameterization                                             LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/lta/cov_model/three.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    N_T1
+      Category 1    0.312          272.000
+      Category 2    0.187          163.000
+      Category 3    0.202          176.000
+      Category 4    0.299          261.000
+    N_T2
+      Category 1    0.385          336.000
+      Category 2    0.180          157.000
+      Category 3    0.100           87.000
+      Category 4    0.335          292.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SCI_IRT7             52.997       0.096      28.690    0.11%      44.190     50.130     52.700
+             872.000      94.711      -0.473      82.630    0.11%      56.070     61.110
+     FEMALE                0.524      -0.096       0.000   47.59%       0.000      0.000      1.000
+             872.000       0.249      -1.991       1.000   52.41%       1.000      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       27
+
+Loglikelihood
+
+          H0 Value                       -2195.920
+          H0 Scaling Correction Factor      0.9931
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    4445.839
+          Bayesian (BIC)                  4574.651
+          Sample-Size Adjusted BIC        4488.905
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Variable    Class
+
+    C1             1       265.61670          0.30461
+                   2       202.57607          0.23231
+                   3       178.60567          0.20482
+                   4       225.20157          0.25826
+    C2             1       310.96921          0.35662
+                   2       154.59181          0.17728
+                   3       131.96748          0.15134
+                   4       274.47153          0.31476
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.666
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Categorical Latent Variables
+
+ C1#1     ON
+    SCI_IRT7           1.051      0.012      1.028      1.075
+    FEMALE             0.368      0.084      0.235      0.575
+
+ C1#2     ON
+    SCI_IRT7           0.988      0.013      0.962      1.014
+    FEMALE             0.598      0.170      0.342      1.044
+
+ C1#3     ON
+    SCI_IRT7           1.021      0.013      0.997      1.046
+    FEMALE             0.467      0.120      0.283      0.772
+
+ C2#1     ON
+    SCI_IRT7           1.057      0.014      1.031      1.085
+    FEMALE             1.011      0.228      0.650      1.572
+
+ C2#2     ON
+    SCI_IRT7           1.051      0.017      1.018      1.084
+    FEMALE             0.895      0.296      0.468      1.711
+
+ C2#3     ON
+    SCI_IRT7           1.022      0.018      0.988      1.057
+    FEMALE             1.078      0.345      0.575      2.019
+
+
+LATENT TRANSITION PROBABILITIES BASED ON THE ESTIMATED MODEL
+
+  C1 Classes (Rows) by C2 Classes (Columns)
+
+            1        2        3        4
+
+   1     0.528    0.124    0.141    0.206
+   2     0.338    0.355    0.081    0.226
+   3     0.368    0.144    0.268    0.220
+   4     0.150    0.116    0.142    0.592
+
+
+TRANSITION PROBABILITY ODDS
+
+
+     EVALUATED AT THE SAMPLE MEAN FOR ALL COVARIATES
+
+     TRANSITION TABLE ODDS AND 95% CONFIDENCE INTERVALS FOR C1 TO C2
+        1.000(1.000,1.000)   0.237(0.128,0.436)   0.267(0.133,0.536)   0.369(0.236,0.576)
+        0.945(0.564,1.583)   1.000(1.000,1.000)   0.226(0.074,0.687)   0.597(0.292,1.223)
+        1.353(0.699,2.619)   0.534(0.211,1.354)   1.000(1.000,1.000)   0.785(0.392,1.571)
+        0.240(0.127,0.456)   0.189(0.076,0.474)   0.243(0.128,0.460)   1.000(1.000,1.000)
+
+
+COVARIATE EFFECTS ON TRANSITION PROBABILITY ODDS RATIOS
+
+     EFFECT OF SCI_IRT7
+
+     TRANSITION TABLE ODDS RATIO AND 95% CONFIDENCE INTERVALS FOR C1 TO C2
+        1.000(1.000,1.000)   0.993(0.968,1.020)   0.967(0.931,1.003)   0.946(0.922,0.970)
+        1.007(0.980,1.033)   1.000(1.000,1.000)   0.973(0.936,1.012)   0.952(0.922,0.982)
+        1.035(0.997,1.074)   1.028(0.988,1.069)   1.000(1.000,1.000)   0.978(0.946,1.012)
+        1.057(1.031,1.085)   1.051(1.018,1.084)   1.022(0.988,1.057)   1.000(1.000,1.000)
+
+     EFFECT OF FEMALE
+
+     TRANSITION TABLE ODDS RATIO AND 95% CONFIDENCE INTERVALS FOR C1 TO C2
+        1.000(1.000,1.000)   0.885(0.512,1.532)   1.066(0.553,2.056)   0.989(0.636,1.538)
+        1.130(0.653,1.954)   1.000(1.000,1.000)   1.204(0.547,2.652)   1.118(0.585,2.136)
+        0.938(0.486,1.809)   0.830(0.377,1.828)   1.000(1.000,1.000)   0.928(0.495,1.738)
+        1.011(0.650,1.572)   0.895(0.468,1.711)   1.078(0.575,2.019)   1.000(1.000,1.000)
+
+
+C-SPECIFIC CLASSIFICATION RESULTS
+
+Classification Quality for C1
+
+     Entropy                         0.689
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.876    0.020    0.103    0.001
+    2   0.042    0.895    0.001    0.062
+    3   0.115    0.000    0.852    0.033
+    4   0.000    0.185    0.001    0.813
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.897    0.026    0.076    0.000
+    2   0.027    0.738    0.000    0.235
+    3   0.157    0.001    0.840    0.002
+    4   0.001    0.046    0.025    0.928
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      7.865    4.335    5.398    0.000
+    2     -2.176    1.143   -6.728    0.000
+    3      4.435   -0.428    6.111    0.000
+    4     -6.991   -3.007   -3.594    0.000
+
+Classification Quality for C2
+
+     Entropy                         0.634
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.885    0.026    0.089    0.000
+    2   0.040    0.723    0.101    0.135
+    3   0.077    0.062    0.847    0.014
+    4   0.000    0.091    0.043    0.866
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.958    0.020    0.022    0.000
+    2   0.057    0.736    0.035    0.172
+    3   0.227    0.120    0.558    0.095
+    4   0.000    0.077    0.004    0.919
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      7.640    3.793    3.844    0.000
+    2     -1.099    1.457   -1.583    0.000
+    3      0.866    0.232    1.767    0.000
+    4    -10.169   -2.479   -5.336    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Parameters for Class-specific Model Parts of C1
+
+Latent Class C1#1
+
+ Means
+    N_T1#1             7.784      0.000    999.000    999.000
+    N_T1#2             4.199      0.000    999.000    999.000
+    N_T1#3             5.312      0.000    999.000    999.000
+
+Latent Class C1#2
+
+ Means
+    N_T1#1            -2.228      0.000    999.000    999.000
+    N_T1#2             1.087      0.000    999.000    999.000
+    N_T1#3            -6.772      0.000    999.000    999.000
+
+Latent Class C1#3
+
+ Means
+    N_T1#1             4.387      0.000    999.000    999.000
+    N_T1#2            -0.530      0.000    999.000    999.000
+    N_T1#3             6.070      0.000    999.000    999.000
+
+Latent Class C1#4
+
+ Means
+    N_T1#1            -7.000      0.000    999.000    999.000
+    N_T1#2            -3.236      0.000    999.000    999.000
+    N_T1#3            -3.631      0.000    999.000    999.000
+
+Parameters for Class-specific Model Parts of C2
+
+Latent Class C2#1
+
+ Means
+    N_T2#1             7.634      0.000    999.000    999.000
+    N_T2#2             3.788      0.000    999.000    999.000
+    N_T2#3             3.839      0.000    999.000    999.000
+
+Latent Class C2#2
+
+ Means
+    N_T2#1            -1.100      0.000    999.000    999.000
+    N_T2#2             1.459      0.000    999.000    999.000
+    N_T2#3            -1.565      0.000    999.000    999.000
+
+Latent Class C2#3
+
+ Means
+    N_T2#1             0.852      0.000    999.000    999.000
+    N_T2#2             0.243      0.000    999.000    999.000
+    N_T2#3             1.758      0.000    999.000    999.000
+
+Latent Class C2#4
+
+ Means
+    N_T2#1           -10.205      0.000    999.000    999.000
+    N_T2#2            -2.435      0.000    999.000    999.000
+    N_T2#3            -5.330      0.000    999.000    999.000
+
+Categorical Latent Variables
+
+ C2#1     ON
+    C1#1               2.423      0.393      6.158      0.000
+    C1#2               1.884      0.515      3.657      0.000
+    C1#3               1.970      0.443      4.446      0.000
+
+ C2#2     ON
+    C1#1               1.219      0.606      2.011      0.044
+    C1#2               2.179      0.657      3.315      0.001
+    C1#3               1.279      0.674      1.898      0.058
+
+ C2#3     ON
+    C1#1               1.093      0.503      2.171      0.030
+    C1#2               0.444      0.719      0.618      0.537
+    C1#3               1.659      0.490      3.384      0.001
+
+ C1#1       ON
+    SCI_IRT7           0.050      0.011      4.371      0.000
+    FEMALE            -1.001      0.228     -4.388      0.000
+
+ C1#2       ON
+    SCI_IRT7          -0.012      0.013     -0.933      0.351
+    FEMALE            -0.515      0.285     -1.807      0.071
+
+ C1#3       ON
+    SCI_IRT7           0.021      0.012      1.680      0.093
+    FEMALE            -0.761      0.256     -2.971      0.003
+
+ C2#1       ON
+    SCI_IRT7           0.056      0.013      4.305      0.000
+    FEMALE             0.011      0.225      0.048      0.962
+
+ C2#2       ON
+    SCI_IRT7           0.049      0.016      3.071      0.002
+    FEMALE            -0.111      0.331     -0.336      0.737
+
+ C2#3       ON
+    SCI_IRT7           0.022      0.017      1.277      0.202
+    FEMALE             0.075      0.320      0.234      0.815
+
+ Intercepts
+    C1#1              -1.978      0.667     -2.963      0.003
+    C1#2               0.843      0.731      1.152      0.249
+    C1#3              -0.871      0.691     -1.260      0.208
+    C2#1              -4.394      0.841     -5.224      0.000
+    C2#2              -4.221      0.918     -4.595      0.000
+    C2#3              -2.615      0.994     -2.629      0.009
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.857E-06
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class Pattern 1 1
+
+ N_T1
+    Category 1         0.899      0.000   5452.669      0.000
+    Category 2         0.025      0.000   5452.669      0.000
+    Category 3         0.076      0.000   5452.669      0.000
+    Category 4         0.000      0.000      2.041      0.041
+ N_T2
+    Category 1         0.958      0.000   4405.310      0.000
+    Category 2         0.020      0.000   4405.310      0.000
+    Category 3         0.022      0.000   4405.310      0.000
+    Category 4         0.000      0.000      2.041      0.041
+
+Latent Class Pattern 1 2
+
+ N_T1
+    Category 1         0.899      0.000   5452.669      0.000
+    Category 2         0.025      0.000   5452.669      0.000
+    Category 3         0.076      0.000   5452.669      0.000
+    Category 4         0.000      0.000      2.041      0.041
+ N_T2
+    Category 1         0.057      0.005     11.924      0.000
+    Category 2         0.736      0.062     11.924      0.000
+    Category 3         0.036      0.003     11.924      0.000
+    Category 4         0.171      0.070      2.462      0.014
+
+Latent Class Pattern 1 3
+
+ N_T1
+    Category 1         0.899      0.000   5452.669      0.000
+    Category 2         0.025      0.000   5452.669      0.000
+    Category 3         0.076      0.000   5452.669      0.000
+    Category 4         0.000      0.000      2.041      0.041
+ N_T2
+    Category 1         0.225      0.011     21.262      0.000
+    Category 2         0.122      0.006     21.262      0.000
+    Category 3         0.557      0.026     21.262      0.000
+    Category 4         0.096      0.043      2.257      0.024
+
+Latent Class Pattern 1 4
+
+ N_T1
+    Category 1         0.899      0.000   5452.669      0.000
+    Category 2         0.025      0.000   5452.669      0.000
+    Category 3         0.076      0.000   5452.669      0.000
+    Category 4         0.000      0.000      2.041      0.041
+ N_T2
+    Category 1         0.000      0.000      2.229      0.026
+    Category 2         0.080      0.036      2.229      0.026
+    Category 3         0.004      0.002      2.229      0.026
+    Category 4         0.915      0.038     24.105      0.000
+
+Latent Class Pattern 2 1
+
+ N_T1
+    Category 1         0.026      0.003      8.313      0.000
+    Category 2         0.728      0.088      8.313      0.000
+    Category 3         0.000      0.000      8.313      0.000
+    Category 4         0.245      0.091      2.704      0.007
+ N_T2
+    Category 1         0.958      0.000   4405.310      0.000
+    Category 2         0.020      0.000   4405.310      0.000
+    Category 3         0.022      0.000   4405.310      0.000
+    Category 4         0.000      0.000      2.041      0.041
+
+Latent Class Pattern 2 2
+
+ N_T1
+    Category 1         0.026      0.003      8.313      0.000
+    Category 2         0.728      0.088      8.313      0.000
+    Category 3         0.000      0.000      8.313      0.000
+    Category 4         0.245      0.091      2.704      0.007
+ N_T2
+    Category 1         0.057      0.005     11.924      0.000
+    Category 2         0.736      0.062     11.924      0.000
+    Category 3         0.036      0.003     11.924      0.000
+    Category 4         0.171      0.070      2.462      0.014
+
+Latent Class Pattern 2 3
+
+ N_T1
+    Category 1         0.026      0.003      8.313      0.000
+    Category 2         0.728      0.088      8.313      0.000
+    Category 3         0.000      0.000      8.313      0.000
+    Category 4         0.245      0.091      2.704      0.007
+ N_T2
+    Category 1         0.225      0.011     21.262      0.000
+    Category 2         0.122      0.006     21.262      0.000
+    Category 3         0.557      0.026     21.262      0.000
+    Category 4         0.096      0.043      2.257      0.024
+
+Latent Class Pattern 2 4
+
+ N_T1
+    Category 1         0.026      0.003      8.313      0.000
+    Category 2         0.728      0.088      8.313      0.000
+    Category 3         0.000      0.000      8.313      0.000
+    Category 4         0.245      0.091      2.704      0.007
+ N_T2
+    Category 1         0.000      0.000      2.229      0.026
+    Category 2         0.080      0.036      2.229      0.026
+    Category 3         0.004      0.002      2.229      0.026
+    Category 4         0.915      0.038     24.105      0.000
+
+Latent Class Pattern 3 1
+
+ N_T1
+    Category 1         0.156      0.000   1050.174      0.000
+    Category 2         0.001      0.000   1050.174      0.000
+    Category 3         0.841      0.001   1050.174      0.000
+    Category 4         0.002      0.001      2.044      0.041
+ N_T2
+    Category 1         0.958      0.000   4405.310      0.000
+    Category 2         0.020      0.000   4405.310      0.000
+    Category 3         0.022      0.000   4405.310      0.000
+    Category 4         0.000      0.000      2.041      0.041
+
+Latent Class Pattern 3 2
+
+ N_T1
+    Category 1         0.156      0.000   1050.174      0.000
+    Category 2         0.001      0.000   1050.174      0.000
+    Category 3         0.841      0.001   1050.174      0.000
+    Category 4         0.002      0.001      2.044      0.041
+ N_T2
+    Category 1         0.057      0.005     11.924      0.000
+    Category 2         0.736      0.062     11.924      0.000
+    Category 3         0.036      0.003     11.924      0.000
+    Category 4         0.171      0.070      2.462      0.014
+
+Latent Class Pattern 3 3
+
+ N_T1
+    Category 1         0.156      0.000   1050.174      0.000
+    Category 2         0.001      0.000   1050.174      0.000
+    Category 3         0.841      0.001   1050.174      0.000
+    Category 4         0.002      0.001      2.044      0.041
+ N_T2
+    Category 1         0.225      0.011     21.262      0.000
+    Category 2         0.122      0.006     21.262      0.000
+    Category 3         0.557      0.026     21.262      0.000
+    Category 4         0.096      0.043      2.257      0.024
+
+Latent Class Pattern 3 4
+
+ N_T1
+    Category 1         0.156      0.000   1050.174      0.000
+    Category 2         0.001      0.000   1050.174      0.000
+    Category 3         0.841      0.001   1050.174      0.000
+    Category 4         0.002      0.001      2.044      0.041
+ N_T2
+    Category 1         0.000      0.000      2.229      0.026
+    Category 2         0.080      0.036      2.229      0.026
+    Category 3         0.004      0.002      2.229      0.026
+    Category 4         0.915      0.038     24.105      0.000
+
+Latent Class Pattern 4 1
+
+ N_T1
+    Category 1         0.001      0.000      2.177      0.030
+    Category 2         0.037      0.017      2.177      0.030
+    Category 3         0.025      0.011      2.177      0.030
+    Category 4         0.937      0.029     32.622      0.000
+ N_T2
+    Category 1         0.958      0.000   4405.310      0.000
+    Category 2         0.020      0.000   4405.310      0.000
+    Category 3         0.022      0.000   4405.310      0.000
+    Category 4         0.000      0.000      2.041      0.041
+
+Latent Class Pattern 4 2
+
+ N_T1
+    Category 1         0.001      0.000      2.177      0.030
+    Category 2         0.037      0.017      2.177      0.030
+    Category 3         0.025      0.011      2.177      0.030
+    Category 4         0.937      0.029     32.622      0.000
+ N_T2
+    Category 1         0.057      0.005     11.924      0.000
+    Category 2         0.736      0.062     11.924      0.000
+    Category 3         0.036      0.003     11.924      0.000
+    Category 4         0.171      0.070      2.462      0.014
+
+Latent Class Pattern 4 3
+
+ N_T1
+    Category 1         0.001      0.000      2.177      0.030
+    Category 2         0.037      0.017      2.177      0.030
+    Category 3         0.025      0.011      2.177      0.030
+    Category 4         0.937      0.029     32.622      0.000
+ N_T2
+    Category 1         0.225      0.011     21.262      0.000
+    Category 2         0.122      0.006     21.262      0.000
+    Category 3         0.557      0.026     21.262      0.000
+    Category 4         0.096      0.043      2.257      0.024
+
+Latent Class Pattern 4 4
+
+ N_T1
+    Category 1         0.001      0.000      2.177      0.030
+    Category 2         0.037      0.017      2.177      0.030
+    Category 3         0.025      0.011      2.177      0.030
+    Category 4         0.937      0.029     32.622      0.000
+ N_T2
+    Category 1         0.000      0.000      2.229      0.026
+    Category 2         0.080      0.036      2.229      0.026
+    Category 3         0.004      0.002      2.229      0.026
+    Category 4         0.915      0.038     24.105      0.000
+
+
+TECHNICAL 15 OUTPUT
+
+
+     ESTIMATED CONDITIONAL PROBABILITIES FOR THE LATENT CLASS VARIABLES
+     EVALUATED AT THE SAMPLE MEAN FOR ALL COVARIATES
+
+     P(C1=1)=0.296
+     P(C1=2)=0.234
+     P(C1=3)=0.214
+     P(C1=4)=0.255
+
+
+     P(C2=1|C1=1)=0.534
+     P(C2=2|C1=1)=0.126
+     P(C2=3|C1=1)=0.143
+     P(C2=4|C1=1)=0.197
+
+
+     P(C2=1|C1=2)=0.341
+     P(C2=2|C1=2)=0.361
+     P(C2=3|C1=2)=0.082
+     P(C2=4|C1=2)=0.216
+
+
+     P(C2=1|C1=3)=0.368
+     P(C2=2|C1=3)=0.145
+     P(C2=3|C1=3)=0.272
+     P(C2=4|C1=3)=0.214
+
+
+     P(C2=1|C1=4)=0.144
+     P(C2=2|C1=4)=0.113
+     P(C2=3|C1=4)=0.145
+     P(C2=4|C1=4)=0.598
+
+
+
+     ESTIMATED MARGINAL PROBABILITIES FOR THE LATENT CLASS VARIABLES
+     EVALUATED AT THE SAMPLE MEAN FOR ALL COVARIATES
+
+     P(C2=1)=0.354
+     P(C2=2)=0.182
+     P(C2=3)=0.157
+     P(C2=4)=0.307
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Pattern
+
+    1  1        147.63819          0.16931
+    1  2         34.52926          0.03960
+    1  3         35.18703          0.04035
+    1  4         48.26222          0.05535
+    2  1         65.50739          0.07512
+    2  2         69.75039          0.07999
+    2  3         17.16010          0.01968
+    2  4         50.15819          0.05752
+    3  1         66.32349          0.07606
+    3  2         26.04624          0.02987
+    3  3         47.53621          0.05451
+    3  4         38.69972          0.04438
+    4  1         31.50011          0.03612
+    4  2         24.26593          0.02783
+    4  3         32.08414          0.03679
+    4  4        137.35139          0.15751
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+  Latent Class
+    Pattern
+
+    1  1        147.41947          0.16906
+    1  2         34.44166          0.03950
+    1  3         35.15101          0.04031
+    1  4         48.60458          0.05574
+    2  1         65.48039          0.07509
+    2  2         69.68580          0.07991
+    2  3         17.13629          0.01965
+    2  4         50.27498          0.05765
+    3  1         66.32920          0.07607
+    3  2         26.06214          0.02989
+    3  3         47.53482          0.05451
+    3  4         38.67952          0.04436
+    4  1         31.18592          0.03576
+    4  2         24.11362          0.02765
+    4  3         32.25312          0.03699
+    4  4        137.64746          0.15785
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+  Latent Class
+    Variable    Class
+
+    C1             1       265.61673          0.30461
+                   2       202.57746          0.23231
+                   3       178.60568          0.20482
+                   4       225.20013          0.25826
+    C2             1       310.41498          0.35598
+                   2       154.30323          0.17695
+                   3       132.07524          0.15146
+                   4       275.20655          0.31560
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN
+
+Class Counts and Proportions
+
+  Latent Class
+    Pattern
+
+    1  1              149          0.17087
+    1  2               38          0.04358
+    1  3               27          0.03096
+    1  4               58          0.06651
+    2  1               60          0.06881
+    2  2               46          0.05275
+    2  3               11          0.01261
+    2  4               50          0.05734
+    3  1               76          0.08716
+    3  2               29          0.03326
+    3  3               27          0.03096
+    3  4               44          0.05046
+    4  1               51          0.05849
+    4  2               44          0.05046
+    4  3               22          0.02523
+    4  4              140          0.16055
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN
+
+  Latent Class
+    Variable    Class
+
+    C1             1             272          0.31193
+                   2             167          0.19151
+                   3             176          0.20183
+                   4             257          0.29472
+    C2             1             336          0.38532
+                   2             157          0.18005
+                   3              87          0.09977
+                   4             292          0.33486
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 1 2
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 1 3
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 1 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 2 1
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 2 2
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 2 3
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 2 4
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 3 1
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 3 2
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 1 1 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 1 3
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 1 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 2 1
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       0.003      0.000      0.002      0.003
+    Category = 2     133.574     42.423     71.676    248.923
+    Category = 3       1.687      0.146      1.423      1.999
+    Category = 4     445.525      0.000    445.524    445.524
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 2 2
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 2 3
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 2 4
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 3 1
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       0.003      0.000      0.002      0.003
+    Category = 2     133.574     42.423     71.676    248.923
+    Category = 3       1.687      0.146      1.423      1.999
+    Category = 4     445.525      0.000    445.524    445.524
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 3 2
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.003      0.000      0.002      0.003
+    Category = 2     133.574     42.423     71.676    248.923
+    Category = 3       1.687      0.146      1.423      1.999
+    Category = 4     445.525      0.000    445.524    445.524
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 1 2 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 1 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 2 1
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       0.013      0.001      0.012      0.014
+    Category = 2       6.676      0.356      6.013      7.412
+    Category = 3      57.074      6.042     46.380     70.234
+    Category = 4     229.076      0.000    229.076    229.076
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 2 2
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       4.806      0.136      4.547      5.079
+    Category = 2       0.050      0.013      0.030      0.084
+    Category = 3      33.840      0.647     32.596     35.132
+    Category = 4       0.514      0.000      0.514      0.514
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 2 3
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 2 4
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 3 1
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       0.013      0.001      0.012      0.014
+    Category = 2       6.676      0.356      6.013      7.412
+    Category = 3      57.074      6.042     46.380     70.234
+    Category = 4     229.076      0.000    229.076    229.076
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 3 2
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       4.806      0.136      4.547      5.079
+    Category = 2       0.050      0.013      0.030      0.084
+    Category = 3      33.840      0.647     32.596     35.132
+    Category = 4       0.514      0.000      0.514      0.514
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.013      0.001      0.012      0.014
+    Category = 2       6.676      0.356      6.013      7.412
+    Category = 3      57.074      6.042     46.380     70.234
+    Category = 4     229.076      0.000    229.076    229.076
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       4.806      0.136      4.547      5.079
+    Category = 2       0.050      0.013      0.030      0.084
+    Category = 3      33.840      0.647     32.596     35.132
+    Category = 4       0.514      0.000      0.514      0.514
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 3 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 2 1
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       4.174      2.035      1.605     10.851
+    Category = 3       0.202      0.091      0.084      0.489
+    Category = 4   23334.533      0.000  23334.531  23334.531
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 2 2
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       0.001      0.000      0.000      0.001
+    Category = 2       0.031      0.005      0.022      0.044
+    Category = 3       0.120      0.044      0.059      0.245
+    Category = 4      52.375      0.000     52.375     52.375
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 2 3
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       0.625      0.271      0.267      1.464
+    Category = 3       0.004      0.001      0.002      0.007
+    Category = 4     101.864      0.000    101.864    101.864
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 2 4
+
+ N_T1
+    Category = 1     327.038     39.814    257.614    415.171
+    Category = 2       0.010      0.004      0.004      0.023
+    Category = 3     291.967     35.072    230.719    369.474
+    Category = 4       0.001      0.000      0.001      0.001
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 3 1
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       4.174      2.035      1.605     10.851
+    Category = 3       0.202      0.091      0.084      0.489
+    Category = 4   23334.533      0.000  23334.531  23334.531
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 3 2
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       0.001      0.000      0.000      0.001
+    Category = 2       0.031      0.005      0.022      0.044
+    Category = 3       0.120      0.044      0.059      0.245
+    Category = 4      52.375      0.000     52.375     52.375
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       0.625      0.271      0.267      1.464
+    Category = 3       0.004      0.001      0.002      0.007
+    Category = 4     101.864      0.000    101.864    101.864
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1      47.983      0.033     47.919     48.048
+    Category = 2      22.330      0.017     22.297     22.364
+    Category = 3       0.016      0.000      0.015      0.016
+    Category = 4       0.192      0.000      0.192      0.192
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       4.174      2.035      1.605     10.851
+    Category = 3       0.202      0.091      0.084      0.489
+    Category = 4   23334.533      0.000  23334.531  23334.531
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.001      0.000      0.000      0.001
+    Category = 2       0.031      0.005      0.022      0.044
+    Category = 3       0.120      0.044      0.059      0.245
+    Category = 4      52.375      0.000     52.375     52.375
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       0.625      0.271      0.267      1.464
+    Category = 3       0.004      0.001      0.002      0.007
+    Category = 4     101.864      0.000    101.864    101.864
+
+Latent Class Pattern 1 4 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1   10383.007   4755.473   4231.175  25479.172
+    Category = 2       0.668      0.319      0.262      1.701
+    Category = 3       3.224      1.518      1.281      8.115
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 2 2
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 2 3
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 2 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 3 1
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 3 2
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 2 1 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 2 3
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 2 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 3 1
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       0.003      0.000      0.002      0.003
+    Category = 2     133.574     42.423     71.676    248.923
+    Category = 3       1.687      0.146      1.423      1.999
+    Category = 4     445.525      0.000    445.524    445.524
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 3 2
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       0.003      0.000      0.002      0.003
+    Category = 2     133.574     42.423     71.676    248.923
+    Category = 3       1.687      0.146      1.423      1.999
+    Category = 4     445.525      0.000    445.524    445.524
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 2 2 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 2 3 Compared to Latent Class Pattern 2 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Latent Class Pattern 2 3 Compared to Latent Class Pattern 3 1
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       0.013      0.001      0.012      0.014
+    Category = 2       6.676      0.356      6.013      7.412
+    Category = 3      57.074      6.042     46.380     70.234
+    Category = 4     229.076      0.000    229.076    229.076
+
+Latent Class Pattern 2 3 Compared to Latent Class Pattern 3 2
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       4.806      0.136      4.547      5.079
+    Category = 2       0.050      0.013      0.030      0.084
+    Category = 3      33.840      0.647     32.596     35.132
+    Category = 4       0.514      0.000      0.514      0.514
+
+Latent Class Pattern 2 3 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 2 3 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Latent Class Pattern 2 3 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       0.013      0.001      0.012      0.014
+    Category = 2       6.676      0.356      6.013      7.412
+    Category = 3      57.074      6.042     46.380     70.234
+    Category = 4     229.076      0.000    229.076    229.076
+
+Latent Class Pattern 2 3 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       4.806      0.136      4.547      5.079
+    Category = 2       0.050      0.013      0.030      0.084
+    Category = 3      33.840      0.647     32.596     35.132
+    Category = 4       0.514      0.000      0.514      0.514
+
+Latent Class Pattern 2 3 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 2 3 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Latent Class Pattern 2 4 Compared to Latent Class Pattern 3 1
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       4.174      2.035      1.605     10.851
+    Category = 3       0.202      0.091      0.084      0.489
+    Category = 4   23334.533      0.000  23334.531  23334.531
+
+Latent Class Pattern 2 4 Compared to Latent Class Pattern 3 2
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       0.001      0.000      0.000      0.001
+    Category = 2       0.031      0.005      0.022      0.044
+    Category = 3       0.120      0.044      0.059      0.245
+    Category = 4      52.375      0.000     52.375     52.375
+
+Latent Class Pattern 2 4 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       0.625      0.271      0.267      1.464
+    Category = 3       0.004      0.001      0.002      0.007
+    Category = 4     101.864      0.000    101.864    101.864
+
+Latent Class Pattern 2 4 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1       0.147      0.018      0.115      0.187
+    Category = 2    2335.590   1029.998    984.030   5543.506
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4     167.087      0.000    167.087    167.087
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 2 4 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       4.174      2.035      1.605     10.851
+    Category = 3       0.202      0.091      0.084      0.489
+    Category = 4   23334.533      0.000  23334.531  23334.531
+
+Latent Class Pattern 2 4 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       0.001      0.000      0.000      0.001
+    Category = 2       0.031      0.005      0.022      0.044
+    Category = 3       0.120      0.044      0.059      0.245
+    Category = 4      52.375      0.000     52.375     52.375
+
+Latent Class Pattern 2 4 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       0.625      0.271      0.267      1.464
+    Category = 3       0.004      0.001      0.002      0.007
+    Category = 4     101.864      0.000    101.864    101.864
+
+Latent Class Pattern 2 4 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1      31.749     10.676     16.424     61.370
+    Category = 2      69.873      2.449     65.233     74.842
+    Category = 3       0.011      0.004      0.006      0.022
+    Category = 4       0.022      0.000      0.022      0.022
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 3 1 Compared to Latent Class Pattern 3 2
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 3 1 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 3 1 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 3 1 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 3 1 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 3 1 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 3 1 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 3 2 Compared to Latent Class Pattern 3 3
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 3 2 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 3 2 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.003      0.000      0.002      0.003
+    Category = 2     133.574     42.423     71.676    248.923
+    Category = 3       1.687      0.146      1.423      1.999
+    Category = 4     445.525      0.000    445.524    445.524
+
+Latent Class Pattern 3 2 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 3 2 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 3 2 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 3 3 Compared to Latent Class Pattern 3 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Latent Class Pattern 3 3 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.013      0.001      0.012      0.014
+    Category = 2       6.676      0.356      6.013      7.412
+    Category = 3      57.074      6.042     46.380     70.234
+    Category = 4     229.076      0.000    229.076    229.076
+
+Latent Class Pattern 3 3 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       4.806      0.136      4.547      5.079
+    Category = 2       0.050      0.013      0.030      0.084
+    Category = 3      33.840      0.647     32.596     35.132
+    Category = 4       0.514      0.000      0.514      0.514
+
+Latent Class Pattern 3 3 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 3 3 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Latent Class Pattern 3 4 Compared to Latent Class Pattern 4 1
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       4.174      2.035      1.605     10.851
+    Category = 3       0.202      0.091      0.084      0.489
+    Category = 4   23334.533      0.000  23334.531  23334.531
+
+Latent Class Pattern 3 4 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.001      0.000      0.000      0.001
+    Category = 2       0.031      0.005      0.022      0.044
+    Category = 3       0.120      0.044      0.059      0.245
+    Category = 4      52.375      0.000     52.375     52.375
+
+Latent Class Pattern 3 4 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       0.000      0.000      0.000      0.000
+    Category = 2       0.625      0.271      0.267      1.464
+    Category = 3       0.004      0.001      0.002      0.007
+    Category = 4     101.864      0.000    101.864    101.864
+
+Latent Class Pattern 3 4 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1     216.388     99.255     88.062    531.712
+    Category = 2       0.030      0.014      0.012      0.076
+    Category = 3     207.240     96.397     83.278    515.721
+    Category = 4       0.000      0.000      0.000      0.000
+ N_T2
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+
+Latent Class Pattern 4 1 Compared to Latent Class Pattern 4 2
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1     373.439     31.214    317.009    439.914
+    Category = 2       0.007      0.002      0.004      0.014
+    Category = 3       0.593      0.051      0.500      0.703
+    Category = 4       0.002      0.000      0.002      0.002
+
+Latent Class Pattern 4 1 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1      77.707      4.300     69.719     86.609
+    Category = 2       0.150      0.008      0.135      0.166
+    Category = 3       0.018      0.002      0.014      0.022
+    Category = 4       0.004      0.000      0.004      0.004
+
+Latent Class Pattern 4 1 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.240      0.117      0.092      0.623
+    Category = 3       4.940      2.225      2.044     11.942
+    Category = 4       0.000      0.000      0.000      0.000
+
+Latent Class Pattern 4 2 Compared to Latent Class Pattern 4 3
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1       0.208      0.006      0.197      0.220
+    Category = 2      20.009      5.287     11.921     33.585
+    Category = 3       0.030      0.001      0.028      0.031
+    Category = 4       1.945      0.000      1.945      1.945
+
+Latent Class Pattern 4 2 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1    1784.183    641.730    881.609   3610.793
+    Category = 2      32.003      5.436     22.940     44.646
+    Category = 3       8.332      3.030      4.085     16.993
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class Pattern 4 3 Compared to Latent Class Pattern 4 4
+
+ N_T1
+    Category = 1       1.000      0.000      1.000      1.000
+    Category = 2       1.000      0.000      1.000      1.000
+    Category = 3       1.000      0.000      1.000      1.000
+    Category = 4       1.000      0.000      1.000      1.000
+ N_T2
+    Category = 1    8574.362   3326.205   4008.610  18340.443
+    Category = 2       1.599      0.694      0.683      3.745
+    Category = 3     281.953     97.133    143.527    553.887
+    Category = 4       0.010      0.000      0.010      0.010
+
+Available post-processing tools
+
+  Conditional probabilities and odds for the latent class variables
+
+     Beginning Time:  14:07:55
+        Ending Time:  14:07:56
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

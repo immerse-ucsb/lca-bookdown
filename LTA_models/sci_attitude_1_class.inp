@@ -1,0 +1,80 @@
+TITLE:
+4 classes
+DATA:
+FILE = "data_sci_attitude_c8390e11227409e0fee9b009b3776d70.dat"; 
+VARIABLE:
+NAMES = ab39m ab39t ab39u ab39w ab39x ga33a ga33h ga33i ga33k ga33l; 
+ MISSING=.;
+ CATEGORICAL = ab39m-ab39x ga33a-ga33l;CLASSES = c1(4) c2(4);
+
+ANALYSIS:
+TYPE = mixture;
+PROCESSORS IS 10; STARTS = 500 100; PARAMETERIZATION = PROBABILITY;
+MODEL:
+%OVERALL%
+c2 ON c1;
+
+MODEL c1:
+%c1#1%
+[ab39m$1] (a1);
+[ab39t$1] (b1);
+[ab39u$1] (c1);
+[ab39w$1] (d1);
+[ab39x$1] (e1);
+
+%c1#2%
+[ab39m$1] (a2);
+[ab39t$1] (b2);
+[ab39u$1] (c2);
+[ab39w$1] (d2);
+[ab39x$1] (e2);
+
+%c1#3%
+[ab39m$1] (a3);
+[ab39t$1] (b3);
+[ab39u$1] (c3);
+[ab39w$1] (d3);
+[ab39x$1] (e3);
+
+%c1#4%
+[ab39m$1] (a4);
+[ab39t$1] (b4);
+[ab39u$1] (c4);
+[ab39w$1] (d4);
+[ab39x$1] (e4);
+
+MODEL c2:
+%c2#1%
+[ga33a$1] (a1);
+[ga33h$1] (b1);
+[ga33i$1] (c1);
+[ga33k$1] (d1);
+[ga33l$1] (e1);
+
+%c2#2%
+[ga33a$1] (a2);
+[ga33h$1] (b2);
+[ga33i$1] (c2);
+[ga33k$1] (d2);
+[ga33l$1] (e2);
+
+%c2#3%
+[ga33a$1] (a3);
+[ga33h$1] (b3);
+[ga33i$1] (c3);
+[ga33k$1] (d3);
+[ga33l$1] (e3);
+
+%c2#4%
+[ga33a$1] (a4);
+[ga33h$1] (b4);
+[ga33i$1] (c4);
+[ga33k$1] (d4);
+[ga33l$1] (e4);
+
+
+OUTPUT:
+TECH11 TECH14;
+SAVEDATA:
+FILE IS sci_attitude_4.dat;
+SAVE = cprobabilities;

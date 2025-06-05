@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>11 Estimate Latent Transition Analysis (LTA) Model | Mixture Modeling with MplusAutomation</title>
+<meta name="author" content="Dina Arch">
+<meta name="description" content='11.1 Estimate Invariant LTA Model  lta_inv &lt;- mplusObject(   TITLE =   "Invariant LTA",    VARIABLE =    "usev = ab39m ab39t ab39u ab39w ab39x ! 7th grade indicators       ga33a ga33h ga33i ga33k...'>
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="11 Estimate Latent Transition Analysis (LTA) Model | Mixture Modeling with MplusAutomation">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/estimate-latent-transition-analysis-lta-model.html">
+<meta property="og:description" content='11.1 Estimate Invariant LTA Model  lta_inv &lt;- mplusObject(   TITLE =   "Invariant LTA",    VARIABLE =    "usev = ab39m ab39t ab39u ab39w ab39x ! 7th grade indicators       ga33a ga33h ga33i ga33k...'>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="11 Estimate Latent Transition Analysis (LTA) Model | Mixture Modeling with MplusAutomation">
+<meta name="twitter:description" content='11.1 Estimate Invariant LTA Model  lta_inv &lt;- mplusObject(   TITLE =   "Invariant LTA",    VARIABLE =    "usev = ab39m ab39t ab39u ab39w ab39x ! 7th grade indicators       ga33a ga33h ga33i ga33k...'>
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Mixture Modeling with MplusAutomation</a></li>
+<li><a class="" href="introduction-to-r-and-rstudio.html"><span class="header-section-number">1</span> Introduction to R and RStudio</a></li>
+<li><a class="" href="introduction-to-mplusautomation.html"><span class="header-section-number">2</span> Introduction to MplusAutomation</a></li>
+<li><a class="" href="lca-enumeration.html"><span class="header-section-number">3</span> LCA Enumeration</a></li>
+<li><a class="" href="lpa-enumeration.html"><span class="header-section-number">4</span> LPA Enumeration</a></li>
+<li><a class="" href="including-auxiliary-variables.html"><span class="header-section-number">5</span> Including Auxiliary Variables</a></li>
+<li><a class="" href="polytomous-lca.html"><span class="header-section-number">6</span> Polytomous LCA</a></li>
+<li><a class="" href="lca-moderation.html"><span class="header-section-number">7</span> LCA Moderation</a></li>
+<li><a class="" href="latent-transition-analysis.html"><span class="header-section-number">8</span> Latent Transition Analysis</a></li>
+<li><a class="" href="enumeration-4.html"><span class="header-section-number">9</span> Enumeration</a></li>
+<li><a class="" href="create-model-fit-summary-table.html"><span class="header-section-number">10</span> Create Model Fit Summary Table</a></li>
+<li><a class="active" href="estimate-latent-transition-analysis-lta-model.html"><span class="header-section-number">11</span> Estimate Latent Transition Analysis (LTA) Model</a></li>
+<li><a class="" href="adding-covariates.html"><span class="header-section-number">12</span> Adding Covariates</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">13</span> References</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/immerse-ucsb/lca-bookdown">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="estimate-latent-transition-analysis-lta-model" class="section level1" number="11">
+<h1>
+<span class="header-section-number">11</span> Estimate Latent Transition Analysis (LTA) Model<a class="anchor" aria-label="anchor" href="#estimate-latent-transition-analysis-lta-model"><i class="fas fa-link"></i></a>
+</h1>
+<hr>
+<div id="estimate-invariant-lta-model" class="section level2" number="11.1">
+<h2>
+<span class="header-section-number">11.1</span> Estimate Invariant LTA Model<a class="anchor" aria-label="anchor" href="#estimate-invariant-lta-model"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">lta_inv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  </span>
+<span>  TITLE <span class="op">=</span> </span>
+<span>    <span class="st">"Invariant LTA"</span>, </span>
+<span>  </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span>     <span class="st">"usev = ab39m ab39t ab39u ab39w ab39x  ! 7th grade indicators</span></span>
+<span><span class="st">             ga33a ga33h ga33i ga33k ga33l; ! 10th grade indicators</span></span>
+<span><span class="st">      </span></span>
+<span><span class="st">      categorical = ab39m-ab39x ga33a-ga33l;</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      classes = c1(4) c2(4);"</span>,</span>
+<span>    </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>     <span class="st">"estimator = mlr;</span></span>
+<span><span class="st">      type = mixture;</span></span>
+<span><span class="st">      starts = 500 100;</span></span>
+<span><span class="st">      processors=10;"</span>,</span>
+<span></span>
+<span>  MODEL <span class="op">=</span> </span>
+<span>     <span class="st">"%overall%</span></span>
+<span><span class="st">      c2 on c1;</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      MODEL c1: </span></span>
+<span><span class="st">      %c1#1%</span></span>
+<span><span class="st">      [AB39M$1-AB39X$1] (1-5);  !!! labels that are repeated will constrain parameters to equality !!!</span></span>
+<span><span class="st">      %c1#2%</span></span>
+<span><span class="st">      [AB39M$1-AB39X$1] (6-10);</span></span>
+<span><span class="st">      %c1#3%</span></span>
+<span><span class="st">      [AB39M$1-AB39X$1] (11-15);</span></span>
+<span><span class="st">      %c1#4%</span></span>
+<span><span class="st">      [AB39M$1-AB39X$1] (16-20);</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      MODEL c2:</span></span>
+<span><span class="st">      %c2#1%</span></span>
+<span><span class="st">      [GA33A$1-GA33L$1] (1-5);</span></span>
+<span><span class="st">      %c2#2%</span></span>
+<span><span class="st">      [GA33A$1-GA33L$1] (6-10);</span></span>
+<span><span class="st">      %c2#3%</span></span>
+<span><span class="st">      [GA33A$1-GA33L$1] (11-15);</span></span>
+<span><span class="st">      %c2#4%</span></span>
+<span><span class="st">      [GA33A$1-GA33L$1] (16-20);"</span>,</span>
+<span>   </span>
+<span>  SAVEDATA <span class="op">=</span> </span>
+<span>   <span class="st">"file = LTA_Inv_CPROBS.dat;</span></span>
+<span><span class="st">    save = cprob;</span></span>
+<span><span class="st">    missflag = 9999;"</span>,</span>
+<span></span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"tech1 tech15 svalues;"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_data</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">lta_inv_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">lta_inv</span>,</span>
+<span>                 dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"lta_model"</span>,<span class="st">"lta.dat"</span><span class="op">)</span>,</span>
+<span>                 modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"lta_model"</span>,<span class="st">"4-class-invariant.inp"</span><span class="op">)</span>,</span>
+<span>                 check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="estimate-non-invariant-estimated-lta-model" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> Estimate Non-Invariant Estimated LTA Model<a class="anchor" aria-label="anchor" href="#estimate-non-invariant-estimated-lta-model"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">lta_non_inv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  </span>
+<span>  TITLE <span class="op">=</span> </span>
+<span>    <span class="st">"Non-Invariant LTA"</span>, </span>
+<span>  </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span>     <span class="st">"usev = ab39m ab39t ab39u ab39w ab39x  ! 7th grade indicators</span></span>
+<span><span class="st">             ga33a ga33h ga33i ga33k ga33l; ! 10th grade indicators</span></span>
+<span><span class="st">      </span></span>
+<span><span class="st">      categorical = ab39m-ab39x ga33a-ga33l;</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      classes = c1(4) c2(4);"</span>,</span>
+<span>    </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>     <span class="st">"estimator = mlr;</span></span>
+<span><span class="st">      type = mixture;</span></span>
+<span><span class="st">      starts = 500 100;</span></span>
+<span><span class="st">      processors=10;"</span>,</span>
+<span></span>
+<span>  MODEL <span class="op">=</span> </span>
+<span>     <span class="st">"%overall%</span></span>
+<span><span class="st">      c2 on c1; !!! estimate all multinomial logistic regressions !!!</span></span>
+<span><span class="st">      </span></span>
+<span><span class="st">      !!! The above syntax can also be written as: !!!</span></span>
+<span><span class="st">               ! c2#1 on c1#1 c1#2 c1#3; !  </span></span>
+<span><span class="st">               ! c2#2 on c1#1 c1#2 c1#3; !</span></span>
+<span><span class="st">               ! c2#3 on c1#1 c1#2 c1#3; !</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      MODEL c1: !!! the following syntax will allow item thresholds to be estimated for each class (e.g. noninvariance) !!!</span></span>
+<span><span class="st">      </span></span>
+<span><span class="st">      %c1#1%</span></span>
+<span><span class="st">      [AB39M$1-AB39X$1]; </span></span>
+<span><span class="st">      %c1#2%</span></span>
+<span><span class="st">      [AB39M$1-AB39X$1];</span></span>
+<span><span class="st">      %c1#3%</span></span>
+<span><span class="st">      [AB39M$1-AB39X$1];</span></span>
+<span><span class="st">      %c1#4%</span></span>
+<span><span class="st">      [AB39M$1-AB39X$1];</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      MODEL c2:</span></span>
+<span><span class="st">      %c2#1%</span></span>
+<span><span class="st">      [GA33A$1-GA33L$1];</span></span>
+<span><span class="st">      %c2#2%</span></span>
+<span><span class="st">      [GA33A$1-GA33L$1];</span></span>
+<span><span class="st">      %c2#3%</span></span>
+<span><span class="st">      [GA33A$1-GA33L$1];</span></span>
+<span><span class="st">      %c2#4%</span></span>
+<span><span class="st">      [GA33A$1-GA33L$1];"</span>,</span>
+<span></span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"tech1 tech15 svalues;"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_data</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">lta_non_inv_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">lta_non_inv</span>,</span>
+<span>                     dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"lta_model"</span>,<span class="st">"lta.dat"</span><span class="op">)</span>,</span>
+<span>                     modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"lta_model"</span>,<span class="st">"4-class-non-invariant.inp"</span><span class="op">)</span>,</span>
+<span>                     check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="conduct-sattorra-bentler-adjusted-log-likelihood-ratio-difference-testing" class="section level2" number="11.3">
+<h2>
+<span class="header-section-number">11.3</span> Conduct Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing<a class="anchor" aria-label="anchor" href="#conduct-sattorra-bentler-adjusted-log-likelihood-ratio-difference-testing"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>non-invariant (comparison): This model has <strong>more</strong> parameters.</p></li>
+<li><p>invariant (nested): This model has <strong>less</strong> parameters.</p></li>
+</ul>
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># *0 = null or nested model &amp; *1 = comparison  or parent model</span></span>
+<span></span>
+<span><span class="va">lta_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"lta_model"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Log Likelihood Values</span></span>
+<span><span class="va">L0</span> <span class="op">&lt;-</span> <span class="va">lta_models</span><span class="op">[[</span><span class="st">"X4.class.invariant.out"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"summaries"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"LL"</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">L1</span> <span class="op">&lt;-</span> <span class="va">lta_models</span><span class="op">[[</span><span class="st">"X4.class.non.invariant.out"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"summaries"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"LL"</span><span class="op">]</span><span class="op">]</span> </span>
+<span></span>
+<span><span class="co"># LRT equation</span></span>
+<span><span class="va">lr</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="va">L0</span><span class="op">-</span><span class="va">L1</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># Parameters</span></span>
+<span><span class="va">p0</span> <span class="op">&lt;-</span> <span class="va">lta_models</span><span class="op">[[</span><span class="st">"X4.class.invariant.out"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"summaries"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"Parameters"</span><span class="op">]</span><span class="op">]</span> </span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="va">lta_models</span><span class="op">[[</span><span class="st">"X4.class.non.invariant.out"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"summaries"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"Parameters"</span><span class="op">]</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Scaling Correction Factors</span></span>
+<span><span class="va">c0</span> <span class="op">&lt;-</span> <span class="va">lta_models</span><span class="op">[[</span><span class="st">"X4.class.invariant.out"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"summaries"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"LLCorrectionFactor"</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">c1</span> <span class="op">&lt;-</span> <span class="va">lta_models</span><span class="op">[[</span><span class="st">"X4.class.non.invariant.out"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"summaries"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"LLCorrectionFactor"</span><span class="op">]</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Difference Test Scaling correction</span></span>
+<span><span class="va">cd</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="op">(</span><span class="va">p0</span><span class="op">*</span><span class="va">c0</span><span class="op">)</span><span class="op">-</span><span class="op">(</span><span class="va">p1</span><span class="op">*</span><span class="va">c1</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">p0</span><span class="op">-</span><span class="va">p1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Chi-square difference test(TRd)</span></span>
+<span><span class="va">TRd</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">lr</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">cd</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Degrees of freedom</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">p0</span> <span class="op">-</span> <span class="va">p1</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Significance test</span></span>
+<span><span class="op">(</span><span class="va">p_diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Chisquare.html">pchisq</a></span><span class="op">(</span><span class="va">TRd</span>, <span class="va">df</span>, lower.tail<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.6245173</span></span></code></pre></div>
+<p><strong>RESULT</strong>: The Log Likelihood <span class="math inline">\(\chi^2\)</span> difference test comparing the invariant and non-invariant LTA models was, <span class="math inline">\(\chi^2 (20) = 21.542, p = .624\)</span>.</p>
+<p><a href="https://stats.idre.ucla.edu/mplus/faq/how-can-i-compute-a-chi-square-test-for-nested-models-with-the-mlr-or-mlm-estimators/">Reference</a></p>
+<hr>
+<p>Read invariance model and extract parameters (intercepts and multinomial regression coefficients)</p>
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">lta_inv1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"lta_model"</span>,<span class="st">"4-Class-Invariant.out"</span> <span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">par</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">lta_inv1</span><span class="op">[[</span><span class="st">"parameters"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"unstandardized"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">'ON|Means'</span>, <span class="va">paramHeader</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">est</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Manual method to calculate transition probabilities:</p>
+<p>Although possible to extract transition probabilities directly from the output the following code illustrates how the parameters are used to calculate each transition. This is useful for conducting advanced LTA model specifications such as making specific constraints within or between transition matrices, or testing the equivalence of specific transition probabilities.</p>
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Name each parameter individually to make the subsequent calculations more readable</span></span>
+<span><span class="va">a1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">13</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">a2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">14</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">a3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">15</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b11</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>;</span>
+<span><span class="va">b21</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">4</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b31</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">7</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b12</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">5</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>;</span>
+<span><span class="va">b32</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">8</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b13</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">6</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b33</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">9</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate transition probabilities from the logit parameters</span></span>
+<span><span class="va">t11</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b11</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b11</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b21</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b31</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t12</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b21</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b11</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b21</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b31</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t13</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b31</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b11</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b21</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b31</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t14</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="op">(</span><span class="va">t11</span> <span class="op">+</span> <span class="va">t12</span> <span class="op">+</span> <span class="va">t13</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">t21</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b12</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b12</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b22</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b32</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b22</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b12</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b22</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b32</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b32</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b12</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b22</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b32</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t24</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="op">(</span><span class="va">t21</span> <span class="op">+</span> <span class="va">t22</span> <span class="op">+</span> <span class="va">t23</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">t31</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b13</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b13</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b23</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b33</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t32</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b23</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b13</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b23</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b33</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t33</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b33</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">+</span><span class="va">b13</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">+</span><span class="va">b23</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">+</span><span class="va">b33</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t34</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="op">(</span><span class="va">t31</span> <span class="op">+</span> <span class="va">t32</span> <span class="op">+</span> <span class="va">t33</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">t41</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t42</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t43</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t44</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="op">(</span><span class="va">t41</span> <span class="op">+</span> <span class="va">t42</span> <span class="op">+</span> <span class="va">t43</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="create-transition-table" class="section level2" number="11.4">
+<h2>
+<span class="header-section-number">11.4</span> Create Transition Table<a class="anchor" aria-label="anchor" href="#create-transition-table"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">t_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Time1"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C1=Anti-Science"</span>,<span class="st">"C1=Amb. w/ Elevated"</span>,<span class="st">"C1=Amb. w/ Minimal"</span>,<span class="st">"C1=Pro-Science"</span><span class="op">)</span>,</span>
+<span>  <span class="st">"C2=Anti-Science"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">t11</span>,<span class="va">t21</span>,<span class="va">t31</span>,<span class="va">t41</span><span class="op">)</span>,</span>
+<span>  <span class="st">"C2=Amb. w/ Elevated"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">t12</span>,<span class="va">t22</span>,<span class="va">t32</span>,<span class="va">t42</span><span class="op">)</span>,</span>
+<span>  <span class="st">"C2=Amb. w/ Minimal"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">t13</span>,<span class="va">t23</span>,<span class="va">t33</span>,<span class="va">t43</span><span class="op">)</span>,</span>
+<span>  <span class="st">"C2=Pro-Science"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">t14</span>,<span class="va">t24</span>,<span class="va">t34</span>,<span class="va">t44</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">t_matrix</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span>rowname_col <span class="op">=</span> <span class="st">"Time1"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_stubhead.html">tab_stubhead</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"7th grade"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**Student transitions from 7th grade (rows) to 10th grade (columns)**"</span><span class="op">)</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"&amp;nbsp;"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_number.html">fmt_number</a></span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">5</span>,decimals <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"10th grade"</span>,columns <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html">tab_footnote</a></span><span class="op">(</span></span>
+<span>    footnote <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span></span>
+<span>    <span class="st">"*Note.* Transition matrix values are the identical to Table 5, however Table 5 </span></span>
+<span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
+<span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
+<span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div id="dfvasvllbn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dfvasvllbn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dfvasvllbn thead, #dfvasvllbn tbody, #dfvasvllbn tfoot, #dfvasvllbn tr, #dfvasvllbn td, #dfvasvllbn th {
+  border-style: none;
+}
+
+#dfvasvllbn p {
+  margin: 0;
+  padding: 0;
+}
+
+#dfvasvllbn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dfvasvllbn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dfvasvllbn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dfvasvllbn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dfvasvllbn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dfvasvllbn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dfvasvllbn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dfvasvllbn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dfvasvllbn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dfvasvllbn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dfvasvllbn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dfvasvllbn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dfvasvllbn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dfvasvllbn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dfvasvllbn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dfvasvllbn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dfvasvllbn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dfvasvllbn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dfvasvllbn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dfvasvllbn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dfvasvllbn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dfvasvllbn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dfvasvllbn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dfvasvllbn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dfvasvllbn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dfvasvllbn .gt_left {
+  text-align: left;
+}
+
+#dfvasvllbn .gt_center {
+  text-align: center;
+}
+
+#dfvasvllbn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dfvasvllbn .gt_font_normal {
+  font-weight: normal;
+}
+
+#dfvasvllbn .gt_font_bold {
+  font-weight: bold;
+}
+
+#dfvasvllbn .gt_font_italic {
+  font-style: italic;
+}
+
+#dfvasvllbn .gt_super {
+  font-size: 65%;
+}
+
+#dfvasvllbn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dfvasvllbn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dfvasvllbn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dfvasvllbn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dfvasvllbn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dfvasvllbn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dfvasvllbn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#dfvasvllbn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dfvasvllbn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="5" class="gt_heading gt_title gt_font_normal" style>
+<span class="gt_from_md"><strong>Student transitions from 7th grade (rows) to 10th grade (columns)</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</td>
+    </tr>
+<tr class="gt_heading">
+<td colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>
+<span class="gt_from_md"> </span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</td>
+    </tr>
+<tr class="gt_col_headings gt_spanner_row">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="a::stub">7th grade</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="10th grade">
+        <div class="gt_column_spanner">10th grade</div>
+      </th>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="C2=Anti-Science">C2=Anti-Science</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="C2=Amb.-w/-Elevated">C2=Amb. w/ Elevated</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="C2=Amb.-w/-Minimal">C2=Amb. w/ Minimal</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="C2=Pro-Science">C2=Pro-Science</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">C1=Anti-Science</th>
+<td headers="stub_1_1 C2=Anti-Science" class="gt_row gt_right">0.27</td>
+<td headers="stub_1_1 C2=Amb. w/ Elevated" class="gt_row gt_right">0.27</td>
+<td headers="stub_1_1 C2=Amb. w/ Minimal" class="gt_row gt_right">0.32</td>
+<td headers="stub_1_1 C2=Pro-Science" class="gt_row gt_right">0.15</td>
+</tr>
+<tr>
+<th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">C1=Amb. w/ Elevated</th>
+<td headers="stub_1_2 C2=Anti-Science" class="gt_row gt_right">0.09</td>
+<td headers="stub_1_2 C2=Amb. w/ Elevated" class="gt_row gt_right">0.56</td>
+<td headers="stub_1_2 C2=Amb. w/ Minimal" class="gt_row gt_right">0.19</td>
+<td headers="stub_1_2 C2=Pro-Science" class="gt_row gt_right">0.16</td>
+</tr>
+<tr>
+<th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">C1=Amb. w/ Minimal</th>
+<td headers="stub_1_3 C2=Anti-Science" class="gt_row gt_right">0.15</td>
+<td headers="stub_1_3 C2=Amb. w/ Elevated" class="gt_row gt_right">0.21</td>
+<td headers="stub_1_3 C2=Amb. w/ Minimal" class="gt_row gt_right">0.52</td>
+<td headers="stub_1_3 C2=Pro-Science" class="gt_row gt_right">0.12</td>
+</tr>
+<tr>
+<th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">C1=Pro-Science</th>
+<td headers="stub_1_4 C2=Anti-Science" class="gt_row gt_right">0.08</td>
+<td headers="stub_1_4 C2=Amb. w/ Elevated" class="gt_row gt_right">0.35</td>
+<td headers="stub_1_4 C2=Amb. w/ Minimal" class="gt_row gt_right">0.27</td>
+<td headers="stub_1_4 C2=Pro-Science" class="gt_row gt_right">0.30</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="5">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class="gt_from_md"><em>Note.</em> Transition matrix values are the identical to Table 5, however Table 5
+has the values rearranged by class for interpretation purposes. Classes may be arranged
+directly through Mplus syntax using start values.</span>
+</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<hr>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="create-model-fit-summary-table.html"><span class="header-section-number">10</span> Create Model Fit Summary Table</a></div>
+<div class="next"><a href="adding-covariates.html"><span class="header-section-number">12</span> Adding Covariates</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#estimate-latent-transition-analysis-lta-model"><span class="header-section-number">11</span> Estimate Latent Transition Analysis (LTA) Model</a></li>
+<li><a class="nav-link" href="#estimate-invariant-lta-model"><span class="header-section-number">11.1</span> Estimate Invariant LTA Model</a></li>
+<li><a class="nav-link" href="#estimate-non-invariant-estimated-lta-model"><span class="header-section-number">11.2</span> Estimate Non-Invariant Estimated LTA Model</a></li>
+<li><a class="nav-link" href="#conduct-sattorra-bentler-adjusted-log-likelihood-ratio-difference-testing"><span class="header-section-number">11.3</span> Conduct Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing</a></li>
+<li><a class="nav-link" href="#create-transition-table"><span class="header-section-number">11.4</span> Create Transition Table</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/08-lta.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/08-lta.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-06-05.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

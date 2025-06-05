@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>8 Latent Transition Analysis | Mixture Modeling with MplusAutomation</title>
+<meta name="author" content="Dina Arch">
+<meta name="description" content="Data Source: The data used to illustrate these analyses include elementary school student Science Attitude survey items collected during 7th and 10th grades from the Longitudinal Study of American...">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="8 Latent Transition Analysis | Mixture Modeling with MplusAutomation">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/latent-transition-analysis.html">
+<meta property="og:description" content="Data Source: The data used to illustrate these analyses include elementary school student Science Attitude survey items collected during 7th and 10th grades from the Longitudinal Study of American...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="8 Latent Transition Analysis | Mixture Modeling with MplusAutomation">
+<meta name="twitter:description" content="Data Source: The data used to illustrate these analyses include elementary school student Science Attitude survey items collected during 7th and 10th grades from the Longitudinal Study of American...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Mixture Modeling with MplusAutomation</a></li>
+<li><a class="" href="introduction-to-r-and-rstudio.html"><span class="header-section-number">1</span> Introduction to R and RStudio</a></li>
+<li><a class="" href="introduction-to-mplusautomation.html"><span class="header-section-number">2</span> Introduction to MplusAutomation</a></li>
+<li><a class="" href="lca-enumeration.html"><span class="header-section-number">3</span> LCA Enumeration</a></li>
+<li><a class="" href="lpa-enumeration.html"><span class="header-section-number">4</span> LPA Enumeration</a></li>
+<li><a class="" href="including-auxiliary-variables.html"><span class="header-section-number">5</span> Including Auxiliary Variables</a></li>
+<li><a class="" href="polytomous-lca.html"><span class="header-section-number">6</span> Polytomous LCA</a></li>
+<li><a class="" href="lca-moderation.html"><span class="header-section-number">7</span> LCA Moderation</a></li>
+<li><a class="active" href="latent-transition-analysis.html"><span class="header-section-number">8</span> Latent Transition Analysis</a></li>
+<li><a class="" href="enumeration-4.html"><span class="header-section-number">9</span> Enumeration</a></li>
+<li><a class="" href="create-model-fit-summary-table.html"><span class="header-section-number">10</span> Create Model Fit Summary Table</a></li>
+<li><a class="" href="estimate-latent-transition-analysis-lta-model.html"><span class="header-section-number">11</span> Estimate Latent Transition Analysis (LTA) Model</a></li>
+<li><a class="" href="adding-covariates.html"><span class="header-section-number">12</span> Adding Covariates</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">13</span> References</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/immerse-ucsb/lca-bookdown">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="latent-transition-analysis" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Latent Transition Analysis<a class="anchor" aria-label="anchor" href="#latent-transition-analysis"><i class="fas fa-link"></i></a>
+</h1>
+<hr>
+<p><strong>Data Source</strong>: The data used to illustrate these analyses include elementary school student <em>Science Attitude</em> survey items collected during 7th and 10th grades from the <strong>Longitudinal Study of American Youth</strong> (LSAY; Miller, 2015).</p>
+<hr>
+<p>To install package {<code>rhdf5</code>}</p>
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#BiocManager::install("rhdf5")</span></span></code></pre></div>
+<p><em>Load packages</em></p>
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Huber-group-EMBL/rhdf5">rhdf5</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>       </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>            </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/">glue</a></span><span class="op">)</span>            </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span>            </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span> </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggrepel.slowkow.com/">ggrepel</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://modelsummary.com">modelsummary</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/taiyun/corrplot">corrplot</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rich-iannone.github.io/DiagrammeR/">DiagrammeR</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rorynolan.github.io/filesstrings/">filesstrings</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jakelawlor/PNWColors">PNWColors</a></span><span class="op">)</span></span></code></pre></div>
+<hr>
+<p>Read in LSAY data file, <code>lsay_new.csv</code>.</p>
+<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">lsay_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>,<span class="st">"lsay_lta.csv"</span><span class="op">)</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"9999"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">as.numeric</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-f5e5f655b099f71c3778" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f5e5f655b099f71c3778">{"x":{"diagram":" digraph model {\n\n    graph [layout = dot, overlap = true]\n\n    node [shape=box]\n    ab39m ab39t ab39u ab39w ab39x \n    ga33a ga33h ga33i ga33k ga33l;\n \n \n    node [shape=circle, fixedsize = true, width = 1.5, height = 0.5]\n    T1 [label = \"7th Grade \nScience Attitudes\n(T1)\"]\n    T2 [label = \"10th Grade \nScience Attitudes\n(T2)\"]\n    \n    edge []\n    T1 -> {ab39m ab39t ab39u ab39w ab39x}\n    T2 -> {ga33a ga33h ga33i ga33k ga33l}\n    T1 -> T2\n    {rank = same; T1; T2;}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div id="descriptive-statistics-4" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-4"><i class="fas fa-link"></i></a>
+</h2>
+<hr>
+<div id="data-summary" class="section level3" number="8.1.1">
+<h3>
+<span class="header-section-number">8.1.1</span> Data Summary<a class="anchor" aria-label="anchor" href="#data-summary"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">lsay_data</span></span>
+<span></span>
+<span><span class="va">select_data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">female</span>, <span class="va">minority</span>, <span class="va">ab39m</span><span class="op">:</span><span class="va">ga33l</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dmurdoch.github.io/tables/reference/All.html">All</a></span><span class="op">(</span><span class="va">select_data</span><span class="op">)</span> <span class="op">~</span> <span class="va">Mean</span> <span class="op">+</span> <span class="va">SD</span> <span class="op">+</span> <span class="va">Min</span> <span class="op">+</span> <span class="va">Median</span> <span class="op">+</span> <span class="va">Max</span> <span class="op">+</span> <span class="va">Histogram</span></span>
+<span><span class="fu"><a href="https://modelsummary.com/man/datasummary.html">datasummary</a></span><span class="op">(</span><span class="va">f</span>, <span class="va">data</span>, output<span class="op">=</span><span class="st">"markdown"</span><span class="op">)</span></span></code></pre></div>
+<!-- preamble start -->
+
+    <script>
+
+      function styleCell_7b50ru1cslt0yjsh46ob(i, j, css_id) {
+          var table = document.getElementById("tinytable_7b50ru1cslt0yjsh46ob");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_7b50ru1cslt0yjsh46ob');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_7b50ru1cslt0yjsh46ob(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_7b50ru1cslt0yjsh46ob");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 2 }, { i: 12, j: 3 }, { i: 12, j: 4 }, { i: 12, j: 5 }, { i: 12, j: 6 },  ], css_id: 'tinytable_css_3ksy8rsf1ef58i72fjrj',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 }, { i: 1, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 2, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 1, j: 3 }, { i: 6, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 10, j: 3 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 9, j: 3 }, { i: 1, j: 4 }, { i: 2, j: 4 }, { i: 7, j: 4 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 11, j: 4 }, { i: 8, j: 4 }, { i: 9, j: 4 }, { i: 10, j: 4 }, { i: 2, j: 5 }, { i: 3, j: 5 }, { i: 4, j: 5 }, { i: 1, j: 5 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 8, j: 5 }, { i: 5, j: 5 }, { i: 10, j: 5 }, { i: 11, j: 5 }, { i: 3, j: 6 }, { i: 9, j: 5 }, { i: 1, j: 6 }, { i: 2, j: 6 }, { i: 7, j: 6 }, { i: 4, j: 6 }, { i: 5, j: 6 }, { i: 6, j: 6 }, { i: 11, j: 6 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 10, j: 6 },  ], css_id: 'tinytable_css_h9hjeiasbms0923mft1z',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 }, { i: 0, j: 6 },  ], css_id: 'tinytable_css_u19hlceylyfx6chm1z5t',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_lfnb77xeclecsjvpkbdi',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_9uhxzce0w78hywh53l90',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_djfoy9iz9m8avr98ez7x',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_7b50ru1cslt0yjsh46ob(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script><style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_3ksy8rsf1ef58i72fjrj, .table th.tinytable_css_3ksy8rsf1ef58i72fjrj { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_h9hjeiasbms0923mft1z, .table th.tinytable_css_h9hjeiasbms0923mft1z { text-align: right; }
+      .table td.tinytable_css_u19hlceylyfx6chm1z5t, .table th.tinytable_css_u19hlceylyfx6chm1z5t { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_lfnb77xeclecsjvpkbdi, .table th.tinytable_css_lfnb77xeclecsjvpkbdi { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_9uhxzce0w78hywh53l90, .table th.tinytable_css_9uhxzce0w78hywh53l90 { text-align: left; }
+      .table td.tinytable_css_djfoy9iz9m8avr98ez7x, .table th.tinytable_css_djfoy9iz9m8avr98ez7x { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+    </style>
+<div class="container">
+      <div class="inline-table"><table class="table table-borderless" id="tinytable_7b50ru1cslt0yjsh46ob" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead><tr>
+<th scope="col"> </th>
+                <th scope="col">Mean</th>
+                <th scope="col">SD</th>
+                <th scope="col">Min</th>
+                <th scope="col">Median</th>
+                <th scope="col">Max</th>
+                <th scope="col">Histogram</th>
+              </tr></thead>
+<tbody>
+<tr>
+<td>female</td>
+                  <td>0.48</td>
+                  <td>0.50</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>▇▆</td>
+                </tr>
+<tr>
+<td>minority</td>
+                  <td>0.23</td>
+                  <td>0.42</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>▇▂</td>
+                </tr>
+<tr>
+<td>ab39m</td>
+                  <td>0.61</td>
+                  <td>0.49</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>1.00</td>
+                  <td>▄▇</td>
+                </tr>
+<tr>
+<td>ab39t</td>
+                  <td>0.40</td>
+                  <td>0.49</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>▇▅</td>
+                </tr>
+<tr>
+<td>ab39u</td>
+                  <td>0.49</td>
+                  <td>0.50</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>▇▇</td>
+                </tr>
+<tr>
+<td>ab39w</td>
+                  <td>0.40</td>
+                  <td>0.49</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>▇▅</td>
+                </tr>
+<tr>
+<td>ab39x</td>
+                  <td>0.46</td>
+                  <td>0.50</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>▇▆</td>
+                </tr>
+<tr>
+<td>ga33a</td>
+                  <td>0.58</td>
+                  <td>0.49</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>1.00</td>
+                  <td>▅▇</td>
+                </tr>
+<tr>
+<td>ga33h</td>
+                  <td>0.43</td>
+                  <td>0.49</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>▇▅</td>
+                </tr>
+<tr>
+<td>ga33i</td>
+                  <td>0.51</td>
+                  <td>0.50</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>1.00</td>
+                  <td>▇▇</td>
+                </tr>
+<tr>
+<td>ga33k</td>
+                  <td>0.42</td>
+                  <td>0.49</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>▇▅</td>
+                </tr>
+<tr>
+<td>ga33l</td>
+                  <td>0.42</td>
+                  <td>0.49</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>1.00</td>
+                  <td>▇▅</td>
+                </tr>
+</tbody>
+</table></div>
+</div>
+<!-- hack to avoid NA insertion in last line -->
+<hr>
+</div>
+<div id="correlation-table" class="section level3" number="8.1.2">
+<h3>
+<span class="header-section-number">8.1.2</span> Correlation Table<a class="anchor" aria-label="anchor" href="#correlation-table"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">select_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://modelsummary.com/man/datasummary_correlation.html">datasummary_correlation</a></span><span class="op">(</span>output <span class="op">=</span> <span class="st">"markdown"</span><span class="op">)</span></span></code></pre></div>
+<!-- preamble start -->
+
+    <script>
+
+      function styleCell_0qjztl1swyua3jsbstzw(i, j, css_id) {
+          var table = document.getElementById("tinytable_0qjztl1swyua3jsbstzw");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_0qjztl1swyua3jsbstzw');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_0qjztl1swyua3jsbstzw(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_0qjztl1swyua3jsbstzw");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 12, j: 9 }, { i: 12, j: 6 }, { i: 12, j: 3 }, { i: 12, j: 4 }, { i: 12, j: 1 }, { i: 12, j: 10 }, { i: 12, j: 7 }, { i: 12, j: 8 }, { i: 12, j: 5 }, { i: 12, j: 2 }, { i: 12, j: 11 }, { i: 12, j: 12 },  ], css_id: 'tinytable_css_tw2y1xh0rfcsaas0mj41',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 2, j: 3 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 1, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 5, j: 3 }, { i: 10, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 9, j: 3 }, { i: 1, j: 4 }, { i: 2, j: 4 }, { i: 3, j: 4 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 8, j: 4 }, { i: 9, j: 4 }, { i: 10, j: 4 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 1, j: 8 }, { i: 1, j: 5 }, { i: 2, j: 5 }, { i: 3, j: 5 }, { i: 4, j: 5 }, { i: 5, j: 5 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 8, j: 5 }, { i: 9, j: 5 }, { i: 10, j: 5 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 1, j: 9 }, { i: 1, j: 6 }, { i: 2, j: 6 }, { i: 3, j: 6 }, { i: 4, j: 6 }, { i: 5, j: 6 }, { i: 6, j: 6 }, { i: 7, j: 6 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 10, j: 6 }, { i: 11, j: 6 }, { i: 11, j: 3 }, { i: 1, j: 10 }, { i: 1, j: 7 }, { i: 2, j: 7 }, { i: 3, j: 7 }, { i: 4, j: 7 }, { i: 5, j: 7 }, { i: 6, j: 7 }, { i: 7, j: 7 }, { i: 8, j: 7 }, { i: 9, j: 7 }, { i: 10, j: 7 }, { i: 11, j: 7 }, { i: 11, j: 4 }, { i: 1, j: 11 }, { i: 2, j: 11 }, { i: 2, j: 8 }, { i: 3, j: 8 }, { i: 4, j: 8 }, { i: 5, j: 8 }, { i: 6, j: 8 }, { i: 7, j: 8 }, { i: 8, j: 8 }, { i: 9, j: 8 }, { i: 10, j: 8 }, { i: 11, j: 8 }, { i: 11, j: 5 }, { i: 1, j: 12 }, { i: 2, j: 12 }, { i: 2, j: 9 }, { i: 3, j: 9 }, { i: 4, j: 9 }, { i: 5, j: 9 }, { i: 6, j: 9 }, { i: 7, j: 9 }, { i: 8, j: 9 }, { i: 9, j: 9 }, { i: 10, j: 9 }, { i: 11, j: 9 }, { i: 3, j: 10 }, { i: 4, j: 10 }, { i: 5, j: 10 }, { i: 2, j: 10 }, { i: 7, j: 10 }, { i: 8, j: 10 }, { i: 9, j: 10 }, { i: 6, j: 10 }, { i: 11, j: 10 }, { i: 3, j: 11 }, { i: 4, j: 11 }, { i: 10, j: 10 }, { i: 6, j: 11 }, { i: 7, j: 11 }, { i: 8, j: 11 }, { i: 5, j: 11 }, { i: 10, j: 11 }, { i: 11, j: 11 }, { i: 3, j: 12 }, { i: 9, j: 11 }, { i: 5, j: 12 }, { i: 6, j: 12 }, { i: 7, j: 12 }, { i: 4, j: 12 }, { i: 9, j: 12 }, { i: 10, j: 12 }, { i: 11, j: 12 }, { i: 8, j: 12 },  ], css_id: 'tinytable_css_l4kqo1f6zsp82lt1y7b6',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 11 }, { i: 0, j: 8 }, { i: 0, j: 5 }, { i: 0, j: 6 }, { i: 0, j: 3 }, { i: 0, j: 12 }, { i: 0, j: 9 }, { i: 0, j: 10 }, { i: 0, j: 7 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_e94cd5mhfhehltgpzdsw',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_dw6od2v43gij1s40fesr',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_x0icjdwyfbtckh84og10',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_9a18x3ayers460b91085',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_0qjztl1swyua3jsbstzw(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script><style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_tw2y1xh0rfcsaas0mj41, .table th.tinytable_css_tw2y1xh0rfcsaas0mj41 { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_l4kqo1f6zsp82lt1y7b6, .table th.tinytable_css_l4kqo1f6zsp82lt1y7b6 { text-align: right; }
+      .table td.tinytable_css_e94cd5mhfhehltgpzdsw, .table th.tinytable_css_e94cd5mhfhehltgpzdsw { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_dw6od2v43gij1s40fesr, .table th.tinytable_css_dw6od2v43gij1s40fesr { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_x0icjdwyfbtckh84og10, .table th.tinytable_css_x0icjdwyfbtckh84og10 { text-align: left; }
+      .table td.tinytable_css_9a18x3ayers460b91085, .table th.tinytable_css_9a18x3ayers460b91085 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+    </style>
+<div class="container">
+      <div class="inline-table"><table class="table table-borderless" id="tinytable_0qjztl1swyua3jsbstzw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead><tr>
+<th scope="col"> </th>
+                <th scope="col">female</th>
+                <th scope="col">minority</th>
+                <th scope="col">ab39m</th>
+                <th scope="col">ab39t</th>
+                <th scope="col">ab39u</th>
+                <th scope="col">ab39w</th>
+                <th scope="col">ab39x</th>
+                <th scope="col">ga33a</th>
+                <th scope="col">ga33h</th>
+                <th scope="col">ga33i</th>
+                <th scope="col">ga33k</th>
+                <th scope="col">ga33l</th>
+              </tr></thead>
+<tbody>
+<tr>
+<td>female</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>minority</td>
+                  <td>-.01</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ab39m</td>
+                  <td>-.06</td>
+                  <td>-.01</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ab39t</td>
+                  <td>-.09</td>
+                  <td>.05</td>
+                  <td>.30</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ab39u</td>
+                  <td>-.11</td>
+                  <td>.03</td>
+                  <td>.30</td>
+                  <td>.48</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ab39w</td>
+                  <td>-.11</td>
+                  <td>.06</td>
+                  <td>.27</td>
+                  <td>.46</td>
+                  <td>.40</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ab39x</td>
+                  <td>-.11</td>
+                  <td>.05</td>
+                  <td>.33</td>
+                  <td>.45</td>
+                  <td>.41</td>
+                  <td>.52</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ga33a</td>
+                  <td>-.05</td>
+                  <td>.04</td>
+                  <td>.19</td>
+                  <td>.11</td>
+                  <td>.13</td>
+                  <td>.13</td>
+                  <td>.15</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ga33h</td>
+                  <td>-.06</td>
+                  <td>.04</td>
+                  <td>.10</td>
+                  <td>.15</td>
+                  <td>.16</td>
+                  <td>.16</td>
+                  <td>.20</td>
+                  <td>.40</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ga33i</td>
+                  <td>-.04</td>
+                  <td>.02</td>
+                  <td>.15</td>
+                  <td>.13</td>
+                  <td>.18</td>
+                  <td>.15</td>
+                  <td>.16</td>
+                  <td>.40</td>
+                  <td>.57</td>
+                  <td>1</td>
+                  <td>.</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ga33k</td>
+                  <td>-.07</td>
+                  <td>.04</td>
+                  <td>.13</td>
+                  <td>.15</td>
+                  <td>.15</td>
+                  <td>.20</td>
+                  <td>.18</td>
+                  <td>.39</td>
+                  <td>.54</td>
+                  <td>.48</td>
+                  <td>1</td>
+                  <td>.</td>
+                </tr>
+<tr>
+<td>ga33l</td>
+                  <td>-.04</td>
+                  <td>.05</td>
+                  <td>.15</td>
+                  <td>.15</td>
+                  <td>.14</td>
+                  <td>.18</td>
+                  <td>.23</td>
+                  <td>.44</td>
+                  <td>.56</td>
+                  <td>.49</td>
+                  <td>.62</td>
+                  <td>1</td>
+                </tr>
+</tbody>
+</table></div>
+</div>
+<!-- hack to avoid NA insertion in last line -->
+<hr>
+</div>
+<div id="correlation-plot" class="section level3" number="8.1.3">
+<h3>
+<span class="header-section-number">8.1.3</span> Correlation Plot<a class="anchor" aria-label="anchor" href="#correlation-plot"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">f_cor</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">female</span>, <span class="va">minority</span>, <span class="va">ab39m</span><span class="op">:</span><span class="va">ga33l</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span>use <span class="op">=</span> <span class="st">"pairwise.complete.obs"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/corrplot/man/corrplot.html">corrplot</a></span><span class="op">(</span><span class="va">f_cor</span>, </span>
+<span>         method <span class="op">=</span> <span class="st">"circle"</span>,</span>
+<span>         type <span class="op">=</span> <span class="st">"upper"</span>, </span>
+<span>         tl.col<span class="op">=</span><span class="st">"black"</span>, </span>
+<span>         tl.srt<span class="op">=</span><span class="fl">45</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="08-lta_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
+<hr>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="lca-moderation.html"><span class="header-section-number">7</span> LCA Moderation</a></div>
+<div class="next"><a href="enumeration-4.html"><span class="header-section-number">9</span> Enumeration</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#latent-transition-analysis"><span class="header-section-number">8</span> Latent Transition Analysis</a></li>
+<li>
+<a class="nav-link" href="#descriptive-statistics-4"><span class="header-section-number">8.1</span> Descriptive Statistics</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-summary"><span class="header-section-number">8.1.1</span> Data Summary</a></li>
+<li><a class="nav-link" href="#correlation-table"><span class="header-section-number">8.1.2</span> Correlation Table</a></li>
+<li><a class="nav-link" href="#correlation-plot"><span class="header-section-number">8.1.3</span> Correlation Plot</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/08-lta.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/08-lta.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-06-05.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

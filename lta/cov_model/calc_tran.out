@@ -1,0 +1,3224 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/05/2025   2:09 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  LTA (invariant)
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/lta/cov_model/calc_tran.dat";
+  VARIABLE:
+  NAMES = AB39M AB39T AB39U AB39W AB39X SCI_ISSU SCI_IRT7 FEMALE CPROB1_x CPROB2_x
+       CPROB3_x CPROB4_x N_T1 CASENUM GA33A GA33H GA33I GA33K GA33L CPROB1_y CPROB2_y
+       CPROB3_y CPROB4_y N_T2;
+   MISSING=.;
+   usevar = ab39m ab39t ab39u ab39w ab39x  ! 7th grade indicators
+                 ga33a ga33h ga33i ga33k ga33l FEMALE;
+    categorical = ab39m-ab39x ga33a-ga33l;
+    classes = c1(4) c2(4);
+  ANALYSIS:
+  estimator = mlr;
+    type = mixture;
+    starts = 500 100;
+   processors = 10;
+  MODEL:
+  %overall%
+
+      c2 c1 on FEMALE;
+
+        c2#1 on c1#1 (b11);
+        c2#2 on c1#1 (b21);
+        c2#3 on c1#1 (b31);
+
+        c2#1 on c1#2 (b12);
+        c2#2 on c1#2 (b22);
+        c2#3 on c1#2 (b32);
+
+        c2#1 on c1#3 (b13);
+        c2#2 on c1#3 (b23);
+        c2#3 on c1#3 (b33);
+
+        [c2#1] (a1);
+        [c2#2] (a2);
+        [c2#3] (a3);
+
+       c2#1 ON female (b212);
+       c2#2 ON female (b222);
+       c2#3 ON female (b232);
+       c1#1 ON female (b112);
+       c1#2 ON female (b122);
+       c1#3 ON female (b132);
+
+        MODEL c1:
+        %c1#1%
+        [AB39M$1-AB39X$1] (1-5);  !!! labels that are repeated will constrain parameters to
+        %c1#2%
+        [AB39M$1-AB39X$1] (6-10);
+        %c1#3%
+        [AB39M$1-AB39X$1] (11-15);
+        %c1#4%
+        [AB39M$1-AB39X$1] (16-20);
+
+        MODEL c2:
+        %c2#1%
+        [GA33A$1-GA33L$1] (1-5);
+        %c2#2%
+        [GA33A$1-GA33L$1] (6-10);
+        %c2#3%
+        [GA33A$1-GA33L$1] (11-15);
+        %c2#4%
+        [GA33A$1-GA33L$1] (16-20);
+  MODEL CONSTRAINT:
+    ! Compute joint and marginal probabilities:
+          New(
+          t11 t12 t13 t14
+          t21 t22 t23 t24
+          t31 t32 t33 t34
+          t41 t42 t43 t44
+
+          t11B t12B t13B t14B
+          t21B t22B t23B t24B
+          t31B t32B t33B t34B
+          t41B t42B t43B t44B
+
+          diff_11_22 x
+
+         );
+
+          t11 = exp(a1 +b11)/(exp(a1+b11)+exp(a2+b21)+exp(a3+b31)+exp(0));
+          t12 = exp(a2 +b21)/(exp(a1+b11)+exp(a2+b21)+exp(a3+b31)+exp(0));
+          t13 = exp(a3 +b31)/(exp(a1+b11)+exp(a2+b21)+exp(a3+b31)+exp(0));
+          t14 = 1 - (t11+t12+t13);
+
+          t21 = exp(a1 +b12)/(exp(a1+b12)+exp(a2+b22)+exp(a3+b32)+exp(0));
+          t22 = exp(a2 +b22)/(exp(a1+b12)+exp(a2+b22)+exp(a3+b32)+exp(0));
+          t23 = exp(a3 +b32)/(exp(a1+b12)+exp(a2+b22)+exp(a3+b32)+exp(0));
+          t24 = 1 - (t21+t22+t23);
+
+          t31 = exp(a1 +b13)/(exp(a1+b13)+exp(a2+b23)+exp(a3+b33)+exp(0));
+          t32 = exp(a2 +b23)/(exp(a1+b13)+exp(a2+b23)+exp(a3+b33)+exp(0));
+          t33 = exp(a3 +b33)/(exp(a1+b13)+exp(a2+b23)+exp(a3+b33)+exp(0));
+          t34 = 1 - (t31+t32+t33);
+
+
+
+          t41 = exp(a1)/(exp(a1)+exp(a2)+exp(a3)+exp(0));
+          t42 = exp(a2)/(exp(a1)+exp(a2)+exp(a3)+exp(0));
+          t43 = exp(a3)/(exp(a1)+exp(a2)+exp(a3)+exp(0));
+          t44 = 1 - (t41+t42+t43);
+
+
+       !c1#3 ON female (b132);
+
+   x= 1  ; ! x=1 is female, x=0 males
+
+  t11B = exp(a1 +b11+b212*x)/(exp(a1+b11+b212*x)+exp(a2+b21+b222*x)+exp(a3+b31+b232*x)
+  +exp(0));
+  t12B = exp(a2 +b21+b222*x)/(exp(a1+b11+b212*x)+exp(a2+b21+b222*x)+exp(a3+b31+b232*x)
+  +exp(0));
+  t13B = exp(a3 +b31+b232*x)/(exp(a1+b11+b212*x)+exp(a2+b21+b222*x)+exp(a3+b31+b232*x)
+  +exp(0));
+  t14B = 1 - (t11B+t12B+t13B);
+
+  t21B = exp(a1 +b12+b212*x)/(exp(a1+b12+b212*x)+exp(a2+b22+b222*x)+exp(a3+b32+b232*x)
+  +exp(0));
+  t22B = exp(a2 +b22+b222*x)/(exp(a1+b12+b212*x)+exp(a2+b22+b222*x)+exp(a3+b32+b232*x)
+  +exp(0));
+  t23B = exp(a3 +b32+b232*x)/(exp(a1+b12+b212*x)+exp(a2+b22+b222*x)+exp(a3+b32+b232*x)
+  +exp(0));
+  t24B = 1 - (t21B+t22B+t23B);
+
+  t31B = exp(a1 +b13+b212*x)/(exp(a1+b13+b212*x)+exp(a2+b23+b222*x)+exp(a3+b33+b232*x)
+  +exp(0));
+  t32B = exp(a2 +b23+b222*x)/(exp(a1+b13+b212*x)+exp(a2+b23+b222*x)+exp(a3+b33+b232*x)
+  +exp(0));
+  t33B = exp(a3 +b33+b232*x)/(exp(a1+b13+b212*x)+exp(a2+b23+b222*x)+exp(a3+b33+b232*x)
+  +exp(0));
+  t34B = 1 - (t31B+t32B+t33B);
+
+  t41B = exp(a1+b212*x)/(exp(a1+b212*x)+exp(a2+b222*x)+exp(a3+b232*x)+exp(0));
+  t42B = exp(a2+b222*x)/(exp(a1+b212*x)+exp(a2+b222*x)+exp(a3+b232*x)+exp(0));
+  t43B = exp(a3+b232*x)/(exp(a1+b212*x)+exp(a2+b222*x)+exp(a3+b232*x)+exp(0));
+  t44B = 1 - (t41B+t42B+t43B);
+
+          diff_11_22= t11-t11B;
+  OUTPUT:
+  tech1 tech15 svalues;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+        [AB39M$1-AB39X$1] (1-5);  !!! labels that are repeated will constrain parameters to e
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  31
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+LTA (invariant)
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3061
+
+Number of dependent variables                                   10
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+Number of categorical latent variables                           2
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   AB39M       AB39T       AB39U       AB39W       AB39X       GA33A
+   GA33H       GA33I       GA33K       GA33L
+
+Observed independent variables
+   FEMALE
+
+Categorical latent variables
+   C1          C2
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-03
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-03
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Parameterization                                             LOGIT
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/lta/cov_model/calc_tran.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            45
+     Number of y missing data patterns           0
+     Number of u missing data patterns          45
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              AB39M         AB39T         AB39U         AB39W         AB39X
+              ________      ________      ________      ________      ________
+ AB39M          0.994
+ AB39T          0.972         0.976
+ AB39U          0.972         0.960         0.977
+ AB39W          0.979         0.965         0.966         0.984
+ AB39X          0.989         0.973         0.975         0.982         0.994
+ GA33A          0.721         0.707         0.708         0.714         0.721
+ GA33H          0.717         0.702         0.704         0.709         0.717
+ GA33I          0.716         0.701         0.703         0.709         0.716
+ GA33K          0.717         0.703         0.705         0.710         0.717
+ GA33L          0.721         0.707         0.709         0.714         0.721
+
+
+           Covariance Coverage
+              GA33A         GA33H         GA33I         GA33K         GA33L
+              ________      ________      ________      ________      ________
+ GA33A          0.725
+ GA33H          0.718         0.720
+ GA33I          0.718         0.714         0.720
+ GA33K          0.719         0.715         0.714         0.721
+ GA33L          0.723         0.718         0.718         0.719         0.725
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    AB39M
+      Category 1    0.387         1177.000
+      Category 2    0.613         1865.000
+    AB39T
+      Category 1    0.596         1782.000
+      Category 2    0.404         1206.000
+    AB39U
+      Category 1    0.508         1519.000
+      Category 2    0.492         1473.000
+    AB39W
+      Category 1    0.596         1796.000
+      Category 2    0.404         1216.000
+    AB39X
+      Category 1    0.539         1639.000
+      Category 2    0.461         1404.000
+    GA33A
+      Category 1    0.424          941.000
+      Category 2    0.576         1278.000
+    GA33H
+      Category 1    0.572         1261.000
+      Category 2    0.428          944.000
+    GA33I
+      Category 1    0.491         1082.000
+      Category 2    0.509         1121.000
+    GA33K
+      Category 1    0.579         1277.000
+      Category 2    0.421          930.000
+    GA33L
+      Category 1    0.584         1297.000
+      Category 2    0.416          922.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     FEMALE                0.481       0.075       0.000   51.88%       0.000      0.000      0.000
+            3061.000       0.250      -1.994       1.000   48.12%       1.000      1.000
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -14428.058  715561           125
+          -14428.058  197223           332
+          -14428.058  521575           313
+          -14428.058  923437           398
+          -14428.058  569833           85
+          -14428.058  263221           447
+          -14428.058  813779           92
+          -14428.058  636396           168
+          -14428.058  441191           361
+          -14428.058  252949           487
+          -14428.058  462953           7
+          -14428.058  483369           270
+          -14428.058  570782           193
+          -14428.058  848969           173
+          -14428.058  372176           23
+          -14428.058  21132            351
+          -14428.058  267983           228
+          -14428.059  479273           156
+          -14428.059  985387           381
+          -14428.059  939021           8
+          -14428.059  268896           124
+          -14428.059  416463           467
+          -14428.059  15715            274
+          -14428.060  626891           32
+          -14428.060  137305           379
+          -14428.060  440841           118
+          -14428.060  216565           474
+          -14428.061  275475           413
+          -14428.062  637095           207
+          -14428.062  617243           237
+          -14428.062  415502           194
+          -14428.063  741484           441
+          -14428.063  49221            254
+          -14428.064  972873           157
+          -14428.402  399671           13
+
+65 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+     IN THE OPTIMIZATION, ONE OR MORE LOGIT THRESHOLDS APPROACHED EXTREME VALUES
+     OF -15.000 AND 15.000 AND WERE FIXED TO STABILIZE MODEL ESTIMATION.  THESE
+     VALUES IMPLY PROBABILITIES OF 0 AND 1.  IN THE MODEL RESULTS SECTION, THESE
+     PARAMETERS HAVE 0 STANDARD ERRORS AND 999 IN THE Z-SCORE AND P-VALUE COLUMNS.
+
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       41
+
+Loglikelihood
+
+          H0 Value                      -14428.058
+          H0 Scaling Correction Factor      1.0693
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   28938.115
+          Bayesian (BIC)                 29185.201
+          Sample-Size Adjusted BIC       29054.928
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           1199.665
+          Degrees of Freedom                   965
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            980.422
+          Degrees of Freedom                   965
+          P-Value                           0.3578
+
+** Of the 10008 cells in the latent class indicator table, 23
+   were deleted in the calculation of chi-square due to extreme values.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                           2744.430
+          Degrees of Freedom                  8940
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            835.832
+          Degrees of Freedom                  8940
+          P-Value                           1.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Variable    Class
+
+    C1             1       498.06006          0.16271
+                   2       818.68451          0.26746
+                   3       890.17944          0.29081
+                   4       854.07599          0.27902
+    C2             1       559.10956          0.18266
+                   2      1009.46381          0.32978
+                   3       465.95761          0.15222
+                   4      1026.46912          0.33534
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.594
+
+
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C1
+                       Latent class
+                     1      2      3      4
+     AB39M
+       Category 1  0.435  0.108  0.328  0.726
+       Category 2  0.565  0.892  0.672  0.274
+     AB39T
+       Category 1  0.618  0.071  0.691  0.986
+       Category 2  0.382  0.929  0.309  0.014
+     AB39U
+       Category 1  0.333  0.054  0.566  0.976
+       Category 2  0.667  0.946  0.434  0.024
+     AB39W
+       Category 1  0.831  0.098  0.567  0.944
+       Category 2  0.169  0.902  0.433  0.056
+     AB39X
+       Category 1  1.000  0.073  0.283  0.988
+       Category 2  0.000  0.927  0.717  0.012
+
+     MEAN/PROBABILITY PROFILES FOR C2
+                       Latent class
+                     1      2      3      4
+     GA33A
+       Category 1  0.435  0.108  0.328  0.726
+       Category 2  0.565  0.892  0.672  0.274
+     GA33H
+       Category 1  0.618  0.071  0.691  0.986
+       Category 2  0.382  0.929  0.309  0.014
+     GA33I
+       Category 1  0.333  0.054  0.566  0.976
+       Category 2  0.667  0.946  0.434  0.024
+     GA33K
+       Category 1  0.831  0.098  0.567  0.944
+       Category 2  0.169  0.902  0.433  0.056
+     GA33L
+       Category 1  1.000  0.073  0.283  0.988
+       Category 2  0.000  0.927  0.717  0.012
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Categorical Latent Variables
+
+ C2#1     ON
+    FEMALE             0.970      0.185      0.668      1.409
+
+ C2#2     ON
+    FEMALE             0.942      0.121      0.732      1.211
+
+ C2#3     ON
+    FEMALE             1.124      0.214      0.773      1.633
+
+ C1#1     ON
+    FEMALE             0.607      0.106      0.430      0.855
+
+ C1#2     ON
+    FEMALE             0.433      0.053      0.340      0.551
+
+ C1#3     ON
+    FEMALE             0.576      0.076      0.445      0.746
+
+
+LATENT TRANSITION PROBABILITIES BASED ON THE ESTIMATED MODEL
+
+  C1 Classes (Rows) by C2 Classes (Columns)
+
+            1        2        3        4
+
+   1     0.304    0.268    0.090    0.338
+   2     0.130    0.521    0.142    0.207
+   3     0.167    0.319    0.258    0.255
+   4     0.179    0.193    0.088    0.540
+
+
+TRANSITION PROBABILITY ODDS
+
+
+     EVALUATED AT THE SAMPLE MEAN FOR ALL COVARIATES
+
+     TRANSITION TABLE ODDS AND 95% CONFIDENCE INTERVALS FOR C1 TO C2
+        1.000(1.000,1.000)   0.880(0.543,1.426)   0.297(0.064,1.380)   1.113(0.666,1.859)
+        0.249(0.118,0.526)   1.000(1.000,1.000)   0.273(0.159,0.468)   0.397(0.287,0.549)
+        0.646(0.205,2.033)   1.232(0.788,1.928)   1.000(1.000,1.000)   0.988(0.646,1.512)
+        0.331(0.139,0.791)   0.356(0.264,0.480)   0.163(0.083,0.320)   1.000(1.000,1.000)
+
+
+COVARIATE EFFECTS ON TRANSITION PROBABILITY ODDS RATIOS
+
+     EFFECT OF FEMALE
+
+     TRANSITION TABLE ODDS RATIO AND 95% CONFIDENCE INTERVALS FOR C1 TO C2
+        1.000(1.000,1.000)   0.971(0.698,1.350)   1.159(0.718,1.870)   1.031(0.710,1.497)
+        1.030(0.741,1.432)   1.000(1.000,1.000)   1.193(0.809,1.761)   1.062(0.826,1.366)
+        0.863(0.535,1.393)   0.838(0.568,1.237)   1.000(1.000,1.000)   0.890(0.612,1.293)
+        0.970(0.668,1.409)   0.942(0.732,1.211)   1.124(0.773,1.633)   1.000(1.000,1.000)
+
+
+C-SPECIFIC CLASSIFICATION RESULTS
+
+Classification Quality for C1
+
+     Entropy                         0.647
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.704    0.024    0.211    0.060
+    2   0.016    0.855    0.129    0.000
+    3   0.043    0.104    0.822    0.031
+    4   0.103    0.001    0.080    0.816
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.708    0.027    0.062    0.203
+    2   0.015    0.892    0.092    0.001
+    3   0.119    0.123    0.670    0.088
+    4   0.035    0.000    0.026    0.938
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      1.249   -2.030   -1.181    0.000
+    2      3.077    7.166    4.894    0.000
+    3      0.299    0.337    2.028    0.000
+    4     -3.275   -8.027   -3.567    0.000
+
+Classification Quality for C2
+
+     Entropy                         0.533
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.766    0.032    0.126    0.075
+    2   0.065    0.732    0.120    0.083
+    3   0.031    0.107    0.807    0.055
+    4   0.136    0.080    0.063    0.721
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.550    0.139    0.013    0.298
+    2   0.013    0.865    0.026    0.097
+    3   0.109    0.308    0.418    0.166
+    4   0.029    0.096    0.013    0.862
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      0.612   -0.763   -3.106    0.000
+    2     -2.027    2.190   -1.331    0.000
+    3     -0.424    0.618    0.923    0.000
+    4     -3.377   -2.192   -4.209    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Parameters for Class-specific Model Parts of C1
+
+Latent Class C1#1
+
+ Thresholds
+    AB39M$1           -0.261      0.149     -1.750      0.080
+    AB39T$1            0.480      0.216      2.222      0.026
+    AB39U$1           -0.693      0.637     -1.088      0.277
+    AB39W$1            1.595      0.288      5.532      0.000
+    AB39X$1           15.000      0.000    999.000    999.000
+
+Latent Class C1#2
+
+ Thresholds
+    AB39M$1           -2.111      0.110    -19.229      0.000
+    AB39T$1           -2.567      0.265     -9.693      0.000
+    AB39U$1           -2.856      0.230    -12.393      0.000
+    AB39W$1           -2.222      0.150    -14.765      0.000
+    AB39X$1           -2.543      0.176    -14.435      0.000
+
+Latent Class C1#3
+
+ Thresholds
+    AB39M$1           -0.715      0.103     -6.922      0.000
+    AB39T$1            0.804      0.147      5.485      0.000
+    AB39U$1            0.267      0.146      1.827      0.068
+    AB39W$1            0.269      0.159      1.687      0.092
+    AB39X$1           -0.927      0.611     -1.517      0.129
+
+Latent Class C1#4
+
+ Thresholds
+    AB39M$1            0.975      0.104      9.373      0.000
+    AB39T$1            4.240      1.783      2.379      0.017
+    AB39U$1            3.685      1.284      2.871      0.004
+    AB39W$1            2.822      0.172     16.396      0.000
+    AB39X$1            4.406      0.823      5.352      0.000
+
+Parameters for Class-specific Model Parts of C2
+
+Latent Class C2#1
+
+ Thresholds
+    GA33A$1           -0.261      0.149     -1.750      0.080
+    GA33H$1            0.480      0.216      2.222      0.026
+    GA33I$1           -0.693      0.637     -1.088      0.277
+    GA33K$1            1.595      0.288      5.532      0.000
+    GA33L$1           15.000      0.000    999.000    999.000
+
+Latent Class C2#2
+
+ Thresholds
+    GA33A$1           -2.111      0.110    -19.229      0.000
+    GA33H$1           -2.567      0.265     -9.693      0.000
+    GA33I$1           -2.856      0.230    -12.393      0.000
+    GA33K$1           -2.222      0.150    -14.765      0.000
+    GA33L$1           -2.543      0.176    -14.435      0.000
+
+Latent Class C2#3
+
+ Thresholds
+    GA33A$1           -0.715      0.103     -6.922      0.000
+    GA33H$1            0.804      0.147      5.485      0.000
+    GA33I$1            0.267      0.146      1.827      0.068
+    GA33K$1            0.269      0.159      1.687      0.092
+    GA33L$1           -0.927      0.611     -1.517      0.129
+
+Latent Class C2#4
+
+ Thresholds
+    GA33A$1            0.975      0.104      9.373      0.000
+    GA33H$1            4.240      1.783      2.379      0.017
+    GA33I$1            3.685      1.284      2.871      0.004
+    GA33K$1            2.822      0.172     16.396      0.000
+    GA33L$1            4.406      0.823      5.352      0.000
+
+Categorical Latent Variables
+
+ C2#1     ON
+    C1#1               0.999      0.455      2.196      0.028
+    C1#2               0.641      0.332      1.932      0.053
+    C1#3               0.681      0.329      2.070      0.038
+
+ C2#2     ON
+    C1#1               0.798      0.291      2.742      0.006
+    C1#2               1.957      0.202      9.673      0.000
+    C1#3               1.253      0.233      5.375      0.000
+
+ C2#3     ON
+    C1#1               0.492      1.029      0.478      0.632
+    C1#2               1.438      0.385      3.737      0.000
+    C1#3               1.824      0.398      4.578      0.000
+
+ C2#1       ON
+    FEMALE            -0.030      0.190     -0.160      0.873
+
+ C2#2       ON
+    FEMALE            -0.060      0.128     -0.467      0.640
+
+ C2#3       ON
+    FEMALE             0.117      0.191      0.613      0.540
+
+ C1#1       ON
+    FEMALE            -0.500      0.175     -2.853      0.004
+
+ C1#2       ON
+    FEMALE            -0.838      0.123     -6.809      0.000
+
+ C1#3       ON
+    FEMALE            -0.552      0.132     -4.189      0.000
+
+ Intercepts
+    C1#1              -0.272      0.525     -0.518      0.604
+    C1#2               0.371      0.155      2.385      0.017
+    C1#3               0.333      0.164      2.029      0.042
+    C2#1              -1.091      0.486     -2.244      0.025
+    C2#2              -1.003      0.177     -5.652      0.000
+    C2#3              -1.870      0.369     -5.070      0.000
+
+New/Additional Parameters
+    T11                0.306      0.047      6.464      0.000
+    T12                0.273      0.044      6.236      0.000
+    T13                0.085      0.060      1.406      0.160
+    T14                0.336      0.061      5.482      0.000
+    T21                0.131      0.051      2.556      0.011
+    T22                0.532      0.029     18.242      0.000
+    T23                0.133      0.037      3.582      0.000
+    T24                0.205      0.033      6.296      0.000
+    T31                0.170      0.077      2.202      0.028
+    T32                0.329      0.031     10.638      0.000
+    T33                0.245      0.053      4.638      0.000
+    T34                0.256      0.047      5.454      0.000
+    T41                0.181      0.071      2.532      0.011
+    T42                0.198      0.026      7.721      0.000
+    T43                0.083      0.032      2.573      0.010
+    T44                0.539      0.055      9.748      0.000
+    T11B               0.301      0.054      5.589      0.000
+    T12B               0.261      0.044      5.978      0.000
+    T13B               0.097      0.071      1.365      0.172
+    T14B               0.341      0.059      5.787      0.000
+    T21B               0.129      0.046      2.796      0.005
+    T22B               0.510      0.033     15.683      0.000
+    T23B               0.152      0.039      3.952      0.000
+    T24B               0.209      0.030      6.865      0.000
+    T31B               0.164      0.068      2.403      0.016
+    T32B               0.308      0.031      9.912      0.000
+    T33B               0.273      0.051      5.373      0.000
+    T34B               0.255      0.044      5.841      0.000
+    T41B               0.177      0.062      2.868      0.004
+    T42B               0.187      0.023      8.311      0.000
+    T43B               0.094      0.033      2.877      0.004
+    T44B               0.542      0.046     11.878      0.000
+    DIFF_11_           0.005      0.037      0.130      0.896
+    X                  1.000      0.000  *********      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.133E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Results for Class-specific Model Parts of C1
+
+Latent Class C1#1
+
+ AB39M
+    Category 1         0.435      0.037     11.892      0.000
+    Category 2         0.565      0.037     15.432      0.000
+ AB39T
+    Category 1         0.618      0.051     12.102      0.000
+    Category 2         0.382      0.051      7.486      0.000
+ AB39U
+    Category 1         0.333      0.142      2.353      0.019
+    Category 2         0.667      0.142      4.707      0.000
+ AB39W
+    Category 1         0.831      0.040     20.563      0.000
+    Category 2         0.169      0.040      4.173      0.000
+ AB39X
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+
+Latent Class C1#2
+
+ AB39M
+    Category 1         0.108      0.011     10.210      0.000
+    Category 2         0.892      0.011     84.333      0.000
+ AB39T
+    Category 1         0.071      0.018      4.065      0.000
+    Category 2         0.929      0.018     52.967      0.000
+ AB39U
+    Category 1         0.054      0.012      4.588      0.000
+    Category 2         0.946      0.012     79.822      0.000
+ AB39W
+    Category 1         0.098      0.013      7.367      0.000
+    Category 2         0.902      0.013     67.937      0.000
+ AB39X
+    Category 1         0.073      0.012      6.123      0.000
+    Category 2         0.927      0.012     77.855      0.000
+
+Latent Class C1#3
+
+ AB39M
+    Category 1         0.328      0.023     14.407      0.000
+    Category 2         0.672      0.023     29.462      0.000
+ AB39T
+    Category 1         0.691      0.031     22.070      0.000
+    Category 2         0.309      0.031      9.881      0.000
+ AB39U
+    Category 1         0.566      0.036     15.779      0.000
+    Category 2         0.434      0.036     12.082      0.000
+ AB39W
+    Category 1         0.567      0.039     14.478      0.000
+    Category 2         0.433      0.039     11.063      0.000
+ AB39X
+    Category 1         0.283      0.124      2.283      0.022
+    Category 2         0.717      0.124      5.770      0.000
+
+Latent Class C1#4
+
+ AB39M
+    Category 1         0.726      0.021     35.094      0.000
+    Category 2         0.274      0.021     13.232      0.000
+ AB39T
+    Category 1         0.986      0.025     39.495      0.000
+    Category 2         0.014      0.025      0.569      0.569
+ AB39U
+    Category 1         0.976      0.031     31.809      0.000
+    Category 2         0.024      0.031      0.799      0.424
+ AB39W
+    Category 1         0.944      0.009    103.471      0.000
+    Category 2         0.056      0.009      6.156      0.000
+ AB39X
+    Category 1         0.988      0.010    100.726      0.000
+    Category 2         0.012      0.010      1.230      0.219
+
+Results for Class-specific Model Parts of C2
+
+Latent Class C2#1
+
+ GA33A
+    Category 1         0.435      0.037     11.892      0.000
+    Category 2         0.565      0.037     15.432      0.000
+ GA33H
+    Category 1         0.618      0.051     12.102      0.000
+    Category 2         0.382      0.051      7.486      0.000
+ GA33I
+    Category 1         0.333      0.142      2.353      0.019
+    Category 2         0.667      0.142      4.707      0.000
+ GA33K
+    Category 1         0.831      0.040     20.563      0.000
+    Category 2         0.169      0.040      4.173      0.000
+ GA33L
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+
+Latent Class C2#2
+
+ GA33A
+    Category 1         0.108      0.011     10.210      0.000
+    Category 2         0.892      0.011     84.333      0.000
+ GA33H
+    Category 1         0.071      0.018      4.065      0.000
+    Category 2         0.929      0.018     52.967      0.000
+ GA33I
+    Category 1         0.054      0.012      4.588      0.000
+    Category 2         0.946      0.012     79.822      0.000
+ GA33K
+    Category 1         0.098      0.013      7.367      0.000
+    Category 2         0.902      0.013     67.937      0.000
+ GA33L
+    Category 1         0.073      0.012      6.123      0.000
+    Category 2         0.927      0.012     77.855      0.000
+
+Latent Class C2#3
+
+ GA33A
+    Category 1         0.328      0.023     14.407      0.000
+    Category 2         0.672      0.023     29.462      0.000
+ GA33H
+    Category 1         0.691      0.031     22.070      0.000
+    Category 2         0.309      0.031      9.881      0.000
+ GA33I
+    Category 1         0.566      0.036     15.779      0.000
+    Category 2         0.434      0.036     12.082      0.000
+ GA33K
+    Category 1         0.567      0.039     14.478      0.000
+    Category 2         0.433      0.039     11.063      0.000
+ GA33L
+    Category 1         0.283      0.124      2.283      0.022
+    Category 2         0.717      0.124      5.770      0.000
+
+Latent Class C2#4
+
+ GA33A
+    Category 1         0.726      0.021     35.094      0.000
+    Category 2         0.274      0.021     13.232      0.000
+ GA33H
+    Category 1         0.986      0.025     39.495      0.000
+    Category 2         0.014      0.025      0.569      0.569
+ GA33I
+    Category 1         0.976      0.031     31.809      0.000
+    Category 2         0.024      0.031      0.799      0.424
+ GA33K
+    Category 1         0.944      0.009    103.471      0.000
+    Category 2         0.056      0.009      6.156      0.000
+ GA33L
+    Category 1         0.988      0.010    100.726      0.000
+    Category 2         0.012      0.010      1.230      0.219
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     c2#1 ON c1#1*0.99852 (b11);
+     c2#1 ON c1#2*0.64082 (b12);
+     c2#1 ON c1#3*0.68065 (b13);
+     c2#2 ON c1#1*0.79801 (b21);
+     c2#2 ON c1#2*1.95714 (b22);
+     c2#2 ON c1#3*1.25321 (b23);
+     c2#3 ON c1#1*0.49248 (b31);
+     c2#3 ON c1#2*1.43837 (b32);
+     c2#3 ON c1#3*1.82405 (b33);
+     c2#1 ON female*-0.03038 (b212);
+     c2#2 ON female*-0.05995 (b222);
+     c2#3 ON female*0.11688 (b232);
+     c1#1 ON female*-0.49988 (b112);
+     c1#2 ON female*-0.83801 (b122);
+     c1#3 ON female*-0.55155 (b132);
+
+     [ c1#1*-0.27197 ];
+     [ c1#2*0.37070 ];
+     [ c1#3*0.33281 ];
+     [ c2#1*-1.09053 ] (a1);
+     [ c2#2*-1.00310 ] (a2);
+     [ c2#3*-1.87015 ] (a3);
+
+
+  MODEL C1:
+
+     %C1#1%
+
+     [ ab39m$1*-0.26058 ] (1);
+     [ ab39t$1*0.48044 ] (2);
+     [ ab39u$1*-0.69329 ] (3);
+     [ ab39w$1*1.59491 ] (4);
+     [ ab39x$1*15 ] (5);
+
+     %C1#2%
+
+     [ ab39m$1*-2.11143 ] (6);
+     [ ab39t$1*-2.56717 ] (7);
+     [ ab39u$1*-2.85633 ] (8);
+     [ ab39w$1*-2.22158 ] (9);
+     [ ab39x$1*-2.54275 ] (10);
+
+     %C1#3%
+
+     [ ab39m$1*-0.71538 ] (11);
+     [ ab39t$1*0.80354 ] (12);
+     [ ab39u$1*0.26700 ] (13);
+     [ ab39w$1*0.26906 ] (14);
+     [ ab39x$1*-0.92727 ] (15);
+
+     %C1#4%
+
+     [ ab39m$1*0.97543 ] (16);
+     [ ab39t$1*4.23991 ] (17);
+     [ ab39u$1*3.68455 ] (18);
+     [ ab39w$1*2.82187 ] (19);
+     [ ab39x$1*4.40566 ] (20);
+
+  MODEL C2:
+
+     %C2#1%
+
+     [ ga33a$1*-0.26058 ] (1);
+     [ ga33h$1*0.48044 ] (2);
+     [ ga33i$1*-0.69329 ] (3);
+     [ ga33k$1*1.59491 ] (4);
+     [ ga33l$1*15 ] (5);
+
+     %C2#2%
+
+     [ ga33a$1*-2.11143 ] (6);
+     [ ga33h$1*-2.56717 ] (7);
+     [ ga33i$1*-2.85633 ] (8);
+     [ ga33k$1*-2.22158 ] (9);
+     [ ga33l$1*-2.54275 ] (10);
+
+     %C2#3%
+
+     [ ga33a$1*-0.71538 ] (11);
+     [ ga33h$1*0.80354 ] (12);
+     [ ga33i$1*0.26700 ] (13);
+     [ ga33k$1*0.26906 ] (14);
+     [ ga33l$1*-0.92727 ] (15);
+
+     %C2#4%
+
+     [ ga33a$1*0.97543 ] (16);
+     [ ga33h$1*4.23991 ] (17);
+     [ ga33i$1*3.68455 ] (18);
+     [ ga33k$1*2.82187 ] (19);
+     [ ga33l$1*4.40566 ] (20);
+
+     ! NEW statements in MODEL CONSTRAINT
+     NEW(t11*0.30619);
+     NEW(t12*0.27345);
+     NEW(t13*0.08465);
+     NEW(t14*0.33570);
+     NEW(t21*0.13061);
+     NEW(t22*0.53164);
+     NEW(t23*0.13297);
+     NEW(t24*0.20478);
+     NEW(t31*0.17006);
+     NEW(t32*0.32903);
+     NEW(t33*0.24468);
+     NEW(t34*0.25622);
+     NEW(t41*0.18097);
+     NEW(t42*0.19750);
+     NEW(t43*0.08299);
+     NEW(t44*0.53854);
+     NEW(t11b*0.30142);
+     NEW(t12b*0.26135);
+     NEW(t13b*0.09656);
+     NEW(t14b*0.34067);
+     NEW(t21b*0.12907);
+     NEW(t22b*0.51007);
+     NEW(t23b*0.15225);
+     NEW(t24b*0.20861);
+     NEW(t31b*0.16397);
+     NEW(t32b*0.30801);
+     NEW(t33b*0.27335);
+     NEW(t34b*0.25467);
+     NEW(t41b*0.17672);
+     NEW(t42b*0.18725);
+     NEW(t43b*0.09390);
+     NEW(t44b*0.54213);
+     NEW(diff_11_*0.00477);
+     NEW(x*1);
+
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 1 1
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 1 2
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 1 3
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 1 4
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 2 1
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 2 2
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 2 3
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 2 4
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 3 1
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 3 2
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 3 3
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 3 4
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 4 1
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 4 2
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 4 3
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 4 4
+
+
+           NU
+              FEMALE
+              ________
+                    0
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           ALPHA
+              FEMALE
+              ________
+                    0
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE             0
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 1
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 1
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 2
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 2
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                    6             7             8             9            10
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 3
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 3
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                   11            12            13            14            15
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 4
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 4
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                   16            17            18            19            20
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 1
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                    6             7             8             9            10
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 1
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 2
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                    6             7             8             9            10
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 2
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                    6             7             8             9            10
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 3
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                    6             7             8             9            10
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 3
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                   11            12            13            14            15
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 4
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                    6             7             8             9            10
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 4
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                   16            17            18            19            20
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 1
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                   11            12            13            14            15
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 1
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 2
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                   11            12            13            14            15
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 2
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                    6             7             8             9            10
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 3
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                   11            12            13            14            15
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 3
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                   11            12            13            14            15
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 4
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                   11            12            13            14            15
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 4
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                   16            17            18            19            20
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 1
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                   16            17            18            19            20
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 1
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 2
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                   16            17            18            19            20
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 2
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                    6             7             8             9            10
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 3
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                   16            17            18            19            20
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 3
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                   11            12            13            14            15
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 4
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                   16            17            18            19            20
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 4
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                   16            17            18            19            20
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C1#1          C1#2          C1#3          C1#4          C2#1
+              ________      ________      ________      ________      ________
+                   21            22            23             0            24
+
+
+           ALPHA(C)
+              C2#2          C2#3          C2#4
+              ________      ________      ________
+                   25            26             0
+
+
+           GAMMA(C)
+              FEMALE
+              ________
+ C1#1              27
+ C1#2              28
+ C1#3              29
+ C1#4               0
+ C2#1              30
+ C2#2              31
+ C2#3              32
+ C2#4               0
+
+
+           BETA(C)
+              C1#1          C1#2          C1#3          C1#4
+              ________      ________      ________      ________
+ C2#1              33            36            39             0
+ C2#2              34            37            40             0
+ C2#3              35            38            41             0
+ C2#4               0             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR THE ADDITIONAL PARAMETERS
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T11           T12           T13           T14           T21
+              ________      ________      ________      ________      ________
+                   42            43            44            45            46
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T22           T23           T24           T31           T32
+              ________      ________      ________      ________      ________
+                   47            48            49            50            51
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T33           T34           T41           T42           T43
+              ________      ________      ________      ________      ________
+                   52            53            54            55            56
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T44           T11B          T12B          T13B          T14B
+              ________      ________      ________      ________      ________
+                   57            58            59            60            61
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T21B          T22B          T23B          T24B          T31B
+              ________      ________      ________      ________      ________
+                   62            63            64            65            66
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T32B          T33B          T34B          T41B          T42B
+              ________      ________      ________      ________      ________
+                   67            68            69            70            71
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T43B          T44B          DIFF_11_      X
+              ________      ________      ________      ________
+                   72            73            74            75
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 1 1
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 1 2
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 1 3
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 1 4
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 2 1
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 2 2
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 2 3
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 2 4
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 3 1
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 3 2
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 3 3
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 3 4
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 4 1
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 4 2
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 4 3
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 4 4
+
+
+           NU
+              FEMALE
+              ________
+                0.000
+
+
+           LAMBDA
+              FEMALE
+              ________
+ FEMALE         1.000
+
+
+           THETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           ALPHA
+              FEMALE
+              ________
+                0.000
+
+
+           BETA
+              FEMALE
+              ________
+ FEMALE         0.000
+
+
+           PSI
+              FEMALE
+              ________
+ FEMALE         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 1
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -1.133        -0.410        -0.752        -0.396        -0.502
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 1
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -1.133        -0.410        -0.752        -0.396        -0.502
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 2
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -1.133        -0.410        -0.752        -0.396        -0.502
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 2
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 3
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -1.133        -0.410        -0.752        -0.396        -0.502
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 3
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 4
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -1.133        -0.410        -0.752        -0.396        -0.502
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 4
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                0.367         1.090         0.748         1.104         0.998
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 1
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 1
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -1.133        -0.410        -0.752        -0.396        -0.502
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 2
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 2
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 3
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 3
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 4
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 4
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                0.367         1.090         0.748         1.104         0.998
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 1
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 1
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -1.133        -0.410        -0.752        -0.396        -0.502
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 2
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 2
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 3
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 3
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 4
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 4
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                0.367         1.090         0.748         1.104         0.998
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 1
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                0.367         1.090         0.748         1.104         0.998
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 1
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -1.133        -0.410        -0.752        -0.396        -0.502
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 2
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                0.367         1.090         0.748         1.104         0.998
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 2
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 3
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                0.367         1.090         0.748         1.104         0.998
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 3
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+               -0.383         0.340        -0.002         0.354         0.248
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 4
+              AB39M$1       AB39T$1       AB39U$1       AB39W$1       AB39X$1
+              ________      ________      ________      ________      ________
+                0.367         1.090         0.748         1.104         0.998
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 4
+              GA33A$1       GA33H$1       GA33I$1       GA33K$1       GA33L$1
+              ________      ________      ________      ________      ________
+                0.367         1.090         0.748         1.104         0.998
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C1#1          C1#2          C1#3          C1#4          C2#1
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA(C)
+              C2#2          C2#3          C2#4
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           GAMMA(C)
+              FEMALE
+              ________
+ C1#1           0.000
+ C1#2           0.000
+ C1#3           0.000
+ C1#4           0.000
+ C2#1           0.000
+ C2#2           0.000
+ C2#3           0.000
+ C2#4           0.000
+
+
+           BETA(C)
+              C1#1          C1#2          C1#3          C1#4
+              ________      ________      ________      ________
+ C2#1           0.000         0.000         0.000         0.000
+ C2#2           0.000         0.000         0.000         0.000
+ C2#3           0.000         0.000         0.000         0.000
+ C2#4           0.000         0.000         0.000         0.000
+
+
+     STARTING VALUES FOR THE ADDITIONAL PARAMETERS
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T11           T12           T13           T14           T21
+              ________      ________      ________      ________      ________
+                0.500         0.500         0.500         0.500         0.500
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T22           T23           T24           T31           T32
+              ________      ________      ________      ________      ________
+                0.500         0.500         0.500         0.500         0.500
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T33           T34           T41           T42           T43
+              ________      ________      ________      ________      ________
+                0.500         0.500         0.500         0.500         0.500
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T44           T11B          T12B          T13B          T14B
+              ________      ________      ________      ________      ________
+                0.500         0.500         0.500         0.500         0.500
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T21B          T22B          T23B          T24B          T31B
+              ________      ________      ________      ________      ________
+                0.500         0.500         0.500         0.500         0.500
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T32B          T33B          T34B          T41B          T42B
+              ________      ________      ________      ________      ________
+                0.500         0.500         0.500         0.500         0.500
+
+
+           NEW/ADDITIONAL PARAMETERS
+              T43B          T44B          DIFF_11_      X
+              ________      ________      ________      ________
+                0.500         0.500         0.500         0.500
+
+
+TECHNICAL 15 OUTPUT
+
+
+     ESTIMATED CONDITIONAL PROBABILITIES FOR THE LATENT CLASS VARIABLES
+     EVALUATED AT THE SAMPLE MEAN FOR ALL COVARIATES
+
+     P(C1=1)=0.165
+     P(C1=2)=0.265
+     P(C1=3)=0.294
+     P(C1=4)=0.277
+
+
+     P(C2=1|C1=1)=0.304
+     P(C2=2|C1=1)=0.267
+     P(C2=3|C1=1)=0.090
+     P(C2=4|C1=1)=0.338
+
+
+     P(C2=1|C1=2)=0.130
+     P(C2=2|C1=2)=0.521
+     P(C2=3|C1=2)=0.142
+     P(C2=4|C1=2)=0.207
+
+
+     P(C2=1|C1=3)=0.167
+     P(C2=2|C1=3)=0.319
+     P(C2=3|C1=3)=0.259
+     P(C2=4|C1=3)=0.256
+
+
+     P(C2=1|C1=4)=0.179
+     P(C2=2|C1=4)=0.192
+     P(C2=3|C1=4)=0.088
+     P(C2=4|C1=4)=0.540
+
+
+
+     ESTIMATED MARGINAL PROBABILITIES FOR THE LATENT CLASS VARIABLES
+     EVALUATED AT THE SAMPLE MEAN FOR ALL COVARIATES
+
+     P(C2=1)=0.183
+     P(C2=2)=0.329
+     P(C2=3)=0.153
+     P(C2=4)=0.335
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Pattern
+
+    1  1        151.37933          0.04945
+    1  2        133.34808          0.04356
+    1  3         44.96393          0.01469
+    1  4        168.36872          0.05500
+    2  1        106.43720          0.03477
+    2  2        428.35916          0.13994
+    2  3        115.01704          0.03757
+    2  4        168.87110          0.05517
+    3  1        148.89413          0.04864
+    3  2        284.29522          0.09288
+    3  3        229.54081          0.07499
+    3  4        227.44930          0.07431
+    4  1        152.39889          0.04979
+    4  2        163.46135          0.05340
+    4  3         76.43581          0.02497
+    4  4        461.77993          0.15086
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+  Latent Class
+    Pattern
+
+    1  1        151.37943          0.04945
+    1  2        133.34772          0.04356
+    1  3         44.96424          0.01469
+    1  4        168.36850          0.05500
+    2  1        106.43757          0.03477
+    2  2        428.35930          0.13994
+    2  3        115.01693          0.03757
+    2  4        168.87112          0.05517
+    3  1        148.89414          0.04864
+    3  2        284.29545          0.09288
+    3  3        229.54033          0.07499
+    3  4        227.44909          0.07431
+    4  1        152.39875          0.04979
+    4  2        163.46132          0.05340
+    4  3         76.43580          0.02497
+    4  4        461.78031          0.15086
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+  Latent Class
+    Variable    Class
+
+    C1             1       498.05989          0.16271
+                   2       818.68492          0.26746
+                   3       890.17901          0.29081
+                   4       854.07618          0.27902
+    C2             1       559.10989          0.18266
+                   2      1009.46379          0.32978
+                   3       465.95729          0.15222
+                   4      1026.46903          0.33534
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN
+
+Class Counts and Proportions
+
+  Latent Class
+    Pattern
+
+    1  1               90          0.02940
+    1  2              111          0.03626
+    1  3               23          0.00751
+    1  4              277          0.09049
+    2  1               79          0.02581
+    2  2              569          0.18589
+    2  3               64          0.02091
+    2  4              142          0.04639
+    3  1               97          0.03169
+    3  2              351          0.11467
+    3  3              104          0.03398
+    3  4              173          0.05652
+    4  1              135          0.04410
+    4  2              162          0.05292
+    4  3               50          0.01633
+    4  4              634          0.20712
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN
+
+  Latent Class
+    Variable    Class
+
+    C1             1             501          0.16367
+                   2             854          0.27899
+                   3             725          0.23685
+                   4             981          0.32048
+    C2             1             401          0.13100
+                   2            1193          0.38974
+                   3             241          0.07873
+                   4            1226          0.40052
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Results for Class-specific Model Parts of C1
+
+Latent Class C1#1 Compared to Latent Class C1#2
+
+ AB39M
+    Category > 1       0.157      0.028      0.111      0.223
+ AB39T
+    Category > 1       0.047      0.018      0.023      0.100
+ AB39U
+    Category > 1       0.115      0.082      0.028      0.464
+ AB39W
+    Category > 1       0.022      0.007      0.012      0.042
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class C1#1 Compared to Latent Class C1#3
+
+ AB39M
+    Category > 1       0.635      0.122      0.435      0.925
+ AB39T
+    Category > 1       1.381      0.393      0.791      2.412
+ AB39U
+    Category > 1       2.612      1.882      0.636     10.725
+ AB39W
+    Category > 1       0.266      0.078      0.149      0.474
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class C1#1 Compared to Latent Class C1#4
+
+ AB39M
+    Category > 1       3.442      0.561      2.500      4.738
+ AB39T
+    Category > 1      42.926     72.614      1.559   1182.101
+ AB39U
+    Category > 1      79.666     99.726      6.850    926.456
+ AB39W
+    Category > 1       3.411      1.120      1.792      6.492
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class C1#2 Compared to Latent Class C1#3
+
+ AB39M
+    Category > 1       4.039      0.604      3.013      5.414
+ AB39T
+    Category > 1      29.099      7.534     17.519     48.335
+ AB39U
+    Category > 1      22.722      5.248     14.449     35.731
+ AB39W
+    Category > 1      12.069      2.369      8.214     17.733
+ AB39X
+    Category > 1       5.030      3.293      1.394     18.149
+
+Latent Class C1#2 Compared to Latent Class C1#4
+
+ AB39M
+    Category > 1      21.908      3.250     16.381     29.301
+ AB39T
+    Category > 1     904.228   1713.087     22.061  37062.500
+ AB39U
+    Category > 1     692.893    913.343     52.315   9177.085
+ AB39W
+    Category > 1     155.004     32.809    102.370    234.701
+ AB39X
+    Category > 1    1041.499    892.515    194.181   5586.132
+
+Latent Class C1#3 Compared to Latent Class C1#4
+
+ AB39M
+    Category > 1       5.424      0.854      3.984      7.384
+ AB39T
+    Category > 1      31.074     55.624      0.930   1037.802
+ AB39U
+    Category > 1      30.495     40.150      2.309    402.683
+ AB39W
+    Category > 1      12.843      2.765      8.422     19.586
+ AB39X
+    Category > 1     207.044    162.989     44.256    968.627
+
+Results for Class-specific Model Parts of C2
+
+Latent Class C2#1 Compared to Latent Class C2#2
+
+ GA33A
+    Category > 1       0.157      0.028      0.111      0.223
+ GA33H
+    Category > 1       0.047      0.018      0.023      0.100
+ GA33I
+    Category > 1       0.115      0.082      0.028      0.464
+ GA33K
+    Category > 1       0.022      0.007      0.012      0.042
+ GA33L
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class C2#1 Compared to Latent Class C2#3
+
+ GA33A
+    Category > 1       0.635      0.122      0.435      0.925
+ GA33H
+    Category > 1       1.381      0.393      0.791      2.412
+ GA33I
+    Category > 1       2.612      1.882      0.636     10.725
+ GA33K
+    Category > 1       0.266      0.078      0.149      0.474
+ GA33L
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class C2#1 Compared to Latent Class C2#4
+
+ GA33A
+    Category > 1       3.442      0.561      2.500      4.738
+ GA33H
+    Category > 1      42.926     72.614      1.559   1182.101
+ GA33I
+    Category > 1      79.666     99.726      6.850    926.456
+ GA33K
+    Category > 1       3.411      1.120      1.792      6.492
+ GA33L
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class C2#2 Compared to Latent Class C2#3
+
+ GA33A
+    Category > 1       4.039      0.604      3.013      5.414
+ GA33H
+    Category > 1      29.099      7.534     17.519     48.335
+ GA33I
+    Category > 1      22.722      5.248     14.449     35.731
+ GA33K
+    Category > 1      12.069      2.369      8.214     17.733
+ GA33L
+    Category > 1       5.030      3.293      1.394     18.149
+
+Latent Class C2#2 Compared to Latent Class C2#4
+
+ GA33A
+    Category > 1      21.908      3.250     16.381     29.301
+ GA33H
+    Category > 1     904.228   1713.087     22.061  37062.500
+ GA33I
+    Category > 1     692.893    913.343     52.315   9177.085
+ GA33K
+    Category > 1     155.004     32.809    102.370    234.701
+ GA33L
+    Category > 1    1041.499    892.515    194.181   5586.132
+
+Latent Class C2#3 Compared to Latent Class C2#4
+
+ GA33A
+    Category > 1       5.424      0.854      3.984      7.384
+ GA33H
+    Category > 1      31.074     55.624      0.930   1037.802
+ GA33I
+    Category > 1      30.495     40.150      2.309    402.683
+ GA33K
+    Category > 1      12.843      2.765      8.422     19.586
+ GA33L
+    Category > 1     207.044    162.989     44.256    968.627
+
+Available post-processing tools
+
+  Conditional probabilities and odds for the latent class variables
+
+     Beginning Time:  14:09:54
+        Ending Time:  14:10:11
+       Elapsed Time:  00:00:17
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

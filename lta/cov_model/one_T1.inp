@@ -1,0 +1,30 @@
+TITLE:
+Step 1 - T1
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/lta/cov_model/t1.dat"; 
+VARIABLE:
+NAMES = casenum cohort female minority ab39m ab39t ab39u ab39w ab39x ga33a ga33h
+     ga33i ga33k ga33l math_g7 math_g10 math_g12 op_know op_know2 siok siok2
+     sci_issues7 sci_irt7; 
+ MISSING=.;
+ usevar = ab39m ab39t ab39u ab39w ab39x;
+  categorical = ab39m ab39t ab39u ab39w ab39x;
+    
+   classes = c(4); 
+    
+   auxiliary = sci_issues7 sci_irt7 female;
+  
+   idvariable = casenum;
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    optseed = 534483;
+OUTPUT:
+residual tech11 tech14 svalues
+SAVEDATA:
+File=3step_t1.dat;
+    Save=cprob;
+PLOT:
+type = plot3; 
+    series = ab39m-ab39x(*);

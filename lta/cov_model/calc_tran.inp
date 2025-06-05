@@ -1,0 +1,141 @@
+TITLE:
+LTA (invariant)
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/lta/cov_model/calc_tran.dat"; 
+VARIABLE:
+NAMES = AB39M AB39T AB39U AB39W AB39X SCI_ISSU SCI_IRT7 FEMALE CPROB1_x CPROB2_x
+     CPROB3_x CPROB4_x N_T1 CASENUM GA33A GA33H GA33I GA33K GA33L CPROB1_y CPROB2_y
+     CPROB3_y CPROB4_y N_T2; 
+ MISSING=.;
+ usevar = ab39m ab39t ab39u ab39w ab39x  ! 7th grade indicators
+               ga33a ga33h ga33i ga33k ga33l FEMALE;
+  categorical = ab39m-ab39x ga33a-ga33l;
+  classes = c1(4) c2(4);
+ANALYSIS:
+estimator = mlr; 
+  type = mixture; 
+  starts = 500 100;
+ processors = 10;
+MODEL:
+%overall%
+
+    c2 c1 on FEMALE;
+
+      c2#1 on c1#1 (b11);
+      c2#2 on c1#1 (b21);
+      c2#3 on c1#1 (b31);
+    
+      c2#1 on c1#2 (b12);
+      c2#2 on c1#2 (b22);
+      c2#3 on c1#2 (b32);    
+
+      c2#1 on c1#3 (b13);
+      c2#2 on c1#3 (b23);
+      c2#3 on c1#3 (b33);
+
+      [c2#1] (a1);
+      [c2#2] (a2);
+      [c2#3] (a3);
+
+     c2#1 ON female (b212);
+     c2#2 ON female (b222);
+     c2#3 ON female (b232);
+     c1#1 ON female (b112);
+     c1#2 ON female (b122);
+     c1#3 ON female (b132);
+
+      MODEL c1: 
+      %c1#1%
+      [AB39M$1-AB39X$1] (1-5);  !!! labels that are repeated will constrain parameters to equality !!!
+      %c1#2%
+      [AB39M$1-AB39X$1] (6-10);
+      %c1#3%
+      [AB39M$1-AB39X$1] (11-15);
+      %c1#4%
+      [AB39M$1-AB39X$1] (16-20);
+
+      MODEL c2:
+      %c2#1%
+      [GA33A$1-GA33L$1] (1-5);
+      %c2#2%
+      [GA33A$1-GA33L$1] (6-10);
+      %c2#3%
+      [GA33A$1-GA33L$1] (11-15);
+      %c2#4%
+      [GA33A$1-GA33L$1] (16-20);
+MODEL CONSTRAINT:
+  ! Compute joint and marginal probabilities:
+        New(
+        t11 t12 t13 t14
+        t21 t22 t23 t24
+        t31 t32 t33 t34
+        t41 t42 t43 t44
+
+        t11B t12B t13B t14B
+        t21B t22B t23B t24B
+        t31B t32B t33B t34B
+        t41B t42B t43B t44B
+        
+        diff_11_22 x
+        
+       );
+
+        t11 = exp(a1 +b11)/(exp(a1+b11)+exp(a2+b21)+exp(a3+b31)+exp(0));
+        t12 = exp(a2 +b21)/(exp(a1+b11)+exp(a2+b21)+exp(a3+b31)+exp(0));
+        t13 = exp(a3 +b31)/(exp(a1+b11)+exp(a2+b21)+exp(a3+b31)+exp(0));
+        t14 = 1 - (t11+t12+t13);
+
+        t21 = exp(a1 +b12)/(exp(a1+b12)+exp(a2+b22)+exp(a3+b32)+exp(0));
+        t22 = exp(a2 +b22)/(exp(a1+b12)+exp(a2+b22)+exp(a3+b32)+exp(0));
+        t23 = exp(a3 +b32)/(exp(a1+b12)+exp(a2+b22)+exp(a3+b32)+exp(0));
+        t24 = 1 - (t21+t22+t23);
+
+        t31 = exp(a1 +b13)/(exp(a1+b13)+exp(a2+b23)+exp(a3+b33)+exp(0));
+        t32 = exp(a2 +b23)/(exp(a1+b13)+exp(a2+b23)+exp(a3+b33)+exp(0));
+        t33 = exp(a3 +b33)/(exp(a1+b13)+exp(a2+b23)+exp(a3+b33)+exp(0));
+        t34 = 1 - (t31+t32+t33);
+
+
+
+        t41 = exp(a1)/(exp(a1)+exp(a2)+exp(a3)+exp(0));
+        t42 = exp(a2)/(exp(a1)+exp(a2)+exp(a3)+exp(0));
+        t43 = exp(a3)/(exp(a1)+exp(a2)+exp(a3)+exp(0));
+        t44 = 1 - (t41+t42+t43);
+        
+        
+     !c1#3 ON female (b132);
+
+ x= 1  ; ! x=1 is female, x=0 males
+
+t11B = exp(a1 +b11+b212*x)/(exp(a1+b11+b212*x)+exp(a2+b21+b222*x)+exp(a3+b31+b232*x)
++exp(0));
+t12B = exp(a2 +b21+b222*x)/(exp(a1+b11+b212*x)+exp(a2+b21+b222*x)+exp(a3+b31+b232*x)
++exp(0));
+t13B = exp(a3 +b31+b232*x)/(exp(a1+b11+b212*x)+exp(a2+b21+b222*x)+exp(a3+b31+b232*x)
++exp(0));
+t14B = 1 - (t11B+t12B+t13B);
+
+t21B = exp(a1 +b12+b212*x)/(exp(a1+b12+b212*x)+exp(a2+b22+b222*x)+exp(a3+b32+b232*x)
++exp(0));
+t22B = exp(a2 +b22+b222*x)/(exp(a1+b12+b212*x)+exp(a2+b22+b222*x)+exp(a3+b32+b232*x)
++exp(0));
+t23B = exp(a3 +b32+b232*x)/(exp(a1+b12+b212*x)+exp(a2+b22+b222*x)+exp(a3+b32+b232*x)
++exp(0));
+t24B = 1 - (t21B+t22B+t23B);
+
+t31B = exp(a1 +b13+b212*x)/(exp(a1+b13+b212*x)+exp(a2+b23+b222*x)+exp(a3+b33+b232*x)
++exp(0));
+t32B = exp(a2 +b23+b222*x)/(exp(a1+b13+b212*x)+exp(a2+b23+b222*x)+exp(a3+b33+b232*x)
++exp(0));
+t33B = exp(a3 +b33+b232*x)/(exp(a1+b13+b212*x)+exp(a2+b23+b222*x)+exp(a3+b33+b232*x)
++exp(0));
+t34B = 1 - (t31B+t32B+t33B);
+
+t41B = exp(a1+b212*x)/(exp(a1+b212*x)+exp(a2+b222*x)+exp(a3+b232*x)+exp(0));
+t42B = exp(a2+b222*x)/(exp(a1+b212*x)+exp(a2+b222*x)+exp(a3+b232*x)+exp(0));
+t43B = exp(a3+b232*x)/(exp(a1+b212*x)+exp(a2+b222*x)+exp(a3+b232*x)+exp(0));
+t44B = 1 - (t41B+t42B+t43B);
+
+        diff_11_22= t11-t11B;
+OUTPUT:
+tech1 tech15 svalues;

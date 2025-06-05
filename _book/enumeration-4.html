@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>9 Enumeration | Mixture Modeling with MplusAutomation</title>
+<meta name="author" content="Dina Arch">
+<meta name="description" content="9.1 Enumerate Time Point 1 (7th grade) # NOTE CHANGE: '1:6' indicates the number of k-class models to estimate # User can change this number to fit research context # In this example, the code...">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="9 Enumeration | Mixture Modeling with MplusAutomation">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/enumeration-4.html">
+<meta property="og:description" content="9.1 Enumerate Time Point 1 (7th grade) # NOTE CHANGE: '1:6' indicates the number of k-class models to estimate # User can change this number to fit research context # In this example, the code...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="9 Enumeration | Mixture Modeling with MplusAutomation">
+<meta name="twitter:description" content="9.1 Enumerate Time Point 1 (7th grade) # NOTE CHANGE: '1:6' indicates the number of k-class models to estimate # User can change this number to fit research context # In this example, the code...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Mixture Modeling with MplusAutomation</a></li>
+<li><a class="" href="introduction-to-r-and-rstudio.html"><span class="header-section-number">1</span> Introduction to R and RStudio</a></li>
+<li><a class="" href="introduction-to-mplusautomation.html"><span class="header-section-number">2</span> Introduction to MplusAutomation</a></li>
+<li><a class="" href="lca-enumeration.html"><span class="header-section-number">3</span> LCA Enumeration</a></li>
+<li><a class="" href="lpa-enumeration.html"><span class="header-section-number">4</span> LPA Enumeration</a></li>
+<li><a class="" href="including-auxiliary-variables.html"><span class="header-section-number">5</span> Including Auxiliary Variables</a></li>
+<li><a class="" href="polytomous-lca.html"><span class="header-section-number">6</span> Polytomous LCA</a></li>
+<li><a class="" href="lca-moderation.html"><span class="header-section-number">7</span> LCA Moderation</a></li>
+<li><a class="" href="latent-transition-analysis.html"><span class="header-section-number">8</span> Latent Transition Analysis</a></li>
+<li><a class="active" href="enumeration-4.html"><span class="header-section-number">9</span> Enumeration</a></li>
+<li><a class="" href="create-model-fit-summary-table.html"><span class="header-section-number">10</span> Create Model Fit Summary Table</a></li>
+<li><a class="" href="estimate-latent-transition-analysis-lta-model.html"><span class="header-section-number">11</span> Estimate Latent Transition Analysis (LTA) Model</a></li>
+<li><a class="" href="adding-covariates.html"><span class="header-section-number">12</span> Adding Covariates</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">13</span> References</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/immerse-ucsb/lca-bookdown">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="enumeration-4" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> Enumeration<a class="anchor" aria-label="anchor" href="#enumeration-4"><i class="fas fa-link"></i></a>
+</h1>
+<hr>
+<div id="enumerate-time-point-1-7th-grade" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> Enumerate Time Point 1 (7th grade)<a class="anchor" aria-label="anchor" href="#enumerate-time-point-1-7th-grade"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># NOTE CHANGE: '1:6' indicates the number of k-class models to estimate</span></span>
+<span><span class="co"># User can change this number to fit research context</span></span>
+<span><span class="co"># In this example, the code loops or iterates over values 1 through 6 ( '{k}' )</span></span>
+<span><span class="co">#</span></span>
+<span><span class="va">t1_enum_k_16</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span> </span>
+<span>  <span class="va">enum_t1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
+<span>    </span>
+<span><span class="co"># The 'glue' function inserts R code within a string or "quoted green text" using the syntax {---}</span></span>
+<span><span class="co">#</span></span>
+<span>    TITLE <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Class-{k}_Time1"</span><span class="op">)</span>, </span>
+<span>  </span>
+<span>    VARIABLE <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span> </span>
+<span>    <span class="st">"!!! NOTE CHANGE: List of the five 7th grade science attitude indicators !!!</span></span>
+<span><span class="st">     categorical = ab39m-ab39x; </span></span>
+<span><span class="st">          usevar = ab39m-ab39x;</span></span>
+<span><span class="st">     </span></span>
+<span><span class="st">     classes = c({k});"</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>   <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    !!! NOTE CHANGE: The intial and final start values. Reduce to speed up estimation time. !!!</span></span>
+<span><span class="st">    starts = 500 100;           </span></span>
+<span><span class="st">    processors=10;"</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"sampstat residual tech11 tech14;"</span>,</span>
+<span>  </span>
+<span>  PLOT <span class="op">=</span> </span>
+<span>    <span class="st">"type = plot3; </span></span>
+<span><span class="st">    series = ab39m-ab39x(*);"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_data</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># NOTE CHANGE: Fix to match appropriate sub-folder name</span></span>
+<span><span class="co"># See after `here` function (e.g., "enum_LCA_time1")</span></span>
+<span><span class="va">enum_t1_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">enum_t1</span>,</span>
+<span>                 dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"enum_t1"</span>,<span class="st">"t1.dat"</span><span class="op">)</span>, </span>
+<span>                 modelout<span class="op">=</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"enum_t1"</span>,<span class="st">"c{k}_lca_enum_time1.inp"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                 check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
+<p><strong>NEXT STEP</strong> Check the output (<code>.out</code>) files to check for convergence warnings or syntax errors.</p>
+<hr>
+</div>
+<div id="enumerate-time-point-2-10th-grade" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Enumerate Time Point 2 (10th grade)<a class="anchor" aria-label="anchor" href="#enumerate-time-point-2-10th-grade"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">t2_enum_k_16</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span> </span>
+<span>  <span class="va">enum_t2</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
+<span>      </span>
+<span>    TITLE <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Class-{k}_Time2"</span><span class="op">)</span>, </span>
+<span>  </span>
+<span>    VARIABLE <span class="op">=</span> </span>
+<span>  <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span> </span>
+<span>    <span class="st">"!!! NOTE CHANGE: List of the five 10th grade science attitude indicators !!!</span></span>
+<span><span class="st">     categorical = ga33a-ga33l; </span></span>
+<span><span class="st">          usevar = ga33a-ga33l;</span></span>
+<span><span class="st">    </span></span>
+<span><span class="st">     classes = c({k});"</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>   <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 500 100;</span></span>
+<span><span class="st">    processors=10;"</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"sampstat residual tech11 tech14;"</span>,</span>
+<span>  </span>
+<span>  PLOT <span class="op">=</span> </span>
+<span>    <span class="st">"type = plot3; </span></span>
+<span><span class="st">    series = ga33a-ga33l(*);"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_data</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">enum_t2_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">enum_t2</span>, </span>
+<span>                 dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"enum_t2"</span>,<span class="st">"t2.dat"</span><span class="op">)</span>,</span>
+<span>                 modelout<span class="op">=</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"enum_t2"</span>,<span class="st">"c{k}_lca_enum_time2.inp"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                 check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="latent-transition-analysis.html"><span class="header-section-number">8</span> Latent Transition Analysis</a></div>
+<div class="next"><a href="create-model-fit-summary-table.html"><span class="header-section-number">10</span> Create Model Fit Summary Table</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#enumeration-4"><span class="header-section-number">9</span> Enumeration</a></li>
+<li><a class="nav-link" href="#enumerate-time-point-1-7th-grade"><span class="header-section-number">9.1</span> Enumerate Time Point 1 (7th grade)</a></li>
+<li><a class="nav-link" href="#enumerate-time-point-2-10th-grade"><span class="header-section-number">9.2</span> Enumerate Time Point 2 (10th grade)</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/08-lta.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/08-lta.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-06-05.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
