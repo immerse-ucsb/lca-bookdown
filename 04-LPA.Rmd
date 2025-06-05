@@ -509,7 +509,7 @@ enum_table(select_models, 1:5, 6:8, 9:12, 13:15, 16:17, 18:20)
 Look for "elbow" to help with profile selection
 
 ```{r}
-source(here("functions","ic_plot.R"))
+source(here("functions","ic_plot_lpa.R"))
 ic_plot(select_models)
 ```
 

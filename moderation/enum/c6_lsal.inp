@@ -1,0 +1,18 @@
+TITLE:
+6-Class
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/moderation/enum/LSAY_data.dat"; 
+VARIABLE:
+NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
+     undrstnd nervous scared useful logical job adult female; 
+ MISSING=.;
+ categorical = enjoy, useful, logical, job, adult; 
+usevar = enjoy, useful, logical, job, adult;
+classes = c(6);
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    processors = 12;
+    starts = 500 100;
+OUTPUT:
+sampstat residual tech11 tech14;

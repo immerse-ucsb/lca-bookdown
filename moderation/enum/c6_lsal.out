@@ -1,0 +1,785 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/04/2025   1:57 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  6-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/moderation/enum/LSAY_data.dat";
+  VARIABLE:
+  NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
+       undrstnd nervous scared useful logical job adult female;
+   MISSING=.;
+   categorical = enjoy, useful, logical, job, adult;
+  usevar = enjoy, useful, logical, job, adult;
+  classes = c(6);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      processors = 12;
+      starts = 500 100;
+  OUTPUT:
+  sampstat residual tech11 tech14;
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  441
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+6-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2675
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   ENJOY       USEFUL      LOGICAL     JOB         ADULT
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/moderation/enum/LSAY_data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            15
+     Number of y missing data patterns           0
+     Number of u missing data patterns          15
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              ENJOY         USEFUL        LOGICAL       JOB           ADULT
+              ________      ________      ________      ________      ________
+ ENJOY          0.997
+ USEFUL         0.985         0.988
+ LOGICAL        0.982         0.975         0.985
+ JOB            0.977         0.970         0.969         0.980
+ ADULT          0.987         0.979         0.977         0.975         0.990
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    ENJOY
+      Category 1    0.331          884.000
+      Category 2    0.669         1784.000
+    USEFUL
+      Category 1    0.305          807.000
+      Category 2    0.695         1835.000
+    LOGICAL
+      Category 1    0.360          949.000
+      Category 2    0.640         1686.000
+    JOB
+      Category 1    0.257          674.000
+      Category 2    0.743         1947.000
+    ADULT
+      Category 1    0.298          790.000
+      Category 2    0.702         1858.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -7090.886  544048           87
+           -7090.886  691234           250
+           -7090.886  950604           172
+           -7090.886  471398           74
+           -7090.886  80438            246
+           -7090.886  414828           322
+           -7090.886  509733           130
+           -7090.886  667250           318
+           -7090.886  751054           117
+           -7090.890  188498           258
+           -7090.890  782200           84
+           -7090.899  268217           83
+           -7090.902  436460           89
+           -7090.902  350608           334
+           -7090.903  533738           11
+           -7090.911  329127           185
+           -7090.963  483369           270
+           -7090.963  576596           99
+           -7090.963  1548             384
+           -7090.990  948615           140
+           -7091.023  967902           52
+           -7091.023  802682           419
+           -7091.023  654136           167
+           -7091.025  484501           163
+           -7091.034  481835           57
+           -7091.034  471040           403
+           -7091.074  392766           331
+           -7091.079  85114            385
+           -7091.080  576220           115
+           -7091.088  748692           204
+           -7091.110  238906           430
+           -7091.173  59674            240
+           -7091.176  127215           9
+           -7091.189  963053           43
+           -7091.220  784664           75
+           -7091.253  636396           168
+           -7091.298  22089            143
+           -7091.409  25127            107
+           -7091.443  311214           64
+           -7091.689  100874           108
+           -7091.715  354559           73
+
+59 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+     IN THE OPTIMIZATION, ONE OR MORE LOGIT THRESHOLDS APPROACHED EXTREME VALUES
+     OF -15.000 AND 15.000 AND WERE FIXED TO STABILIZE MODEL ESTIMATION.  THESE
+     VALUES IMPLY PROBABILITIES OF 0 AND 1.  IN THE MODEL RESULTS SECTION, THESE
+     PARAMETERS HAVE 0 STANDARD ERRORS AND 999 IN THE Z-SCORE AND P-VALUE COLUMNS.
+
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     THE DEGREES OF FREEDOM FOR THIS MODEL ARE NEGATIVE.  THE MODEL IS NOT
+     IDENTIFIED OR TOO MANY CELLS WERE DELETED.  A CHI-SQUARE TEST IS NOT
+     AVAILABLE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       35
+
+Loglikelihood
+
+          H0 Value                       -7090.886
+          H0 Scaling Correction Factor      0.9631
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   14251.772
+          Bayesian (BIC)                 14457.982
+          Sample-Size Adjusted BIC       14346.776
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        212.26731          0.07935
+       2        176.66750          0.06604
+       3        423.49542          0.15832
+       4        138.03815          0.05160
+       5       1320.23291          0.49355
+       6        404.29871          0.15114
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        212.26731          0.07935
+       2        176.66750          0.06604
+       3        423.49542          0.15832
+       4        138.03815          0.05160
+       5       1320.23291          0.49355
+       6        404.29871          0.15114
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              288          0.10766
+       2              140          0.05234
+       3              447          0.16710
+       4              169          0.06318
+       5             1484          0.55477
+       6              147          0.05495
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.732
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6
+
+    1   0.694    0.093    0.036    0.001    0.001    0.175
+    2   0.004    0.547    0.044    0.000    0.193    0.212
+    3   0.023    0.009    0.857    0.015    0.001    0.095
+    4   0.002    0.000    0.038    0.624    0.102    0.235
+    5   0.001    0.047    0.000    0.012    0.853    0.087
+    6   0.000    0.000    0.115    0.050    0.065    0.769
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4        5        6
+
+    1   0.941    0.003    0.048    0.001    0.006    0.000
+    2   0.152    0.433    0.023    0.000    0.392    0.000
+    3   0.025    0.015    0.904    0.015    0.001    0.040
+    4   0.002    0.000    0.049    0.764    0.130    0.054
+    5   0.000    0.020    0.000    0.013    0.959    0.007
+    6   0.124    0.073    0.105    0.098    0.319    0.280
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4        5        6
+
+    1     13.755    7.975   10.783    7.261    8.741    0.000
+    2      7.120    8.169    5.215   -4.811    8.068    0.000
+    3     -0.489   -1.011    3.117   -0.980   -3.368    0.000
+    4     -3.119  -10.888   -0.083    2.658    0.890    0.000
+    5     -3.411    1.033   -3.362    0.581    4.881    0.000
+    6     -0.809   -1.339   -0.975   -1.048    0.133    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    ENJOY$1           -0.758      0.380     -1.995      0.046
+    USEFUL$1          -0.424      0.274     -1.547      0.122
+    LOGICAL$1        -15.000      0.000    999.000    999.000
+    JOB$1             -0.507      0.240     -2.113      0.035
+    ADULT$1           15.000      0.000    999.000    999.000
+
+Latent Class 2
+
+ Thresholds
+    ENJOY$1            7.068     18.919      0.374      0.709
+    USEFUL$1         -15.000      0.000    999.000    999.000
+    LOGICAL$1         -0.625      1.909     -0.327      0.743
+    JOB$1             -1.220      1.358     -0.898      0.369
+    ADULT$1           -1.143      1.453     -0.787      0.432
+
+Latent Class 3
+
+ Thresholds
+    ENJOY$1            0.847      0.181      4.679      0.000
+    USEFUL$1           2.331      0.437      5.334      0.000
+    LOGICAL$1          2.901      0.803      3.613      0.000
+    JOB$1              1.418      0.453      3.133      0.002
+    ADULT$1            2.583      0.735      3.514      0.000
+
+Latent Class 4
+
+ Thresholds
+    ENJOY$1            0.212      0.500      0.424      0.671
+    USEFUL$1          15.000      0.000    999.000    999.000
+    LOGICAL$1          0.797      0.466      1.708      0.088
+    JOB$1             -2.103      2.987     -0.704      0.481
+    ADULT$1           -4.850     65.680     -0.074      0.941
+
+Latent Class 5
+
+ Thresholds
+    ENJOY$1           -1.728      0.533     -3.245      0.001
+    USEFUL$1          -2.807      0.350     -8.016      0.000
+    LOGICAL$1         -2.148      0.299     -7.196      0.000
+    JOB$1             -2.993      0.366     -8.174      0.000
+    ADULT$1          -15.000      0.000    999.000    999.000
+
+Latent Class 6
+
+ Thresholds
+    ENJOY$1           -1.562      4.029     -0.388      0.698
+    USEFUL$1          -0.678      1.001     -0.678      0.498
+    LOGICAL$1          0.667      0.765      0.872      0.383
+    JOB$1             -0.544      0.392     -1.388      0.165
+    ADULT$1           -0.537      0.480     -1.119      0.263
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.644      1.025     -0.628      0.530
+    C#2               -0.828      1.575     -0.526      0.599
+    C#3                0.046      1.063      0.044      0.965
+    C#4               -1.075      2.251     -0.477      0.633
+    C#5                1.183      1.051      1.126      0.260
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.196E-09
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ ENJOY
+    Category 1         0.319      0.083      3.863      0.000
+    Category 2         0.681      0.083      8.245      0.000
+ USEFUL
+    Category 1         0.396      0.066      6.038      0.000
+    Category 2         0.604      0.066      9.226      0.000
+ LOGICAL
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ JOB
+    Category 1         0.376      0.056      6.683      0.000
+    Category 2         0.624      0.056     11.092      0.000
+ ADULT
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+
+Latent Class 2
+
+ ENJOY
+    Category 1         0.999      0.016     62.107      0.000
+    Category 2         0.001      0.016      0.053      0.958
+ USEFUL
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ LOGICAL
+    Category 1         0.349      0.433      0.804      0.421
+    Category 2         0.651      0.433      1.502      0.133
+ JOB
+    Category 1         0.228      0.239      0.953      0.340
+    Category 2         0.772      0.239      3.230      0.001
+ ADULT
+    Category 1         0.242      0.266      0.908      0.364
+    Category 2         0.758      0.266      2.846      0.004
+
+Latent Class 3
+
+ ENJOY
+    Category 1         0.700      0.038     18.405      0.000
+    Category 2         0.300      0.038      7.887      0.000
+ USEFUL
+    Category 1         0.911      0.035     25.833      0.000
+    Category 2         0.089      0.035      2.510      0.012
+ LOGICAL
+    Category 1         0.948      0.040     23.905      0.000
+    Category 2         0.052      0.040      1.314      0.189
+ JOB
+    Category 1         0.805      0.071     11.334      0.000
+    Category 2         0.195      0.071      2.745      0.006
+ ADULT
+    Category 1         0.930      0.048     19.374      0.000
+    Category 2         0.070      0.048      1.463      0.143
+
+Latent Class 4
+
+ ENJOY
+    Category 1         0.553      0.124      4.471      0.000
+    Category 2         0.447      0.124      3.616      0.000
+ USEFUL
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ LOGICAL
+    Category 1         0.689      0.100      6.901      0.000
+    Category 2         0.311      0.100      3.112      0.002
+ JOB
+    Category 1         0.109      0.290      0.376      0.707
+    Category 2         0.891      0.290      3.077      0.002
+ ADULT
+    Category 1         0.008      0.506      0.015      0.988
+    Category 2         0.992      0.506      1.961      0.050
+
+Latent Class 5
+
+ ENJOY
+    Category 1         0.151      0.068      2.211      0.027
+    Category 2         0.849      0.068     12.451      0.000
+ USEFUL
+    Category 1         0.057      0.019      3.029      0.002
+    Category 2         0.943      0.019     50.132      0.000
+ LOGICAL
+    Category 1         0.104      0.028      3.741      0.000
+    Category 2         0.896      0.028     32.059      0.000
+ JOB
+    Category 1         0.048      0.017      2.868      0.004
+    Category 2         0.952      0.017     57.197      0.000
+ ADULT
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+
+Latent Class 6
+
+ ENJOY
+    Category 1         0.173      0.577      0.300      0.764
+    Category 2         0.827      0.577      1.432      0.152
+ USEFUL
+    Category 1         0.337      0.223      1.507      0.132
+    Category 2         0.663      0.223      2.968      0.003
+ LOGICAL
+    Category 1         0.661      0.171      3.855      0.000
+    Category 2         0.339      0.171      1.978      0.048
+ JOB
+    Category 1         0.367      0.091      4.030      0.000
+    Category 2         0.633      0.091      6.944      0.000
+ ADULT
+    Category 1         0.369      0.112      3.299      0.001
+    Category 2         0.631      0.112      5.646      0.000
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ ENJOY
+    Category > 1    2506.054  47490.000      0.000  *********
+ USEFUL
+    Category > 1       0.000      0.000      0.000      0.000
+ LOGICAL
+    Category > 1   *********      0.000  *********  *********
+ JOB
+    Category > 1       0.490      0.709      0.029      8.341
+ ADULT
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 1 Compared to Latent Class 3
+
+ ENJOY
+    Category > 1       4.981      2.099      2.181     11.377
+ USEFUL
+    Category > 1      15.725      8.686      5.326     46.427
+ LOGICAL
+    Category > 1   *********      0.000  *********  *********
+ JOB
+    Category > 1       6.853      3.158      2.778     16.908
+ ADULT
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 1 Compared to Latent Class 4
+
+ ENJOY
+    Category > 1       2.639      1.499      0.867      8.034
+ USEFUL
+    Category > 1   *********      0.000  *********  *********
+ LOGICAL
+    Category > 1   *********      0.000  *********  *********
+ JOB
+    Category > 1       0.203      0.614      0.001     76.906
+ ADULT
+    Category > 1       0.000      0.000      0.000  *********
+
+Latent Class 1 Compared to Latent Class 5
+
+ ENJOY
+    Category > 1       0.379      0.250      0.104      1.384
+ USEFUL
+    Category > 1       0.092      0.043      0.037      0.232
+ LOGICAL
+    Category > 1   *********      0.000  *********  *********
+ JOB
+    Category > 1       0.083      0.038      0.034      0.205
+ ADULT
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 1 Compared to Latent Class 6
+
+ ENJOY
+    Category > 1       0.448      1.792      0.000   1144.362
+ USEFUL
+    Category > 1       0.776      0.868      0.087      6.948
+ LOGICAL
+    Category > 1   *********      0.000  *********  *********
+ JOB
+    Category > 1       0.963      0.514      0.338      2.744
+ ADULT
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 2 Compared to Latent Class 3
+
+ ENJOY
+    Category > 1       0.002      0.038      0.000  *********
+ USEFUL
+    Category > 1   *********      0.000  *********  *********
+ LOGICAL
+    Category > 1      33.987     82.073      0.299   3862.303
+ JOB
+    Category > 1      13.987     20.422      0.800    244.644
+ ADULT
+    Category > 1      41.524     64.056      2.019    853.927
+
+Latent Class 2 Compared to Latent Class 4
+
+ ENJOY
+    Category > 1       0.001      0.020      0.000  *********
+ USEFUL
+    Category > 1   *********      0.000  *********  *********
+ LOGICAL
+    Category > 1       4.142      7.484      0.120    142.971
+ JOB
+    Category > 1       0.414      0.827      0.008     20.793
+ ADULT
+    Category > 1       0.025      1.588      0.000  *********
+
+Latent Class 2 Compared to Latent Class 5
+
+ ENJOY
+    Category > 1       0.000      0.003      0.000  *********
+ USEFUL
+    Category > 1   *********      0.000  *********  *********
+ LOGICAL
+    Category > 1       0.218      0.427      0.005     10.165
+ JOB
+    Category > 1       0.170      0.246      0.010      2.900
+ ADULT
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 2 Compared to Latent Class 6
+
+ ENJOY
+    Category > 1       0.000      0.003      0.000  *********
+ USEFUL
+    Category > 1   *********      0.000  *********  *********
+ LOGICAL
+    Category > 1       3.640      7.850      0.053    249.320
+ JOB
+    Category > 1       1.966      2.828      0.117     32.965
+ ADULT
+    Category > 1       1.833      2.896      0.083     40.557
+
+Latent Class 3 Compared to Latent Class 4
+
+ ENJOY
+    Category > 1       0.530      0.271      0.195      1.443
+ USEFUL
+    Category > 1   *********      0.000  *********  *********
+ LOGICAL
+    Category > 1       0.122      0.121      0.017      0.851
+ JOB
+    Category > 1       0.030      0.090      0.000     11.294
+ ADULT
+    Category > 1       0.001      0.039      0.000  *********
+
+Latent Class 3 Compared to Latent Class 5
+
+ ENJOY
+    Category > 1       0.076      0.045      0.024      0.246
+ USEFUL
+    Category > 1       0.006      0.003      0.002      0.017
+ LOGICAL
+    Category > 1       0.006      0.005      0.001      0.034
+ JOB
+    Category > 1       0.012      0.007      0.004      0.040
+ ADULT
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 3 Compared to Latent Class 6
+
+ ENJOY
+    Category > 1       0.090      0.357      0.000    216.860
+ USEFUL
+    Category > 1       0.049      0.047      0.008      0.313
+ LOGICAL
+    Category > 1       0.107      0.112      0.014      0.835
+ JOB
+    Category > 1       0.141      0.081      0.045      0.436
+ ADULT
+    Category > 1       0.044      0.038      0.008      0.241
+
+Latent Class 4 Compared to Latent Class 5
+
+ ENJOY
+    Category > 1       0.144      0.105      0.034      0.603
+ USEFUL
+    Category > 1       0.000      0.000      0.000      0.000
+ LOGICAL
+    Category > 1       0.053      0.029      0.018      0.152
+ JOB
+    Category > 1       0.411      1.229      0.001    144.828
+ ADULT
+    Category > 1       0.000      0.002      0.000  *********
+
+Latent Class 4 Compared to Latent Class 6
+
+ ENJOY
+    Category > 1       0.170      0.692      0.000    503.344
+ USEFUL
+    Category > 1       0.000      0.000      0.000      0.000
+ LOGICAL
+    Category > 1       0.879      0.787      0.152      5.086
+ JOB
+    Category > 1       4.753     14.623      0.011   1975.800
+ ADULT
+    Category > 1      74.670   4911.272      0.000  *********
+
+Latent Class 5 Compared to Latent Class 6
+
+ ENJOY
+    Category > 1       1.180      5.272      0.000   7473.387
+ USEFUL
+    Category > 1       8.403      8.883      1.058     66.718
+ LOGICAL
+    Category > 1      16.704     13.291      3.512     79.455
+ JOB
+    Category > 1      11.573      5.802      4.332     30.915
+ ADULT
+    Category > 1   *********      0.000  *********  *********
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
+
+          H0 Loglikelihood Value                        -7091.946
+          2 Times the Loglikelihood Difference              2.120
+          Difference in the Number of Parameters                6
+          Mean                                              2.553
+          Standard Deviation                                3.452
+          P-Value                                          0.5225
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                             2.076
+          P-Value                                          0.5287
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
+
+          H0 Loglikelihood Value                        -7091.946
+          2 Times the Loglikelihood Difference              2.120
+          Difference in the Number of Parameters                6
+          Approximate P-Value                              1.0000
+          Successful Bootstrap Draws                            2
+
+
+     Beginning Time:  13:57:00
+        Ending Time:  13:57:14
+       Elapsed Time:  00:00:14
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

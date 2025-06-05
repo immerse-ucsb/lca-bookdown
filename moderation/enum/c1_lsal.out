@@ -1,0 +1,433 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/04/2025   1:55 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  1-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/moderation/enum/LSAY_data.dat";
+  VARIABLE:
+  NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
+       undrstnd nervous scared useful logical job adult female;
+   MISSING=.;
+   categorical = enjoy, useful, logical, job, adult;
+  usevar = enjoy, useful, logical, job, adult;
+  classes = c(1);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      processors = 12;
+      starts = 500 100;
+  OUTPUT:
+  sampstat residual tech11 tech14;
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  441
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+1-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2675
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   ENJOY       USEFUL      LOGICAL     JOB         ADULT
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/moderation/enum/LSAY_data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            15
+     Number of y missing data patterns           0
+     Number of u missing data patterns          15
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              ENJOY         USEFUL        LOGICAL       JOB           ADULT
+              ________      ________      ________      ________      ________
+ ENJOY          0.997
+ USEFUL         0.985         0.988
+ LOGICAL        0.982         0.975         0.985
+ JOB            0.977         0.970         0.969         0.980
+ ADULT          0.987         0.979         0.977         0.975         0.990
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    ENJOY
+      Category 1    0.331          884.000
+      Category 2    0.669         1784.000
+    USEFUL
+      Category 1    0.305          807.000
+      Category 2    0.695         1835.000
+    LOGICAL
+      Category 1    0.360          949.000
+      Category 2    0.640         1686.000
+    JOB
+      Category 1    0.257          674.000
+      Category 2    0.743         1947.000
+    ADULT
+      Category 1    0.298          790.000
+      Category 2    0.702         1858.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -8150.351  377504           294
+           -8150.351  602797           336
+           -8150.351  636396           168
+           -8150.351  782200           84
+           -8150.351  352277           42
+           -8150.351  153053           378
+           -8150.351  802682           419
+           -8150.351  835767           210
+           -8150.351  662718           460
+           -8150.351  471438           252
+           -8150.351  340112           126
+           -8150.351  285380           1
+           -8150.351  462953           7
+           -8150.351  27071            15
+           -8150.351  153942           31
+           -8150.351  7959             256
+           -8150.351  164305           128
+           -8150.351  871851           257
+           -8150.351  188498           258
+           -8150.351  311214           64
+           -8150.351  814975           129
+           -8150.351  622860           259
+           -8150.351  804660           260
+           -8150.351  509733           130
+           -8150.351  616917           261
+           -8150.351  520177           262
+           -8150.351  626891           32
+           -8150.351  565819           65
+           -8150.351  468036           131
+           -8150.351  313407           132
+           -8150.351  467339           66
+           -8150.351  321390           133
+           -8150.351  903369           134
+           -8150.351  76974            16
+           -8150.351  749453           33
+           -8150.351  789985           67
+           -8150.351  437181           135
+           -8150.351  405079           68
+           -8150.351  685657           69
+           -8150.351  987090           70
+           -8150.351  93468            3
+           -8150.351  475420           71
+           -8150.351  391949           295
+           -8150.351  344422           296
+           -8150.351  43523            297
+           -8150.351  462228           298
+           -8150.351  316165           299
+           -8150.351  562716           300
+           -8150.351  342019           301
+           -8150.351  780698           337
+           -8150.351  418686           338
+           -8150.351  303634           169
+           -8150.351  82357            339
+           -8150.351  644297           340
+           -8150.351  783165           170
+           -8150.351  836515           341
+           -8150.351  278692           342
+           -8150.351  unperturbed      0
+           -8150.351  569833           85
+           -8150.351  411615           171
+           -8150.351  529496           343
+           -8150.351  950604           172
+           -8150.351  170954           86
+           -8150.351  848969           173
+           -8150.351  860772           174
+           -8150.351  544048           87
+           -8150.351  286735           175
+           -8150.351  373505           88
+           -8150.351  436460           89
+           -8150.351  131856           90
+           -8150.351  402224           91
+           -8150.351  813779           92
+           -8150.351  137305           379
+           -8150.351  443442           380
+           -8150.351  985387           381
+           -8150.351  937885           426
+           -8150.351  762461           425
+           -8150.351  765392           382
+           -8150.351  210870           383
+           -8150.351  1548             384
+           -8150.351  85114            385
+           -8150.351  749635           420
+           -8150.351  484406           421
+           -8150.351  173191           422
+           -8150.351  76451            211
+           -8150.351  798821           423
+           -8150.351  505879           424
+           -8150.351  181293           212
+           -8150.351  73576            213
+           -8150.351  65651            214
+           -8150.351  686482           215
+           -8150.351  499150           216
+           -8150.351  66276            217
+           -8150.351  345726           461
+           -8150.351  68850            462
+           -8150.351  965639           463
+           -8150.351  349360           464
+           -8150.351  320494           465
+           -8150.351  898745           466
+           -8150.351  112586           494
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        5
+
+Loglikelihood
+
+          H0 Value                       -8150.351
+          H0 Scaling Correction Factor      1.0000
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   16310.703
+          Bayesian (BIC)                 16340.161
+          Sample-Size Adjusted BIC       16324.275
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                            899.599
+          Degrees of Freedom                    26
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          The chi-square is negative for this model part.  This is most likely
+          due to deleted cells in the H0 log-likelihood calculation.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            129.031
+          Degrees of Freedom                   120
+          P-Value                           0.2704
+
+          Likelihood Ratio Chi-Square
+
+          Value                            101.781
+          Degrees of Freedom                   120
+          P-Value                           0.8845
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       2675.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       2675.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             2675          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    ENJOY$1           -0.702      0.041    -17.071      0.000
+    USEFUL$1          -0.821      0.042    -19.448      0.000
+    LOGICAL$1         -0.575      0.041    -14.162      0.000
+    JOB$1             -1.061      0.045    -23.737      0.000
+    ADULT$1           -0.855      0.042    -20.135      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.199E+00
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ ENJOY
+    Category 1         0.331      0.009     36.360      0.000
+    Category 2         0.669      0.009     73.378      0.000
+ USEFUL
+    Category 1         0.305      0.009     34.087      0.000
+    Category 2         0.695      0.009     77.508      0.000
+ LOGICAL
+    Category 1         0.360      0.009     38.512      0.000
+    Category 2         0.640      0.009     68.420      0.000
+ JOB
+    Category 1         0.257      0.009     30.122      0.000
+    Category 2         0.743      0.009     87.013      0.000
+ ADULT
+    Category 1         0.298      0.009     33.554      0.000
+    Category 2         0.702      0.009     78.917      0.000
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+     Beginning Time:  13:55:27
+        Ending Time:  13:55:36
+       Elapsed Time:  00:00:09
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

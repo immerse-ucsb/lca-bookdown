@@ -1,0 +1,14 @@
+TITLE:
+LSAL Descriptive Statistics;
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/moderation/LSAL_data.dat"; 
+VARIABLE:
+NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
+     undrstnd nervous scared useful logical job adult female; 
+ MISSING=.;
+ usevar = enjoy, useful, logical, job, adult, female, math_irt;
+    categorical = enjoy, useful, logical, job, adult, female;
+ANALYSIS:
+TYPE=basic;
+OUTPUT:
+sampstat

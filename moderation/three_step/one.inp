@@ -1,0 +1,23 @@
+TITLE:
+Step 1 - Unconditional Model w/ Auxiliary Specification
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/moderation/three_step/new.dat"; 
+VARIABLE:
+NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
+     undrstnd nervous scared useful logical job adult female; 
+ MISSING=.;
+ categorical = enjoy, useful, logical, job, adult;
+  usevar =  enjoy, useful, logical, job, adult;
+  classes = c(4);
+  AUXILIARY = female math_irt;
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    OPTSEED = 813779;
+OUTPUT:
+sampstat residual tech11 tech14
+SAVEDATA:
+File=savedata.dat;
+    Save=cprob;
+    format=free;

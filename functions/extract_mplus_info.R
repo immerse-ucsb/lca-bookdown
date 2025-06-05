@@ -1,4 +1,3 @@
-# Function to extract model information from one Mplus output file
 extract_mplus_info_extended <- function(file_path) {
   
   # Read the file as lines
@@ -198,11 +197,14 @@ extract_mplus_info_extended <- function(file_path) {
     sample_size <- as.numeric(str_extract(output[n_idx[1]], "\\d+"))
   }
   
-
+  
   #### 8. ERROR EXTRACTION ####
   
   # Helper function to remove redundant errors
   remove_redundant_errors <- function(messages) {
+    
+    messages <- as.character(messages)
+    
     # First, ensure uniqueness based on exact string matching
     unique_msgs <- unique(messages)
     final_msgs <- unique_msgs
