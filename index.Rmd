@@ -1,4 +1,4 @@
---- 
+---
 title: "Mixture Modeling with `MplusAutomation`"
 author: "Dina Arch"
 date: "`r Sys.Date()`"
@@ -12,26 +12,32 @@ biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-# Mixture Modeling with `MplusAutomation` {-}
+# Mixture Modeling with `MplusAutomation` {.unnumbered}
 
 <img src="images/immerse_hex.png" class="cover" width="250" height="193"/> Welcome! This will be a collection of resources that will teach you how to apply mixture modeling using Mplus[@muthen2017] and `MplusAutomation`[@hallquist2018]! These resources will serve as a comprehensive guide to understanding and applying LCA using Mplus and its automation capabilities with `MplusAutomation`. Here, you will learn from start to finish how to apply mixture modeling using Mplus with the `MplusAutomation` package.
 
-## Stay in touch! {-}
+## Stay in touch! {.unnumbered}
 
 -   Please [visit our website](https://immerse.education.ucsb.edu/) to learn more about the IMMERSE fellowship.
+
+    -   For all code and materials found in this Bookdown, see [here](https://github.com/immerse-ucsb/lca-bookdown).
 
 -   Visit our [GitHub](https://github.com/immerse-ucsb) account to access all the IMMERSE training materials.
 
 -   Follow us on [BlueSky](https://bsky.app/profile/immerse-ucsb.bsky.social) and [X](https://twitter.com/IMMERSE_UCSB) to stay-up-to date on our fellowship!
 
+## Acknowledgements {.unnumbered}
 
-## Acknowledgements {-}
+<div>
 
-<div><img src="images/ies_logo.jpg" class="cover" width = "250" /></div>The Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (IMMERSE) is an IES funded training grant (R305B220021) to support education scholars in integrating mixture modeling into their research.
+<img src="images/ies_logo.jpg" class="cover" width="250"/>
 
-How to reference this workshop: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025).
-IMMERSE Online Resources (IES No. 305B220021).
-Institute of Education Sciences.
-<https://mixture-modeling.netlify.app/>
+</div>
 
-<div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>
+The Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (IMMERSE) is an IES funded training grant (R305B220021) to support education scholars in integrating mixture modeling into their research.
+
+How to reference this workshop: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025). IMMERSE Online Resources (IES No. 305B220021). Institute of Education Sciences. <https://mixture-modeling.netlify.app/>
+
+::: {style="text-align: center;"}
+<img src="images/ucsb_logo.png" width="75%"/>
+:::
