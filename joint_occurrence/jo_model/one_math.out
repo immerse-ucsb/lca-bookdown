@@ -1,0 +1,648 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/05/2025   5:52 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Step 1 - Unconditional Model
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/jo_model/
+  data.dat";
+  VARIABLE:
+  NAMES = casenum gender math_enjoy math_useful math_logical math_job math_adult
+       sci_enjoy sci_useful sci_logical sci_job sci_adult;
+   MISSING=.;
+   categorical = math_enjoy, math_useful, math_logical, math_job, math_adult;
+    usevar =  math_enjoy, math_useful, math_logical, math_job, math_adult;
+    idvariable = casenum;
+    classes = c(4);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 0;
+      OPTSEED = 830570;
+  OUTPUT:
+  sampstat residual tech11 tech14 svalues(4 1 2 3)
+  SAVEDATA:
+  File=savedata_math.dat;
+      Save=cprob;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2558
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Step 1 - Unconditional Model
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3387
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   MATH_ENJ    MATH_USE    MATH_LOG    MATH_JOB    MATH_ADU
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  ID variable           CASENUM
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Random seed for analysis                                  830570
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/jo_model/data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            16
+     Number of y missing data patterns           0
+     Number of u missing data patterns          16
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              MATH_ENJ      MATH_USE      MATH_LOG      MATH_JOB      MATH_ADU
+              ________      ________      ________      ________      ________
+ MATH_ENJ       0.997
+ MATH_USE       0.990         0.991
+ MATH_LOG       0.987         0.985         0.989
+ MATH_JOB       0.984         0.981         0.980         0.986
+ MATH_ADU       0.986         0.983         0.982         0.980         0.988
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    MATH_ENJ
+      Category 1    0.453         1531.000
+      Category 2    0.547         1847.000
+    MATH_USE
+      Category 1    0.365         1226.000
+      Category 2    0.635         2131.000
+    MATH_LOG
+      Category 1    0.320         1071.000
+      Category 2    0.680         2279.000
+    MATH_JOB
+      Category 1    0.433         1447.000
+      Category 2    0.567         1891.000
+    MATH_ADU
+      Category 1    0.366         1226.000
+      Category 2    0.634         2121.000
+
+
+     IN THE OPTIMIZATION, ONE OR MORE LOGIT THRESHOLDS APPROACHED EXTREME VALUES
+     OF -15.000 AND 15.000 AND WERE FIXED TO STABILIZE MODEL ESTIMATION.  THESE
+     VALUES IMPLY PROBABILITIES OF 0 AND 1.  IN THE MODEL RESULTS SECTION, THESE
+     PARAMETERS HAVE 0 STANDARD ERRORS AND 999 IN THE Z-SCORE AND P-VALUE COLUMNS.
+
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       23
+
+Loglikelihood
+
+          H0 Value                       -9204.494
+          H0 Scaling Correction Factor      1.1692
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   18454.989
+          Bayesian (BIC)                 18595.926
+          Sample-Size Adjusted BIC       18522.844
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                             15.212
+          Degrees of Freedom                     8
+          P-Value                           0.0551
+
+          Likelihood Ratio Chi-Square
+
+          Value                             14.911
+          Degrees of Freedom                     8
+          P-Value                           0.0609
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            156.348
+          Degrees of Freedom                   119
+          P-Value                           0.0123
+
+          Likelihood Ratio Chi-Square
+
+          Value                            114.848
+          Degrees of Freedom                   119
+          P-Value                           0.5906
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       1561.52524          0.46103
+       2        606.14674          0.17896
+       3        655.43124          0.19351
+       4        563.89678          0.16649
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       1561.52524          0.46103
+       2        606.14674          0.17896
+       3        655.43124          0.19351
+       4        563.89678          0.16649
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             1709          0.50458
+       2              539          0.15914
+       3              537          0.15855
+       4              602          0.17774
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.702
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.876    0.034    0.090    0.000
+    2   0.030    0.824    0.098    0.048
+    3   0.087    0.109    0.791    0.013
+    4   0.003    0.075    0.041    0.881
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.958    0.010    0.030    0.001
+    2   0.097    0.733    0.096    0.074
+    3   0.234    0.080    0.648    0.037
+    4   0.000    0.046    0.013    0.941
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      6.652    2.128    3.187    0.000
+    2      0.267    2.290    0.260    0.000
+    3      1.836    0.767    2.854    0.000
+    4     -7.914   -3.017   -4.313    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    MATH_ENJ$1        -1.208      0.155     -7.819      0.000
+    MATH_USE$1        -3.275      1.208     -2.710      0.007
+    MATH_LOG$1        -3.965      0.966     -4.103      0.000
+    MATH_JOB$1        -1.818      0.126    -14.430      0.000
+    MATH_ADU$1        -3.596      0.840     -4.281      0.000
+
+Latent Class 2
+
+ Thresholds
+    MATH_ENJ$1         0.353      0.448      0.788      0.431
+    MATH_USE$1         0.203      0.863      0.235      0.814
+    MATH_LOG$1        -1.624      1.002     -1.621      0.105
+    MATH_JOB$1         0.977      0.886      1.103      0.270
+    MATH_ADU$1         1.910      4.709      0.406      0.685
+
+Latent Class 3
+
+ Thresholds
+    MATH_ENJ$1         0.095      0.161      0.590      0.555
+    MATH_USE$1        -0.139      0.289     -0.481      0.630
+    MATH_LOG$1         0.432      2.174      0.198      0.843
+    MATH_JOB$1        -0.286      0.343     -0.832      0.405
+    MATH_ADU$1        -1.619      0.805     -2.011      0.044
+
+Latent Class 4
+
+ Thresholds
+    MATH_ENJ$1         1.702      0.217      7.827      0.000
+    MATH_USE$1         3.255      1.015      3.206      0.001
+    MATH_LOG$1         4.557     22.138      0.206      0.837
+    MATH_JOB$1         2.713      0.284      9.541      0.000
+    MATH_ADU$1        15.000      0.000    999.000    999.000
+
+Categorical Latent Variables
+
+ Means
+    C#1                1.019      0.243      4.195      0.000
+    C#2                0.072      0.467      0.155      0.877
+    C#3                0.150      1.461      0.103      0.918
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.971E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ MATH_ENJOY
+    Category 1         0.230      0.027      8.403      0.000
+    Category 2         0.770      0.027     28.134      0.000
+ MATH_USEFU
+    Category 1         0.036      0.042      0.859      0.390
+    Category 2         0.964      0.042     22.714      0.000
+ MATH_LOGIC
+    Category 1         0.019      0.018      1.054      0.292
+    Category 2         0.981      0.018     55.598      0.000
+ MATH_JOB
+    Category 1         0.140      0.015      9.223      0.000
+    Category 2         0.860      0.015     56.837      0.000
+ MATH_ADULT
+    Category 1         0.027      0.022      1.223      0.221
+    Category 2         0.973      0.022     44.589      0.000
+
+Latent Class 2
+
+ MATH_ENJOY
+    Category 1         0.587      0.109      5.408      0.000
+    Category 2         0.413      0.109      3.800      0.000
+ MATH_USEFU
+    Category 1         0.551      0.213      2.579      0.010
+    Category 2         0.449      0.213      2.105      0.035
+ MATH_LOGIC
+    Category 1         0.165      0.138      1.195      0.232
+    Category 2         0.835      0.138      6.061      0.000
+ MATH_JOB
+    Category 1         0.726      0.176      4.127      0.000
+    Category 2         0.274      0.176      1.554      0.120
+ MATH_ADULT
+    Category 1         0.871      0.529      1.647      0.100
+    Category 2         0.129      0.529      0.244      0.807
+
+Latent Class 3
+
+ MATH_ENJOY
+    Category 1         0.524      0.040     13.061      0.000
+    Category 2         0.476      0.040     11.880      0.000
+ MATH_USEFU
+    Category 1         0.465      0.072      6.465      0.000
+    Category 2         0.535      0.072      7.431      0.000
+ MATH_LOGIC
+    Category 1         0.606      0.519      1.168      0.243
+    Category 2         0.394      0.519      0.759      0.448
+ MATH_JOB
+    Category 1         0.429      0.084      5.103      0.000
+    Category 2         0.571      0.084      6.790      0.000
+ MATH_ADULT
+    Category 1         0.165      0.111      1.489      0.137
+    Category 2         0.835      0.111      7.512      0.000
+
+Latent Class 4
+
+ MATH_ENJOY
+    Category 1         0.846      0.028     29.824      0.000
+    Category 2         0.154      0.028      5.437      0.000
+ MATH_USEFU
+    Category 1         0.963      0.036     26.511      0.000
+    Category 2         0.037      0.036      1.023      0.306
+ MATH_LOGIC
+    Category 1         0.990      0.227      4.351      0.000
+    Category 2         0.010      0.227      0.046      0.964
+ MATH_JOB
+    Category 1         0.938      0.017     56.534      0.000
+    Category 2         0.062      0.017      3.750      0.000
+ MATH_ADULT
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ MATH_ENJ
+    Category > 1       4.766      2.748      1.539     14.757
+ MATH_USE
+    Category > 1      32.406     65.822      0.605   1736.092
+ MATH_LOG
+    Category > 1      10.397     15.898      0.519    208.207
+ MATH_JOB
+    Category > 1      16.368     15.435      2.578    103.918
+ MATH_ADU
+    Category > 1     246.233    982.862      0.099  *********
+
+Latent Class 1 Compared to Latent Class 3
+
+ MATH_ENJ
+    Category > 1       3.681      0.603      2.669      5.076
+ MATH_USE
+    Category > 1      23.011     22.453      3.399    155.780
+ MATH_LOG
+    Category > 1      81.184    143.139      2.562   2572.077
+ MATH_JOB
+    Category > 1       4.632      1.902      2.071     10.356
+ MATH_ADU
+    Category > 1       7.224      6.723      1.166     44.760
+
+Latent Class 1 Compared to Latent Class 4
+
+ MATH_ENJ
+    Category > 1      18.366      5.850      9.837     34.287
+ MATH_USE
+    Category > 1     685.441   1308.182     16.270  28876.197
+ MATH_LOG
+    Category > 1    5026.422  *********      0.000  *********
+ MATH_JOB
+    Category > 1      92.910     28.086     51.375    168.027
+ MATH_ADU
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 2 Compared to Latent Class 3
+
+ MATH_ENJ
+    Category > 1       0.772      0.426      0.262      2.275
+ MATH_USE
+    Category > 1       0.710      0.787      0.081      6.242
+ MATH_LOG
+    Category > 1       7.809     20.158      0.050   1230.232
+ MATH_JOB
+    Category > 1       0.283      0.172      0.086      0.933
+ MATH_ADU
+    Category > 1       0.029      0.130      0.000    170.448
+
+Latent Class 2 Compared to Latent Class 4
+
+ MATH_ENJ
+    Category > 1       3.854      1.423      1.869      7.946
+ MATH_USE
+    Category > 1      21.152     19.986      3.319    134.788
+ MATH_LOG
+    Category > 1     483.464  10601.691      0.000  *********
+ MATH_JOB
+    Category > 1       5.676      5.136      0.964     33.435
+ MATH_ADU
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 3 Compared to Latent Class 4
+
+ MATH_ENJ
+    Category > 1       4.989      1.564      2.699      9.224
+ MATH_USE
+    Category > 1      29.788     34.984      2.981    297.679
+ MATH_LOG
+    Category > 1      61.914   1498.432      0.000  *********
+ MATH_JOB
+    Category > 1      20.059      8.638      8.626     46.650
+ MATH_ADU
+    Category > 1   *********      0.000  *********  *********
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     [ c#1*1.01855 ];
+     [ c#2*0.07225 ];
+     [ c#3*0.15042 ];
+
+     %C#1%
+
+     [ math_enjoy$1*-1.20837 ];
+     [ math_useful$1*-3.27518 ];
+     [ math_logical$1*-3.96521 ];
+     [ math_job$1*-1.81847 ];
+     [ math_adult$1*-3.59598 ];
+
+     %C#2%
+
+     [ math_enjoy$1*0.35306 ];
+     [ math_useful$1*0.20317 ];
+     [ math_logical$1*-1.62372 ];
+     [ math_job$1*0.97685 ];
+     [ math_adult$1*1.91030 ];
+
+     %C#3%
+
+     [ math_enjoy$1*0.09483 ];
+     [ math_useful$1*-0.13922 ];
+     [ math_logical$1*0.43151 ];
+     [ math_job$1*-0.28554 ];
+     [ math_adult$1*-1.61851 ];
+
+     %C#4%
+
+     [ math_enjoy$1*1.70211 ];
+     [ math_useful$1*3.25488 ];
+     [ math_logical$1*4.55725 ];
+     [ math_job$1*2.71316 ];
+     [ math_adult$1*15 ];
+
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                  20
+        Number of final stage optimizations                     4
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -9243.390
+          2 Times the Loglikelihood Difference             77.791
+          Difference in the Number of Parameters                6
+          Mean                                             31.675
+          Standard Deviation                               38.201
+          P-Value                                          0.0998
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                            76.228
+          P-Value                                          0.1035
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                  20
+        Number of final stage optimizations                     4
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -9243.390
+          2 Times the Loglikelihood Difference             77.791
+          Difference in the Number of Parameters                6
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                           10
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    savedata_math.dat
+
+  Order and format of variables
+
+    MATH_ENJ       F10.3
+    MATH_USE       F10.3
+    MATH_LOG       F10.3
+    MATH_JOB       F10.3
+    MATH_ADU       F10.3
+    CPROB1         F10.3
+    CPROB2         F10.3
+    CPROB3         F10.3
+    CPROB4         F10.3
+    C              F10.3
+    CASENUM        I5
+
+  Save file format
+    10F10.3 I5
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+     Beginning Time:  17:52:58
+        Ending Time:  17:53:01
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

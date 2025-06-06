@@ -1,0 +1,437 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/05/2025   4:15 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Science Attitudes: 1-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/enum_sci/
+  data.dat";
+  VARIABLE:
+  NAMES = casenum gender math_enjoy math_useful math_logical math_job math_adult
+       sci_enjoy sci_useful sci_logical sci_job sci_adult;
+   MISSING=.;
+   categorical = sci_enjoy, sci_useful, sci_logical, sci_job, sci_adult;
+  usevar = sci_enjoy, sci_useful, sci_logical, sci_job, sci_adult;
+  classes = c(1);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      processors = 12;
+      starts = 500 100;
+  OUTPUT:
+  sampstat residual tech11 tech14;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2581
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Science Attitudes: 1-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3364
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   SCI_ENJO    SCI_USEF    SCI_LOGI    SCI_JOB     SCI_ADUL
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/enum_sci/data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            14
+     Number of y missing data patterns           0
+     Number of u missing data patterns          14
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              SCI_ENJO      SCI_USEF      SCI_LOGI      SCI_JOB       SCI_ADUL
+              ________      ________      ________      ________      ________
+ SCI_ENJO       0.998
+ SCI_USEF       0.991         0.993
+ SCI_LOGI       0.989         0.985         0.990
+ SCI_JOB        0.991         0.987         0.986         0.993
+ SCI_ADUL       0.996         0.991         0.989         0.992         0.997
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    SCI_ENJO
+      Category 1    0.466         1564.000
+      Category 2    0.534         1793.000
+    SCI_USEF
+      Category 1    0.550         1837.000
+      Category 2    0.450         1502.000
+    SCI_LOGI
+      Category 1    0.452         1507.000
+      Category 2    0.548         1825.000
+    SCI_JOB
+      Category 1    0.659         2200.000
+      Category 2    0.341         1139.000
+    SCI_ADUL
+      Category 1    0.597         2003.000
+      Category 2    0.403         1352.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -11315.867  377504           294
+          -11315.867  602797           336
+          -11315.867  636396           168
+          -11315.867  782200           84
+          -11315.867  352277           42
+          -11315.867  153053           378
+          -11315.867  802682           419
+          -11315.867  835767           210
+          -11315.867  662718           460
+          -11315.867  471438           252
+          -11315.867  340112           126
+          -11315.867  285380           1
+          -11315.867  462953           7
+          -11315.867  27071            15
+          -11315.867  153942           31
+          -11315.867  7959             256
+          -11315.867  164305           128
+          -11315.867  871851           257
+          -11315.867  188498           258
+          -11315.867  311214           64
+          -11315.867  814975           129
+          -11315.867  622860           259
+          -11315.867  804660           260
+          -11315.867  509733           130
+          -11315.867  616917           261
+          -11315.867  520177           262
+          -11315.867  626891           32
+          -11315.867  565819           65
+          -11315.867  468036           131
+          -11315.867  313407           132
+          -11315.867  467339           66
+          -11315.867  321390           133
+          -11315.867  903369           134
+          -11315.867  76974            16
+          -11315.867  749453           33
+          -11315.867  789985           67
+          -11315.867  437181           135
+          -11315.867  405079           68
+          -11315.867  685657           69
+          -11315.867  987090           70
+          -11315.867  93468            3
+          -11315.867  475420           71
+          -11315.867  391949           295
+          -11315.867  344422           296
+          -11315.867  43523            297
+          -11315.867  462228           298
+          -11315.867  316165           299
+          -11315.867  562716           300
+          -11315.867  342019           301
+          -11315.867  780698           337
+          -11315.867  418686           338
+          -11315.867  303634           169
+          -11315.867  82357            339
+          -11315.867  644297           340
+          -11315.867  783165           170
+          -11315.867  836515           341
+          -11315.867  278692           342
+          -11315.867  unperturbed      0
+          -11315.867  569833           85
+          -11315.867  411615           171
+          -11315.867  529496           343
+          -11315.867  950604           172
+          -11315.867  170954           86
+          -11315.867  848969           173
+          -11315.867  860772           174
+          -11315.867  544048           87
+          -11315.867  286735           175
+          -11315.867  373505           88
+          -11315.867  436460           89
+          -11315.867  131856           90
+          -11315.867  402224           91
+          -11315.867  813779           92
+          -11315.867  137305           379
+          -11315.867  443442           380
+          -11315.867  985387           381
+          -11315.867  937885           426
+          -11315.867  762461           425
+          -11315.867  765392           382
+          -11315.867  210870           383
+          -11315.867  1548             384
+          -11315.867  85114            385
+          -11315.867  749635           420
+          -11315.867  484406           421
+          -11315.867  173191           422
+          -11315.867  76451            211
+          -11315.867  798821           423
+          -11315.867  505879           424
+          -11315.867  181293           212
+          -11315.867  73576            213
+          -11315.867  65651            214
+          -11315.867  686482           215
+          -11315.867  499150           216
+          -11315.867  66276            217
+          -11315.867  345726           461
+          -11315.867  68850            462
+          -11315.867  965639           463
+          -11315.867  349360           464
+          -11315.867  320494           465
+          -11315.867  898745           466
+          -11315.867  112586           494
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        5
+
+Loglikelihood
+
+          H0 Value                      -11315.867
+          H0 Scaling Correction Factor      1.0000
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   22641.735
+          Bayesian (BIC)                 22672.339
+          Sample-Size Adjusted BIC       22656.452
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                           1267.040
+          Degrees of Freedom                    26
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          The chi-square is negative for this model part.  This is most likely
+          due to deleted cells in the H0 log-likelihood calculation.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            107.174
+          Degrees of Freedom                   109
+          P-Value                           0.5315
+
+          Likelihood Ratio Chi-Square
+
+          Value                             80.001
+          Degrees of Freedom                   109
+          P-Value                           0.9832
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       3364.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       3364.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             3364          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    SCI_ENJO$1        -0.137      0.035     -3.949      0.000
+    SCI_USEF$1         0.201      0.035      5.788      0.000
+    SCI_LOGI$1        -0.191      0.035     -5.501      0.000
+    SCI_JOB$1          0.658      0.037     18.034      0.000
+    SCI_ADUL$1         0.393      0.035     11.167      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.118E+00
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ SCI_ENJOY
+    Category 1         0.466      0.009     54.113      0.000
+    Category 2         0.534      0.009     62.037      0.000
+ SCI_USEFUL
+    Category 1         0.550      0.009     63.904      0.000
+    Category 2         0.450      0.009     52.250      0.000
+ SCI_LOGICA
+    Category 1         0.452      0.009     52.454      0.000
+    Category 2         0.548      0.009     63.522      0.000
+ SCI_JOB
+    Category 1         0.659      0.008     80.308      0.000
+    Category 2         0.341      0.008     41.578      0.000
+ SCI_ADULT
+    Category 1         0.597      0.008     70.502      0.000
+    Category 2         0.403      0.008     47.588      0.000
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+     Beginning Time:  16:15:00
+        Ending Time:  16:15:03
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

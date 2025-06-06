@@ -1,0 +1,29 @@
+TITLE:
+GMM 1-Class
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/gmm/gmm_enum/gmm_lsay.dat"; 
+VARIABLE:
+NAMES = id female interest7 sci7 sci8 sci9 sci10 sci11 sci12; 
+ MISSING=.;
+ usevar = sci7-sci12; 
+classes = c(1); 
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 200 100; 
+    processors = 12;
+MODEL:
+%OVERALL%
+i s | sci7@0 sci8@1 sci9@2 sci10@3 sci11@4 sci12@5;
+
+%c#1%
+s WITH I;      ! covariances are freely estimated
+sci7-sci12;    ! variances are freely estimated
+OUTPUT:
+tech1 tech11 tech14 sampstat standardized svalues;
+SAVEDATA:
+FILE IS savedata_c1.dat;
+SAVE = cprobabilities;
+PLOT:
+type=plot3;
+          series = sci7-sci12(*)

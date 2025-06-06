@@ -1,0 +1,301 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/05/2025   3:58 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Descriptive Statistics;
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/data.dat";
+  VARIABLE:
+  NAMES = casenum gender math_enjoy math_useful math_logical math_job math_adult
+       sci_enjoy sci_useful sci_logical sci_job sci_adult;
+   MISSING=.;
+   usevar = math_enjoy-sci_adult;
+      categorical = math_enjoy-sci_adult;
+  ANALYSIS:
+  TYPE=basic;
+  OUTPUT:
+  sampstat;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2556
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Descriptive Statistics;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3389
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   MATH_ENJ    MATH_USE    MATH_LOG    MATH_JOB    MATH_ADU    SCI_ENJO
+   SCI_USEF    SCI_LOGI    SCI_JOB     SCI_ADUL
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/data.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            41
+
+
+SUMMARY OF MISSING DATA PATTERNS
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+ MATH_ENJ  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ MATH_USE  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ MATH_LOG  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ MATH_JOB  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x           x  x
+ MATH_ADU  x  x  x  x  x  x  x  x  x  x  x  x           x        x  x
+ SCI_ENJO  x  x  x  x  x  x  x  x  x  x        x  x  x  x  x     x  x
+ SCI_USEF  x  x  x  x  x  x  x           x     x        x  x     x  x
+ SCI_LOGI  x  x  x  x           x        x     x  x  x  x  x     x
+ SCI_JOB   x  x        x        x  x     x     x  x     x  x     x  x
+ SCI_ADUL  x     x     x  x     x  x     x     x  x  x  x  x     x  x
+
+          21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
+ MATH_ENJ  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ MATH_USE  x  x  x  x  x                             x
+ MATH_LOG                 x  x  x  x                 x  x  x
+ MATH_JOB  x  x           x  x  x  x                 x  x
+ MATH_ADU  x     x        x  x  x     x              x  x     x  x
+ SCI_ENJO     x  x  x     x  x  x  x     x  x  x     x  x     x     x
+ SCI_USEF  x  x  x  x     x  x  x  x     x  x        x  x     x     x
+ SCI_LOGI  x  x  x        x  x     x  x  x           x  x     x     x
+ SCI_JOB   x  x  x        x     x  x     x  x        x  x     x     x
+ SCI_ADUL  x  x  x  x     x  x  x  x     x  x        x  x     x  x  x
+
+          41
+ MATH_ENJ
+ MATH_USE
+ MATH_LOG
+ MATH_JOB
+ MATH_ADU
+ SCI_ENJO
+ SCI_USEF  x
+ SCI_LOGI  x
+ SCI_JOB   x
+ SCI_ADUL  x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency     Pattern   Frequency     Pattern   Frequency
+          1        3207          15           1          29           1
+          2           3          16          25          30           1
+          3          12          17           4          31           1
+          4           1          18           1          32           1
+          5          19          19          16          33           1
+          6           3          20           1          34           9
+          7           1          21           1          35           5
+          8          17          22           1          36           1
+          9           1          23           1          37           1
+         10           2          24           1          38           1
+         11           3          25           1          39           1
+         12          13          26          10          40           1
+         13          16          27           1          41           1
+         14           1          28           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              MATH_ENJ      MATH_USE      MATH_LOG      MATH_JOB      MATH_ADU
+              ________      ________      ________      ________      ________
+ MATH_ENJ       0.997
+ MATH_USE       0.989         0.991
+ MATH_LOG       0.986         0.984         0.988
+ MATH_JOB       0.983         0.981         0.979         0.985
+ MATH_ADU       0.985         0.983         0.981         0.979         0.988
+ SCI_ENJO       0.988         0.985         0.983         0.980         0.982
+ SCI_USEF       0.983         0.980         0.978         0.975         0.977
+ SCI_LOGI       0.981         0.978         0.976         0.973         0.975
+ SCI_JOB        0.983         0.980         0.978         0.975         0.977
+ SCI_ADUL       0.987         0.984         0.982         0.979         0.981
+
+
+           Covariance Coverage
+              SCI_ENJO      SCI_USEF      SCI_LOGI      SCI_JOB       SCI_ADUL
+              ________      ________      ________      ________      ________
+ SCI_ENJO       0.991
+ SCI_USEF       0.984         0.985
+ SCI_LOGI       0.981         0.977         0.983
+ SCI_JOB        0.984         0.980         0.978         0.985
+ SCI_ADUL       0.988         0.984         0.982         0.984         0.990
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    MATH_ENJ
+      Category 1    0.453         1531.000
+      Category 2    0.547         1847.000
+    MATH_USE
+      Category 1    0.365         1226.000
+      Category 2    0.635         2131.000
+    MATH_LOG
+      Category 1    0.320         1071.000
+      Category 2    0.680         2279.000
+    MATH_JOB
+      Category 1    0.433         1447.000
+      Category 2    0.567         1891.000
+    MATH_ADU
+      Category 1    0.366         1226.000
+      Category 2    0.634         2121.000
+    SCI_ENJO
+      Category 1    0.466         1564.000
+      Category 2    0.534         1793.000
+    SCI_USEF
+      Category 1    0.550         1837.000
+      Category 2    0.450         1502.000
+    SCI_LOGI
+      Category 1    0.452         1507.000
+      Category 2    0.548         1825.000
+    SCI_JOB
+      Category 1    0.659         2200.000
+      Category 2    0.341         1139.000
+    SCI_ADUL
+      Category 1    0.597         2003.000
+      Category 2    0.403         1352.000
+
+
+
+
+
+RESULTS FOR BASIC ANALYSIS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              MATH_ENJ      MATH_USE      MATH_LOG      MATH_JOB      MATH_ADU
+              ________      ________      ________      ________      ________
+               -0.118        -0.345        -0.469        -0.167        -0.342
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SCI_ENJO      SCI_USEF      SCI_LOGI      SCI_JOB$      SCI_ADUL
+              ________      ________      ________      ________      ________
+               -0.086         0.126        -0.120         0.409         0.246
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              MATH_ENJ      MATH_USE      MATH_LOG      MATH_JOB      MATH_ADU
+              ________      ________      ________      ________      ________
+ MATH_ENJ
+ MATH_USE       0.480
+ MATH_LOG       0.503         0.727
+ MATH_JOB       0.468         0.638         0.584
+ MATH_ADU       0.544         0.770         0.619         0.746
+ SCI_ENJO       0.361         0.361         0.391         0.335         0.374
+ SCI_USEF       0.325         0.623         0.573         0.479         0.511
+ SCI_LOGI       0.323         0.510         0.715         0.477         0.467
+ SCI_JOB        0.351         0.428         0.468         0.651         0.488
+ SCI_ADUL       0.342         0.475         0.469         0.457         0.581
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SCI_ENJO      SCI_USEF      SCI_LOGI      SCI_JOB       SCI_ADUL
+              ________      ________      ________      ________      ________
+ SCI_USEF       0.631
+ SCI_LOGI       0.644         0.803
+ SCI_JOB        0.583         0.725         0.672
+ SCI_ADUL       0.699         0.756         0.691         0.842
+
+
+     STANDARD ERRORS FOR ESTIMATED SAMPLE STATISTICS
+
+
+           S.E. FOR MEANS/INTERCEPTS/THRESHOLDS
+              MATH_ENJ      MATH_USE      MATH_LOG      MATH_JOB      MATH_ADU
+              ________      ________      ________      ________      ________
+                0.022         0.022         0.023         0.022         0.022
+
+
+           S.E. FOR MEANS/INTERCEPTS/THRESHOLDS
+              SCI_ENJO      SCI_USEF      SCI_LOGI      SCI_JOB$      SCI_ADUL
+              ________      ________      ________      ________      ________
+                0.022         0.022         0.022         0.022         0.022
+
+
+           S.E. FOR CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              MATH_ENJ      MATH_USE      MATH_LOG      MATH_JOB      MATH_ADU
+              ________      ________      ________      ________      ________
+ MATH_ENJ
+ MATH_USE       0.023
+ MATH_LOG       0.023         0.017
+ MATH_JOB       0.023         0.019         0.021
+ MATH_ADU       0.022         0.015         0.020         0.016
+ SCI_ENJO       0.025         0.025         0.025         0.025         0.025
+ SCI_USEF       0.025         0.020         0.022         0.023         0.023
+ SCI_LOGI       0.025         0.023         0.017         0.023         0.023
+ SCI_JOB        0.026         0.025         0.025         0.020         0.024
+ SCI_ADUL       0.025         0.024         0.024         0.024         0.021
+
+
+           S.E. FOR CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              SCI_ENJO      SCI_USEF      SCI_LOGI      SCI_JOB       SCI_ADUL
+              ________      ________      ________      ________      ________
+ SCI_USEF       0.019
+ SCI_LOGI       0.019         0.013
+ SCI_JOB        0.021         0.017         0.019
+ SCI_ADUL       0.017         0.015         0.018         0.012
+
+
+     Beginning Time:  15:58:52
+        Ending Time:  15:58:52
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

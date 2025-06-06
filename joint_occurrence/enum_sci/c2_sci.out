@@ -1,0 +1,546 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/05/2025   4:15 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Science Attitudes: 2-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/enum_sci/
+  data.dat";
+  VARIABLE:
+  NAMES = casenum gender math_enjoy math_useful math_logical math_job math_adult
+       sci_enjoy sci_useful sci_logical sci_job sci_adult;
+   MISSING=.;
+   categorical = sci_enjoy, sci_useful, sci_logical, sci_job, sci_adult;
+  usevar = sci_enjoy, sci_useful, sci_logical, sci_job, sci_adult;
+  classes = c(2);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      processors = 12;
+      starts = 500 100;
+  OUTPUT:
+  sampstat residual tech11 tech14;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2581
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Science Attitudes: 2-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3364
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   SCI_ENJO    SCI_USEF    SCI_LOGI    SCI_JOB     SCI_ADUL
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/enum_sci/data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            14
+     Number of y missing data patterns           0
+     Number of u missing data patterns          14
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              SCI_ENJO      SCI_USEF      SCI_LOGI      SCI_JOB       SCI_ADUL
+              ________      ________      ________      ________      ________
+ SCI_ENJO       0.998
+ SCI_USEF       0.991         0.993
+ SCI_LOGI       0.989         0.985         0.990
+ SCI_JOB        0.991         0.987         0.986         0.993
+ SCI_ADUL       0.996         0.991         0.989         0.992         0.997
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    SCI_ENJO
+      Category 1    0.466         1564.000
+      Category 2    0.534         1793.000
+    SCI_USEF
+      Category 1    0.550         1837.000
+      Category 2    0.450         1502.000
+    SCI_LOGI
+      Category 1    0.452         1507.000
+      Category 2    0.548         1825.000
+    SCI_JOB
+      Category 1    0.659         2200.000
+      Category 2    0.341         1139.000
+    SCI_ADUL
+      Category 1    0.597         2003.000
+      Category 2    0.403         1352.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -9009.075  673496           218
+           -9009.075  978061           488
+           -9009.075  373505           88
+           -9009.075  535063           329
+           -9009.075  512836           289
+           -9009.075  724519           333
+           -9009.075  136842           58
+           -9009.075  614009           317
+           -9009.075  456213           160
+           -9009.075  21345            199
+           -9009.075  246575           291
+           -9009.075  790059           469
+           -9009.075  617243           237
+           -9009.075  93468            3
+           -9009.075  645664           39
+           -9009.075  926797           406
+           -9009.075  437181           135
+           -9009.075  608849           224
+           -9009.075  863094           147
+           -9009.075  988761           475
+           -9009.075  997222           229
+           -9009.075  891531           206
+           -9009.075  915107           54
+           -9009.075  584397           428
+           -9009.075  987090           70
+           -9009.075  798821           423
+           -9009.075  462953           7
+           -9009.075  224950           455
+           -9009.075  567165           319
+           -9009.075  544048           87
+           -9009.075  761633           50
+           -9009.075  648555           113
+           -9009.075  216565           474
+           -9009.075  526324           178
+           -9009.075  408713           450
+           -9009.075  371246           101
+           -9009.075  416250           390
+           -9009.075  349562           359
+           -9009.075  580405           286
+           -9009.075  318230           46
+           -9009.075  432148           30
+           -9009.075  850840           232
+           -9009.075  354624           448
+           -9009.075  622860           259
+           -9009.075  395754           388
+           -9009.075  484687           306
+           -9009.075  951709           348
+           -9009.075  966014           37
+           -9009.075  783102           433
+           -9009.075  669634           335
+           -9009.075  534864           307
+           -9009.075  625191           350
+           -9009.075  458181           189
+           -9009.075  835767           210
+           -9009.075  366533           484
+           -9009.075  443442           380
+           -9009.075  637095           207
+           -9009.075  352277           42
+           -9009.075  150531           154
+           -9009.075  436460           89
+           -9009.075  985387           381
+           -9009.075  565819           65
+           -9009.075  903420           5
+           -9009.075  369602           146
+           -9009.075  781190           219
+           -9009.075  268896           124
+           -9009.075  185071           370
+           -9009.075  582296           452
+           -9009.075  220454           288
+           -9009.075  717754           180
+           -9009.075  341041           34
+           -9009.075  466971           109
+           -9009.075  937225           394
+           -9009.075  848969           173
+           -9009.075  85462            51
+           -9009.075  652266           490
+           -9009.075  505879           424
+           -9009.075  484501           163
+           -9009.075  383986           159
+           -9009.075  926283           269
+           -9009.075  570782           193
+           -9009.075  164305           128
+           -9009.075  315029           471
+           -9009.075  836515           341
+           -9009.075  915642           40
+           -9009.075  207896           25
+           -9009.075  418686           338
+           -9009.075  931874           141
+           -9009.075  85114            385
+           -9009.075  751054           117
+           -9009.075  945065           255
+           -9009.075  967902           52
+           -9009.075  441191           361
+           -9009.075  840031           276
+           -9009.075  23012            352
+           -9009.075  608460           244
+           -9009.075  377504           294
+           -9009.075  79945            395
+           -9009.075  862607           468
+           -9009.075  124999           96
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       11
+
+Loglikelihood
+
+          H0 Value                       -9009.075
+          H0 Scaling Correction Factor      1.0822
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   18040.150
+          Bayesian (BIC)                 18107.479
+          Sample-Size Adjusted BIC       18072.527
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                            621.559
+          Degrees of Freedom                    20
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            339.880
+          Degrees of Freedom                    20
+          P-Value                           0.0000
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            107.174
+          Degrees of Freedom                   109
+          P-Value                           0.5315
+
+          Likelihood Ratio Chi-Square
+
+          Value                             80.001
+          Degrees of Freedom                   109
+          P-Value                           0.9832
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       1502.15632          0.44654
+       2       1861.84368          0.55346
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       1502.15632          0.44654
+       2       1861.84368          0.55346
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             1484          0.44114
+       2             1880          0.55886
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.826
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2
+
+    1   0.956    0.044
+    2   0.044    0.956
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2
+
+    1   0.945    0.055
+    2   0.035    0.965
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2
+
+    1      2.838    0.000
+    2     -3.321    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    SCI_ENJO$1        -1.743      0.092    -18.972      0.000
+    SCI_USEF$1        -1.732      0.100    -17.279      0.000
+    SCI_LOGI$1        -2.251      0.124    -18.138      0.000
+    SCI_JOB$1         -0.824      0.080    -10.334      0.000
+    SCI_ADUL$1        -1.466      0.102    -14.305      0.000
+
+Latent Class 2
+
+ Thresholds
+    SCI_ENJO$1         0.953      0.063     15.141      0.000
+    SCI_USEF$1         1.933      0.107     18.003      0.000
+    SCI_LOGI$1         1.047      0.072     14.624      0.000
+    SCI_JOB$1          2.851      0.140     20.375      0.000
+    SCI_ADUL$1         2.549      0.136     18.743      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.215      0.051     -4.209      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.514E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ SCI_ENJOY
+    Category 1         0.149      0.012     12.785      0.000
+    Category 2         0.851      0.012     73.093      0.000
+ SCI_USEFUL
+    Category 1         0.150      0.013     11.740      0.000
+    Category 2         0.850      0.013     66.364      0.000
+ SCI_LOGICA
+    Category 1         0.095      0.011      8.907      0.000
+    Category 2         0.905      0.011     84.573      0.000
+ SCI_JOB
+    Category 1         0.305      0.017     18.032      0.000
+    Category 2         0.695      0.017     41.122      0.000
+ SCI_ADULT
+    Category 1         0.188      0.016     12.011      0.000
+    Category 2         0.812      0.016     52.028      0.000
+
+Latent Class 2
+
+ SCI_ENJOY
+    Category 1         0.722      0.013     57.092      0.000
+    Category 2         0.278      0.013     22.014      0.000
+ SCI_USEFUL
+    Category 1         0.874      0.012     73.684      0.000
+    Category 2         0.126      0.012     10.658      0.000
+ SCI_LOGICA
+    Category 1         0.740      0.014     53.759      0.000
+    Category 2         0.260      0.014     18.865      0.000
+ SCI_JOB
+    Category 1         0.945      0.007    130.837      0.000
+    Category 2         0.055      0.007      7.559      0.000
+ SCI_ADULT
+    Category 1         0.927      0.009    101.421      0.000
+    Category 2         0.073      0.009      7.928      0.000
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ SCI_ENJO
+    Category > 1      14.827      1.523     12.124     18.133
+ SCI_USEF
+    Category > 1      39.082      5.097     30.266     50.466
+ SCI_LOGI
+    Category > 1      27.057      3.608     20.834     35.139
+ SCI_JOB
+    Category > 1      39.474      5.809     29.584     52.671
+ SCI_ADUL
+    Category > 1      55.413      8.376     41.205     74.521
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 1 (H0) VERSUS 2 CLASSES
+
+          H0 Loglikelihood Value                       -11315.867
+          2 Times the Loglikelihood Difference           4613.585
+          Difference in the Number of Parameters                6
+          Mean                                              4.810
+          Standard Deviation                               12.828
+          P-Value                                          0.0000
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                          4520.804
+          P-Value                                          0.0000
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 1 (H0) VERSUS 2 CLASSES
+
+          H0 Loglikelihood Value                       -11315.867
+          2 Times the Loglikelihood Difference           4613.585
+          Difference in the Number of Parameters                6
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                            5
+
+
+     Beginning Time:  16:15:11
+        Ending Time:  16:15:20
+       Elapsed Time:  00:00:09
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

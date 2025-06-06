@@ -255,8 +255,6 @@ summary_table
 #invisible(save_as_image(summary_table, path = here("figures", "housekeeping.png")))
 ```
 
-
-
 ------------------------------------------------------------------------
 
 #### Final Fit Table
@@ -377,7 +375,7 @@ ggsave(here("figures", "probability_plot_mod.png"), dpi = "retina", bg = "white"
 
 ------------------------------------------------------------------------
 
-### Step 1 - Class Enumeration w/ Auxiliary Specification
+### Step 1 - Estimate Unconditional Model w/ Auxiliary Specification
 
 ------------------------------------------------------------------------
 

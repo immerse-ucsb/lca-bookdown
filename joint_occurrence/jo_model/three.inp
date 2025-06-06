@@ -1,0 +1,67 @@
+TITLE:
+Joint Occurrence LCA
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/jo_model/
+three.dat"; 
+VARIABLE:
+NAMES = MATH_ENJ MATH_USE MATH_LOG MATH_JOB MATH_ADU CPROB1_x CPROB2_x CPROB3_x
+     CPROB4_x N_math CASENUM SCI_ENJO SCI_USEF SCI_LOGI SCI_JOB SCI_ADUL CPROB1_y
+     CPROB2_y CPROB3_y CPROB4_y N_sci; 
+ MISSING=.;
+ nominal=N_math N_sci;
+  usevar = N_math N_sci;
+  classes = math(4) sci(4);
+ANALYSIS:
+estimator = mlr; 
+  type = mixture; 
+  starts = 0;
+MODEL:
+%OVERALL%
+    
+ sci on math; 
+
+MODEL math:
+
+%math#1%
+[N_math#1@6.652];
+[N_math#2@2.128];
+[N_math#3@3.187];
+
+
+%math#2%
+[N_math#1@0.267];
+[N_math#2@2.29];
+[N_math#3@0.26];
+
+%math#3%
+[N_math#1@1.836]; 
+[N_math#2@0.767];
+[N_math#3@2.854];
+
+%math#4%
+[N_math#1@-7.914]; 
+[N_math#2@-3.017];
+[N_math#3@-4.313];  
+
+ 
+MODEL sci:
+
+%sci#1%
+[N_sci#1@8.959]; 
+[N_sci#2@6.319];
+[N_sci#3@5.092];  
+
+%sci#2%
+[N_sci#1@-0.61];
+[N_sci#2@2.237];
+[N_sci#3@-0.819];
+
+%sci#3%
+[N_sci#1@4.497];
+[N_sci#2@4.353];
+[N_sci#3@6.199];
+ 
+%sci#4%
+[N_sci#1@-8.219];
+[N_sci#2@-2.15];
+[N_sci#3@-13.705];

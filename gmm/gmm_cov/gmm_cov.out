@@ -1,0 +1,2244 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/05/2025   8:31 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  GMM with Covariates
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/gmm/gmm_cov/gmm_cov.dat";
+  VARIABLE:
+  NAMES = id female interest7 sci7 sci8 sci9 sci10 sci11 sci12;
+   MISSING=.;
+   usevar = sci7-sci12
+    female interest7;
+
+     classes = c(4);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 200 100;
+      processors = 12;
+  MODEL:
+  %OVERALL%
+
+      i s on female interest7;
+
+      i s | sci7@0 sci8@1 sci9@2 sci10@3 sci11@4 sci12@5;
+
+      %c#1%
+      s WITH I;      ! covariances are freely estimated
+      sci7-sci12;    ! variances are freely estimated
+      i s on female interest7;
+
+      %c#2%
+      s WITH I;
+      sci7-sci12;
+      i s on female interest7;
+
+      %c#3%
+      s WITH I;
+      sci7-sci12;
+      i s on female interest7;
+
+      %c#4%
+      s WITH I;
+      sci7-sci12;
+      i s on female interest7;
+  OUTPUT:
+  tech1 tech11 tech14 sampstat standardized svalues;
+  SAVEDATA:
+  FILE IS savedata_c4.dat;
+  SAVE = cprobabilities;
+  PLOT:
+  type=plot3;
+            series = sci7-sci12(*)
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in PLOT command
+  Note that only the first 8 characters of variable names are used in plots.
+  If variable names are not unique within the first 8 characters, problems
+  may occur.
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  2953
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  6
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+GMM with Covariates
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2986
+
+Number of dependent variables                                    6
+Number of independent variables                                  2
+Number of continuous latent variables                            2
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   SCI7        SCI8        SCI9        SCI10       SCI11       SCI12
+
+Observed independent variables
+   FEMALE      INTEREST
+
+Continuous latent variables
+   I           S
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        200
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/gmm/gmm_cov/gmm_cov.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            43
+     Number of y missing data patterns          43
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7           0.988
+ SCI8           0.804         0.814
+ SCI9           0.739         0.666         0.749
+ SCI10          0.631         0.564         0.578         0.639
+ SCI11          0.508         0.464         0.463         0.440         0.513
+ SCI12          0.366         0.340         0.337         0.316         0.305
+ FEMALE         0.988         0.814         0.749         0.639         0.513
+ INTEREST       0.988         0.814         0.749         0.639         0.513
+
+
+           Covariance Coverage
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12          0.369
+ FEMALE         0.369         1.000
+ INTEREST       0.369         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+               50.524        53.909        58.095        60.379        62.462
+
+
+           Means
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+               63.447         0.483         1.804
+
+
+           Covariances
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7         103.389
+ SCI8          90.039       121.616
+ SCI9          86.647       105.175       126.152
+ SCI10         88.651       103.432       116.072       138.235
+ SCI11         92.537       108.305       118.972       132.039       152.211
+ SCI12         97.279       110.923       120.794       131.951       150.486
+ FEMALE        -0.361        -0.087        -0.153        -0.256        -0.311
+ INTEREST       1.884         1.934         1.915         1.992         2.034
+
+
+           Covariances
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12        176.532
+ FEMALE        -0.264         0.250
+ INTEREST       2.368        -0.057         0.578
+
+
+           Correlations
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7           1.000
+ SCI8           0.803         1.000
+ SCI9           0.759         0.849         1.000
+ SCI10          0.742         0.798         0.879         1.000
+ SCI11          0.738         0.796         0.859         0.910         1.000
+ SCI12          0.720         0.757         0.809         0.845         0.918
+ FEMALE        -0.071        -0.016        -0.027        -0.044        -0.050
+ INTEREST       0.244         0.231         0.224         0.223         0.217
+
+
+           Correlations
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12          1.000
+ FEMALE        -0.040         1.000
+ INTEREST       0.234        -0.150         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -45714.568
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SCI7                 50.570       0.199      26.140    0.03%      41.240     47.360     50.200
+            2951.000     103.005      -0.444      88.030    0.03%      53.150     59.400
+     SCI8                 54.226      -0.177      22.820    0.04%      43.920     52.080     54.810
+            2431.000     123.041      -0.634      83.940    0.04%      58.100     64.240
+     SCI9                 58.823      -0.366      27.360    0.04%      48.950     57.410     60.515
+            2236.000     124.581      -0.375      91.210    0.04%      62.910     68.240
+     SCI10                61.806      -0.430      27.430    0.05%      51.870     60.430     63.170
+            1907.000     135.841      -0.202      91.330    0.05%      66.030     71.740
+     SCI11                64.618      -0.476      24.440    0.07%      54.580     62.920     65.690
+            1531.000     143.434      -0.089      93.130    0.07%      68.390     74.820
+     SCI12                66.145      -0.442      26.380    0.09%      56.030     64.180     67.030
+            1103.000     167.242      -0.079      95.560    0.09%      70.030     77.410
+     FEMALE                0.483       0.067       0.000   51.67%       0.000      0.000      0.000
+            2986.000       0.250      -1.996       1.000   48.33%       1.000      1.000
+     INTEREST7             1.804       0.345       1.000   40.62%       1.000      1.000      2.000
+            2986.000       0.578      -1.202       3.000   21.00%       2.000      3.000
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+
+13 perturbed starting value run(s) did not converge or were rejected in the third stage.
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -39979.165  393232           152
+          -39981.084  931874           141
+          -39981.084  726035           191
+          -39981.084  366706           29
+          -39981.084  685657           69
+          -39981.084  535804           111
+          -39981.084  462953           7
+          -39981.084  636396           168
+          -39981.084  696773           80
+          -39981.084  152496           123
+          -39981.084  674171           195
+          -39981.084  848163           47
+          -39981.084  960438           116
+          -39981.084  565819           65
+          -39981.084  311214           64
+          -39981.084  576596           99
+          -39981.084  432148           30
+          -39981.084  25127            107
+          -39981.084  303634           169
+          -39981.084  373505           88
+          -39981.084  715561           125
+          -39981.084  592219           119
+          -39981.084  402224           91
+          -39981.084  215353           164
+          -39981.084  723775           97
+          -39981.084  856536           144
+          -39981.084  695155           150
+          -39981.084  51375            148
+          -39981.084  464179           106
+          -39981.084  405079           68
+          -39981.084  207896           25
+          -39981.084  391179           78
+          -39981.084  318230           46
+          -39981.084  411615           171
+          -39981.084  846194           93
+          -39981.084  608496           4
+          -39981.084  576220           115
+          -39981.084  195873           6
+          -40003.445  100874           108
+          -40003.445  340112           126
+          -40015.701  246261           38
+          -40015.701  972873           157
+          -40015.701  466971           109
+          -40017.380  127215           9
+          -40021.195  533738           11
+          -40021.979  263268           165
+          -40023.924  754100           56
+
+53 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE WAS NOT REPLICATED.  THE
+     SOLUTION MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.  INCREASE THE
+     NUMBER OF RANDOM STARTS.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     WARNING:  THE RESIDUAL COVARIANCE MATRIX (THETA) IN CLASS 3 IS NOT
+     POSITIVE DEFINITE.  THIS COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL
+     VARIANCE FOR AN OBSERVED VARIABLE, A CORRELATION GREATER OR EQUAL TO ONE
+     BETWEEN TWO OBSERVED VARIABLES, OR A LINEAR DEPENDENCY AMONG MORE THAN TWO
+     OBSERVED VARIABLES.  CHECK THE RESULTS SECTION FOR MORE INFORMATION.
+     PROBLEM INVOLVING VARIABLE SCI11.
+
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       57
+
+Loglikelihood
+
+          H0 Value                      -39979.165
+          H0 Scaling Correction Factor      1.0762
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   80072.331
+          Bayesian (BIC)                 80414.427
+          Sample-Size Adjusted BIC       80233.316
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        482.82956          0.16170
+       2       1130.97014          0.37876
+       3         71.10514          0.02381
+       4       1301.09517          0.43573
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        482.82956          0.16170
+       2       1130.97014          0.37876
+       3         71.10514          0.02381
+       4       1301.09517          0.43573
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              431          0.14434
+       2             1121          0.37542
+       3               43          0.01440
+       4             1391          0.46584
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.646
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.783    0.002    0.013    0.202
+    2   0.002    0.842    0.002    0.154
+    3   0.000    0.035    0.832    0.133
+    4   0.103    0.133    0.019    0.745
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.699    0.004    0.000    0.297
+    2   0.001    0.835    0.001    0.163
+    3   0.080    0.037    0.503    0.379
+    4   0.067    0.133    0.004    0.796
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      0.856   -4.298  -10.215    0.000
+    2     -5.360    1.631   -4.811    0.000
+    3     -1.551   -2.316    0.282    0.000
+    4     -2.477   -1.792   -5.196    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ I        |
+    SCI7               1.000      0.000    999.000    999.000
+    SCI8               1.000      0.000    999.000    999.000
+    SCI9               1.000      0.000    999.000    999.000
+    SCI10              1.000      0.000    999.000    999.000
+    SCI11              1.000      0.000    999.000    999.000
+    SCI12              1.000      0.000    999.000    999.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               1.000      0.000    999.000    999.000
+    SCI9               2.000      0.000    999.000    999.000
+    SCI10              3.000      0.000    999.000    999.000
+    SCI11              4.000      0.000    999.000    999.000
+    SCI12              5.000      0.000    999.000    999.000
+
+ I          ON
+    FEMALE             0.277      0.767      0.361      0.718
+    INTEREST7         -0.385      0.613     -0.629      0.529
+
+ S          ON
+    FEMALE             0.892      0.277      3.221      0.001
+    INTEREST7          0.578      0.197      2.934      0.003
+
+ S        WITH
+    I                 -2.534      0.917     -2.764      0.006
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                 41.474      1.262     32.856      0.000
+    S                 -0.778      0.544     -1.431      0.152
+
+ Residual Variances
+    SCI7              14.705      2.317      6.347      0.000
+    SCI8              18.411      2.520      7.305      0.000
+    SCI9              23.951      3.378      7.091      0.000
+    SCI10             22.499      4.045      5.562      0.000
+    SCI11             18.084      4.612      3.921      0.000
+    SCI12             55.486     16.248      3.415      0.001
+    I                 32.428      2.493     13.009      0.000
+    S                  1.137      0.112     10.194      0.000
+
+Latent Class 2
+
+ I        |
+    SCI7               1.000      0.000    999.000    999.000
+    SCI8               1.000      0.000    999.000    999.000
+    SCI9               1.000      0.000    999.000    999.000
+    SCI10              1.000      0.000    999.000    999.000
+    SCI11              1.000      0.000    999.000    999.000
+    SCI12              1.000      0.000    999.000    999.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               1.000      0.000    999.000    999.000
+    SCI9               2.000      0.000    999.000    999.000
+    SCI10              3.000      0.000    999.000    999.000
+    SCI11              4.000      0.000    999.000    999.000
+    SCI12              5.000      0.000    999.000    999.000
+
+ I          ON
+    FEMALE            -2.309      0.508     -4.545      0.000
+    INTEREST7          2.852      0.310      9.211      0.000
+
+ S          ON
+    FEMALE            -0.328      0.113     -2.901      0.004
+    INTEREST7         -0.072      0.074     -0.969      0.332
+
+ S        WITH
+    I                 -1.222      0.422     -2.895      0.004
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                 55.523      0.849     65.427      0.000
+    S                  3.527      0.193     18.230      0.000
+
+ Residual Variances
+    SCI7              19.414      1.949      9.964      0.000
+    SCI8               9.871      1.074      9.187      0.000
+    SCI9               8.397      0.715     11.743      0.000
+    SCI10              7.116      0.622     11.440      0.000
+    SCI11              4.231      0.647      6.537      0.000
+    SCI12             17.037      1.617     10.535      0.000
+    I                 32.428      2.493     13.009      0.000
+    S                  1.137      0.112     10.194      0.000
+
+Latent Class 3
+
+ I        |
+    SCI7               1.000      0.000    999.000    999.000
+    SCI8               1.000      0.000    999.000    999.000
+    SCI9               1.000      0.000    999.000    999.000
+    SCI10              1.000      0.000    999.000    999.000
+    SCI11              1.000      0.000    999.000    999.000
+    SCI12              1.000      0.000    999.000    999.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               1.000      0.000    999.000    999.000
+    SCI9               2.000      0.000    999.000    999.000
+    SCI10              3.000      0.000    999.000    999.000
+    SCI11              4.000      0.000    999.000    999.000
+    SCI12              5.000      0.000    999.000    999.000
+
+ I          ON
+    FEMALE             0.109      1.369      0.080      0.936
+    INTEREST7          1.651      1.471      1.123      0.261
+
+ S          ON
+    FEMALE             0.231      0.805      0.287      0.774
+    INTEREST7          0.212      0.816      0.259      0.795
+
+ S        WITH
+    I                 -0.578      1.913     -0.302      0.763
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                 38.016      1.877     20.251      0.000
+    S                  8.059      1.178      6.842      0.000
+
+ Residual Variances
+    SCI7               7.559      8.563      0.883      0.377
+    SCI8             122.883     20.052      6.128      0.000
+    SCI9             108.897     29.542      3.686      0.000
+    SCI10             86.492     27.687      3.124      0.002
+    SCI11            -12.839      4.558     -2.817      0.005
+    SCI12            123.586     50.035      2.470      0.014
+    I                 32.428      2.493     13.009      0.000
+    S                  1.137      0.112     10.194      0.000
+
+Latent Class 4
+
+ I        |
+    SCI7               1.000      0.000    999.000    999.000
+    SCI8               1.000      0.000    999.000    999.000
+    SCI9               1.000      0.000    999.000    999.000
+    SCI10              1.000      0.000    999.000    999.000
+    SCI11              1.000      0.000    999.000    999.000
+    SCI12              1.000      0.000    999.000    999.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               1.000      0.000    999.000    999.000
+    SCI9               2.000      0.000    999.000    999.000
+    SCI10              3.000      0.000    999.000    999.000
+    SCI11              4.000      0.000    999.000    999.000
+    SCI12              5.000      0.000    999.000    999.000
+
+ I          ON
+    FEMALE             0.241      0.597      0.404      0.687
+    INTEREST7          3.108      0.422      7.357      0.000
+
+ S          ON
+    FEMALE             0.092      0.163      0.565      0.572
+    INTEREST7          0.041      0.095      0.434      0.664
+
+ S        WITH
+    I                 -1.620      0.646     -2.508      0.012
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                 42.512      0.882     48.181      0.000
+    S                  2.947      0.241     12.242      0.000
+
+ Residual Variances
+    SCI7              24.328      2.295     10.600      0.000
+    SCI8              30.792      2.291     13.439      0.000
+    SCI9              30.048      2.395     12.547      0.000
+    SCI10             22.021      2.331      9.448      0.000
+    SCI11             11.220      2.116      5.303      0.000
+    SCI12             31.206      4.906      6.361      0.000
+    I                 32.428      2.493     13.009      0.000
+    S                  1.137      0.112     10.194      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.991      0.235     -4.220      0.000
+    C#2               -0.140      0.115     -1.220      0.222
+    C#3               -2.907      0.297     -9.774      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.325E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ I        |
+    SCI7               0.830      0.023     35.374      0.000
+    SCI8               0.830      0.036     23.156      0.000
+    SCI9               0.790      0.046     17.129      0.000
+    SCI10              0.784      0.066     11.908      0.000
+    SCI11              0.777      0.079      9.882      0.000
+    SCI12              0.572      0.061      9.372      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.178      0.016     11.301      0.000
+    SCI9               0.339      0.033     10.228      0.000
+    SCI10              0.505      0.053      9.495      0.000
+    SCI11              0.667      0.073      9.087      0.000
+    SCI12              0.613      0.075      8.134      0.000
+
+ I          ON
+    FEMALE             0.024      0.067      0.361      0.718
+    INTEREST7         -0.051      0.080     -0.635      0.526
+
+ S          ON
+    FEMALE             0.364      0.098      3.715      0.000
+    INTEREST7          0.355      0.105      3.382      0.001
+
+ S        WITH
+    I                 -0.417      0.145     -2.872      0.004
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  7.271      0.256     28.436      0.000
+    S                 -0.636      0.416     -1.529      0.126
+
+ Residual Variances
+    SCI7               0.311      0.039      7.994      0.000
+    SCI8               0.390      0.039     10.080      0.000
+    SCI9               0.460      0.043     10.683      0.000
+    SCI10              0.425      0.050      8.493      0.000
+    SCI11              0.336      0.059      5.701      0.000
+    SCI12              0.557      0.073      7.613      0.000
+    I                  0.997      0.009    106.291      0.000
+    S                  0.759      0.096      7.938      0.000
+
+Latent Class 2
+
+ I        |
+    SCI7               0.819      0.017     48.840      0.000
+    SCI8               0.904      0.016     54.896      0.000
+    SCI9               0.905      0.022     40.949      0.000
+    SCI10              0.884      0.028     31.167      0.000
+    SCI11              0.858      0.034     25.188      0.000
+    SCI12              0.727      0.031     23.157      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.155      0.009     16.406      0.000
+    SCI9               0.311      0.019     16.770      0.000
+    SCI10              0.455      0.026     17.586      0.000
+    SCI11              0.589      0.033     18.095      0.000
+    SCI12              0.624      0.030     20.563      0.000
+
+ I          ON
+    FEMALE            -0.184      0.040     -4.647      0.000
+    INTEREST7          0.343      0.035      9.850      0.000
+
+ S          ON
+    FEMALE            -0.152      0.052     -2.936      0.003
+    INTEREST7         -0.050      0.052     -0.970      0.332
+
+ S        WITH
+    I                 -0.201      0.065     -3.100      0.002
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  8.840      0.386     22.900      0.000
+    S                  3.270      0.237     13.820      0.000
+
+ Residual Variances
+    SCI7               0.330      0.027     12.017      0.000
+    SCI8               0.204      0.021      9.534      0.000
+    SCI9               0.174      0.014     12.351      0.000
+    SCI10              0.141      0.012     11.492      0.000
+    SCI11              0.079      0.012      6.417      0.000
+    SCI12              0.228      0.021     10.642      0.000
+    I                  0.822      0.028     28.988      0.000
+    S                  0.978      0.015     64.931      0.000
+
+Latent Class 3
+
+ I        |
+    SCI7               0.904      0.091      9.907      0.000
+    SCI8               0.465      0.037     12.576      0.000
+    SCI9               0.482      0.056      8.589      0.000
+    SCI10              0.514      0.062      8.290      0.000
+    SCI11              0.962      0.122      7.895      0.000
+    SCI12              0.431      0.067      6.452      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.086      0.012      7.069      0.000
+    SCI9               0.179      0.029      6.096      0.000
+    SCI10              0.286      0.049      5.803      0.000
+    SCI11              0.715      0.146      4.907      0.000
+    SCI12              0.400      0.068      5.908      0.000
+
+ I          ON
+    FEMALE             0.009      0.114      0.080      0.936
+    INTEREST7          0.213      0.182      1.170      0.242
+
+ S          ON
+    FEMALE             0.104      0.352      0.296      0.767
+    INTEREST7          0.147      0.550      0.267      0.789
+
+ S        WITH
+    I                 -0.095      0.314     -0.303      0.762
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  6.525      0.593     11.000      0.000
+    S                  7.451      1.947      3.828      0.000
+
+ Residual Variances
+    SCI7               0.182      0.165      1.103      0.270
+    SCI8               0.782      0.030     26.348      0.000
+    SCI9               0.746      0.055     13.595      0.000
+    SCI10              0.673      0.073      9.216      0.000
+    SCI11             -0.350    999.000    999.000    999.000
+    SCI12              0.676      0.091      7.468      0.000
+    I                  0.955      0.077     12.347      0.000
+    S                  0.972      0.190      5.121      0.000
+
+Latent Class 4
+
+ I        |
+    SCI7               0.781      0.021     37.490      0.000
+    SCI8               0.754      0.021     36.429      0.000
+    SCI9               0.756      0.026     29.579      0.000
+    SCI10              0.789      0.034     23.079      0.000
+    SCI11              0.831      0.048     17.462      0.000
+    SCI12              0.680      0.043     15.956      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.131      0.008     17.016      0.000
+    SCI9               0.262      0.016     16.721      0.000
+    SCI10              0.410      0.027     15.108      0.000
+    SCI11              0.576      0.042     13.797      0.000
+    SCI12              0.589      0.040     14.854      0.000
+
+ I          ON
+    FEMALE             0.020      0.048      0.404      0.686
+    INTEREST7          0.384      0.048      8.079      0.000
+
+ S          ON
+    FEMALE             0.043      0.076      0.566      0.572
+    INTEREST7          0.030      0.068      0.435      0.664
+
+ S        WITH
+    I                 -0.267      0.105     -2.541      0.011
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  6.899      0.343     20.129      0.000
+    S                  2.760      0.264     10.461      0.000
+
+ Residual Variances
+    SCI7               0.391      0.033     12.010      0.000
+    SCI8               0.461      0.028     16.340      0.000
+    SCI9               0.453      0.032     14.348      0.000
+    SCI10              0.361      0.034     10.482      0.000
+    SCI11              0.204      0.037      5.569      0.000
+    SCI12              0.380      0.045      8.416      0.000
+    I                  0.854      0.036     23.961      0.000
+    S                  0.998      0.007    139.556      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ I        |
+    SCI7               0.830      0.023     35.374      0.000
+    SCI8               0.830      0.036     23.156      0.000
+    SCI9               0.790      0.046     17.129      0.000
+    SCI10              0.784      0.066     11.908      0.000
+    SCI11              0.777      0.079      9.882      0.000
+    SCI12              0.572      0.061      9.372      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.178      0.016     11.301      0.000
+    SCI9               0.339      0.033     10.228      0.000
+    SCI10              0.505      0.053      9.495      0.000
+    SCI11              0.667      0.073      9.087      0.000
+    SCI12              0.613      0.075      8.134      0.000
+
+ I          ON
+    FEMALE             0.049      0.135      0.361      0.718
+    INTEREST7         -0.068      0.106     -0.635      0.526
+
+ S          ON
+    FEMALE             0.729      0.196      3.719      0.000
+    INTEREST7          0.472      0.140      3.384      0.001
+
+ S        WITH
+    I                 -0.417      0.145     -2.872      0.004
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  7.271      0.256     28.436      0.000
+    S                 -0.636      0.416     -1.529      0.126
+
+ Residual Variances
+    SCI7               0.311      0.039      7.994      0.000
+    SCI8               0.390      0.039     10.080      0.000
+    SCI9               0.460      0.043     10.683      0.000
+    SCI10              0.425      0.050      8.493      0.000
+    SCI11              0.336      0.059      5.701      0.000
+    SCI12              0.557      0.073      7.613      0.000
+    I                  0.997      0.009    106.291      0.000
+    S                  0.759      0.096      7.938      0.000
+
+Latent Class 2
+
+ I        |
+    SCI7               0.819      0.017     48.840      0.000
+    SCI8               0.904      0.016     54.896      0.000
+    SCI9               0.905      0.022     40.949      0.000
+    SCI10              0.884      0.028     31.167      0.000
+    SCI11              0.858      0.034     25.188      0.000
+    SCI12              0.727      0.031     23.157      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.155      0.009     16.406      0.000
+    SCI9               0.311      0.019     16.770      0.000
+    SCI10              0.455      0.026     17.586      0.000
+    SCI11              0.589      0.033     18.095      0.000
+    SCI12              0.624      0.030     20.563      0.000
+
+ I          ON
+    FEMALE            -0.368      0.079     -4.654      0.000
+    INTEREST7          0.454      0.046      9.907      0.000
+
+ S          ON
+    FEMALE            -0.304      0.104     -2.938      0.003
+    INTEREST7         -0.067      0.069     -0.971      0.332
+
+ S        WITH
+    I                 -0.201      0.065     -3.100      0.002
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  8.840      0.386     22.900      0.000
+    S                  3.270      0.237     13.820      0.000
+
+ Residual Variances
+    SCI7               0.330      0.027     12.017      0.000
+    SCI8               0.204      0.021      9.534      0.000
+    SCI9               0.174      0.014     12.351      0.000
+    SCI10              0.141      0.012     11.492      0.000
+    SCI11              0.079      0.012      6.417      0.000
+    SCI12              0.228      0.021     10.642      0.000
+    I                  0.822      0.028     28.988      0.000
+    S                  0.978      0.015     64.931      0.000
+
+Latent Class 3
+
+ I        |
+    SCI7               0.904      0.091      9.907      0.000
+    SCI8               0.465      0.037     12.576      0.000
+    SCI9               0.482      0.056      8.589      0.000
+    SCI10              0.514      0.062      8.290      0.000
+    SCI11              0.962      0.122      7.895      0.000
+    SCI12              0.431      0.067      6.452      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.086      0.012      7.069      0.000
+    SCI9               0.179      0.029      6.096      0.000
+    SCI10              0.286      0.049      5.803      0.000
+    SCI11              0.715      0.146      4.907      0.000
+    SCI12              0.400      0.068      5.908      0.000
+
+ I          ON
+    FEMALE             0.019      0.235      0.080      0.936
+    INTEREST7          0.283      0.242      1.170      0.242
+
+ S          ON
+    FEMALE             0.214      0.723      0.296      0.767
+    INTEREST7          0.196      0.733      0.267      0.789
+
+ S        WITH
+    I                 -0.095      0.314     -0.303      0.762
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  6.525      0.593     11.000      0.000
+    S                  7.451      1.947      3.828      0.000
+
+ Residual Variances
+    SCI7               0.182      0.165      1.103      0.270
+    SCI8               0.782      0.030     26.348      0.000
+    SCI9               0.746      0.055     13.595      0.000
+    SCI10              0.673      0.073      9.216      0.000
+    SCI11            999.000    999.000    999.000    999.000
+    SCI12              0.676      0.091      7.468      0.000
+    I                  0.955      0.077     12.347      0.000
+    S                  0.972      0.190      5.121      0.000
+
+Latent Class 4
+
+ I        |
+    SCI7               0.781      0.021     37.490      0.000
+    SCI8               0.754      0.021     36.429      0.000
+    SCI9               0.756      0.026     29.579      0.000
+    SCI10              0.789      0.034     23.079      0.000
+    SCI11              0.831      0.048     17.462      0.000
+    SCI12              0.680      0.043     15.956      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.131      0.008     17.016      0.000
+    SCI9               0.262      0.016     16.721      0.000
+    SCI10              0.410      0.027     15.108      0.000
+    SCI11              0.576      0.042     13.797      0.000
+    SCI12              0.589      0.040     14.854      0.000
+
+ I          ON
+    FEMALE             0.039      0.097      0.404      0.686
+    INTEREST7          0.504      0.062      8.111      0.000
+
+ S          ON
+    FEMALE             0.086      0.152      0.566      0.571
+    INTEREST7          0.039      0.089      0.435      0.664
+
+ S        WITH
+    I                 -0.267      0.105     -2.541      0.011
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  6.899      0.343     20.129      0.000
+    S                  2.760      0.264     10.461      0.000
+
+ Residual Variances
+    SCI7               0.391      0.033     12.010      0.000
+    SCI8               0.461      0.028     16.340      0.000
+    SCI9               0.453      0.032     14.348      0.000
+    SCI10              0.361      0.034     10.482      0.000
+    SCI11              0.204      0.037      5.569      0.000
+    SCI12              0.380      0.045      8.416      0.000
+    I                  0.854      0.036     23.961      0.000
+    S                  0.998      0.007    139.556      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ I        |
+    SCI7               5.704      0.226     25.220      0.000
+    SCI8               5.704      0.226     25.220      0.000
+    SCI9               5.704      0.226     25.220      0.000
+    SCI10              5.704      0.226     25.220      0.000
+    SCI11              5.704      0.226     25.220      0.000
+    SCI12              5.704      0.226     25.220      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               1.224      0.088     13.867      0.000
+    SCI9               2.448      0.177     13.867      0.000
+    SCI10              3.672      0.265     13.867      0.000
+    SCI11              4.896      0.353     13.867      0.000
+    SCI12              6.120      0.441     13.867      0.000
+
+ I          ON
+    FEMALE             0.049      0.135      0.361      0.718
+    INTEREST7         -0.068      0.106     -0.635      0.526
+
+ S          ON
+    FEMALE             0.729      0.196      3.719      0.000
+    INTEREST7          0.472      0.140      3.384      0.001
+
+ S        WITH
+    I                 -0.417      0.145     -2.872      0.004
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  7.271      0.256     28.436      0.000
+    S                 -0.636      0.416     -1.529      0.126
+
+ Residual Variances
+    SCI7              14.705      2.317      6.347      0.000
+    SCI8              18.411      2.520      7.305      0.000
+    SCI9              23.951      3.378      7.091      0.000
+    SCI10             22.499      4.045      5.562      0.000
+    SCI11             18.084      4.612      3.921      0.000
+    SCI12             55.486     16.248      3.415      0.001
+    I                  0.997      0.009    106.291      0.000
+    S                  0.759      0.096      7.938      0.000
+
+Latent Class 2
+
+ I        |
+    SCI7               6.281      0.226     27.780      0.000
+    SCI8               6.281      0.226     27.780      0.000
+    SCI9               6.281      0.226     27.780      0.000
+    SCI10              6.281      0.226     27.780      0.000
+    SCI11              6.281      0.226     27.780      0.000
+    SCI12              6.281      0.226     27.780      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               1.079      0.052     20.586      0.000
+    SCI9               2.157      0.105     20.586      0.000
+    SCI10              3.236      0.157     20.586      0.000
+    SCI11              4.314      0.210     20.586      0.000
+    SCI12              5.393      0.262     20.586      0.000
+
+ I          ON
+    FEMALE            -0.368      0.079     -4.654      0.000
+    INTEREST7          0.454      0.046      9.907      0.000
+
+ S          ON
+    FEMALE            -0.304      0.104     -2.938      0.003
+    INTEREST7         -0.067      0.069     -0.971      0.332
+
+ S        WITH
+    I                 -0.201      0.065     -3.100      0.002
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  8.840      0.386     22.900      0.000
+    S                  3.270      0.237     13.820      0.000
+
+ Residual Variances
+    SCI7              19.414      1.949      9.964      0.000
+    SCI8               9.871      1.074      9.187      0.000
+    SCI9               8.397      0.715     11.743      0.000
+    SCI10              7.116      0.622     11.440      0.000
+    SCI11              4.231      0.647      6.537      0.000
+    SCI12             17.037      1.617     10.535      0.000
+    I                  0.822      0.028     28.988      0.000
+    S                  0.978      0.015     64.931      0.000
+
+Latent Class 3
+
+ I        |
+    SCI7               5.826      0.302     19.284      0.000
+    SCI8               5.826      0.302     19.284      0.000
+    SCI9               5.826      0.302     19.284      0.000
+    SCI10              5.826      0.302     19.284      0.000
+    SCI11              5.826      0.302     19.284      0.000
+    SCI12              5.826      0.302     19.284      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               1.082      0.132      8.174      0.000
+    SCI9               2.163      0.265      8.174      0.000
+    SCI10              3.245      0.397      8.174      0.000
+    SCI11              4.326      0.529      8.174      0.000
+    SCI12              5.408      0.662      8.174      0.000
+
+ I          ON
+    FEMALE             0.019      0.235      0.080      0.936
+    INTEREST7          0.283      0.242      1.170      0.242
+
+ S          ON
+    FEMALE             0.214      0.723      0.296      0.767
+    INTEREST7          0.196      0.733      0.267      0.789
+
+ S        WITH
+    I                 -0.095      0.314     -0.303      0.762
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  6.525      0.593     11.000      0.000
+    S                  7.451      1.947      3.828      0.000
+
+ Residual Variances
+    SCI7               7.559      8.563      0.883      0.377
+    SCI8             122.883     20.052      6.128      0.000
+    SCI9             108.897     29.542      3.686      0.000
+    SCI10             86.492     27.687      3.124      0.002
+    SCI11            -12.839    999.000    999.000    999.000
+    SCI12            123.586     50.035      2.470      0.014
+    I                  0.955      0.077     12.347      0.000
+    S                  0.972      0.190      5.121      0.000
+
+Latent Class 4
+
+ I        |
+    SCI7               6.162      0.229     26.962      0.000
+    SCI8               6.162      0.229     26.962      0.000
+    SCI9               6.162      0.229     26.962      0.000
+    SCI10              6.162      0.229     26.962      0.000
+    SCI11              6.162      0.229     26.962      0.000
+    SCI12              6.162      0.229     26.962      0.000
+
+ S        |
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               1.068      0.052     20.396      0.000
+    SCI9               2.135      0.105     20.396      0.000
+    SCI10              3.203      0.157     20.396      0.000
+    SCI11              4.271      0.209     20.396      0.000
+    SCI12              5.338      0.262     20.396      0.000
+
+ I          ON
+    FEMALE             0.039      0.097      0.404      0.686
+    INTEREST7          0.504      0.062      8.111      0.000
+
+ S          ON
+    FEMALE             0.086      0.152      0.566      0.571
+    INTEREST7          0.039      0.089      0.435      0.664
+
+ S        WITH
+    I                 -0.267      0.105     -2.541      0.011
+
+ Intercepts
+    SCI7               0.000      0.000    999.000    999.000
+    SCI8               0.000      0.000    999.000    999.000
+    SCI9               0.000      0.000    999.000    999.000
+    SCI10              0.000      0.000    999.000    999.000
+    SCI11              0.000      0.000    999.000    999.000
+    SCI12              0.000      0.000    999.000    999.000
+    I                  6.899      0.343     20.129      0.000
+    S                  2.760      0.264     10.461      0.000
+
+ Residual Variances
+    SCI7              24.328      2.295     10.600      0.000
+    SCI8              30.792      2.291     13.439      0.000
+    SCI9              30.048      2.395     12.547      0.000
+    SCI10             22.021      2.331      9.448      0.000
+    SCI11             11.220      2.116      5.303      0.000
+    SCI12             31.206      4.906      6.361      0.000
+    I                  0.854      0.036     23.961      0.000
+    S                  0.998      0.007    139.556      0.000
+
+
+R-SQUARE
+
+Latent Class 1
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    SCI7               0.689      0.039     17.687      0.000
+    SCI8               0.610      0.039     15.794      0.000
+    SCI9               0.540      0.043     12.559      0.000
+    SCI10              0.575      0.050     11.499      0.000
+    SCI11              0.664      0.059     11.274      0.000
+    SCI12              0.443      0.073      6.045      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    I                  0.003      0.009      0.355      0.722
+    S                  0.241      0.096      2.520      0.012
+
+Latent Class 2
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    SCI7               0.670      0.027     24.420      0.000
+    SCI8               0.796      0.021     37.126      0.000
+    SCI9               0.826      0.014     58.464      0.000
+    SCI10              0.859      0.012     70.067      0.000
+    SCI11              0.921      0.012     74.861      0.000
+    SCI12              0.772      0.021     36.008      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    I                  0.178      0.028      6.279      0.000
+    S                  0.022      0.015      1.494      0.135
+
+Latent Class 3
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    SCI7               0.818      0.165      4.953      0.000
+    SCI8               0.218      0.030      7.359      0.000
+    SCI9               0.254      0.055      4.623      0.000
+    SCI10              0.327      0.073      4.485      0.000
+    SCI11           Undefined   0.13504E+01
+    SCI12              0.324      0.091      3.578      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    I                  0.045      0.077      0.577      0.564
+    S                  0.028      0.190      0.146      0.884
+
+Latent Class 4
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    SCI7               0.609      0.033     18.745      0.000
+    SCI8               0.539      0.028     19.103      0.000
+    SCI9               0.547      0.032     17.337      0.000
+    SCI10              0.639      0.034     18.515      0.000
+    SCI11              0.796      0.037     21.725      0.000
+    SCI12              0.620      0.045     13.732      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    I                  0.146      0.036      4.095      0.000
+    S                  0.002      0.007      0.332      0.740
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     i s | sci7@0 sci8@1 sci9@2 sci10@3 sci11@4 sci12@5;
+
+     i ON female;
+     i ON interest7;
+     s ON female;
+     s ON interest7;
+
+     [ c#1*-0.99130 ];
+     [ c#2*-0.14013 ];
+     [ c#3*-2.90680 ];
+
+     %C#1%
+
+     i ON female*0.27682;
+     i ON interest7*-0.38530;
+     s ON female*0.89198;
+     s ON interest7*0.57798;
+
+     s WITH i*-2.53376;
+
+     [ sci7@0 ];
+     [ sci8@0 ];
+     [ sci9@0 ];
+     [ sci10@0 ];
+     [ sci11@0 ];
+     [ sci12@0 ];
+     [ i*41.47430 ];
+     [ s*-0.77828 ];
+
+     sci7*14.70519;
+     sci8*18.41127;
+     sci9*23.95057;
+     sci10*22.49872;
+     sci11*18.08382;
+     sci12*55.48609;
+     i*32.42832 (13);
+     s*1.13718 (15);
+
+     %C#2%
+
+     i ON female*-2.30859;
+     i ON interest7*2.85215;
+     s ON female*-0.32827;
+     s ON interest7*-0.07183;
+
+     s WITH i*-1.22227;
+
+     [ sci7@0 ];
+     [ sci8@0 ];
+     [ sci9@0 ];
+     [ sci10@0 ];
+     [ sci11@0 ];
+     [ sci12@0 ];
+     [ i*55.52337 ];
+     [ s*3.52719 ];
+
+     sci7*19.41448;
+     sci8*9.87082;
+     sci9*8.39737;
+     sci10*7.11596;
+     sci11*4.23068;
+     sci12*17.03682;
+     i*32.42832 (13);
+     s*1.13718 (15);
+
+     %C#3%
+
+     i ON female*0.10930;
+     i ON interest7*1.65141;
+     s ON female*0.23148;
+     s ON interest7*0.21178;
+
+     s WITH i*-0.57769;
+
+     [ sci7@0 ];
+     [ sci8@0 ];
+     [ sci9@0 ];
+     [ sci10@0 ];
+     [ sci11@0 ];
+     [ sci12@0 ];
+     [ i*38.01584 ];
+     [ s*8.05862 ];
+
+     sci7*7.55936;
+     sci8*122.88311;
+     sci9*108.89703;
+     sci10*86.49203;
+     sci11*-12.83876;
+     sci12*123.58566;
+     i*32.42832 (13);
+     s*1.13718 (15);
+
+     %C#4%
+
+     i ON female*0.24083;
+     i ON interest7*3.10839;
+     s ON female*0.09194;
+     s ON interest7*0.04147;
+
+     s WITH i*-1.62020;
+
+     [ sci7@0 ];
+     [ sci8@0 ];
+     [ sci9@0 ];
+     [ sci10@0 ];
+     [ sci11@0 ];
+     [ sci12@0 ];
+     [ i*42.51234 ];
+     [ s*2.94691 ];
+
+     sci7*24.32804;
+     sci8*30.79209;
+     sci9*30.04785;
+     sci10*22.02105;
+     sci11*11.21953;
+     sci12*31.20602;
+     i*32.42832 (13);
+     s*1.13718 (15);
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 1
+
+
+           NU
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ SCI7               0             0             0             0
+ SCI8               0             0             0             0
+ SCI9               0             0             0             0
+ SCI10              0             0             0             0
+ SCI11              0             0             0             0
+ SCI12              0             0             0             0
+ FEMALE             0             0             0             0
+ INTEREST           0             0             0             0
+
+
+           THETA
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7               1
+ SCI8               0             2
+ SCI9               0             0             3
+ SCI10              0             0             0             4
+ SCI11              0             0             0             0             5
+ SCI12              0             0             0             0             0
+ FEMALE             0             0             0             0             0
+ INTEREST           0             0             0             0             0
+
+
+           THETA
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12              6
+ FEMALE             0             0
+ INTEREST           0             0             0
+
+
+           ALPHA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+                    7             8             0             0
+
+
+           BETA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I                  0             0             9            10
+ S                  0             0            11            12
+ FEMALE             0             0             0             0
+ INTEREST           0             0             0             0
+
+
+           PSI
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I                 13
+ S                 14            15
+ FEMALE             0             0             0
+ INTEREST           0             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 2
+
+
+           NU
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ SCI7               0             0             0             0
+ SCI8               0             0             0             0
+ SCI9               0             0             0             0
+ SCI10              0             0             0             0
+ SCI11              0             0             0             0
+ SCI12              0             0             0             0
+ FEMALE             0             0             0             0
+ INTEREST           0             0             0             0
+
+
+           THETA
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7              16
+ SCI8               0            17
+ SCI9               0             0            18
+ SCI10              0             0             0            19
+ SCI11              0             0             0             0            20
+ SCI12              0             0             0             0             0
+ FEMALE             0             0             0             0             0
+ INTEREST           0             0             0             0             0
+
+
+           THETA
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12             21
+ FEMALE             0             0
+ INTEREST           0             0             0
+
+
+           ALPHA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+                   22            23             0             0
+
+
+           BETA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I                  0             0            24            25
+ S                  0             0            26            27
+ FEMALE             0             0             0             0
+ INTEREST           0             0             0             0
+
+
+           PSI
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I                 13
+ S                 28            15
+ FEMALE             0             0             0
+ INTEREST           0             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 3
+
+
+           NU
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ SCI7               0             0             0             0
+ SCI8               0             0             0             0
+ SCI9               0             0             0             0
+ SCI10              0             0             0             0
+ SCI11              0             0             0             0
+ SCI12              0             0             0             0
+ FEMALE             0             0             0             0
+ INTEREST           0             0             0             0
+
+
+           THETA
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7              29
+ SCI8               0            30
+ SCI9               0             0            31
+ SCI10              0             0             0            32
+ SCI11              0             0             0             0            33
+ SCI12              0             0             0             0             0
+ FEMALE             0             0             0             0             0
+ INTEREST           0             0             0             0             0
+
+
+           THETA
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12             34
+ FEMALE             0             0
+ INTEREST           0             0             0
+
+
+           ALPHA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+                   35            36             0             0
+
+
+           BETA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I                  0             0            37            38
+ S                  0             0            39            40
+ FEMALE             0             0             0             0
+ INTEREST           0             0             0             0
+
+
+           PSI
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I                 13
+ S                 41            15
+ FEMALE             0             0             0
+ INTEREST           0             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 4
+
+
+           NU
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ SCI7               0             0             0             0
+ SCI8               0             0             0             0
+ SCI9               0             0             0             0
+ SCI10              0             0             0             0
+ SCI11              0             0             0             0
+ SCI12              0             0             0             0
+ FEMALE             0             0             0             0
+ INTEREST           0             0             0             0
+
+
+           THETA
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7              42
+ SCI8               0            43
+ SCI9               0             0            44
+ SCI10              0             0             0            45
+ SCI11              0             0             0             0            46
+ SCI12              0             0             0             0             0
+ FEMALE             0             0             0             0             0
+ INTEREST           0             0             0             0             0
+
+
+           THETA
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12             47
+ FEMALE             0             0
+ INTEREST           0             0             0
+
+
+           ALPHA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+                   48            49             0             0
+
+
+           BETA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I                  0             0            50            51
+ S                  0             0            52            53
+ FEMALE             0             0             0             0
+ INTEREST           0             0             0             0
+
+
+           PSI
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I                 13
+ S                 54            15
+ FEMALE             0             0             0
+ INTEREST           0             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4
+              ________      ________      ________      ________
+                   55            56            57             0
+
+
+           GAMMA(C)
+              FEMALE        INTEREST
+              ________      ________
+ C#1                0             0
+ C#2                0             0
+ C#3                0             0
+ C#4                0             0
+
+
+     STARTING VALUES FOR LATENT CLASS 1
+
+
+           NU
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ SCI7           1.000         0.000         0.000         0.000
+ SCI8           1.000         1.000         0.000         0.000
+ SCI9           1.000         2.000         0.000         0.000
+ SCI10          1.000         3.000         0.000         0.000
+ SCI11          1.000         4.000         0.000         0.000
+ SCI12          1.000         5.000         0.000         0.000
+ FEMALE         0.000         0.000         1.000         0.000
+ INTEREST       0.000         0.000         0.000         1.000
+
+
+           THETA
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7          51.502
+ SCI8           0.000        61.520
+ SCI9           0.000         0.000        62.290
+ SCI10          0.000         0.000         0.000        67.921
+ SCI11          0.000         0.000         0.000         0.000        71.717
+ SCI12          0.000         0.000         0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000         0.000         0.000
+ INTEREST       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12         83.621
+ FEMALE         0.000         0.000
+ INTEREST       0.000         0.000         0.000
+
+
+           ALPHA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+               49.583         3.087         0.000         0.000
+
+
+           BETA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I              0.000         0.000         0.000         0.000
+ S              0.000         0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000         0.000
+ INTEREST       0.000         0.000         0.000         0.000
+
+
+           PSI
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I            105.034
+ S              0.000        17.700
+ FEMALE         0.000         0.000         0.125
+ INTEREST       0.000         0.000         0.000         0.289
+
+
+     STARTING VALUES FOR LATENT CLASS 2
+
+
+           NU
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ SCI7           1.000         0.000         0.000         0.000
+ SCI8           1.000         1.000         0.000         0.000
+ SCI9           1.000         2.000         0.000         0.000
+ SCI10          1.000         3.000         0.000         0.000
+ SCI11          1.000         4.000         0.000         0.000
+ SCI12          1.000         5.000         0.000         0.000
+ FEMALE         0.000         0.000         1.000         0.000
+ INTEREST       0.000         0.000         0.000         1.000
+
+
+           THETA
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7          51.502
+ SCI8           0.000        61.520
+ SCI9           0.000         0.000        62.290
+ SCI10          0.000         0.000         0.000        67.921
+ SCI11          0.000         0.000         0.000         0.000        71.717
+ SCI12          0.000         0.000         0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000         0.000         0.000
+ INTEREST       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12         83.621
+ FEMALE         0.000         0.000
+ INTEREST       0.000         0.000         0.000
+
+
+           ALPHA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+               49.583         3.087         0.000         0.000
+
+
+           BETA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I              0.000         0.000         0.000         0.000
+ S              0.000         0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000         0.000
+ INTEREST       0.000         0.000         0.000         0.000
+
+
+           PSI
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I            105.034
+ S              0.000        17.700
+ FEMALE         0.000         0.000         0.125
+ INTEREST       0.000         0.000         0.000         0.289
+
+
+     STARTING VALUES FOR LATENT CLASS 3
+
+
+           NU
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ SCI7           1.000         0.000         0.000         0.000
+ SCI8           1.000         1.000         0.000         0.000
+ SCI9           1.000         2.000         0.000         0.000
+ SCI10          1.000         3.000         0.000         0.000
+ SCI11          1.000         4.000         0.000         0.000
+ SCI12          1.000         5.000         0.000         0.000
+ FEMALE         0.000         0.000         1.000         0.000
+ INTEREST       0.000         0.000         0.000         1.000
+
+
+           THETA
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7          51.502
+ SCI8           0.000        61.520
+ SCI9           0.000         0.000        62.290
+ SCI10          0.000         0.000         0.000        67.921
+ SCI11          0.000         0.000         0.000         0.000        71.717
+ SCI12          0.000         0.000         0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000         0.000         0.000
+ INTEREST       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12         83.621
+ FEMALE         0.000         0.000
+ INTEREST       0.000         0.000         0.000
+
+
+           ALPHA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+               49.583         3.087         0.000         0.000
+
+
+           BETA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I              0.000         0.000         0.000         0.000
+ S              0.000         0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000         0.000
+ INTEREST       0.000         0.000         0.000         0.000
+
+
+           PSI
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I            105.034
+ S              0.000        17.700
+ FEMALE         0.000         0.000         0.125
+ INTEREST       0.000         0.000         0.000         0.289
+
+
+     STARTING VALUES FOR LATENT CLASS 4
+
+
+           NU
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ SCI7           1.000         0.000         0.000         0.000
+ SCI8           1.000         1.000         0.000         0.000
+ SCI9           1.000         2.000         0.000         0.000
+ SCI10          1.000         3.000         0.000         0.000
+ SCI11          1.000         4.000         0.000         0.000
+ SCI12          1.000         5.000         0.000         0.000
+ FEMALE         0.000         0.000         1.000         0.000
+ INTEREST       0.000         0.000         0.000         1.000
+
+
+           THETA
+              SCI7          SCI8          SCI9          SCI10         SCI11
+              ________      ________      ________      ________      ________
+ SCI7          51.502
+ SCI8           0.000        61.520
+ SCI9           0.000         0.000        62.290
+ SCI10          0.000         0.000         0.000        67.921
+ SCI11          0.000         0.000         0.000         0.000        71.717
+ SCI12          0.000         0.000         0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000         0.000         0.000
+ INTEREST       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              SCI12         FEMALE        INTEREST
+              ________      ________      ________
+ SCI12         83.621
+ FEMALE         0.000         0.000
+ INTEREST       0.000         0.000         0.000
+
+
+           ALPHA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+               49.583         3.087         0.000         0.000
+
+
+           BETA
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I              0.000         0.000         0.000         0.000
+ S              0.000         0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000         0.000
+ INTEREST       0.000         0.000         0.000         0.000
+
+
+           PSI
+              I             S             FEMALE        INTEREST
+              ________      ________      ________      ________
+ I            105.034
+ S              0.000        17.700
+ FEMALE         0.000         0.000         0.125
+ INTEREST       0.000         0.000         0.000         0.289
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           GAMMA(C)
+              FEMALE        INTEREST
+              ________      ________
+ C#1            0.000         0.000
+ C#2            0.000         0.000
+ C#3            0.000         0.000
+ C#4            0.000         0.000
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                       -40050.831
+          2 Times the Loglikelihood Difference            143.332
+          Difference in the Number of Parameters               14
+          Mean                                             -2.435
+          Standard Deviation                               67.754
+          P-Value                                          0.0124
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                           142.063
+          P-Value                                          0.0128
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                   100
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                       -40050.831
+          2 Times the Loglikelihood Difference            143.332
+          Difference in the Number of Parameters               14
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                           49
+
+     WARNING:  OF THE 49 BOOTSTRAP DRAWS, 46 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE
+     OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 4-CLASS MODEL.
+     THIS MEANS THAT THE P-VALUE MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.
+     INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              I             S             C_I           C_S
+              ________      ________      ________      ________
+               51.176         2.867        51.217         2.868
+
+
+           Covariances
+              I             S             C_I           C_S
+              ________      ________      ________      ________
+ I             80.415
+ S              3.073         1.477
+ C_I           81.090         3.084        82.239
+ C_S            3.391         1.503         3.349         1.687
+
+
+           Correlations
+              I             S             C_I           C_S
+              ________      ________      ________      ________
+ I              1.000
+ S              0.282         1.000
+ C_I            0.997         0.280         1.000
+ C_S            0.291         0.952         0.284         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores, estimated values, residuals)
+  Scatterplots (sample values, estimated factor scores, estimated values, residuals)
+  Sample means
+  Estimated means, medians, modes, and percentiles
+  Sample and estimated means
+  Adjusted estimated means
+  Latent variable distribution plots
+  Observed individual values
+  Estimated individual values
+  Estimated means and observed individual values
+  Estimated means and estimated individual values
+  Adjusted estimated means and observed individual values
+  Adjusted estimated means and estimated individual values
+  Estimated overall and class-specific distributions
+  Estimated probabilities for a categorical latent variable as a
+    function of its covariates
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    savedata_c4.dat
+
+  Order and format of variables
+
+    SCI7           F10.3
+    SCI8           F10.3
+    SCI9           F10.3
+    SCI10          F10.3
+    SCI11          F10.3
+    SCI12          F10.3
+    FEMALE         F10.3
+    INTEREST       F10.3
+    I              F10.3
+    S              F10.3
+    C_I            F10.3
+    C_S            F10.3
+    CPROB1         F10.3
+    CPROB2         F10.3
+    CPROB3         F10.3
+    CPROB4         F10.3
+    C              F10.3
+
+  Save file format
+    17F10.3
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+     Beginning Time:  20:31:52
+        Ending Time:  20:38:00
+       Elapsed Time:  00:06:08
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

@@ -1,0 +1,14 @@
+TITLE:
+Descriptive Statistics;
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/data.dat"; 
+VARIABLE:
+NAMES = casenum gender math_enjoy math_useful math_logical math_job math_adult
+     sci_enjoy sci_useful sci_logical sci_job sci_adult; 
+ MISSING=.;
+ usevar = math_enjoy-sci_adult;
+    categorical = math_enjoy-sci_adult;
+ANALYSIS:
+TYPE=basic;
+OUTPUT:
+sampstat;

@@ -1,0 +1,19 @@
+TITLE:
+Math Attitudes: 3-Class
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/enum_math/
+data.dat"; 
+VARIABLE:
+NAMES = casenum gender math_enjoy math_useful math_logical math_job math_adult
+     sci_enjoy sci_useful sci_logical sci_job sci_adult; 
+ MISSING=.;
+ categorical = math_enjoy, math_useful, math_logical, math_job, math_adult; 
+usevar = math_enjoy, math_useful, math_logical, math_job, math_adult;
+classes = c(3);
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    processors = 12;
+    starts = 500 100;
+OUTPUT:
+sampstat residual tech11 tech14;

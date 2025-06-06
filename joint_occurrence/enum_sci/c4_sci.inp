@@ -1,0 +1,19 @@
+TITLE:
+Science Attitudes: 4-Class
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/enum_sci/
+data.dat"; 
+VARIABLE:
+NAMES = casenum gender math_enjoy math_useful math_logical math_job math_adult
+     sci_enjoy sci_useful sci_logical sci_job sci_adult; 
+ MISSING=.;
+ categorical = sci_enjoy, sci_useful, sci_logical, sci_job, sci_adult; 
+usevar = sci_enjoy, sci_useful, sci_logical, sci_job, sci_adult;
+classes = c(4);
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    processors = 12;
+    starts = 500 100;
+OUTPUT:
+sampstat residual tech11 tech14;

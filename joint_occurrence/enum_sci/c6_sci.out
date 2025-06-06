@@ -1,0 +1,787 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+06/05/2025   4:16 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Science Attitudes: 6-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/enum_sci/
+  data.dat";
+  VARIABLE:
+  NAMES = casenum gender math_enjoy math_useful math_logical math_job math_adult
+       sci_enjoy sci_useful sci_logical sci_job sci_adult;
+   MISSING=.;
+   categorical = sci_enjoy, sci_useful, sci_logical, sci_job, sci_adult;
+  usevar = sci_enjoy, sci_useful, sci_logical, sci_job, sci_adult;
+  classes = c(6);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      processors = 12;
+      starts = 500 100;
+  OUTPUT:
+  sampstat residual tech11 tech14;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2581
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Science Attitudes: 6-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3364
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   SCI_ENJO    SCI_USEF    SCI_LOGI    SCI_JOB     SCI_ADUL
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/joint_occurrence/enum_sci/data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            14
+     Number of y missing data patterns           0
+     Number of u missing data patterns          14
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              SCI_ENJO      SCI_USEF      SCI_LOGI      SCI_JOB       SCI_ADUL
+              ________      ________      ________      ________      ________
+ SCI_ENJO       0.998
+ SCI_USEF       0.991         0.993
+ SCI_LOGI       0.989         0.985         0.990
+ SCI_JOB        0.991         0.987         0.986         0.993
+ SCI_ADUL       0.996         0.991         0.989         0.992         0.997
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    SCI_ENJO
+      Category 1    0.466         1564.000
+      Category 2    0.534         1793.000
+    SCI_USEF
+      Category 1    0.550         1837.000
+      Category 2    0.450         1502.000
+    SCI_LOGI
+      Category 1    0.452         1507.000
+      Category 2    0.548         1825.000
+    SCI_JOB
+      Category 1    0.659         2200.000
+      Category 2    0.341         1139.000
+    SCI_ADUL
+      Category 1    0.597         2003.000
+      Category 2    0.403         1352.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -8732.967  748692           204
+           -8732.967  432148           30
+           -8732.967  34346            330
+           -8732.967  701525           239
+           -8732.967  667250           318
+           -8732.967  80438            246
+           -8732.977  576596           99
+           -8732.977  1548             384
+           -8732.977  21132            351
+           -8732.977  415502           194
+           -8732.977  414828           322
+           -8732.980  152496           123
+           -8732.991  626891           32
+           -8733.005  455617           242
+           -8733.021  691234           250
+           -8733.021  636396           168
+           -8733.055  393232           152
+           -8733.095  752769           253
+           -8733.291  782200           84
+           -8733.461  259507           53
+           -8733.461  407168           44
+           -8733.464  436460           89
+           -8733.584  863094           147
+           -8733.590  313407           132
+           -8733.788  407108           366
+           -8733.867  606576           151
+           -8734.001  268896           124
+           -8734.075  692169           308
+           -8734.164  227563           63
+           -8734.255  188498           258
+           -8734.267  957392           79
+           -8734.267  813779           92
+           -8734.287  484501           163
+           -8734.315  751054           117
+           -8734.366  963053           43
+           -8734.607  544048           87
+           -8734.856  856536           144
+           -8734.874  100874           108
+           -8736.338  136842           58
+
+61 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+     IN THE OPTIMIZATION, ONE OR MORE LOGIT THRESHOLDS APPROACHED EXTREME VALUES
+     OF -15.000 AND 15.000 AND WERE FIXED TO STABILIZE MODEL ESTIMATION.  THESE
+     VALUES IMPLY PROBABILITIES OF 0 AND 1.  IN THE MODEL RESULTS SECTION, THESE
+     PARAMETERS HAVE 0 STANDARD ERRORS AND 999 IN THE Z-SCORE AND P-VALUE COLUMNS.
+
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     THE DEGREES OF FREEDOM FOR THIS MODEL ARE NEGATIVE.  THE MODEL IS NOT
+     IDENTIFIED OR TOO MANY CELLS WERE DELETED.  A CHI-SQUARE TEST IS NOT
+     AVAILABLE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       35
+
+Loglikelihood
+
+          H0 Value                       -8732.967
+          H0 Scaling Correction Factor      1.0026
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   17535.933
+          Bayesian (BIC)                 17750.164
+          Sample-Size Adjusted BIC       17638.953
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1         85.23141          0.02534
+       2        490.12378          0.14570
+       3        475.77853          0.14143
+       4       1059.54133          0.31496
+       5       1148.64384          0.34145
+       6        104.68112          0.03112
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1         85.23141          0.02534
+       2        490.12378          0.14570
+       3        475.77853          0.14143
+       4       1059.54133          0.31496
+       5       1148.64384          0.34145
+       6        104.68112          0.03112
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1               70          0.02081
+       2              542          0.16112
+       3              229          0.06807
+       4             1080          0.32105
+       5             1347          0.40042
+       6               96          0.02854
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.770
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6
+
+    1   0.948    0.001    0.007    0.045    0.000    0.000
+    2   0.002    0.700    0.176    0.056    0.036    0.031
+    3   0.001    0.076    0.759    0.084    0.010    0.070
+    4   0.012    0.037    0.017    0.927    0.000    0.007
+    5   0.004    0.040    0.124    0.000    0.832    0.000
+    6   0.000    0.000    0.225    0.054    0.056    0.664
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4        5        6
+
+    1   0.778    0.011    0.002    0.149    0.060    0.000
+    2   0.000    0.774    0.036    0.081    0.109    0.000
+    3   0.001    0.200    0.366    0.038    0.350    0.045
+    4   0.003    0.029    0.018    0.945    0.000    0.005
+    5   0.000    0.017    0.002    0.000    0.976    0.005
+    6   0.000    0.158    0.152    0.075    0.005    0.609
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4        5        6
+
+    1     13.565    9.304    7.393   11.909   11.008    0.000
+    2      4.558   13.560   10.483   11.302   11.596    0.000
+    3     -3.862    1.482    2.084   -0.186    2.040    0.000
+    4     -0.515    1.756    1.301    5.256   -3.057    0.000
+    5     -8.449    1.286   -0.824   -3.154    5.343    0.000
+    6     -7.718   -1.349   -1.388   -2.088   -4.808    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    SCI_ENJO$1        -0.392      0.258     -1.517      0.129
+    SCI_USEF$1        15.000      0.000    999.000    999.000
+    SCI_LOGI$1         1.687      1.076      1.569      0.117
+    SCI_JOB$1        -15.000      0.000    999.000    999.000
+    SCI_ADUL$1        -2.570      1.286     -1.999      0.046
+
+Latent Class 2
+
+ Thresholds
+    SCI_ENJO$1        -0.386      0.245     -1.579      0.114
+    SCI_USEF$1        -0.451      0.444     -1.016      0.309
+    SCI_LOGI$1       -15.000      0.000    999.000    999.000
+    SCI_JOB$1          1.277      0.384      3.323      0.001
+    SCI_ADUL$1         2.054      0.836      2.457      0.014
+
+Latent Class 3
+
+ Thresholds
+    SCI_ENJO$1        -0.822      0.230     -3.567      0.000
+    SCI_USEF$1         1.085      0.488      2.222      0.026
+    SCI_LOGI$1         0.407      0.394      1.033      0.301
+    SCI_JOB$1         15.000      0.000    999.000    999.000
+    SCI_ADUL$1         0.620      0.411      1.507      0.132
+
+Latent Class 4
+
+ Thresholds
+    SCI_ENJO$1        -2.075      0.135    -15.418      0.000
+    SCI_USEF$1        -2.518      0.234    -10.771      0.000
+    SCI_LOGI$1        -3.155      0.221    -14.251      0.000
+    SCI_JOB$1         -1.563      0.137    -11.415      0.000
+    SCI_ADUL$1        -3.480      0.775     -4.490      0.000
+
+Latent Class 5
+
+ Thresholds
+    SCI_ENJO$1         1.882      0.326      5.764      0.000
+    SCI_USEF$1         5.109      5.399      0.946      0.344
+    SCI_LOGI$1         2.248      0.236      9.515      0.000
+    SCI_JOB$1          3.259      0.216     15.082      0.000
+    SCI_ADUL$1        15.000      0.000    999.000    999.000
+
+Latent Class 6
+
+ Thresholds
+    SCI_ENJO$1         0.878      0.541      1.624      0.104
+    SCI_USEF$1       -15.000      0.000    999.000    999.000
+    SCI_LOGI$1         1.331      3.210      0.415      0.678
+    SCI_JOB$1          0.661      0.942      0.701      0.483
+    SCI_ADUL$1         1.102      0.745      1.478      0.139
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.206      0.754     -0.273      0.785
+    C#2                1.544      0.835      1.849      0.065
+    C#3                1.514      0.868      1.744      0.081
+    C#4                2.315      0.736      3.146      0.002
+    C#5                2.395      0.729      3.287      0.001
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.322E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ SCI_ENJOY
+    Category 1         0.403      0.062      6.485      0.000
+    Category 2         0.597      0.062      9.597      0.000
+ SCI_USEFUL
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ SCI_LOGICA
+    Category 1         0.844      0.142      5.956      0.000
+    Category 2         0.156      0.142      1.102      0.271
+ SCI_JOB
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ SCI_ADULT
+    Category 1         0.071      0.085      0.837      0.402
+    Category 2         0.929      0.085     10.944      0.000
+
+Latent Class 2
+
+ SCI_ENJOY
+    Category 1         0.405      0.059      6.865      0.000
+    Category 2         0.595      0.059     10.102      0.000
+ SCI_USEFUL
+    Category 1         0.389      0.106      3.688      0.000
+    Category 2         0.611      0.106      5.791      0.000
+ SCI_LOGICA
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ SCI_JOB
+    Category 1         0.782      0.066     11.933      0.000
+    Category 2         0.218      0.066      3.329      0.001
+ SCI_ADULT
+    Category 1         0.886      0.084     10.525      0.000
+    Category 2         0.114      0.084      1.350      0.177
+
+Latent Class 3
+
+ SCI_ENJOY
+    Category 1         0.305      0.049      6.252      0.000
+    Category 2         0.695      0.049     14.216      0.000
+ SCI_USEFUL
+    Category 1         0.747      0.092      8.109      0.000
+    Category 2         0.253      0.092      2.741      0.006
+ SCI_LOGICA
+    Category 1         0.600      0.094      6.354      0.000
+    Category 2         0.400      0.094      4.230      0.000
+ SCI_JOB
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ SCI_ADULT
+    Category 1         0.650      0.094      6.949      0.000
+    Category 2         0.350      0.094      3.737      0.000
+
+Latent Class 4
+
+ SCI_ENJOY
+    Category 1         0.112      0.013      8.365      0.000
+    Category 2         0.888      0.013     66.596      0.000
+ SCI_USEFUL
+    Category 1         0.075      0.016      4.622      0.000
+    Category 2         0.925      0.016     57.342      0.000
+ SCI_LOGICA
+    Category 1         0.041      0.009      4.710      0.000
+    Category 2         0.959      0.009    110.461      0.000
+ SCI_JOB
+    Category 1         0.173      0.020      8.832      0.000
+    Category 2         0.827      0.020     42.164      0.000
+ SCI_ADULT
+    Category 1         0.030      0.022      1.330      0.184
+    Category 2         0.970      0.022     43.182      0.000
+
+Latent Class 5
+
+ SCI_ENJOY
+    Category 1         0.868      0.037     23.170      0.000
+    Category 2         0.132      0.037      3.530      0.000
+ SCI_USEFUL
+    Category 1         0.994      0.032     30.834      0.000
+    Category 2         0.006      0.032      0.186      0.852
+ SCI_LOGICA
+    Category 1         0.905      0.020     44.315      0.000
+    Category 2         0.095      0.020      4.679      0.000
+ SCI_JOB
+    Category 1         0.963      0.008    125.079      0.000
+    Category 2         0.037      0.008      4.805      0.000
+ SCI_ADULT
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+
+Latent Class 6
+
+ SCI_ENJOY
+    Category 1         0.706      0.112      6.298      0.000
+    Category 2         0.294      0.112      2.616      0.009
+ SCI_USEFUL
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ SCI_LOGICA
+    Category 1         0.791      0.531      1.490      0.136
+    Category 2         0.209      0.531      0.394      0.694
+ SCI_JOB
+    Category 1         0.659      0.212      3.116      0.002
+    Category 2         0.341      0.212      1.609      0.108
+ SCI_ADULT
+    Category 1         0.751      0.140      5.380      0.000
+    Category 2         0.249      0.140      1.788      0.074
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ SCI_ENJO
+    Category > 1       1.006      0.358      0.500      2.022
+ SCI_USEF
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_LOGI
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_JOB
+    Category > 1   *********      0.000  *********  *********
+ SCI_ADUL
+    Category > 1     101.886    168.472      3.987   2603.946
+
+Latent Class 1 Compared to Latent Class 3
+
+ SCI_ENJO
+    Category > 1       0.651      0.225      0.331      1.281
+ SCI_USEF
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_LOGI
+    Category > 1       0.278      0.285      0.037      2.075
+ SCI_JOB
+    Category > 1   *********      0.000  *********  *********
+ SCI_ADUL
+    Category > 1      24.302     28.314      2.477    238.452
+
+Latent Class 1 Compared to Latent Class 4
+
+ SCI_ENJO
+    Category > 1       0.186      0.054      0.105      0.329
+ SCI_USEF
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_LOGI
+    Category > 1       0.008      0.009      0.001      0.067
+ SCI_JOB
+    Category > 1   *********      0.000  *********  *********
+ SCI_ADUL
+    Category > 1       0.402      0.637      0.018      8.972
+
+Latent Class 1 Compared to Latent Class 5
+
+ SCI_ENJO
+    Category > 1       9.715      4.028      4.311     21.897
+ SCI_USEF
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_LOGI
+    Category > 1       1.752      1.897      0.210     14.622
+ SCI_JOB
+    Category > 1   *********      0.000  *********  *********
+ SCI_ADUL
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 1 Compared to Latent Class 6
+
+ SCI_ENJO
+    Category > 1       3.562      2.123      1.108     11.458
+ SCI_USEF
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_LOGI
+    Category > 1       0.700      2.222      0.001    352.135
+ SCI_JOB
+    Category > 1   *********      0.000  *********  *********
+ SCI_ADUL
+    Category > 1      39.324     60.709      1.908    810.548
+
+Latent Class 2 Compared to Latent Class 3
+
+ SCI_ENJO
+    Category > 1       0.647      0.237      0.316      1.327
+ SCI_USEF
+    Category > 1       4.645      3.778      0.943     22.878
+ SCI_LOGI
+    Category > 1   *********      0.000  *********  *********
+ SCI_JOB
+    Category > 1   *********      0.000  *********  *********
+ SCI_ADUL
+    Category > 1       0.239      0.253      0.030      1.913
+
+Latent Class 2 Compared to Latent Class 4
+
+ SCI_ENJO
+    Category > 1       0.185      0.046      0.113      0.302
+ SCI_USEF
+    Category > 1       0.127      0.063      0.048      0.334
+ SCI_LOGI
+    Category > 1   *********      0.000  *********  *********
+ SCI_JOB
+    Category > 1       0.058      0.025      0.025      0.136
+ SCI_ADUL
+    Category > 1       0.004      0.004      0.000      0.036
+
+Latent Class 2 Compared to Latent Class 5
+
+ SCI_ENJO
+    Category > 1       9.659      3.282      4.962     18.802
+ SCI_USEF
+    Category > 1     259.815   1436.299      0.005  *********
+ SCI_LOGI
+    Category > 1   *********      0.000  *********  *********
+ SCI_JOB
+    Category > 1       7.262      3.277      2.999     17.585
+ SCI_ADUL
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 2 Compared to Latent Class 6
+
+ SCI_ENJO
+    Category > 1       3.542      2.037      1.147     10.932
+ SCI_USEF
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_LOGI
+    Category > 1   *********      0.000  *********  *********
+ SCI_JOB
+    Category > 1       0.540      0.590      0.064      4.593
+ SCI_ADUL
+    Category > 1       0.386      0.411      0.048      3.111
+
+Latent Class 3 Compared to Latent Class 4
+
+ SCI_ENJO
+    Category > 1       0.286      0.074      0.172      0.475
+ SCI_USEF
+    Category > 1       0.027      0.015      0.010      0.078
+ SCI_LOGI
+    Category > 1       0.028      0.013      0.012      0.068
+ SCI_JOB
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_ADUL
+    Category > 1       0.017      0.016      0.002      0.115
+
+Latent Class 3 Compared to Latent Class 5
+
+ SCI_ENJO
+    Category > 1      14.927      6.527      6.336     35.169
+ SCI_USEF
+    Category > 1      55.938    291.039      0.002  *********
+ SCI_LOGI
+    Category > 1       6.305      2.771      2.664     14.920
+ SCI_JOB
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_ADUL
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 3 Compared to Latent Class 6
+
+ SCI_ENJO
+    Category > 1       5.474      3.253      1.708     17.545
+ SCI_USEF
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_LOGI
+    Category > 1       2.519      8.193      0.004   1478.709
+ SCI_JOB
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_ADUL
+    Category > 1       1.618      1.493      0.265      9.867
+
+Latent Class 4 Compared to Latent Class 5
+
+ SCI_ENJO
+    Category > 1      52.258     18.539     26.073    104.743
+ SCI_USEF
+    Category > 1    2053.115  11084.304      0.052  *********
+ SCI_LOGI
+    Category > 1     222.149     72.609    117.065    421.562
+ SCI_JOB
+    Category > 1     124.271     31.750     75.317    205.044
+ SCI_ADUL
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 4 Compared to Latent Class 6
+
+ SCI_ENJO
+    Category > 1      19.162     10.589      6.487     56.602
+ SCI_USEF
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_LOGI
+    Category > 1      88.750    283.640      0.169  46624.156
+ SCI_JOB
+    Category > 1       9.243      8.626      1.484     57.575
+ SCI_ADUL
+    Category > 1      97.711    102.654     12.464    765.983
+
+Latent Class 5 Compared to Latent Class 6
+
+ SCI_ENJO
+    Category > 1       0.367      0.226      0.110      1.227
+ SCI_USEF
+    Category > 1       0.000      0.000      0.000      0.000
+ SCI_LOGI
+    Category > 1       0.400      1.270      0.001    203.422
+ SCI_JOB
+    Category > 1       0.074      0.071      0.011      0.488
+ SCI_ADUL
+    Category > 1       0.000      0.000      0.000      0.000
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
+
+          H0 Loglikelihood Value                        -8734.824
+          2 Times the Loglikelihood Difference              3.714
+          Difference in the Number of Parameters                6
+          Mean                                              3.983
+          Standard Deviation                                3.744
+          P-Value                                          0.4811
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                             3.639
+          P-Value                                          0.4900
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
+
+          H0 Loglikelihood Value                        -8734.824
+          2 Times the Loglikelihood Difference              3.714
+          Difference in the Number of Parameters                6
+          Approximate P-Value                              1.0000
+          Successful Bootstrap Draws                            2
+
+
+     Beginning Time:  16:16:57
+        Ending Time:  16:17:10
+       Elapsed Time:  00:00:13
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen
