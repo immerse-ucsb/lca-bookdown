@@ -124,11 +124,11 @@ corrplot(f_cor,
 
 --------------------------------------------------------------------------------------
 
-# Enumeration
+## Enumeration
 
 --------------------------------------------------------------------------------------
 
-## Enumerate Time Point 1 (7th grade)
+### Enumerate Time Point 1 (7th grade)
 
 ```{r, eval = FALSE}
 # NOTE CHANGE: '1:6' indicates the number of k-class models to estimate
@@ -178,7 +178,7 @@ enum_t1_fit <- mplusModeler(enum_t1,
 
 --------------------------------------------------------------------------------------
 
-## Enumerate Time Point 2 (10th grade)
+### Enumerate Time Point 2 (10th grade)
 
 ```{r, eval = FALSE}
 
@@ -220,7 +220,7 @@ enum_t2_fit <- mplusModeler(enum_t2,
 
 --------------------------------------------------------------------------------------
 
-# Create Model Fit Summary Table
+### Create Model Fit Summary Table
 
 --------------------------------------------------------------------------------------
 
@@ -244,7 +244,7 @@ enum_extract2 <- LatexSummaryTable(output_enum_t2,
                            "BLRT_PValue", "T11_VLMR_PValue","Observations")) 
 ```
 
-## Calculate Indices Derived from the Log Likelihood (LL)
+### Calculate Indices Derived from the Log Likelihood (LL)
 
 ```{r, eval=TRUE}
                            
@@ -480,11 +480,11 @@ ggsave(here("figures", "t2_c4_lca_plot.png"), dpi=300, height=5, width=7, units=
 
 --------------------------------------------------------------------------------------
 
-# Estimate Latent Transition Analysis (LTA) Model
+## Estimate Latent Transition Analysis (LTA) Model
 
 --------------------------------------------------------------------------------------
 
-## Estimate Invariant LTA Model
+### Estimate Invariant LTA Model
 
 ```{r, eval = FALSE}
 
@@ -549,7 +549,7 @@ lta_inv_fit <- mplusModeler(lta_inv,
 
 --------------------------------------------------------------------------------------
 
-## Estimate Non-Invariant Estimated LTA Model
+### Estimate Non-Invariant Estimated LTA Model
 
 ```{r, eval = FALSE}
 
@@ -616,7 +616,7 @@ lta_non_inv_fit <- mplusModeler(lta_non_inv,
 ------------------------------------------------------------------------
 
 
-## Conduct Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing
+### Conduct Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing
 
 -   non-invariant (comparison): This model has **more** parameters.
 
@@ -710,7 +710,7 @@ t44 <- 1 - (t41 + t42 + t43)
 
 ```
 
-## Create Transition Table
+### Create Transition Table
 
 ```{r, eval=TRUE}
 
@@ -741,7 +741,7 @@ t_matrix %>%
 
 --------------------------------------------------------------------------------------
 
-# Adding Covariates
+## Adding Covariates
 
 We use the ML three-step method to estimate LTA models with predictors and distal outcomes). Estimate the unconditional model for each latent variable with the predictors included in the `auxiliary` option for at least one of the models. 
 
@@ -753,7 +753,7 @@ Covariates
 
 --------------------------------------------------------------------------------------
 
-## Step 1 - Estimate Unconditional Model w/ Auxiliary Specification
+### Step 1 - Estimate Unconditional Model w/ Auxiliary Specification
 
 *7th Grade*
 
@@ -875,7 +875,7 @@ plot_lca_function(
 
 ------------------------------------------------------------------------
 
-## Step 2 - Determine Measurement Error
+### Step 2 - Determine Measurement Error
 
 Extract logits for the classification probabilities for the most likely latent class:
 
@@ -910,7 +910,7 @@ savedata <- savedata_T1 %>%
 
 ------------------------------------------------------------------------
 
-## Step 3 - Add Auxiliary Variables
+### Step 3 - Add Auxiliary Variables
 
 
 ```{r, eval = FALSE}
@@ -995,7 +995,7 @@ step3_fit <- mplusModeler(step3,
 
 ------------------------------------------------------------------------
 
-### LTA Transition Plot
+#### LTA Transition Plot
 
 This code is adapted from the source code for the `plotLTA` function found in the [\textcolor{blue}{MplusAutomation package}](https://github.com/michaelhallquist/MplusAutomation/blob/995d1ecfae3656524153456ce647f86fe8c1cf1e/R/mixtures.R)
 
@@ -1049,7 +1049,7 @@ t_matrix %>%
 
 ------------------------------------------------------------------------
 
-### Covariate Table
+#### Covariate Table
 
 ```{r}
 # REFERENCE CLASS 4
@@ -1105,7 +1105,7 @@ cov_m1
 
 ------------------------------------------------------------------------
 
-### Manually calculate transition probabilities by covariate
+#### Manually calculate transition probabilities by covariate
 
 
 ```{r, eval = FALSE}
@@ -1307,22 +1307,22 @@ x <- 0 # x=1 is female, x=0 males
 t11B <- exp(a1 + b11 + b212*x) / (exp(a1 + b11 + b212*x) + exp(a2 + b21 + b222*x) + exp(a3 + b31 + b232*x) + exp(0))
 t12B <- exp(a2 + b21 + b222*x) / (exp(a1 + b11 + b212*x) + exp(a2 + b21 + b222*x) + exp(a3 + b31 + b232*x) + exp(0))
 t13B <- exp(a3 + b31 + b232*x) / (exp(a1 + b11 + b212*x) + exp(a2 + b21 + b222*x) + exp(a3 + b31 + b232*x) + exp(0))
-t14B <- 1 - (t11 + t12 + t13)
+t14B <- 1 - (t11B + t12B + t13B)
 
 t21B <- exp(a1 + b12 + b212*x) / (exp(a1 + b12 + b212*x) + exp(a2 + b22 + b222*x) + exp(a3 + b32 + b232*x) + exp(0))
 t22B <- exp(a2 + b22 + b222*x) / (exp(a1 + b12 + b212*x) + exp(a2 + b22 + b222*x) + exp(a3 + b32 + b232*x) + exp(0))
 t23B <- exp(a3 + b32 + b232*x) / (exp(a1 + b12 + b212*x) + exp(a2 + b22 + b222*x) + exp(a3 + b32 + b232*x) + exp(0))
-t24B <- 1 - (t21 + t22 + t23)
+t24B <- 1 - (t21B + t22B + t23B)
 
 t31B <- exp(a1 + b13 + b212*x) / (exp(a1 + b13 + b212*x) + exp(a2 + b23 + b222*x) + exp(a3 + b33 + b232*x) + exp(0))
 t32B <- exp(a2 + b23 + b222*x) / (exp(a1 + b13 + b212*x) + exp(a2 + b23 + b222*x) + exp(a3 + b33 + b232*x) + exp(0))
 t33B <- exp(a3 + b33 + b232*x) / (exp(a1 + b13 + b212*x) + exp(a2 + b23 + b222*x) + exp(a3 + b33 + b232*x) + exp(0))
-t34B <- 1 - (t31 + t32 + t33)
+t34B <- 1 - (t31B + t32B + t33B)
 
 t41B <- exp(a1 + b212*x) / (exp(a1 + b212*x) + exp(a2 + b222*x) + exp(a3 + b232*x) + exp(0))
 t42B <- exp(a2 + b222*x) / (exp(a1 + b212*x) + exp(a2 + b222*x) + exp(a3 + b232*x) + exp(0))
 t43B <- exp(a3 + b232*x) / (exp(a1 + b212*x) + exp(a2 + b222*x) + exp(a3 + b232*x) + exp(0))
-t44B <- 1 - (t41 + t42 + t43)
+t44B <- 1 - (t41B + t42B + t43B)
 
 x <- 1 # x=1 is female, x=0 males
 
@@ -1351,7 +1351,7 @@ t44 <- 1 - (t41 + t42 + t43)
 
 Create table
 
-## Create Transition Table
+### Create Transition Table
 
 ```{r, eval=TRUE}
 
@@ -1366,8 +1366,7 @@ t_matrix %>%
   gt(rowname_col = "Time1") %>%
   tab_stubhead(label = "7th grade") %>% 
   tab_header(
-    title = md("**FEMALES: Student transitions from 7th grade (rows) to 10th grade (columns)**"),
-    subtitle = md("&nbsp;")) %>% 
+    title = md("**FEMALES: Student transitions from 7th grade (rows) to 10th grade (columns)**")) %>% 
   fmt_number(2:5,decimals = 3) %>% 
   tab_spanner(label = "10th grade",columns = 2:5) %>% 
   tab_footnote(
@@ -1390,8 +1389,7 @@ t_matrix %>%
   gt(rowname_col = "Time1") %>%
   tab_stubhead(label = "7th grade") %>% 
   tab_header(
-    title = md("**MALES: Student transitions from 7th grade (rows) to 10th grade (columns)**"),
-    subtitle = md("&nbsp;")) %>% 
+    title = md("**MALES: Student transitions from 7th grade (rows) to 10th grade (columns)**")) %>% 
   fmt_number(2:5,decimals = 3) %>% 
   tab_spanner(label = "10th grade",columns = 2:5) %>% 
   tab_footnote(
@@ -1403,25 +1401,6 @@ t_matrix %>%
 
 ```
 
-
-
---------------------------------------------------------------------------------------
-
-# References
-
-Hallquist, Michael N., and Joshua F. Wiley. 2018. "MplusAutomation: An R Package for FacilitatingLarge-Scale Latent Variable Analyses in Mplus." Structural Equation Modeling, 1--18. <https://doi.org/10.1080/10705511.2017.1402334>.
-
-Miller, Jon D. Longitudinal Study of American Youth (LSAY), Seventh Grade Data, 1987-1988; 2015-2016. Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2019-04-23. <https://doi.org/10.3886/ICPSR37287.v1>
-
-Müller, Kirill. 2017.Here: A Simpler Way to Find Your Files. <https://CRAN.R-project.org/package=here>.
-
-Muthén, B., & Asparouhov, T. (2020). Latent transition analysis with random intercepts (RI-LTA). Psychological Methods. Advance online publication. <https://doi.org/10.1037/met0000370>
-
-Muthén L.K., & Muthen B.O. (1998-2017) Mplus User's Guide. Eight Edition. Los Angelos, CA: Muthen & Muthen.
-
-R Core Team. 2019.R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. <https://www.R-project.org/>.
-
-Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). "Welcome to the tidyverse." Journal of Open Source Software, 4(43), 1686. doi: 10.21105/joss.01686.
 
 
 <div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>

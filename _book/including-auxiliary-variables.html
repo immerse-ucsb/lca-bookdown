@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Example: PISA Student Data Data source: The first example utilizes a dataset on undergraduate Cheating available from the poLCA package (Dayton, 1998): See documentation here The second examples...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
@@ -79,12 +79,9 @@
 <li><a class="" href="polytomous-lca.html"><span class="header-section-number">6</span> Polytomous LCA</a></li>
 <li><a class="" href="lca-moderation.html"><span class="header-section-number">7</span> LCA Moderation</a></li>
 <li><a class="" href="latent-transition-analysis.html"><span class="header-section-number">8</span> Latent Transition Analysis</a></li>
-<li><a class="" href="enumeration-4.html"><span class="header-section-number">9</span> Enumeration</a></li>
-<li><a class="" href="create-model-fit-summary-table.html"><span class="header-section-number">10</span> Create Model Fit Summary Table</a></li>
-<li><a class="" href="estimate-latent-transition-analysis-lta-model.html"><span class="header-section-number">11</span> Estimate Latent Transition Analysis (LTA) Model</a></li>
-<li><a class="" href="adding-covariates.html"><span class="header-section-number">12</span> Adding Covariates</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">13</span> References</a></li>
-<li><a class="" href="references-1.html">References</a></li>
+<li><a class="" href="joint-occurrence.html"><span class="header-section-number">9</span> Joint Occurrence</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth mixture Models</a></li>
+<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -153,8 +150,8 @@ See Lab 6 for examples of enumeration with MplusAutomation.</p>
 <span class="header-section-number">5.2.1</span> DU3STEP<a class="anchor" aria-label="anchor" href="#du3step"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-bf9fe27f06f3ef081fc2" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-bf9fe27f06f3ef081fc2">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>DU3STEP</strong> incorporates distal outcome variables (assumed to have unequal means and variances) with mixture models.</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-a25820c829e517119902" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-a25820c829e517119902">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>DU3STEP</strong> incorporates distal outcome variables (assumed to have unequal means and variances) with mixture models.</p>
 <hr>
 <div id="run-the-du3step-model-with-gpa-as-distal-outcome" class="section level4" number="5.2.1.1">
 <h4>
@@ -257,8 +254,8 @@ See Lab 6 for examples of enumeration with MplusAutomation.</p>
 <span class="header-section-number">5.2.2</span> R3STEP<a class="anchor" aria-label="anchor" href="#r3step"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-352e8f73e23b44560e93" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-352e8f73e23b44560e93">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>R3STEP</strong> incorporates latent class predictors with mixture models.</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-d85eadd96ec5a2743947" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-d85eadd96ec5a2743947">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>R3STEP</strong> incorporates latent class predictors with mixture models.</p>
 <hr>
 <div id="run-the-r3step-model-with-gpa-as-the-latent-class-predictor" class="section level4" number="5.2.2.1">
 <h4>
@@ -348,8 +345,8 @@ Parameterization using Reference Class 1
 <h2>
 <span class="header-section-number">5.3</span> Manual Three-step<a class="anchor" aria-label="anchor" href="#manual-three-step"><i class="fas fa-link"></i></a>
 </h2>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-d947f5ec4a901d7c0aa3" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-d947f5ec4a901d7c0aa3">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>Integrate covariates and distals with a mixture model</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-30cb18da20097da01762" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-30cb18da20097da01762">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>Integrate covariates and distals with a mixture model</p>
 <hr>
 <p>Application: Longitudinal Study of American Youth, <strong>Science Attitudes</strong></p>
 <div id="wdqakuuauq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -1558,23 +1555,23 @@ Parameterization using Reference Class 1
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_align.html">cols_align</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"center"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/opt_align_table_header.html">opt_align_table_header</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span></span></code></pre></div>
-<div id="cxsuyhqdkx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cxsuyhqdkx table {
+<div id="julnbqycxs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#julnbqycxs table {
   font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cxsuyhqdkx thead, #cxsuyhqdkx tbody, #cxsuyhqdkx tfoot, #cxsuyhqdkx tr, #cxsuyhqdkx td, #cxsuyhqdkx th {
+#julnbqycxs thead, #julnbqycxs tbody, #julnbqycxs tfoot, #julnbqycxs tr, #julnbqycxs td, #julnbqycxs th {
   border-style: none;
 }
 
-#cxsuyhqdkx p {
+#julnbqycxs p {
   margin: 0;
   padding: 0;
 }
 
-#cxsuyhqdkx .gt_table {
+#julnbqycxs .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1600,12 +1597,12 @@ Parameterization using Reference Class 1
   border-left-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_caption {
+#julnbqycxs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cxsuyhqdkx .gt_title {
+#julnbqycxs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1617,7 +1614,7 @@ Parameterization using Reference Class 1
   border-bottom-width: 0;
 }
 
-#cxsuyhqdkx .gt_subtitle {
+#julnbqycxs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1629,7 +1626,7 @@ Parameterization using Reference Class 1
   border-top-width: 0;
 }
 
-#cxsuyhqdkx .gt_heading {
+#julnbqycxs .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1641,13 +1638,13 @@ Parameterization using Reference Class 1
   border-right-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_bottom_border {
+#julnbqycxs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_col_headings {
+#julnbqycxs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1662,7 +1659,7 @@ Parameterization using Reference Class 1
   border-right-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_col_heading {
+#julnbqycxs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1682,7 +1679,7 @@ Parameterization using Reference Class 1
   overflow-x: hidden;
 }
 
-#cxsuyhqdkx .gt_column_spanner_outer {
+#julnbqycxs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1694,15 +1691,15 @@ Parameterization using Reference Class 1
   padding-right: 4px;
 }
 
-#cxsuyhqdkx .gt_column_spanner_outer:first-child {
+#julnbqycxs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cxsuyhqdkx .gt_column_spanner_outer:last-child {
+#julnbqycxs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cxsuyhqdkx .gt_column_spanner {
+#julnbqycxs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1714,11 +1711,11 @@ Parameterization using Reference Class 1
   width: 100%;
 }
 
-#cxsuyhqdkx .gt_spanner_row {
+#julnbqycxs .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cxsuyhqdkx .gt_group_heading {
+#julnbqycxs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1744,7 +1741,7 @@ Parameterization using Reference Class 1
   text-align: left;
 }
 
-#cxsuyhqdkx .gt_empty_group_heading {
+#julnbqycxs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1759,15 +1756,15 @@ Parameterization using Reference Class 1
   vertical-align: middle;
 }
 
-#cxsuyhqdkx .gt_from_md > :first-child {
+#julnbqycxs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cxsuyhqdkx .gt_from_md > :last-child {
+#julnbqycxs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cxsuyhqdkx .gt_row {
+#julnbqycxs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1786,7 +1783,7 @@ Parameterization using Reference Class 1
   overflow-x: hidden;
 }
 
-#cxsuyhqdkx .gt_stub {
+#julnbqycxs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1799,7 +1796,7 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#cxsuyhqdkx .gt_stub_row_group {
+#julnbqycxs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1813,15 +1810,15 @@ Parameterization using Reference Class 1
   vertical-align: top;
 }
 
-#cxsuyhqdkx .gt_row_group_first td {
+#julnbqycxs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cxsuyhqdkx .gt_row_group_first th {
+#julnbqycxs .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cxsuyhqdkx .gt_summary_row {
+#julnbqycxs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1831,16 +1828,16 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#cxsuyhqdkx .gt_first_summary_row {
+#julnbqycxs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_first_summary_row.thick {
+#julnbqycxs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cxsuyhqdkx .gt_last_summary_row {
+#julnbqycxs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1850,7 +1847,7 @@ Parameterization using Reference Class 1
   border-bottom-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_grand_summary_row {
+#julnbqycxs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1860,7 +1857,7 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#cxsuyhqdkx .gt_first_grand_summary_row {
+#julnbqycxs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1870,7 +1867,7 @@ Parameterization using Reference Class 1
   border-top-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_last_grand_summary_row_top {
+#julnbqycxs .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1880,11 +1877,11 @@ Parameterization using Reference Class 1
   border-bottom-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_striped {
+#julnbqycxs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cxsuyhqdkx .gt_table_body {
+#julnbqycxs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1893,7 +1890,7 @@ Parameterization using Reference Class 1
   border-bottom-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_footnotes {
+#julnbqycxs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1907,7 +1904,7 @@ Parameterization using Reference Class 1
   border-right-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_footnote {
+#julnbqycxs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1916,7 +1913,7 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#cxsuyhqdkx .gt_sourcenotes {
+#julnbqycxs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1930,7 +1927,7 @@ Parameterization using Reference Class 1
   border-right-color: #D3D3D3;
 }
 
-#cxsuyhqdkx .gt_sourcenote {
+#julnbqycxs .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1938,72 +1935,72 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#cxsuyhqdkx .gt_left {
+#julnbqycxs .gt_left {
   text-align: left;
 }
 
-#cxsuyhqdkx .gt_center {
+#julnbqycxs .gt_center {
   text-align: center;
 }
 
-#cxsuyhqdkx .gt_right {
+#julnbqycxs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cxsuyhqdkx .gt_font_normal {
+#julnbqycxs .gt_font_normal {
   font-weight: normal;
 }
 
-#cxsuyhqdkx .gt_font_bold {
+#julnbqycxs .gt_font_bold {
   font-weight: bold;
 }
 
-#cxsuyhqdkx .gt_font_italic {
+#julnbqycxs .gt_font_italic {
   font-style: italic;
 }
 
-#cxsuyhqdkx .gt_super {
+#julnbqycxs .gt_super {
   font-size: 65%;
 }
 
-#cxsuyhqdkx .gt_footnote_marks {
+#julnbqycxs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cxsuyhqdkx .gt_asterisk {
+#julnbqycxs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cxsuyhqdkx .gt_indent_1 {
+#julnbqycxs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cxsuyhqdkx .gt_indent_2 {
+#julnbqycxs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cxsuyhqdkx .gt_indent_3 {
+#julnbqycxs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cxsuyhqdkx .gt_indent_4 {
+#julnbqycxs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cxsuyhqdkx .gt_indent_5 {
+#julnbqycxs .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cxsuyhqdkx .katex-display {
+#julnbqycxs .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cxsuyhqdkx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#julnbqycxs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2142,23 +2139,23 @@ Parameterization using Reference Class 1
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_align.html">cols_align</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"center"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/opt_align_table_header.html">opt_align_table_header</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span></span></code></pre></div>
-<div id="qfhpflcfwg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qfhpflcfwg table {
+<div id="rkgeyczvfe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rkgeyczvfe table {
   font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qfhpflcfwg thead, #qfhpflcfwg tbody, #qfhpflcfwg tfoot, #qfhpflcfwg tr, #qfhpflcfwg td, #qfhpflcfwg th {
+#rkgeyczvfe thead, #rkgeyczvfe tbody, #rkgeyczvfe tfoot, #rkgeyczvfe tr, #rkgeyczvfe td, #rkgeyczvfe th {
   border-style: none;
 }
 
-#qfhpflcfwg p {
+#rkgeyczvfe p {
   margin: 0;
   padding: 0;
 }
 
-#qfhpflcfwg .gt_table {
+#rkgeyczvfe .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2184,12 +2181,12 @@ Parameterization using Reference Class 1
   border-left-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_caption {
+#rkgeyczvfe .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qfhpflcfwg .gt_title {
+#rkgeyczvfe .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2201,7 +2198,7 @@ Parameterization using Reference Class 1
   border-bottom-width: 0;
 }
 
-#qfhpflcfwg .gt_subtitle {
+#rkgeyczvfe .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2213,7 +2210,7 @@ Parameterization using Reference Class 1
   border-top-width: 0;
 }
 
-#qfhpflcfwg .gt_heading {
+#rkgeyczvfe .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2225,13 +2222,13 @@ Parameterization using Reference Class 1
   border-right-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_bottom_border {
+#rkgeyczvfe .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_col_headings {
+#rkgeyczvfe .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2246,7 +2243,7 @@ Parameterization using Reference Class 1
   border-right-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_col_heading {
+#rkgeyczvfe .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2266,7 +2263,7 @@ Parameterization using Reference Class 1
   overflow-x: hidden;
 }
 
-#qfhpflcfwg .gt_column_spanner_outer {
+#rkgeyczvfe .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2278,15 +2275,15 @@ Parameterization using Reference Class 1
   padding-right: 4px;
 }
 
-#qfhpflcfwg .gt_column_spanner_outer:first-child {
+#rkgeyczvfe .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qfhpflcfwg .gt_column_spanner_outer:last-child {
+#rkgeyczvfe .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qfhpflcfwg .gt_column_spanner {
+#rkgeyczvfe .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2298,11 +2295,11 @@ Parameterization using Reference Class 1
   width: 100%;
 }
 
-#qfhpflcfwg .gt_spanner_row {
+#rkgeyczvfe .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qfhpflcfwg .gt_group_heading {
+#rkgeyczvfe .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2328,7 +2325,7 @@ Parameterization using Reference Class 1
   text-align: left;
 }
 
-#qfhpflcfwg .gt_empty_group_heading {
+#rkgeyczvfe .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2343,15 +2340,15 @@ Parameterization using Reference Class 1
   vertical-align: middle;
 }
 
-#qfhpflcfwg .gt_from_md > :first-child {
+#rkgeyczvfe .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qfhpflcfwg .gt_from_md > :last-child {
+#rkgeyczvfe .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qfhpflcfwg .gt_row {
+#rkgeyczvfe .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2370,7 +2367,7 @@ Parameterization using Reference Class 1
   overflow-x: hidden;
 }
 
-#qfhpflcfwg .gt_stub {
+#rkgeyczvfe .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2383,7 +2380,7 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#qfhpflcfwg .gt_stub_row_group {
+#rkgeyczvfe .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2397,15 +2394,15 @@ Parameterization using Reference Class 1
   vertical-align: top;
 }
 
-#qfhpflcfwg .gt_row_group_first td {
+#rkgeyczvfe .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qfhpflcfwg .gt_row_group_first th {
+#rkgeyczvfe .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qfhpflcfwg .gt_summary_row {
+#rkgeyczvfe .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2415,16 +2412,16 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#qfhpflcfwg .gt_first_summary_row {
+#rkgeyczvfe .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_first_summary_row.thick {
+#rkgeyczvfe .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qfhpflcfwg .gt_last_summary_row {
+#rkgeyczvfe .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2434,7 +2431,7 @@ Parameterization using Reference Class 1
   border-bottom-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_grand_summary_row {
+#rkgeyczvfe .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2444,7 +2441,7 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#qfhpflcfwg .gt_first_grand_summary_row {
+#rkgeyczvfe .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2454,7 +2451,7 @@ Parameterization using Reference Class 1
   border-top-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_last_grand_summary_row_top {
+#rkgeyczvfe .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2464,11 +2461,11 @@ Parameterization using Reference Class 1
   border-bottom-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_striped {
+#rkgeyczvfe .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qfhpflcfwg .gt_table_body {
+#rkgeyczvfe .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2477,7 +2474,7 @@ Parameterization using Reference Class 1
   border-bottom-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_footnotes {
+#rkgeyczvfe .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2491,7 +2488,7 @@ Parameterization using Reference Class 1
   border-right-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_footnote {
+#rkgeyczvfe .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2500,7 +2497,7 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#qfhpflcfwg .gt_sourcenotes {
+#rkgeyczvfe .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2514,7 +2511,7 @@ Parameterization using Reference Class 1
   border-right-color: #D3D3D3;
 }
 
-#qfhpflcfwg .gt_sourcenote {
+#rkgeyczvfe .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2522,72 +2519,72 @@ Parameterization using Reference Class 1
   padding-right: 5px;
 }
 
-#qfhpflcfwg .gt_left {
+#rkgeyczvfe .gt_left {
   text-align: left;
 }
 
-#qfhpflcfwg .gt_center {
+#rkgeyczvfe .gt_center {
   text-align: center;
 }
 
-#qfhpflcfwg .gt_right {
+#rkgeyczvfe .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qfhpflcfwg .gt_font_normal {
+#rkgeyczvfe .gt_font_normal {
   font-weight: normal;
 }
 
-#qfhpflcfwg .gt_font_bold {
+#rkgeyczvfe .gt_font_bold {
   font-weight: bold;
 }
 
-#qfhpflcfwg .gt_font_italic {
+#rkgeyczvfe .gt_font_italic {
   font-style: italic;
 }
 
-#qfhpflcfwg .gt_super {
+#rkgeyczvfe .gt_super {
   font-size: 65%;
 }
 
-#qfhpflcfwg .gt_footnote_marks {
+#rkgeyczvfe .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qfhpflcfwg .gt_asterisk {
+#rkgeyczvfe .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qfhpflcfwg .gt_indent_1 {
+#rkgeyczvfe .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qfhpflcfwg .gt_indent_2 {
+#rkgeyczvfe .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qfhpflcfwg .gt_indent_3 {
+#rkgeyczvfe .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qfhpflcfwg .gt_indent_4 {
+#rkgeyczvfe .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qfhpflcfwg .gt_indent_5 {
+#rkgeyczvfe .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qfhpflcfwg .katex-display {
+#rkgeyczvfe .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qfhpflcfwg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rkgeyczvfe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2652,7 +2649,7 @@ Parameterization using Reference Class 1
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-06-05.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-06-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

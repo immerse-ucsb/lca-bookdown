@@ -48,7 +48,7 @@ plot_transitions_function <- function(model_name,color_pallete,facet_labels,time
     scale_alpha_continuous(range = c(.05,.5)) + 
     facet_wrap(~y, labeller = labeller( y = function(x) str_wrap(facet_labels,width = 40))) +
     scale_x_continuous(expand = c(.1, .1), breaks = c(1,2), labels = timepoint_labels) + 
-    scale_y_reverse(expand = c(.15, .15), breaks = c(1,2,3), labels = class_labels) +
+    scale_y_reverse(expand = c(.15, .15), breaks =  seq_along(unique(class_labels)), labels = class_labels) +
     geom_text_repel(data=edges, aes(x=xend, y=y_mid, label = glue("{trans_perc}%")), 
                     segment.colour = NA, nudge_x = -.5) + 
     geom_point(data = nodes2,

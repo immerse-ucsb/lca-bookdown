@@ -30,6 +30,10 @@ library(psych)
 library(float)
 library(janitor)
 library(ggalluvial)
+library(DiagrammeR)
+library(modelsummary)
+library(corrplot)
+library(ggrepel)
 ```
 
 ------------------------------------------------------------------------
@@ -476,7 +480,7 @@ plot_lca(model_name = output_sci)
 
 Extract logits for the classification probabilities for the most likely latent class:
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 
 logit_cprobs_math <- as.data.frame(output_math[["class_counts"]]
                                        [["logitProbs.mostLikely"]])
@@ -487,7 +491,7 @@ logit_cprobs_sci <- as.data.frame(output_sci[["class_counts"]]
 
 Extract saved dataset:
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 
 savedata_math <- as.data.frame(output_math[["savedata"]])
 savedata_sci <- as.data.frame(output_sci[["savedata"]])
@@ -496,7 +500,7 @@ savedata_sci <- as.data.frame(output_sci[["savedata"]])
 
 Rename the column in savedata named "C" and change to "N"
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 
 colnames(savedata_math)[colnames(savedata_math)=="C"] <- "N_math"
 colnames(savedata_sci)[colnames(savedata_sci)=="C"] <- "N_sci"
@@ -513,7 +517,7 @@ savedata <- savedata_math %>%
 
 Build the joint occurrence model:
 
-```{r, cache = TRUE}
+```{r, eval = FALSE}
 step3_jo  <- mplusObject(
   TITLE = "Joint Occurrence LCA", 
   
