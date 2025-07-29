@@ -1,14 +1,14 @@
 Mplus VERSION 8.11
 MUTHEN & MUTHEN
-05/26/2025   4:12 PM
+06/11/2025   1:55 PM
 
 INPUT INSTRUCTIONS
 
   TITLE:
   Step 1 - Three-Step using LSAL
   DATA:
-  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/three_step/manual_3step/
-  Step1.dat";
+  FILE = "C:/Users/Karen Nylund-Gibson/Box/lca-bookdown/three_step/manual_3step/Step1.dat";
+
   VARIABLE:
   NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
        undrstnd nervous scared useful logical job adult female;
@@ -19,7 +19,7 @@ INPUT INSTRUCTIONS
      classes = c(4);
 
      auxiliary =   ! list all potential covariates and distals here
-     female        ! covariate
+     female  mothed      ! covariate
      math_irt;      ! distal math test score in 12th grade
   ANALYSIS:
   estimator = mlr;
@@ -64,7 +64,7 @@ Observed dependent variables
    ENJOY       USEFUL      LOGICAL     JOB         ADULT
 
 Observed auxiliary variables
-   FEMALE      MATH_IRT
+   FEMALE      MOTHED      MATH_IRT
 
 Categorical latent variables
    C
@@ -104,7 +104,7 @@ Random Starts Specifications
 Link                                                         LOGIT
 
 Input data file(s)
-  C:/Users/dnajiarch/Box/lca-bookdown/three_step/manual_3step/Step1.dat
+  C:/Users/Karen Nylund-Gibson/Box/lca-bookdown/three_step/manual_3step/Step1.da
 Input data format  FREE
 
 
@@ -588,6 +588,7 @@ SAVEDATA INFORMATION
     JOB            F10.3
     ADULT          F10.3
     FEMALE         F10.3
+    MOTHED         F10.3
     MATH_IRT       F10.3
     CPROB1         F10.3
     CPROB2         F10.3
@@ -596,16 +597,16 @@ SAVEDATA INFORMATION
     C              F10.3
 
   Save file format
-    12F10.3
+    13F10.3
 
   Save file record length    10000
 
   Save missing symbol        *
 
 
-     Beginning Time:  16:12:36
-        Ending Time:  16:12:41
-       Elapsed Time:  00:00:05
+     Beginning Time:  13:55:11
+        Ending Time:  13:55:15
+       Elapsed Time:  00:00:04
 
 
 

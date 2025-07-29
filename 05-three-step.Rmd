@@ -74,7 +74,7 @@ detach(package:MASS, unload = TRUE)
 
 ------------------------------------------------------------------------
 
-### DU3STEP
+### DU3STEP in Mplus
 
 ------------------------------------------------------------------------
 
@@ -151,7 +151,7 @@ m_stepdu_fit <- mplusModeler(m_stepdu,
 
 ------------------------------------------------------------------------
 
-#### Plot Distal Outcome 
+#### Plot Distal Outcome mean differences
 
 ```{r}
 modelParams <- readModels(here("three_step", "auto_3step", "c2_du3step.out"))
@@ -336,7 +336,9 @@ Parameterization using Reference Class 1
 
 ------------------------------------------------------------------------
 
-## Manual Three-step
+## Manual ML Three-step
+
+### Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites. 
 
 ```{r, echo=FALSE, eval=TRUE, fig.align='center'}
 
@@ -413,7 +415,7 @@ lsay_data <- read_csv(here("three_step","data","lsay_subset.csv")) %>%
 
 ------------------------------------------------------------------------
 
-### ML Method
+### ML 3-Step Method
 
 ------------------------------------------------------------------------
 
@@ -421,7 +423,7 @@ lsay_data <- read_csv(here("three_step","data","lsay_subset.csv")) %>%
 
 ------------------------------------------------------------------------
 
-This step is done after class enumeration (or after you have selected the best latent class model). In this example, the four class model was the best. Now, I am re-estimating the four-class model using `optseed` for efficiency. The difference here is the `SAVEDATA` command, where I can save the posterior probabilities and the modal class assignment for steps two and three. 
+This step is done after class enumeration (or after you have selected the best latent class model). In this example, the four class model was the best. Now, we re-estimate the four-class model using `optseed` for efficiency. The difference here is the `SAVEDATA` command, where I can save the posterior probabilities and the modal class assignment that will be used in steps two and three. 
 
 
 ```{r, eval = FALSE}
@@ -435,7 +437,7 @@ step1  <- mplusObject(
    classes = c(4); 
     
    auxiliary =   ! list all potential covariates and distals here
-   female        ! covariate
+   female  mothed      ! covariate
    math_irt;      ! distal math test score in 12th grade ",
   
   ANALYSIS = 
@@ -501,11 +503,12 @@ colnames(savedata)[colnames(savedata)=="C"] <- "N"
 
 ------------------------------------------------------------------------
 
-#### Step 3 - Add Auxiliary Variables
+#### Step 3 - LCA Auxiliary Variable Model with 2 covariates and 1 distal outcome
 
 ------------------------------------------------------------------------
+##### Estimate LCA Model
 
-Model with 1 covariate and 1 distal outcome
+Model with 2 covariates (gender and mother's education) and 1 distal outcome (math IRT scores)
 
 ```{r, cache = TRUE}
 step3  <- mplusObject(
@@ -517,7 +520,7 @@ step3  <- mplusObject(
   
   classes = c(4);
   
-  usevar = female math_irt;" ,
+  usevar = female mothed math_irt;" ,
   
   ANALYSIS = 
  "estimator = mlr; 
@@ -525,14 +528,371 @@ step3  <- mplusObject(
   starts = 0;",
  
   DEFINE = 
-   "center female (grandmean);",
+   "center female mothed (grandmean);",
   
   MODEL =
   glue(
  " %OVERALL%
  
-  math_irt on female; ! covariate as a predictor of the distal outcome
-  C on female;        ! covariate as predictor of C
+  math_irt on female mothed; ! covariate as a related to the distal outcome
+  C on female (f1-f3);
+  c on mothed (e1-e3);      ! covariate as predictor of C
+
+     %C#1%
+  [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model. 
+  [n#2@{logit_cprobs[1,2]}];
+  [n#3@{logit_cprobs[1,3]}];
+  
+  [math_irt](m1);    ! conditional distal mean 
+  math_irt;          ! conditional distal variance (freely estimated)
+
+  %C#2%
+  [n#1@{logit_cprobs[2,1]}];
+  [n#2@{logit_cprobs[2,2]}];
+  [n#3@{logit_cprobs[2,3]}];
+  
+  [math_irt](m2);
+  math_irt;
+  
+  %C#3%
+  [n#1@{logit_cprobs[3,1]}];
+  [n#2@{logit_cprobs[3,2]}];
+  [n#3@{logit_cprobs[3,3]}];
+  
+  [math_irt](m3);
+  math_irt;
+
+  %C#4%
+  [n#1@{logit_cprobs[4,1]}];
+  [n#2@{logit_cprobs[4,2]}];
+  [n#3@{logit_cprobs[4,3]}];
+  
+  [math_irt](m4);
+  math_irt; "),
+  
+  MODELCONSTRAINT = 
+   "New (diff12 diff13 diff23 
+    diff14 diff24 diff34
+    
+    d_fem_12 d_fem_13 
+    d_fem_23
+ 
+    d_ed_12 d_ed_13 
+    d_ed_23 
+    );
+  
+    diff12 = m1-m2;  ! test pairwise distal mean differences
+    diff13 = m1-m3;
+    diff23 = m2-m3;
+    diff14 = m1-m4;
+    diff24 = m2-m4;
+    diff34 = m3-m4;
+ 
+    d_fem_12 = f1-f2;
+    d_fem_13 = f1-f3;
+    d_fem_23 = f2-f3; 
+
+    d_ed_12 = e1-e2;
+    d_ed_13 = e1-e3;
+    d_ed_23 = e2-e3; 
+
+ ",
+  
+  MODELTEST = "     ! omnibus test of distal means 
+  !  m1=m2;
+  !  m2=m3;
+  !  m3=m4;
+ 
+  ! f1=f2;       ! omnibus test of covariate logits (female)  
+  !  f1=f3;
+ 
+    e1=e2;       ! omnibus test of covariate logits (mothers ed)  
+    e1=e3;
+   ",
+ 
+  usevariables = colnames(savedata), 
+  rdata = savedata)
+
+step3_fit <- mplusModeler(step3,
+               dataout=here("three_step", "manual_3step", "Step3.dat"), 
+               modelout=here("three_step", "manual_3step", "three.inp"), 
+               check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+------------------------------------------------------------------------
+
+##### Wald Test Table
+This is testing if there is a relation between the latent class variable and the distal outcome (mathirt)
+
+```{r}
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
+# Extract information as data frame
+wald <- as.data.frame(modelParams[["summaries"]]) %>%
+  dplyr::select(WaldChiSq_Value:WaldChiSq_PValue) %>% 
+  mutate(WaldChiSq_DF = paste0("(", WaldChiSq_DF, ")")) %>% 
+  unite(wald_test, WaldChiSq_Value, WaldChiSq_DF, sep = " ") %>% 
+  rename(pval = WaldChiSq_PValue) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+
+# Create table
+
+wald_table <- wald %>% 
+  gt() %>%
+    tab_header(
+    title = "Wald Test Distal Means (Math IRT Scores)") %>%
+    cols_label(
+      wald_test = md("Wald Test (*df*)"), 
+      pval = md("*p*-value")) %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+
+wald_table
+```
+
+Save figure
+
+```{r}
+gtsave(wald_table, here("figures","wald_table.docx"))
+```
+
+
+------------------------------------------------------------------------
+
+##### Table of Pairwise Distal Outcome Differences
+
+```{r}
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
+# Extract information as data frame
+diff <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+  filter(grepl("DIFF", param)) %>% 
+  dplyr::select(param:pval) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+  unite(estimate, est, se, sep = " ") %>% 
+  mutate(param = str_remove(param, "DIFF"),
+         param = as.numeric(param)) %>% 
+  separate(param, into = paste0("Group", 1:2), sep = 1) %>% 
+  mutate(class = paste0("Class ", Group1, " vs ", Group2)) %>% 
+  dplyr::select(class, estimate, pval) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+
+# Create table
+
+diff %>% 
+  gt() %>%
+    tab_header(
+    title = "Distal Outcome Differences") %>%
+    cols_label(
+      class = "Class",
+      estimate = md("Mean (*se*)"),
+      pval = md("*p*-value")) %>% 
+    sub_missing(1:3,
+              missing_text = "") %>%
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+```
+
+------------------------------------------------------------------------
+
+##### Plot Distal Outcome Means
+
+```{r}
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
+# Extract class size 
+c_size <- as.data.frame(modelParams[["class_counts"]][["modelEstimated"]][["proportion"]]) %>% 
+  rename("cs" = 1) %>% 
+  mutate(cs = round(cs*100, 2))
+
+c_size_val <- paste0("C", 1:nrow(c_size), glue(" ({c_size[1:nrow(c_size),]}%)"))
+
+
+# Extract information as data frame
+estimates <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+  filter(paramHeader == "Intercepts") %>%
+  dplyr::select(param, est, se) %>% 
+  filter(param == "MATH_IRT") %>% 
+  mutate(across(c(est, se), as.numeric)) %>% 
+  mutate(LatentClass = c_size_val)
+
+# Add labels (NOTE: You must change the labels to match the significance testing!!) 
+#value_labels <- paste0(estimates$est, c("a"," bc"," abd"," cd"))
+
+estimates$LatentClass <- fct_inorder(estimates$LatentClass)
+
+# Plot bar graphs
+estimates %>%
+  ggplot(aes(x=LatentClass, y = est, fill = LatentClass)) +
+  geom_col(position = "dodge", stat = "identity", color = "black") +
+  geom_errorbar(aes(ymin=est-se, ymax=est+se),
+                size=.3,    # Thinner lines
+                width=.2,
+                position=position_dodge(.9)) +
+  geom_text(aes(label = est), 
+            family = "serif", size = 4,
+            position=position_dodge(.9),
+            vjust = 8) +  
+ # scale_fill_grey(start = .4, end = .7) + # Remove for colorful bars
+  labs(y="Math Scores", x="") +
+  theme_cowplot() +
+  theme(text = element_text(family = "serif", size = 15),
+        axis.text.x = element_text(size=15),
+        legend.position="none")
+
+# Save plot
+ggsave(here("figures","ManualDistal_Plot.jpeg"),              
+       dpi=300, width=10, height = 7, units="in") 
+```
+
+------------------------------------------------------------------------
+ 
+##### Covariates Relations
+
+```{r}
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
+# Extract information as data frame
+cov <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+   filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+  mutate(param = str_replace(param, "FEMALE", "Gender")) %>% # Change this to your own covariates
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3),
+         se = round(se, 2),
+         pval = round(pval, 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  dplyr::select(param, est, se, pval, latent_class) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+  unite(logit, est, se, sep = " ") %>% 
+  dplyr::select(param, logit, pval, latent_class) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001)))) 
+
+or <- as.data.frame(modelParams[["parameters"]][["odds"]]) %>%
+  filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+  mutate(param = str_replace(param, "FEMALE", "Gender")) %>% # Change this to your own covariates
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  mutate(CI = paste0("[", format(round(lower_2.5ci, 3), nsmall = 3), ", ", format(round(upper_2.5ci, 3), nsmall = 3), "]")) %>% 
+  dplyr::select(param, est, CI, latent_class) %>% 
+  rename(or = est)
+  
+combined <- or %>% 
+  full_join(cov) %>% 
+  dplyr::select(param, latent_class, logit, pval, or, CI)
+
+
+# Create table
+
+combined %>% 
+  gt(groupname_col = "latent_class", rowname_col = "param") %>%
+  tab_header(
+    title = "Predictors of Class Membership") %>%
+  cols_label(
+    logit = md("Logit (*se*)"),
+    or = md("Odds Ratio"),
+    CI = md("95% CI"),
+    pval = md("*p*-value")) %>% 
+  sub_missing(1:3,
+              missing_text = "") %>%
+  sub_values(values = c("999.000"), replacement = "-") %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif") %>%   
+  tab_footnote(
+    footnote = "Reference Class: 4",
+    locations = cells_title(groups = "title")
+  )
+
+```
+
+##### Distal outcome regressed on the covariate
+
+Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
+
+
+```{r}
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
+# Extract information as data frame
+donx <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+  filter(param %in% c("FEMALE", "MOTHED")) %>% 
+  mutate(param = str_replace(param, "FEMALE", "Gender")) %>% 
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(LatentClass = sub("^","Class ", LatentClass)) %>%  
+  dplyr::select(!paramHeader) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+    unite(estimate, est, se, sep = " ") %>% 
+  dplyr::select(param, estimate, pval) %>% 
+  distinct(param, .keep_all=TRUE) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+
+
+# Create table
+
+donx %>% 
+  gt(groupname_col = "LatentClass", rowname_col = "param") %>%
+  tab_header(
+    title = "Gender Predicting Math Scores") %>%
+  cols_label(
+    estimate = md("Estimate (*se*)"),
+    pval = md("*p*-value")) %>% 
+  sub_missing(1:3,
+              missing_text = "") %>%
+  sub_values(values = c("999.000"), replacement = "-") %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+
+
+
+```
+
+
+
+------------------------------------------------------------------------
+
+#### Step 3 - LCA Auxiliary Variable Model with 1 covariate
+
+------------------------------------------------------------------------
+##### Estimate LCA Model
+
+```{r, cache = TRUE}
+step3  <- mplusObject(
+  TITLE = "Step3 - 3step LSAY", 
+  
+  VARIABLE = 
+ "nominal=N;
+  usevar = n;
+  
+  classes = c(4);
+  
+  usevar = mothed math_irt;" ,
+  
+  ANALYSIS = 
+ "estimator = mlr; 
+  type = mixture; 
+  starts = 0;",
+ 
+  DEFINE = 
+   "center mothed (grandmean);",
+  
+  MODEL =
+  glue(
+ " %OVERALL%
+ 
+  math_irt on mothed; ! covariate as a predictor of the distal outcome
+  C on mothed;        ! covariate as predictor of C
 
      %C#1%
   [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model. 
@@ -591,171 +951,72 @@ step3_fit <- mplusModeler(step3,
                check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-------------------------------------------------------------------------
 
-##### Wald Test Table
+------------------------------------------------------------------------
+ 
+##### Covariates Relations (single covariate)
+
+------------------------------------------------------------------------
 
 ```{r}
 modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
 
 # Extract information as data frame
-wald <- as.data.frame(modelParams[["summaries"]]) %>%
-  dplyr::select(WaldChiSq_Value:WaldChiSq_PValue) %>% 
-  mutate(WaldChiSq_DF = paste0("(", WaldChiSq_DF, ")")) %>% 
-  unite(wald_test, WaldChiSq_Value, WaldChiSq_DF, sep = " ") %>% 
-  rename(pval = WaldChiSq_PValue) %>% 
-  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
-                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
-                              scales::number(pval, accuracy = .001))))
-
-# Create table
-
-wald_table <- wald %>% 
-  gt() %>%
-    tab_header(
-    title = "Wald Test of Paramter Constraints (Math)") %>%
-    cols_label(
-      wald_test = md("Wald Test (*df*)"),
-      pval = md("*p*-value")) %>% 
-  cols_align(align = "center") %>% 
-  opt_align_table_header(align = "left") %>% 
-  gt::tab_options(table.font.names = "serif")
-
-wald_table
-```
-
-Save figure
-
-```{r}
-gtsave(wald_table, here("figures","wald_table.docx"))
-```
-
-
-------------------------------------------------------------------------
-
-##### Table of Distal Outcome Differences
-
-```{r}
-# Extract information as data frame
-diff <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
-  filter(grepl("DIFF", param)) %>% 
-  dplyr::select(param:pval) %>% 
-  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
-  unite(estimate, est, se, sep = " ") %>% 
-  mutate(param = str_remove(param, "DIFF"),
-         param = as.numeric(param)) %>% 
-  separate(param, into = paste0("Group", 1:2), sep = 1) %>% 
-  mutate(class = paste0("Class ", Group1, " vs ", Group2)) %>% 
-  select(class, estimate, pval) %>% 
-  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
-                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
-                              scales::number(pval, accuracy = .001))))
-
-# Create table
-
-diff %>% 
-  gt() %>%
-    tab_header(
-    title = "Distal Outcome Differences") %>%
-    cols_label(
-      class = "Class",
-      estimate = md("Mean (*se*)"),
-      pval = md("*p*-value")) %>% 
-    sub_missing(1:3,
-              missing_text = "") %>%
-  cols_align(align = "center") %>% 
-  opt_align_table_header(align = "left") %>% 
-  gt::tab_options(table.font.names = "serif")
-```
-
-------------------------------------------------------------------------
-
-##### Plot Distal Outcome
-
-```{r}
-# Extract class size 
-c_size <- as.data.frame(modelParams[["class_counts"]][["modelEstimated"]][["proportion"]]) %>% 
-  rename("cs" = 1) %>% 
-  mutate(cs = round(cs*100, 2))
-
-c_size_val <- paste0("C", 1:nrow(c_size), glue(" ({c_size[1:nrow(c_size),]}%)"))
-
-
-# Extract information as data frame
-estimates <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
-  filter(paramHeader == "Intercepts") %>%
-  dplyr::select(param, est, se) %>% 
-  filter(param == "MATH_IRT") %>% 
-  mutate(across(c(est, se), as.numeric)) %>% 
-  mutate(LatentClass = c_size_val)
-
-# Add labels (NOTE: You must change the labels to match the significance testing!!) 
-#value_labels <- paste0(estimates$est, c("a"," bc"," abd"," cd"))
-
-estimates$LatentClass <- fct_inorder(estimates$LatentClass)
-
-# Plot bar graphs
-estimates %>%
-  ggplot(aes(x=LatentClass, y = est, fill = LatentClass)) +
-  geom_col(position = "dodge", stat = "identity", color = "black") +
-  geom_errorbar(aes(ymin=est-se, ymax=est+se),
-                size=.3,    # Thinner lines
-                width=.2,
-                position=position_dodge(.9)) +
-  geom_text(aes(label = est), 
-            family = "serif", size = 4,
-            position=position_dodge(.9),
-            vjust = 8) +  
- # scale_fill_grey(start = .4, end = .7) + # Remove for colorful bars
-  labs(y="Math Scores", x="") +
-  theme_cowplot() +
-  theme(text = element_text(family = "serif", size = 15),
-        axis.text.x = element_text(size=15),
-        legend.position="none")
-
-# Save plot
-ggsave(here("figures","ManualDistal_Plot.jpeg"),              
-       dpi=300, width=10, height = 7, units="in") 
-```
-
-------------------------------------------------------------------------
- 
-##### D on X
-
-Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
-
-```{r}
-# Extract information as data frame
 cov <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
-  filter(param == "FEMALE") %>% 
-  mutate(param = str_replace(param, "FEMALE", "Gender"))%>% 
-  mutate(LatentClass = sub("^","Class ", LatentClass)) %>%  
-  dplyr::select(!paramHeader) %>% 
+   filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+#  mutate(param = str_replace(param, "FEMALE", "Gender")) %>% # Change this to your own covariates
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3),
+         se = round(se, 2),
+         pval = round(pval, 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  dplyr::select(param, est, se, pval, latent_class) %>% 
   mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
-    unite(estimate, est, se, sep = " ") %>% 
-  select(param, estimate, pval) %>% 
-  distinct(param, .keep_all=TRUE) %>% 
+  unite(logit, est, se, sep = " ") %>% 
+  dplyr::select(param, logit, pval, latent_class) %>% 
   mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
                        ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
-                              scales::number(pval, accuracy = .001))))
+                              scales::number(pval, accuracy = .001)))) 
+
+or <- as.data.frame(modelParams[["parameters"]][["odds"]]) %>%
+  filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+ # mutate(param = str_replace(param, "FEMALE", "Gender")) %>% # Change this to your own covariates
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  mutate(CI = paste0("[", format(round(lower_2.5ci, 3), nsmall = 3), ", ", format(round(upper_2.5ci, 3), nsmall = 3), "]")) %>% 
+  dplyr::select(param, est, CI, latent_class) %>% 
+  rename(or = est)
+  
+combined <- or %>% 
+  full_join(cov) %>% 
+  dplyr::select(param, latent_class, logit, pval, or, CI)
 
 
 # Create table
 
-cov %>% 
-  gt(groupname_col = "LatentClass", rowname_col = "param") %>%
+combined %>% 
+  gt(groupname_col = "latent_class", rowname_col = "param") %>%
   tab_header(
-    title = "Gender Predicting Math Scores") %>%
+    title = "Covariate Results: Mother's Education on Class") %>%
   cols_label(
-    estimate = md("Estimate (*se*)"),
+    logit = md("Logit (*se*)"),
+    or = md("Odds Ratio"),
+    CI = md("95% CI"),
     pval = md("*p*-value")) %>% 
   sub_missing(1:3,
               missing_text = "") %>%
   sub_values(values = c("999.000"), replacement = "-") %>% 
   cols_align(align = "center") %>% 
   opt_align_table_header(align = "left") %>% 
-  gt::tab_options(table.font.names = "serif")
+  gt::tab_options(table.font.names = "serif") %>%   
+  tab_footnote(
+    footnote = "Reference Class: 4",
+    locations = cells_title(groups = "title")
+  )
+
 ```
+
 
 
 <div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>

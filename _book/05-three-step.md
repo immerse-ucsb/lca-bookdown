@@ -70,15 +70,15 @@ detach(package:MASS, unload = TRUE)
 
 ------------------------------------------------------------------------
 
-### DU3STEP
+### DU3STEP in Mplus
 
 ------------------------------------------------------------------------
 
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-a25820c829e517119902" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-a25820c829e517119902">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-f91b346bc3b18e71f323" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f91b346bc3b18e71f323">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -124,7 +124,7 @@ m_stepdu_fit <- mplusModeler(m_stepdu,
 
 ------------------------------------------------------------------------
 
-#### Plot Distal Outcome 
+#### Plot Distal Outcome mean differences
 
 
 ``` r
@@ -195,8 +195,8 @@ ggsave(here("figures","Du3STEP_plot.jpeg"),
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-d85eadd96ec5a2743947" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-d85eadd96ec5a2743947">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-2066ee45d441476cf1f6" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-2066ee45d441476cf1f6">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -292,12 +292,14 @@ Parameterization using Reference Class 1
 
 ------------------------------------------------------------------------
 
-## Manual Three-step
+## Manual ML Three-step
+
+### Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites. 
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-30cb18da20097da01762" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-30cb18da20097da01762">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-eb84b7f60d9c778f348f" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-eb84b7f60d9c778f348f">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -815,7 +817,7 @@ lsay_data <- read_csv(here("three_step","data","lsay_subset.csv")) %>%
 
 ------------------------------------------------------------------------
 
-### ML Method
+### ML 3-Step Method
 
 ------------------------------------------------------------------------
 
@@ -823,7 +825,7 @@ lsay_data <- read_csv(here("three_step","data","lsay_subset.csv")) %>%
 
 ------------------------------------------------------------------------
 
-This step is done after class enumeration (or after you have selected the best latent class model). In this example, the four class model was the best. Now, I am re-estimating the four-class model using `optseed` for efficiency. The difference here is the `SAVEDATA` command, where I can save the posterior probabilities and the modal class assignment for steps two and three. 
+This step is done after class enumeration (or after you have selected the best latent class model). In this example, the four class model was the best. Now, we re-estimate the four-class model using `optseed` for efficiency. The difference here is the `SAVEDATA` command, where I can save the posterior probabilities and the modal class assignment that will be used in steps two and three. 
 
 
 
@@ -838,7 +840,7 @@ step1  <- mplusObject(
    classes = c(4); 
     
    auxiliary =   ! list all potential covariates and distals here
-   female        ! covariate
+   female  mothed      ! covariate
    math_irt;      ! distal math test score in 12th grade ",
   
   ANALYSIS = 
@@ -910,11 +912,12 @@ colnames(savedata)[colnames(savedata)=="C"] <- "N"
 
 ------------------------------------------------------------------------
 
-#### Step 3 - Add Auxiliary Variables
+#### Step 3 - LCA Auxiliary Variable Model with 2 covariates and 1 distal outcome
 
 ------------------------------------------------------------------------
+##### Estimate LCA Model
 
-Model with 1 covariate and 1 distal outcome
+Model with 2 covariates (gender and mother's education) and 1 distal outcome (math IRT scores)
 
 
 ``` r
@@ -927,7 +930,7 @@ step3  <- mplusObject(
   
   classes = c(4);
   
-  usevar = female math_irt;" ,
+  usevar = female mothed math_irt;" ,
   
   ANALYSIS = 
  "estimator = mlr; 
@@ -935,14 +938,15 @@ step3  <- mplusObject(
   starts = 0;",
  
   DEFINE = 
-   "center female (grandmean);",
+   "center female mothed (grandmean);",
   
   MODEL =
   glue(
  " %OVERALL%
  
-  math_irt on female; ! covariate as a predictor of the distal outcome
-  C on female;        ! covariate as predictor of C
+  math_irt on female mothed; ! covariate as a related to the distal outcome
+  C on female (f1-f3);
+  c on mothed (e1-e3);      ! covariate as predictor of C
 
      %C#1%
   [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model. 
@@ -978,19 +982,43 @@ step3  <- mplusObject(
   
   MODELCONSTRAINT = 
    "New (diff12 diff13 diff23 
-    diff14 diff24 diff34);
+    diff14 diff24 diff34
+    
+    d_fem_12 d_fem_13 
+    d_fem_23
+ 
+    d_ed_12 d_ed_13 
+    d_ed_23 
+    );
   
     diff12 = m1-m2;  ! test pairwise distal mean differences
     diff13 = m1-m3;
     diff23 = m2-m3;
     diff14 = m1-m4;
     diff24 = m2-m4;
-    diff34 = m3-m4;",
+    diff34 = m3-m4;
+ 
+    d_fem_12 = f1-f2;
+    d_fem_13 = f1-f3;
+    d_fem_23 = f2-f3; 
+
+    d_ed_12 = e1-e2;
+    d_ed_13 = e1-e3;
+    d_ed_23 = e2-e3; 
+
+ ",
   
   MODELTEST = "     ! omnibus test of distal means 
-    m1=m2;
-    m2=m3;
-    m3=m4;",
+  !  m1=m2;
+  !  m2=m3;
+  !  m3=m4;
+ 
+  ! f1=f2;       ! omnibus test of covariate logits (female)  
+  !  f1=f3;
+ 
+    e1=e2;       ! omnibus test of covariate logits (mothers ed)  
+    e1=e3;
+   ",
  
   usevariables = colnames(savedata), 
   rdata = savedata)
@@ -1004,6 +1032,7 @@ step3_fit <- mplusModeler(step3,
 ------------------------------------------------------------------------
 
 ##### Wald Test Table
+This is testing if there is a relation between the latent class variable and the distal outcome (mathirt)
 
 
 ``` r
@@ -1024,9 +1053,9 @@ wald <- as.data.frame(modelParams[["summaries"]]) %>%
 wald_table <- wald %>% 
   gt() %>%
     tab_header(
-    title = "Wald Test of Paramter Constraints (Math)") %>%
+    title = "Wald Test Distal Means (Math IRT Scores)") %>%
     cols_label(
-      wald_test = md("Wald Test (*df*)"),
+      wald_test = md("Wald Test (*df*)"), 
       pval = md("*p*-value")) %>% 
   cols_align(align = "center") %>% 
   opt_align_table_header(align = "left") %>% 
@@ -1489,7 +1518,7 @@ wald_table
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <thead>
     <tr class="gt_heading">
-      <td colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Wald Test of Paramter Constraints (Math)</td>
+      <td colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Wald Test Distal Means (Math IRT Scores)</td>
     </tr>
     
     <tr class="gt_col_headings">
@@ -1518,10 +1547,12 @@ gtsave(wald_table, here("figures","wald_table.docx"))
 
 ------------------------------------------------------------------------
 
-##### Table of Distal Outcome Differences
+##### Table of Pairwise Distal Outcome Differences
 
 
 ``` r
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
 # Extract information as data frame
 diff <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
   filter(grepl("DIFF", param)) %>% 
@@ -1532,7 +1563,7 @@ diff <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
          param = as.numeric(param)) %>% 
   separate(param, into = paste0("Group", 1:2), sep = 1) %>% 
   mutate(class = paste0("Class ", Group1, " vs ", Group2)) %>% 
-  select(class, estimate, pval) %>% 
+  dplyr::select(class, estimate, pval) %>% 
   mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
                        ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
                               scales::number(pval, accuracy = .001))))
@@ -1556,23 +1587,23 @@ diff %>%
 
 
 ```{=html}
-<div id="julnbqycxs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#julnbqycxs table {
+<div id="cxsuyhqdkx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cxsuyhqdkx table {
   font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#julnbqycxs thead, #julnbqycxs tbody, #julnbqycxs tfoot, #julnbqycxs tr, #julnbqycxs td, #julnbqycxs th {
+#cxsuyhqdkx thead, #cxsuyhqdkx tbody, #cxsuyhqdkx tfoot, #cxsuyhqdkx tr, #cxsuyhqdkx td, #cxsuyhqdkx th {
   border-style: none;
 }
 
-#julnbqycxs p {
+#cxsuyhqdkx p {
   margin: 0;
   padding: 0;
 }
 
-#julnbqycxs .gt_table {
+#cxsuyhqdkx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1598,12 +1629,12 @@ diff %>%
   border-left-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_caption {
+#cxsuyhqdkx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#julnbqycxs .gt_title {
+#cxsuyhqdkx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1615,7 +1646,7 @@ diff %>%
   border-bottom-width: 0;
 }
 
-#julnbqycxs .gt_subtitle {
+#cxsuyhqdkx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1627,7 +1658,7 @@ diff %>%
   border-top-width: 0;
 }
 
-#julnbqycxs .gt_heading {
+#cxsuyhqdkx .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1639,13 +1670,13 @@ diff %>%
   border-right-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_bottom_border {
+#cxsuyhqdkx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_col_headings {
+#cxsuyhqdkx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1660,7 +1691,7 @@ diff %>%
   border-right-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_col_heading {
+#cxsuyhqdkx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1680,7 +1711,7 @@ diff %>%
   overflow-x: hidden;
 }
 
-#julnbqycxs .gt_column_spanner_outer {
+#cxsuyhqdkx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1692,15 +1723,15 @@ diff %>%
   padding-right: 4px;
 }
 
-#julnbqycxs .gt_column_spanner_outer:first-child {
+#cxsuyhqdkx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#julnbqycxs .gt_column_spanner_outer:last-child {
+#cxsuyhqdkx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#julnbqycxs .gt_column_spanner {
+#cxsuyhqdkx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1712,11 +1743,11 @@ diff %>%
   width: 100%;
 }
 
-#julnbqycxs .gt_spanner_row {
+#cxsuyhqdkx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#julnbqycxs .gt_group_heading {
+#cxsuyhqdkx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1742,7 +1773,7 @@ diff %>%
   text-align: left;
 }
 
-#julnbqycxs .gt_empty_group_heading {
+#cxsuyhqdkx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1757,15 +1788,15 @@ diff %>%
   vertical-align: middle;
 }
 
-#julnbqycxs .gt_from_md > :first-child {
+#cxsuyhqdkx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#julnbqycxs .gt_from_md > :last-child {
+#cxsuyhqdkx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#julnbqycxs .gt_row {
+#cxsuyhqdkx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1784,7 +1815,7 @@ diff %>%
   overflow-x: hidden;
 }
 
-#julnbqycxs .gt_stub {
+#cxsuyhqdkx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1797,7 +1828,7 @@ diff %>%
   padding-right: 5px;
 }
 
-#julnbqycxs .gt_stub_row_group {
+#cxsuyhqdkx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1811,15 +1842,15 @@ diff %>%
   vertical-align: top;
 }
 
-#julnbqycxs .gt_row_group_first td {
+#cxsuyhqdkx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#julnbqycxs .gt_row_group_first th {
+#cxsuyhqdkx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#julnbqycxs .gt_summary_row {
+#cxsuyhqdkx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1829,16 +1860,16 @@ diff %>%
   padding-right: 5px;
 }
 
-#julnbqycxs .gt_first_summary_row {
+#cxsuyhqdkx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_first_summary_row.thick {
+#cxsuyhqdkx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#julnbqycxs .gt_last_summary_row {
+#cxsuyhqdkx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1848,7 +1879,7 @@ diff %>%
   border-bottom-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_grand_summary_row {
+#cxsuyhqdkx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1858,7 +1889,7 @@ diff %>%
   padding-right: 5px;
 }
 
-#julnbqycxs .gt_first_grand_summary_row {
+#cxsuyhqdkx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1868,7 +1899,7 @@ diff %>%
   border-top-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_last_grand_summary_row_top {
+#cxsuyhqdkx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1878,11 +1909,11 @@ diff %>%
   border-bottom-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_striped {
+#cxsuyhqdkx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#julnbqycxs .gt_table_body {
+#cxsuyhqdkx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1891,7 +1922,7 @@ diff %>%
   border-bottom-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_footnotes {
+#cxsuyhqdkx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1905,7 +1936,7 @@ diff %>%
   border-right-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_footnote {
+#cxsuyhqdkx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1914,7 +1945,7 @@ diff %>%
   padding-right: 5px;
 }
 
-#julnbqycxs .gt_sourcenotes {
+#cxsuyhqdkx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1928,7 +1959,7 @@ diff %>%
   border-right-color: #D3D3D3;
 }
 
-#julnbqycxs .gt_sourcenote {
+#cxsuyhqdkx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1936,72 +1967,72 @@ diff %>%
   padding-right: 5px;
 }
 
-#julnbqycxs .gt_left {
+#cxsuyhqdkx .gt_left {
   text-align: left;
 }
 
-#julnbqycxs .gt_center {
+#cxsuyhqdkx .gt_center {
   text-align: center;
 }
 
-#julnbqycxs .gt_right {
+#cxsuyhqdkx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#julnbqycxs .gt_font_normal {
+#cxsuyhqdkx .gt_font_normal {
   font-weight: normal;
 }
 
-#julnbqycxs .gt_font_bold {
+#cxsuyhqdkx .gt_font_bold {
   font-weight: bold;
 }
 
-#julnbqycxs .gt_font_italic {
+#cxsuyhqdkx .gt_font_italic {
   font-style: italic;
 }
 
-#julnbqycxs .gt_super {
+#cxsuyhqdkx .gt_super {
   font-size: 65%;
 }
 
-#julnbqycxs .gt_footnote_marks {
+#cxsuyhqdkx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#julnbqycxs .gt_asterisk {
+#cxsuyhqdkx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#julnbqycxs .gt_indent_1 {
+#cxsuyhqdkx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#julnbqycxs .gt_indent_2 {
+#cxsuyhqdkx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#julnbqycxs .gt_indent_3 {
+#cxsuyhqdkx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#julnbqycxs .gt_indent_4 {
+#cxsuyhqdkx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#julnbqycxs .gt_indent_5 {
+#cxsuyhqdkx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#julnbqycxs .katex-display {
+#cxsuyhqdkx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#julnbqycxs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#cxsuyhqdkx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2046,10 +2077,12 @@ diff %>%
 
 ------------------------------------------------------------------------
 
-##### Plot Distal Outcome
+##### Plot Distal Outcome Means
 
 
 ``` r
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
 # Extract class size 
 c_size <- as.data.frame(modelParams[["class_counts"]][["modelEstimated"]][["proportion"]]) %>% 
   rename("cs" = 1) %>% 
@@ -2102,63 +2135,86 @@ ggsave(here("figures","ManualDistal_Plot.jpeg"),
 
 ------------------------------------------------------------------------
  
-##### D on X
-
-Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
+##### Covariates Relations
 
 
 ``` r
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
 # Extract information as data frame
 cov <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
-  filter(param == "FEMALE") %>% 
-  mutate(param = str_replace(param, "FEMALE", "Gender"))%>% 
-  mutate(LatentClass = sub("^","Class ", LatentClass)) %>%  
-  dplyr::select(!paramHeader) %>% 
+   filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+  mutate(param = str_replace(param, "FEMALE", "Gender")) %>% # Change this to your own covariates
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3),
+         se = round(se, 2),
+         pval = round(pval, 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  dplyr::select(param, est, se, pval, latent_class) %>% 
   mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
-    unite(estimate, est, se, sep = " ") %>% 
-  select(param, estimate, pval) %>% 
-  distinct(param, .keep_all=TRUE) %>% 
+  unite(logit, est, se, sep = " ") %>% 
+  dplyr::select(param, logit, pval, latent_class) %>% 
   mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
                        ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
-                              scales::number(pval, accuracy = .001))))
+                              scales::number(pval, accuracy = .001)))) 
+
+or <- as.data.frame(modelParams[["parameters"]][["odds"]]) %>%
+  filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+  mutate(param = str_replace(param, "FEMALE", "Gender")) %>% # Change this to your own covariates
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  mutate(CI = paste0("[", format(round(lower_2.5ci, 3), nsmall = 3), ", ", format(round(upper_2.5ci, 3), nsmall = 3), "]")) %>% 
+  dplyr::select(param, est, CI, latent_class) %>% 
+  rename(or = est)
+  
+combined <- or %>% 
+  full_join(cov) %>% 
+  dplyr::select(param, latent_class, logit, pval, or, CI)
 
 
 # Create table
 
-cov %>% 
-  gt(groupname_col = "LatentClass", rowname_col = "param") %>%
+combined %>% 
+  gt(groupname_col = "latent_class", rowname_col = "param") %>%
   tab_header(
-    title = "Gender Predicting Math Scores") %>%
+    title = "Predictors of Class Membership") %>%
   cols_label(
-    estimate = md("Estimate (*se*)"),
+    logit = md("Logit (*se*)"),
+    or = md("Odds Ratio"),
+    CI = md("95% CI"),
     pval = md("*p*-value")) %>% 
   sub_missing(1:3,
               missing_text = "") %>%
   sub_values(values = c("999.000"), replacement = "-") %>% 
   cols_align(align = "center") %>% 
   opt_align_table_header(align = "left") %>% 
-  gt::tab_options(table.font.names = "serif")
+  gt::tab_options(table.font.names = "serif") %>%   
+  tab_footnote(
+    footnote = "Reference Class: 4",
+    locations = cells_title(groups = "title")
+  )
 ```
 
 
 ```{=html}
-<div id="rkgeyczvfe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rkgeyczvfe table {
+<div id="qfhpflcfwg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qfhpflcfwg table {
   font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rkgeyczvfe thead, #rkgeyczvfe tbody, #rkgeyczvfe tfoot, #rkgeyczvfe tr, #rkgeyczvfe td, #rkgeyczvfe th {
+#qfhpflcfwg thead, #qfhpflcfwg tbody, #qfhpflcfwg tfoot, #qfhpflcfwg tr, #qfhpflcfwg td, #qfhpflcfwg th {
   border-style: none;
 }
 
-#rkgeyczvfe p {
+#qfhpflcfwg p {
   margin: 0;
   padding: 0;
 }
 
-#rkgeyczvfe .gt_table {
+#qfhpflcfwg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2184,12 +2240,12 @@ cov %>%
   border-left-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_caption {
+#qfhpflcfwg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rkgeyczvfe .gt_title {
+#qfhpflcfwg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2201,7 +2257,7 @@ cov %>%
   border-bottom-width: 0;
 }
 
-#rkgeyczvfe .gt_subtitle {
+#qfhpflcfwg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2213,7 +2269,7 @@ cov %>%
   border-top-width: 0;
 }
 
-#rkgeyczvfe .gt_heading {
+#qfhpflcfwg .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2225,13 +2281,13 @@ cov %>%
   border-right-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_bottom_border {
+#qfhpflcfwg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_col_headings {
+#qfhpflcfwg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2246,7 +2302,7 @@ cov %>%
   border-right-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_col_heading {
+#qfhpflcfwg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2266,7 +2322,7 @@ cov %>%
   overflow-x: hidden;
 }
 
-#rkgeyczvfe .gt_column_spanner_outer {
+#qfhpflcfwg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2278,15 +2334,15 @@ cov %>%
   padding-right: 4px;
 }
 
-#rkgeyczvfe .gt_column_spanner_outer:first-child {
+#qfhpflcfwg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rkgeyczvfe .gt_column_spanner_outer:last-child {
+#qfhpflcfwg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rkgeyczvfe .gt_column_spanner {
+#qfhpflcfwg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2298,11 +2354,11 @@ cov %>%
   width: 100%;
 }
 
-#rkgeyczvfe .gt_spanner_row {
+#qfhpflcfwg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rkgeyczvfe .gt_group_heading {
+#qfhpflcfwg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2328,7 +2384,7 @@ cov %>%
   text-align: left;
 }
 
-#rkgeyczvfe .gt_empty_group_heading {
+#qfhpflcfwg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2343,15 +2399,15 @@ cov %>%
   vertical-align: middle;
 }
 
-#rkgeyczvfe .gt_from_md > :first-child {
+#qfhpflcfwg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rkgeyczvfe .gt_from_md > :last-child {
+#qfhpflcfwg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rkgeyczvfe .gt_row {
+#qfhpflcfwg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2370,7 +2426,7 @@ cov %>%
   overflow-x: hidden;
 }
 
-#rkgeyczvfe .gt_stub {
+#qfhpflcfwg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2383,7 +2439,7 @@ cov %>%
   padding-right: 5px;
 }
 
-#rkgeyczvfe .gt_stub_row_group {
+#qfhpflcfwg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2397,15 +2453,15 @@ cov %>%
   vertical-align: top;
 }
 
-#rkgeyczvfe .gt_row_group_first td {
+#qfhpflcfwg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rkgeyczvfe .gt_row_group_first th {
+#qfhpflcfwg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rkgeyczvfe .gt_summary_row {
+#qfhpflcfwg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2415,16 +2471,16 @@ cov %>%
   padding-right: 5px;
 }
 
-#rkgeyczvfe .gt_first_summary_row {
+#qfhpflcfwg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_first_summary_row.thick {
+#qfhpflcfwg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rkgeyczvfe .gt_last_summary_row {
+#qfhpflcfwg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2434,7 +2490,7 @@ cov %>%
   border-bottom-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_grand_summary_row {
+#qfhpflcfwg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2444,7 +2500,7 @@ cov %>%
   padding-right: 5px;
 }
 
-#rkgeyczvfe .gt_first_grand_summary_row {
+#qfhpflcfwg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2454,7 +2510,7 @@ cov %>%
   border-top-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_last_grand_summary_row_top {
+#qfhpflcfwg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2464,11 +2520,11 @@ cov %>%
   border-bottom-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_striped {
+#qfhpflcfwg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rkgeyczvfe .gt_table_body {
+#qfhpflcfwg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2477,7 +2533,7 @@ cov %>%
   border-bottom-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_footnotes {
+#qfhpflcfwg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2491,7 +2547,7 @@ cov %>%
   border-right-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_footnote {
+#qfhpflcfwg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2500,7 +2556,7 @@ cov %>%
   padding-right: 5px;
 }
 
-#rkgeyczvfe .gt_sourcenotes {
+#qfhpflcfwg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2514,7 +2570,7 @@ cov %>%
   border-right-color: #D3D3D3;
 }
 
-#rkgeyczvfe .gt_sourcenote {
+#qfhpflcfwg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2522,72 +2578,616 @@ cov %>%
   padding-right: 5px;
 }
 
-#rkgeyczvfe .gt_left {
+#qfhpflcfwg .gt_left {
   text-align: left;
 }
 
-#rkgeyczvfe .gt_center {
+#qfhpflcfwg .gt_center {
   text-align: center;
 }
 
-#rkgeyczvfe .gt_right {
+#qfhpflcfwg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rkgeyczvfe .gt_font_normal {
+#qfhpflcfwg .gt_font_normal {
   font-weight: normal;
 }
 
-#rkgeyczvfe .gt_font_bold {
+#qfhpflcfwg .gt_font_bold {
   font-weight: bold;
 }
 
-#rkgeyczvfe .gt_font_italic {
+#qfhpflcfwg .gt_font_italic {
   font-style: italic;
 }
 
-#rkgeyczvfe .gt_super {
+#qfhpflcfwg .gt_super {
   font-size: 65%;
 }
 
-#rkgeyczvfe .gt_footnote_marks {
+#qfhpflcfwg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rkgeyczvfe .gt_asterisk {
+#qfhpflcfwg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rkgeyczvfe .gt_indent_1 {
+#qfhpflcfwg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rkgeyczvfe .gt_indent_2 {
+#qfhpflcfwg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rkgeyczvfe .gt_indent_3 {
+#qfhpflcfwg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rkgeyczvfe .gt_indent_4 {
+#qfhpflcfwg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rkgeyczvfe .gt_indent_5 {
+#qfhpflcfwg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rkgeyczvfe .katex-display {
+#qfhpflcfwg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rkgeyczvfe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qfhpflcfwg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Predictors of Class Membership<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></td>
+    </tr>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="a::stub"></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="logit"><span class='gt_from_md'>Logit (<em>se</em>)</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="pval"><span class='gt_from_md'><em>p</em>-value</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="or"><span class='gt_from_md'>Odds Ratio</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CI"><span class='gt_from_md'>95% CI</span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Class 1">Class 1</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub">Gender</th>
+<td headers="Class 1 stub_1_1 logit" class="gt_row gt_center">0.166 (0.19)</td>
+<td headers="Class 1 stub_1_1 pval" class="gt_row gt_center">0.374</td>
+<td headers="Class 1 stub_1_1 or" class="gt_row gt_center">1.181</td>
+<td headers="Class 1 stub_1_1 CI" class="gt_row gt_center">[0.819, 1.704]</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Class 2">Class 2</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub">Gender</th>
+<td headers="Class 2 stub_1_2 logit" class="gt_row gt_center">0.200 (0.20)</td>
+<td headers="Class 2 stub_1_2 pval" class="gt_row gt_center">0.330</td>
+<td headers="Class 2 stub_1_2 or" class="gt_row gt_center">1.221</td>
+<td headers="Class 2 stub_1_2 CI" class="gt_row gt_center">[0.817, 1.825]</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Class 3">Class 3</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub">Gender</th>
+<td headers="Class 3 stub_1_3 logit" class="gt_row gt_center">0.107 (0.22)</td>
+<td headers="Class 3 stub_1_3 pval" class="gt_row gt_center">0.619</td>
+<td headers="Class 3 stub_1_3 or" class="gt_row gt_center">1.113</td>
+<td headers="Class 3 stub_1_3 CI" class="gt_row gt_center">[0.730, 1.699]</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="5"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Reference Class: 4</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+```
+
+
+##### Distal outcome regressed on the covariate
+
+Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
+
+
+
+``` r
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
+# Extract information as data frame
+donx <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+  filter(param %in% c("FEMALE", "MOTHED")) %>% 
+  mutate(param = str_replace(param, "FEMALE", "Gender")) %>% 
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(LatentClass = sub("^","Class ", LatentClass)) %>%  
+  dplyr::select(!paramHeader) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+    unite(estimate, est, se, sep = " ") %>% 
+  dplyr::select(param, estimate, pval) %>% 
+  distinct(param, .keep_all=TRUE) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+
+
+# Create table
+
+donx %>% 
+  gt(groupname_col = "LatentClass", rowname_col = "param") %>%
+  tab_header(
+    title = "Gender Predicting Math Scores") %>%
+  cols_label(
+    estimate = md("Estimate (*se*)"),
+    pval = md("*p*-value")) %>% 
+  sub_missing(1:3,
+              missing_text = "") %>%
+  sub_values(values = c("999.000"), replacement = "-") %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+```
+
+
+```{=html}
+<div id="ogfxectpnf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ogfxectpnf table {
+  font-family: serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ogfxectpnf thead, #ogfxectpnf tbody, #ogfxectpnf tfoot, #ogfxectpnf tr, #ogfxectpnf td, #ogfxectpnf th {
+  border-style: none;
+}
+
+#ogfxectpnf p {
+  margin: 0;
+  padding: 0;
+}
+
+#ogfxectpnf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ogfxectpnf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ogfxectpnf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ogfxectpnf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ogfxectpnf .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ogfxectpnf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ogfxectpnf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ogfxectpnf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ogfxectpnf .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ogfxectpnf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ogfxectpnf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ogfxectpnf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ogfxectpnf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ogfxectpnf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ogfxectpnf .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ogfxectpnf .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ogfxectpnf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ogfxectpnf .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ogfxectpnf .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ogfxectpnf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ogfxectpnf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ogfxectpnf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ogfxectpnf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ogfxectpnf .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ogfxectpnf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ogfxectpnf .gt_left {
+  text-align: left;
+}
+
+#ogfxectpnf .gt_center {
+  text-align: center;
+}
+
+#ogfxectpnf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ogfxectpnf .gt_font_normal {
+  font-weight: normal;
+}
+
+#ogfxectpnf .gt_font_bold {
+  font-weight: bold;
+}
+
+#ogfxectpnf .gt_font_italic {
+  font-style: italic;
+}
+
+#ogfxectpnf .gt_super {
+  font-size: 65%;
+}
+
+#ogfxectpnf .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ogfxectpnf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ogfxectpnf .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ogfxectpnf .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ogfxectpnf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ogfxectpnf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ogfxectpnf .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ogfxectpnf .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ogfxectpnf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2613,6 +3213,669 @@ cov %>%
 </table>
 </div>
 ```
+
+
+
+
+------------------------------------------------------------------------
+
+#### Step 3 - LCA Auxiliary Variable Model with 1 covariate
+
+------------------------------------------------------------------------
+##### Estimate LCA Model
+
+
+``` r
+step3  <- mplusObject(
+  TITLE = "Step3 - 3step LSAY", 
+  
+  VARIABLE = 
+ "nominal=N;
+  usevar = n;
+  
+  classes = c(4);
+  
+  usevar = mothed math_irt;" ,
+  
+  ANALYSIS = 
+ "estimator = mlr; 
+  type = mixture; 
+  starts = 0;",
+ 
+  DEFINE = 
+   "center mothed (grandmean);",
+  
+  MODEL =
+  glue(
+ " %OVERALL%
+ 
+  math_irt on mothed; ! covariate as a predictor of the distal outcome
+  C on mothed;        ! covariate as predictor of C
+
+     %C#1%
+  [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model. 
+  [n#2@{logit_cprobs[1,2]}];
+  [n#3@{logit_cprobs[1,3]}];
+  
+  [math_irt](m1);    ! conditional distal mean 
+  math_irt;          ! conditional distal variance (freely estimated)
+
+  %C#2%
+  [n#1@{logit_cprobs[2,1]}];
+  [n#2@{logit_cprobs[2,2]}];
+  [n#3@{logit_cprobs[2,3]}];
+  
+  [math_irt](m2);
+  math_irt;
+  
+  %C#3%
+  [n#1@{logit_cprobs[3,1]}];
+  [n#2@{logit_cprobs[3,2]}];
+  [n#3@{logit_cprobs[3,3]}];
+  
+  [math_irt](m3);
+  math_irt;
+
+  %C#4%
+  [n#1@{logit_cprobs[4,1]}];
+  [n#2@{logit_cprobs[4,2]}];
+  [n#3@{logit_cprobs[4,3]}];
+  
+  [math_irt](m4);
+  math_irt; "),
+  
+  MODELCONSTRAINT = 
+   "New (diff12 diff13 diff23 
+    diff14 diff24 diff34);
+  
+    diff12 = m1-m2;  ! test pairwise distal mean differences
+    diff13 = m1-m3;
+    diff23 = m2-m3;
+    diff14 = m1-m4;
+    diff24 = m2-m4;
+    diff34 = m3-m4;",
+  
+  MODELTEST = "     ! omnibus test of distal means 
+    m1=m2;
+    m2=m3;
+    m3=m4;",
+ 
+  usevariables = colnames(savedata), 
+  rdata = savedata)
+
+step3_fit <- mplusModeler(step3,
+               dataout=here("three_step", "manual_3step", "Step3.dat"), 
+               modelout=here("three_step", "manual_3step", "three.inp"), 
+               check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+
+------------------------------------------------------------------------
+ 
+##### Covariates Relations (single covariate)
+
+------------------------------------------------------------------------
+
+
+``` r
+modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
+
+# Extract information as data frame
+cov <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+   filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+#  mutate(param = str_replace(param, "FEMALE", "Gender")) %>% # Change this to your own covariates
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3),
+         se = round(se, 2),
+         pval = round(pval, 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  dplyr::select(param, est, se, pval, latent_class) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+  unite(logit, est, se, sep = " ") %>% 
+  dplyr::select(param, logit, pval, latent_class) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001)))) 
+
+or <- as.data.frame(modelParams[["parameters"]][["odds"]]) %>%
+  filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+ # mutate(param = str_replace(param, "FEMALE", "Gender")) %>% # Change this to your own covariates
+  mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  mutate(CI = paste0("[", format(round(lower_2.5ci, 3), nsmall = 3), ", ", format(round(upper_2.5ci, 3), nsmall = 3), "]")) %>% 
+  dplyr::select(param, est, CI, latent_class) %>% 
+  rename(or = est)
+  
+combined <- or %>% 
+  full_join(cov) %>% 
+  dplyr::select(param, latent_class, logit, pval, or, CI)
+
+
+# Create table
+
+combined %>% 
+  gt(groupname_col = "latent_class", rowname_col = "param") %>%
+  tab_header(
+    title = "Covariate Results: Mother's Education on Class") %>%
+  cols_label(
+    logit = md("Logit (*se*)"),
+    or = md("Odds Ratio"),
+    CI = md("95% CI"),
+    pval = md("*p*-value")) %>% 
+  sub_missing(1:3,
+              missing_text = "") %>%
+  sub_values(values = c("999.000"), replacement = "-") %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif") %>%   
+  tab_footnote(
+    footnote = "Reference Class: 4",
+    locations = cells_title(groups = "title")
+  )
+```
+
+
+```{=html}
+<div id="mvxoqznlrr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mvxoqznlrr table {
+  font-family: serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mvxoqznlrr thead, #mvxoqznlrr tbody, #mvxoqznlrr tfoot, #mvxoqznlrr tr, #mvxoqznlrr td, #mvxoqznlrr th {
+  border-style: none;
+}
+
+#mvxoqznlrr p {
+  margin: 0;
+  padding: 0;
+}
+
+#mvxoqznlrr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mvxoqznlrr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mvxoqznlrr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mvxoqznlrr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mvxoqznlrr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mvxoqznlrr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mvxoqznlrr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mvxoqznlrr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mvxoqznlrr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mvxoqznlrr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mvxoqznlrr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mvxoqznlrr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mvxoqznlrr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mvxoqznlrr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mvxoqznlrr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvxoqznlrr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mvxoqznlrr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mvxoqznlrr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mvxoqznlrr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvxoqznlrr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mvxoqznlrr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvxoqznlrr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mvxoqznlrr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvxoqznlrr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mvxoqznlrr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mvxoqznlrr .gt_left {
+  text-align: left;
+}
+
+#mvxoqznlrr .gt_center {
+  text-align: center;
+}
+
+#mvxoqznlrr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mvxoqznlrr .gt_font_normal {
+  font-weight: normal;
+}
+
+#mvxoqznlrr .gt_font_bold {
+  font-weight: bold;
+}
+
+#mvxoqznlrr .gt_font_italic {
+  font-style: italic;
+}
+
+#mvxoqznlrr .gt_super {
+  font-size: 65%;
+}
+
+#mvxoqznlrr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mvxoqznlrr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mvxoqznlrr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mvxoqznlrr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mvxoqznlrr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mvxoqznlrr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mvxoqznlrr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mvxoqznlrr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mvxoqznlrr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Covariate Results: Mother's Education on Class<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></td>
+    </tr>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="a::stub"></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="logit"><span class='gt_from_md'>Logit (<em>se</em>)</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="pval"><span class='gt_from_md'><em>p</em>-value</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="or"><span class='gt_from_md'>Odds Ratio</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CI"><span class='gt_from_md'>95% CI</span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Class 1">Class 1</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub">FEMALE</th>
+<td headers="Class 1 stub_1_1 logit" class="gt_row gt_center">0.166 (0.19)</td>
+<td headers="Class 1 stub_1_1 pval" class="gt_row gt_center">0.374</td>
+<td headers="Class 1 stub_1_1 or" class="gt_row gt_center">1.181</td>
+<td headers="Class 1 stub_1_1 CI" class="gt_row gt_center">[0.819, 1.704]</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Class 2">Class 2</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub">FEMALE</th>
+<td headers="Class 2 stub_1_2 logit" class="gt_row gt_center">0.200 (0.20)</td>
+<td headers="Class 2 stub_1_2 pval" class="gt_row gt_center">0.330</td>
+<td headers="Class 2 stub_1_2 or" class="gt_row gt_center">1.221</td>
+<td headers="Class 2 stub_1_2 CI" class="gt_row gt_center">[0.817, 1.825]</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Class 3">Class 3</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub">FEMALE</th>
+<td headers="Class 3 stub_1_3 logit" class="gt_row gt_center">0.107 (0.22)</td>
+<td headers="Class 3 stub_1_3 pval" class="gt_row gt_center">0.619</td>
+<td headers="Class 3 stub_1_3 or" class="gt_row gt_center">1.113</td>
+<td headers="Class 3 stub_1_3 CI" class="gt_row gt_center">[0.730, 1.699]</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="5"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Reference Class: 4</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+```
+
 
 
 

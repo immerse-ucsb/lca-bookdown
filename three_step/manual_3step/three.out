@@ -1,6 +1,6 @@
 Mplus VERSION 8.11
 MUTHEN & MUTHEN
-05/26/2025   4:17 PM
+07/28/2025   4:39 PM
 
 INPUT INSTRUCTIONS
 
@@ -10,8 +10,8 @@ INPUT INSTRUCTIONS
   FILE = "C:/Users/dnajiarch/Box/lca-bookdown/three_step/manual_3step/
   Step3.dat";
   VARIABLE:
-  NAMES = ENJOY USEFUL LOGICAL JOB ADULT FEMALE MATH_IRT CPROB1 CPROB2 CPROB3 CPROB4
-       N;
+  NAMES = ENJOY USEFUL LOGICAL JOB ADULT FEMALE MOTHED MATH_IRT CPROB1 CPROB2 CPROB3
+       CPROB4 N;
    MISSING=.;
    nominal=N;
     usevar = n;
@@ -605,8 +605,8 @@ Parameterization using Reference Class 3
     FEMALE             0.898      0.194      0.589      1.371
 
 
-     Beginning Time:  16:17:15
-        Ending Time:  16:17:16
+     Beginning Time:  16:39:41
+        Ending Time:  16:39:42
        Elapsed Time:  00:00:01
 
 

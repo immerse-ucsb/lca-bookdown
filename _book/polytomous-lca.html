@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Polytomous LCA deals with variables that have more than two categories, such as survey questions with responses like never, sometimes, and always. The workflow of a polytomous LCA model is similar...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
@@ -103,7 +103,7 @@
 <p>Two sets of six questions with four responses each, asking respondents’ opinions of how well various traits describe presidential candidates Al Gore and George W. Bush. In the election data set, respondents to the 2000 American National Election Study public opinion poll were asked to evaluate how well a series of traits—moral, caring, knowledgeable, good leader, dishonest, and intelligent—described presidential candidates Al Gore and George W. Bush. Each question had four possible choices: (1) extremely well; (2) quite well; (3) not too well; and (4) not well at all.</p>
 <hr>
 <p>Load packages</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dlinzer/poLCA">poLCA</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
@@ -118,7 +118,7 @@
 <h2>
 <span class="header-section-number">6.2</span> Prepare Data<a class="anchor" aria-label="anchor" href="#prepare-data-2"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">election</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Detaching packages that mask the dpylr functions </span></span>
@@ -164,7 +164,7 @@
 <h2>
 <span class="header-section-number">6.3</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-2"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">df_election</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">moralb1</span><span class="op">:</span><span class="va">intelb1</span>, names_to <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">variable</span>, <span class="va">value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># Count occurrences of each value for each variable</span></span>
@@ -189,23 +189,23 @@
 <span></span>
 <span><span class="co"># View the table</span></span>
 <span><span class="va">prop_table</span></span></code></pre></div>
-<div id="fubizraczr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fubizraczr table {
+<div id="jdkkmbdivs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jdkkmbdivs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fubizraczr thead, #fubizraczr tbody, #fubizraczr tfoot, #fubizraczr tr, #fubizraczr td, #fubizraczr th {
+#jdkkmbdivs thead, #jdkkmbdivs tbody, #jdkkmbdivs tfoot, #jdkkmbdivs tr, #jdkkmbdivs td, #jdkkmbdivs th {
   border-style: none;
 }
 
-#fubizraczr p {
+#jdkkmbdivs p {
   margin: 0;
   padding: 0;
 }
 
-#fubizraczr .gt_table {
+#jdkkmbdivs .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -231,12 +231,12 @@
   border-left-color: #D3D3D3;
 }
 
-#fubizraczr .gt_caption {
+#jdkkmbdivs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fubizraczr .gt_title {
+#jdkkmbdivs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -248,7 +248,7 @@
   border-bottom-width: 0;
 }
 
-#fubizraczr .gt_subtitle {
+#jdkkmbdivs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -260,7 +260,7 @@
   border-top-width: 0;
 }
 
-#fubizraczr .gt_heading {
+#jdkkmbdivs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -272,13 +272,13 @@
   border-right-color: #D3D3D3;
 }
 
-#fubizraczr .gt_bottom_border {
+#jdkkmbdivs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fubizraczr .gt_col_headings {
+#jdkkmbdivs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -293,7 +293,7 @@
   border-right-color: #D3D3D3;
 }
 
-#fubizraczr .gt_col_heading {
+#jdkkmbdivs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -313,7 +313,7 @@
   overflow-x: hidden;
 }
 
-#fubizraczr .gt_column_spanner_outer {
+#jdkkmbdivs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -325,15 +325,15 @@
   padding-right: 4px;
 }
 
-#fubizraczr .gt_column_spanner_outer:first-child {
+#jdkkmbdivs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fubizraczr .gt_column_spanner_outer:last-child {
+#jdkkmbdivs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fubizraczr .gt_column_spanner {
+#jdkkmbdivs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -345,11 +345,11 @@
   width: 100%;
 }
 
-#fubizraczr .gt_spanner_row {
+#jdkkmbdivs .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fubizraczr .gt_group_heading {
+#jdkkmbdivs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -375,7 +375,7 @@
   text-align: left;
 }
 
-#fubizraczr .gt_empty_group_heading {
+#jdkkmbdivs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -390,15 +390,15 @@
   vertical-align: middle;
 }
 
-#fubizraczr .gt_from_md > :first-child {
+#jdkkmbdivs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fubizraczr .gt_from_md > :last-child {
+#jdkkmbdivs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fubizraczr .gt_row {
+#jdkkmbdivs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -417,7 +417,7 @@
   overflow-x: hidden;
 }
 
-#fubizraczr .gt_stub {
+#jdkkmbdivs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -430,7 +430,7 @@
   padding-right: 5px;
 }
 
-#fubizraczr .gt_stub_row_group {
+#jdkkmbdivs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -444,15 +444,15 @@
   vertical-align: top;
 }
 
-#fubizraczr .gt_row_group_first td {
+#jdkkmbdivs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fubizraczr .gt_row_group_first th {
+#jdkkmbdivs .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fubizraczr .gt_summary_row {
+#jdkkmbdivs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -462,16 +462,16 @@
   padding-right: 5px;
 }
 
-#fubizraczr .gt_first_summary_row {
+#jdkkmbdivs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fubizraczr .gt_first_summary_row.thick {
+#jdkkmbdivs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fubizraczr .gt_last_summary_row {
+#jdkkmbdivs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -481,7 +481,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#fubizraczr .gt_grand_summary_row {
+#jdkkmbdivs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -491,7 +491,7 @@
   padding-right: 5px;
 }
 
-#fubizraczr .gt_first_grand_summary_row {
+#jdkkmbdivs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -501,7 +501,7 @@
   border-top-color: #D3D3D3;
 }
 
-#fubizraczr .gt_last_grand_summary_row_top {
+#jdkkmbdivs .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -511,11 +511,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#fubizraczr .gt_striped {
+#jdkkmbdivs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fubizraczr .gt_table_body {
+#jdkkmbdivs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -524,7 +524,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#fubizraczr .gt_footnotes {
+#jdkkmbdivs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -538,7 +538,7 @@
   border-right-color: #D3D3D3;
 }
 
-#fubizraczr .gt_footnote {
+#jdkkmbdivs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -547,7 +547,7 @@
   padding-right: 5px;
 }
 
-#fubizraczr .gt_sourcenotes {
+#jdkkmbdivs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -561,7 +561,7 @@
   border-right-color: #D3D3D3;
 }
 
-#fubizraczr .gt_sourcenote {
+#jdkkmbdivs .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -569,72 +569,72 @@
   padding-right: 5px;
 }
 
-#fubizraczr .gt_left {
+#jdkkmbdivs .gt_left {
   text-align: left;
 }
 
-#fubizraczr .gt_center {
+#jdkkmbdivs .gt_center {
   text-align: center;
 }
 
-#fubizraczr .gt_right {
+#jdkkmbdivs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fubizraczr .gt_font_normal {
+#jdkkmbdivs .gt_font_normal {
   font-weight: normal;
 }
 
-#fubizraczr .gt_font_bold {
+#jdkkmbdivs .gt_font_bold {
   font-weight: bold;
 }
 
-#fubizraczr .gt_font_italic {
+#jdkkmbdivs .gt_font_italic {
   font-style: italic;
 }
 
-#fubizraczr .gt_super {
+#jdkkmbdivs .gt_super {
   font-size: 65%;
 }
 
-#fubizraczr .gt_footnote_marks {
+#jdkkmbdivs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fubizraczr .gt_asterisk {
+#jdkkmbdivs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fubizraczr .gt_indent_1 {
+#jdkkmbdivs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fubizraczr .gt_indent_2 {
+#jdkkmbdivs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fubizraczr .gt_indent_3 {
+#jdkkmbdivs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fubizraczr .gt_indent_4 {
+#jdkkmbdivs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fubizraczr .gt_indent_5 {
+#jdkkmbdivs .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fubizraczr .katex-display {
+#jdkkmbdivs .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fubizraczr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jdkkmbdivs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -821,7 +821,7 @@
 </tbody>
 </table></div>
 </div>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Save as a Word doc</span></span>
 <span><span class="co">#gtsave(prop_table, here("figures", "prop_table.docx"))</span></span></code></pre></div>
@@ -832,7 +832,7 @@
 <span class="header-section-number">6.4</span> Enumeration<a class="anchor" aria-label="anchor" href="#enumeration-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>This code uses the <code>mplusObject</code> function in the <code>MplusAutomation</code> package.</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lca_enumeration</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">lca_enum</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
@@ -866,7 +866,7 @@
 <h3>
 <span class="header-section-number">6.4.1</span> Table of Fit<a class="anchor" aria-label="anchor" href="#table-of-fit-2"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"enum_table.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">output_election</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"poLCA"</span><span class="op">)</span>, filefilter <span class="op">=</span> <span class="st">"election"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -1443,7 +1443,7 @@ cmPk = approximate correct model probability.</span>
 </div>
 <hr>
 <p>Save table:</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html">gtsave</a></span><span class="op">(</span><span class="va">fit_table</span>, <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"fit_table.png"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -1451,12 +1451,12 @@ cmPk = approximate correct model probability.</span>
 <h3>
 <span class="header-section-number">6.4.2</span> Information Criteria Plot<a class="anchor" aria-label="anchor" href="#information-criteria-plot-2"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ic_plot</span><span class="op">(</span><span class="va">output_election</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="06-poly-lca_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <hr>
 <p>Save figure:</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"info_criteria.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>, height<span class="op">=</span><span class="fl">5</span>, width<span class="op">=</span><span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -1472,7 +1472,7 @@ cmPk = approximate correct model probability.</span>
 <strong><code>category_labels</code></strong>: A character vector of category labels for the response options (e.g., survey answers).</li>
 </ul>
 <p>Note: Double check that the labels are in the correct order!</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"poLCA_plot.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">poLCA_stacked</span><span class="op">(</span><span class="va">output_election</span><span class="op">$</span><span class="va">c5_election.out</span>, category_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span> <span class="op">=</span> <span class="st">"1: Extremely well"</span>, </span>
@@ -1481,7 +1481,7 @@ cmPk = approximate correct model probability.</span>
 <span>                                                                   <span class="st">"4"</span> <span class="op">=</span> <span class="st">"4: Not Well at All"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="06-poly-lca_files/figure-html/unnamed-chunk-9-1.png" width="1728"></div>
 <p>Alternative plot</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">poLCA_grouped</span><span class="op">(</span><span class="va">output_election</span><span class="op">$</span><span class="va">c5_election.out</span>, category_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span> <span class="op">=</span> <span class="st">"1: Extremely well"</span>, </span>
 <span>                                                                   <span class="st">"2"</span> <span class="op">=</span> <span class="st">"2: Quite Well"</span>, </span>
 <span>                                                                   <span class="st">"3"</span> <span class="op">=</span> <span class="st">"3: Not Too Well"</span>, </span>
@@ -1493,7 +1493,7 @@ cmPk = approximate correct model probability.</span>
 <h3>
 <span class="header-section-number">6.4.4</span> APA-formatted Plot<a class="anchor" aria-label="anchor" href="#apa-formatted-plot"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Model </span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="va">output_election</span><span class="op">$</span><span class="va">c5_election.out</span></span>
 <span></span>
@@ -1528,7 +1528,7 @@ cmPk = approximate correct model probability.</span>
 <h4>
 <span class="header-section-number">6.4.4.1</span> Extract data needed for plotting<a class="anchor" aria-label="anchor" href="#extract-data-needed-for-plotting"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Extract data needed for plotting </span></span>
 <span><span class="va">plot_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">probability.scale</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">est</span>, <span class="va">LatentClass</span>, <span class="va">param</span>, <span class="va">category</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1544,7 +1544,7 @@ cmPk = approximate correct model probability.</span>
 <h4>
 <span class="header-section-number">6.4.4.2</span> Final grouped bar plot<a class="anchor" aria-label="anchor" href="#final-grouped-bar-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co">## Plot data</span></span>
 <span><span class="va">plot_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1585,7 +1585,7 @@ cmPk = approximate correct model probability.</span>
 <div class="inline-figure"><img src="06-poly-lca_files/figure-html/unnamed-chunk-13-1.png" width="1440"></div>
 <hr>
 <p>Save figure:</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"APA_plot1.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>, height<span class="op">=</span><span class="fl">9</span>, width<span class="op">=</span><span class="fl">15</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -1593,7 +1593,7 @@ cmPk = approximate correct model probability.</span>
 <h4>
 <span class="header-section-number">6.4.4.3</span> Alternative<a class="anchor" aria-label="anchor" href="#alternative"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Plot data</span></span>
 <span><span class="va">plot_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
@@ -1633,7 +1633,7 @@ cmPk = approximate correct model probability.</span>
 <div class="inline-figure"><img src="06-poly-lca_files/figure-html/unnamed-chunk-15-1.png" width="1632"></div>
 <hr>
 <p>Save figure:</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"APA_plot2.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>, height<span class="op">=</span><span class="fl">10</span>, width<span class="op">=</span><span class="fl">17</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <div style="text-align: center;">
 <img src="images/ucsb_logo.png" width="75%">
@@ -1678,7 +1678,7 @@ cmPk = approximate correct model probability.</span>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-06-08.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-07-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

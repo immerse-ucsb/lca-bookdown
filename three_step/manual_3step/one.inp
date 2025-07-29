@@ -1,8 +1,8 @@
 TITLE:
 Step 1 - Three-Step using LSAL
 DATA:
-FILE = "C:/Users/dnajiarch/Box/lca-bookdown/three_step/manual_3step/
-Step1.dat"; 
+FILE = "C:/Users/Karen Nylund-Gibson/Box/lca-bookdown/three_step/manual_3step/Step1.dat";
+ 
 VARIABLE:
 NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
      undrstnd nervous scared useful logical job adult female; 
@@ -13,7 +13,7 @@ NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
    classes = c(4); 
     
    auxiliary =   ! list all potential covariates and distals here
-   female        ! covariate
+   female  mothed      ! covariate
    math_irt;      ! distal math test score in 12th grade 
 ANALYSIS:
 estimator = mlr; 
