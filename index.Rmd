@@ -28,15 +28,31 @@ csl: chicago-fullnote-bibliography.csl
 
 ## Acknowledgements {.unnumbered}
 
-<div>
-
+::: {style="text-align: center;"}
 <img src="images/ies_logo.jpg" class="cover" width="250"/>
-
-</div>
+:::
 
 The Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (IMMERSE) is an IES funded training grant (R305B220021) to support education scholars in integrating mixture modeling into their research.
 
 How to reference this workshop: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025). IMMERSE Online Resources (IES No. 305B220021). Institute of Education Sciences. <https://mixture-modeling.netlify.app/>
+
+## Authors & Contributors {.unnumbered}
+
+This resource was developed by the IMMERSE team:
+
+-   **Dina Arch, PhD**, Postdoctoral Scholar
+
+-   **Karen Nylund-Gibson, PhD**, Principal Investigator
+
+-   **Marsha Ing, PhD**, Co-Principal Investigator
+
+Additional code contributors:
+
+-   **Adam Garber, PhD**
+
+-   **Delwin Carter, PhD**
+
+We also thank all the IMMERSE fellows who provided feedback during the development of these materials.
 
 ::: {style="text-align: center;"}
 <img src="images/ucsb_logo.png" width="75%"/>
