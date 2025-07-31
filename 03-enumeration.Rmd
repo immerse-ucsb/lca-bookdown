@@ -562,7 +562,7 @@ Use the `plot_lca` function provided in the folder to plot the item probability 
 - `model_name`: The name of the Mplus `readModels` object (e.g., `output_enum$c3_bully.out`)
 
 ```{r, height=5, width=7}
-source("plot_lca.txt")
+source(here("functions", "plot_lca.R"))
 
 plot_lca(model_name = output_enum$c3_bully.out)
 ```

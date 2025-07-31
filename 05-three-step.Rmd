@@ -469,7 +469,7 @@ step1_fit <- mplusModeler(step1,
 
 
 ```{r, fig.height=6, fig.width=10}
-source("plot_lca.txt")
+source(here("functions", "plot_lca.R"))
 output_lsay <- readModels(here("three_step", "manual_3step","one.out"))
 
 plot_lca(model_name = output_lsay)
