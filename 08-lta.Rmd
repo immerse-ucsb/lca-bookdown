@@ -5,6 +5,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE) #Here, I have made it so that when you knit your .rmd, warnings and messages will not show up in the html markdown. 
 ```
 
+# (PART) Extensions of Latent Class Models {-}
 
 # Latent Transition Analysis
 

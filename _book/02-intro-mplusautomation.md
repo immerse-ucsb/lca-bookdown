@@ -2,7 +2,7 @@
 
 
 
-# Introduction to `MplusAutomation`
+# `MplusAutomation`
 
 ---
 
