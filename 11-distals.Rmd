@@ -794,17 +794,18 @@ step3_fit_bch <- mplusModeler(step3_bch,
 
 The distal means of the outcome variables are located in the 'MODEL RESULTS' section. The excerpt below presents the distal means of *math job* and *math IRT score* for Latent Class 1.
 
-![](distal/figures/fig_5.png){width="450"}
+![](distals/figures/fig_5.png){width="450"}
 
 Note that the class numbering may not be consistent across different methods. Check the class proportions to make sure that we are comparing the same class across methods. For example, Latent Class 1 in the BCH results matches the Latent Class 4 in the ML 3-step results..
 
 ML-3 step results
 
-![](distal/figures/fig_6.png){width="430"}
+![](distals/figures/fig_6.png){width="430"}
 
 BCH approach results
 
-![](distal/figures/fig_7.png){width="430"}
+![](distals/figures/fig_7.png){width="430"}
+
 ------------------------------------------------------------------------
 
 ::: {style="text-align: center;"}

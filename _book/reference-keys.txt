@@ -191,4 +191,3 @@ bch-approach
 step-1---class-enumeration-w-auxiliary-specification-and-bch-weights
 step-2---extract-bch-weights
 step-3---add-auxiliary-variables-and-bch-weights
-section

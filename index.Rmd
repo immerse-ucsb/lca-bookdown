@@ -28,11 +28,7 @@ csl: chicago-fullnote-bibliography.csl
 
 ## Acknowledgements {.unnumbered}
 
-::: {style="text-align: center;"}
-<img src="images/ies_logo.jpg" width=250/>
-:::
-
-The Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (IMMERSE) is an IES funded training grant (R305B220021) to support education scholars in integrating mixture modeling into their research.
+<img src="images/ies_logo.png" class="cover" width="250"/> The Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (IMMERSE) is an IES funded training grant (R305B220021) to support education scholars in integrating mixture modeling into their research.
 
 How to reference this workshop: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025). IMMERSE Online Resources (IES No. 305B220021). Institute of Education Sciences. <https://mixture-modeling.netlify.app/>
 
