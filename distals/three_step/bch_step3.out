@@ -1,0 +1,1344 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+07/30/2025   7:53 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Step3 - BCH Method
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/distals/three_step/
+  BCH_Step3.dat";
+  VARIABLE:
+  NAMES = ENJOYM GOODM UNDRSTDM NERVOUSM SCAREDM FEMALE MATHJOB MATHIRT BCHW1 BCHW2
+       BCHW3 BCHW4 CPROB1 CPROB2 CPROB3 CPROB4 N;
+   MISSING=.;
+   classes = c(4);
+
+    missing are all(9999);
+
+    usevar = BCHW1-BCHW4 mathjob mathirt female;
+
+    training = BCHW1-BCHW4(bch);
+  ANALYSIS:
+  estimator = mlr;
+    type = mixture;
+    starts = 500 200;
+  MODEL:
+  %OVERALL%
+
+  mathirt on female; ! covariate as a predictor of the distal outcome
+  mathjob on female;
+  C on female;        ! covariate as predictor of C
+
+  %C#1%
+
+  [mathirt](m1);    ! conditional distal mean
+  mathirt;          ! conditional distal variance (freely estimated)
+  [mathjob](j1);
+  mathjob;
+
+  mathirt on female (rm1);
+  mathjob on female (rj1);
+
+  %C#2%
+
+  [mathirt](m2);
+  mathirt;
+  [mathjob](j2);
+  mathjob;
+
+  mathirt on female (rm2);
+  mathjob on female (rj2);
+
+  %C#3%
+
+  [mathirt](m3);
+  mathirt;
+  [mathjob](j3);
+  mathjob;
+
+  mathirt on female (rm3);
+  mathjob on female (rj3);
+
+  %C#4%
+
+  [mathirt](m4);
+  mathirt;
+  [mathjob](j4);
+  mathjob;
+
+   mathirt on female (rm4);
+   mathjob on female (rj4);
+  MODEL CONSTRAINT:
+  New (dm1v2 dm1v3 dm2v3 dm1v4 dm2v4 dm3v4
+     dj1v2 dj1v3 dj2v3 dj1v4 dj2v4 dj3v4
+      );
+
+      dm1v2 = m1-m2;  ! test pairwise distal mean differences of IRT score
+      dm1v3 = m1-m3;
+      dm2v3 = m2-m3;
+      dm1v4 = m1-m4;
+      dm2v4 = m2-m4;
+      dm3v4 = m3-m4;
+      dj1v2 = j1-j2;  ! test pairwise distal mean differences of math job
+      dj1v3 = j1-j3;
+      dj2v3 = j2-j3;
+      dj1v4 = j1-j4;
+      dj2v4 = j2-j4;
+      dj3v4 = j3-j4;
+  MODEL TEST:
+       ! omnibus test of distal means
+      m1=m2;
+      m2=m3;
+      m3=m4;
+      j1=j2;
+      j2=j3;
+      j3=j4;
+
+  OUTPUT:
+  Tech1 svalues sampstat
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+Step3 - BCH Method
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2675
+
+Number of dependent variables                                    2
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   MATHJOB     MATHIRT
+
+Observed independent variables
+   FEMALE
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  Training variables (BCH)
+   BCHW1       BCHW2       BCHW3       BCHW4
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          200
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/distals/three_step/BCH_Step3.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             4
+     Number of y missing data patterns           4
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.800
+ MATHIRT        0.724         0.771
+ FEMALE         0.800         0.771         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                0.685        58.747         0.485
+
+
+           Covariances
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.215
+ MATHIRT        0.940       157.847
+ FEMALE         0.006         0.288         0.250
+
+
+           Correlations
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        1.000
+ MATHIRT        0.161         1.000
+ FEMALE         0.027         0.046         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -11452.595
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     MATHJOB               0.687      -0.805       0.000   31.32%       0.000      1.000      1.000
+            2139.000       0.215      -1.351       1.000   68.68%       1.000      1.000
+     MATHIRT              58.829      -0.068      26.570    0.05%      47.240     55.710     59.290
+            2063.000     157.729      -0.541      94.190    0.05%      62.900     70.160
+     FEMALE                0.485       0.059       0.000   51.48%       0.000      0.000      0.000
+            2675.000       0.250      -1.997       1.000   48.52%       1.000      1.000
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -12744.043  unperturbed      0
+          -12744.043  462228           298
+          -12744.043  741484           441
+          -12744.043  674171           195
+          -12744.043  945065           255
+          -12744.043  950604           172
+          -12744.043  918558           412
+          -12744.043  282464           283
+          -12744.043  997222           229
+          -12744.043  732596           320
+          -12744.043  85734            411
+          -12744.043  359578           458
+          -12744.043  654136           167
+          -12744.043  576726           280
+          -12744.043  170954           86
+          -12744.043  471040           403
+          -12744.043  570908           98
+          -12744.043  860772           174
+          -13912.383  791396           243
+          -20850.238  224950           455
+          -28792.951  30098            209
+          -43144.852  829540           324
+          -45923.547  418686           338
+          -57964.733  93468            3
+          -89086.573  425982           485
+          -92488.457  856536           144
+          -96075.125  823392           479
+          -99236.415  414284           158
+         -100000.963  551639           55
+         -104162.608  875667           367
+         -109797.156  502532           445
+         -113192.034  928287           197
+         -115869.683  662718           460
+         -123173.497  691234           250
+         -133735.494  286735           175
+         -144164.610  563002           360
+         -145338.923  481835           57
+         -147136.985  22362            365
+         -151473.263  411615           171
+         -159803.926  81117            305
+         -163999.113  700349           401
+         -164103.672  319144           176
+         -169076.538  863094           147
+         -172632.777  887580           493
+         -183002.202  573096           20
+         -186671.694  392751           480
+         -196079.023  395754           388
+         -198384.114  313407           132
+         -209066.822  741888           138
+         -214969.460  21132            351
+         -227571.252  534483           290
+         -231601.244  354624           448
+         -241819.173  354395           486
+         -242687.306  913639           162
+         -244939.373  848890           95
+         -247113.473  821011           161
+         -251771.884  609185           181
+         -251985.888  140442           500
+         -262761.259  669634           335
+         -281447.308  347515           24
+         -285744.623  582296           452
+         -292998.325  595153           230
+         -294296.065  804561           59
+         -310404.375  748692           204
+         -310404.559  263221           447
+         -310486.942  485256           371
+         -310492.650  760878           249
+         -310713.338  23012            352
+         -310989.590  849670           347
+         -311737.234  804660           260
+         -311979.757  645664           39
+         -312399.780  512836           289
+         -313228.061  301180           236
+         -314526.379  354559           73
+         -316913.589  972430           491
+         -319004.056  614535           449
+         -322801.361  100874           108
+         -323229.507  350608           334
+         -327751.225  891531           206
+         -328003.204  544048           87
+         -330508.390  437181           135
+         -330543.380  76337            76
+         -331956.033  281462           285
+         -342825.749  285380           1
+         -361769.487  267983           228
+         -371964.352  605161           409
+         -383492.350  364676           27
+         -387272.448  131856           90
+         -402391.369  617243           237
+         -407689.960  602797           336
+         -426128.396  344422           296
+         -489694.545  438144           271
+         -502582.836  622860           259
+         -503530.728  153394           429
+         -518361.774  587946           120
+         -518708.855  371246           101
+         -527230.707  790452           303
+         -529450.357  985387           381
+         -534494.321  963053           43
+         -537347.148  853195           431
+         -544715.920  636396           168
+         -551097.556  315029           471
+         -560229.839  535063           329
+         -560525.608  40340            188
+         -595619.812  329127           185
+         -609467.224  754100           56
+         -633980.822  939021           8
+         -652896.868  931874           141
+         -657367.530  679832           302
+         -657397.852  76974            16
+         -657652.973  802779           122
+         -676988.275  714455           476
+         -680344.523  417035           149
+         -698646.501  311214           64
+         -720388.117  405079           68
+         -741743.745  168762           200
+         -752775.397  561664           392
+         -766706.027  545140           278
+         -768722.529  170118           238
+         -789758.469  85462            51
+         -793167.188  629320           222
+         -793167.586  903420           5
+         -799362.860  575700           100
+         -811109.173  202790           198
+         -811187.517  178475           231
+         -811269.768  836515           341
+         -811849.374  263268           165
+         -815511.435  978061           488
+         -815682.060  399848           220
+         -820432.047  335485           496
+         -820833.808  900268           327
+         -845214.417  824126           287
+         -845457.295  569833           85
+         -845537.827  268217           83
+         -864017.386  618000           190
+         -865473.867  15715            274
+         -872234.004  534864           307
+         -882101.070  36714            201
+         -896478.465  366706           29
+         -915255.779  68850            462
+         -920954.871  370466           41
+         -955543.292  992389           77
+         -982871.478  246261           38
+         -997200.218  120506           45
+         -998050.757  321390           133
+        -1001036.634  784664           75
+        -1042460.695  216565           474
+        -1045301.827  830570           369
+        -1045301.829  358488           264
+        -1045301.830  797594           234
+        -1045301.830  478421           311
+        -1045301.830  193042           316
+        -1045301.830  788796           145
+        -1045301.830  965994           396
+        -1045301.830  118421           139
+        -1045301.831  314084           81
+        -1045301.831  978781           497
+        -1045301.831  65651            214
+        -1045301.831  51375            148
+        -1054137.773  717754           180
+        -1075869.534  268896           124
+        -1111448.274  991329           182
+        -1209846.316  25127            107
+        -1240417.604  728038           177
+        -1343269.988  781190           219
+        -1343269.989  762461           425
+        -1343269.989  408713           450
+        -1343269.989  665121           417
+        -1343269.989  840031           276
+        -1343269.989  349360           464
+        -1343269.989  576596           99
+        -1343269.989  319575           499
+        -1343269.989  830529           279
+        -1343269.989  17359            227
+        -1343269.989  46437            153
+        -1343269.989  292884           103
+        -1343269.989  798821           423
+        -1343269.989  780698           337
+        -1343269.989  533738           11
+        -1549441.717  685657           69
+        -1550983.654  246575           291
+        -1550983.655  483369           270
+        -1550983.656  565819           65
+        -1550983.656  937588           293
+        -1550983.656  948615           140
+        -1550983.656  569131           26
+        -1550983.656  695155           150
+        -1566780.220  765392           382
+        -1591205.365  772131           407
+        -1603413.741  66276            217
+        -1619210.306  281558           184
+        -1619210.306  872743           374
+        -1619210.306  123985           248
+        -1619210.307  723775           97
+        -1619210.307  692169           308
+        -1619210.307  441191           361
+        -1619210.308  316165           299
+        -1619210.309  923437           398
+        -1619210.309  488125           368
+        -1619210.309  937885           426
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       31
+
+Loglikelihood
+
+          H0 Value                      -12744.043
+          H0 Scaling Correction Factor      1.4391
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   25550.086
+          Bayesian (BIC)                 25732.729
+          Sample-Size Adjusted BIC       25634.232
+            (n* = (n + 2) / 24)
+
+Wald Test of Parameter Constraints
+
+          Value                            129.503
+          Degrees of Freedom                     6
+          P-Value                           0.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        736.04184          0.27516
+       2        434.71719          0.16251
+       3        335.08286          0.12526
+       4       1169.15811          0.43707
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        736.04184          0.27516
+       2        434.71719          0.16251
+       3        335.08286          0.12526
+       4       1169.15811          0.43707
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              770          0.28785
+       2              432          0.16150
+       3              285          0.10654
+       4             1188          0.44411
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   1.201    -.049    -.025    -.127
+    2   -.079    1.197    -.146    0.028
+    3   -.138    -.182    1.544    -.224
+    4   -.097    0.006    -.019    1.110
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   1.256    -.046    -.053    -.157
+    2   -.087    1.190    -.119    0.016
+    3   -.057    -.188    1.313    -.067
+    4   -.084    0.010    -.055    1.128
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1     14.044    0.000    0.000    0.000
+    2     -9.705    4.284   -9.705    0.000
+    3      0.000    0.000   14.088    0.000
+    4    -13.936   -4.691  -13.936    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ MATHIRT    ON
+    FEMALE             1.814      1.362      1.332      0.183
+
+ MATHJOB    ON
+    FEMALE             0.085      0.049      1.759      0.079
+
+ MATHIRT  WITH
+    MATHJOB            0.564      0.133      4.237      0.000
+
+ Intercepts
+    MATHJOB            0.648      0.031     20.720      0.000
+    MATHIRT           56.593      0.943     59.997      0.000
+
+ Residual Variances
+    MATHJOB            0.213      0.009     23.527      0.000
+    MATHIRT          168.230     10.042     16.753      0.000
+
+Latent Class 2
+
+ MATHIRT    ON
+    FEMALE             5.470      1.566      3.494      0.000
+
+ MATHJOB    ON
+    FEMALE             0.090      0.065      1.381      0.167
+
+ MATHIRT  WITH
+    MATHJOB            0.564      0.133      4.237      0.000
+
+ Intercepts
+    MATHJOB            0.527      0.048     11.078      0.000
+    MATHIRT           50.065      1.110     45.097      0.000
+
+ Residual Variances
+    MATHJOB            0.240      0.006     37.902      0.000
+    MATHIRT          130.387     10.670     12.220      0.000
+
+Latent Class 3
+
+ MATHIRT    ON
+    FEMALE             0.060      2.349      0.026      0.980
+
+ MATHJOB    ON
+    FEMALE             0.035      0.092      0.376      0.707
+
+ MATHIRT  WITH
+    MATHJOB            0.564      0.133      4.237      0.000
+
+ Intercepts
+    MATHJOB            0.521      0.074      7.018      0.000
+    MATHIRT           55.323      2.073     26.686      0.000
+
+ Residual Variances
+    MATHJOB            0.255      0.006     41.974      0.000
+    MATHIRT          130.917     14.431      9.072      0.000
+
+Latent Class 4
+
+ MATHIRT    ON
+    FEMALE            -0.293      0.879     -0.333      0.739
+
+ MATHJOB    ON
+    FEMALE            -0.016      0.031     -0.501      0.616
+
+ MATHIRT  WITH
+    MATHJOB            0.564      0.133      4.237      0.000
+
+ Intercepts
+    MATHJOB            0.774      0.022     34.461      0.000
+    MATHIRT           62.854      0.691     91.002      0.000
+
+ Residual Variances
+    MATHJOB            0.179      0.008     21.416      0.000
+    MATHIRT          132.770      6.668     19.910      0.000
+
+Categorical Latent Variables
+
+ C#1        ON
+    FEMALE            -0.374      0.124     -3.012      0.003
+
+ C#2        ON
+    FEMALE             0.036      0.131      0.272      0.786
+
+ C#3        ON
+    FEMALE             0.366      0.181      2.023      0.043
+
+ Intercepts
+    C#1               -0.294      0.081     -3.631      0.000
+    C#2               -1.007      0.093    -10.841      0.000
+    C#3               -1.448      0.139    -10.414      0.000
+
+New/Additional Parameters
+    DM1V2              6.528      1.527      4.276      0.000
+    DM1V3              1.270      2.346      0.542      0.588
+    DM2V3             -5.258      2.566     -2.049      0.040
+    DM1V4             -6.261      1.266     -4.945      0.000
+    DM2V4            -12.789      1.287     -9.938      0.000
+    DM3V4             -7.531      2.259     -3.333      0.001
+    DJ1V2              0.121      0.059      2.030      0.042
+    DJ1V3              0.127      0.083      1.528      0.126
+    DJ2V3              0.006      0.097      0.063      0.950
+    DJ1V4             -0.126      0.042     -3.030      0.002
+    DJ2V4             -0.247      0.052     -4.770      0.000
+    DJ3V4             -0.253      0.080     -3.160      0.002
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.296E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Categorical Latent Variables
+
+ C#1      ON
+    FEMALE             0.688      0.085      0.539      0.878
+
+ C#2      ON
+    FEMALE             1.036      0.135      0.802      1.339
+
+ C#3      ON
+    FEMALE             1.442      0.261      1.011      2.055
+
+
+ALTERNATIVE PARAMETERIZATIONS FOR THE CATEGORICAL LATENT VARIABLE REGRESSION
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Parameterization using Reference Class 1
+
+ C#2      ON
+    FEMALE             0.410      0.156      2.634      0.008
+
+ C#3      ON
+    FEMALE             0.740      0.193      3.837      0.000
+
+ C#4      ON
+    FEMALE             0.374      0.124      3.012      0.003
+
+ Intercepts
+    C#2               -0.713      0.105     -6.787      0.000
+    C#3               -1.155      0.143     -8.089      0.000
+    C#4                0.294      0.081      3.631      0.000
+
+Parameterization using Reference Class 2
+
+ C#1      ON
+    FEMALE            -0.410      0.156     -2.634      0.008
+
+ C#3      ON
+    FEMALE             0.330      0.219      1.510      0.131
+
+ C#4      ON
+    FEMALE            -0.036      0.131     -0.272      0.786
+
+ Intercepts
+    C#1                0.713      0.105      6.787      0.000
+    C#3               -0.441      0.166     -2.666      0.008
+    C#4                1.007      0.093     10.841      0.000
+
+Parameterization using Reference Class 3
+
+ C#1      ON
+    FEMALE            -0.740      0.193     -3.837      0.000
+
+ C#2      ON
+    FEMALE            -0.330      0.219     -1.510      0.131
+
+ C#4      ON
+    FEMALE            -0.366      0.181     -2.023      0.043
+
+ Intercepts
+    C#1                1.155      0.143      8.089      0.000
+    C#2                0.441      0.166      2.666      0.008
+    C#4                1.448      0.139     10.414      0.000
+
+
+ODDS RATIO FOR THE ALTERNATIVE PARAMETERIZATIONS FOR THE CATEGORICAL LATENT VARIABLE REGRESSION
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Parameterization using Reference Class 1
+
+ C#2      ON
+    FEMALE             1.506      0.234      1.111      2.043
+
+ C#3      ON
+    FEMALE             2.096      0.404      1.436      3.059
+
+ C#4      ON
+    FEMALE             1.454      0.181      1.140      1.854
+
+Parameterization using Reference Class 2
+
+ C#1      ON
+    FEMALE             0.664      0.103      0.489      0.900
+
+ C#3      ON
+    FEMALE             1.391      0.304      0.906      2.136
+
+ C#4      ON
+    FEMALE             0.965      0.126      0.747      1.247
+
+Parameterization using Reference Class 3
+
+ C#1      ON
+    FEMALE             0.477      0.092      0.327      0.696
+
+ C#2      ON
+    FEMALE             0.719      0.157      0.468      1.103
+
+ C#4      ON
+    FEMALE             0.694      0.125      0.487      0.989
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     mathirt ON female;
+     mathjob ON female;
+
+     c#1 ON female*-0.37408;
+     c#2 ON female*0.03559;
+     c#3 ON female*0.36589;
+
+     [ c#1*-0.29389 ];
+     [ c#2*-1.00722 ];
+     [ c#3*-1.44848 ];
+
+     %C#1%
+
+     mathirt ON female*1.81396 (rm1);
+     mathjob ON female*0.08544 (rj1);
+
+     mathirt WITH mathjob*0.56440 (6);
+
+     [ mathjob*0.64764 ] (j1);
+     [ mathirt*56.59282 ] (m1);
+
+     mathjob*0.21313;
+     mathirt*168.23026;
+
+     %C#2%
+
+     mathirt ON female*5.47023 (rm2);
+     mathjob ON female*0.08983 (rj2);
+
+     mathirt WITH mathjob*0.56440 (6);
+
+     [ mathjob*0.52709 ] (j2);
+     [ mathirt*50.06474 ] (m2);
+
+     mathjob*0.23986;
+     mathirt*130.38716;
+
+     %C#3%
+
+     mathirt ON female*0.06009 (rm3);
+     mathjob ON female*0.03454 (rj3);
+
+     mathirt WITH mathjob*0.56440 (6);
+
+     [ mathjob*0.52099 ] (j3);
+     [ mathirt*55.32261 ] (m3);
+
+     mathjob*0.25542;
+     mathirt*130.91711;
+
+     %C#4%
+
+     mathirt ON female*-0.29292 (rm4);
+     mathjob ON female*-0.01575 (rj4);
+
+     mathirt WITH mathjob*0.56440 (6);
+
+     [ mathjob*0.77399 ] (j4);
+     [ mathirt*62.85353 ] (m4);
+
+     mathjob*0.17877;
+     mathirt*132.76965;
+
+     ! NEW statements in MODEL CONSTRAINT
+     NEW(dm1v2*6.52808);
+     NEW(dm1v3*1.27021);
+     NEW(dm2v3*-5.25787);
+     NEW(dm1v4*-6.26072);
+     NEW(dm2v4*-12.78880);
+     NEW(dm3v4*-7.53093);
+     NEW(dj1v2*0.12055);
+     NEW(dj1v3*0.12664);
+     NEW(dj2v3*0.00610);
+     NEW(dj1v4*-0.12635);
+     NEW(dj2v4*-0.24690);
+     NEW(dj3v4*-0.25300);
+
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 1
+
+
+           NU
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0             0             0
+ MATHIRT            0             0             0
+ FEMALE             0             0             0
+
+
+           THETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0
+ MATHIRT            0             0
+ FEMALE             0             0             0
+
+
+           ALPHA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                    1             2             0
+
+
+           BETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0             0             3
+ MATHIRT            0             0             4
+ FEMALE             0             0             0
+
+
+           PSI
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            5
+ MATHIRT            6             7
+ FEMALE             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 2
+
+
+           NU
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0             0             0
+ MATHIRT            0             0             0
+ FEMALE             0             0             0
+
+
+           THETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0
+ MATHIRT            0             0
+ FEMALE             0             0             0
+
+
+           ALPHA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                    8             9             0
+
+
+           BETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0             0            10
+ MATHIRT            0             0            11
+ FEMALE             0             0             0
+
+
+           PSI
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB           12
+ MATHIRT            6            13
+ FEMALE             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 3
+
+
+           NU
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0             0             0
+ MATHIRT            0             0             0
+ FEMALE             0             0             0
+
+
+           THETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0
+ MATHIRT            0             0
+ FEMALE             0             0             0
+
+
+           ALPHA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                   14            15             0
+
+
+           BETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0             0            16
+ MATHIRT            0             0            17
+ FEMALE             0             0             0
+
+
+           PSI
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB           18
+ MATHIRT            6            19
+ FEMALE             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 4
+
+
+           NU
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0             0             0
+ MATHIRT            0             0             0
+ FEMALE             0             0             0
+
+
+           THETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0
+ MATHIRT            0             0
+ FEMALE             0             0             0
+
+
+           ALPHA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                   20            21             0
+
+
+           BETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB            0             0            22
+ MATHIRT            0             0            23
+ FEMALE             0             0             0
+
+
+           PSI
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB           24
+ MATHIRT            6            25
+ FEMALE             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4
+              ________      ________      ________      ________
+                   26            27            28             0
+
+
+           GAMMA(C)
+              FEMALE
+              ________
+ C#1               29
+ C#2               30
+ C#3               31
+ C#4                0
+
+
+     PARAMETER SPECIFICATION FOR THE ADDITIONAL PARAMETERS
+
+
+           NEW/ADDITIONAL PARAMETERS
+              DM1V2         DM1V3         DM2V3         DM1V4         DM2V4
+              ________      ________      ________      ________      ________
+                   32            33            34            35            36
+
+
+           NEW/ADDITIONAL PARAMETERS
+              DM3V4         DJ1V2         DJ1V3         DJ2V3         DJ1V4
+              ________      ________      ________      ________      ________
+                   37            38            39            40            41
+
+
+           NEW/ADDITIONAL PARAMETERS
+              DJ2V4         DJ3V4
+              ________      ________
+                   42            43
+
+
+     STARTING VALUES FOR LATENT CLASS 1
+
+
+           NU
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        1.000         0.000         0.000
+ MATHIRT        0.000         1.000         0.000
+ FEMALE         0.000         0.000         1.000
+
+
+           THETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.000
+ MATHIRT        0.000         0.000
+ FEMALE         0.000         0.000         0.000
+
+
+           ALPHA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                0.223        46.270         0.000
+
+
+           BETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.000         0.000         0.000
+ MATHIRT        0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000
+
+
+           PSI
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.108
+ MATHIRT        0.000        78.865
+ FEMALE         0.000         0.000         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS 2
+
+
+           NU
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        1.000         0.000         0.000
+ MATHIRT        0.000         1.000         0.000
+ FEMALE         0.000         0.000         1.000
+
+
+           THETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.000
+ MATHIRT        0.000         0.000
+ FEMALE         0.000         0.000         0.000
+
+
+           ALPHA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                0.687        58.829         0.000
+
+
+           BETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.000         0.000         0.000
+ MATHIRT        0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000
+
+
+           PSI
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.108
+ MATHIRT        0.000        78.865
+ FEMALE         0.000         0.000         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS 3
+
+
+           NU
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        1.000         0.000         0.000
+ MATHIRT        0.000         1.000         0.000
+ FEMALE         0.000         0.000         1.000
+
+
+           THETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.000
+ MATHIRT        0.000         0.000
+ FEMALE         0.000         0.000         0.000
+
+
+           ALPHA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                0.687        58.829         0.000
+
+
+           BETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.000         0.000         0.000
+ MATHIRT        0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000
+
+
+           PSI
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.108
+ MATHIRT        0.000        78.865
+ FEMALE         0.000         0.000         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS 4
+
+
+           NU
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        1.000         0.000         0.000
+ MATHIRT        0.000         1.000         0.000
+ FEMALE         0.000         0.000         1.000
+
+
+           THETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.000
+ MATHIRT        0.000         0.000
+ FEMALE         0.000         0.000         0.000
+
+
+           ALPHA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+                1.151        71.388         0.000
+
+
+           BETA
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.000         0.000         0.000
+ MATHIRT        0.000         0.000         0.000
+ FEMALE         0.000         0.000         0.000
+
+
+           PSI
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.108
+ MATHIRT        0.000        78.865
+ FEMALE         0.000         0.000         0.125
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           GAMMA(C)
+              FEMALE
+              ________
+ C#1            0.000
+ C#2            0.000
+ C#3            0.000
+ C#4            0.000
+
+
+     STARTING VALUES FOR THE ADDITIONAL PARAMETERS
+
+
+           NEW/ADDITIONAL PARAMETERS
+              DM1V2         DM1V3         DM2V3         DM1V4         DM2V4
+              ________      ________      ________      ________      ________
+                0.500         0.500         0.500         0.500         0.500
+
+
+           NEW/ADDITIONAL PARAMETERS
+              DM3V4         DJ1V2         DJ1V3         DJ2V3         DJ1V4
+              ________      ________      ________      ________      ________
+                0.500         0.500         0.500         0.500         0.500
+
+
+           NEW/ADDITIONAL PARAMETERS
+              DJ2V4         DJ3V4
+              ________      ________
+                0.500         0.500
+
+
+     Beginning Time:  19:53:07
+        Ending Time:  19:53:16
+       Elapsed Time:  00:00:09
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

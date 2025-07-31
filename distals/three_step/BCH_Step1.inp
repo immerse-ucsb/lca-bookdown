@@ -1,0 +1,29 @@
+TITLE:
+Step 1 - BCH Method
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/distals/three_step/
+BCH_Step1.dat"; 
+VARIABLE:
+NAMES = enjoym goodm undrstdm nervousm scaredm mathjob mathirt female; 
+ MISSING=.;
+ categorical = enjoym-scaredm; 
+   usevar = enjoym-scaredm;
+    
+   classes = c(4); 
+    
+   auxiliary =   ! list all potential covariates and distals here
+   female        ! covariate
+   mathjob mathirt;      ! distal math test score in 9th grade 
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 500 100;
+OUTPUT:
+sampstat residual tech11 tech14
+SAVEDATA:
+File=3step_savedata.dat;
+    Save=bchweights; ! Here we save the BCH weights
+    format = free;
+PLOT:
+type = plot3; 
+    series = enjoym-scaredm(*);

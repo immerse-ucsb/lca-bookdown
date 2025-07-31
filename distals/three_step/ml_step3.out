@@ -1,0 +1,715 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+07/30/2025   7:48 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Step3
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/distals/three_step/
+  ML_step3.dat";
+  VARIABLE:
+  NAMES = ENJOYM GOODM UNDRSTDM NERVOUSM SCAREDM FEMALE MATHJOB MATHIRT CPROB1 CPROB2
+       CPROB3 CPROB4 N;
+   MISSING=.;
+   nominal = N;
+    usevar = n;
+
+    classes = c(4);
+
+    usevar = female mathjob mathirt;
+  DEFINE:
+  center female (grandmean);
+  ANALYSIS:
+  estimator = mlr;
+    type = mixture;
+    starts = 100 50;
+    processors = 4;
+  MODEL:
+  %OVERALL%
+
+  mathirt on female; ! covariate as a predictor of the distal outcome
+  mathjob on female;
+  C on female;        ! covariate as predictor of C
+
+     %C#1%
+  [n#1@2.563]; ! MUST EDIT if you do not have a 4-class model.
+  [n#2@0.215];
+  [n#3@-3.391];
+
+  [mathirt](m1);    ! conditional distal mean
+  mathirt;          ! conditional distal variance (freely estimated)
+  [mathjob](j1);
+  mathjob;
+
+  %C#2%
+  [n#1@0.095];
+  [n#2@1.947];
+  [n#3@0.405];
+
+  [mathirt](m2);
+  mathirt;
+  [mathjob](j2);
+  mathjob;
+
+  %C#3%
+  [n#1@-5.405];
+  [n#2@-1.789];
+  [n#3@2.497];
+
+  [mathirt](m3);
+  mathirt;
+  [mathjob](j3);
+  mathjob;
+
+  %C#4%
+  [n#1@-3.124];
+  [n#2@-3.83];
+  [n#3@-2.14];
+
+  [mathirt](m4);
+  mathirt;
+  [mathjob](j4);
+  mathjob;
+  MODEL CONSTRAINT:
+  New (dm1v2 dm1v3 dm2v3 dm1v4 dm2v4 dm3v4
+           dj1v2 dj1v3 dj2v3 dj1v4 dj2v4 dj3v4
+      );
+
+      dm1v2 = m1-m2;  ! test pairwise distal mean differences of IRT score
+      dm1v3 = m1-m3;
+      dm2v3 = m2-m3;
+      dm1v4 = m1-m4;
+      dm2v4 = m2-m4;
+      dm3v4 = m3-m4;
+      dj1v2 = j1-j2;  ! test pairwise distal mean differences of math job
+      dj1v3 = j1-j3;
+      dj2v3 = j2-j3;
+      dj1v4 = j1-j4;
+      dj2v4 = j2-j4;
+      dj3v4 = j3-j4;
+  MODEL TEST:
+       ! omnibus test of distal means
+      m1=m2;
+      m2=m3;
+      m3=m4;
+      j1=j2;
+      j2=j3;
+      j3=j4;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+Step3
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2675
+
+Number of dependent variables                                    3
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   MATHJOB     MATHIRT
+
+  Unordered categorical (nominal)
+   N
+
+Observed independent variables
+   FEMALE
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  Centering (GRANDMEAN)
+   FEMALE
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        100
+  Number of final stage optimizations                           50
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/distals/three_step/ML_step3.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             4
+     Number of y missing data patterns           4
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              MATHJOB       MATHIRT       FEMALE
+              ________      ________      ________
+ MATHJOB        0.800
+ MATHIRT        0.724         0.771
+ FEMALE         0.800         0.771         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    N
+      Category 1    0.161          432.000
+      Category 2    0.107          285.000
+      Category 3    0.444         1188.000
+      Category 4    0.288          770.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     MATHJOB               0.687      -0.805       0.000   31.32%       0.000      1.000      1.000
+            2139.000       0.215      -1.351       1.000   68.68%       1.000      1.000
+     MATHIRT              58.829      -0.068      26.570    0.05%      47.240     55.710     59.290
+            2063.000     157.729      -0.541      94.190    0.05%      62.900     70.160
+     FEMALE                0.000       0.059      -0.485   51.48%      -0.485     -0.485     -0.485
+            2675.000       0.250      -1.997       0.515   48.52%       0.515      0.515
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+
+73 perturbed starting value run(s) did not converge or were rejected in the third stage.
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -12742.252  443917           60
+          -12742.252  846194           93
+          -12742.252  76974            16
+          -12742.252  227563           63
+          -12742.252  372176           23
+          -12742.252  569833           85
+          -12742.252  247224           94
+          -12742.252  481835           57
+          -12742.252  284109           82
+          -12742.252  370466           41
+
+40 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       25
+
+Loglikelihood
+
+          H0 Value                      -12742.252
+          H0 Scaling Correction Factor      0.9175
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   25534.505
+          Bayesian (BIC)                 25681.797
+          Sample-Size Adjusted BIC       25602.365
+            (n* = (n + 2) / 24)
+
+Wald Test of Parameter Constraints
+
+          Value                            184.697
+          Degrees of Freedom                     6
+          P-Value                           0.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        432.49958          0.16168
+       2        344.47573          0.12878
+       3       1161.98255          0.43439
+       4        736.04213          0.27516
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        432.49955          0.16168
+       2        344.47580          0.12878
+       3       1161.98251          0.43439
+       4        736.04215          0.27516
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              432          0.16150
+       2              285          0.10654
+       3             1188          0.44411
+       4              770          0.28785
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.621
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.853    0.083    0.001    0.063
+    2   0.122    0.780    0.051    0.047
+    3   0.001    0.046    0.890    0.064
+    4   0.037    0.042    0.117    0.805
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.852    0.081    0.002    0.065
+    2   0.104    0.645    0.157    0.093
+    3   0.000    0.012    0.910    0.078
+    4   0.037    0.018    0.103    0.842
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      2.570    0.211   -3.317    0.000
+    2      0.112    1.934    0.520    0.000
+    3     -5.389   -1.830    2.461    0.000
+    4     -3.126   -3.835   -2.099    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ MATHIRT    ON
+    FEMALE             1.145      0.553      2.070      0.038
+
+ MATHJOB    ON
+    FEMALE             0.028      0.020      1.404      0.160
+
+ MATHIRT  WITH
+    MATHJOB            0.523      0.144      3.637      0.000
+
+ Means
+    N#1                2.563      0.000    999.000    999.000
+    N#2                0.215      0.000    999.000    999.000
+    N#3               -3.391      0.000    999.000    999.000
+
+ Intercepts
+    MATHJOB            0.580      0.034     16.944      0.000
+    MATHIRT           52.723      0.812     64.953      0.000
+
+ Residual Variances
+    MATHJOB            0.240      0.006     40.069      0.000
+    MATHIRT          135.480      9.166     14.781      0.000
+
+Latent Class 2
+
+ MATHIRT    ON
+    FEMALE             1.145      0.553      2.070      0.038
+
+ MATHJOB    ON
+    FEMALE             0.028      0.020      1.404      0.160
+
+ MATHIRT  WITH
+    MATHJOB            0.523      0.144      3.637      0.000
+
+ Means
+    N#1                0.095      0.000    999.000    999.000
+    N#2                1.947      0.000    999.000    999.000
+    N#3                0.405      0.000    999.000    999.000
+
+ Intercepts
+    MATHJOB            0.501      0.049     10.199      0.000
+    MATHIRT           55.464      1.040     53.340      0.000
+
+ Residual Variances
+    MATHJOB            0.253      0.002    126.537      0.000
+    MATHIRT          131.910     10.980     12.014      0.000
+
+Latent Class 3
+
+ MATHIRT    ON
+    FEMALE             1.145      0.553      2.070      0.038
+
+ MATHJOB    ON
+    FEMALE             0.028      0.020      1.404      0.160
+
+ MATHIRT  WITH
+    MATHJOB            0.523      0.144      3.637      0.000
+
+ Means
+    N#1               -5.405      0.000    999.000    999.000
+    N#2               -1.789      0.000    999.000    999.000
+    N#3                2.497      0.000    999.000    999.000
+
+ Intercepts
+    MATHJOB            0.789      0.029     26.952      0.000
+    MATHIRT           62.760      0.457    137.247      0.000
+
+ Residual Variances
+    MATHJOB            0.166      0.017      9.801      0.000
+    MATHIRT          133.260      6.468     20.602      0.000
+
+Latent Class 4
+
+ MATHIRT    ON
+    FEMALE             1.145      0.553      2.070      0.038
+
+ MATHJOB    ON
+    FEMALE             0.028      0.020      1.404      0.160
+
+ MATHIRT  WITH
+    MATHJOB            0.523      0.144      3.637      0.000
+
+ Means
+    N#1               -3.124      0.000    999.000    999.000
+    N#2               -3.830      0.000    999.000    999.000
+    N#3               -2.140      0.000    999.000    999.000
+
+ Intercepts
+    MATHJOB            0.663      0.034     19.384      0.000
+    MATHIRT           57.315      0.687     83.467      0.000
+
+ Residual Variances
+    MATHJOB            0.222      0.011     20.018      0.000
+    MATHIRT          166.994      8.588     19.446      0.000
+
+Categorical Latent Variables
+
+ C#1        ON
+    FEMALE             0.392      0.158      2.474      0.013
+
+ C#2        ON
+    FEMALE             0.766      0.198      3.873      0.000
+
+ C#3        ON
+    FEMALE             0.374      0.127      2.946      0.003
+
+ Intercepts
+    C#1               -0.519      0.078     -6.628      0.000
+    C#2               -0.770      0.099     -7.806      0.000
+    C#3                0.469      0.063      7.407      0.000
+
+New/Additional Parameters
+    DM1V2             -2.741      1.470     -1.865      0.062
+    DM1V3            -10.037      0.915    -10.971      0.000
+    DM2V3             -7.296      1.167     -6.251      0.000
+    DM1V4             -4.592      1.115     -4.119      0.000
+    DM2V4             -1.851      1.301     -1.423      0.155
+    DM3V4              5.445      0.904      6.024      0.000
+    DJ1V2              0.080      0.068      1.175      0.240
+    DJ1V3             -0.209      0.040     -5.209      0.000
+    DJ2V3             -0.289      0.068     -4.260      0.000
+    DJ1V4             -0.083      0.054     -1.543      0.123
+    DJ2V4             -0.162      0.055     -2.925      0.003
+    DJ3V4              0.126      0.057      2.218      0.027
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.539E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ N
+    Category 1         0.851      0.007    120.009      0.000
+    Category 2         0.081      0.001    120.009      0.000
+    Category 3         0.002      0.000    120.009      0.000
+    Category 4         0.066      0.008      8.423      0.000
+
+Latent Class 2
+
+ N
+    Category 1         0.104      0.001     83.478      0.000
+    Category 2         0.661      0.008     83.478      0.000
+    Category 3         0.141      0.002     83.478      0.000
+    Category 4         0.094      0.011      8.690      0.000
+
+Latent Class 3
+
+ N
+    Category 1         0.000      0.000    104.815      0.000
+    Category 2         0.013      0.000    104.815      0.000
+    Category 3         0.912      0.009    104.815      0.000
+    Category 4         0.075      0.009      8.509      0.000
+
+Latent Class 4
+
+ N
+    Category 1         0.037      0.004      9.313      0.000
+    Category 2         0.018      0.002      9.313      0.000
+    Category 3         0.099      0.011      9.313      0.000
+    Category 4         0.845      0.017     50.797      0.000
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ N
+    Category = 1      49.338      2.098     45.392     53.626
+    Category = 2       0.045      0.001      0.043      0.048
+    Category = 3       0.013      0.000      0.013      0.014
+    Category = 4       0.674      0.000      0.674      0.674
+
+Latent Class 1 Compared to Latent Class 3
+
+ N
+    Category = 1   16905.842    783.452  15437.944  18513.311
+    Category = 2       6.964      0.004      6.956      6.972
+    Category = 3       0.000      0.000      0.000      0.000
+    Category = 4       0.865      0.000      0.865      0.865
+
+Latent Class 1 Compared to Latent Class 4
+
+ N
+    Category = 1     147.840      8.225    132.568    164.872
+    Category = 2       4.736      0.475      3.891      5.765
+    Category = 3       0.020      0.002      0.016      0.025
+    Category = 4       0.013      0.000      0.013      0.013
+
+Latent Class 2 Compared to Latent Class 3
+
+ N
+    Category = 1     342.657      1.309    340.100    345.233
+    Category = 2     153.211      3.929    145.701    161.108
+    Category = 3       0.016      0.002      0.013      0.019
+    Category = 4       1.282      0.000      1.282      1.282
+
+Latent Class 2 Compared to Latent Class 4
+
+ N
+    Category = 1       2.997      0.294      2.472      3.632
+    Category = 2     104.187      7.718     90.107    120.466
+    Category = 3       1.491      0.157      1.213      1.833
+    Category = 4       0.019      0.000      0.019      0.019
+
+Latent Class 3 Compared to Latent Class 4
+
+ N
+    Category = 1       0.009      0.001      0.007      0.011
+    Category = 2       0.680      0.068      0.559      0.827
+    Category = 3      93.900      1.012     91.937     95.905
+    Category = 4       0.015      0.000      0.015      0.015
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Categorical Latent Variables
+
+ C#1      ON
+    FEMALE             1.480      0.234      1.085      2.018
+
+ C#2      ON
+    FEMALE             2.151      0.425      1.460      3.170
+
+ C#3      ON
+    FEMALE             1.454      0.185      1.133      1.865
+
+
+ALTERNATIVE PARAMETERIZATIONS FOR THE CATEGORICAL LATENT VARIABLE REGRESSION
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Parameterization using Reference Class 1
+
+ C#2      ON
+    FEMALE             0.374      0.225      1.660      0.097
+
+ C#3      ON
+    FEMALE            -0.017      0.133     -0.132      0.895
+
+ C#4      ON
+    FEMALE            -0.392      0.158     -2.474      0.013
+
+ Intercepts
+    C#2               -0.251      0.113     -2.219      0.026
+    C#3                0.989      0.066     15.042      0.000
+    C#4                0.519      0.078      6.628      0.000
+
+Parameterization using Reference Class 2
+
+ C#1      ON
+    FEMALE            -0.374      0.225     -1.660      0.097
+
+ C#3      ON
+    FEMALE            -0.392      0.186     -2.102      0.036
+
+ C#4      ON
+    FEMALE            -0.766      0.198     -3.873      0.000
+
+ Intercepts
+    C#1                0.251      0.113      2.219      0.026
+    C#3                1.240      0.096     12.915      0.000
+    C#4                0.770      0.099      7.806      0.000
+
+Parameterization using Reference Class 3
+
+ C#1      ON
+    FEMALE             0.017      0.133      0.132      0.895
+
+ C#2      ON
+    FEMALE             0.392      0.186      2.102      0.036
+
+ C#4      ON
+    FEMALE            -0.374      0.127     -2.946      0.003
+
+ Intercepts
+    C#1               -0.989      0.066    -15.042      0.000
+    C#2               -1.240      0.096    -12.915      0.000
+    C#4               -0.469      0.063     -7.407      0.000
+
+
+ODDS RATIO FOR THE ALTERNATIVE PARAMETERIZATIONS FOR THE CATEGORICAL LATENT VARIABLE REGRESSION
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Parameterization using Reference Class 1
+
+ C#2      ON
+    FEMALE             1.454      0.328      0.935      2.262
+
+ C#3      ON
+    FEMALE             0.983      0.130      0.758      1.274
+
+ C#4      ON
+    FEMALE             0.676      0.107      0.496      0.922
+
+Parameterization using Reference Class 2
+
+ C#1      ON
+    FEMALE             0.688      0.155      0.442      1.070
+
+ C#3      ON
+    FEMALE             0.676      0.126      0.469      0.974
+
+ C#4      ON
+    FEMALE             0.465      0.092      0.315      0.685
+
+Parameterization using Reference Class 3
+
+ C#1      ON
+    FEMALE             1.018      0.135      0.785      1.320
+
+ C#2      ON
+    FEMALE             1.480      0.276      1.027      2.132
+
+ C#4      ON
+    FEMALE             0.688      0.087      0.536      0.882
+
+
+     Beginning Time:  19:48:53
+        Ending Time:  19:49:12
+       Elapsed Time:  00:00:19
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

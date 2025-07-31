@@ -1,0 +1,458 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+07/30/2025   7:24 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  1-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/distals/enum/enum.dat";
+  VARIABLE:
+  NAMES = enjoym goodm undrstdm nervousm scaredm mathjob mathirt female;
+   MISSING=.;
+   categorical = enjoym-scaredm;
+  usevar = enjoym-scaredm;
+  classes = c(1);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 200 100;
+      processors = 10;
+  OUTPUT:
+  sampstat residual tech11 tech14 svalues;
+  PLOT:
+  type = plot3;
+      series = enjoym-scaredm(*);
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  441
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+1-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2675
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   ENJOYM      GOODM       UNDRSTDM    NERVOUSM    SCAREDM
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        200
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/distals/enum/enum.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             9
+     Number of y missing data patterns           0
+     Number of u missing data patterns           9
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              ENJOYM        GOODM         UNDRSTDM      NERVOUSM      SCAREDM
+              ________      ________      ________      ________      ________
+ ENJOYM         0.997
+ GOODM          0.996         0.998
+ UNDRSTDM       0.987         0.988         0.990
+ NERVOUSM       0.978         0.979         0.971         0.980
+ SCAREDM        0.988         0.990         0.982         0.973         0.991
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    ENJOYM
+      Category 1    0.331          884.000
+      Category 2    0.669         1784.000
+    GOODM
+      Category 1    0.307          820.000
+      Category 2    0.693         1850.000
+    UNDRSTDM
+      Category 1    0.237          628.000
+      Category 2    0.763         2020.000
+    NERVOUSM
+      Category 1    0.410         1076.000
+      Category 2    0.590         1546.000
+    SCAREDM
+      Category 1    0.313          830.000
+      Category 2    0.687         1821.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -8214.627  931874           141
+           -8214.627  821011           161
+           -8214.627  314084           81
+           -8214.627  370466           41
+           -8214.627  902278           21
+           -8214.627  609185           181
+           -8214.627  371246           101
+           -8214.627  635245           121
+           -8214.627  603842           61
+           -8214.627  285380           1
+           -8214.627  93468            3
+           -8214.627  27071            15
+           -8214.627  164305           128
+           -8214.627  40340            188
+           -8214.627  311214           64
+           -8214.627  264081           186
+           -8214.627  814975           129
+           -8214.627  509733           130
+           -8214.627  626891           32
+           -8214.627  991329           182
+           -8214.627  131856           90
+           -8214.627  565819           65
+           -8214.627  468036           131
+           -8214.627  313407           132
+           -8214.627  467339           66
+           -8214.627  321390           133
+           -8214.627  903369           134
+           -8214.627  462953           7
+           -8214.627  749453           33
+           -8214.627  789985           67
+           -8214.627  437181           135
+           -8214.627  783165           170
+           -8214.627  303634           169
+           -8214.627  636396           168
+           -8214.627  232559           136
+           -8214.627  297518           166
+           -8214.627  263268           165
+           -8214.627  215353           164
+           -8214.627  405079           68
+           -8214.627  76974            16
+           -8214.627  685657           69
+           -8214.627  341041           34
+           -8214.627  987090           70
+           -8214.627  192071           142
+           -8214.627  939021           8
+           -8214.627  68985            17
+           -8214.627  830392           35
+           -8214.627  475420           71
+           -8214.627  22089            143
+           -8214.627  856536           144
+           -8214.627  783110           72
+           -8214.627  695155           150
+           -8214.627  788796           145
+           -8214.627  369602           146
+           -8214.627  260601           36
+           -8214.627  863094           147
+           -8214.627  51375            148
+           -8214.627  417035           149
+           -8214.627  851945           18
+           -8214.627  966014           37
+           -8214.627  246261           38
+           -8214.627  608496           4
+           -8214.627  645664           39
+           -8214.627  913639           162
+           -8214.627  915642           40
+           -8214.627  484501           163
+           -8214.627  284109           82
+           -8214.627  unperturbed      0
+           -8214.627  268217           83
+           -8214.627  654136           167
+           -8214.627  782200           84
+           -8214.627  352277           42
+           -8214.627  569833           85
+           -8214.627  170954           86
+           -8214.627  963053           43
+           -8214.627  544048           87
+           -8214.627  373505           88
+           -8214.627  436460           89
+           -8214.627  407168           44
+           -8214.627  120506           45
+           -8214.627  579995           183
+           -8214.627  281558           184
+           -8214.627  329127           185
+           -8214.627  318230           46
+           -8214.627  793035           187
+           -8214.627  458181           189
+           -8214.627  848163           47
+           -8214.627  967237           48
+           -8214.627  202790           198
+           -8214.627  568859           49
+           -8214.627  761633           50
+           -8214.627  751153           110
+           -8214.627  190339           102
+           -8214.627  292884           103
+           -8214.627  70118            104
+           -8214.627  165853           105
+           -8214.627  464179           106
+           -8214.627  25127            107
+           -8214.627  100874           108
+           -8214.627  466971           109
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        5
+
+Loglikelihood
+
+          H0 Value                       -8214.627
+          H0 Scaling Correction Factor      1.0000
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   16439.253
+          Bayesian (BIC)                 16468.712
+          Sample-Size Adjusted BIC       16452.825
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                           1176.881
+          Degrees of Freedom                    26
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                             64.555
+          Degrees of Freedom                    26
+          P-Value                           0.0000
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            137.641
+          Degrees of Freedom                    86
+          P-Value                           0.0003
+
+          Likelihood Ratio Chi-Square
+
+          Value                             96.341
+          Degrees of Freedom                    86
+          P-Value                           0.2092
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       2675.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       2675.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             2675          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    ENJOYM$1          -0.702      0.041    -17.071      0.000
+    GOODM$1           -0.814      0.042    -19.394      0.000
+    UNDRSTDM$1        -1.168      0.046    -25.571      0.000
+    NERVOUSM$1        -0.362      0.040     -9.129      0.000
+    SCAREDM$1         -0.786      0.042    -18.761      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.207E+00
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ ENJOYM
+    Category 1         0.331      0.009     36.360      0.000
+    Category 2         0.669      0.009     73.378      0.000
+ GOODM
+    Category 1         0.307      0.009     34.401      0.000
+    Category 2         0.693      0.009     77.613      0.000
+ UNDRSTDM
+    Category 1         0.237      0.008     28.692      0.000
+    Category 2         0.763      0.008     92.290      0.000
+ NERVOUSM
+    Category 1         0.410      0.010     42.719      0.000
+    Category 2         0.590      0.010     61.378      0.000
+ SCAREDM
+    Category 1         0.313      0.009     34.761      0.000
+    Category 2         0.687      0.009     76.264      0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     %C#1%
+
+     [ enjoym$1*-0.70216 ];
+     [ goodm$1*-0.81364 ];
+     [ undrstdm$1*-1.16831 ];
+     [ nervousm$1*-0.36242 ];
+     [ scaredm$1*-0.78572 ];
+
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+     Beginning Time:  19:24:38
+        Ending Time:  19:24:44
+       Elapsed Time:  00:00:06
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

@@ -1,0 +1,93 @@
+TITLE:
+Step3 
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/distals/three_step/
+ML_step3.dat"; 
+VARIABLE:
+NAMES = ENJOYM GOODM UNDRSTDM NERVOUSM SCAREDM FEMALE MATHJOB MATHIRT CPROB1 CPROB2
+     CPROB3 CPROB4 N; 
+ MISSING=.;
+ nominal = N;
+  usevar = n;
+  
+  classes = c(4);
+  
+  usevar = female mathjob mathirt;
+DEFINE:
+center female (grandmean);
+ANALYSIS:
+estimator = mlr; 
+  type = mixture; 
+  starts = 100 50;
+  processors = 4;
+MODEL:
+%OVERALL%
+ 
+mathirt on female; ! covariate as a predictor of the distal outcome
+mathjob on female;
+C on female;        ! covariate as predictor of C
+
+   %C#1%
+[n#1@2.563]; ! MUST EDIT if you do not have a 4-class model. 
+[n#2@0.215];
+[n#3@-3.391];
+
+[mathirt](m1);    ! conditional distal mean 
+mathirt;          ! conditional distal variance (freely estimated)
+[mathjob](j1);
+mathjob;
+
+%C#2%
+[n#1@0.095];
+[n#2@1.947];
+[n#3@0.405];
+
+[mathirt](m2);
+mathirt;
+[mathjob](j2);
+mathjob;
+
+%C#3%
+[n#1@-5.405];
+[n#2@-1.789];
+[n#3@2.497];
+
+[mathirt](m3);
+mathirt;
+[mathjob](j3);
+mathjob;
+
+%C#4%
+[n#1@-3.124];
+[n#2@-3.83];
+[n#3@-2.14];
+
+[mathirt](m4);
+mathirt; 
+[mathjob](j4);
+mathjob;  
+MODEL CONSTRAINT:
+New (dm1v2 dm1v3 dm2v3 dm1v4 dm2v4 dm3v4 
+         dj1v2 dj1v3 dj2v3 dj1v4 dj2v4 dj3v4 
+    );
+  
+    dm1v2 = m1-m2;  ! test pairwise distal mean differences of IRT score
+    dm1v3 = m1-m3;
+    dm2v3 = m2-m3;
+    dm1v4 = m1-m4;
+    dm2v4 = m2-m4;
+    dm3v4 = m3-m4;
+    dj1v2 = j1-j2;  ! test pairwise distal mean differences of math job
+    dj1v3 = j1-j3;
+    dj2v3 = j2-j3;
+    dj1v4 = j1-j4;
+    dj2v4 = j2-j4;
+    dj3v4 = j3-j4;
+MODEL TEST:
+     ! omnibus test of distal means 
+    m1=m2;
+    m2=m3;
+    m3=m4;
+    j1=j2;
+    j2=j3;
+    j3=j4;

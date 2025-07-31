@@ -1,0 +1,20 @@
+TITLE:
+2-Class
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/distals/enum/enum.dat"; 
+VARIABLE:
+NAMES = enjoym goodm undrstdm nervousm scaredm mathjob mathirt female; 
+ MISSING=.;
+ categorical = enjoym-scaredm; 
+usevar = enjoym-scaredm;
+classes = c(2); 
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 200 100; 
+    processors = 10;
+OUTPUT:
+sampstat residual tech11 tech14 svalues;
+PLOT:
+type = plot3; 
+    series = enjoym-scaredm(*);

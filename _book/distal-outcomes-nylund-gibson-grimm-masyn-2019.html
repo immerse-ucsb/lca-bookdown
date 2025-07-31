@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>11 Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019) | Mixture Modeling with MplusAutomation</title>
+<meta name="author" content="Dina Arch">
+<meta name="description" content="This chapter replicates the workflow in Nylund-Gibson et al. (2019). Citation: Nylund-Gibson, K., Grimm, R. P., &amp; Masyn, K. E. (2019). Prediction from latent classes: A demonstration of different...">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="11 Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019) | Mixture Modeling with MplusAutomation">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/distal-outcomes-nylund-gibson-grimm-masyn-2019.html">
+<meta property="og:description" content="This chapter replicates the workflow in Nylund-Gibson et al. (2019). Citation: Nylund-Gibson, K., Grimm, R. P., &amp; Masyn, K. E. (2019). Prediction from latent classes: A demonstration of different...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="11 Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019) | Mixture Modeling with MplusAutomation">
+<meta name="twitter:description" content="This chapter replicates the workflow in Nylund-Gibson et al. (2019). Citation: Nylund-Gibson, K., Grimm, R. P., &amp; Masyn, K. E. (2019). Prediction from latent classes: A demonstration of different...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Mixture Modeling with MplusAutomation</a></li>
+<li class="book-part">Introduction</li>
+<li><a class="" href="r-and-rstudio.html"><span class="header-section-number">1</span> R and RStudio</a></li>
+<li><a class="" href="mplusautomation.html"><span class="header-section-number">2</span> MplusAutomation</a></li>
+<li class="book-part">Latent Class Analysis</li>
+<li><a class="" href="enumeration.html"><span class="header-section-number">3</span> Enumeration</a></li>
+<li><a class="" href="polytomous-lca.html"><span class="header-section-number">4</span> Polytomous LCA</a></li>
+<li><a class="" href="including-auxiliary-variables.html"><span class="header-section-number">5</span> Including Auxiliary Variables</a></li>
+<li class="book-part">Latent Profile Analysis</li>
+<li><a class="" href="enumeration-3.html"><span class="header-section-number">6</span> Enumeration</a></li>
+<li class="book-part">Extensions of Latent Class Models</li>
+<li><a class="" href="moderation.html"><span class="header-section-number">7</span> Moderation</a></li>
+<li><a class="" href="latent-transition-analysis.html"><span class="header-section-number">8</span> Latent Transition Analysis</a></li>
+<li><a class="" href="joint-occurrence.html"><span class="header-section-number">9</span> Joint Occurrence</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth mixture Models</a></li>
+<li class="book-part">Published Manuscripts</li>
+<li><a class="active" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">11</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/immerse-ucsb/lca-bookdown">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="distal-outcomes-nylund-gibson-grimm-masyn-2019" class="section level1" number="11">
+<h1>
+<span class="header-section-number">11</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)<a class="anchor" aria-label="anchor" href="#distal-outcomes-nylund-gibson-grimm-masyn-2019"><i class="fas fa-link"></i></a>
+</h1>
+<hr>
+<p>This chapter replicates the workflow in Nylund-Gibson et al. (2019).</p>
+<p>Citation: Nylund-Gibson, K., Grimm, R. P., &amp; Masyn, K. E. (2019). Prediction from latent classes: A demonstration of different approaches to include distal outcomes in mixture models. <em>Structural equation modeling: A multidisciplinary Journal</em>, <em>26</em>(6), 967-985.</p>
+<div id="data-overview" class="section level2" number="11.1">
+<h2>
+<span class="header-section-number">11.1</span> Data overview<a class="anchor" aria-label="anchor" href="#data-overview"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Math attitude indicator:</strong></p>
+<p>Five math attitudinal variables were used as the response indicators for the LCA model.</p>
+<ul>
+<li><p><em>enjoym</em> - I enjoy math.</p></li>
+<li><p><em>goodm</em> - I am good at math.</p></li>
+<li><p><em>udnerstandm</em> - I usually understand what we are doing in math.</p></li>
+<li><p>nervousm - Doing math often makes me nervous or upset.</p></li>
+<li><p>scaredm - I often get scared when I open my math book and see a page of problems.</p></li>
+</ul>
+<p><strong>Covariate:</strong></p>
+<ul>
+<li>female - gender (female = 1; male = 0)</li>
+</ul>
+<p><strong>Distal outcomes:</strong></p>
+<ul>
+<li><p>mathjob - Math job (1 = student felt that math was useful for a later job; 0 = student did not feel that math was useful for a later job)</p></li>
+<li><p>mathirt - Math IRT score in grade 9 (continuous, higher math scores represent higher math achievement)</p></li>
+</ul>
+<hr>
+</div>
+<div id="load-packages-5" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> Load Packages<a class="anchor" aria-label="anchor" href="#load-packages-5"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/">glue</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/">kableExtra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wrathematics/float">float</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="data-preparation" class="section level2" number="11.3">
+<h2>
+<span class="header-section-number">11.3</span> Data Preparation<a class="anchor" aria-label="anchor" href="#data-preparation"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">lsay_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>, <span class="st">"data"</span>, <span class="st">"lsay_df.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="descriptive-statistics-7" class="section level2" number="11.4">
+<h2>
+<span class="header-section-number">11.4</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-7"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">lsay_df</span><span class="op">)</span></span>
+<span><span class="co">#&gt;          vars    n  mean    sd median trimmed   mad   min</span></span>
+<span><span class="co">#&gt; enjoym      1 2668  0.67  0.47    1.0    0.71  0.00  0.00</span></span>
+<span><span class="co">#&gt; goodm       2 2670  0.69  0.46    1.0    0.74  0.00  0.00</span></span>
+<span><span class="co">#&gt; undrstdm    3 2648  0.76  0.43    1.0    0.83  0.00  0.00</span></span>
+<span><span class="co">#&gt; nervousm    4 2622  0.59  0.49    1.0    0.61  0.00  0.00</span></span>
+<span><span class="co">#&gt; scaredm     5 2651  0.69  0.46    1.0    0.73  0.00  0.00</span></span>
+<span><span class="co">#&gt; mathjob     6 2321  0.69  0.46    1.0    0.74  0.00  0.00</span></span>
+<span><span class="co">#&gt; mathirt     7 2241 58.81 12.60   59.3   58.93 13.49 26.57</span></span>
+<span><span class="co">#&gt; female      8 3116  0.48  0.50    0.0    0.47  0.00  0.00</span></span>
+<span><span class="co">#&gt;            max range  skew kurtosis   se</span></span>
+<span><span class="co">#&gt; enjoym    1.00  1.00 -0.72    -1.49 0.01</span></span>
+<span><span class="co">#&gt; goodm     1.00  1.00 -0.84    -1.30 0.01</span></span>
+<span><span class="co">#&gt; undrstdm  1.00  1.00 -1.24    -0.47 0.01</span></span>
+<span><span class="co">#&gt; nervousm  1.00  1.00 -0.36    -1.87 0.01</span></span>
+<span><span class="co">#&gt; scaredm   1.00  1.00 -0.81    -1.35 0.01</span></span>
+<span><span class="co">#&gt; mathjob   1.00  1.00 -0.81    -1.34 0.01</span></span>
+<span><span class="co">#&gt; mathirt  94.19 67.62 -0.06    -0.55 0.27</span></span>
+<span><span class="co">#&gt; female    1.00  1.00  0.09    -1.99 0.01</span></span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss</a></span><span class="op">(</span><span class="va">lsay_df</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="11-distals_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
+<hr>
+</div>
+<div id="enumeration---maysn-2017" class="section level2" number="11.5">
+<h2>
+<span class="header-section-number">11.5</span> Enumeration - Maysn (2017)<a class="anchor" aria-label="anchor" href="#enumeration---maysn-2017"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">lca_math</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">lca_math_enum</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>      </span>
+<span>    TITLE <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{k}-Class"</span><span class="op">)</span>, </span>
+<span>  </span>
+<span>    VARIABLE <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span>    <span class="st">"categorical = enjoym-scaredm; </span></span>
+<span><span class="st">     usevar = enjoym-scaredm;</span></span>
+<span><span class="st">     classes = c({k}); "</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>   <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 200 100; </span></span>
+<span><span class="st">    processors = 10;"</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"sampstat residual tech11 tech14 svalues;"</span>,</span>
+<span>  </span>
+<span>  PLOT <span class="op">=</span> </span>
+<span>    <span class="st">"type = plot3; </span></span>
+<span><span class="st">    series = enjoym-scaredm(*);"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_df</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_df</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">lca_enum_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">lca_math_enum</span>, </span>
+<span>                            dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"enum"</span>,<span class="st">"enum.dat"</span><span class="op">)</span>,</span>
+<span>                            modelout<span class="op">=</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"enum"</span>,<span class="st">"c{k}_enum.inp"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="distal-as-indicator-approach" class="section level2" number="11.6">
+<h2>
+<span class="header-section-number">11.6</span> Distal-as-indicator approach<a class="anchor" aria-label="anchor" href="#distal-as-indicator-approach"><i class="fas fa-link"></i></a>
+</h2>
+<p>The distal-as-indicator approach, also called the 1-step approach because the latent class variable and the distal outcome means are measured in one modeling step (Vermunt, 2010), the distal outcome is part of the measurement model of the latent variable; that is, the distal outcome is treated as an indicator of the latent class variable (Muthén &amp; Shedden, 1999).</p>
+<p>For this model, five math attitude variables, the gender covariate, and the two distal outcomes are included as class indicators.</p>
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dasi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">lca_enum</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>      </span>
+<span>    TITLE <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{k}-Class"</span><span class="op">)</span>, </span>
+<span>  </span>
+<span>    VARIABLE <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span>    <span class="st">"categorical = enjoym-mathjob female; </span></span>
+<span><span class="st">     usevar = enjoym-female;</span></span>
+<span><span class="st">     classes = c({k});"</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>   <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 200 100; </span></span>
+<span><span class="st">    processors = 10;"</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"sampstat residual tech1 tech8 tech10 tech11 tech14 svalues;"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_df</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_df</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dasi_enum_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">lca_enum</span>, </span>
+<span>                            dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"enum_dasi"</span>,<span class="st">"dasi.dat"</span><span class="op">)</span>,</span>
+<span>                            modelout<span class="op">=</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"enum_dasi"</span>,<span class="st">"c{k}_dasi.inp"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div id="table-of-fit-5" class="section level3" number="11.6.1">
+<h3>
+<span class="header-section-number">11.6.1</span> Table of fit<a class="anchor" aria-label="anchor" href="#table-of-fit-5"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"extract_mplus_info.R"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Define the directory where all of the .out files are located.</span></span>
+<span><span class="va">output_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>, <span class="st">"enum_dasi"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get all .out files</span></span>
+<span><span class="va">output_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="va">output_dir</span>, pattern <span class="op">=</span> <span class="st">"\\.out$"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Process all .out files into one dataframe</span></span>
+<span><span class="va">final_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map_dfr.html">map_dfr</a></span><span class="op">(</span><span class="va">output_files</span>, <span class="va">extract_mplus_info_extended</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract Sample_Size from final_data</span></span>
+<span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">final_data</span><span class="op">$</span><span class="va">Sample_Size</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Read in .out files into `MplusAutomation`</span></span>
+<span><span class="va">output_dasi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>, <span class="st">"enum_dasi"</span><span class="op">)</span>,</span>
+<span>                          filefilter <span class="op">=</span> <span class="st">"dasi"</span>,</span>
+<span>                          quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract fit indices</span></span>
+<span><span class="va">enum_extract</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/LatexSummaryTable.html">LatexSummaryTable</a></span><span class="op">(</span></span>
+<span>  <span class="va">output_dasi</span>,</span>
+<span>  keepCols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"Title"</span>,</span>
+<span>    <span class="st">"Parameters"</span>,</span>
+<span>    <span class="st">"LL"</span>,</span>
+<span>    <span class="st">"BIC"</span>,</span>
+<span>    <span class="st">"aBIC"</span>,</span>
+<span>    <span class="st">"BLRT_PValue"</span>,</span>
+<span>    <span class="st">"T11_VLMR_PValue"</span>,</span>
+<span>    <span class="st">"Observations"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  sortBy <span class="op">=</span> <span class="st">"Title"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate additional fit indices</span></span>
+<span><span class="va">allFit</span> <span class="op">&lt;-</span> <span class="va">enum_extract</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>CAIC <span class="op">=</span> <span class="op">-</span><span class="fl">2</span> <span class="op">*</span> <span class="va">LL</span> <span class="op">+</span> <span class="va">Parameters</span> <span class="op">*</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Observations</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>AWE <span class="op">=</span> <span class="op">-</span><span class="fl">2</span> <span class="op">*</span> <span class="va">LL</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">Parameters</span> <span class="op">*</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Observations</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1.5</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>SIC <span class="op">=</span> <span class="op">-</span><span class="fl">.5</span> <span class="op">*</span> <span class="va">BIC</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>expSIC <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">SIC</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">SIC</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>BF <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">SIC</span> <span class="op">-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lead</a></span><span class="op">(</span><span class="va">SIC</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cmPk <span class="op">=</span> <span class="va">expSIC</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">expSIC</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">9</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">6</span><span class="op">:</span><span class="fl">7</span>, <span class="fl">13</span>, <span class="fl">14</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">Parameters</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Merge columns with LL replications and class size from `final_data`</span></span>
+<span><span class="va">merged_table</span> <span class="op">&lt;-</span> <span class="va">allFit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Title <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_trim.html">str_trim</a></span><span class="op">(</span><span class="va">Title</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span></span>
+<span>    <span class="va">final_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>      <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span></span>
+<span>        <span class="va">Class_Model</span>,</span>
+<span>        <span class="va">Perc_Convergence</span>,</span>
+<span>        <span class="va">Replicated_LL_Perc</span>,</span>
+<span>        <span class="va">Smallest_Class</span>,</span>
+<span>        <span class="va">Smallest_Class_Perc</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>    by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Title"</span> <span class="op">=</span> <span class="st">"Class_Model"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Smallest_Class <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/coalesce.html">coalesce</a></span><span class="op">(</span><span class="va">Smallest_Class</span>, <span class="va">final_data</span><span class="op">$</span><span class="va">Smallest_Class</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/match.html">match</a></span><span class="op">(</span><span class="va">Title</span>, <span class="va">final_data</span><span class="op">$</span><span class="va">Class_Model</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">Perc_Convergence</span>, <span class="va">Replicated_LL_Perc</span>, .after <span class="op">=</span> <span class="va">LL</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Smallest_Class_Combined <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">Smallest_Class</span>, <span class="st">"\u00A0("</span>, <span class="va">Smallest_Class_Perc</span>, <span class="st">"%)"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Smallest_Class</span>, <span class="op">-</span><span class="va">Smallest_Class_Perc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span></span>
+<span>    <span class="va">Title</span>,</span>
+<span>    <span class="va">Parameters</span>,</span>
+<span>    <span class="va">LL</span>,</span>
+<span>    <span class="va">Perc_Convergence</span>,</span>
+<span>    <span class="va">Replicated_LL_Perc</span>,</span>
+<span>    <span class="va">BIC</span>,</span>
+<span>    <span class="va">aBIC</span>,</span>
+<span>    <span class="va">CAIC</span>,</span>
+<span>    <span class="va">AWE</span>,</span>
+<span>    <span class="va">T11_VLMR_PValue</span>,</span>
+<span>    <span class="va">BLRT_PValue</span>,</span>
+<span>    <span class="va">Smallest_Class_Combined</span>,</span>
+<span>    <span class="va">BF</span>,</span>
+<span>    <span class="va">cmPk</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<p>Create table:</p>
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fit_table1</span> <span class="op">&lt;-</span> <span class="va">merged_table</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span></span>
+<span>    <span class="va">Title</span>,</span>
+<span>    <span class="va">Parameters</span>,</span>
+<span>    <span class="va">LL</span>,</span>
+<span>    <span class="va">Perc_Convergence</span>,</span>
+<span>    <span class="va">Replicated_LL_Perc</span>,</span>
+<span>    <span class="va">BIC</span>,</span>
+<span>    <span class="va">aBIC</span>,</span>
+<span>    <span class="va">CAIC</span>,</span>
+<span>    <span class="va">AWE</span>,</span>
+<span>    <span class="va">T11_VLMR_PValue</span>,</span>
+<span>    <span class="va">BLRT_PValue</span>,</span>
+<span>    <span class="va">Smallest_Class_Combined</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span>title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**Model Fit Summary Table**"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Model Fit Indices"</span>, columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">BIC</span>, <span class="va">aBIC</span>, <span class="va">CAIC</span>, <span class="va">AWE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"LRTs"</span>,</span>
+<span>              columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">T11_VLMR_PValue</span>, <span class="va">BLRT_PValue</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span></span>
+<span>    label <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"Smallest\u00A0Class"</span><span class="op">)</span>,</span>
+<span>    columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Smallest_Class_Combined</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># ✅ Non-Breaking Space</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_label.html">cols_label</a></span><span class="op">(</span></span>
+<span>    Title <span class="op">=</span> <span class="st">"Classes"</span>,</span>
+<span>    Parameters <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"npar"</span><span class="op">)</span>,</span>
+<span>    LL <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"*LL*"</span><span class="op">)</span>,</span>
+<span>    Perc_Convergence <span class="op">=</span> <span class="st">"% Converged"</span>,</span>
+<span>    Replicated_LL_Perc <span class="op">=</span> <span class="st">"% Replicated"</span>,</span>
+<span>    BIC <span class="op">=</span> <span class="st">"BIC"</span>,</span>
+<span>    aBIC <span class="op">=</span> <span class="st">"aBIC"</span>,</span>
+<span>    CAIC <span class="op">=</span> <span class="st">"CAIC"</span>,</span>
+<span>    AWE <span class="op">=</span> <span class="st">"AWE"</span>,</span>
+<span>    T11_VLMR_PValue <span class="op">=</span> <span class="st">"VLMR"</span>,</span>
+<span>    BLRT_PValue <span class="op">=</span> <span class="st">"BLRT"</span>,</span>
+<span>    Smallest_Class_Combined <span class="op">=</span> <span class="st">"n (%)"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html">tab_footnote</a></span><span class="op">(</span></span>
+<span>    footnote <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span></span>
+<span>      <span class="st">"*Note.* Par = Parameters; *LL* = model log likelihood;</span></span>
+<span><span class="st">      BIC = Bayesian information criterion;</span></span>
+<span><span class="st">      aBIC = sample size adjusted BIC; CAIC = consistent Akaike information criterion;</span></span>
+<span><span class="st">      AWE = approximate weight of evidence criterion;</span></span>
+<span><span class="st">      BLRT = bootstrapped likelihood ratio test p-value;</span></span>
+<span><span class="st">      VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;</span></span>
+<span><span class="st">      *cmPk* = approximate correct model probability;</span></span>
+<span><span class="st">      Smallest K = Number of cases in the smallest class (n (%));</span></span>
+<span><span class="st">      LL Replicated = Whether the best log-likelihood was replicated."</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>column_labels.font.weight <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_number.html">fmt_number</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">6</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span>, decimals <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt.html">fmt</a></span><span class="op">(</span></span>
+<span>    columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">T11_VLMR_PValue</span>, <span class="va">BLRT_PValue</span><span class="op">)</span>,</span>
+<span>    fns <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="st">"—"</span>, <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span></span>
+<span>        <span class="va">x</span> <span class="op">&lt;</span> <span class="fl">0.001</span>, <span class="st">"&lt;.001"</span>, <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html">number</a></span><span class="op">(</span><span class="va">x</span>, accuracy <span class="op">=</span> <span class="fl">.01</span><span class="op">)</span></span>
+<span>      <span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_percent.html">fmt_percent</a></span><span class="op">(</span></span>
+<span>    columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Perc_Convergence</span>, <span class="va">Replicated_LL_Perc</span><span class="op">)</span>,</span>
+<span>    decimals <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>    scale_values <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_align.html">cols_align</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"center"</span>, columns <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_style.html">tab_style</a></span><span class="op">(</span></span>
+<span>    style <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://gt.rstudio.com/reference/cell_text.html">cell_text</a></span><span class="op">(</span>weight <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    locations <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="va">BIC</span>, row <span class="op">=</span> <span class="va">BIC</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">BIC</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="va">aBIC</span>, row <span class="op">=</span> <span class="va">aBIC</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">aBIC</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="va">CAIC</span>, row <span class="op">=</span> <span class="va">CAIC</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">CAIC</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="va">AWE</span>, row <span class="op">=</span> <span class="va">AWE</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">AWE</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span></span>
+<span>        columns <span class="op">=</span> <span class="va">T11_VLMR_PValue</span>,</span>
+<span>        row <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span></span>
+<span>          <span class="va">T11_VLMR_PValue</span> <span class="op">&lt;</span> <span class="fl">.05</span> <span class="op">&amp;</span></span>
+<span>            <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lead</a></span><span class="op">(</span><span class="va">T11_VLMR_PValue</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">.05</span>,</span>
+<span>          <span class="va">T11_VLMR_PValue</span> <span class="op">&lt;</span> <span class="fl">.05</span>,</span>
+<span>          <span class="cn">NA</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span></span>
+<span>        columns <span class="op">=</span> <span class="va">BLRT_PValue</span>,</span>
+<span>        row <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">BLRT_PValue</span> <span class="op">&lt;</span> <span class="fl">.05</span> <span class="op">&amp;</span></span>
+<span>                       <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lead</a></span><span class="op">(</span><span class="va">BLRT_PValue</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">.05</span>, <span class="va">BLRT_PValue</span> <span class="op">&lt;</span> <span class="fl">.05</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="va">fit_table1</span></span></code></pre></div>
+<div id="arvljeqsst" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#arvljeqsst table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#arvljeqsst thead, #arvljeqsst tbody, #arvljeqsst tfoot, #arvljeqsst tr, #arvljeqsst td, #arvljeqsst th {
+  border-style: none;
+}
+
+#arvljeqsst p {
+  margin: 0;
+  padding: 0;
+}
+
+#arvljeqsst .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#arvljeqsst .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#arvljeqsst .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#arvljeqsst .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#arvljeqsst .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#arvljeqsst .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#arvljeqsst .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#arvljeqsst .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#arvljeqsst .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#arvljeqsst .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#arvljeqsst .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#arvljeqsst .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#arvljeqsst .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#arvljeqsst .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#arvljeqsst .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#arvljeqsst .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#arvljeqsst .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#arvljeqsst .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#arvljeqsst .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#arvljeqsst .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#arvljeqsst .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#arvljeqsst .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#arvljeqsst .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#arvljeqsst .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#arvljeqsst .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#arvljeqsst .gt_left {
+  text-align: left;
+}
+
+#arvljeqsst .gt_center {
+  text-align: center;
+}
+
+#arvljeqsst .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#arvljeqsst .gt_font_normal {
+  font-weight: normal;
+}
+
+#arvljeqsst .gt_font_bold {
+  font-weight: bold;
+}
+
+#arvljeqsst .gt_font_italic {
+  font-style: italic;
+}
+
+#arvljeqsst .gt_super {
+  font-size: 65%;
+}
+
+#arvljeqsst .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#arvljeqsst .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#arvljeqsst .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#arvljeqsst .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#arvljeqsst .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#arvljeqsst .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#arvljeqsst .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#arvljeqsst .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#arvljeqsst div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="12" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>
+<span class="gt_from_md"><strong>Model Fit Summary Table</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</td>
+    </tr>
+<tr class="gt_col_headings gt_spanner_row">
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="Title">Classes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="Parameters"><span class="gt_from_md">npar</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="LL"><span class="gt_from_md"><em>LL</em></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="Perc_Convergence">% Converged</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="Replicated_LL_Perc">% Replicated</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="Model Fit Indices">
+        <div class="gt_column_spanner">Model Fit Indices</div>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="LRTs">
+        <div class="gt_column_spanner">LRTs</div>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="1" scope="col" id="Smallest Class">
+        <div class="gt_column_spanner"><span class="gt_from_md">Smallest Class</span></div>
+      </th>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="BIC">BIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="aBIC">aBIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CAIC">CAIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="AWE">AWE</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="T11_VLMR_PValue">VLMR</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="BLRT_PValue">BLRT</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Smallest_Class_Combined">n (%)</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="Title" class="gt_row gt_center">1-Class</td>
+<td headers="Parameters" class="gt_row gt_center">9</td>
+<td headers="LL" class="gt_row gt_center">−20,669.36</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">100%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">100%</td>
+<td headers="BIC" class="gt_row gt_center">41,411.11</td>
+<td headers="aBIC" class="gt_row gt_center">41,382.51</td>
+<td headers="CAIC" class="gt_row gt_center">41,420.11</td>
+<td headers="AWE" class="gt_row gt_center">41,510.51</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center">—</td>
+<td headers="BLRT_PValue" class="gt_row gt_center">—</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">3116 (100%)</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_center">2-Class</td>
+<td headers="Parameters" class="gt_row gt_center">18</td>
+<td headers="LL" class="gt_row gt_center">−19,655.62</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">100%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">100%</td>
+<td headers="BIC" class="gt_row gt_center">39,456.04</td>
+<td headers="aBIC" class="gt_row gt_center">39,398.85</td>
+<td headers="CAIC" class="gt_row gt_center">39,474.04</td>
+<td headers="AWE" class="gt_row gt_center">39,654.84</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center">&lt;.001</td>
+<td headers="BLRT_PValue" class="gt_row gt_center">&lt;.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">1034 (33.2%)</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_center">3-Class</td>
+<td headers="Parameters" class="gt_row gt_center">27</td>
+<td headers="LL" class="gt_row gt_center">−19,420.74</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">99%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">100%</td>
+<td headers="BIC" class="gt_row gt_center">39,058.68</td>
+<td headers="aBIC" class="gt_row gt_center">38,972.89</td>
+<td headers="CAIC" class="gt_row gt_center">39,085.68</td>
+<td headers="AWE" class="gt_row gt_center" style="font-weight: bold;">39,356.88</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center">&lt;.001</td>
+<td headers="BLRT_PValue" class="gt_row gt_center">&lt;.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">447 (14.4%)</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_center">4-Class</td>
+<td headers="Parameters" class="gt_row gt_center">36</td>
+<td headers="LL" class="gt_row gt_center">−19,349.10</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">80%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">89%</td>
+<td headers="BIC" class="gt_row gt_center" style="font-weight: bold;">38,987.80</td>
+<td headers="aBIC" class="gt_row gt_center" style="font-weight: bold;">38,873.41</td>
+<td headers="CAIC" class="gt_row gt_center" style="font-weight: bold;">39,023.80</td>
+<td headers="AWE" class="gt_row gt_center">39,385.39</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center" style="font-weight: bold;">&lt;.001</td>
+<td headers="BLRT_PValue" class="gt_row gt_center">&lt;.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">491 (15.7%)</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_center">5-Class</td>
+<td headers="Parameters" class="gt_row gt_center">45</td>
+<td headers="LL" class="gt_row gt_center">−19,331.73</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">34%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">35%</td>
+<td headers="BIC" class="gt_row gt_center">39,025.45</td>
+<td headers="aBIC" class="gt_row gt_center">38,882.47</td>
+<td headers="CAIC" class="gt_row gt_center">39,070.45</td>
+<td headers="AWE" class="gt_row gt_center">39,522.45</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center">0.29</td>
+<td headers="BLRT_PValue" class="gt_row gt_center">&lt;.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">182 (5.8%)</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_center">6-Class</td>
+<td headers="Parameters" class="gt_row gt_center">54</td>
+<td headers="LL" class="gt_row gt_center">−19,313.44</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">31%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">42%</td>
+<td headers="BIC" class="gt_row gt_center">39,061.27</td>
+<td headers="aBIC" class="gt_row gt_center">38,889.69</td>
+<td headers="CAIC" class="gt_row gt_center">39,115.27</td>
+<td headers="AWE" class="gt_row gt_center">39,657.66</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center">0.12</td>
+<td headers="BLRT_PValue" class="gt_row gt_center">&lt;.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">258 (8.3%)</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="12">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class="gt_from_md"><em>Note.</em> Par = Parameters; <em>LL</em> = model log likelihood;
+BIC = Bayesian information criterion;
+aBIC = sample size adjusted BIC; CAIC = consistent Akaike information criterion;
+AWE = approximate weight of evidence criterion;
+BLRT = bootstrapped likelihood ratio test p-value;
+VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
+<em>cmPk</em> = approximate correct model probability;
+Smallest K = Number of cases in the smallest class (n (%));
+LL Replicated = Whether the best log-likelihood was replicated.</span>
+</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<hr>
+<p>The results from the distal-as-indicator approach suggested a 4-class model as well. Though there were some differences in the emergent latent classes compared to the classes from the unconditional LCA model without distals, the substantive interpretation would largely remain the same with respect to the math attitudinal variables.</p>
+<p>The distal mean of the binary outcome variable (in this case, <em>math job</em>) can be located in the “RESULTS IN PROBABILITY SCALE” section. The excerpt below presents the distal mean of <em>math job</em> for Latent Class 1.</p>
+<div class="inline-figure"><img src="distals/figures/fig_1.png" width="450"></div>
+<p>The distal mean of the continuous outcome variable (in this case, <em>math IRT score</em>) can be located in the “MODEL RESULTS” section. The excerpt below shows the distal mean of the <em>math IRT score</em> for Latent Class 1.</p>
+<div class="inline-figure"><img src="distals/figures/fig_2.png" width="450"></div>
+<hr>
+</div>
+<div id="conditional-item-probability-plot" class="section level3" number="11.6.2">
+<h3>
+<span class="header-section-number">11.6.2</span> Conditional Item Probability Plot<a class="anchor" aria-label="anchor" href="#conditional-item-probability-plot"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">plot_lca</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_dasi</span><span class="op">$</span><span class="va">c4_dasi.out</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="11-distals_files/figure-html/unnamed-chunk-9-1.png" width="768"></div>
+<hr>
+</div>
+</div>
+<div id="adding-constraints-to-test-the-distal-means" class="section level2" number="11.7">
+<h2>
+<span class="header-section-number">11.7</span> Adding constraints to test the distal means<a class="anchor" aria-label="anchor" href="#adding-constraints-to-test-the-distal-means"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dasi_cons</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"D as I with constraints"</span>, </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span>  <span class="st">"categorical = enjoym-mathjob female;</span></span>
+<span><span class="st">   usevar = enjoym-female;</span></span>
+<span><span class="st">   classes = c(4);"</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>  <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 200 100; </span></span>
+<span><span class="st">    processors = 10;"</span>,</span>
+<span>  </span>
+<span>  MODEL <span class="op">=</span></span>
+<span>    <span class="st">" %overall%</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      %c#1%</span></span>
+<span><span class="st">      [mathjob$1] (dj1);</span></span>
+<span><span class="st">      [mathirt]   (dm1);</span></span>
+<span><span class="st">      [female$1]  (df1);</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      %c#2%</span></span>
+<span><span class="st">      [mathjob$1] (dj2);</span></span>
+<span><span class="st">      [mathirt]   (dm2);</span></span>
+<span><span class="st">      [female$1]  (df2);</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      %c#3%</span></span>
+<span><span class="st">      [mathjob$1] (dj3);</span></span>
+<span><span class="st">      [mathirt]   (dm3);</span></span>
+<span><span class="st">      [female$1]  (df3);</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">      %c#4%</span></span>
+<span><span class="st">      [mathjob$1] (dj4);</span></span>
+<span><span class="st">      [mathirt]   (dm4);</span></span>
+<span><span class="st">      [female$1]  (df4);"</span>,</span>
+<span>  </span>
+<span>  SAVEDATA <span class="op">=</span> </span>
+<span>   <span class="st">"File=3step_savedata.dat;</span></span>
+<span><span class="st">    Save=cprob;"</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"residual tech11 tech14"</span>,</span>
+<span>  </span>
+<span>  MODELCONSTRAINT <span class="op">=</span> </span>
+<span>  <span class="st">"New (dj1v2 dj1v3 dj1v4 dj2v3 dj2v4 dj3v4</span></span>
+<span><span class="st">       dm1v2 dm1v3 dm1v4 dm2v3 dm2v4 dm3v4</span></span>
+<span><span class="st">       df1v2 df1v3 df1v4 df2v3 df2v4 df3v4);</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">    dj1v2 = dj1-dj2;</span></span>
+<span><span class="st">    dj1v3 = dj1-dj3;</span></span>
+<span><span class="st">    dj1v4 = dj1-dj4;</span></span>
+<span><span class="st">    dj2v3 = dj2-dj3;</span></span>
+<span><span class="st">    dj2v4 = dj2-dj4;</span></span>
+<span><span class="st">    dj3v4 = dj3-dj4;</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">    dm1v2 = dm1-dm2;</span></span>
+<span><span class="st">    dm1v3 = dm1-dm3;</span></span>
+<span><span class="st">    dm1v4 = dm1-dm4;</span></span>
+<span><span class="st">    dm2v3 = dm2-dm3;</span></span>
+<span><span class="st">    dm2v4 = dm2-dm4;</span></span>
+<span><span class="st">    dm3v4 = dm3-dm4;</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">    df1v2 = df1-df2;</span></span>
+<span><span class="st">    df1v3 = df1-df3;</span></span>
+<span><span class="st">    df1v4 = df1-df4;</span></span>
+<span><span class="st">    df2v3 = df2-df3;</span></span>
+<span><span class="st">    df2v4 = df2-df4;</span></span>
+<span><span class="st">    df3v4 = df3-df4;"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_df</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_df</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dasi_cons_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">dasi_cons</span>,</span>
+<span>                            dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"constraints"</span>,<span class="st">"dasi_constraints.dat"</span><span class="op">)</span>,</span>
+<span>                            modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"constraints"</span>,<span class="st">"dasi_constraints.inp"</span><span class="op">)</span>,</span>
+<span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p>The significance of the newly specified parameters (e.g., DJ1V2, DM1V2) indicates whether there are statistically significant differences between the latent classes. For example, a significant p-value for DM1V2 suggests a meaningful difference in the distal outcome of the math IRT score between Latent Class 1 and Latent Class 2.</p>
+<hr>
+</div>
+<div id="manual-3-step" class="section level2" number="11.8">
+<h2>
+<span class="header-section-number">11.8</span> Manual 3-step<a class="anchor" aria-label="anchor" href="#manual-3-step"><i class="fas fa-link"></i></a>
+</h2>
+<div id="step-1-class-enumeration-w-auxiliary-specification" class="section level3" number="11.8.1">
+<h3>
+<span class="header-section-number">11.8.1</span> Step 1 Class Enumeration w/ Auxiliary Specification<a class="anchor" aria-label="anchor" href="#step-1-class-enumeration-w-auxiliary-specification"><i class="fas fa-link"></i></a>
+</h3>
+<p>The first step involves identifying the best-fitting unconditional model and saving the posterior probabilities and modal class assignment for that model (i.e., savedata: save=cprob;) and specifying any distal outcome variables as auxiliary variables so that they are included in the new data file saved in the savedata command.</p>
+<p>This step is done after class enumeration. In this example, the four class model was the best. Therefore, we are re-estimating the four-class model using <code>optseed</code> for efficiency. The <code>optseed</code> can be found in the “RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES” section. Any random start value that yields the best log-likelihood can be used as the <code>optseed</code>, and they should produce identical parameter estimates.</p>
+<div class="inline-figure"><img src="distals/figures/fig_3.png" width="527"></div>
+<p>In the <code>SAVEDATA</code> command, we can save the posterior probabilities and the modal class assignment for steps two and three.</p>
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ml_step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"Step 1 "</span>, </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span>  <span class="st">"categorical = enjoym-scaredm; </span></span>
+<span><span class="st">   usevar = enjoym-scaredm;</span></span>
+<span><span class="st">    </span></span>
+<span><span class="st">   classes = c(4); </span></span>
+<span><span class="st">    </span></span>
+<span><span class="st">   auxiliary =   ! list all potential covariates and distals here</span></span>
+<span><span class="st">   female        ! covariate</span></span>
+<span><span class="st">   mathjob mathirt;      ! distal math test score in 9th grade "</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>   <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 0;</span></span>
+<span><span class="st">    optseed = 484501;"</span>,</span>
+<span>  </span>
+<span>  SAVEDATA <span class="op">=</span> </span>
+<span>   <span class="st">"File = 3step_savedata.dat;</span></span>
+<span><span class="st">    Save = cprob;"</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"residual tech11 tech14"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_df</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_df</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ml_step1_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">ml_step1</span>,</span>
+<span>                            dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"ML_step1.dat"</span><span class="op">)</span>,</span>
+<span>                            modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"ML_step1.inp"</span><span class="op">)</span> ,</span>
+<span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="step-2---determine-measurement-error-4" class="section level3" number="11.8.2">
+<h3>
+<span class="header-section-number">11.8.2</span> Step 2 - Determine Measurement Error<a class="anchor" aria-label="anchor" href="#step-2---determine-measurement-error-4"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">output_lsay</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"ML_step1.out"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">logit_cprobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_lsay</span><span class="op">[[</span><span class="st">"class_counts"</span><span class="op">]</span><span class="op">]</span></span>
+<span>                                       <span class="op">[[</span><span class="st">"logitProbs.mostLikely"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">savedata_lsay</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_lsay</span><span class="op">[[</span><span class="st">"savedata"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_lsay</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_lsay</span><span class="op">)</span><span class="op">==</span><span class="st">"C"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"N"</span></span></code></pre></div>
+<hr>
+</div>
+<div id="step-3---add-auxiliary-variables-3" class="section level3" number="11.8.3">
+<h3>
+<span class="header-section-number">11.8.3</span> Step 3 - Add Auxiliary Variables<a class="anchor" aria-label="anchor" href="#step-3---add-auxiliary-variables-3"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ML_step3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"Step3 "</span>, </span>
+<span>  </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span> <span class="st">"nominal = N;</span></span>
+<span><span class="st">  usevar = n;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  classes = c(4);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  usevar = female mathjob mathirt;"</span> ,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span> <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">  type = mixture; </span></span>
+<span><span class="st">  starts = 100 50;</span></span>
+<span><span class="st">  processors = 4;"</span>,</span>
+<span> </span>
+<span>  DEFINE <span class="op">=</span> </span>
+<span>   <span class="st">"center female (grandmean);"</span>,</span>
+<span>  </span>
+<span>  MODEL <span class="op">=</span></span>
+<span>  <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span> <span class="st">" %OVERALL%</span></span>
+<span><span class="st"> </span></span>
+<span><span class="st">  mathirt on female; ! covariate as a predictor of the distal outcome</span></span>
+<span><span class="st">  mathjob on female;</span></span>
+<span><span class="st">  C on female;        ! covariate as predictor of C</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">     %C#1%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model. </span></span>
+<span><span class="st">  [n#2@{logit_cprobs[1,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[1,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [mathirt](m1);    ! conditional distal mean </span></span>
+<span><span class="st">  mathirt;          ! conditional distal variance (freely estimated)</span></span>
+<span><span class="st">  [mathjob](j1);</span></span>
+<span><span class="st">  mathjob;</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#2%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[2,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[2,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[2,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [mathirt](m2);</span></span>
+<span><span class="st">  mathirt;</span></span>
+<span><span class="st">  [mathjob](j2);</span></span>
+<span><span class="st">  mathjob;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  %C#3%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[3,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[3,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[3,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [mathirt](m3);</span></span>
+<span><span class="st">  mathirt;</span></span>
+<span><span class="st">  [mathjob](j3);</span></span>
+<span><span class="st">  mathjob;</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#4%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[4,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[4,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[4,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [mathirt](m4);</span></span>
+<span><span class="st">  mathirt; </span></span>
+<span><span class="st">  [mathjob](j4);</span></span>
+<span><span class="st">  mathjob;  "</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  MODELCONSTRAINT <span class="op">=</span> </span>
+<span>   <span class="st">"New (dm1v2 dm1v3 dm2v3 dm1v4 dm2v4 dm3v4 </span></span>
+<span><span class="st">         dj1v2 dj1v3 dj2v3 dj1v4 dj2v4 dj3v4 </span></span>
+<span><span class="st">    );</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">    dm1v2 = m1-m2;  ! test pairwise distal mean differences of IRT score</span></span>
+<span><span class="st">    dm1v3 = m1-m3;</span></span>
+<span><span class="st">    dm2v3 = m2-m3;</span></span>
+<span><span class="st">    dm1v4 = m1-m4;</span></span>
+<span><span class="st">    dm2v4 = m2-m4;</span></span>
+<span><span class="st">    dm3v4 = m3-m4;</span></span>
+<span><span class="st">    dj1v2 = j1-j2;  ! test pairwise distal mean differences of math job</span></span>
+<span><span class="st">    dj1v3 = j1-j3;</span></span>
+<span><span class="st">    dj2v3 = j2-j3;</span></span>
+<span><span class="st">    dj1v4 = j1-j4;</span></span>
+<span><span class="st">    dj2v4 = j2-j4;</span></span>
+<span><span class="st">    dj3v4 = j3-j4;"</span>,</span>
+<span>  </span>
+<span>  MODELTEST <span class="op">=</span> <span class="st">"     ! omnibus test of distal means </span></span>
+<span><span class="st">    m1=m2;</span></span>
+<span><span class="st">    m2=m3;</span></span>
+<span><span class="st">    m3=m4;</span></span>
+<span><span class="st">    j1=j2;</span></span>
+<span><span class="st">    j2=j3;</span></span>
+<span><span class="st">    j3=j4;"</span>,</span>
+<span> </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_lsay</span><span class="op">)</span>, </span>
+<span>  rdata <span class="op">=</span> <span class="va">savedata_lsay</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">step3_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">ML_step3</span>,</span>
+<span>               dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"ML_step3.dat"</span><span class="op">)</span>, </span>
+<span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"ML_step3.inp"</span><span class="op">)</span>, </span>
+<span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p>The distal means of the outcome variables are located in the ‘MODEL RESULTS’ section. The excerpt below presents the distal means of <em>math job</em> and <em>math IRT score</em> for Latent Class 1.</p>
+<div class="inline-figure"><img src="distals/figures/fig_4.png" width="450"></div>
+<hr>
+</div>
+</div>
+<div id="bch-approach" class="section level2" number="11.9">
+<h2>
+<span class="header-section-number">11.9</span> BCH approach<a class="anchor" aria-label="anchor" href="#bch-approach"><i class="fas fa-link"></i></a>
+</h2>
+<p>The BCH method is very similar to the three-step approach except that instead of calculating the average classification error in the second step, classification errors for each individual are computed, and the inverse logits of those individual-level error rates are used as weights in the third step rather than using the modal class assignment as imperfect latent class indicator. Advantages with this approach are that it appears to be more resistant to shifts in the latent classes in the third step (which is a problem in the manual 3-step in Mplus) and can often be used irrespective of variances being equal or unequal across latent classes (which can be a problem with the LTB approach).</p>
+<div id="step-1---class-enumeration-w-auxiliary-specification-and-bch-weights" class="section level3" number="11.9.1">
+<h3>
+<span class="header-section-number">11.9.1</span> Step 1 - Class Enumeration w/ Auxiliary Specification and BCH Weights<a class="anchor" aria-label="anchor" href="#step-1---class-enumeration-w-auxiliary-specification-and-bch-weights"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">step1_bch</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"Step 1 - BCH Method"</span>, </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span>  <span class="st">"categorical = enjoym-scaredm; </span></span>
+<span><span class="st">   usevar = enjoym-scaredm;</span></span>
+<span><span class="st">    </span></span>
+<span><span class="st">   classes = c(4); </span></span>
+<span><span class="st">    </span></span>
+<span><span class="st">   auxiliary =   ! list all potential covariates and distals here</span></span>
+<span><span class="st">   female        ! covariate</span></span>
+<span><span class="st">   mathjob mathirt;      ! distal math test score in 9th grade "</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>   <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 500 100;"</span>,</span>
+<span>  </span>
+<span>  SAVEDATA <span class="op">=</span> </span>
+<span>   <span class="st">"File=3step_savedata.dat;</span></span>
+<span><span class="st">    Save=bchweights; ! Here we save the BCH weights</span></span>
+<span><span class="st">    format = free;"</span>,</span>
+<span></span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"sampstat residual tech11 tech14"</span>,</span>
+<span>  </span>
+<span>  PLOT <span class="op">=</span> </span>
+<span>    <span class="st">"type = plot3; </span></span>
+<span><span class="st">    series = enjoym-scaredm(*);"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_df</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_df</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">step1_fit_bch</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">step1_bch</span>,</span>
+<span>                            dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"BCH_Step1.dat"</span><span class="op">)</span>,</span>
+<span>                            modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"BCH_Step1.inp"</span><span class="op">)</span> ,</span>
+<span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div id="step-2---extract-bch-weights" class="section level4" number="11.9.1.1">
+<h4>
+<span class="header-section-number">11.9.1.1</span> Step 2 - Extract BCH Weights<a class="anchor" aria-label="anchor" href="#step-2---extract-bch-weights"><i class="fas fa-link"></i></a>
+</h4>
+<p>Extract saved dataset which is part of the mplusObject “step1_fit_bch”</p>
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">output_bch</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"BCH_step1.out"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">savedata_bch</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_bch</span><span class="op">[[</span><span class="st">"savedata"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<p>Rename the column in savedata named “C” and change to “N”</p>
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_bch</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_bch</span><span class="op">)</span><span class="op">==</span><span class="st">"C"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"N"</span></span></code></pre></div>
+<hr>
+</div>
+<div id="step-3---add-auxiliary-variables-and-bch-weights" class="section level4" number="11.9.1.2">
+<h4>
+<span class="header-section-number">11.9.1.2</span> Step 3 - Add Auxiliary Variables and BCH Weights<a class="anchor" aria-label="anchor" href="#step-3---add-auxiliary-variables-and-bch-weights"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">step3_bch</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"Step3 - BCH Method"</span>, </span>
+<span>  </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span> <span class="st">"classes = c(4);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  missing are all(9999);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  usevar = BCHW1-BCHW4 mathjob mathirt female;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  training = BCHW1-BCHW4(bch);"</span> ,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span> <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">  type = mixture; </span></span>
+<span><span class="st">  starts = 500 200;"</span>,</span>
+<span>  </span>
+<span>  MODEL <span class="op">=</span></span>
+<span>  <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span> <span class="st">" %OVERALL%</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  mathirt on female; ! covariate as a predictor of the distal outcome</span></span>
+<span><span class="st">  mathjob on female;</span></span>
+<span><span class="st">  C on female;        ! covariate as predictor of C</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#1%</span></span>
+<span><span class="st">     </span></span>
+<span><span class="st">  [mathirt](m1);    ! conditional distal mean </span></span>
+<span><span class="st">  mathirt;          ! conditional distal variance (freely estimated)</span></span>
+<span><span class="st">  [mathjob](j1);</span></span>
+<span><span class="st">  mathjob;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  mathirt on female (rm1);</span></span>
+<span><span class="st">  mathjob on female (rj1);</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#2%</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [mathirt](m2);</span></span>
+<span><span class="st">  mathirt;</span></span>
+<span><span class="st">  [mathjob](j2);</span></span>
+<span><span class="st">  mathjob;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  mathirt on female (rm2);</span></span>
+<span><span class="st">  mathjob on female (rj2);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  %C#3%</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [mathirt](m3);</span></span>
+<span><span class="st">  mathirt;</span></span>
+<span><span class="st">  [mathjob](j3);</span></span>
+<span><span class="st">  mathjob;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  mathirt on female (rm3);</span></span>
+<span><span class="st">  mathjob on female (rj3);</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#4%</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [mathirt](m4);</span></span>
+<span><span class="st">  mathirt; </span></span>
+<span><span class="st">  [mathjob](j4);</span></span>
+<span><span class="st">  mathjob;</span></span>
+<span><span class="st"> </span></span>
+<span><span class="st">   mathirt on female (rm4);</span></span>
+<span><span class="st">   mathjob on female (rj4);"</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  MODELCONSTRAINT <span class="op">=</span> </span>
+<span> </span>
+<span>   <span class="st">"New (dm1v2 dm1v3 dm2v3 dm1v4 dm2v4 dm3v4</span></span>
+<span><span class="st">   dj1v2 dj1v3 dj2v3 dj1v4 dj2v4 dj3v4</span></span>
+<span><span class="st">    );</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">    dm1v2 = m1-m2;  ! test pairwise distal mean differences of IRT score</span></span>
+<span><span class="st">    dm1v3 = m1-m3;</span></span>
+<span><span class="st">    dm2v3 = m2-m3;</span></span>
+<span><span class="st">    dm1v4 = m1-m4;</span></span>
+<span><span class="st">    dm2v4 = m2-m4;</span></span>
+<span><span class="st">    dm3v4 = m3-m4;</span></span>
+<span><span class="st">    dj1v2 = j1-j2;  ! test pairwise distal mean differences of math job</span></span>
+<span><span class="st">    dj1v3 = j1-j3;</span></span>
+<span><span class="st">    dj2v3 = j2-j3;</span></span>
+<span><span class="st">    dj1v4 = j1-j4;</span></span>
+<span><span class="st">    dj2v4 = j2-j4;</span></span>
+<span><span class="st">    dj3v4 = j3-j4;"</span>,</span>
+<span>  </span>
+<span>  MODELTEST <span class="op">=</span> <span class="st">"     ! omnibus test of distal means</span></span>
+<span><span class="st">    m1=m2;</span></span>
+<span><span class="st">    m2=m3;</span></span>
+<span><span class="st">    m3=m4;</span></span>
+<span><span class="st">    j1=j2;</span></span>
+<span><span class="st">    j2=j3;</span></span>
+<span><span class="st">    j3=j4;</span></span>
+<span><span class="st"> "</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"Tech1 svalues sampstat"</span>,</span>
+<span> </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_bch</span><span class="op">)</span>, </span>
+<span>  rdata <span class="op">=</span> <span class="va">savedata_bch</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">step3_fit_bch</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">step3_bch</span>,</span>
+<span>               dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"BCH_Step3.dat"</span><span class="op">)</span>, </span>
+<span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"BCH_Step3.inp"</span><span class="op">)</span>, </span>
+<span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p>The distal means of the outcome variables are located in the ‘MODEL RESULTS’ section. The excerpt below presents the distal means of <em>math job</em> and <em>math IRT score</em> for Latent Class 1.</p>
+<div class="inline-figure"><img src="distal/figures/fig_5.png" width="450"></div>
+<p>Note that the class numbering may not be consistent across different methods. Check the class proportions to make sure that we are comparing the same class across methods. For example, Latent Class 1 in the BCH results matches the Latent Class 4 in the ML 3-step results..</p>
+<p>ML-3 step results</p>
+<div class="inline-figure"><img src="distal/figures/fig_6.png" width="430"></div>
+<p>BCH approach results</p>
+</div>
+</div>
+</div>
+<div id="section" class="section level2" number="11.10">
+<h2>
+<span class="header-section-number">11.10</span> <img src="distal/figures/fig_7.png" width="430"><a class="anchor" aria-label="anchor" href="#section"><i class="fas fa-link"></i></a>
+</h2>
+<div style="text-align: center;">
+<div class="inline-figure"><img src="images/ucsb_logo.png" width="75%"></div>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth mixture Models</a></div>
+<div class="next"><a href="references.html">References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#distal-outcomes-nylund-gibson-grimm-masyn-2019"><span class="header-section-number">11</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
+<li><a class="nav-link" href="#data-overview"><span class="header-section-number">11.1</span> Data overview</a></li>
+<li><a class="nav-link" href="#load-packages-5"><span class="header-section-number">11.2</span> Load Packages</a></li>
+<li><a class="nav-link" href="#data-preparation"><span class="header-section-number">11.3</span> Data Preparation</a></li>
+<li><a class="nav-link" href="#descriptive-statistics-7"><span class="header-section-number">11.4</span> Descriptive Statistics</a></li>
+<li><a class="nav-link" href="#enumeration---maysn-2017"><span class="header-section-number">11.5</span> Enumeration - Maysn (2017)</a></li>
+<li>
+<a class="nav-link" href="#distal-as-indicator-approach"><span class="header-section-number">11.6</span> Distal-as-indicator approach</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#table-of-fit-5"><span class="header-section-number">11.6.1</span> Table of fit</a></li>
+<li><a class="nav-link" href="#conditional-item-probability-plot"><span class="header-section-number">11.6.2</span> Conditional Item Probability Plot</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#adding-constraints-to-test-the-distal-means"><span class="header-section-number">11.7</span> Adding constraints to test the distal means</a></li>
+<li>
+<a class="nav-link" href="#manual-3-step"><span class="header-section-number">11.8</span> Manual 3-step</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1-class-enumeration-w-auxiliary-specification"><span class="header-section-number">11.8.1</span> Step 1 Class Enumeration w/ Auxiliary Specification</a></li>
+<li><a class="nav-link" href="#step-2---determine-measurement-error-4"><span class="header-section-number">11.8.2</span> Step 2 - Determine Measurement Error</a></li>
+<li><a class="nav-link" href="#step-3---add-auxiliary-variables-3"><span class="header-section-number">11.8.3</span> Step 3 - Add Auxiliary Variables</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#bch-approach"><span class="header-section-number">11.9</span> BCH approach</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#step-1---class-enumeration-w-auxiliary-specification-and-bch-weights"><span class="header-section-number">11.9.1</span> Step 1 - Class Enumeration w/ Auxiliary Specification and BCH Weights</a></li></ul>
+</li>
+<li><a class="nav-link" href="#section"><span class="header-section-number">11.10</span></a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/11-distals.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/11-distals.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-07-30.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,622 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+07/30/2025   7:25 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  3-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/distals/enum/enum.dat";
+  VARIABLE:
+  NAMES = enjoym goodm undrstdm nervousm scaredm mathjob mathirt female;
+   MISSING=.;
+   categorical = enjoym-scaredm;
+  usevar = enjoym-scaredm;
+  classes = c(3);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 200 100;
+      processors = 10;
+  OUTPUT:
+  sampstat residual tech11 tech14 svalues;
+  PLOT:
+  type = plot3;
+      series = enjoym-scaredm(*);
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  441
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+3-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2675
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   ENJOYM      GOODM       UNDRSTDM    NERVOUSM    SCAREDM
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        200
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca-bookdown/distals/enum/enum.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             9
+     Number of y missing data patterns           0
+     Number of u missing data patterns           9
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              ENJOYM        GOODM         UNDRSTDM      NERVOUSM      SCAREDM
+              ________      ________      ________      ________      ________
+ ENJOYM         0.997
+ GOODM          0.996         0.998
+ UNDRSTDM       0.987         0.988         0.990
+ NERVOUSM       0.978         0.979         0.971         0.980
+ SCAREDM        0.988         0.990         0.982         0.973         0.991
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    ENJOYM
+      Category 1    0.331          884.000
+      Category 2    0.669         1784.000
+    GOODM
+      Category 1    0.307          820.000
+      Category 2    0.693         1850.000
+    UNDRSTDM
+      Category 1    0.237          628.000
+      Category 2    0.763         2020.000
+    NERVOUSM
+      Category 1    0.410         1076.000
+      Category 2    0.590         1546.000
+    SCAREDM
+      Category 1    0.313          830.000
+      Category 2    0.687         1821.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -7122.103  364676           27
+           -7122.103  352277           42
+           -7122.103  207896           25
+           -7122.103  476498           179
+           -7122.103  unperturbed      0
+           -7122.103  957392           79
+           -7122.103  411615           171
+           -7122.103  100874           108
+           -7122.103  456213           160
+           -7122.103  253358           2
+           -7122.103  392418           28
+           -7122.103  761633           50
+           -7122.103  565819           65
+           -7122.103  592219           119
+           -7122.103  887676           22
+           -7122.103  432148           30
+           -7122.103  788796           145
+           -7122.103  354208           196
+           -7122.103  292884           103
+           -7122.103  202790           198
+           -7122.103  960438           116
+           -7122.103  606576           151
+           -7122.103  321390           133
+           -7122.103  407168           44
+           -7122.103  268217           83
+           -7122.103  475420           71
+           -7122.103  966014           37
+           -7122.103  526324           178
+           -7122.103  120506           45
+           -7122.103  462953           7
+           -7122.103  313407           132
+           -7122.103  608496           4
+           -7122.103  939709           112
+           -7122.103  754100           56
+           -7122.103  314084           81
+           -7122.103  107446           12
+           -7122.103  846194           93
+           -7122.103  717754           180
+           -7122.103  814975           129
+           -7122.103  464179           106
+           -7122.103  636396           168
+           -7122.103  674171           195
+           -7122.103  695155           150
+           -7122.103  341041           34
+           -7122.103  422103           62
+           -7122.103  728038           177
+           -7122.103  366706           29
+           -7122.103  436460           89
+           -7122.103  481835           57
+           -7122.103  372176           23
+           -7122.103  232559           136
+           -7122.103  399671           13
+           -7122.103  27071            15
+           -7122.103  136842           58
+           -7122.103  318230           46
+           -7122.103  153942           31
+           -7122.103  268896           124
+           -7122.103  76974            16
+           -7122.103  967902           52
+           -7232.580  856536           144
+           -7232.580  751153           110
+           -7232.580  70118            104
+
+38 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+     IN THE OPTIMIZATION, ONE OR MORE LOGIT THRESHOLDS APPROACHED EXTREME VALUES
+     OF -15.000 AND 15.000 AND WERE FIXED TO STABILIZE MODEL ESTIMATION.  THESE
+     VALUES IMPLY PROBABILITIES OF 0 AND 1.  IN THE MODEL RESULTS SECTION, THESE
+     PARAMETERS HAVE 0 STANDARD ERRORS AND 999 IN THE Z-SCORE AND P-VALUE COLUMNS.
+
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       17
+
+Loglikelihood
+
+          H0 Value                       -7122.103
+          H0 Scaling Correction Factor      1.0421
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   14278.206
+          Bayesian (BIC)                 14378.365
+          Sample-Size Adjusted BIC       14324.351
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                            142.629
+          Degrees of Freedom                    14
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            139.656
+          Degrees of Freedom                    14
+          P-Value                           0.0000
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            137.641
+          Degrees of Freedom                    86
+          P-Value                           0.0003
+
+          Likelihood Ratio Chi-Square
+
+          Value                             96.341
+          Degrees of Freedom                    86
+          P-Value                           0.2092
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       1395.70785          0.52176
+       2        570.53296          0.21328
+       3        708.75919          0.26496
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       1395.70785          0.52176
+       2        570.53296          0.21328
+       3        708.75919          0.26496
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             1468          0.54879
+       2              508          0.18991
+       3              699          0.26131
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.765
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3
+
+    1   0.908    0.064    0.028
+    2   0.024    0.893    0.083
+    3   0.073    0.033    0.895
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3
+
+    1   0.955    0.009    0.036
+    2   0.165    0.795    0.040
+    3   0.058    0.059    0.882
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3
+
+    1      3.268   -1.426    0.000
+    2      1.409    2.984    0.000
+    3     -2.716   -2.697    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    ENJOYM$1          -1.653      0.099    -16.690      0.000
+    GOODM$1           -2.197      0.143    -15.371      0.000
+    UNDRSTDM$1        -2.811      0.174    -16.198      0.000
+    NERVOUSM$1        -1.823      0.323     -5.640      0.000
+    SCAREDM$1        -15.000      0.000    999.000    999.000
+
+Latent Class 2
+
+ Thresholds
+    ENJOYM$1          -2.222      0.284     -7.836      0.000
+    GOODM$1           -1.950      0.220     -8.874      0.000
+    UNDRSTDM$1        -1.789      0.163    -10.967      0.000
+    NERVOUSM$1         0.887      0.111      7.968      0.000
+    SCAREDM$1          1.459      0.876      1.665      0.096
+
+Latent Class 3
+
+ Thresholds
+    ENJOYM$1           1.783      0.188      9.480      0.000
+    GOODM$1            1.835      0.192      9.567      0.000
+    UNDRSTDM$1         0.700      0.119      5.882      0.000
+    NERVOUSM$1         0.886      0.113      7.853      0.000
+    SCAREDM$1          0.130      0.104      1.253      0.210
+
+Categorical Latent Variables
+
+ Means
+    C#1                0.678      0.093      7.277      0.000
+    C#2               -0.217      0.209     -1.040      0.298
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.145E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ ENJOYM
+    Category 1         0.161      0.013     12.032      0.000
+    Category 2         0.839      0.013     62.826      0.000
+ GOODM
+    Category 1         0.100      0.013      7.775      0.000
+    Category 2         0.900      0.013     69.934      0.000
+ UNDRSTDM
+    Category 1         0.057      0.009      6.109      0.000
+    Category 2         0.943      0.009    101.559      0.000
+ NERVOUSM
+    Category 1         0.139      0.039      3.593      0.000
+    Category 2         0.861      0.039     22.249      0.000
+ SCAREDM
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+
+Latent Class 2
+
+ ENJOYM
+    Category 1         0.098      0.025      3.908      0.000
+    Category 2         0.902      0.025     36.070      0.000
+ GOODM
+    Category 1         0.125      0.024      5.198      0.000
+    Category 2         0.875      0.024     36.535      0.000
+ UNDRSTDM
+    Category 1         0.143      0.020      7.152      0.000
+    Category 2         0.857      0.020     42.815      0.000
+ NERVOUSM
+    Category 1         0.708      0.023     30.793      0.000
+    Category 2         0.292      0.023     12.683      0.000
+ SCAREDM
+    Category 1         0.811      0.134      6.051      0.000
+    Category 2         0.189      0.134      1.407      0.159
+
+Latent Class 3
+
+ ENJOYM
+    Category 1         0.856      0.023     36.939      0.000
+    Category 2         0.144      0.023      6.212      0.000
+ GOODM
+    Category 1         0.862      0.023     37.882      0.000
+    Category 2         0.138      0.023      6.044      0.000
+ UNDRSTDM
+    Category 1         0.668      0.026     25.320      0.000
+    Category 2         0.332      0.026     12.570      0.000
+ NERVOUSM
+    Category 1         0.708      0.023     30.359      0.000
+    Category 2         0.292      0.023     12.516      0.000
+ SCAREDM
+    Category 1         0.532      0.026     20.640      0.000
+    Category 2         0.468      0.026     18.127      0.000
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ ENJOYM
+    Category > 1       0.566      0.169      0.315      1.015
+ GOODM
+    Category > 1       1.280      0.346      0.754      2.173
+ UNDRSTDM
+    Category > 1       2.777      0.720      1.670      4.617
+ NERVOUSM
+    Category > 1      15.035      5.276      7.557     29.911
+ SCAREDM
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 1 Compared to Latent Class 3
+
+ ENJOYM
+    Category > 1      31.049      6.402     20.727     46.510
+ GOODM
+    Category > 1      56.371     12.800     36.122     87.972
+ UNDRSTDM
+    Category > 1      33.485      6.714     22.603     49.605
+ NERVOUSM
+    Category > 1      15.021      4.825      8.003     28.193
+ SCAREDM
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 2 Compared to Latent Class 3
+
+ ENJOYM
+    Category > 1      54.885     16.966     29.945    100.594
+ GOODM
+    Category > 1      44.051     12.166     25.637     75.693
+ UNDRSTDM
+    Category > 1      12.058      2.394      8.171     17.793
+ NERVOUSM
+    Category > 1       0.999      0.167      0.720      1.386
+ SCAREDM
+    Category > 1       0.265      0.228      0.049      1.432
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     [ c#1*0.67764 ];
+     [ c#2*-0.21694 ];
+
+     %C#1%
+
+     [ enjoym$1*-1.65280 ];
+     [ goodm$1*-2.19658 ];
+     [ undrstdm$1*-2.81082 ];
+     [ nervousm$1*-1.82332 ];
+     [ scaredm$1*-15 ];
+
+     %C#2%
+
+     [ enjoym$1*-2.22248 ];
+     [ goodm$1*-1.94998 ];
+     [ undrstdm$1*-1.78945 ];
+     [ nervousm$1*0.88703 ];
+     [ scaredm$1*1.45876 ];
+
+     %C#3%
+
+     [ enjoym$1*1.78276 ];
+     [ goodm$1*1.83537 ];
+     [ undrstdm$1*0.70027 ];
+     [ nervousm$1*0.88610 ];
+     [ scaredm$1*0.12983 ];
+
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 2 (H0) VERSUS 3 CLASSES
+
+          H0 Loglikelihood Value                        -7316.556
+          2 Times the Loglikelihood Difference            388.905
+          Difference in the Number of Parameters                6
+          Mean                                              4.074
+          Standard Deviation                                6.809
+          P-Value                                          0.0000
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                           380.861
+          P-Value                                          0.0000
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                   100
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 2 (H0) VERSUS 3 CLASSES
+
+          H0 Loglikelihood Value                        -7316.556
+          2 Times the Loglikelihood Difference            388.905
+          Difference in the Number of Parameters                6
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                            5
+
+     WARNING:  OF THE 5 BOOTSTRAP DRAWS, 3 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE
+     OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.
+     THIS MEANS THAT THE P-VALUE MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.
+     INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+     Beginning Time:  19:25:10
+        Ending Time:  19:25:20
+       Elapsed Time:  00:00:10
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen
