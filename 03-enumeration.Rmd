@@ -458,7 +458,7 @@ gtsave(fit_table1, here("figures", "fit_table.png"))
 
 ## Information Criteria Plot
 
-```{r height=5, width=7}
+```{r height=3, width=5}
 allFit %>%
   dplyr::select(2:7) %>%
   rowid_to_column() %>%

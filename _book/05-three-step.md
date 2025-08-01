@@ -77,8 +77,8 @@ detach(package:MASS, unload = TRUE)
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-1103509463f3e23c4738" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1103509463f3e23c4738">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-10605d753e80b645af3d" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-10605d753e80b645af3d">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -195,8 +195,8 @@ ggsave(here("figures","Du3STEP_plot.jpeg"),
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-642d4b20cc44c2c0056f" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-642d4b20cc44c2c0056f">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-80431ac6fbe88e3fe473" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-80431ac6fbe88e3fe473">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -294,12 +294,12 @@ Parameterization using Reference Class 1
 
 ## Manual ML Three-step
 
-### Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites. 
+Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites. 
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-2a3c0639953a73c636b5" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-2a3c0639953a73c636b5">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-0012260525575ab83575" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-0012260525575ab83575">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -879,7 +879,7 @@ output_lsay <- readModels(here("three_step", "manual_3step","one.out"))
 plot_lca(model_name = output_lsay)
 ```
 
-<img src="05-three-step_files/figure-html/unnamed-chunk-12-1.png" width="960" />
+<img src="05-three-step_files/figure-html/unnamed-chunk-12-1.png" width="90%" />
 
 ------------------------------------------------------------------------
 
@@ -915,6 +915,7 @@ colnames(savedata)[colnames(savedata)=="C"] <- "N"
 #### Step 3 - LCA Auxiliary Variable Model with 2 covariates and 1 distal outcome
 
 ------------------------------------------------------------------------
+
 ##### Estimate LCA Model
 
 Model with 2 covariates (gender and mother's education) and 1 distal outcome (math IRT scores)
@@ -2703,7 +2704,6 @@ combined %>%
 Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
 
 
-
 ``` r
 modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
 
@@ -3216,12 +3216,12 @@ donx %>%
 
 
 
-
 ------------------------------------------------------------------------
 
 #### Step 3 - LCA Auxiliary Variable Model with 1 covariate
 
 ------------------------------------------------------------------------
+
 ##### Estimate LCA Model
 
 

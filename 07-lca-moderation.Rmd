@@ -36,7 +36,7 @@ library(janitor)
 
 ## Moderation Path Diagram
 
-```{r, echo=FALSE, eval=TRUE}
+```{r, echo=FALSE, eval=TRUE, out.width="90%"}
 knitr::include_graphics(here("figures", "moderation_diagram.png"))
 ```
 
@@ -283,7 +283,7 @@ gtsave(fit_table, here("figures", "fit_table_lca.png"))
 
 ### Information Criteria Plot
 
-```{r height=5, width=7}
+```{r out.width="90%"}
 source(here("functions", "ic_plot_lca.R"))
 ic_plot(output_enum)
 ```

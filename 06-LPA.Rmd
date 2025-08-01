@@ -256,7 +256,7 @@ ds %>%
 
 Histograms
 
-```{r}
+```{r out.width="90%"}
 data_long <- pisa %>%
   pivot_longer(broad_interest:self_efficacy, names_to = "variable")
 

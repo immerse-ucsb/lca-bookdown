@@ -338,7 +338,7 @@ Parameterization using Reference Class 1
 
 ## Manual ML Three-step
 
-### Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites. 
+Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites. 
 
 ```{r, echo=FALSE, eval=TRUE, fig.align='center'}
 
@@ -468,7 +468,7 @@ step1_fit <- mplusModeler(step1,
 ------------------------------------------------------------------------
 
 
-```{r, fig.height=6, fig.width=10}
+```{r, out.width="90%"}
 source(here("functions", "plot_lca.R"))
 output_lsay <- readModels(here("three_step", "manual_3step","one.out"))
 
@@ -506,6 +506,7 @@ colnames(savedata)[colnames(savedata)=="C"] <- "N"
 #### Step 3 - LCA Auxiliary Variable Model with 2 covariates and 1 distal outcome
 
 ------------------------------------------------------------------------
+
 ##### Estimate LCA Model
 
 Model with 2 covariates (gender and mother's education) and 1 distal outcome (math IRT scores)
@@ -818,7 +819,6 @@ combined %>%
 
 Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
 
-
 ```{r}
 modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
 
@@ -859,12 +859,12 @@ donx %>%
 ```
 
 
-
 ------------------------------------------------------------------------
 
 #### Step 3 - LCA Auxiliary Variable Model with 1 covariate
 
 ------------------------------------------------------------------------
+
 ##### Estimate LCA Model
 
 ```{r, cache = TRUE}

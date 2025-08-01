@@ -84,7 +84,7 @@
 <li><a class="" href="moderation.html"><span class="header-section-number">7</span> Moderation</a></li>
 <li><a class="" href="latent-transition-analysis.html"><span class="header-section-number">8</span> Latent Transition Analysis</a></li>
 <li><a class="" href="joint-occurrence.html"><span class="header-section-number">9</span> Joint Occurrence</a></li>
-<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth mixture Models</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth Mixture Models</a></li>
 <li class="book-part">Published Manuscripts</li>
 <li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">11</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -127,7 +127,7 @@
 <p>composite measure of students’ self reported self efficacy</p>
 </dd>
 </dl>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#devtools::install_github("jrosen48/pisaUSA15")</span></span>
 <span><span class="co">#library(pisaUSA15)</span></span></code></pre></div>
 <hr>
@@ -292,7 +292,7 @@ It is also the least parsimonious</p>
 <h2>
 <span class="header-section-number">6.3</span> Load packages<a class="anchor" aria-label="anchor" href="#load-packages-1"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
@@ -313,7 +313,7 @@ It is also the least parsimonious</p>
 <h2>
 <span class="header-section-number">6.4</span> Prepare Data<a class="anchor" aria-label="anchor" href="#prepare-data-2"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">pisa</span> <span class="op">&lt;-</span> <span class="va">pisaUSA15</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">500</span>,<span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">broad_interest</span>, <span class="va">enjoyment</span>, <span class="va">instrumental_mot</span>, <span class="va">self_efficacy</span><span class="op">)</span></span></code></pre></div>
@@ -324,7 +324,7 @@ It is also the least parsimonious</p>
 <span class="header-section-number">6.5</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>Quick Summary</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">pisa</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  broad_interest    enjoyment    instrumental_mot</span></span>
 <span><span class="co">#&gt;  Min.   :1.000   Min.   :1.00   Min.   :1.000   </span></span>
@@ -343,7 +343,7 @@ It is also the least parsimonious</p>
 <span><span class="co">#&gt;  Max.   :4.000  </span></span>
 <span><span class="co">#&gt;  NA's   :23</span></span></code></pre></div>
 <p>Mean Table</p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">pisa</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">broad_interest</span><span class="op">:</span><span class="va">self_efficacy</span>, names_to <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -364,23 +364,23 @@ It is also the least parsimonious</p>
 <span>    align <span class="op">=</span> <span class="st">"center"</span>,</span>
 <span>    columns <span class="op">=</span> <span class="va">mean</span></span>
 <span>  <span class="op">)</span> </span></code></pre></div>
-<div id="npuvwqbjai" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#npuvwqbjai table {
+<div id="kyxobnoaoz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kyxobnoaoz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#npuvwqbjai thead, #npuvwqbjai tbody, #npuvwqbjai tfoot, #npuvwqbjai tr, #npuvwqbjai td, #npuvwqbjai th {
+#kyxobnoaoz thead, #kyxobnoaoz tbody, #kyxobnoaoz tfoot, #kyxobnoaoz tr, #kyxobnoaoz td, #kyxobnoaoz th {
   border-style: none;
 }
 
-#npuvwqbjai p {
+#kyxobnoaoz p {
   margin: 0;
   padding: 0;
 }
 
-#npuvwqbjai .gt_table {
+#kyxobnoaoz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -406,12 +406,12 @@ It is also the least parsimonious</p>
   border-left-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_caption {
+#kyxobnoaoz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#npuvwqbjai .gt_title {
+#kyxobnoaoz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -423,7 +423,7 @@ It is also the least parsimonious</p>
   border-bottom-width: 0;
 }
 
-#npuvwqbjai .gt_subtitle {
+#kyxobnoaoz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -435,7 +435,7 @@ It is also the least parsimonious</p>
   border-top-width: 0;
 }
 
-#npuvwqbjai .gt_heading {
+#kyxobnoaoz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -447,13 +447,13 @@ It is also the least parsimonious</p>
   border-right-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_bottom_border {
+#kyxobnoaoz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_col_headings {
+#kyxobnoaoz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -468,7 +468,7 @@ It is also the least parsimonious</p>
   border-right-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_col_heading {
+#kyxobnoaoz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -488,7 +488,7 @@ It is also the least parsimonious</p>
   overflow-x: hidden;
 }
 
-#npuvwqbjai .gt_column_spanner_outer {
+#kyxobnoaoz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -500,15 +500,15 @@ It is also the least parsimonious</p>
   padding-right: 4px;
 }
 
-#npuvwqbjai .gt_column_spanner_outer:first-child {
+#kyxobnoaoz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#npuvwqbjai .gt_column_spanner_outer:last-child {
+#kyxobnoaoz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#npuvwqbjai .gt_column_spanner {
+#kyxobnoaoz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -520,11 +520,11 @@ It is also the least parsimonious</p>
   width: 100%;
 }
 
-#npuvwqbjai .gt_spanner_row {
+#kyxobnoaoz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#npuvwqbjai .gt_group_heading {
+#kyxobnoaoz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -550,7 +550,7 @@ It is also the least parsimonious</p>
   text-align: left;
 }
 
-#npuvwqbjai .gt_empty_group_heading {
+#kyxobnoaoz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -565,15 +565,15 @@ It is also the least parsimonious</p>
   vertical-align: middle;
 }
 
-#npuvwqbjai .gt_from_md > :first-child {
+#kyxobnoaoz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#npuvwqbjai .gt_from_md > :last-child {
+#kyxobnoaoz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#npuvwqbjai .gt_row {
+#kyxobnoaoz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -592,7 +592,7 @@ It is also the least parsimonious</p>
   overflow-x: hidden;
 }
 
-#npuvwqbjai .gt_stub {
+#kyxobnoaoz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -605,7 +605,7 @@ It is also the least parsimonious</p>
   padding-right: 5px;
 }
 
-#npuvwqbjai .gt_stub_row_group {
+#kyxobnoaoz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -619,15 +619,15 @@ It is also the least parsimonious</p>
   vertical-align: top;
 }
 
-#npuvwqbjai .gt_row_group_first td {
+#kyxobnoaoz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#npuvwqbjai .gt_row_group_first th {
+#kyxobnoaoz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#npuvwqbjai .gt_summary_row {
+#kyxobnoaoz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -637,16 +637,16 @@ It is also the least parsimonious</p>
   padding-right: 5px;
 }
 
-#npuvwqbjai .gt_first_summary_row {
+#kyxobnoaoz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_first_summary_row.thick {
+#kyxobnoaoz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#npuvwqbjai .gt_last_summary_row {
+#kyxobnoaoz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -656,7 +656,7 @@ It is also the least parsimonious</p>
   border-bottom-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_grand_summary_row {
+#kyxobnoaoz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -666,7 +666,7 @@ It is also the least parsimonious</p>
   padding-right: 5px;
 }
 
-#npuvwqbjai .gt_first_grand_summary_row {
+#kyxobnoaoz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -676,7 +676,7 @@ It is also the least parsimonious</p>
   border-top-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_last_grand_summary_row_top {
+#kyxobnoaoz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -686,11 +686,11 @@ It is also the least parsimonious</p>
   border-bottom-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_striped {
+#kyxobnoaoz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#npuvwqbjai .gt_table_body {
+#kyxobnoaoz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -699,7 +699,7 @@ It is also the least parsimonious</p>
   border-bottom-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_footnotes {
+#kyxobnoaoz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -713,7 +713,7 @@ It is also the least parsimonious</p>
   border-right-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_footnote {
+#kyxobnoaoz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -722,7 +722,7 @@ It is also the least parsimonious</p>
   padding-right: 5px;
 }
 
-#npuvwqbjai .gt_sourcenotes {
+#kyxobnoaoz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -736,7 +736,7 @@ It is also the least parsimonious</p>
   border-right-color: #D3D3D3;
 }
 
-#npuvwqbjai .gt_sourcenote {
+#kyxobnoaoz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -744,72 +744,72 @@ It is also the least parsimonious</p>
   padding-right: 5px;
 }
 
-#npuvwqbjai .gt_left {
+#kyxobnoaoz .gt_left {
   text-align: left;
 }
 
-#npuvwqbjai .gt_center {
+#kyxobnoaoz .gt_center {
   text-align: center;
 }
 
-#npuvwqbjai .gt_right {
+#kyxobnoaoz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#npuvwqbjai .gt_font_normal {
+#kyxobnoaoz .gt_font_normal {
   font-weight: normal;
 }
 
-#npuvwqbjai .gt_font_bold {
+#kyxobnoaoz .gt_font_bold {
   font-weight: bold;
 }
 
-#npuvwqbjai .gt_font_italic {
+#kyxobnoaoz .gt_font_italic {
   font-style: italic;
 }
 
-#npuvwqbjai .gt_super {
+#kyxobnoaoz .gt_super {
   font-size: 65%;
 }
 
-#npuvwqbjai .gt_footnote_marks {
+#kyxobnoaoz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#npuvwqbjai .gt_asterisk {
+#kyxobnoaoz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#npuvwqbjai .gt_indent_1 {
+#kyxobnoaoz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#npuvwqbjai .gt_indent_2 {
+#kyxobnoaoz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#npuvwqbjai .gt_indent_3 {
+#kyxobnoaoz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#npuvwqbjai .gt_indent_4 {
+#kyxobnoaoz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#npuvwqbjai .gt_indent_5 {
+#kyxobnoaoz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#npuvwqbjai .katex-display {
+#kyxobnoaoz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#npuvwqbjai div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kyxobnoaoz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -849,7 +849,7 @@ It is also the least parsimonious</p>
 </table></div>
 </div>
 <p>Histograms</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data_long</span> <span class="op">&lt;-</span> <span class="va">pisa</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">broad_interest</span><span class="op">:</span><span class="va">self_efficacy</span>, names_to <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span></span>
 <span></span>
@@ -858,7 +858,7 @@ It is also the least parsimonious</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">variable</span>, scales <span class="op">=</span> <span class="st">"free_x"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Histograms of Variables"</span>, x <span class="op">=</span> <span class="st">"Value"</span>, y <span class="op">=</span> <span class="st">"Frequency"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://wilkelab.org/cowplot/reference/theme_cowplot.html">theme_cowplot</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="06-LPA_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
+<div class="inline-figure"><img src="06-LPA_files/figure-html/unnamed-chunk-6-1.png" width="90%"></div>
 <hr>
 </div>
 <div id="enumeration-4" class="section level2" number="6.6">
@@ -879,7 +879,7 @@ It is also the least parsimonious</p>
 <li>Default variance-covariance specifications (model 1)</li>
 <li>Change <code>variances</code> and <code>covariances</code> to indicate the model you want to specify, in this example, we are estimating all six models.</li>
 </ul>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Run LPA models </span></span>
 <span><span class="va">lpa_fit</span> <span class="op">&lt;-</span> <span class="va">pisa</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -913,7 +913,7 @@ It is also the least parsimonious</p>
 </h4>
 <p>When estimating LPA in Mplus, the default variance/covariance specification is the most restricted model (Model 1).
 So we don’t have to specify anything here.</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lpa_k14</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">lpa_enum</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
@@ -947,7 +947,7 @@ So we don’t have to specify anything here.</p>
 <p>Here, an addition loop adds the variance/covariance specifications for each class-specific statement.
 For the profile-varying/diagonal specification, you must specify the variances to be freely estimated:</p>
 <p><code>broad_interest-self_efficacy;</code></p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lpa_m2_k14</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span><span class="op">{</span> </span>
 <span>  </span>
 <span>  <span class="co"># This MODEL section changes the model specification</span></span>
@@ -1036,7 +1036,7 @@ For the profile-varying/diagonal specification, you must specify the variances t
 <li><p>Profile 4</p></li>
 <li><p>Profile 5</p></li>
 </ul>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"enum_table_lpa.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Read in model</span></span>
@@ -1851,7 +1851,7 @@ cmPk = approximate correct model probability.</span>
 <span class="header-section-number">6.8</span> Information Criteria Plot<a class="anchor" aria-label="anchor" href="#information-criteria-plot-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>Look for “elbow” to help with profile selection</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"ic_plot_lpa.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">ic_plot</span><span class="op">(</span><span class="va">select_models</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="06-LPA_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
@@ -1875,7 +1875,7 @@ cmPk = approximate correct model probability.</span>
 <span class="header-section-number">6.9.1</span> Correct Model Probability (cmpK) recalculation<a class="anchor" aria-label="anchor" href="#correct-model-probability-cmpk-recalculation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Take the candidate models and recalculate the approximate correct model probabilities (Masyn, 2013)</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># CmpK recalculation:</span></span>
 <span><span class="va">enum_fit1</span> <span class="op">&lt;-</span> <span class="fu">enum_fit</span><span class="op">(</span><span class="va">output_enum</span><span class="op">)</span></span>
 <span></span>
@@ -2466,7 +2466,7 @@ cmPk = approximate correct model probability.</span>
 </h3>
 <p>You can also compare models using nested model testing directly with MplusAutomation.
 Note that you can only compare across models but the profiles must stay the same.</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># MplusAutomation Method using `compareModels` </span></span>
 <span></span>
 <span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/compareModels.html">compareModels</a></span><span class="op">(</span><span class="va">output_enum</span><span class="op">[[</span><span class="st">"model_2_class_3.out"</span><span class="op">]</span><span class="op">]</span>,</span>
@@ -2766,7 +2766,7 @@ The chi-square difference test, assuming nested models, shows a significant impr
 </h3>
 <p>We can also plot the comparisons and look at the error bars.</p>
 <p>NOTE: The <code><a href="https://michaelhallquist.github.io/MplusAutomation/reference/plotMixtures.html">plotMixtures()</a></code> function is used for plotting LPA models only (i.e., means &amp; variances)</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/plotMixtures.html">plotMixtures</a></span><span class="op">(</span><span class="va">output_enum</span><span class="op">$</span><span class="va">model_2_class_3.out</span>,</span>
 <span>  ci <span class="op">=</span> <span class="fl">0.95</span>, bw <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> </span>
 <span></span>
@@ -2789,13 +2789,13 @@ The chi-square difference test, assuming nested models, shows a significant impr
 <h3>
 <span class="header-section-number">6.10.1</span> Latent Profile Plot<a class="anchor" aria-label="anchor" href="#latent-profile-plot"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"plot_lpa.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">plot_lpa</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_enum</span><span class="op">$</span><span class="va">model_3_class_4.out</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="06-LPA_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
 <p>Save figure</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"model3_profile4.png"</span><span class="op">)</span>, dpi <span class="op">=</span> <span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>, height<span class="op">=</span><span class="fl">5</span>, width<span class="op">=</span><span class="fl">8</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -2803,7 +2803,7 @@ The chi-square difference test, assuming nested models, shows a significant impr
 <h3>
 <span class="header-section-number">6.10.2</span> Plots Means and Variances<a class="anchor" aria-label="anchor" href="#plots-means-and-variances"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/plotMixtures.html">plotMixtures</a></span><span class="op">(</span><span class="va">output_enum</span><span class="op">$</span><span class="va">model_3_class_4.out</span>, ci <span class="op">=</span> <span class="fl">0.95</span>, bw <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Model 3: Equal Variances, Equal Covariances"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="06-LPA_files/figure-html/unnamed-chunk-17-1.png" width="672"></div>
@@ -2819,7 +2819,7 @@ The chi-square difference test, assuming nested models, shows a significant impr
 <span class="header-section-number">6.11.1</span> Classifications Diagnostics Table<a class="anchor" aria-label="anchor" href="#classifications-diagnostics-table"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use Mplus to calculate k-class confidence intervals (Note: Change the syntax to make your chosen *k*-class model):</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">classification</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  </span>
 <span>  TITLE <span class="op">=</span> <span class="st">"LPA - Calculated k-Class 95% CI"</span>,</span>
@@ -2918,7 +2918,7 @@ The chi-square difference test, assuming nested models, shows a significant impr
 <span>                modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lpa"</span>, <span class="st">"mplus"</span>, <span class="st">"class.inp"</span><span class="op">)</span> ,</span>
 <span>                check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Create table</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"diagnostics_table.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">class_output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"mplus"</span>, <span class="st">"class.out"</span><span class="op">)</span><span class="op">)</span></span>
@@ -3423,7 +3423,7 @@ The chi-square difference test, assuming nested models, shows a significant impr
 </h3>
 <p>Profile homogeneity is the model-estimated within-profile variances for each indicator m across the k-profiles and comparing them to the total overall sample variance:</p>
 <p><span class="math display">\[ \frac{\theta_{mk}}{\theta_{m}} \]</span></p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Change this to look at your chosen LPA model</span></span>
 <span></span>
 <span><span class="va">chosen_model</span> <span class="op">&lt;-</span> <span class="va">output_enum</span><span class="op">$</span><span class="va">model_3_class_4.out</span></span>
@@ -3977,7 +3977,7 @@ The chi-square difference test, assuming nested models, shows a significant impr
 To quantify profile separation between Profile j and Profile k with respect to a particular item m, compute a standard mean difference:</p>
 <p><span class="math display">\[\hat{d}_{mjk}= \frac{{\hat{\alpha_{mj}}-\hat{\alpha_{mk}}}}{\sigma_{mjk}}\]</span> Pooled variance:</p>
 <p><span class="math display">\[\hat{\sigma}_{mj k} = \sqrt{\frac{(\hat{\pi}_j)(n)(\hat{\theta}_{mj}) + (\hat{\pi}_k)(n)(\hat{\theta}_{mk})}{(\hat{\pi}_j + \hat{\pi}_k) n}}\]</span></p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Change this to look at your chosen LPA model</span></span>
 <span><span class="va">chosen_model</span> <span class="op">&lt;-</span> <span class="va">output_enum</span><span class="op">$</span><span class="va">model_3_class_4.out</span></span>
 <span></span>
@@ -4671,7 +4671,7 @@ To quantify profile separation between Profile j and Profile k with respect to a
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-07-30.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

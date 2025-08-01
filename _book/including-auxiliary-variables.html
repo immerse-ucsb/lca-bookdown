@@ -84,7 +84,7 @@
 <li><a class="" href="moderation.html"><span class="header-section-number">7</span> Moderation</a></li>
 <li><a class="" href="latent-transition-analysis.html"><span class="header-section-number">8</span> Latent Transition Analysis</a></li>
 <li><a class="" href="joint-occurrence.html"><span class="header-section-number">9</span> Joint Occurrence</a></li>
-<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth mixture Models</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth Mixture Models</a></li>
 <li class="book-part">Published Manuscripts</li>
 <li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">11</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -156,8 +156,8 @@ See Lab 6 for examples of enumeration with MplusAutomation.</p>
 <span class="header-section-number">5.2.1</span> DU3STEP in Mplus<a class="anchor" aria-label="anchor" href="#du3step-in-mplus"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-1103509463f3e23c4738" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1103509463f3e23c4738">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>DU3STEP</strong> incorporates distal outcome variables (assumed to have unequal means and variances) with mixture models.</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-10605d753e80b645af3d" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-10605d753e80b645af3d">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>DU3STEP</strong> incorporates distal outcome variables (assumed to have unequal means and variances) with mixture models.</p>
 <hr>
 <div id="run-the-du3step-model-with-gpa-as-distal-outcome" class="section level4" number="5.2.1.1">
 <h4>
@@ -260,8 +260,8 @@ See Lab 6 for examples of enumeration with MplusAutomation.</p>
 <span class="header-section-number">5.2.2</span> R3STEP<a class="anchor" aria-label="anchor" href="#r3step"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-642d4b20cc44c2c0056f" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-642d4b20cc44c2c0056f">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>R3STEP</strong> incorporates latent class predictors with mixture models.</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-80431ac6fbe88e3fe473" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-80431ac6fbe88e3fe473">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>R3STEP</strong> incorporates latent class predictors with mixture models.</p>
 <hr>
 <div id="run-the-r3step-model-with-gpa-as-the-latent-class-predictor" class="section level4" number="5.2.2.1">
 <h4>
@@ -351,12 +351,9 @@ Parameterization using Reference Class 1
 <h2>
 <span class="header-section-number">5.3</span> Manual ML Three-step<a class="anchor" aria-label="anchor" href="#manual-ml-three-step"><i class="fas fa-link"></i></a>
 </h2>
-<div id="unlike-the-automatic-three-step-the-manual-ml-three-step-can-relate-the-latent-class-variable-to-both-distal-outcomes-and-covarites." class="section level3" number="5.3.1">
-<h3>
-<span class="header-section-number">5.3.1</span> Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites.<a class="anchor" aria-label="anchor" href="#unlike-the-automatic-three-step-the-manual-ml-three-step-can-relate-the-latent-class-variable-to-both-distal-outcomes-and-covarites."><i class="fas fa-link"></i></a>
-</h3>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-2a3c0639953a73c636b5" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-2a3c0639953a73c636b5">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>Integrate covariates and distals with a mixture model</p>
+<p>Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites.</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-0012260525575ab83575" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-0012260525575ab83575">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>Integrate covariates and distals with a mixture model</p>
 <hr>
 <p>Application: Longitudinal Study of American Youth, <strong>Science Attitudes</strong></p>
 <div id="wdqakuuauq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -866,15 +863,14 @@ Parameterization using Reference Class 1
 <span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   <span class="co"># make variable names lowercase</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>female <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">gender</span>, `1` <span class="op">=</span> <span class="fl">0</span>, `2` <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># relabel values from 1,2 to 0,1</span></span></code></pre></div>
 <hr>
-</div>
-<div id="ml-3-step-method" class="section level3" number="5.3.2">
+<div id="ml-3-step-method" class="section level3" number="5.3.1">
 <h3>
-<span class="header-section-number">5.3.2</span> ML 3-Step Method<a class="anchor" aria-label="anchor" href="#ml-3-step-method"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1</span> ML 3-Step Method<a class="anchor" aria-label="anchor" href="#ml-3-step-method"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div id="step-1---class-enumeration-w-auxiliary-specification" class="section level4" number="5.3.2.1">
+<div id="step-1---class-enumeration-w-auxiliary-specification" class="section level4" number="5.3.1.1">
 <h4>
-<span class="header-section-number">5.3.2.1</span> Step 1 - Class Enumeration w/ Auxiliary Specification<a class="anchor" aria-label="anchor" href="#step-1---class-enumeration-w-auxiliary-specification"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.1</span> Step 1 - Class Enumeration w/ Auxiliary Specification<a class="anchor" aria-label="anchor" href="#step-1---class-enumeration-w-auxiliary-specification"><i class="fas fa-link"></i></a>
 </h4>
 <hr>
 <p>This step is done after class enumeration (or after you have selected the best latent class model). In this example, the four class model was the best. Now, we re-estimate the four-class model using <code>optseed</code> for efficiency. The difference here is the <code>SAVEDATA</code> command, where I can save the posterior probabilities and the modal class assignment that will be used in steps two and three.</p>
@@ -921,12 +917,12 @@ Parameterization using Reference Class 1
 <span><span class="va">output_lsay</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>,<span class="st">"one.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">plot_lca</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_lsay</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="05-three-step_files/figure-html/unnamed-chunk-12-1.png" width="960"></div>
+<div class="inline-figure"><img src="05-three-step_files/figure-html/unnamed-chunk-12-1.png" width="90%"></div>
 <hr>
 </div>
-<div id="step-2---determine-measurement-error" class="section level4" number="5.3.2.2">
+<div id="step-2---determine-measurement-error" class="section level4" number="5.3.1.2">
 <h4>
-<span class="header-section-number">5.3.2.2</span> Step 2 - Determine Measurement Error<a class="anchor" aria-label="anchor" href="#step-2---determine-measurement-error"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.2</span> Step 2 - Determine Measurement Error<a class="anchor" aria-label="anchor" href="#step-2---determine-measurement-error"><i class="fas fa-link"></i></a>
 </h4>
 <hr>
 <p>Extract logits for the classification probabilities for the most likely latent class</p>
@@ -941,168 +937,131 @@ Parameterization using Reference Class 1
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata</span><span class="op">)</span><span class="op">==</span><span class="st">"C"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"N"</span></span></code></pre></div>
 <hr>
 </div>
-<div id="step-3---lca-auxiliary-variable-model-with-2-covariates-and-1-distal-outcome" class="section level4" number="5.3.2.3">
+<div id="step-3---lca-auxiliary-variable-model-with-2-covariates-and-1-distal-outcome" class="section level4" number="5.3.1.3">
 <h4>
-<span class="header-section-number">5.3.2.3</span> Step 3 - LCA Auxiliary Variable Model with 2 covariates and 1 distal outcome<a class="anchor" aria-label="anchor" href="#step-3---lca-auxiliary-variable-model-with-2-covariates-and-1-distal-outcome"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.3</span> Step 3 - LCA Auxiliary Variable Model with 2 covariates and 1 distal outcome<a class="anchor" aria-label="anchor" href="#step-3---lca-auxiliary-variable-model-with-2-covariates-and-1-distal-outcome"><i class="fas fa-link"></i></a>
 </h4>
-<div class="inline-table"><table class="table table-sm">
-<colgroup><col width="100%"></colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">##### Estimate LCA Model</td>
-</tr>
-<tr class="even">
-<td align="left">Model with 2 covariates (gender and mother’s education) and 1 distal outcome (math IRT scores)</td>
-</tr>
-<tr class="odd">
-<td align="left">``` r
-step3 &lt;- mplusObject(
-TITLE = “Step3 - 3step LSAY”,</td>
-</tr>
-<tr class="even">
-<td align="left">VARIABLE =
-“nominal=N;
-usevar = n;</td>
-</tr>
-<tr class="odd">
-<td align="left">classes = c(4);</td>
-</tr>
-<tr class="even">
-<td align="left">usevar = female mothed math_irt;” ,</td>
-</tr>
-<tr class="odd">
-<td align="left">ANALYSIS =
-“estimator = mlr;
-type = mixture;
-starts = 0;”,</td>
-</tr>
-<tr class="even">
-<td align="left">DEFINE =
-“center female mothed (grandmean);”,</td>
-</tr>
-<tr class="odd">
-<td align="left">MODEL =
-glue(
-” %OVERALL%</td>
-</tr>
-<tr class="even">
-<td align="left">math_irt on female mothed; ! covariate as a related to the distal outcome
-C on female (f1-f3);
-c on mothed (e1-e3); ! covariate as predictor of C</td>
-</tr>
-<tr class="odd">
-<td align="left">%C#1%
-[n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model.
-[n#2@{logit_cprobs[1,2]}];
-[n#3@{logit_cprobs[1,3]}];</td>
-</tr>
-<tr class="even">
-<td align="left">
-<a href="m1">math_irt</a>; ! conditional distal mean
-math_irt; ! conditional distal variance (freely estimated)</td>
-</tr>
-<tr class="odd">
-<td align="left">%C#2%
-[n#1@{logit_cprobs[2,1]}];
-[n#2@{logit_cprobs[2,2]}];
-[n#3@{logit_cprobs[2,3]}];</td>
-</tr>
-<tr class="even">
-<td align="left">
-<a href="m2">math_irt</a>;
-math_irt;</td>
-</tr>
-<tr class="odd">
-<td align="left">%C#3%
-[n#1@{logit_cprobs[3,1]}];
-[n#2@{logit_cprobs[3,2]}];
-[n#3@{logit_cprobs[3,3]}];</td>
-</tr>
-<tr class="even">
-<td align="left">
-<a href="m3">math_irt</a>;
-math_irt;</td>
-</tr>
-<tr class="odd">
-<td align="left">%C#4%
-[n#1@{logit_cprobs[4,1]}];
-[n#2@{logit_cprobs[4,2]}];
-[n#3@{logit_cprobs[4,3]}];</td>
-</tr>
-<tr class="even">
-<td align="left">
-<a href="m4">math_irt</a>;
-math_irt; “),</td>
-</tr>
-<tr class="odd">
-<td align="left">MODELCONSTRAINT =
-“New (diff12 diff13 diff23
-diff14 diff24 diff34</td>
-</tr>
-<tr class="even">
-<td align="left">d_fem_12 d_fem_13
-d_fem_23</td>
-</tr>
-<tr class="odd">
-<td align="left">d_ed_12 d_ed_13
-d_ed_23
-);</td>
-</tr>
-<tr class="even">
-<td align="left">diff12 = m1-m2; ! test pairwise distal mean differences
-diff13 = m1-m3;
-diff23 = m2-m3;
-diff14 = m1-m4;
-diff24 = m2-m4;
-diff34 = m3-m4;</td>
-</tr>
-<tr class="odd">
-<td align="left">d_fem_12 = f1-f2;
-d_fem_13 = f1-f3;
-d_fem_23 = f2-f3;</td>
-</tr>
-<tr class="even">
-<td align="left">d_ed_12 = e1-e2;
-d_ed_13 = e1-e3;
-d_ed_23 = e2-e3;</td>
-</tr>
-<tr class="odd">
-<td align="left">“,</td>
-</tr>
-<tr class="even">
-<td align="left">MODELTEST = ” ! omnibus test of distal means
-! m1=m2;
-! m2=m3;
-! m3=m4;</td>
-</tr>
-<tr class="odd">
-<td align="left">! f1=f2; ! omnibus test of covariate logits (female)
-! f1=f3;</td>
-</tr>
-<tr class="even">
-<td align="left">e1=e2; ! omnibus test of covariate logits (mothers ed)
-e1=e3;
-“,</td>
-</tr>
-<tr class="odd">
-<td align="left">usevariables = colnames(savedata),
-rdata = savedata)</td>
-</tr>
-<tr class="even">
-<td align="left">step3_fit &lt;- mplusModeler(step3,
-dataout=here(“three_step”, “manual_3step”, “Step3.dat”),
-modelout=here(“three_step”, “manual_3step”, “three.inp”),
-check=TRUE, run = TRUE, hashfilename = FALSE)
-```</td>
-</tr>
-</tbody>
-</table></div>
-<div id="wald-test-table" class="section level5" number="5.3.2.3.1">
+<hr>
+<div id="estimate-lca-model" class="section level5" number="5.3.1.3.1">
 <h5>
-<span class="header-section-number">5.3.2.3.1</span> Wald Test Table<a class="anchor" aria-label="anchor" href="#wald-test-table"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.3.1</span> Estimate LCA Model<a class="anchor" aria-label="anchor" href="#estimate-lca-model"><i class="fas fa-link"></i></a>
+</h5>
+<p>Model with 2 covariates (gender and mother’s education) and 1 distal outcome (math IRT scores)</p>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">step3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"Step3 - 3step LSAY"</span>, </span>
+<span>  </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span> <span class="st">"nominal=N;</span></span>
+<span><span class="st">  usevar = n;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  classes = c(4);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  usevar = female mothed math_irt;"</span> ,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span> <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">  type = mixture; </span></span>
+<span><span class="st">  starts = 0;"</span>,</span>
+<span> </span>
+<span>  DEFINE <span class="op">=</span> </span>
+<span>   <span class="st">"center female mothed (grandmean);"</span>,</span>
+<span>  </span>
+<span>  MODEL <span class="op">=</span></span>
+<span>  <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span> <span class="st">" %OVERALL%</span></span>
+<span><span class="st"> </span></span>
+<span><span class="st">  math_irt on female mothed; ! covariate as a related to the distal outcome</span></span>
+<span><span class="st">  C on female (f1-f3);</span></span>
+<span><span class="st">  c on mothed (e1-e3);      ! covariate as predictor of C</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">     %C#1%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model. </span></span>
+<span><span class="st">  [n#2@{logit_cprobs[1,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[1,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [math_irt](m1);    ! conditional distal mean </span></span>
+<span><span class="st">  math_irt;          ! conditional distal variance (freely estimated)</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#2%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[2,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[2,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[2,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [math_irt](m2);</span></span>
+<span><span class="st">  math_irt;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  %C#3%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[3,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[3,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[3,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [math_irt](m3);</span></span>
+<span><span class="st">  math_irt;</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#4%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[4,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[4,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[4,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [math_irt](m4);</span></span>
+<span><span class="st">  math_irt; "</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  MODELCONSTRAINT <span class="op">=</span> </span>
+<span>   <span class="st">"New (diff12 diff13 diff23 </span></span>
+<span><span class="st">    diff14 diff24 diff34</span></span>
+<span><span class="st">    </span></span>
+<span><span class="st">    d_fem_12 d_fem_13 </span></span>
+<span><span class="st">    d_fem_23</span></span>
+<span><span class="st"> </span></span>
+<span><span class="st">    d_ed_12 d_ed_13 </span></span>
+<span><span class="st">    d_ed_23 </span></span>
+<span><span class="st">    );</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">    diff12 = m1-m2;  ! test pairwise distal mean differences</span></span>
+<span><span class="st">    diff13 = m1-m3;</span></span>
+<span><span class="st">    diff23 = m2-m3;</span></span>
+<span><span class="st">    diff14 = m1-m4;</span></span>
+<span><span class="st">    diff24 = m2-m4;</span></span>
+<span><span class="st">    diff34 = m3-m4;</span></span>
+<span><span class="st"> </span></span>
+<span><span class="st">    d_fem_12 = f1-f2;</span></span>
+<span><span class="st">    d_fem_13 = f1-f3;</span></span>
+<span><span class="st">    d_fem_23 = f2-f3; </span></span>
+<span><span class="st"></span></span>
+<span><span class="st">    d_ed_12 = e1-e2;</span></span>
+<span><span class="st">    d_ed_13 = e1-e3;</span></span>
+<span><span class="st">    d_ed_23 = e2-e3; </span></span>
+<span><span class="st"></span></span>
+<span><span class="st"> "</span>,</span>
+<span>  </span>
+<span>  MODELTEST <span class="op">=</span> <span class="st">"     ! omnibus test of distal means </span></span>
+<span><span class="st">  !  m1=m2;</span></span>
+<span><span class="st">  !  m2=m3;</span></span>
+<span><span class="st">  !  m3=m4;</span></span>
+<span><span class="st"> </span></span>
+<span><span class="st">  ! f1=f2;       ! omnibus test of covariate logits (female)  </span></span>
+<span><span class="st">  !  f1=f3;</span></span>
+<span><span class="st"> </span></span>
+<span><span class="st">    e1=e2;       ! omnibus test of covariate logits (mothers ed)  </span></span>
+<span><span class="st">    e1=e3;</span></span>
+<span><span class="st">   "</span>,</span>
+<span> </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata</span><span class="op">)</span>, </span>
+<span>  rdata <span class="op">=</span> <span class="va">savedata</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">step3_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">step3</span>,</span>
+<span>               dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"Step3.dat"</span><span class="op">)</span>, </span>
+<span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three.inp"</span><span class="op">)</span>, </span>
+<span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="wald-test-table" class="section level5" number="5.3.1.3.2">
+<h5>
+<span class="header-section-number">5.3.1.3.2</span> Wald Test Table<a class="anchor" aria-label="anchor" href="#wald-test-table"><i class="fas fa-link"></i></a>
 </h5>
 <p>This is testing if there is a relation between the latent class variable and the distal outcome (mathirt)</p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract information as data frame</span></span>
@@ -1595,15 +1554,15 @@ check=TRUE, run = TRUE, hashfilename = FALSE)
 </table></div>
 </div>
 <p>Save figure</p>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html">gtsave</a></span><span class="op">(</span><span class="va">wald_table</span>, <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>,<span class="st">"wald_table.docx"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
-<div id="table-of-pairwise-distal-outcome-differences" class="section level5" number="5.3.2.3.2">
+<div id="table-of-pairwise-distal-outcome-differences" class="section level5" number="5.3.1.3.3">
 <h5>
-<span class="header-section-number">5.3.2.3.2</span> Table of Pairwise Distal Outcome Differences<a class="anchor" aria-label="anchor" href="#table-of-pairwise-distal-outcome-differences"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.3.3</span> Table of Pairwise Distal Outcome Differences<a class="anchor" aria-label="anchor" href="#table-of-pairwise-distal-outcome-differences"><i class="fas fa-link"></i></a>
 </h5>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract information as data frame</span></span>
@@ -2132,11 +2091,11 @@ check=TRUE, run = TRUE, hashfilename = FALSE)
 </div>
 <hr>
 </div>
-<div id="plot-distal-outcome-means" class="section level5" number="5.3.2.3.3">
+<div id="plot-distal-outcome-means" class="section level5" number="5.3.1.3.4">
 <h5>
-<span class="header-section-number">5.3.2.3.3</span> Plot Distal Outcome Means<a class="anchor" aria-label="anchor" href="#plot-distal-outcome-means"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.3.4</span> Plot Distal Outcome Means<a class="anchor" aria-label="anchor" href="#plot-distal-outcome-means"><i class="fas fa-link"></i></a>
 </h5>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract class size </span></span>
@@ -2179,18 +2138,18 @@ check=TRUE, run = TRUE, hashfilename = FALSE)
 <span>        axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">15</span><span class="op">)</span>,</span>
 <span>        legend.position<span class="op">=</span><span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="05-three-step_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Save plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>,<span class="st">"ManualDistal_Plot.jpeg"</span><span class="op">)</span>,              </span>
 <span>       dpi<span class="op">=</span><span class="fl">300</span>, width<span class="op">=</span><span class="fl">10</span>, height <span class="op">=</span> <span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span> </span></code></pre></div>
 <hr>
 </div>
-<div id="covariates-relations" class="section level5" number="5.3.2.3.4">
+<div id="covariates-relations" class="section level5" number="5.3.1.3.5">
 <h5>
-<span class="header-section-number">5.3.2.3.4</span> Covariates Relations<a class="anchor" aria-label="anchor" href="#covariates-relations"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.3.5</span> Covariates Relations<a class="anchor" aria-label="anchor" href="#covariates-relations"><i class="fas fa-link"></i></a>
 </h5>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract information as data frame</span></span>
@@ -2748,12 +2707,12 @@ check=TRUE, run = TRUE, hashfilename = FALSE)
 </table></div>
 </div>
 </div>
-<div id="distal-outcome-regressed-on-the-covariate" class="section level5" number="5.3.2.3.5">
+<div id="distal-outcome-regressed-on-the-covariate" class="section level5" number="5.3.1.3.6">
 <h5>
-<span class="header-section-number">5.3.2.3.5</span> Distal outcome regressed on the covariate<a class="anchor" aria-label="anchor" href="#distal-outcome-regressed-on-the-covariate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.3.6</span> Distal outcome regressed on the covariate<a class="anchor" aria-label="anchor" href="#distal-outcome-regressed-on-the-covariate"><i class="fas fa-link"></i></a>
 </h5>
 <p>Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract information as data frame</span></span>
@@ -3257,133 +3216,105 @@ check=TRUE, run = TRUE, hashfilename = FALSE)
 <hr>
 </div>
 </div>
-<div id="step-3---lca-auxiliary-variable-model-with-1-covariate" class="section level4" number="5.3.2.4">
+<div id="step-3---lca-auxiliary-variable-model-with-1-covariate" class="section level4" number="5.3.1.4">
 <h4>
-<span class="header-section-number">5.3.2.4</span> Step 3 - LCA Auxiliary Variable Model with 1 covariate<a class="anchor" aria-label="anchor" href="#step-3---lca-auxiliary-variable-model-with-1-covariate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.4</span> Step 3 - LCA Auxiliary Variable Model with 1 covariate<a class="anchor" aria-label="anchor" href="#step-3---lca-auxiliary-variable-model-with-1-covariate"><i class="fas fa-link"></i></a>
 </h4>
-<div class="inline-table"><table class="table table-sm">
-<colgroup><col width="100%"></colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">##### Estimate LCA Model</td>
-</tr>
-<tr class="even">
-<td align="left">``` r
-step3 &lt;- mplusObject(
-TITLE = “Step3 - 3step LSAY”,</td>
-</tr>
-<tr class="odd">
-<td align="left">VARIABLE =
-“nominal=N;
-usevar = n;</td>
-</tr>
-<tr class="even">
-<td align="left">classes = c(4);</td>
-</tr>
-<tr class="odd">
-<td align="left">usevar = mothed math_irt;” ,</td>
-</tr>
-<tr class="even">
-<td align="left">ANALYSIS =
-“estimator = mlr;
-type = mixture;
-starts = 0;”,</td>
-</tr>
-<tr class="odd">
-<td align="left">DEFINE =
-“center mothed (grandmean);”,</td>
-</tr>
-<tr class="even">
-<td align="left">MODEL =
-glue(
-” %OVERALL%</td>
-</tr>
-<tr class="odd">
-<td align="left">math_irt on mothed; ! covariate as a predictor of the distal outcome
-C on mothed; ! covariate as predictor of C</td>
-</tr>
-<tr class="even">
-<td align="left">%C#1%
-[n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model.
-[n#2@{logit_cprobs[1,2]}];
-[n#3@{logit_cprobs[1,3]}];</td>
-</tr>
-<tr class="odd">
-<td align="left">
-<a href="m1">math_irt</a>; ! conditional distal mean
-math_irt; ! conditional distal variance (freely estimated)</td>
-</tr>
-<tr class="even">
-<td align="left">%C#2%
-[n#1@{logit_cprobs[2,1]}];
-[n#2@{logit_cprobs[2,2]}];
-[n#3@{logit_cprobs[2,3]}];</td>
-</tr>
-<tr class="odd">
-<td align="left">
-<a href="m2">math_irt</a>;
-math_irt;</td>
-</tr>
-<tr class="even">
-<td align="left">%C#3%
-[n#1@{logit_cprobs[3,1]}];
-[n#2@{logit_cprobs[3,2]}];
-[n#3@{logit_cprobs[3,3]}];</td>
-</tr>
-<tr class="odd">
-<td align="left">
-<a href="m3">math_irt</a>;
-math_irt;</td>
-</tr>
-<tr class="even">
-<td align="left">%C#4%
-[n#1@{logit_cprobs[4,1]}];
-[n#2@{logit_cprobs[4,2]}];
-[n#3@{logit_cprobs[4,3]}];</td>
-</tr>
-<tr class="odd">
-<td align="left">
-<a href="m4">math_irt</a>;
-math_irt; “),</td>
-</tr>
-<tr class="even">
-<td align="left">MODELCONSTRAINT =
-“New (diff12 diff13 diff23
-diff14 diff24 diff34);</td>
-</tr>
-<tr class="odd">
-<td align="left">diff12 = m1-m2; ! test pairwise distal mean differences
-diff13 = m1-m3;
-diff23 = m2-m3;
-diff14 = m1-m4;
-diff24 = m2-m4;
-diff34 = m3-m4;“,</td>
-</tr>
-<tr class="even">
-<td align="left">MODELTEST = ” ! omnibus test of distal means
-m1=m2;
-m2=m3;
-m3=m4;“,</td>
-</tr>
-<tr class="odd">
-<td align="left">usevariables = colnames(savedata),
-rdata = savedata)</td>
-</tr>
-<tr class="even">
-<td align="left">step3_fit &lt;- mplusModeler(step3,
-dataout=here(“three_step”, “manual_3step”, “Step3.dat”),
-modelout=here(“three_step”, “manual_3step”, “three.inp”),
-check=TRUE, run = TRUE, hashfilename = FALSE)
-```</td>
-</tr>
-</tbody>
-</table></div>
-<div id="covariates-relations-single-covariate" class="section level5" number="5.3.2.4.1">
+<hr>
+<div id="estimate-lca-model-1" class="section level5" number="5.3.1.4.1">
 <h5>
-<span class="header-section-number">5.3.2.4.1</span> Covariates Relations (single covariate)<a class="anchor" aria-label="anchor" href="#covariates-relations-single-covariate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1.4.1</span> Estimate LCA Model<a class="anchor" aria-label="anchor" href="#estimate-lca-model-1"><i class="fas fa-link"></i></a>
+</h5>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">step3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"Step3 - 3step LSAY"</span>, </span>
+<span>  </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span> <span class="st">"nominal=N;</span></span>
+<span><span class="st">  usevar = n;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  classes = c(4);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  usevar = mothed math_irt;"</span> ,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span> <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">  type = mixture; </span></span>
+<span><span class="st">  starts = 0;"</span>,</span>
+<span> </span>
+<span>  DEFINE <span class="op">=</span> </span>
+<span>   <span class="st">"center mothed (grandmean);"</span>,</span>
+<span>  </span>
+<span>  MODEL <span class="op">=</span></span>
+<span>  <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span> <span class="st">" %OVERALL%</span></span>
+<span><span class="st"> </span></span>
+<span><span class="st">  math_irt on mothed; ! covariate as a predictor of the distal outcome</span></span>
+<span><span class="st">  C on mothed;        ! covariate as predictor of C</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">     %C#1%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model. </span></span>
+<span><span class="st">  [n#2@{logit_cprobs[1,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[1,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [math_irt](m1);    ! conditional distal mean </span></span>
+<span><span class="st">  math_irt;          ! conditional distal variance (freely estimated)</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#2%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[2,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[2,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[2,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [math_irt](m2);</span></span>
+<span><span class="st">  math_irt;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  %C#3%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[3,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[3,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[3,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [math_irt](m3);</span></span>
+<span><span class="st">  math_irt;</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#4%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[4,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[4,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[4,3]}];</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [math_irt](m4);</span></span>
+<span><span class="st">  math_irt; "</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  MODELCONSTRAINT <span class="op">=</span> </span>
+<span>   <span class="st">"New (diff12 diff13 diff23 </span></span>
+<span><span class="st">    diff14 diff24 diff34);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">    diff12 = m1-m2;  ! test pairwise distal mean differences</span></span>
+<span><span class="st">    diff13 = m1-m3;</span></span>
+<span><span class="st">    diff23 = m2-m3;</span></span>
+<span><span class="st">    diff14 = m1-m4;</span></span>
+<span><span class="st">    diff24 = m2-m4;</span></span>
+<span><span class="st">    diff34 = m3-m4;"</span>,</span>
+<span>  </span>
+<span>  MODELTEST <span class="op">=</span> <span class="st">"     ! omnibus test of distal means </span></span>
+<span><span class="st">    m1=m2;</span></span>
+<span><span class="st">    m2=m3;</span></span>
+<span><span class="st">    m3=m4;"</span>,</span>
+<span> </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata</span><span class="op">)</span>, </span>
+<span>  rdata <span class="op">=</span> <span class="va">savedata</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">step3_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">step3</span>,</span>
+<span>               dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"Step3.dat"</span><span class="op">)</span>, </span>
+<span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three.inp"</span><span class="op">)</span>, </span>
+<span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="covariates-relations-single-covariate" class="section level5" number="5.3.1.4.2">
+<h5>
+<span class="header-section-number">5.3.1.4.2</span> Covariates Relations (single covariate)<a class="anchor" aria-label="anchor" href="#covariates-relations-single-covariate"><i class="fas fa-link"></i></a>
 </h5>
 <hr>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract information as data frame</span></span>
@@ -3967,10 +3898,7 @@ check=TRUE, run = TRUE, hashfilename = FALSE)
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#manual-ml-three-step"><span class="header-section-number">5.3</span> Manual ML Three-step</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#unlike-the-automatic-three-step-the-manual-ml-three-step-can-relate-the-latent-class-variable-to-both-distal-outcomes-and-covarites."><span class="header-section-number">5.3.1</span> Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites.</a></li>
-<li><a class="nav-link" href="#ml-3-step-method"><span class="header-section-number">5.3.2</span> ML 3-Step Method</a></li>
-</ul>
+<a class="nav-link" href="#manual-ml-three-step"><span class="header-section-number">5.3</span> Manual ML Three-step</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ml-3-step-method"><span class="header-section-number">5.3.1</span> ML 3-Step Method</a></li></ul>
 </li>
 </ul>
 
@@ -3989,7 +3917,7 @@ check=TRUE, run = TRUE, hashfilename = FALSE)
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-07-30.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -84,7 +84,7 @@
 <li><a class="" href="moderation.html"><span class="header-section-number">7</span> Moderation</a></li>
 <li><a class="" href="latent-transition-analysis.html"><span class="header-section-number">8</span> Latent Transition Analysis</a></li>
 <li><a class="" href="joint-occurrence.html"><span class="header-section-number">9</span> Joint Occurrence</a></li>
-<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth mixture Models</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth Mixture Models</a></li>
 <li class="book-part">Published Manuscripts</li>
 <li><a class="active" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">11</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -130,7 +130,7 @@
 <h2>
 <span class="header-section-number">11.2</span> Load Packages<a class="anchor" aria-label="anchor" href="#load-packages-5"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
@@ -148,7 +148,7 @@
 <h2>
 <span class="header-section-number">11.3</span> Data Preparation<a class="anchor" aria-label="anchor" href="#data-preparation"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lsay_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>, <span class="st">"data"</span>, <span class="st">"lsay_df.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -156,7 +156,7 @@
 <h2>
 <span class="header-section-number">11.4</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-7"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">lsay_df</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          vars    n  mean    sd median trimmed   mad   min</span></span>
 <span><span class="co">#&gt; enjoym      1 2668  0.67  0.47    1.0    0.71  0.00  0.00</span></span>
@@ -176,7 +176,7 @@
 <span><span class="co">#&gt; mathjob   1.00  1.00 -0.81    -1.34 0.01</span></span>
 <span><span class="co">#&gt; mathirt  94.19 67.62 -0.06    -0.55 0.27</span></span>
 <span><span class="co">#&gt; female    1.00  1.00  0.09    -1.99 0.01</span></span></code></pre></div>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss</a></span><span class="op">(</span><span class="va">lsay_df</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-distals_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
 <hr>
@@ -185,7 +185,7 @@
 <h2>
 <span class="header-section-number">11.5</span> Enumeration - Maysn (2017)<a class="anchor" aria-label="anchor" href="#enumeration---maysn-2017"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lca_math</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">lca_math_enum</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>      </span>
@@ -224,7 +224,7 @@
 </h2>
 <p>The distal-as-indicator approach, also called the 1-step approach because the latent class variable and the distal outcome means are measured in one modeling step (Vermunt, 2010), the distal outcome is part of the measurement model of the latent variable; that is, the distal outcome is treated as an indicator of the latent class variable (Muthén &amp; Shedden, 1999).</p>
 <p>For this model, five math attitude variables, the gender covariate, and the two distal outcomes are included as class indicators.</p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dasi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">lca_enum</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>      </span>
@@ -256,7 +256,7 @@
 <h3>
 <span class="header-section-number">11.6.1</span> Table of fit<a class="anchor" aria-label="anchor" href="#table-of-fit-5"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"extract_mplus_info.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Define the directory where all of the .out files are located.</span></span>
@@ -338,7 +338,7 @@
 <span>    <span class="va">cmPk</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p>Create table:</p>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fit_table1</span> <span class="op">&lt;-</span> <span class="va">merged_table</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span></span>
 <span>    <span class="va">Title</span>,</span>
@@ -433,23 +433,23 @@
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">fit_table1</span></span></code></pre></div>
-<div id="caocmgtdwf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#caocmgtdwf table {
+<div id="nugepwthbf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nugepwthbf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#caocmgtdwf thead, #caocmgtdwf tbody, #caocmgtdwf tfoot, #caocmgtdwf tr, #caocmgtdwf td, #caocmgtdwf th {
+#nugepwthbf thead, #nugepwthbf tbody, #nugepwthbf tfoot, #nugepwthbf tr, #nugepwthbf td, #nugepwthbf th {
   border-style: none;
 }
 
-#caocmgtdwf p {
+#nugepwthbf p {
   margin: 0;
   padding: 0;
 }
 
-#caocmgtdwf .gt_table {
+#nugepwthbf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -475,12 +475,12 @@
   border-left-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_caption {
+#nugepwthbf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#caocmgtdwf .gt_title {
+#nugepwthbf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -492,7 +492,7 @@
   border-bottom-width: 0;
 }
 
-#caocmgtdwf .gt_subtitle {
+#nugepwthbf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -504,7 +504,7 @@
   border-top-width: 0;
 }
 
-#caocmgtdwf .gt_heading {
+#nugepwthbf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -516,13 +516,13 @@
   border-right-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_bottom_border {
+#nugepwthbf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_col_headings {
+#nugepwthbf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -537,7 +537,7 @@
   border-right-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_col_heading {
+#nugepwthbf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -557,7 +557,7 @@
   overflow-x: hidden;
 }
 
-#caocmgtdwf .gt_column_spanner_outer {
+#nugepwthbf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -569,15 +569,15 @@
   padding-right: 4px;
 }
 
-#caocmgtdwf .gt_column_spanner_outer:first-child {
+#nugepwthbf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#caocmgtdwf .gt_column_spanner_outer:last-child {
+#nugepwthbf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#caocmgtdwf .gt_column_spanner {
+#nugepwthbf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -589,11 +589,11 @@
   width: 100%;
 }
 
-#caocmgtdwf .gt_spanner_row {
+#nugepwthbf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#caocmgtdwf .gt_group_heading {
+#nugepwthbf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -619,7 +619,7 @@
   text-align: left;
 }
 
-#caocmgtdwf .gt_empty_group_heading {
+#nugepwthbf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -634,15 +634,15 @@
   vertical-align: middle;
 }
 
-#caocmgtdwf .gt_from_md > :first-child {
+#nugepwthbf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#caocmgtdwf .gt_from_md > :last-child {
+#nugepwthbf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#caocmgtdwf .gt_row {
+#nugepwthbf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -661,7 +661,7 @@
   overflow-x: hidden;
 }
 
-#caocmgtdwf .gt_stub {
+#nugepwthbf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -674,7 +674,7 @@
   padding-right: 5px;
 }
 
-#caocmgtdwf .gt_stub_row_group {
+#nugepwthbf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -688,15 +688,15 @@
   vertical-align: top;
 }
 
-#caocmgtdwf .gt_row_group_first td {
+#nugepwthbf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#caocmgtdwf .gt_row_group_first th {
+#nugepwthbf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#caocmgtdwf .gt_summary_row {
+#nugepwthbf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -706,16 +706,16 @@
   padding-right: 5px;
 }
 
-#caocmgtdwf .gt_first_summary_row {
+#nugepwthbf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_first_summary_row.thick {
+#nugepwthbf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#caocmgtdwf .gt_last_summary_row {
+#nugepwthbf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -725,7 +725,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_grand_summary_row {
+#nugepwthbf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -735,7 +735,7 @@
   padding-right: 5px;
 }
 
-#caocmgtdwf .gt_first_grand_summary_row {
+#nugepwthbf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -745,7 +745,7 @@
   border-top-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_last_grand_summary_row_top {
+#nugepwthbf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -755,11 +755,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_striped {
+#nugepwthbf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#caocmgtdwf .gt_table_body {
+#nugepwthbf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -768,7 +768,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_footnotes {
+#nugepwthbf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -782,7 +782,7 @@
   border-right-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_footnote {
+#nugepwthbf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -791,7 +791,7 @@
   padding-right: 5px;
 }
 
-#caocmgtdwf .gt_sourcenotes {
+#nugepwthbf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -805,7 +805,7 @@
   border-right-color: #D3D3D3;
 }
 
-#caocmgtdwf .gt_sourcenote {
+#nugepwthbf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -813,72 +813,72 @@
   padding-right: 5px;
 }
 
-#caocmgtdwf .gt_left {
+#nugepwthbf .gt_left {
   text-align: left;
 }
 
-#caocmgtdwf .gt_center {
+#nugepwthbf .gt_center {
   text-align: center;
 }
 
-#caocmgtdwf .gt_right {
+#nugepwthbf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#caocmgtdwf .gt_font_normal {
+#nugepwthbf .gt_font_normal {
   font-weight: normal;
 }
 
-#caocmgtdwf .gt_font_bold {
+#nugepwthbf .gt_font_bold {
   font-weight: bold;
 }
 
-#caocmgtdwf .gt_font_italic {
+#nugepwthbf .gt_font_italic {
   font-style: italic;
 }
 
-#caocmgtdwf .gt_super {
+#nugepwthbf .gt_super {
   font-size: 65%;
 }
 
-#caocmgtdwf .gt_footnote_marks {
+#nugepwthbf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#caocmgtdwf .gt_asterisk {
+#nugepwthbf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#caocmgtdwf .gt_indent_1 {
+#nugepwthbf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#caocmgtdwf .gt_indent_2 {
+#nugepwthbf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#caocmgtdwf .gt_indent_3 {
+#nugepwthbf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#caocmgtdwf .gt_indent_4 {
+#nugepwthbf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#caocmgtdwf .gt_indent_5 {
+#nugepwthbf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#caocmgtdwf .katex-display {
+#nugepwthbf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#caocmgtdwf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#nugepwthbf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1028,7 +1028,7 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 <h3>
 <span class="header-section-number">11.6.2</span> Conditional Item Probability Plot<a class="anchor" aria-label="anchor" href="#conditional-item-probability-plot"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">plot_lca</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_dasi</span><span class="op">$</span><span class="va">c4_dasi.out</span><span class="op">)</span></span></code></pre></div>
@@ -1040,7 +1040,7 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 <h2>
 <span class="header-section-number">11.7</span> Adding constraints to test the distal means<a class="anchor" aria-label="anchor" href="#adding-constraints-to-test-the-distal-means"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dasi_cons</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"D as I with constraints"</span>, </span>
 <span>  VARIABLE <span class="op">=</span> </span>
@@ -1131,7 +1131,7 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 <p>This step is done after class enumeration. In this example, the four class model was the best. Therefore, we are re-estimating the four-class model using <code>optseed</code> for efficiency. The <code>optseed</code> can be found in the “RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES” section. Any random start value that yields the best log-likelihood can be used as the <code>optseed</code>, and they should produce identical parameter estimates.</p>
 <div class="inline-figure"><img src="distals/figures/fig_3.png" width="527"></div>
 <p>In the <code>SAVEDATA</code> command, we can save the posterior probabilities and the modal class assignment for steps two and three.</p>
-<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ml_step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 1 "</span>, </span>
 <span>  VARIABLE <span class="op">=</span> </span>
@@ -1169,7 +1169,7 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 <h3>
 <span class="header-section-number">11.8.2</span> Step 2 - Determine Measurement Error<a class="anchor" aria-label="anchor" href="#step-2---determine-measurement-error-4"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output_lsay</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"ML_step1.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">logit_cprobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_lsay</span><span class="op">[[</span><span class="st">"class_counts"</span><span class="op">]</span><span class="op">]</span></span>
@@ -1184,7 +1184,7 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 <h3>
 <span class="header-section-number">11.8.3</span> Step 3 - Add Auxiliary Variables<a class="anchor" aria-label="anchor" href="#step-3---add-auxiliary-variables-3"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ML_step3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step3 "</span>, </span>
 <span>  </span>
@@ -1300,7 +1300,7 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 <h3>
 <span class="header-section-number">11.9.1</span> Step 1 - Class Enumeration w/ Auxiliary Specification and BCH Weights<a class="anchor" aria-label="anchor" href="#step-1---class-enumeration-w-auxiliary-specification-and-bch-weights"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step1_bch</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 1 - BCH Method"</span>, </span>
 <span>  VARIABLE <span class="op">=</span> </span>
@@ -1342,12 +1342,12 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 <span class="header-section-number">11.9.1.1</span> Step 2 - Extract BCH Weights<a class="anchor" aria-label="anchor" href="#step-2---extract-bch-weights"><i class="fas fa-link"></i></a>
 </h4>
 <p>Extract saved dataset which is part of the mplusObject “step1_fit_bch”</p>
-<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output_bch</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"distals"</span>,<span class="st">"three_step"</span>,<span class="st">"BCH_step1.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">savedata_bch</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_bch</span><span class="op">[[</span><span class="st">"savedata"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p>Rename the column in savedata named “C” and change to “N”</p>
-<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_bch</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_bch</span><span class="op">)</span><span class="op">==</span><span class="st">"C"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"N"</span></span></code></pre></div>
 <hr>
 </div>
@@ -1355,7 +1355,7 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 <h4>
 <span class="header-section-number">11.9.1.2</span> Step 3 - Add Auxiliary Variables and BCH Weights<a class="anchor" aria-label="anchor" href="#step-3---add-auxiliary-variables-and-bch-weights"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step3_bch</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step3 - BCH Method"</span>, </span>
 <span>  </span>
@@ -1475,7 +1475,7 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth mixture Models</a></div>
+<div class="prev"><a href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth Mixture Models</a></div>
 <div class="next"><a href="references.html">References</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -1520,7 +1520,7 @@ LL Replicated = Whether the best log-likelihood was replicated.</span>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-07-30.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

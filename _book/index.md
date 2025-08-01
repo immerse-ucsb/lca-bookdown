@@ -1,7 +1,7 @@
 ---
 title: "Mixture Modeling with `MplusAutomation`"
 author: "Dina Arch"
-date: "2025-07-30"
+date: "2025-08-01"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
