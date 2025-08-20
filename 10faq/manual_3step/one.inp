@@ -1,0 +1,30 @@
+TITLE:
+Step 1 - Three-Step
+DATA:
+FILE = "C:/Users/dnajiarch/Box/IES_IMMERSE/bookdown materials/LCA 10 FAQ 
+Replication/manual_3step/Step1.dat"; 
+VARIABLE:
+NAMES = hispanic Gender LifeSat1 LifeSat2 LifeSat3 LifeSat4 LifeSatA PYDI1Ab PYDI2Ab
+     PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab; 
+ MISSING=.;
+ categorical = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab; 
+   usevar = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab;
+  MISSING ARE ALL (9999);
+   classes = c(4); 
+    
+   auxiliary =   ! list all potential covariates and distals here
+   hispanic        ! covariate
+   LifeSatA;      ! distal 
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    optseed = 371246;
+OUTPUT:
+residual tech11 tech14 svalues(2 4 3 1);
+SAVEDATA:
+File=3step_savedata.dat;
+    Save=cprob;
+PLOT:
+type = plot3; 
+    series = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab(*);

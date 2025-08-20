@@ -1,0 +1,23 @@
+TITLE:
+2-Class
+DATA:
+FILE = "C:/Users/dnajiarch/Box/IES_IMMERSE/bookdown materials/LCA 10 FAQ 
+Replication/enum/lca10faq.dat"; 
+VARIABLE:
+NAMES = hispanic Gender LifeSat1 LifeSat2 LifeSat3 LifeSat4 LifeSatA PYDI1Ab PYDI2Ab
+     PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab; 
+ MISSING=.;
+ categorical = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab; 
+MISSING ARE ALL (9999);
+usevar = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab;
+classes = c(2); 
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 500 100; 
+    processors = 10;
+OUTPUT:
+sampstat residual tech1 tech11 tech14;
+PLOT:
+type = plot3; 
+    series = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab(*);

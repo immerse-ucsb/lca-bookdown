@@ -1,0 +1,642 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+08/19/2025   6:29 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  2-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/IES_IMMERSE/bookdown materials/LCA 10 FAQ
+  Replication/enum/lca10faq.dat";
+  VARIABLE:
+  NAMES = hispanic Gender LifeSat1 LifeSat2 LifeSat3 LifeSat4 LifeSatA PYDI1Ab PYDI2Ab
+       PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab;
+   MISSING=.;
+   categorical = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab;
+  MISSING ARE ALL (9999);
+  usevar = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab;
+  classes = c(2);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 500 100;
+      processors = 10;
+  OUTPUT:
+  sampstat residual tech1 tech11 tech14;
+  PLOT:
+  type = plot3;
+      series = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab(*);
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  9
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+2-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1629
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   PYDI1AB     PYDI2AB     PYDI3AB     PYDI4AB     PYDI5AB     PYDI6AB
+   PYDI7AB
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/IES_IMMERSE/bookdown materials/LCA 10 FAQReplication/en
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           0
+     Number of u missing data patterns           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    PYDI1AB
+      Category 1    0.357          581.000
+      Category 2    0.643         1048.000
+    PYDI2AB
+      Category 1    0.071          116.000
+      Category 2    0.929         1513.000
+    PYDI3AB
+      Category 1    0.130          212.000
+      Category 2    0.870         1417.000
+    PYDI4AB
+      Category 1    0.067          109.000
+      Category 2    0.933         1520.000
+    PYDI5AB
+      Category 1    0.134          219.000
+      Category 2    0.866         1410.000
+    PYDI6AB
+      Category 1    0.050           82.000
+      Category 2    0.950         1547.000
+    PYDI7AB
+      Category 1    0.074          120.000
+      Category 2    0.926         1509.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -3439.483  967902           52
+           -3439.483  814975           129
+           -3439.483  692169           308
+           -3439.483  714997           399
+           -3439.483  359578           458
+           -3439.483  137377           397
+           -3439.483  985387           381
+           -3439.483  972430           491
+           -3439.483  105435           265
+           -3439.483  319144           176
+           -3439.483  30098            209
+           -3439.483  100874           108
+           -3439.483  645664           39
+           -3439.483  36714            201
+           -3439.483  175199           247
+           -3439.483  437181           135
+           -3439.483  481835           57
+           -3439.483  821011           161
+           -3439.483  127215           9
+           -3439.483  342019           301
+           -3439.483  871722           355
+           -3439.483  82357            339
+           -3439.483  263221           447
+           -3439.483  468036           131
+           -3439.483  520177           262
+           -3439.483  891531           206
+           -3439.483  823392           479
+           -3439.483  471438           252
+           -3439.483  168762           200
+           -3439.483  314084           81
+           -3439.483  856536           144
+           -3439.483  292884           103
+           -3439.483  991329           182
+           -3439.483  443442           380
+           -3439.483  595153           230
+           -3439.483  318230           46
+           -3439.483  188498           258
+           -3439.483  278692           342
+           -3439.483  804660           260
+           -3439.483  391179           78
+           -3439.483  608849           224
+           -3439.483  584397           428
+           -3439.483  354395           486
+           -3439.483  580405           286
+           -3439.483  971693           470
+           -3439.483  286735           175
+           -3439.483  425982           485
+           -3439.483  399508           415
+           -3439.483  407168           44
+           -3439.483  370466           41
+           -3439.483  694303           282
+           -3439.483  782821           272
+           -3439.483  614009           317
+           -3439.483  673496           218
+           -3439.483  850545           357
+           -3439.483  569131           26
+           -3439.483  170954           86
+           -3439.483  926797           406
+           -3439.483  120506           45
+           -3439.483  59674            240
+           -3439.483  926283           269
+           -3439.483  483369           270
+           -3439.483  417035           149
+           -3439.483  22089            143
+           -3439.483  484687           306
+           -3439.483  399380           436
+           -3439.483  369602           146
+           -3439.483  73576            213
+           -3439.483  978781           497
+           -3439.483  402224           91
+           -3439.483  467339           66
+           -3439.483  375590           438
+           -3439.483  185071           370
+           -3439.483  392751           480
+           -3439.483  458181           189
+           -3439.483  197223           332
+           -3439.483  570782           193
+           -3439.483  181293           212
+           -3439.483  626087           314
+           -3439.483  971853           402
+           -3439.483  12477            155
+           -3439.483  783110           72
+           -3439.483  879338           309
+           -3439.483  371246           101
+           -3439.483  614535           449
+           -3439.483  783165           170
+           -3439.483  749453           33
+           -3439.483  570908           98
+           -3439.483  399671           13
+           -3439.483  801717           364
+           -3439.483  900268           327
+           -3439.483  21132            351
+           -3439.483  655497           376
+           -3439.483  85734            411
+           -3439.483  193569           440
+           -3439.483  922596           456
+           -3439.483  303634           169
+           -3439.483  650371           14
+           -3439.483  863691           481
+           -3439.483  575700           100
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       15
+
+Loglikelihood
+
+          H0 Value                       -3439.483
+          H0 Scaling Correction Factor      1.0574
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    6908.967
+          Bayesian (BIC)                  6989.902
+          Sample-Size Adjusted BIC        6942.250
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                            260.329
+          Degrees of Freedom                   112
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            229.657
+          Degrees of Freedom                   112
+          P-Value                           0.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        330.94118          0.20316
+       2       1298.05882          0.79684
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        330.94118          0.20316
+       2       1298.05882          0.79684
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              302          0.18539
+       2             1327          0.81461
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.790
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2
+
+    1   0.903    0.097
+    2   0.044    0.956
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2
+
+    1   0.824    0.176
+    2   0.023    0.977
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2
+
+    1      1.543    0.000
+    2     -3.767    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    PYDI1AB$1          1.441      0.186      7.736      0.000
+    PYDI2AB$1         -1.038      0.151     -6.882      0.000
+    PYDI3AB$1         -0.489      0.132     -3.693      0.000
+    PYDI4AB$1         -0.849      0.157     -5.404      0.000
+    PYDI5AB$1          0.322      0.207      1.552      0.121
+    PYDI6AB$1         -1.234      0.186     -6.646      0.000
+    PYDI7AB$1         -0.695      0.173     -4.014      0.000
+
+Latent Class 2
+
+ Thresholds
+    PYDI1AB$1         -1.145      0.089    -12.856      0.000
+    PYDI2AB$1         -3.763      0.260    -14.479      0.000
+    PYDI3AB$1         -2.643      0.166    -15.941      0.000
+    PYDI4AB$1         -4.876      0.520     -9.382      0.000
+    PYDI5AB$1         -3.847      0.313    -12.308      0.000
+    PYDI6AB$1         -5.164      0.473    -10.922      0.000
+    PYDI7AB$1         -4.874      0.496     -9.835      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -1.367      0.126    -10.886      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.149E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ PYDI1AB
+    Category 1         0.809      0.029     28.050      0.000
+    Category 2         0.191      0.029      6.637      0.000
+ PYDI2AB
+    Category 1         0.262      0.029      8.977      0.000
+    Category 2         0.738      0.029     25.350      0.000
+ PYDI3AB
+    Category 1         0.380      0.031     12.182      0.000
+    Category 2         0.620      0.031     19.866      0.000
+ PYDI4AB
+    Category 1         0.300      0.033      9.089      0.000
+    Category 2         0.700      0.033     21.243      0.000
+ PYDI5AB
+    Category 1         0.580      0.051     11.477      0.000
+    Category 2         0.420      0.051      8.320      0.000
+ PYDI6AB
+    Category 1         0.225      0.032      6.952      0.000
+    Category 2         0.775      0.032     23.884      0.000
+ PYDI7AB
+    Category 1         0.333      0.038      8.654      0.000
+    Category 2         0.667      0.038     17.345      0.000
+
+Latent Class 2
+
+ PYDI1AB
+    Category 1         0.241      0.016     14.802      0.000
+    Category 2         0.759      0.016     46.510      0.000
+ PYDI2AB
+    Category 1         0.023      0.006      3.937      0.000
+    Category 2         0.977      0.006    169.560      0.000
+ PYDI3AB
+    Category 1         0.066      0.010      6.460      0.000
+    Category 2         0.934      0.010     90.816      0.000
+ PYDI4AB
+    Category 1         0.008      0.004      1.939      0.053
+    Category 2         0.992      0.004    254.076      0.000
+ PYDI5AB
+    Category 1         0.021      0.006      3.268      0.001
+    Category 2         0.979      0.006    153.044      0.000
+ PYDI6AB
+    Category 1         0.006      0.003      2.127      0.033
+    Category 2         0.994      0.003    371.804      0.000
+ PYDI7AB
+    Category 1         0.008      0.004      2.033      0.042
+    Category 2         0.992      0.004    266.090      0.000
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ PYDI1AB
+    Category > 1       0.075      0.015      0.051      0.110
+ PYDI2AB
+    Category > 1       0.066      0.020      0.037      0.118
+ PYDI3AB
+    Category > 1       0.116      0.026      0.075      0.180
+ PYDI4AB
+    Category > 1       0.018      0.009      0.006      0.050
+ PYDI5AB
+    Category > 1       0.015      0.005      0.008      0.030
+ PYDI6AB
+    Category > 1       0.020      0.010      0.007      0.052
+ PYDI7AB
+    Category > 1       0.015      0.008      0.006      0.040
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 1
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 2
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS 1
+              PYDI1AB$      PYDI2AB$      PYDI3AB$      PYDI4AB$      PYDI5AB$
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS 1
+              PYDI6AB$      PYDI7AB$
+              ________      ________
+                    6             7
+
+
+           TAU(U) FOR LATENT CLASS 2
+              PYDI1AB$      PYDI2AB$      PYDI3AB$      PYDI4AB$      PYDI5AB$
+              ________      ________      ________      ________      ________
+                    8             9            10            11            12
+
+
+           TAU(U) FOR LATENT CLASS 2
+              PYDI6AB$      PYDI7AB$
+              ________      ________
+                   13            14
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2
+              ________      ________
+                   15             0
+
+
+     STARTING VALUES FOR LATENT CLASS 1
+
+
+     STARTING VALUES FOR LATENT CLASS 2
+
+
+     STARTING VALUES FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS 1
+              PYDI1AB$      PYDI2AB$      PYDI3AB$      PYDI4AB$      PYDI5AB$
+              ________      ________      ________      ________      ________
+               -1.590        -3.568        -2.900        -3.635        -2.862
+
+
+           TAU(U) FOR LATENT CLASS 1
+              PYDI6AB$      PYDI7AB$
+              ________      ________
+               -3.937        -3.532
+
+
+           TAU(U) FOR LATENT CLASS 2
+              PYDI1AB$      PYDI2AB$      PYDI3AB$      PYDI4AB$      PYDI5AB$
+              ________      ________      ________      ________      ________
+                0.410        -1.568        -0.900        -1.635        -0.862
+
+
+           TAU(U) FOR LATENT CLASS 2
+              PYDI6AB$      PYDI7AB$
+              ________      ________
+               -1.937        -1.532
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2
+              ________      ________
+                0.000         0.000
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 1 (H0) VERSUS 2 CLASSES
+
+          H0 Loglikelihood Value                        -3905.892
+          2 Times the Loglikelihood Difference            932.818
+          Difference in the Number of Parameters                8
+          Mean                                              9.004
+          Standard Deviation                               10.615
+          P-Value                                          0.0000
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                           917.314
+          P-Value                                          0.0000
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 1 (H0) VERSUS 2 CLASSES
+
+          H0 Loglikelihood Value                        -3905.892
+          2 Times the Loglikelihood Difference            932.818
+          Difference in the Number of Parameters                8
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                            5
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+     Beginning Time:  18:29:43
+        Ending Time:  18:29:51
+       Elapsed Time:  00:00:08
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

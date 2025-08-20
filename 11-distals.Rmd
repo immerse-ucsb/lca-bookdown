@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 This chapter replicates the workflow in Nylund-Gibson et al. (2019).
 
-Citation: Nylund-Gibson, K., Grimm, R. P., & Masyn, K. E. (2019). Prediction from latent classes: A demonstration of different approaches to include distal outcomes in mixture models. *Structural equation modeling: A multidisciplinary Journal*, *26*(6), 967-985.
+Citation: [Nylund-Gibson, K., Grimm, R. P., & Masyn, K. E. (2019). Prediction from latent classes: A demonstration of different approaches to include distal outcomes in mixture models. *Structural equation modeling: A multidisciplinary Journal*, *26*(6), 967-985.](https://doi.org/10.1177/01987429211067214)
 
 ## Data overview
 

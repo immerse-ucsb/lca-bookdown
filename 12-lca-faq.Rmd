@@ -1,0 +1,951 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE,
+                      message = FALSE) #Here, I have made it so that when you knit your .rmd, warnings and messages will not show up in the html markdown. 
+```
+
+# (PART) Published Manuscripts {.unnumbered}
+
+# Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)
+
+------------------------------------------------------------------------
+
+## Example: Positive Youth Development Inventory Analysis
+
+------------------------------------------------------------------------
+
+- The original paper illustrated the modeling ideas described in this article using seven items (see Table 2) from the Positive Youth Development Inventory (PYDI) Contribution subscale (Arnold, Nott, & Meinhold, 2012) that were administered to 1629 college and university students.
+- The PYDI measures behavioral, psychological, and social characteristics that are theorized to indicate positive youth development, and the Contribution Subscale specifically measures the degree to which youth express values and behaviors associated with channeling their positive psychosocial strengths to contribute meaningfully to their local community (Lerner et al., 2005).
+- Citation: [Nylund-Gibson, K., & Choi, A. Y. (2018). Ten frequently asked questions about latent class analysis. *Translational Issues in Psychological Science*, *4*(4), 440–461.](https://doi.org/10.1037/tps0000176)
+
+------------------------------------------------------------------------
+
+## Load packages
+
+```{r}
+library(tidyverse)
+library(haven)
+library(glue)
+library(MplusAutomation)
+library(here)
+library(janitor)
+library(gt)
+library(cowplot)
+library(DiagrammeR) 
+library(webshot2)
+library(stringr)
+library(dplyr)
+library(purrr)
+library(readr)
+library(flextable)
+library(officer)
+library(glue)
+library(htmltools)
+```
+
+------------------------------------------------------------------------
+
+### Variable Description
+
+```{r, echo = FALSE}
+table <- tribble(
+   ~"Name",      ~"Label",  ~"Values",                                   
+#--------------|--------------------------------|-----|,
+"hispanic",   "If the participant is Hispanic or not", "",
+"LifeSat",   "Life Satisfaction (Well-being related)", "",
+"PYDI1Ab","I take an active role in my community.", "0 = disagree, 1 = agree",
+"PYDI2Ab","I am someone who gives to benefit others.",  "0 = disagree, 1 = agree",
+"PYDI3Ab", "I like to work with others to solve problems.","0 = disagree, 1 = agree",
+"PYDI4Ab", "I have things I can offer to others.","0 = disagree, 1 = agree",  
+"PYDI5Ab", "I believe I can make a difference in the world.",  "0 = disagree, 1 = agree",
+"PYDI6Ab", "I care about contributing to make the world a better place for everyone.",  "0 = disagree, 1 = agree", 
+"PYDI7Ab", "It is important for me to try and make a difference in the world.",  "0 = disagree, 1 = agree") %>% 
+gt() %>% 
+  tab_header(
+    title = "LCA indicators"  # Add a title
+    ) %>%
+  tab_options(
+    table.width = pct(75)
+  ) 
+```
+
+------------------------------------------------------------------------
+
+- The original research question was to examine whether this construct of positive contribution comprised qualitatively distinct subtypes among college and university students, and to further examine whether such subtypes (if indeed were present) were meaningfully associated with a demographic predictor and a wellbeing-related outcome.
+
+```{r, echo = FALSE}
+
+graph <- grViz(" digraph lca_model {
+
+# The graph statement - No editing needed
+
+    graph [layout = dot, overlap = true]
+ 
+# Two node statements
+ 
+# One for measured variables (box) 
+
+    node [shape=box]
+    PYDI1 PYDI2 PYDI3 PYDI4 PYDI5 PYDI6 PYDI7 Hispanic
+    LifeSat [label = <Life Satisfaction>];
+    
+ 
+# One for latent variables (circle) 
+ 
+    node [shape=circle]
+    PYC [label=<Positive Youth<br/>C<sub>k</sub>>];
+    
+# edge statements
+
+    PYC -> {PYDI1 PYDI2 PYDI3 PYDI4 PYDI5 PYDI6 PYDI7} [minlen = 1];
+    Hispanic -> LifeSat [minlen = 4];
+    Hispanic -> PYC [minlen = 1];
+    PYC -> LifeSat [minlen = 1];
+    
+{rank = same; Hispanic; LifeSat}
+{rank = source; Hispanic; LifeSat}
+ 
+ }")  
+```
+
+
+------------------------------------------------------------------------
+
+### Prepare Data
+
+```{r}
+df_qa <- read_csv(here("10faq", "data", "lca10faq.csv"))
+```
+
+------------------------------------------------------------------------
+
+### Descriptive Statistics
+
+```{r}
+# Set up data to find proportions of binary indicators
+ds <- df_qa %>% 
+  pivot_longer(c(PYDI1Ab, PYDI2Ab, PYDI3Ab, PYDI4Ab, PYDI5Ab, PYDI6Ab, PYDI7Ab),
+               names_to = "variable") 
+
+# Create table of variables and counts, then find proportions and round to 3 decimal places
+prop_df <- ds %>%
+  count(variable, value) %>%
+  group_by(variable) %>%
+  mutate(prop = n / sum(n)) %>%
+  ungroup() %>%
+  mutate(prop = round(prop, 3))
+
+
+# Make it a gt() table
+prop_table <- prop_df %>% 
+  gt(groupname_col = "variable", rowname_col = "value") %>%
+  tab_stubhead(label = md("*Values*")) %>%
+  tab_header(
+    md(
+      "Variable Proportions"
+    )
+  ) %>%
+  cols_label(
+    variable = md("*Variable*"),
+    value = md("*Value*"),
+    n = md("*N*"),
+    prop = md("*Proportion*")
+  ) 
+  
+prop_table
+```
+
+------------------------------------------------------------------------
+
+### Enumeration
+
+This code uses the `mplusObject` function in the `MplusAutomation` package and saves all model runs in the `enum` folder.
+
+```{r, eval = FALSE}
+lca_6  <- lapply(1:6, function(k) {
+  lca_enum  <- mplusObject(
+      
+    TITLE = glue("{k}-Class"), 
+  
+    VARIABLE = glue(
+    "categorical = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab; 
+     MISSING ARE ALL (9999);
+     usevar = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab;
+     classes = c({k}); "),
+  
+  ANALYSIS = 
+   "estimator = mlr; 
+    type = mixture;
+    starts = 500 100; 
+    processors = 10;",
+  
+  OUTPUT = "sampstat residual tech1 tech11 tech14;",
+  
+  PLOT = 
+    "type = plot3; 
+    series = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab(*);",
+  
+  usevariables = colnames(df_qa),
+  rdata = df_qa)
+
+lca_enum_fit <- mplusModeler(lca_enum, 
+                     dataout=glue(here("10faq", "enum", "lca10faq.dat")),
+                     modelout=glue(here("10faq", "enum", "c{k}_lca10faq.inp")),
+                     check=TRUE, run = TRUE, hashfilename = FALSE)
+})
+```
+
+------------------------------------------------------------------------
+
+### Examine and extract Mplus files
+
+Check all models for:
+
+1. Warnings  
+2. Errors  
+3. Convergence and Loglikelihood Replication Information
+
+```{r}
+source(here("functions", "extract_mplus_info.R"))
+
+# Define the directory where all of the .out files are located.
+output_dir <- here("10faq", "enum")
+
+# Get all .out files
+output_files <- list.files(output_dir, pattern = "\\.out$", full.names = TRUE)
+
+# Process all .out files into one dataframe
+final_data <- map_dfr(output_files, extract_mplus_info_extended)
+
+# Extract Sample_Size from final_data
+sample_size <- unique(final_data$Sample_Size)
+```
+
+#### Examine Mplus Warnings
+
+```{r}
+source(here("functions", "extract_warnings.R"))
+
+warnings_table_data <- extract_warnings(final_data)
+
+# warnings_table_data is assumed to exist
+library(gt)
+
+if (nrow(warnings_table_data) > 0) {
+  warnings_table <- warnings_table_data %>%
+    gt() %>%
+    tab_header(title = md("**Model Warnings**")) %>%
+    cols_label(
+      File_Name = "Output File",
+      Warning_Summary = "# of Warnings",
+      Warnings = "Warning Message(s)"
+    ) %>%
+    cols_align(align = "left", columns = everything()) %>%
+    
+    # Set column widths to allow wrapping
+    cols_width(
+      File_Name ~ px(150),
+      Warning_Summary ~ px(150),
+      Warnings ~ px(400)
+    ) %>%
+    
+    
+    # Attempt to wrap long text for HTML output
+    text_transform(
+      locations = cells_body(columns = Warnings),
+      fn = function(x) {
+        if (knitr::is_html_output()) {
+          paste0("<div style='white-space: normal; word-wrap: break-word;'>", x, "</div>")
+        } else {
+          # For PDF, rely on the fixed column width
+          x
+        }
+      }
+    ) %>%
+    tab_options(table.width = pct(100))
+  
+ # Save table as an image (PNG) in the figures/ folder
+  gtsave(
+    data = warnings_table,
+    filename = "warnings_table.png",
+    path = "figures"
+  )
+} else {
+  cat("No warnings detected in any output files.\n")
+}
+
+warnings_table
+```
+
+#### Examine Mplus Errors
+
+```{r}
+source(here("functions", "error_visualization.R"))
+
+# Process errors
+error_table_data <- process_error_data(final_data)
+```
+
+```{r}
+# 🔹 Visualize Errors If Any Exist
+if (nrow(error_table_data) > 0) {
+  error_table <- error_table_data %>%
+    gt() %>%
+    tab_header(title = md("**Model Estimation Errors**")) %>%
+    cols_label(
+      File_Name = "Output File",
+      Error_Message = "Error Message"
+    ) %>%
+    cols_align(align = "left", columns = everything()) %>%
+    tab_options(table.width = px(600))  
+  
+  error_table  # ✅ Display the table
+} else {
+  cat("No errors detected in any output files.\n")
+}
+```
+
+#### Examine Convergence and Loglikelihood Replications
+
+```{r}
+source(here("functions", "summary_table.R"))
+
+# **Print Table with Superheader & Heatmap**
+summary_table <- create_flextable(final_data, sample_size)
+summary_table
+```
+
+#### Check for Loglikelihood Replication
+
+Visualize and examine loglikelihood replication values for each ouptut file individually
+
+```{r}
+# Load the function for separate plots
+source(here("functions", "ll_replication_plots.R"))
+
+# Generate individual log-likelihood replication tables
+ll_replication_tables <- generate_ll_replication_plots(final_data)
+```
+
+```{r, results='asis'}
+walk(names(ll_replication_tables), function(name) {
+  table <- ll_replication_tables[[name]]
+  
+  if (knitr::is_latex_output()) {
+    img_path <- here("figures", paste0("ll_replication_table_", name, ".png"))
+    gtsave(table, img_path, expand = 0, vwidth = 1200, vheight = 80 * nrow(table))
+    cat(sprintf("\\includegraphics[width=5in]{%s}\n\n", img_path))
+  } else {
+    print(table) # Works fine in HTML
+  }
+})
+```
+
+Visualize and examine loglikelihood replication for each output file together
+
+```{r}
+ll_replication_table_all <- source(here("functions", "ll_replication_processing.R"), local = TRUE)$value
+```
+
+------------------------------------------------------------------------
+
+### Table of Fit
+
+First, extract data
+
+```{r}
+output_lca10faq <- readModels(here("10faq", "enum"), filefilter = "lca10faq", quiet = TRUE)
+
+enum_extract <- LatexSummaryTable(output_lca10faq,
+    keepCols = c("Title","Parameters","LL","BIC","aBIC",
+    "BLRT_PValue","T11_VLMR_PValue","Observations"),
+    sortBy = "Title") 
+
+allFit <- enum_extract %>%
+  mutate(CAIC = -2 * LL + Parameters * (log(Observations) + 1)) %>%
+  mutate(AWE = -2 * LL + 2 * Parameters * (log(Observations) + 1.5)) %>%
+  mutate(SIC = -.5 * BIC) %>%
+  mutate(expSIC = exp(SIC - max(SIC))) %>%
+  mutate(BF = exp(SIC - lead(SIC))) %>%
+  mutate(cmPk = expSIC / sum(expSIC)) %>%
+  dplyr::select(1:5, 9:10, 6:7, 13, 14) %>%
+  arrange(Parameters)
+```
+
+Add Convergence percentage, LL Replication percentage, and smallest class (%) Columns
+
+```{r}
+allFit <- allFit %>%
+  mutate(Title = str_trim(Title)) %>%
+  left_join(
+    final_data %>%
+      select(Class_Model, Perc_Convergence, Replicated_LL_Perc, 
+             Smallest_Class, Smallest_Class_Perc),
+    by = c("Title" = "Class_Model")
+  ) %>%
+  mutate(Smallest_Class = coalesce(Smallest_Class, 
+                                   final_data$Smallest_Class[match(Title, final_data$Class_Model)])) %>%
+  relocate(Perc_Convergence, Replicated_LL_Perc, .after = LL) %>%
+  mutate(Smallest_Class_Combined = paste0(Smallest_Class, "\u00A0(", Smallest_Class_Perc, "%)")) %>%  
+  select(-Smallest_Class, -Smallest_Class_Perc)  
+
+allFit <- allFit %>%
+  select(
+    Title, Parameters, LL,
+    Perc_Convergence, Replicated_LL_Perc,  
+    BIC, aBIC, CAIC, AWE, 
+    T11_VLMR_PValue, BLRT_PValue, 
+    Smallest_Class_Combined,  
+    BF, cmPk  
+  )
+```
+
+Then, create table
+
+```{r}
+fit_table1 <- allFit %>%
+  select(Title, Parameters, LL, Perc_Convergence, Replicated_LL_Perc, 
+         BIC, aBIC, CAIC, AWE, 
+         T11_VLMR_PValue, BLRT_PValue, 
+         Smallest_Class_Combined  
+  ) %>%
+  gt() %>%
+  tab_header(title = md("**Model Fit Summary Table**")) %>%
+  tab_spanner(label = "Model Fit Indices", columns = c(BIC, aBIC, CAIC, AWE)) %>%
+  tab_spanner(label = "LRTs", columns = c(T11_VLMR_PValue, BLRT_PValue)) %>%
+  tab_spanner(label = md("Smallest\u00A0Class"), columns = c(Smallest_Class_Combined)) %>%  
+  
+  cols_label(
+    Title = "Classes",
+    Parameters = md("npar"),
+    LL = md("*LL*"),
+    Perc_Convergence = "% Converged",
+    Replicated_LL_Perc = "% Replicated",
+    BIC = "BIC",
+    aBIC = "aBIC",
+    CAIC = "CAIC",
+    AWE = "AWE",
+    T11_VLMR_PValue = "VLMR",
+    BLRT_PValue = "BLRT",
+    Smallest_Class_Combined = "n (%)"
+  ) %>%
+  tab_footnote(
+    footnote = md(
+      "*Note.* Par = Parameters; *LL* = model log likelihood;
+      BIC = Bayesian information criterion;
+      aBIC = sample size adjusted BIC; CAIC = consistent Akaike information criterion;
+      AWE = approximate weight of evidence criterion;
+      BLRT = bootstrapped likelihood ratio test p-value;
+      VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
+      *cmPk* = approximate correct model probability;
+      Smallest K = Number of cases in the smallest class (n (%));
+      LL Replicated = Whether the best log-likelihood was replicated."
+    ),
+    locations = cells_title()
+  ) %>%
+  tab_options(column_labels.font.weight = "bold") %>%
+  fmt_number(
+    columns = c(3, 6:9),  
+    decimals = 2
+  ) %>%
+  fmt(
+    columns = c(T11_VLMR_PValue, BLRT_PValue),  
+    fns = function(x) ifelse(is.na(x), "—", ifelse(x < 0.001, "<.001", scales::number(x, accuracy = .01)))
+  ) %>%
+  fmt_percent(
+    columns = c(Perc_Convergence, Replicated_LL_Perc),
+    decimals = 0,
+    scale_values = FALSE  
+  ) %>%
+  
+  cols_align(align = "center", columns = everything()) %>% 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = list(
+      cells_body(columns = BIC, row = BIC == min(BIC)),
+      cells_body(columns = aBIC, row = aBIC == min(aBIC)),
+      cells_body(columns = CAIC, row = CAIC == min(CAIC)),
+      cells_body(columns = AWE, row = AWE == min(AWE)),
+      cells_body(columns = T11_VLMR_PValue, 
+                 row = ifelse(T11_VLMR_PValue < .05 & lead(T11_VLMR_PValue) > .05, T11_VLMR_PValue < .05, NA)),
+      cells_body(columns = BLRT_PValue, 
+                 row = ifelse(BLRT_PValue < .05 & lead(BLRT_PValue) > .05, BLRT_PValue < .05, NA))
+    )
+  )
+```
+
+Print Table
+
+```{r}
+if (knitr::is_latex_output()) {
+  cat("\\includegraphics[width=\\textwidth]{figures/fit_table1.png}\n")
+} else {
+  fit_table1  
+}
+```
+
+------------------------------------------------------------------------
+
+### Information Criteria Plot
+
+```{r}
+# Ensure CAIC exists and is numeric, if it exists
+allFit <- allFit %>%
+  mutate(CAIC = as.numeric(CAIC))  # Ensure CAIC is numeric
+
+# Ensure CAIC exists and is numeric, if it exists
+allFit <- allFit %>%
+  mutate(CAIC = as.numeric(CAIC))  # Ensure CAIC is numeric
+
+# Now, pivot the data
+allFit %>%
+  dplyr::select(Title, BIC, aBIC, CAIC, AWE) %>%
+  pivot_longer(
+    cols = c(BIC, aBIC, CAIC, AWE),  # Use these columns for pivoting
+    names_to = "Index", values_to = "ic_value"
+  ) %>%
+  mutate(
+    Index = factor(Index, levels = c("AWE", "CAIC", "BIC", "aBIC"))  # Ensure proper ordering of Index
+  ) %>%
+  ggplot(aes(
+    x = Title,
+    y = ic_value,
+    color = Index,
+    shape = Index,
+    group = Index,
+    lty = Index
+  )) +
+  geom_point(size = 2.0) + 
+  geom_line(size = .8) +
+  scale_x_discrete() +
+  scale_colour_grey(end = .5) +
+  theme_cowplot() +
+  labs(x = "Number of Classes", y = "Information Criteria Value", title = "Information Criteria") +
+  theme(
+    text = element_text(family = "serif", size = 12),  # Change font to Avenir Next
+    legend.text = element_text(family="serif", size=12),
+    legend.key.width = unit(3, "line"),
+    legend.title = element_blank(),
+    legend.position = "top"  
+  )
+```
+
+------------------------------------------------------------------------
+
+### Compare Class Solutions
+
+Compare probability plots for $K = 1:6$ class solutions
+
+```{r}
+model_results <- data.frame()
+
+for (i in 1:length(output_lca10faq)) {
+  
+  temp <- output_lca10faq[[i]]$parameters$probability.scale %>%                                       
+    mutate(model = paste(i,"-Class Model"))                                                  
+  
+  model_results <- rbind(model_results, temp)
+}
+
+rm(temp)
+
+compare_plot <-
+  model_results %>%
+  filter(category == 2) %>%
+  dplyr::select(est, model, LatentClass, param) %>%
+  mutate(param = as.factor(str_to_lower(param))) 
+
+compare_plot$param <- fct_inorder(compare_plot$param)
+
+ggplot(
+  compare_plot,
+  aes(
+    x = param,
+    y = est,
+    color = LatentClass,
+    shape = LatentClass,
+    group = LatentClass,
+    lty = LatentClass
+  )
+) +
+  geom_point() + 
+  geom_line() +
+  scale_colour_viridis_d() +
+  facet_wrap( ~ model, ncol = 2) +
+  labs(title = "Bullying Items",
+       x = " ", y = "Probability") +
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank(),
+                          axis.text.x = element_text(angle = -45, hjust = -.1))        
+```
+
+```{r}
+source(here("functions", "plot_lca.R"))
+
+plot_lca(model_name = output_lca10faq$c4_lca10faq.out)
+```
+
+*Model Selection*: 
+
+Fit indices did not converge on a single solution, and this is generally the rule rather than the exception in applied practice. The ICs and the cmP suggested a three-class solution, whereas the likelihood tests supported a four-class solution. Evaluating Figure 2, the most prominent “elbow” was at the two-class model, whereas the lowest point for the ICs was at the three-class model. The BF suggested that the three-, four-, and five-class solutions were plausible. Given that the BLRT specifically has been shown to be robust across a diversity of modeling conditions (Nylund, Asparouhov, & Muthén, 2007), we tentatively selected the four-class solution.
+
+*Model Interpretation*: 
+
+The above figure illustrates the conditional item probabilities for the selected 4-class solution, where “conditional” again refers to the likelihood of endorsing each item as a function of class membership (e.g., the probabilities are “conditioned” on class). The model indicators are labeled on the x axis whereas the y axis presents the metric of the item probabilities (0 to 1). The four classes are defined by the crisscrossing lines, and their preliminary labels are listed at the bottom of Figure 3 with class prevalence (e.g., relative class sizes) in parentheses. We referred to the indicators in Table 2 in evaluating the substantive meaning of the joint patterns of item responses that emerged within each class. The first and largest class is characterized by high response probabilities for all indicators and were thus labeled the Holistic–Collaborative class. Youth in this class are likely to value social contribution overall and pursue pertinent activities in cooperation with others. The second class was labeled Altruistic–Low Selfefficacy and is likely to be comprised of youth who highly value social contribution yet do not believe in their own effectiveness for impactful engagement with their community. The third class was labeled Low Engagement given the characteristically low or ambivalent response probabilities for all model indicators. The fourth class was labeled Holistic–Independent given its similarity to the Holistic–Collaborative class apart from two indicators measuring interpersonal and community engagement. Youth in this class are likely to value social contribution but may prefer pursuing relevant activities in a more independent or introverted manner. Examining Figure 3, it is apparent that these two classes are quite homogenous (and thus not well-separated) in their item responses except on items 1 and 3, which may diminish the model classification statistics.
+
+------------------------------------------------------------------------
+
+## ML Method
+
+------------------------------------------------------------------------
+
+### Step 1 - Class Enumeration w/ Auxiliary Specification
+
+------------------------------------------------------------------------
+
+This step is done after class enumeration (or after you have selected the best latent class model). In this example, the four class model was the best. Now, I am re-estimating the four-class model using `optseed` for efficiency. The difference here is the `SAVEDATA` command, where I can save the posterior probabilities and the modal class assignment for steps two and three. 
+
+```{r, eval = FALSE}
+step1  <- mplusObject(
+  TITLE = "Step 1 - Three-Step", 
+  VARIABLE = 
+  "categorical = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab; 
+   usevar = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab;
+  MISSING ARE ALL (9999);
+   classes = c(4); 
+    
+   auxiliary =   ! list all potential covariates and distals here
+   hispanic        ! covariate
+   LifeSatA;      ! distal ",
+  
+  ANALYSIS = 
+   "estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    optseed = 371246;",
+  
+  SAVEDATA = 
+   "File=3step_savedata.dat;
+    Save=cprob;",
+  
+  OUTPUT = "residual tech11 tech14 svalues(2 4 3 1);",
+  
+  PLOT = 
+    "type = plot3; 
+    series = PYDI1Ab PYDI2Ab PYDI3Ab PYDI4Ab PYDI5Ab PYDI6Ab PYDI7Ab(*);",
+  
+  usevariables = colnames(df_qa),
+  rdata = df_qa)
+
+step1_fit <- mplusModeler(step1,
+                            dataout=here("10faq", "manual_3step", "Step1.dat"),
+                            modelout=here("10faq", "manual_3step", "one.inp") ,
+                            check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+```{r}
+source(here("functions", "plot_lca.txt"))
+output_lsay <- readModels(here("10faq", "manual_3step","one.out"))
+
+plot_lca(model_name = output_lsay)
+```
+
+Class 1:  Holistic-Collaborative (65%)
+Class 2:  Altruistic-Low Self-efficacy (8%)
+Class 3:  Low Engagement (5%)
+Class 4:  Holistic-Independent (22%)
+
+------------------------------------------------------------------------
+
+### Step 2 - Determine Measurement Error
+
+------------------------------------------------------------------------
+
+Extract logits for the classification probabilities for the most likely latent class
+```{r}
+logit_cprobs <- as.data.frame(output_lsay[["class_counts"]]
+                                       [["logitProbs.mostLikely"]])
+```
+
+Extract saved dataset which is part of the mplusObject "step1_fit"
+
+```{r}
+savedata <- as.data.frame(output_lsay[["savedata"]])
+```
+
+Rename the column in savedata named "C" and change to "N"
+
+```{r}
+colnames(savedata)[colnames(savedata)=="C"] <- "N"
+```
+
+------------------------------------------------------------------------
+
+### Step 3 - Add Auxiliary Variables
+
+------------------------------------------------------------------------
+
+Model with 1 covariate and 1 distal outcome
+
+```{r, eval = FALSE}
+step3  <- mplusObject(
+  TITLE = "Step3 - 3step LSAY", 
+  
+  VARIABLE = 
+ "nominal=N;
+  usevar = n;
+  
+  classes = c(4);
+  
+  usevar = hispanic LifeSatA;" ,
+  
+  ANALYSIS = 
+ "estimator = mlr; 
+  type = mixture; 
+  starts = 0;",
+ 
+  DEFINE = 
+   "center hispanic (grandmean);",
+  
+  MODEL =
+  glue(
+ " %OVERALL%
+ 
+  LifeSatA on hispanic; ! covariate as a predictor of the distal outcome
+  C on hispanic;        ! covariate as predictor of C
+
+     %C#1%
+  [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model. 
+  [n#2@{logit_cprobs[1,2]}];
+  [n#3@{logit_cprobs[1,3]}];
+  
+  [LifeSatA](m1);    ! conditional distal mean 
+  LifeSatA;          ! conditional distal variance (freely estimated)
+
+  %C#2%
+  [n#1@{logit_cprobs[2,1]}];
+  [n#2@{logit_cprobs[2,2]}];
+  [n#3@{logit_cprobs[2,3]}];
+  
+  [LifeSatA](m2);
+  LifeSatA;
+  
+  %C#3%
+  [n#1@{logit_cprobs[3,1]}];
+  [n#2@{logit_cprobs[3,2]}];
+  [n#3@{logit_cprobs[3,3]}];
+  
+  [LifeSatA](m3);
+  LifeSatA;
+
+  %C#4%
+  [n#1@{logit_cprobs[4,1]}];
+  [n#2@{logit_cprobs[4,2]}];
+  [n#3@{logit_cprobs[4,3]}];
+  
+  [LifeSatA](m4);
+  LifeSatA; "),
+  
+  MODELCONSTRAINT = 
+   "New (diff12 diff13 diff23 
+    diff14 diff24 diff34);
+  
+    diff12 = m1-m2;  ! test pairwise distal mean differences
+    diff13 = m1-m3;
+    diff23 = m2-m3;
+    diff14 = m1-m4;
+    diff24 = m2-m4;
+    diff34 = m3-m4;",
+  
+  MODELTEST = "     ! omnibus test of distal means 
+    m1=m2;
+    m2=m3;
+    m3=m4;",
+ 
+  usevariables = colnames(savedata), 
+  rdata = savedata)
+
+step3_fit <- mplusModeler(step3,
+               dataout=here("10faq", "manual_3step", "Step3.dat"), 
+               modelout=here("10faq", "manual_3step", "three_starts.inp"), 
+               check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+------------------------------------------------------------------------
+
+#### Wald Test Table
+
+```{r}
+modelParams <- readModels(here("10faq", "manual_3step", "three_starts.out"))
+
+# Extract information as data frame
+wald <- as.data.frame(modelParams[["summaries"]]) %>%
+  dplyr::select(WaldChiSq_Value:WaldChiSq_PValue) %>% 
+  mutate(WaldChiSq_DF = paste0("(", WaldChiSq_DF, ")")) %>% 
+  unite(wald_test, WaldChiSq_Value, WaldChiSq_DF, sep = " ") %>% 
+  rename(pval = WaldChiSq_PValue) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+
+# Create table
+
+wald_table <- wald %>% 
+  gt() %>%
+    tab_header(
+    title = "Wald Test of Paramter Constraints (Math)") %>%
+    cols_label(
+      wald_test = md("Wald Test (*df*)"),
+      pval = md("*p*-value")) %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+
+wald_table
+```
+
+------------------------------------------------------------------------
+
+#### Table of Distal Outcome Differences
+
+```{r}
+# Extract information as data frame
+diff <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+  filter(grepl("DIFF", param)) %>% 
+  dplyr::select(param:pval) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+  unite(estimate, est, se, sep = " ") %>% 
+  mutate(param = str_remove(param, "DIFF"),
+         param = as.numeric(param)) %>% 
+  separate(param, into = paste0("Group", 1:2), sep = 1) %>% 
+  mutate(class = paste0("Class ", Group1, " vs ", Group2)) %>% 
+  select(class, estimate, pval) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+
+# Create table
+
+diff %>% 
+  gt() %>%
+    tab_header(
+    title = "Distal Outcome Differences") %>%
+    cols_label(
+      class = "Class",
+      estimate = md("Mean (*se*)"),
+      pval = md("*p*-value")) %>% 
+    sub_missing(1:3,
+              missing_text = "") %>%
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+```
+
+------------------------------------------------------------------------
+
+#### Covariate Relations
+
+```{r}
+# Extract information as data frame
+cov <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+   filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+  mutate(param = str_replace(param, "HISPANIC", "Hispanic")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3),
+         se = round(se, 2),
+         pval = round(pval, 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  dplyr::select(param, est, se, pval, latent_class) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+  unite(logit, est, se, sep = " ") %>% 
+  dplyr::select(param, logit, pval, latent_class) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001)))) 
+
+or <- as.data.frame(modelParams[["parameters"]][["odds"]]) %>%
+  filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
+  mutate(param = str_replace(param, "HISPANIC", "Hispanic")) %>%
+  mutate(est = format(round(est, 3), nsmall = 3)) %>% 
+  mutate(latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")) %>% 
+  mutate(CI = paste0("[", format(round(lower_2.5ci, 3), nsmall = 3), ", ", format(round(upper_2.5ci, 3), nsmall = 3), "]")) %>% 
+  dplyr::select(param, est, CI, latent_class) %>% 
+  rename(or = est)
+  
+combined <- or %>% 
+  full_join(cov) %>% 
+  dplyr::select(param, latent_class, logit, pval, or, CI)
+
+
+# Create table
+
+combined %>% 
+  gt(groupname_col = "latent_class", rowname_col = "param") %>%
+  tab_header(
+    title = "Predictors of Class Membership") %>%
+  cols_label(
+    logit = md("Logit (*se*)"),
+    or = md("Odds Ratio"),
+    CI = md("95% CI"),
+    pval = md("*p*-value")) %>% 
+  sub_missing(1:3,
+              missing_text = "") %>%
+  sub_values(values = c("999.000"), replacement = "-") %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif") %>%   
+  tab_footnote(
+    footnote = "Reference Class: 4",
+    locations = cells_title(groups = "title")
+  )
+```
+
+------------------------------------------------------------------------
+
+#### Distal Outcome Regressed on Covariate
+
+```{r}
+donx <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+  filter(param %in% c("HISPANIC")) %>% 
+  mutate(param = str_replace(param, "HISPANIC", "Hispanic")) %>% 
+  mutate(LatentClass = sub("^","Class ", LatentClass)) %>%  
+  dplyr::select(!paramHeader) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+    unite(estimate, est, se, sep = " ") %>% 
+  dplyr::select(param, estimate, pval) %>% 
+  distinct(param, .keep_all=TRUE) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+
+
+# Create table
+
+donx %>% 
+  gt(groupname_col = "LatentClass", rowname_col = "param") %>%
+  tab_header(
+    title = "Race (Hispanic) Predicting Life Satisfaction") %>%
+  cols_label(
+    estimate = md("Estimate (*se*)"),
+    pval = md("*p*-value")) %>% 
+  sub_missing(1:3,
+              missing_text = "") %>%
+  sub_values(values = c("999.000"), replacement = "-") %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+```
+
+
+Following the three-step procedure, the logit values of the classification probabilities for the four-class solution for the first step were copied to be used in the third step. We used these values in a second set of analyses to fix the measurement parameters of the latent classes, and the auxiliary variables relations were estimated thereafter (see Appendix B). We used multinomial logistic regression to evaluate whether the relative proportions of Hispanic and non-Hispanic youth were equal across the four classes, and the results are reported in Table 5. Notably, Hispanic youth (versus nonHispanic) were more likely to be in the Holistic–Collaborative class compared with both the Altruistic–Low Self-efficacy class (OR 2.71, p .001) and the Holistic Independent class (OR 1.62, p .009). No other covariate-class relations were statistically significant. Simultaneously, we estimated classspecific means of life satisfaction for each of the four classes. For the interpretation of distal outcomes, we centered the covariate such that the distal outcome mean differences across the latent classes accounted for the relative proportion of Hispanic versus non-Hispanic youth in the entire sample. Pairwise Wald tests revealed that life satisfaction in the Holistic-Collaborative class was significantly higher compared to each of the other three classes. No other distal mean comparisons were statistically significant.
+
+------------------------------------------------------------------------
+
+## References
+
+Arnold, M. E., Nott, B. D., & Meinhold, J. L. (2012). The Positive Youth Development Inventory full version. Corvallis: Oregon State University.
+
+Lerner, R. M., Lerner, J. V., Almerigi, J. B., Theokas, C., Phelps, E., Gestsdottir, S., . . . von Eye, A. (2005). Positive youth development, participation in community youth development programs, and community contributions of fifth-grade adolescents: Findings from the first wave of the 4-H Study of Positive Youth Development. The Journal of Early Adolescence, 25, 17–71. http://dx.doi .org/10.1177/0272431604272461
+
+Nylund, K. L., Asparouhov, T., & Muthén, B. O. (2007). Deciding on the number of classes in latent class analysis and growth mixture modeling: A Monte Carlo simulation study. Structural Equation Modeling, 14, 535–569. http://dx.doi.org/10.1080/ 10705510701575396
+
+------------------------------------------------------------------------
