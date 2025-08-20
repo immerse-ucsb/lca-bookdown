@@ -87,7 +87,9 @@
 <li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth Mixture Models</a></li>
 <li class="book-part">Published Manuscripts</li>
 <li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">11</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
-<li><a class="" href="references.html">References</a></li>
+<li class="book-part">Published Manuscripts</li>
+<li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">12</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
+<li><a class="" href="references-1.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -156,8 +158,8 @@ See Lab 6 for examples of enumeration with MplusAutomation.</p>
 <span class="header-section-number">5.2.1</span> DU3STEP in Mplus<a class="anchor" aria-label="anchor" href="#du3step-in-mplus"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-10605d753e80b645af3d" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-10605d753e80b645af3d">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>DU3STEP</strong> incorporates distal outcome variables (assumed to have unequal means and variances) with mixture models.</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-bdae767a5d1b1ca7a8a7" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-bdae767a5d1b1ca7a8a7">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>DU3STEP</strong> incorporates distal outcome variables (assumed to have unequal means and variances) with mixture models.</p>
 <hr>
 <div id="run-the-du3step-model-with-gpa-as-distal-outcome" class="section level4" number="5.2.1.1">
 <h4>
@@ -260,8 +262,8 @@ See Lab 6 for examples of enumeration with MplusAutomation.</p>
 <span class="header-section-number">5.2.2</span> R3STEP<a class="anchor" aria-label="anchor" href="#r3step"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-80431ac6fbe88e3fe473" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-80431ac6fbe88e3fe473">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>R3STEP</strong> incorporates latent class predictors with mixture models.</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-53a058f34fbdfc24d754" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-53a058f34fbdfc24d754">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p><strong>R3STEP</strong> incorporates latent class predictors with mixture models.</p>
 <hr>
 <div id="run-the-r3step-model-with-gpa-as-the-latent-class-predictor" class="section level4" number="5.2.2.1">
 <h4>
@@ -352,8 +354,8 @@ Parameterization using Reference Class 1
 <span class="header-section-number">5.3</span> Manual ML Three-step<a class="anchor" aria-label="anchor" href="#manual-ml-three-step"><i class="fas fa-link"></i></a>
 </h2>
 <p>Unlike the automatic three-step, the manual ML three-step can relate the latent class variable to both distal outcomes and covarites.</p>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-0012260525575ab83575" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-0012260525575ab83575">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>Integrate covariates and distals with a mixture model</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-ece585e034479a0b6f98" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-ece585e034479a0b6f98">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female -> science [minlen = 4];\n    Female -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>Integrate covariates and distals with a mixture model</p>
 <hr>
 <p>Application: Longitudinal Study of American Youth, <strong>Science Attitudes</strong></p>
 <div id="wdqakuuauq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -3917,7 +3919,7 @@ Parameterization using Reference Class 1
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-01.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -226,54 +226,7 @@ sample_size <- unique(final_data$Sample_Size)
 ```{r}
 source(here("functions", "extract_warnings.R"))
 
-warnings_table_data <- extract_warnings(final_data)
-
-# warnings_table_data is assumed to exist
-library(gt)
-
-if (nrow(warnings_table_data) > 0) {
-  warnings_table <- warnings_table_data %>%
-    gt() %>%
-    tab_header(title = md("**Model Warnings**")) %>%
-    cols_label(
-      File_Name = "Output File",
-      Warning_Summary = "# of Warnings",
-      Warnings = "Warning Message(s)"
-    ) %>%
-    cols_align(align = "left", columns = everything()) %>%
-    
-    # Set column widths to allow wrapping
-    cols_width(
-      File_Name ~ px(150),
-      Warning_Summary ~ px(150),
-      Warnings ~ px(400)
-    ) %>%
-    
-    
-    # Attempt to wrap long text for HTML output
-    text_transform(
-      locations = cells_body(columns = Warnings),
-      fn = function(x) {
-        if (knitr::is_html_output()) {
-          paste0("<div style='white-space: normal; word-wrap: break-word;'>", x, "</div>")
-        } else {
-          # For PDF, rely on the fixed column width
-          x
-        }
-      }
-    ) %>%
-    tab_options(table.width = pct(100))
-  
- # Save table as an image (PNG) in the figures/ folder
-  gtsave(
-    data = warnings_table,
-    filename = "warnings_table.png",
-    path = "figures"
-  )
-} else {
-  cat("No warnings detected in any output files.\n")
-}
-
+warnings_table <- extract_warnings(final_data)
 warnings_table
 ```
 
@@ -283,27 +236,10 @@ warnings_table
 source(here("functions", "error_visualization.R"))
 
 # Process errors
-error_table_data <- process_error_data(final_data)
+error_table <- process_error_data(final_data)
+error_table
 ```
 
-```{r}
-# 🔹 Visualize Errors If Any Exist
-if (nrow(error_table_data) > 0) {
-  error_table <- error_table_data %>%
-    gt() %>%
-    tab_header(title = md("**Model Estimation Errors**")) %>%
-    cols_label(
-      File_Name = "Output File",
-      Error_Message = "Error Message"
-    ) %>%
-    cols_align(align = "left", columns = everything()) %>%
-    tab_options(table.width = px(600))  
-  
-  error_table  # ✅ Display the table
-} else {
-  cat("No errors detected in any output files.\n")
-}
-```
 
 #### Examine Convergence and Loglikelihood Replications
 
@@ -325,26 +261,14 @@ source(here("functions", "ll_replication_plots.R"))
 
 # Generate individual log-likelihood replication tables
 ll_replication_tables <- generate_ll_replication_plots(final_data)
-```
-
-```{r, results='asis'}
-walk(names(ll_replication_tables), function(name) {
-  table <- ll_replication_tables[[name]]
-  
-  if (knitr::is_latex_output()) {
-    img_path <- here("figures", paste0("ll_replication_table_", name, ".png"))
-    gtsave(table, img_path, expand = 0, vwidth = 1200, vheight = 80 * nrow(table))
-    cat(sprintf("\\includegraphics[width=5in]{%s}\n\n", img_path))
-  } else {
-    print(table) # Works fine in HTML
-  }
-})
+ll_replication_tables
 ```
 
 Visualize and examine loglikelihood replication for each output file together
 
 ```{r}
 ll_replication_table_all <- source(here("functions", "ll_replication_processing.R"), local = TRUE)$value
+ll_replication_table_all
 ```
 
 ------------------------------------------------------------------------
@@ -644,7 +568,7 @@ step1_fit <- mplusModeler(step1,
 ```
 
 ```{r}
-source(here("functions", "plot_lca.txt"))
+source(here("functions", "plot_lca.R"))
 output_lsay <- readModels(here("10faq", "manual_3step","one.out"))
 
 plot_lca(model_name = output_lsay)
