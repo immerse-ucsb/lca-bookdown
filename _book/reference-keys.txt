@@ -207,7 +207,7 @@ check-for-loglikelihood-replication-1
 table-of-fit-6
 information-criteria-plot-6
 compare-class-solutions-2
-ml-method
+including-auxilary-variables
 step-1---class-enumeration-w-auxiliary-specification-1
 step-2---determine-measurement-error-5
 step-3---add-auxiliary-variables-4

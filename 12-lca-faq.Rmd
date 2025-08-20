@@ -43,7 +43,7 @@ library(htmltools)
 
 ------------------------------------------------------------------------
 
-### Variable Description
+## Variable Description
 
 ```{r, echo = FALSE}
 table <- tribble(
@@ -106,10 +106,9 @@ graph <- grViz(" digraph lca_model {
  }")  
 ```
 
-
 ------------------------------------------------------------------------
 
-### Prepare Data
+## Prepare Data
 
 ```{r}
 df_qa <- read_csv(here("10faq", "data", "lca10faq.csv"))
@@ -117,7 +116,7 @@ df_qa <- read_csv(here("10faq", "data", "lca10faq.csv"))
 
 ------------------------------------------------------------------------
 
-### Descriptive Statistics
+## Descriptive Statistics
 
 ```{r}
 # Set up data to find proportions of binary indicators
@@ -155,7 +154,7 @@ prop_table
 
 ------------------------------------------------------------------------
 
-### Enumeration
+## Enumeration
 
 This code uses the `mplusObject` function in the `MplusAutomation` package and saves all model runs in the `enum` folder.
 
@@ -195,7 +194,7 @@ lca_enum_fit <- mplusModeler(lca_enum,
 
 ------------------------------------------------------------------------
 
-### Examine and extract Mplus files
+### Examine and Extract Mplus files
 
 Check all models for:
 
@@ -517,7 +516,7 @@ The above figure illustrates the conditional item probabilities for the selected
 
 ------------------------------------------------------------------------
 
-## ML Method
+## Including Auxilary Variables
 
 ------------------------------------------------------------------------
 
