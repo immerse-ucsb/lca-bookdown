@@ -87,7 +87,6 @@
 <li><a class="" href="growth-mixture-models.html"><span class="header-section-number">10</span> Growth Mixture Models</a></li>
 <li class="book-part">Published Manuscripts</li>
 <li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">11</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
-<li class="book-part">Published Manuscripts</li>
 <li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">12</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -128,9 +127,9 @@
 <li>The code presented will be very repetitive by design</li>
 </ul>
 <hr>
-<p>Below is a template for <code>mplusObject()</code> &amp; <code>mplusModeler()</code> functions. Use this template to run statistical models with Mplus.</p>
+<p>Below is a template for <code><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject()</a></code> &amp; <code><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler()</a></code> functions. Use this template to run statistical models with Mplus.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">m_template</span>  <span class="op">&lt;-</span> <span class="fu">mplusObject</span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">m_template</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  </span>
 <span>  TITLE <span class="op">=</span> </span>
 <span>    <span class="st">""</span>, </span>
@@ -150,7 +149,7 @@
 <span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="op">)</span>, </span>
 <span>  rdata <span class="op">=</span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="va">m_template_fit</span> <span class="op">&lt;-</span> <span class="fu">mplusModeler</span><span class="op">(</span><span class="va">m_template</span>, </span>
+<span><span class="va">m_template_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">m_template</span>, </span>
 <span>                  dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">".dat"</span><span class="op">)</span>,</span>
 <span>                  modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">".inp"</span><span class="op">)</span>,</span>
 <span>                  check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>

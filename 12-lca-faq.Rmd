@@ -4,8 +4,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE) #Here, I have made it so that when you knit your .rmd, warnings and messages will not show up in the html markdown. 
 ```
 
-# (PART) Published Manuscripts {.unnumbered}
-
 # Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)
 
 ------------------------------------------------------------------------
@@ -255,12 +253,12 @@ summary_table
 
 Visualize and examine loglikelihood replication values for each ouptut file individually
 
-```{r}
+```{r, results='asis'}
 # Load the function for separate plots
 source(here("functions", "ll_replication_plots.R"))
 
 # Generate individual log-likelihood replication tables
-ll_replication_tables <- generate_ll_replication_plots(final_data)
+ll_replication_tables<- generate_ll_replication_plots(final_data)
 ll_replication_tables
 ```
 
