@@ -1,0 +1,555 @@
+Mplus VERSION 8
+MUTHEN & MUTHEN
+11/24/2017   6:04 PM
+
+INPUT INSTRUCTIONS
+
+  data:
+  file is recoded_LSAY_09262012.dat;
+
+  Variable:
+  names are
+  CASENUM COHORT AB39A AB39B AB39C AB39D AB39E AB39F AB39G AB39H AB39I AB39J
+  AB39K AB39L AB39M AB39N AB39O AB39P AB39Q AB39R AB39S AB39T AB39U AB39V AB39W
+  AB39X ASCIIRT CSCIIRT MTH7 SCI7 SCI8 MOTHED FATHED PEDUC PEDUC3 RSEDAN RSEDAN6
+  RSEDAN5 RBACC RMAJFIR RMAJFIR2 RMAJLST2 RMAJLST RGRMAJ RGRMAJ10
+  RSTEMM RSTEMMX RSTEMMB RSTEMMA WEIGHT7 WEIGHT8 WEIGHT9 WEIGHT10 WEIGHT11
+  WEIGHT12 WEIGHTP1 WEIGHTP2 WEIGHTP4 WGT12A WEIGHTR GENDER RACETH3 RACETH AB39A1
+  AB39H1 AB39I1 AB39K1 AB39L1 AB39M1 AB39T1 AB39U1 AB39W1 AB39X1 RACETH1 STEM
+  STEMSup ENGINEER AMTHIRT CMTHIRT GENDER1 AB39A2 AB39H2 AB39I2 AB39K2 AB39L2
+  AB39M2 AB39T2 AB39U2 AB39W2 AB39X2 fm fnm mm;
+
+  missing are all (9999, -95, -96, -98,-99);
+  !classes =c (5);
+
+  !auxiliary =STEM(e)  STEMSup(e) ENGINEER(e) CMTHIRT(e) CSCIIRT(e);
+  usevar =  !gender raceth raceth3 rstmmx rstemma
+
+  gender gender1 stemsup engineer raceth1
+  ab39m ab39n ab39o ab39p
+  ab39q ab39r ab39s ab39t ab39u ab39v ab39w ab39x;
+
+
+  Analysis:
+  Type=basic;
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        5945
+
+Number of dependent variables                                   17
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   GENDER      GENDER1     STEMSUP     ENGINEER    RACETH1     AB39M
+   AB39N       AB39O       AB39P       AB39Q       AB39R       AB39S
+   AB39T       AB39U       AB39V       AB39W       AB39X
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  recoded_LSAY_09262012.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns           125
+
+
+SUMMARY OF MISSING DATA PATTERNS
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+ GENDER    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ GENDER1   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ STEMSUP   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ ENGINEER  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ RACETH1   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39M     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39N     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39O     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39P     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39Q     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39R     x  x  x  x  x  x  x  x  x  x  x  x  x  x           x  x
+ AB39S     x  x  x  x  x  x  x  x  x  x  x           x  x  x  x  x  x
+ AB39T     x  x  x  x  x  x  x              x  x     x  x     x  x  x
+ AB39U     x  x  x  x           x  x        x  x  x  x  x  x  x  x  x
+ AB39V     x  x  x     x        x  x  x     x  x  x  x        x  x  x
+ AB39W     x  x     x  x  x     x     x     x     x  x  x  x  x     x
+ AB39X     x     x  x  x  x     x  x  x     x  x  x  x  x  x  x  x  x
+
+          21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
+ GENDER    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ GENDER1   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ STEMSUP   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ ENGINEER  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ RACETH1   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39M     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39N     x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39O     x  x  x  x  x  x  x  x                    x  x  x  x
+ AB39P     x  x                    x  x  x  x  x     x  x        x
+ AB39Q           x  x  x  x        x  x  x        x  x  x  x  x  x
+ AB39R           x  x  x           x  x     x     x  x           x
+ AB39S           x  x     x  x     x  x  x  x     x  x  x  x  x  x
+ AB39T     x     x     x  x  x     x  x  x  x  x  x  x  x  x     x
+ AB39U     x     x  x  x  x  x     x  x  x  x  x  x  x  x  x  x  x
+ AB39V     x     x  x  x  x  x     x  x  x  x  x  x  x  x  x     x
+ AB39W     x     x  x  x  x  x     x        x  x  x  x  x  x  x  x
+ AB39X     x     x  x  x  x  x     x  x  x  x  x  x  x  x  x     x
+
+          41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+ GENDER    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ GENDER1   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ STEMSUP   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ ENGINEER  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ RACETH1   x  x  x  x  x  x  x  x                                   x
+ AB39M                             x  x  x  x  x  x  x  x  x  x     x
+ AB39N     x  x  x  x  x           x  x  x  x  x  x  x  x  x        x
+ AB39O     x  x  x  x  x  x        x  x  x  x  x  x  x        x     x
+ AB39P     x  x  x  x     x        x  x  x  x  x  x  x  x     x     x
+ AB39Q     x  x  x  x  x  x        x  x  x  x  x        x  x  x     x
+ AB39R     x  x  x     x  x        x  x  x  x     x  x  x  x  x     x
+ AB39S     x  x     x  x  x        x  x  x  x  x  x  x  x  x  x     x
+ AB39T     x     x        x        x  x  x  x  x  x  x  x  x  x     x
+ AB39U     x  x  x  x  x  x        x  x        x  x  x  x  x  x     x
+ AB39V     x  x  x  x  x  x        x  x  x  x  x  x     x  x        x
+ AB39W     x     x  x  x  x        x     x  x  x  x  x  x  x  x     x
+ AB39X     x  x  x  x  x  x  x     x  x  x     x  x  x  x  x  x     x
+
+          61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80
+ GENDER    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ GENDER1   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ STEMSUP
+ ENGINEER
+ RACETH1   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39M     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39N     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39O     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39P     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39Q     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39R     x  x  x  x  x  x  x  x  x  x  x  x  x  x              x  x
+ AB39S     x  x  x  x  x  x  x  x  x  x  x           x  x        x  x
+ AB39T     x  x  x  x  x  x  x  x           x  x     x     x     x  x
+ AB39U     x  x  x  x              x  x     x     x  x     x     x  x
+ AB39V     x  x  x     x  x  x     x     x  x  x  x  x  x  x     x
+ AB39W     x        x  x  x     x  x  x  x  x  x  x  x  x  x     x  x
+ AB39X        x     x  x     x  x  x  x  x  x  x  x  x  x  x     x  x
+
+          81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100
+ GENDER    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x   x
+ GENDER1   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x   x
+ STEMSUP
+ ENGINEER
+ RACETH1   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x   x
+ AB39M     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x   x
+ AB39N     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ AB39O     x  x  x  x  x  x  x  x  x  x                       x  x   x
+ AB39P     x  x  x  x  x  x              x  x  x  x  x  x     x  x   x
+ AB39Q                       x  x        x  x  x           x  x  x   x
+ AB39R     x  x  x           x  x  x  x  x  x     x        x  x  x   x
+ AB39S     x  x  x  x  x  x  x  x  x  x  x  x     x  x     x  x  x
+ AB39T     x  x     x  x     x  x  x  x  x  x  x  x  x     x  x  x   x
+ AB39U           x  x     x  x     x     x  x  x  x  x     x  x  x   x
+ AB39V     x     x  x     x  x  x  x  x  x  x  x  x        x  x  x   x
+ AB39W     x  x  x  x  x     x  x  x  x  x     x  x  x     x  x      x
+ AB39X     x  x  x  x  x  x  x  x  x  x  x  x  x  x  x     x  x  x   x
+
+          101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
+ GENDER     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ GENDER1    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ STEMSUP
+ ENGINEER
+ RACETH1    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ AB39M      x   x   x   x   x   x
+ AB39N                              x   x
+ AB39O      x   x   x   x   x       x       x   x   x
+ AB39P      x                   x   x   x   x   x   x
+ AB39Q      x   x   x           x   x   x   x   x       x
+ AB39R      x   x   x   x       x   x   x   x               x
+ AB39S          x   x   x   x   x   x   x   x   x   x       x   x   x
+ AB39T          x           x   x   x   x   x   x   x           x
+ AB39U      x   x   x               x   x   x   x   x           x
+ AB39V      x   x           x   x   x   x   x   x   x           x
+ AB39W      x   x   x           x   x       x   x   x           x   x
+ AB39X      x   x   x   x   x   x   x       x   x       x       x   x
+
+          116 117 118 119 120 121 122 123 124 125
+ GENDER     x   x   x   x   x   x   x   x   x   x
+ GENDER1    x   x   x   x   x   x   x   x   x   x
+ STEMSUP
+ ENGINEER
+ RACETH1    x
+ AB39M          x   x   x   x   x   x   x   x
+ AB39N          x   x   x   x   x   x   x
+ AB39O          x   x   x   x   x           x
+ AB39P          x   x   x   x   x   x   x
+ AB39Q          x   x   x           x       x
+ AB39R          x   x   x   x       x   x   x
+ AB39S          x   x   x   x   x   x   x   x
+ AB39T          x   x       x   x   x   x   x
+ AB39U          x   x   x   x   x   x   x   x
+ AB39V          x   x   x   x   x   x       x
+ AB39W          x       x   x   x   x   x   x
+ AB39X          x   x   x   x   x   x   x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency     Pattern   Frequency     Pattern   Frequency
+          1        1572          43           1          85           1
+          2           1          44           1          86           1
+          3          11          45           1          87           8
+          4          16          46           1          88           1
+          5          18          47           1          89           2
+          6           3          48        1673          90           1
+          7           1          49          74          91          11
+          8          26          50           1          92           1
+          9           1          51           1          93           1
+         10           2          52           1          94           2
+         11           2          53           1          95           1
+         12          11          54           1          96           1
+         13           1          55           1          97           1
+         14           1          56           2          98           3
+         15          21          57           1          99           1
+         16           1          58           1         100           1
+         17           1          59         131         101           1
+         18          18          60         952         102           1
+         19           1          61           1         103           1
+         20           2          62          11         104           1
+         21           2          63           1         105           1
+         22           2          64           8         106           1
+         23          22          65          13         107           2
+         24           1          66           1         108           1
+         25           1          67           1         109           1
+         26           1          68           2         110           1
+         27           2          69          12         111           1
+         28           1          70           1         112           1
+         29          22          71           5         113           1
+         30           1          72           9         114           1
+         31           1          73           1         115           1
+         32           1          74           1         116         967
+         33           1          75           9         117          56
+         34           4          76           1         118           1
+         35          12          77           2         119           1
+         36           1          78           1         120           2
+         37           1          79          24         121           1
+         38           1          80           1         122           1
+         39           1          81           1         123           1
+         40           1          82           1         124           1
+         41           4          83           1         125         112
+         42           1          84           2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              GENDER        GENDER1       STEMSUP       ENGINEER      RACETH1
+              ________      ________      ________      ________      ________
+ GENDER         1.000
+ GENDER1        1.000         1.000
+ STEMSUP        0.620         0.620         0.620
+ ENGINEER       0.620         0.620         0.620         0.620
+ RACETH1        0.934         0.934         0.584         0.584         0.934
+ AB39M          0.512         0.512         0.315         0.315         0.487
+ AB39N          0.508         0.508         0.313         0.313         0.484
+ AB39O          0.505         0.505         0.311         0.311         0.481
+ AB39P          0.505         0.505         0.310         0.310         0.480
+ AB39Q          0.501         0.501         0.311         0.311         0.477
+ AB39R          0.503         0.503         0.310         0.310         0.479
+ AB39S          0.508         0.508         0.313         0.313         0.483
+ AB39T          0.503         0.503         0.310         0.310         0.478
+ AB39U          0.503         0.503         0.311         0.311         0.479
+ AB39V          0.506         0.506         0.311         0.311         0.481
+ AB39W          0.507         0.507         0.312         0.312         0.482
+ AB39X          0.512         0.512         0.315         0.315         0.487
+
+
+           Covariance Coverage
+              AB39M         AB39N         AB39O         AB39P         AB39Q
+              ________      ________      ________      ________      ________
+ AB39M          0.512
+ AB39N          0.507         0.508
+ AB39O          0.502         0.499         0.505
+ AB39P          0.503         0.501         0.497         0.505
+ AB39Q          0.499         0.496         0.493         0.493         0.501
+ AB39R          0.501         0.499         0.495         0.495         0.493
+ AB39S          0.505         0.502         0.499         0.499         0.496
+ AB39T          0.500         0.498         0.493         0.494         0.490
+ AB39U          0.501         0.498         0.494         0.495         0.492
+ AB39V          0.503         0.501         0.497         0.497         0.494
+ AB39W          0.504         0.501         0.498         0.498         0.495
+ AB39X          0.509         0.506         0.502         0.503         0.499
+
+
+           Covariance Coverage
+              AB39R         AB39S         AB39T         AB39U         AB39V
+              ________      ________      ________      ________      ________
+ AB39R          0.503
+ AB39S          0.499         0.508
+ AB39T          0.493         0.497         0.503
+ AB39U          0.494         0.498         0.494         0.503
+ AB39V          0.497         0.500         0.496         0.498         0.506
+ AB39W          0.497         0.501         0.497         0.497         0.500
+ AB39X          0.502         0.506         0.501         0.502         0.504
+
+
+           Covariance Coverage
+              AB39W         AB39X
+              ________      ________
+ AB39W          0.507
+ AB39X          0.505         0.512
+
+
+
+     WARNING:  THE SAMPLE COVARIANCE IS SINGULAR.
+
+
+     WARNING:  THE SAMPLE CORRELATION OF GENDER1 AND GENDER IS -1.000.
+
+
+
+
+RESULTS FOR BASIC ANALYSIS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              GENDER        GENDER1       STEMSUP       ENGINEER      RACETH1
+              ________      ________      ________      ________      ________
+                1.509         0.491         0.139         0.023         0.223
+
+
+           Means
+              AB39M         AB39N         AB39O         AB39P         AB39Q
+              ________      ________      ________      ________      ________
+                2.451         2.481         2.331         3.723         3.510
+
+
+           Means
+              AB39R         AB39S         AB39T         AB39U         AB39V
+              ________      ________      ________      ________      ________
+                2.449         3.562         2.739         2.534         3.719
+
+
+           Means
+              AB39W         AB39X
+              ________      ________
+                2.720         2.581
+
+
+           Covariances
+              GENDER        GENDER1       STEMSUP       ENGINEER      RACETH1
+              ________      ________      ________      ________      ________
+ GENDER         0.250
+ GENDER1       -0.250         0.250
+ STEMSUP        0.014        -0.014         0.122
+ ENGINEER       0.008        -0.008         0.020         0.023
+ RACETH1        0.001        -0.001        -0.009        -0.003         0.174
+ AB39M         -0.058         0.058        -0.041        -0.017        -0.008
+ AB39N         -0.041         0.041        -0.045        -0.018        -0.001
+ AB39O         -0.037         0.037        -0.035        -0.012        -0.007
+ AB39P         -0.136         0.136         0.010        -0.004        -0.036
+ AB39Q         -0.013         0.013         0.024         0.009        -0.032
+ AB39R          0.051        -0.051        -0.003         0.003        -0.003
+ AB39S         -0.027         0.027         0.022         0.005        -0.024
+ AB39T         -0.039         0.039        -0.015        -0.010        -0.033
+ AB39U         -0.053         0.053        -0.009        -0.008        -0.019
+ AB39V         -0.146         0.146         0.011        -0.003        -0.042
+ AB39W         -0.046         0.046        -0.015        -0.012        -0.030
+ AB39X         -0.046         0.046        -0.027        -0.009        -0.027
+
+
+           Covariances
+              AB39M         AB39N         AB39O         AB39P         AB39Q
+              ________      ________      ________      ________      ________
+ AB39M          1.561
+ AB39N          0.945         1.274
+ AB39O          0.779         0.818         1.142
+ AB39P         -0.001        -0.019         0.018         1.347
+ AB39Q         -0.297        -0.379        -0.341         0.408         1.404
+ AB39R         -0.029        -0.073        -0.052         0.070         0.394
+ AB39S         -0.251        -0.330        -0.320         0.395         0.788
+ AB39T          0.527         0.385         0.367         0.053        -0.034
+ AB39U          0.481         0.406         0.395         0.043        -0.073
+ AB39V         -0.021        -0.049        -0.036         0.875         0.384
+ AB39W          0.480         0.333         0.313         0.088         0.027
+ AB39X          0.616         0.479         0.455         0.030        -0.124
+
+
+           Covariances
+              AB39R         AB39S         AB39T         AB39U         AB39V
+              ________      ________      ________      ________      ________
+ AB39R          1.561
+ AB39S          0.377         1.426
+ AB39T          0.068         0.021         1.190
+ AB39U          0.109        -0.018         0.620         1.088
+ AB39V          0.048         0.420         0.063         0.029         1.362
+ AB39W          0.111         0.014         0.622         0.542         0.100
+ AB39X          0.045        -0.110         0.645         0.552         0.031
+
+
+           Covariances
+              AB39W         AB39X
+              ________      ________
+ AB39W          1.195
+ AB39X          0.748         1.265
+
+
+           Correlations
+              GENDER        GENDER1       STEMSUP       ENGINEER      RACETH1
+              ________      ________      ________      ________      ________
+ GENDER         1.000
+ GENDER1       -1.000         1.000
+ STEMSUP        0.079        -0.079         1.000
+ ENGINEER       0.111        -0.111         0.380         1.000
+ RACETH1        0.003        -0.003        -0.064        -0.043         1.000
+ AB39M         -0.093         0.093        -0.095        -0.091        -0.015
+ AB39N         -0.072         0.072        -0.115        -0.107        -0.002
+ AB39O         -0.070         0.070        -0.094        -0.073        -0.015
+ AB39P         -0.234         0.234         0.024        -0.026        -0.075
+ AB39Q         -0.022         0.022         0.057         0.053        -0.066
+ AB39R          0.081        -0.081        -0.008         0.016        -0.006
+ AB39S         -0.046         0.046         0.054         0.026        -0.048
+ AB39T         -0.071         0.071        -0.040        -0.060        -0.072
+ AB39U         -0.102         0.102        -0.025        -0.053        -0.043
+ AB39V         -0.250         0.250         0.027        -0.019        -0.086
+ AB39W         -0.083         0.083        -0.039        -0.071        -0.067
+ AB39X         -0.082         0.082        -0.068        -0.053        -0.058
+
+
+           Correlations
+              AB39M         AB39N         AB39O         AB39P         AB39Q
+              ________      ________      ________      ________      ________
+ AB39M          1.000
+ AB39N          0.670         1.000
+ AB39O          0.583         0.678         1.000
+ AB39P         -0.001        -0.015         0.014         1.000
+ AB39Q         -0.200        -0.283        -0.269         0.296         1.000
+ AB39R         -0.019        -0.052        -0.039         0.048         0.266
+ AB39S         -0.168        -0.245        -0.251         0.285         0.557
+ AB39T          0.387         0.313         0.315         0.042        -0.026
+ AB39U          0.370         0.345         0.355         0.036        -0.059
+ AB39V         -0.014        -0.037        -0.029         0.646         0.278
+ AB39W          0.352         0.270         0.268         0.069         0.021
+ AB39X          0.438         0.377         0.378         0.023        -0.093
+
+
+           Correlations
+              AB39R         AB39S         AB39T         AB39U         AB39V
+              ________      ________      ________      ________      ________
+ AB39R          1.000
+ AB39S          0.253         1.000
+ AB39T          0.050         0.016         1.000
+ AB39U          0.084        -0.014         0.545         1.000
+ AB39V          0.033         0.301         0.050         0.024         1.000
+ AB39W          0.081         0.011         0.521         0.475         0.079
+ AB39X          0.032        -0.082         0.525         0.471         0.024
+
+
+           Correlations
+              AB39W         AB39X
+              ________      ________
+ AB39W          1.000
+ AB39X          0.608         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -34247.395
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     GENDER                1.509      -0.036       1.000   49.10%       1.000      1.000      2.000
+            5945.000       0.250      -1.999       2.000   50.90%       2.000      2.000
+     GENDER1               0.491       0.036       0.000   50.90%       0.000      0.000      0.000
+            5945.000       0.250      -1.999       1.000   49.10%       1.000      1.000
+     STEMSUP               0.142       2.053       0.000   85.82%       0.000      0.000      0.000
+            3687.000       0.122       2.215       1.000   14.18%       0.000      0.000
+     ENGINEER              0.023       6.316       0.000   97.67%       0.000      0.000      0.000
+            3687.000       0.023      37.896       1.000    2.33%       0.000      0.000
+     RACETH1               0.223       1.328       0.000   77.66%       0.000      0.000      0.000
+            5554.000       0.174      -0.237       1.000   22.34%       0.000      1.000
+     AB39M                 2.443       0.624       1.000   25.54%       1.000      2.000      2.000
+            3042.000       1.557      -0.650       5.000    8.81%       2.000      4.000
+     AB39N                 2.474       0.579       1.000   19.65%       2.000      2.000      2.000
+            3023.000       1.277      -0.402       5.000    6.35%       3.000      3.000
+     AB39O                 2.328       0.802       1.000   20.97%       1.000      2.000      2.000
+            3000.000       1.145       0.093       5.000    5.03%       2.000      3.000
+     AB39P                 3.722      -0.594       1.000    5.16%       3.000      3.000      4.000
+            3002.000       1.345      -0.464       5.000   32.51%       4.000      5.000
+     AB39Q                 3.514      -0.518       1.000    6.78%       2.000      3.000      4.000
+            2979.000       1.401      -0.650       5.000   22.16%       4.000      5.000
+     AB39R                 2.452       0.624       1.000   24.82%       1.000      2.000      2.000
+            2993.000       1.561      -0.680       5.000    8.72%       2.000      4.000
+     AB39S                 3.564      -0.618       1.000    7.55%       2.000      4.000      4.000
+            3020.000       1.426      -0.513       5.000   23.77%       4.000      5.000
+     AB39T                 2.737       0.163       1.000   14.59%       2.000      2.000      3.000
+            2988.000       1.190      -0.514       5.000    6.56%       3.000      4.000
+     AB39U                 2.531       0.344       1.000   17.45%       2.000      2.000      3.000
+            2992.000       1.086      -0.288       5.000    4.58%       3.000      3.000
+     AB39V                 3.713      -0.561       1.000    5.25%       3.000      3.000      4.000
+            3007.000       1.364      -0.521       5.000   33.16%       4.000      5.000
+     AB39W                 2.718       0.177       1.000   15.37%       2.000      2.000      3.000
+            3012.000       1.195      -0.473       5.000    6.71%       3.000      4.000
+     AB39X                 2.577       0.327       1.000   20.14%       1.000      2.000      3.000
+            3043.000       1.265      -0.445       5.000    6.93%       3.000      3.000
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for TYPE=BASIC.
+  No diagram output was produced.
+
+
+     Beginning Time:  18:04:47
+        Ending Time:  18:04:47
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2017 Muthen & Muthen

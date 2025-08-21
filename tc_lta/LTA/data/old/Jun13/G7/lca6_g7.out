@@ -1,0 +1,638 @@
+Mplus VERSION 7.1
+MUTHEN & MUTHEN
+06/14/2013  11:17 AM
+
+INPUT INSTRUCTIONS
+
+  data:
+  file is Dataset_May28_Final_Mplus.dat;
+
+  Variable:
+  names are
+  CASEID CASENUM COHORT SCHOOLID G7SSEComp G8SSEComp G9SSEComp G10SSEComp
+  G11SSEComp G12SSEComp ABSCIC BBSCIC DBSCIC FBSCIC HASCI1C JASCI1C LASCI1C
+  ABSCID BBSCID DBSCID FBSCID HASCI1D
+  JASCI1D LASCI1D ABSCIE ABSCIF BBSCIF DBSCIF FBSCIF HASCI1F JASCI1F LASCI1F
+  ABSCIG ABSCIH ABSCII ABSCIJ AB15J CB1K EB1K GA1K IA1K KA1K AB15L CB1M EB1M
+  GA1M IA1M KA1M AB19E GC19E AB19F GC19F G7PSPComp G9PSPComp G10PSPComp
+  G11PSPComp G12PSPComp AB19N DB6L FB2L GC19N HB2L JA2L LA2L AB19Q DB6O FB2O
+  GC19Q HB2O JA2O LA2O AB19R FB2P GC19R HB2P JB2P LA2P AB19T DB6Q FB2R GC19T
+  HB2R JA2R LA2R AB20A GC10F AB20B GC10J AB20C GC10G AB20D GC10K AB20H GC10N
+  AB20K AB22A AB34B CB8B EB8B GA8B IA8B JC3B KA9B AB34D CB8D EB8D GA8D IA8D
+  JC3D KA9D AB34J CB8J EB8J GA8K IA8K JC3J KA9K AB35B CB9B EB9B GA9B IA9B JC4B
+  KA10B AB35D CB9D EB9D GA9D IA9D JC4D KA10D AB35J CB9J EB9J GA9K IA9K JC4J
+  KA10K AB37D CB24D EB25D GA29D IA34D KA41D G7ASCComp G8ASCComp G9ASCComp
+  G10ASCComp G11ASCComp G12ASCComp AB37M CB24N EB25N GA29N IA34N KA41N AB37O
+  CB24P EB25P GA29P IA34P KA41P AB38B CB26B EB27B GA31B IA36B KA43B AB38H CB26H
+  EB27H GA31H IA36H KA43H AB38F CB26F EB27F GA31F IA36F KA43F AB39B CB28B EB29B
+  GA32B IA37B KA46B AB39H CB28H EB29H GA32H IA37H KA46H G7SSCComp G8SSCComp
+  G9SSCComp G10SSCComp G11SSCComp G12SSCComp AB39M CB29A EB30A GA33A IA38A KA47A
+  AB39N CB29B EB30B GA33B IA38B KA47B AB39O CB29C EB30C GA33C IA38C KA47C AB39Q
+  CB29E EB30E GA33E IA38E KA47E AB39R CB29F EB30F GA33F IA38F KA47F AB39S CB29G
+  EB30G GA33G IA38G KA47G AB39U CB29I EB30I GA33I IA38I KA47I AB39T CB29H EB30H
+  GA33H IA38H KA47H AB39W CB29K EB30K GA33K IA38K KA47K AB39X CB29L EB30L GA33L
+  IA38L KA47L CB30J EB10J GB10J IA10J KA37J CB30K EB10K GB10K IA10K KA37K CB30M
+  EB10M GB10M IA10M KA37M CB30N EB10N GB10N IA10N KA37N BB10K DB1K FB1K HA1K JA1K
+  LA1K G7ExC G8ExC G9ExC G10ExC G11ExC G12ExC BB10L DB1L FB1L HA1L JA1L LA1L
+  BB10M DB1M FB1M HA1M JA1M LA1M BB11E DB1AA FB1AA HA1AA JA1AA LA1AA BB11J DB1FF
+  FB1FF HA1FF JA1EE LA1FF BB11L DB1HH FB1HH HA1HH JA1FF LA1GG BB12A DB2A FB4A
+  HA4A JA4A LA4A G7TSPSubC G8TSPSubC G9TSPSubC G10TSPSubC G11TSPSubC G12TSPSubC
+  BB12B DB2B FB4B HA4B JA4B LA4B BB12C DB2C FB4C HA4C JA4C LA4C BB12D DB2D FB4D
+  HA4D JA4D LA4D BB12E DB2E FB4E HA4E JA4E LA4E BB12F DB2F FB4F HA4F JA4F LA4F
+  BB12G DB2G FB4G HA4G JA4G LA4G BB12H DB2H FB4H HA4H JA4H LA4H BB12I DB2I FB4I
+  HA4I JA4I LA4I BB12J DB2J FB4J HA4J JA4J LA4J BB12K DB2K FB4K HC4K JC4K LC4K
+  BB12L DB2L FB4L HC4L JC4L LC4L BB12M DB2M FB4M HA4K JA4K LA4K BB12N DB2N FB4N
+  HA4L JA4L LA4L BB12O DB2O FB4O HA4M JA4M LA4M BB12P DB2P FB4P HA4N JA4N LA4N
+  BB17B HA23B JB29B BB17G HC23G BB25A DB15A EB3D FB17A GB27D HA16A IA33D JC15A
+  KB36D LC17A BB25B DB15B EB3A FB17B GB27A HA16B IA33A JC15B KB36A LC17B BB25C
+  DB15C EB3B FB17C GB27B HA16C IA33B JC15C KB36B LC17C BB25D DB15D EB3C FB17D
+  GB27C HA16D IA33C JC15D KB36C LC17D BB25E DB15E EB3E FB17E GB27E HA16E IA33E
+  JC15E KB36E LC17E CB3C IA4C CB24F EB25F GB29F IA34F KA41F CB35A EB31A GB35A
+  IA40A KA48A CB35F EB31F GC35E IA40F KA48G CB35N EB31N GC35L IA40N KA48O DB16E
+  FB18E HB17E JA19E LA16E DB16G FB18G HB17G JA19G LA16G MTH7 MTH8 MTH9 MTH10
+  MTH11 MTH12 MOTHED FATHED MOTHOCC FATHOCC RSTEMM RSTEMMX RSTEMMB RSTEMMA
+  PACPH7 PACPH8 PACPH9 PACPH10 PACPH11 PACPH12 PCOPH7 PCOPH8 PCOPH9 PCOPH10
+  PCOPH11 PCOPH12 PMHPH7 PMHPH8 PMHPH9 PMHPH10 PMHPH11 PMHPH12 PSCPH7 PSCPH9
+  PSCPH10 PSCPH11 PSCPH12 HSCRE7 HSCRE10 HSCRE11 KMHPH7 KMHPH8 KMHPH9 KMHPH10
+  KMHPH11 KMHPH12 KMHSCPH7 KMHSCPH8 KMHSCPH9 KMHSCPH10 KMHSCPH11 KMHSCPH12
+  KSCPH7 KSCPH8 KSCPH9 KSCPH10 KSCPH11 KSCPH12 KACPH10 KACPH11 KACPH12 KACPH7
+  KACPH8 KACPH9 GENDER FEMALE RACETH3 RACETH MINORITY STEMMJOB STEMMJOB1 MOTHED1
+  FATHED1 POCI POCI1 ASCIIRT CSCIIRT ESCIIRT GSCIIRT ISCIIRT KSCIIRT NUMHSSCI;
+
+
+  missing are all (9999);
+  classes =c (6);
+
+  usevar = G7PSPComp G7ExC G7ASCComp G7SSCComp G7SSEComp KSCPH7;
+
+  Analysis:
+  Type=mixture;
+   starts = 200 50;
+   process = 4(starts);
+
+  Output:
+   sampstat tech11 tech14;
+
+  Plot:
+  type=plot3;
+  series =G7PSPComp - KSCPH7 (*);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+*** WARNING in PLOT command
+  Note that only the first 8 characters of variable names are used in plots.
+  If variable names are not unique within the first 8 characters, problems
+  may occur.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2829
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3116
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   G7PSPCOMP   G7EXC       G7ASCCOMP   G7SSCCOMP   G7SSECOMP   KSCPH7
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        200
+  Number of final stage optimizations                           50
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  Dataset_May28_Final_Mplus.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            11
+     Number of y missing data patterns          11
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              G7PSPCOM      G7EXC         G7ASCCOM      G7SSCCOM      G7SSECOM
+              ________      ________      ________      ________      ________
+ G7PSPCOM       0.997
+ G7EXC          0.997         1.000
+ G7ASCCOM       0.987         0.989         0.989
+ G7SSCCOM       0.981         0.982         0.981         0.982
+ G7SSECOM       0.820         0.822         0.814         0.810         0.822
+ KSCPH7         0.997         0.997         0.987         0.981         0.820
+
+
+           Covariance Coverage
+              KSCPH7
+              ________
+ KSCPH7         0.997
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              G7PSPCOM      G7EXC         G7ASCCOM      G7SSCCOM      G7SSECOM
+              ________      ________      ________      ________      ________
+ 1              1.307         1.979         2.743         3.455         3.512
+
+
+           Means
+              KSCPH7
+              ________
+ 1              1.156
+
+
+           Covariances
+              G7PSPCOM      G7EXC         G7ASCCOM      G7SSCCOM      G7SSECOM
+              ________      ________      ________      ________      ________
+ G7PSPCOM       1.083
+ G7EXC          0.344         2.751
+ G7ASCCOM       0.022         0.029         0.219
+ G7SSCCOM       0.262         0.276         0.041         0.653
+ G7SSECOM       0.178         0.225         0.018         0.321         0.866
+ KSCPH7         0.403         0.424         0.032         0.273         0.218
+
+
+           Covariances
+              KSCPH7
+              ________
+ KSCPH7         1.450
+
+
+           Correlations
+              G7PSPCOM      G7EXC         G7ASCCOM      G7SSCCOM      G7SSECOM
+              ________      ________      ________      ________      ________
+ G7PSPCOM       1.000
+ G7EXC          0.199         1.000
+ G7ASCCOM       0.045         0.037         1.000
+ G7SSCCOM       0.312         0.206         0.108         1.000
+ G7SSECOM       0.184         0.146         0.040         0.427         1.000
+ KSCPH7         0.322         0.212         0.057         0.281         0.194
+
+
+           Correlations
+              KSCPH7
+              ________
+ KSCPH7         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -23885.486
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -23310.626  794236           127
+          -23310.626  285380           1
+          -23310.626  476498           179
+          -23310.626  27071            15
+          -23310.626  415931           10
+          -23310.626  281558           184
+          -23316.805  603842           61
+          -23316.805  608496           4
+          -23316.805  783165           170
+          -23316.805  804561           59
+          -23316.805  124999           96
+          -23316.805  319144           176
+          -23316.805  479273           156
+          -23316.805  496881           192
+          -23316.805  471398           74
+          -23316.805  654136           167
+          -23316.805  636396           168
+          -23316.805  569833           85
+          -23316.805  915642           40
+          -23316.805  784664           75
+          -23372.565  340112           126
+          -23372.565  726035           191
+          -23372.565  364676           27
+          -23372.565  587946           120
+          -23398.449  253358           2
+          -23410.833  100874           108
+          -23443.789  402224           91
+          -23443.789  417035           149
+          -23443.789  150531           154
+          -23443.789  645664           39
+          -23443.789  136842           58
+          -23443.789  846194           93
+          -23443.789  407168           44
+          -23443.789  443917           60
+          -23443.789  292884           103
+          -23443.789  903420           5
+          -23443.789  863094           147
+          -23443.789  535804           111
+          -23443.789  321390           133
+          -23443.789  437181           135
+          -23443.789  650371           14
+          -23454.220  260601           36
+          -23454.220  314084           81
+          -23459.308  264081           186
+          -23483.445  25127            107
+          -23483.445  637345           19
+          -23520.079  957392           79
+          -23541.108  972873           157
+          -23543.758  152496           123
+          -23579.518  354559           73
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       47
+
+Loglikelihood
+
+          H0 Value                      -23310.626
+          H0 Scaling Correction Factor      1.1086
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   46715.252
+          Bayesian (BIC)                 46999.334
+          Sample-Size Adjusted BIC       46849.996
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        286.62731          0.09199
+       2        327.12725          0.10498
+       3       1035.61852          0.33236
+       4        532.13266          0.17077
+       5        599.45468          0.19238
+       6        335.03957          0.10752
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        286.62733          0.09199
+       2        327.12728          0.10498
+       3       1035.61848          0.33236
+       4        532.13264          0.17077
+       5        599.45468          0.19238
+       6        335.03958          0.10752
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.760
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              240          0.07702
+       2              288          0.09243
+       3             1107          0.35526
+       4              470          0.15083
+       5              647          0.20764
+       6              364          0.11682
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6
+
+    1   0.776    0.055    0.143    0.001    0.000    0.025
+    2   0.006    0.813    0.010    0.146    0.021    0.004
+    3   0.082    0.017    0.852    0.026    0.001    0.022
+    4   0.000    0.097    0.012    0.864    0.026    0.001
+    5   0.000    0.020    0.001    0.082    0.879    0.018
+    6   0.021    0.006    0.133    0.006    0.032    0.801
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6
+
+    1   0.650    0.006    0.316    0.000    0.000    0.027
+    2   0.040    0.716    0.058    0.140    0.040    0.007
+    3   0.033    0.003    0.911    0.005    0.001    0.047
+    4   0.000    0.079    0.054    0.763    0.100    0.004
+    5   0.000    0.010    0.002    0.021    0.948    0.019
+    6   0.018    0.003    0.073    0.001    0.034    0.871
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+              1        2        3        4        5        6
+
+    1      3.181   -1.431    2.459   -4.605   -4.232    0.000
+    2      1.767    4.649    2.132    3.017    1.752    0.000
+    3     -0.348   -2.816    2.966   -2.165   -4.042    0.000
+    4     -2.785    2.988    2.617    5.259    3.226    0.000
+    5     -5.922   -0.642   -2.450    0.063    3.893    0.000
+    6     -3.874   -5.630   -2.486   -6.642   -3.231    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Means
+    G7PSPCOMP          0.391      0.044      8.981      0.000
+    G7EXC              1.459      0.104     13.970      0.000
+    G7ASCCOMP          2.757      0.044     62.719      0.000
+    G7SSCCOMP          2.643      0.077     34.297      0.000
+    G7SSECOMP          2.013      0.096     20.884      0.000
+    KSCPH7             0.573      0.082      6.997      0.000
+
+ Variances
+    G7PSPCOMP          0.270      0.005     54.049      0.000
+    G7EXC              2.534      0.072     34.983      0.000
+    G7ASCCOMP          0.218      0.007     30.186      0.000
+    G7SSCCOMP          0.468      0.016     28.740      0.000
+    G7SSECOMP          0.472      0.027     17.567      0.000
+    KSCPH7             0.487      0.031     15.545      0.000
+
+Latent Class 2
+
+ Means
+    G7PSPCOMP          2.032      0.037     55.155      0.000
+    G7EXC              1.538      0.092     16.719      0.000
+    G7ASCCOMP          2.660      0.030     87.826      0.000
+    G7SSCCOMP          2.885      0.064     45.040      0.000
+    G7SSECOMP          2.580      0.104     24.856      0.000
+    KSCPH7             0.594      0.071      8.321      0.000
+
+ Variances
+    G7PSPCOMP          0.270      0.005     54.049      0.000
+    G7EXC              2.534      0.072     34.983      0.000
+    G7ASCCOMP          0.218      0.007     30.186      0.000
+    G7SSCCOMP          0.468      0.016     28.740      0.000
+    G7SSECOMP          0.472      0.027     17.567      0.000
+    KSCPH7             0.487      0.031     15.545      0.000
+
+Latent Class 3
+
+ Means
+    G7PSPCOMP          0.423      0.020     21.125      0.000
+    G7EXC              1.627      0.057     28.649      0.000
+    G7ASCCOMP          2.712      0.018    152.043      0.000
+    G7SSCCOMP          3.309      0.031    105.376      0.000
+    G7SSECOMP          3.641      0.037     98.385      0.000
+    KSCPH7             0.433      0.032     13.549      0.000
+
+ Variances
+    G7PSPCOMP          0.270      0.005     54.049      0.000
+    G7EXC              2.534      0.072     34.983      0.000
+    G7ASCCOMP          0.218      0.007     30.186      0.000
+    G7SSCCOMP          0.468      0.016     28.740      0.000
+    G7SSECOMP          0.472      0.027     17.567      0.000
+    KSCPH7             0.487      0.031     15.545      0.000
+
+Latent Class 4
+
+ Means
+    G7PSPCOMP          2.221      0.038     58.786      0.000
+    G7EXC              2.238      0.102     21.905      0.000
+    G7ASCCOMP          2.771      0.023    120.364      0.000
+    G7SSCCOMP          3.845      0.052     74.170      0.000
+    G7SSECOMP          3.983      0.049     81.104      0.000
+    KSCPH7             0.606      0.062      9.704      0.000
+
+ Variances
+    G7PSPCOMP          0.270      0.005     54.049      0.000
+    G7EXC              2.534      0.072     34.983      0.000
+    G7ASCCOMP          0.218      0.007     30.186      0.000
+    G7SSCCOMP          0.468      0.016     28.740      0.000
+    G7SSECOMP          0.472      0.027     17.567      0.000
+    KSCPH7             0.487      0.031     15.545      0.000
+
+Latent Class 5
+
+ Means
+    G7PSPCOMP          2.413      0.030     79.214      0.000
+    G7EXC              2.759      0.086     32.269      0.000
+    G7ASCCOMP          2.798      0.022    128.188      0.000
+    G7SSCCOMP          3.988      0.036    109.979      0.000
+    G7SSECOMP          3.991      0.041     96.601      0.000
+    KSCPH7             2.751      0.051     54.133      0.000
+
+ Variances
+    G7PSPCOMP          0.270      0.005     54.049      0.000
+    G7EXC              2.534      0.072     34.983      0.000
+    G7ASCCOMP          0.218      0.007     30.186      0.000
+    G7SSCCOMP          0.468      0.016     28.740      0.000
+    G7SSECOMP          0.472      0.027     17.567      0.000
+    KSCPH7             0.487      0.031     15.545      0.000
+
+Latent Class 6
+
+ Means
+    G7PSPCOMP          0.680      0.045     15.206      0.000
+    G7EXC              2.130      0.117     18.169      0.000
+    G7ASCCOMP          2.760      0.032     85.079      0.000
+    G7SSCCOMP          3.587      0.054     66.810      0.000
+    G7SSECOMP          3.703      0.077     48.078      0.000
+    KSCPH7             2.459      0.074     33.276      0.000
+
+ Variances
+    G7PSPCOMP          0.270      0.005     54.049      0.000
+    G7EXC              2.534      0.072     34.983      0.000
+    G7ASCCOMP          0.218      0.007     30.186      0.000
+    G7SSCCOMP          0.468      0.016     28.740      0.000
+    G7SSECOMP          0.472      0.027     17.567      0.000
+    KSCPH7             0.487      0.031     15.545      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.156      0.169     -0.925      0.355
+    C#2               -0.024      0.154     -0.156      0.876
+    C#3                1.129      0.107     10.518      0.000
+    C#4                0.463      0.135      3.420      0.001
+    C#5                0.582      0.096      6.044      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.530E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                    50
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
+
+          H0 Loglikelihood Value                       -23420.726
+          2 Times the Loglikelihood Difference            220.200
+          Difference in the Number of Parameters                7
+          Mean                                            -22.556
+          Standard Deviation                               59.709
+          P-Value                                          0.0000
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                           216.358
+          P-Value                                          0.0000
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                    50
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
+
+          H0 Loglikelihood Value                       -23420.726
+          2 Times the Loglikelihood Difference            220.200
+          Difference in the Number of Parameters                7
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                            5
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE FOR THE 6 CLASS MODEL FOR THE GENERATED DATA
+     WAS NOT REPLICATED IN 3 OUT OF 5 BOOTSTRAP DRAWS.  THE P-VALUE MAY NOT BE TRUSTWORTHY
+     DUE TO LOCAL MAXIMA.  INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms of sample values
+  Histograms of estimated values
+  Scatterplots (sample values, estimated values)
+  Sample means
+  Estimated means
+  Sample and estimated means
+  Observed individual values
+  Estimated individual values
+  Estimated means and observed individual values
+  Estimated means and estimated individual values
+  Mixture distributions
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for Mixture analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  11:17:59
+        Ending Time:  11:19:53
+       Elapsed Time:  00:01:54
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

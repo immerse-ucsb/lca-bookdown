@@ -1,0 +1,1408 @@
+Mplus VERSION 7.1
+MUTHEN & MUTHEN
+07/10/2013  10:06 AM
+
+INPUT INSTRUCTIONS
+
+  data:
+  file is Dataset_Jul9_Mplus.dat;
+
+  Variable:
+  names are
+  CASENUM COHORT AB39A GA32A KA46A AB39B AB39C AB39D AB39E AB39F AB39G AB39H
+  GA32H KA46H AB39I GA32I KA46I AB39J AB39K GA32K KA46K AB39L GA32L KA46L AB39M
+  GA33A KA47A AB39N AB39O AB39P AB39Q AB39R AB39S AB39T GA33H KA47H AB39U GA33I
+  KA47I AB39V AB39W GA33K KA47K AB39X GA33L KA47L SciG7 SciG8 SciG11
+  MTH7 SCI7 SCI8 MOTHED FATHED PEDUC PEDUC3 RSEDAN RSEDAN6 RSEDAN5 RBACC
+  RMAJFIRST RMAJFIRST2 RMAJLAST2 RMAJLAST RGRADMAJ RGRADMAJ10 RSTEMM RSTEMMX
+  RSTEMMB RSTEMMA WEIGHT7 WEIGHT8 WEIGHT9 WEIGHT10 WEIGHT11 WEIGHT12 WEIGHTP1
+  WEIGHTP2 WEIGHTP4 WGT12A WEIGHTR GENDER RACETH3 RACETH Minority STEM STEMSup
+  ENGINEER MathG7 MathG8 MathG10 MathG11 MathG12 Female;
+
+  categorical = KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L;
+  missing=all(9999);
+  classes =c (7);
+
+  auxiliary =STEM(e)  STEMSup(e) ENGINEER(e) MathG8(e) SciG8(e);
+  usevar = KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L;
+
+  Analysis:
+  Type=mixture;
+   starts = 500 10;
+   process = 4(starts);
+
+  Output:
+   sampstat tech11 tech14;
+
+   Plot:
+  type=plot3;
+  series =KA46A - KA47L (*);
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  153
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  1400
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1563
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   KA46A       KA46H       KA46I       KA46K       KA46L       KA47A
+   KA47H       KA47I       KA47K       KA47L
+
+Observed auxiliary variables
+   STEM        STEMSUP     ENGINEER    MATHG8      SCIG8
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                           10
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  Dataset_Jul9_Mplus.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            25
+     Number of y missing data patterns           0
+     Number of u missing data patterns          25
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              KA46A         KA46H         KA46I         KA46K         KA46L
+              ________      ________      ________      ________      ________
+ KA46A          0.998
+ KA46H          0.990         0.990
+ KA46I          0.987         0.985         0.988
+ KA46K          0.984         0.982         0.980         0.984
+ KA46L          0.985         0.982         0.981         0.978         0.985
+ KA47A          0.985         0.981         0.980         0.977         0.977
+ KA47H          0.978         0.976         0.974         0.971         0.971
+ KA47I          0.979         0.976         0.974         0.972         0.972
+ KA47K          0.980         0.978         0.975         0.972         0.972
+ KA47L          0.983         0.981         0.979         0.976         0.977
+
+
+           Covariance Coverage
+              KA47A         KA47H         KA47I         KA47K         KA47L
+              ________      ________      ________      ________      ________
+ KA47A          0.985
+ KA47H          0.978         0.979
+ KA47I          0.978         0.972         0.980
+ KA47K          0.979         0.974         0.975         0.980
+ KA47L          0.983         0.978         0.978         0.979         0.985
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    KA46A
+      Category 1    0.451      703.000
+      Category 2    0.549      857.000
+    KA46H
+      Category 1    0.359      556.000
+      Category 2    0.641      991.000
+    KA46I
+      Category 1    0.321      496.000
+      Category 2    0.679     1048.000
+    KA46K
+      Category 1    0.412      633.000
+      Category 2    0.588      905.000
+    KA46L
+      Category 1    0.363      559.000
+      Category 2    0.637      981.000
+    KA47A
+      Category 1    0.466      718.000
+      Category 2    0.534      822.000
+    KA47H
+      Category 1    0.537      821.000
+      Category 2    0.463      709.000
+    KA47I
+      Category 1    0.455      697.000
+      Category 2    0.545      834.000
+    KA47K
+      Category 1    0.627      961.000
+      Category 2    0.373      571.000
+    KA47L
+      Category 1    0.578      890.000
+      Category 2    0.422      649.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -7570.880  848890           95
+           -7571.858  850840           232
+           -7572.128  131856           90
+           -7572.128  404426           344
+           -7572.128  508482           446
+           -7573.995  860772           174
+           -7575.621  170954           86
+           -7577.146  937588           293
+           -7582.001  965639           463
+           -7583.642  393232           152
+
+
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE WAS NOT REPLICATED.  THE
+     SOLUTION MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.  INCREASE THE
+     NUMBER OF RANDOM STARTS.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       76
+
+Loglikelihood
+
+          H0 Value                       -7570.880
+          H0 Scaling Correction Factor      1.1146
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   15293.760
+          Bayesian (BIC)                 15700.692
+          Sample-Size Adjusted BIC       15459.257
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           1286.547
+          Degrees of Freedom                   922
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                           1054.289
+          Degrees of Freedom                   922
+          P-Value                           0.0015
+
+** Of the 6848 cells in the latent class indicator table, 25
+   were deleted in the calculation of chi-square due to extreme values.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            598.931
+          Degrees of Freedom                  5800
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            203.187
+          Degrees of Freedom                  5800
+          P-Value                           1.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        158.02491          0.10110
+       2        170.51918          0.10910
+       3        290.01054          0.18555
+       4        109.88957          0.07031
+       5        285.87997          0.18290
+       6        201.14082          0.12869
+       7        347.53501          0.22235
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        158.02507          0.10110
+       2        170.51886          0.10910
+       3        290.01071          0.18555
+       4        109.88957          0.07031
+       5        285.87994          0.18290
+       6        201.14087          0.12869
+       7        347.53498          0.22235
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.829
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              149          0.09533
+       2              152          0.09725
+       3              285          0.18234
+       4              107          0.06846
+       5              298          0.19066
+       6              203          0.12988
+       7              369          0.23608
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6        7
+
+    1   0.807    0.070    0.024    0.017    0.000    0.000    0.081
+    2   0.043    0.795    0.052    0.067    0.028    0.016    0.000
+    3   0.006    0.048    0.887    0.012    0.008    0.038    0.001
+    4   0.003    0.091    0.035    0.827    0.035    0.009    0.000
+    5   0.001    0.035    0.021    0.015    0.925    0.001    0.001
+    6   0.000    0.024    0.066    0.002    0.000    0.907    0.000
+    7   0.078    0.001    0.006    0.001    0.001    0.006    0.907
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6        7
+
+    1   0.761    0.041    0.010    0.002    0.002    0.000    0.183
+    2   0.061    0.709    0.080    0.057    0.061    0.029    0.003
+    3   0.012    0.027    0.872    0.013    0.022    0.046    0.007
+    4   0.024    0.092    0.031    0.805    0.042    0.004    0.002
+    5   0.000    0.015    0.008    0.013    0.964    0.000    0.001
+    6   0.000    0.012    0.054    0.005    0.002    0.916    0.011
+    7   0.035    0.000    0.001    0.000    0.001    0.000    0.963
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+              1        2        3        4        5        6        7
+
+    1      1.427   -1.495   -2.862   -4.406   -4.432  -12.116    0.000
+    2      3.079    5.535    3.357    3.019    3.086    2.343    0.000
+    3      0.514    1.304    4.768    0.548    1.077    1.833    0.000
+    4      2.447    3.813    2.720    5.979    3.023    0.628    0.000
+    5     -6.562    3.030    2.401    2.905    7.217   -6.562    0.000
+    6     -3.598    0.078    1.576   -0.842   -1.832    4.404    0.000
+    7     -3.322  -13.778   -7.185  -13.778   -6.757  -13.778    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    KA46A$1           -0.975      0.312     -3.126      0.002
+    KA46H$1           -0.839      0.354     -2.366      0.018
+    KA46I$1           -1.687      0.430     -3.925      0.000
+    KA46K$1           -1.938      0.412     -4.700      0.000
+    KA46L$1           -0.840      0.273     -3.070      0.002
+    KA47A$1           -0.879      0.395     -2.227      0.026
+    KA47H$1           -0.512      0.346     -1.481      0.139
+    KA47I$1           -1.213      0.393     -3.088      0.002
+    KA47K$1          -15.000      0.000    999.000    999.000
+    KA47L$1           -0.957      0.359     -2.665      0.008
+
+Latent Class 2
+
+ Thresholds
+    KA46A$1            0.781      0.236      3.309      0.001
+    KA46H$1            0.635      0.258      2.464      0.014
+    KA46I$1            1.064      0.497      2.139      0.032
+    KA46K$1            0.562      0.276      2.039      0.041
+    KA46L$1            0.330      0.323      1.022      0.307
+    KA47A$1           -0.113      0.267     -0.425      0.671
+    KA47H$1            0.482      0.292      1.651      0.099
+    KA47I$1            0.710      0.428      1.658      0.097
+    KA47K$1            0.576      0.328      1.753      0.080
+    KA47L$1           -0.163      0.389     -0.419      0.675
+
+Latent Class 3
+
+ Thresholds
+    KA46A$1           -0.429      0.152     -2.815      0.005
+    KA46H$1           -1.593      0.246     -6.473      0.000
+    KA46I$1           -1.121      0.209     -5.350      0.000
+    KA46K$1           -1.300      0.194     -6.696      0.000
+    KA46L$1           -2.214      0.339     -6.525      0.000
+    KA47A$1            1.343      0.205      6.556      0.000
+    KA47H$1            2.604      0.375      6.950      0.000
+    KA47I$1            1.588      0.268      5.929      0.000
+    KA47K$1            3.337      0.654      5.100      0.000
+    KA47L$1            3.838      0.650      5.902      0.000
+
+Latent Class 4
+
+ Thresholds
+    KA46A$1            0.681      0.261      2.606      0.009
+    KA46H$1            0.149      0.403      0.369      0.712
+    KA46I$1           -2.386      1.336     -1.786      0.074
+    KA46K$1            1.438      0.691      2.082      0.037
+    KA46L$1           15.000      0.000    999.000    999.000
+    KA47A$1           -0.511      0.420     -1.215      0.224
+    KA47H$1            0.176      0.546      0.322      0.748
+    KA47I$1           -1.228      0.586     -2.096      0.036
+    KA47K$1            2.865      1.476      1.941      0.052
+    KA47L$1            1.908      0.907      2.102      0.036
+
+Latent Class 5
+
+ Thresholds
+    KA46A$1            1.514      0.196      7.710      0.000
+    KA46H$1            3.497      0.513      6.822      0.000
+    KA46I$1            2.413      0.368      6.553      0.000
+    KA46K$1            3.123      0.404      7.724      0.000
+    KA46L$1            3.647      0.647      5.638      0.000
+    KA47A$1            2.313      0.274      8.445      0.000
+    KA47H$1           15.000      0.000    999.000    999.000
+    KA47I$1            3.623      0.623      5.816      0.000
+    KA47K$1           15.000      0.000    999.000    999.000
+    KA47L$1           15.000      0.000    999.000    999.000
+
+Latent Class 6
+
+ Thresholds
+    KA46A$1           -0.928      0.187     -4.954      0.000
+    KA46H$1           -2.669      0.368     -7.244      0.000
+    KA46I$1           -3.235      0.495     -6.540      0.000
+    KA46K$1           -0.491      0.176     -2.788      0.005
+    KA46L$1           -5.209     11.547     -0.451      0.652
+    KA47A$1           -1.485      0.234     -6.338      0.000
+    KA47H$1           -0.884      0.246     -3.591      0.000
+    KA47I$1           -2.444      0.379     -6.441      0.000
+    KA47K$1           15.000      0.000    999.000    999.000
+    KA47L$1           -0.018      0.202     -0.088      0.930
+
+Latent Class 7
+
+ Thresholds
+    KA46A$1           -1.459      0.194     -7.510      0.000
+    KA46H$1           -4.370      1.005     -4.350      0.000
+    KA46I$1          -15.000      0.000    999.000    999.000
+    KA46K$1           -3.114      0.318     -9.805      0.000
+    KA46L$1           -5.008      2.280     -2.196      0.028
+    KA47A$1           -2.271      0.394     -5.760      0.000
+    KA47H$1          -15.000      0.000    999.000    999.000
+    KA47I$1           -6.176      3.978     -1.553      0.120
+    KA47K$1          -15.000      0.000    999.000    999.000
+    KA47L$1           -3.027      0.584     -5.183      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.788      0.244     -3.236      0.001
+    C#2               -0.712      0.209     -3.400      0.001
+    C#3               -0.181      0.119     -1.524      0.128
+    C#4               -1.151      0.296     -3.893      0.000
+    C#5               -0.195      0.110     -1.778      0.075
+    C#6               -0.547      0.143     -3.820      0.000
+
+
+RESULTS IN PROBABILITY SCALE
+
+Latent Class 1
+
+ KA46A
+    Category 1         0.274      0.062      4.418      0.000
+    Category 2         0.726      0.062     11.709      0.000
+ KA46H
+    Category 1         0.302      0.075      4.041      0.000
+    Category 2         0.698      0.075      9.349      0.000
+ KA46I
+    Category 1         0.156      0.057      2.756      0.006
+    Category 2         0.844      0.057     14.898      0.000
+ KA46K
+    Category 1         0.126      0.045      2.774      0.006
+    Category 2         0.874      0.045     19.269      0.000
+ KA46L
+    Category 1         0.302      0.058      5.236      0.000
+    Category 2         0.698      0.058     12.123      0.000
+ KA47A
+    Category 1         0.293      0.082      3.585      0.000
+    Category 2         0.707      0.082      8.637      0.000
+ KA47H
+    Category 1         0.375      0.081      4.624      0.000
+    Category 2         0.625      0.081      7.718      0.000
+ KA47I
+    Category 1         0.229      0.069      3.303      0.001
+    Category 2         0.771      0.069     11.110      0.000
+ KA47K
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ KA47L
+    Category 1         0.277      0.072      3.854      0.000
+    Category 2         0.723      0.072     10.036      0.000
+
+Latent Class 2
+
+ KA46A
+    Category 1         0.686      0.051     13.489      0.000
+    Category 2         0.314      0.051      6.179      0.000
+ KA46H
+    Category 1         0.654      0.058     11.205      0.000
+    Category 2         0.346      0.058      5.939      0.000
+ KA46I
+    Category 1         0.743      0.095      7.837      0.000
+    Category 2         0.257      0.095      2.705      0.007
+ KA46K
+    Category 1         0.637      0.064      9.988      0.000
+    Category 2         0.363      0.064      5.692      0.000
+ KA46L
+    Category 1         0.582      0.079      7.408      0.000
+    Category 2         0.418      0.079      5.327      0.000
+ KA47A
+    Category 1         0.472      0.067      7.092      0.000
+    Category 2         0.528      0.067      7.943      0.000
+ KA47H
+    Category 1         0.618      0.069      8.978      0.000
+    Category 2         0.382      0.069      5.546      0.000
+ KA47I
+    Category 1         0.670      0.095      7.084      0.000
+    Category 2         0.330      0.095      3.481      0.000
+ KA47K
+    Category 1         0.640      0.076      8.459      0.000
+    Category 2         0.360      0.076      4.756      0.000
+ KA47L
+    Category 1         0.459      0.097      4.752      0.000
+    Category 2         0.541      0.097      5.594      0.000
+
+Latent Class 3
+
+ KA46A
+    Category 1         0.394      0.036     10.835      0.000
+    Category 2         0.606      0.036     16.639      0.000
+ KA46H
+    Category 1         0.169      0.035      4.889      0.000
+    Category 2         0.831      0.035     24.052      0.000
+ KA46I
+    Category 1         0.246      0.039      6.330      0.000
+    Category 2         0.754      0.039     19.415      0.000
+ KA46K
+    Category 1         0.214      0.033      6.554      0.000
+    Category 2         0.786      0.033     24.049      0.000
+ KA46L
+    Category 1         0.098      0.030      3.269      0.001
+    Category 2         0.902      0.030     29.920      0.000
+ KA47A
+    Category 1         0.793      0.034     23.581      0.000
+    Category 2         0.207      0.034      6.156      0.000
+ KA47H
+    Category 1         0.931      0.024     38.740      0.000
+    Category 2         0.069      0.024      2.867      0.004
+ KA47I
+    Category 1         0.830      0.038     22.004      0.000
+    Category 2         0.170      0.038      4.498      0.000
+ KA47K
+    Category 1         0.966      0.022     44.520      0.000
+    Category 2         0.034      0.022      1.583      0.113
+ KA47L
+    Category 1         0.979      0.013     72.919      0.000
+    Category 2         0.021      0.013      1.571      0.116
+
+Latent Class 4
+
+ KA46A
+    Category 1         0.664      0.058     11.384      0.000
+    Category 2         0.336      0.058      5.760      0.000
+ KA46H
+    Category 1         0.537      0.100      5.362      0.000
+    Category 2         0.463      0.100      4.621      0.000
+ KA46I
+    Category 1         0.084      0.103      0.817      0.414
+    Category 2         0.916      0.103      8.885      0.000
+ KA46K
+    Category 1         0.808      0.107      7.546      0.000
+    Category 2         0.192      0.107      1.791      0.073
+ KA46L
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ KA47A
+    Category 1         0.375      0.099      3.806      0.000
+    Category 2         0.625      0.099      6.344      0.000
+ KA47H
+    Category 1         0.544      0.136      4.013      0.000
+    Category 2         0.456      0.136      3.366      0.001
+ KA47I
+    Category 1         0.227      0.103      2.208      0.027
+    Category 2         0.773      0.103      7.535      0.000
+ KA47K
+    Category 1         0.946      0.075     12.568      0.000
+    Category 2         0.054      0.075      0.716      0.474
+ KA47L
+    Category 1         0.871      0.102      8.527      0.000
+    Category 2         0.129      0.102      1.266      0.206
+
+Latent Class 5
+
+ KA46A
+    Category 1         0.820      0.029     28.239      0.000
+    Category 2         0.180      0.029      6.212      0.000
+ KA46H
+    Category 1         0.971      0.015     66.382      0.000
+    Category 2         0.029      0.015      2.010      0.044
+ KA46I
+    Category 1         0.918      0.028     33.036      0.000
+    Category 2         0.082      0.028      2.959      0.003
+ KA46K
+    Category 1         0.958      0.016     58.661      0.000
+    Category 2         0.042      0.016      2.582      0.010
+ KA46L
+    Category 1         0.975      0.016     60.831      0.000
+    Category 2         0.025      0.016      1.587      0.113
+ KA47A
+    Category 1         0.910      0.022     40.549      0.000
+    Category 2         0.090      0.022      4.012      0.000
+ KA47H
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ KA47I
+    Category 1         0.974      0.016     61.731      0.000
+    Category 2         0.026      0.016      1.648      0.099
+ KA47K
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ KA47L
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+
+Latent Class 6
+
+ KA46A
+    Category 1         0.283      0.038      7.449      0.000
+    Category 2         0.717      0.038     18.841      0.000
+ KA46H
+    Category 1         0.065      0.022      2.903      0.004
+    Category 2         0.935      0.022     41.858      0.000
+ KA46I
+    Category 1         0.038      0.018      2.101      0.036
+    Category 2         0.962      0.018     53.386      0.000
+ KA46K
+    Category 1         0.380      0.042      9.144      0.000
+    Category 2         0.620      0.042     14.947      0.000
+ KA46L
+    Category 1         0.005      0.062      0.087      0.931
+    Category 2         0.995      0.062     15.929      0.000
+ KA47A
+    Category 1         0.185      0.035      5.235      0.000
+    Category 2         0.815      0.035     23.111      0.000
+ KA47H
+    Category 1         0.292      0.051      5.741      0.000
+    Category 2         0.708      0.051     13.895      0.000
+ KA47I
+    Category 1         0.080      0.028      2.864      0.004
+    Category 2         0.920      0.028     32.997      0.000
+ KA47K
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ KA47L
+    Category 1         0.496      0.051      9.796      0.000
+    Category 2         0.504      0.051      9.971      0.000
+
+Latent Class 7
+
+ KA46A
+    Category 1         0.189      0.030      6.344      0.000
+    Category 2         0.811      0.030     27.288      0.000
+ KA46H
+    Category 1         0.012      0.012      1.008      0.313
+    Category 2         0.988      0.012     79.698      0.000
+ KA46I
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ KA46K
+    Category 1         0.043      0.013      3.288      0.001
+    Category 2         0.957      0.013     74.042      0.000
+ KA46L
+    Category 1         0.007      0.015      0.442      0.659
+    Category 2         0.993      0.015     66.049      0.000
+ KA47A
+    Category 1         0.094      0.033      2.798      0.005
+    Category 2         0.906      0.033     27.108      0.000
+ KA47H
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ KA47I
+    Category 1         0.002      0.008      0.252      0.801
+    Category 2         0.998      0.008    121.216      0.000
+ KA47K
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ KA47L
+    Category 1         0.046      0.026      1.795      0.073
+    Category 2         0.954      0.026     37.033      0.000
+
+
+LATENT CLASS ODDS RATIO RESULTS
+
+Latent Class 1 Compared to Latent Class 2
+
+ KA46A
+    Category > 1       5.786      2.515      2.300      0.021
+ KA46H
+    Category > 1       4.364      2.128      2.051      0.040
+ KA46I
+    Category > 1      15.663     10.548      1.485      0.138
+ KA46K
+    Category > 1      12.189      6.710      1.817      0.069
+ KA46L
+    Category > 1       3.220      1.444      2.230      0.026
+ KA47A
+    Category > 1       2.151      1.141      1.885      0.059
+ KA47H
+    Category > 1       2.702      1.319      2.048      0.041
+ KA47I
+    Category > 1       6.844      4.269      1.603      0.109
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1       2.212      1.331      1.662      0.097
+
+Latent Class 1 Compared to Latent Class 3
+
+ KA46A
+    Category > 1       1.726      0.613      2.813      0.005
+ KA46H
+    Category > 1       0.470      0.205      2.291      0.022
+ KA46I
+    Category > 1       1.762      0.860      2.050      0.040
+ KA46K
+    Category > 1       1.893      0.903      2.097      0.036
+ KA46L
+    Category > 1       0.253      0.115      2.197      0.028
+ KA47A
+    Category > 1       9.227      4.134      2.232      0.026
+ KA47H
+    Category > 1      22.555     11.653      1.936      0.053
+ KA47I
+    Category > 1      16.457      7.684      2.142      0.032
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1     120.850     88.458      1.366      0.172
+
+Latent Class 1 Compared to Latent Class 4
+
+ KA46A
+    Category > 1       5.238      2.084      2.514      0.012
+ KA46H
+    Category > 1       2.684      1.490      1.801      0.072
+ KA46I
+    Category > 1       0.497      0.743      0.669      0.504
+ KA46K
+    Category > 1      29.263     23.500      1.245      0.213
+ KA46L
+    Category > 1   *********      0.000    999.000    999.000
+ KA47A
+    Category > 1       1.445      0.791      1.828      0.068
+ KA47H
+    Category > 1       1.990      1.382      1.440      0.150
+ KA47I
+    Category > 1       0.985      0.767      1.285      0.199
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1      17.545     15.716      1.116      0.264
+
+Latent Class 1 Compared to Latent Class 5
+
+ KA46A
+    Category > 1      12.047      4.223      2.852      0.004
+ KA46H
+    Category > 1      76.407     47.367      1.613      0.107
+ KA46I
+    Category > 1      60.345     36.686      1.645      0.100
+ KA46K
+    Category > 1     157.823     86.718      1.820      0.069
+ KA46L
+    Category > 1      88.773     62.142      1.429      0.153
+ KA47A
+    Category > 1      24.345     11.532      2.111      0.035
+ KA47H
+    Category > 1   *********      0.000    999.000    999.000
+ KA47I
+    Category > 1     126.004     98.365      1.281      0.200
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1   *********      0.000    999.000    999.000
+
+Latent Class 1 Compared to Latent Class 6
+
+ KA46A
+    Category > 1       1.048      0.366      2.860      0.004
+ KA46H
+    Category > 1       0.160      0.081      1.980      0.048
+ KA46I
+    Category > 1       0.213      0.138      1.538      0.124
+ KA46K
+    Category > 1       4.249      1.849      2.299      0.022
+ KA46L
+    Category > 1       0.013      0.145      0.087      0.931
+ KA47A
+    Category > 1       0.546      0.243      2.242      0.025
+ KA47H
+    Category > 1       0.690      0.282      2.449      0.014
+ KA47I
+    Category > 1       0.292      0.158      1.843      0.065
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1       2.558      0.988      2.590      0.010
+
+Latent Class 1 Compared to Latent Class 7
+
+ KA46A
+    Category > 1       0.616      0.273      2.253      0.024
+ KA46H
+    Category > 1       0.029      0.034      0.872      0.383
+ KA46I
+    Category > 1       0.000      0.000    999.000    999.000
+ KA46K
+    Category > 1       0.308      0.181      1.703      0.088
+ KA46L
+    Category > 1       0.015      0.037      0.420      0.675
+ KA47A
+    Category > 1       0.249      0.179      1.389      0.165
+ KA47H
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47I
+    Category > 1       0.007      0.029      0.243      0.808
+ KA47K
+    Category > 1       1.000      0.000    999.000    999.000
+ KA47L
+    Category > 1       0.126      0.107      1.183      0.237
+
+Latent Class 2 Compared to Latent Class 3
+
+ KA46A
+    Category > 1       0.298      0.086      3.454      0.001
+ KA46H
+    Category > 1       0.108      0.040      2.719      0.007
+ KA46I
+    Category > 1       0.113      0.066      1.713      0.087
+ KA46K
+    Category > 1       0.155      0.051      3.019      0.003
+ KA46L
+    Category > 1       0.079      0.036      2.204      0.028
+ KA47A
+    Category > 1       4.290      1.457      2.944      0.003
+ KA47H
+    Category > 1       8.347      3.984      2.095      0.036
+ KA47I
+    Category > 1       2.404      1.294      1.859      0.063
+ KA47K
+    Category > 1      15.815     11.938      1.325      0.185
+ KA47L
+    Category > 1      54.642     40.467      1.350      0.177
+
+Latent Class 2 Compared to Latent Class 4
+
+ KA46A
+    Category > 1       0.905      0.347      2.609      0.009
+ KA46H
+    Category > 1       0.615      0.319      1.925      0.054
+ KA46I
+    Category > 1       0.032      0.042      0.748      0.454
+ KA46K
+    Category > 1       2.401      1.839      1.305      0.192
+ KA46L
+    Category > 1   *********      0.000    999.000    999.000
+ KA47A
+    Category > 1       0.672      0.391      1.718      0.086
+ KA47H
+    Category > 1       0.736      0.506      1.456      0.145
+ KA47I
+    Category > 1       0.144      0.111      1.303      0.193
+ KA47K
+    Category > 1       9.864     15.428      0.639      0.523
+ KA47L
+    Category > 1       7.933      8.669      0.915      0.360
+
+Latent Class 2 Compared to Latent Class 5
+
+ KA46A
+    Category > 1       2.082      0.680      3.063      0.002
+ KA46H
+    Category > 1      17.507     10.181      1.720      0.086
+ KA46I
+    Category > 1       3.853      2.609      1.477      0.140
+ KA46K
+    Category > 1      12.948      6.613      1.958      0.050
+ KA46L
+    Category > 1      27.571     20.927      1.318      0.188
+ KA47A
+    Category > 1      11.320      4.304      2.630      0.009
+ KA47H
+    Category > 1   *********      0.000    999.000    999.000
+ KA47I
+    Category > 1      18.410     14.477      1.272      0.204
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1   *********      0.000    999.000    999.000
+
+Latent Class 2 Compared to Latent Class 6
+
+ KA46A
+    Category > 1       0.181      0.057      3.187      0.001
+ KA46H
+    Category > 1       0.037      0.017      2.221      0.026
+ KA46I
+    Category > 1       0.014      0.009      1.460      0.144
+ KA46K
+    Category > 1       0.349      0.119      2.921      0.003
+ KA46L
+    Category > 1       0.004      0.045      0.087      0.931
+ KA47A
+    Category > 1       0.254      0.092      2.764      0.006
+ KA47H
+    Category > 1       0.255      0.096      2.671      0.008
+ KA47I
+    Category > 1       0.043      0.024      1.742      0.081
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1       1.157      0.539      2.146      0.032
+
+Latent Class 2 Compared to Latent Class 7
+
+ KA46A
+    Category > 1       0.106      0.030      3.586      0.000
+ KA46H
+    Category > 1       0.007      0.007      0.982      0.326
+ KA46I
+    Category > 1       0.000      0.000    999.000    999.000
+ KA46K
+    Category > 1       0.025      0.010      2.535      0.011
+ KA46L
+    Category > 1       0.005      0.011      0.446      0.655
+ KA47A
+    Category > 1       0.116      0.050      2.297      0.022
+ KA47H
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47I
+    Category > 1       0.001      0.004      0.252      0.801
+ KA47K
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47L
+    Category > 1       0.057      0.036      1.574      0.116
+
+Latent Class 3 Compared to Latent Class 4
+
+ KA46A
+    Category > 1       3.035      0.928      3.271      0.001
+ KA46H
+    Category > 1       5.708      2.634      2.167      0.030
+ KA46I
+    Category > 1       0.282      0.381      0.740      0.459
+ KA46K
+    Category > 1      15.459     11.324      1.365      0.172
+ KA46L
+    Category > 1   *********      0.000    999.000    999.000
+ KA47A
+    Category > 1       0.157      0.076      2.074      0.038
+ KA47H
+    Category > 1       0.088      0.058      1.515      0.130
+ KA47I
+    Category > 1       0.060      0.040      1.510      0.131
+ KA47K
+    Category > 1       0.624      0.989      0.631      0.528
+ KA47L
+    Category > 1       0.145      0.165      0.881      0.379
+
+Latent Class 3 Compared to Latent Class 5
+
+ KA46A
+    Category > 1       6.981      1.746      3.997      0.000
+ KA46H
+    Category > 1     162.503     89.995      1.806      0.071
+ KA46I
+    Category > 1      34.240     13.674      2.504      0.012
+ KA46K
+    Category > 1      83.376     36.620      2.277      0.023
+ KA46L
+    Category > 1     350.928    246.392      1.424      0.154
+ KA47A
+    Category > 1       2.639      0.876      3.013      0.003
+ KA47H
+    Category > 1   *********      0.000    999.000    999.000
+ KA47I
+    Category > 1       7.657      5.251      1.458      0.145
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1   70435.367      0.000    999.000    999.000
+
+Latent Class 3 Compared to Latent Class 6
+
+ KA46A
+    Category > 1       0.607      0.154      3.941      0.000
+ KA46H
+    Category > 1       0.341      0.160      2.136      0.033
+ KA46I
+    Category > 1       0.121      0.067      1.814      0.070
+ KA46K
+    Category > 1       2.245      0.633      3.545      0.000
+ KA46L
+    Category > 1       0.050      0.580      0.086      0.931
+ KA47A
+    Category > 1       0.059      0.018      3.361      0.001
+ KA47H
+    Category > 1       0.031      0.013      2.336      0.019
+ KA47I
+    Category > 1       0.018      0.008      2.283      0.022
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1       0.021      0.014      1.483      0.138
+
+Latent Class 3 Compared to Latent Class 7
+
+ KA46A
+    Category > 1       0.357      0.088      4.075      0.000
+ KA46H
+    Category > 1       0.062      0.064      0.974      0.330
+ KA46I
+    Category > 1       0.000      0.000    999.000    999.000
+ KA46K
+    Category > 1       0.163      0.060      2.727      0.006
+ KA46L
+    Category > 1       0.061      0.140      0.438      0.662
+ KA47A
+    Category > 1       0.027      0.012      2.261      0.024
+ KA47H
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47I
+    Category > 1       0.000      0.002      0.251      0.802
+ KA47K
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47L
+    Category > 1       0.001      0.001      1.127      0.260
+
+Latent Class 4 Compared to Latent Class 5
+
+ KA46A
+    Category > 1       2.300      0.746      3.081      0.002
+ KA46H
+    Category > 1      28.469     17.798      1.600      0.110
+ KA46I
+    Category > 1     121.379    160.553      0.756      0.450
+ KA46K
+    Category > 1       5.393      4.397      1.227      0.220
+ KA46L
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47A
+    Category > 1      16.847      8.112      2.077      0.038
+ KA47H
+    Category > 1   *********      0.000    999.000    999.000
+ KA47I
+    Category > 1     127.863     87.164      1.467      0.142
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1   *********      0.000    999.000    999.000
+
+Latent Class 4 Compared to Latent Class 6
+
+ KA46A
+    Category > 1       0.200      0.061      3.255      0.001
+ KA46H
+    Category > 1       0.060      0.033      1.824      0.068
+ KA46I
+    Category > 1       0.428      0.596      0.717      0.473
+ KA46K
+    Category > 1       0.145      0.103      1.409      0.159
+ KA46L
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47A
+    Category > 1       0.378      0.187      2.014      0.044
+ KA47H
+    Category > 1       0.347      0.236      1.468      0.142
+ KA47I
+    Category > 1       0.296      0.203      1.459      0.144
+ KA47K
+    Category > 1   *********      0.000    999.000    999.000
+ KA47L
+    Category > 1       0.146      0.127      1.150      0.250
+
+Latent Class 4 Compared to Latent Class 7
+
+ KA46A
+    Category > 1       0.118      0.039      3.013      0.003
+ KA46H
+    Category > 1       0.011      0.012      0.916      0.360
+ KA46I
+    Category > 1       0.000      0.000    999.000    999.000
+ KA46K
+    Category > 1       0.011      0.008      1.298      0.194
+ KA46L
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47A
+    Category > 1       0.172      0.105      1.645      0.100
+ KA47H
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47I
+    Category > 1       0.007      0.028      0.252      0.801
+ KA47K
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47L
+    Category > 1       0.007      0.008      0.873      0.383
+
+Latent Class 5 Compared to Latent Class 6
+
+ KA46A
+    Category > 1       0.087      0.023      3.842      0.000
+ KA46H
+    Category > 1       0.002      0.001      1.581      0.114
+ KA46I
+    Category > 1       0.004      0.002      1.623      0.105
+ KA46K
+    Category > 1       0.027      0.012      2.244      0.025
+ KA46L
+    Category > 1       0.000      0.002      0.086      0.932
+ KA47A
+    Category > 1       0.022      0.008      2.761      0.006
+ KA47H
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47I
+    Category > 1       0.002      0.002      1.382      0.167
+ KA47K
+    Category > 1       1.000      0.000    999.000    999.000
+ KA47L
+    Category > 1       0.000      0.000    999.000    999.000
+
+Latent Class 5 Compared to Latent Class 7
+
+ KA46A
+    Category > 1       0.051      0.015      3.518      0.000
+ KA46H
+    Category > 1       0.000      0.000      0.883      0.377
+ KA46I
+    Category > 1       0.000      0.000    999.000    999.000
+ KA46K
+    Category > 1       0.002      0.001      1.917      0.055
+ KA46L
+    Category > 1       0.000      0.000      0.421      0.674
+ KA47A
+    Category > 1       0.010      0.005      2.039      0.041
+ KA47H
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47I
+    Category > 1       0.000      0.000      0.250      0.802
+ KA47K
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47L
+    Category > 1       0.000      0.000    999.000    999.000
+
+Latent Class 6 Compared to Latent Class 7
+
+ KA46A
+    Category > 1       0.588      0.163      3.610      0.000
+ KA46H
+    Category > 1       0.182      0.197      0.927      0.354
+ KA46I
+    Category > 1       0.000      0.000    999.000    999.000
+ KA46K
+    Category > 1       0.073      0.027      2.722      0.006
+ KA46L
+    Category > 1       1.223     14.808      0.083      0.934
+ KA47A
+    Category > 1       0.456      0.212      2.146      0.032
+ KA47H
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47I
+    Category > 1       0.024      0.096      0.250      0.803
+ KA47K
+    Category > 1       0.000      0.000    999.000    999.000
+ KA47L
+    Category > 1       0.049      0.031      1.572      0.116
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.862E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+EQUALITY TESTS OF MEANS ACROSS CLASSES USING POSTERIOR PROBABILITY-BASED
+MULTIPLE IMPUTATIONS WITH 6 DEGREE(S) OF FREEDOM FOR THE OVERALL TEST AND
+1 DEGREE OF FREEDOM FOR THE PAIRWISE TESTS
+
+STEM
+                          Mean       S.E.                          Mean       S.E.
+
+  Class 1                0.117      0.034  Class 2                0.053      0.024
+  Class 3                0.047      0.016  Class 4                0.017      0.017
+  Class 5                0.032      0.014  Class 6                0.101      0.026
+  Class 7                0.196      0.025
+
+                    Chi-Square     P-Value                   Chi-Square     P-Value
+
+  Overall test          46.462      0.000  Class 1 vs. 2          2.220      0.136
+  Class 1 vs. 3          3.433      0.064  Class 1 vs. 4          6.961      0.008
+  Class 1 vs. 5          5.503      0.019  Class 1 vs. 6          0.153      0.695
+  Class 1 vs. 7          3.282      0.070  Class 2 vs. 3          0.048      0.827
+  Class 2 vs. 4          1.321      0.250  Class 2 vs. 5          0.578      0.447
+  Class 2 vs. 6          1.735      0.188  Class 2 vs. 7         16.950      0.000
+  Class 3 vs. 4          1.523      0.217  Class 3 vs. 5          0.492      0.483
+  Class 3 vs. 6          2.962      0.085  Class 3 vs. 7         25.530      0.000
+  Class 4 vs. 5          0.442      0.506  Class 4 vs. 6          7.376      0.007
+  Class 4 vs. 7         35.307      0.000  Class 5 vs. 6          5.586      0.018
+  Class 5 vs. 7         33.499      0.000  Class 6 vs. 7          7.017      0.008
+
+STEMSUP
+                          Mean       S.E.                          Mean       S.E.
+
+  Class 1                0.221      0.044  Class 2                0.159      0.040
+  Class 3                0.134      0.026  Class 4                0.085      0.037
+  Class 5                0.067      0.019  Class 6                0.169      0.033
+  Class 7                0.298      0.029
+
+                    Chi-Square     P-Value                   Chi-Square     P-Value
+
+  Overall test          53.979      0.000  Class 1 vs. 2          1.012      0.315
+  Class 1 vs. 3          2.816      0.093  Class 1 vs. 4          5.429      0.020
+  Class 1 vs. 5         10.212      0.001  Class 1 vs. 6          0.885      0.347
+  Class 1 vs. 7          1.941      0.164  Class 2 vs. 3          0.271      0.603
+  Class 2 vs. 4          1.666      0.197  Class 2 vs. 5          4.355      0.037
+  Class 2 vs. 6          0.033      0.857  Class 2 vs. 7          8.019      0.005
+  Class 3 vs. 4          1.153      0.283  Class 3 vs. 5          4.193      0.041
+  Class 3 vs. 6          0.644      0.422  Class 3 vs. 7         17.572      0.000
+  Class 4 vs. 5          0.181      0.670  Class 4 vs. 6          2.839      0.092
+  Class 4 vs. 7         20.959      0.000  Class 5 vs. 6          7.170      0.007
+  Class 5 vs. 7         43.251      0.000  Class 6 vs. 7          8.718      0.003
+
+ENGINEER
+                          Mean       S.E.                          Mean       S.E.
+
+  Class 1                0.053      0.023  Class 2                0.023      0.015
+  Class 3                0.011      0.008  Class 4                0.000      0.000
+  Class 5                0.000      0.002  Class 6                0.027      0.014
+  Class 7                0.067      0.016
+
+                    Chi-Square     P-Value                   Chi-Square     P-Value
+
+  Overall test          34.510      0.000  Class 1 vs. 2          1.096      0.295
+  Class 1 vs. 3          2.958      0.085  Class 1 vs. 4          5.171      0.023
+  Class 1 vs. 5          5.104      0.024  Class 1 vs. 6          0.877      0.349
+  Class 1 vs. 7          0.245      0.620  Class 2 vs. 3          0.483      0.487
+  Class 2 vs. 4          2.315      0.128  Class 2 vs. 5          2.221      0.136
+  Class 2 vs. 6          0.041      0.840  Class 2 vs. 7          4.074      0.044
+  Class 3 vs. 4          1.681      0.195  Class 3 vs. 5          1.558      0.212
+  Class 3 vs. 6          1.000      0.317  Class 3 vs. 7         10.179      0.001
+  Class 4 vs. 5          0.020      0.887  Class 4 vs. 6          3.827      0.050
+  Class 4 vs. 7         18.225      0.000  Class 5 vs. 6          3.717      0.054
+  Class 5 vs. 7         17.927      0.000  Class 6 vs. 7          3.558      0.059
+
+MATHG8
+                          Mean       S.E.                          Mean       S.E.
+
+  Class 1               57.348      1.067  Class 2               53.947      1.039
+  Class 3               54.184      0.651  Class 4               57.605      1.198
+  Class 5               51.987      0.637  Class 6               57.398      0.836
+  Class 7               59.534      0.669
+
+                    Chi-Square     P-Value                   Chi-Square     P-Value
+
+  Overall test          80.779      0.000  Class 1 vs. 2          4.835      0.028
+  Class 1 vs. 3          6.377      0.012  Class 1 vs. 4          0.025      0.875
+  Class 1 vs. 5         18.068      0.000  Class 1 vs. 6          0.001      0.970
+  Class 1 vs. 7          2.728      0.099  Class 2 vs. 3          0.036      0.850
+  Class 2 vs. 4          4.743      0.029  Class 2 vs. 5          2.511      0.113
+  Class 2 vs. 6          6.420      0.011  Class 2 vs. 7         20.652      0.000
+  Class 3 vs. 4          6.050      0.014  Class 3 vs. 5          5.786      0.016
+  Class 3 vs. 6          8.536      0.003  Class 3 vs. 7         32.521      0.000
+  Class 4 vs. 5         16.887      0.000  Class 4 vs. 6          0.021      0.886
+  Class 4 vs. 7          1.971      0.160  Class 5 vs. 6         26.326      0.000
+  Class 5 vs. 7         67.544      0.000  Class 6 vs. 7          3.932      0.047
+
+SCIG8
+                          Mean       S.E.                          Mean       S.E.
+
+  Class 1               56.698      1.103  Class 2               54.979      1.008
+  Class 3               53.458      0.639  Class 4               57.331      1.125
+  Class 5               52.873      0.676  Class 6               57.519      0.791
+  Class 7               59.805      0.628
+
+                    Chi-Square     P-Value                   Chi-Square     P-Value
+
+  Overall test          63.622      0.000  Class 1 vs. 2          1.248      0.264
+  Class 1 vs. 3          6.350      0.012  Class 1 vs. 4          0.155      0.693
+  Class 1 vs. 5          8.495      0.004  Class 1 vs. 6          0.365      0.546
+  Class 1 vs. 7          5.385      0.020  Class 2 vs. 3          1.562      0.211
+  Class 2 vs. 4          2.211      0.137  Class 2 vs. 5          2.951      0.086
+  Class 2 vs. 6          3.806      0.051  Class 2 vs. 7         16.074      0.000
+  Class 3 vs. 4          8.719      0.003  Class 3 vs. 5          0.391      0.532
+  Class 3 vs. 6         14.994      0.000  Class 3 vs. 7         49.948      0.000
+  Class 4 vs. 5         11.385      0.001  Class 4 vs. 6          0.019      0.891
+  Class 4 vs. 7          3.773      0.052  Class 5 vs. 6         19.660      0.000
+  Class 5 vs. 7         57.445      0.000  Class 6 vs. 7          5.176      0.023
+
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                    10
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 6 (H0) VERSUS 7 CLASSES
+
+          H0 Loglikelihood Value                        -7604.960
+          2 Times the Loglikelihood Difference             68.160
+          Difference in the Number of Parameters               11
+          Mean                                           -601.210
+          Standard Deviation                              860.588
+          P-Value                                          0.0174
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                            67.327
+          P-Value                                          0.0179
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                    10
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 6 (H0) VERSUS 7 CLASSES
+
+          H0 Loglikelihood Value                        -7604.960
+          2 Times the Loglikelihood Difference             68.160
+          Difference in the Number of Parameters               11
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                           10
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE FOR THE 7 CLASS MODEL FOR THE GENERATED DATA
+     WAS NOT REPLICATED IN 6 OUT OF 10 BOOTSTRAP DRAWS.  THE P-VALUE MAY NOT BE TRUSTWORTHY
+     DUE TO LOCAL MAXIMA.  INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms of sample values
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for Mixture analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  10:06:39
+        Ending Time:  10:07:05
+       Elapsed Time:  00:00:26
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

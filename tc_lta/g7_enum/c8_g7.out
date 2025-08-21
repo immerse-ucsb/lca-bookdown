@@ -1,0 +1,1509 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+07/09/2025   1:28 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  8-Class LCA for LSAY 7th Grade
+  DATA:
+  FILE = "C:/Users/Karen Nylund-Gibson/Box/TC_LTA/g7_enum/lsay_g7.dat";
+  VARIABLE:
+  NAMES = AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X;
+   MISSING=.;
+   categorical = AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X;
+  usevar = AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X;
+  missing = all(9999);
+  classes = c(8);
+  ANALYSIS:
+
+        estimator = mlr;
+        type = mixture;
+        starts = 500 10;
+        processors = 10;
+  OUTPUT:
+  sampstat; residual; tech11; tech14;
+  PLOT:
+
+        type = plot3;
+        series = AB39A AB39H AB39I AB39K AB39L AB39M
+                 AB39T AB39U AB39W AB39X(*);
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  26
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+8-Class LCA for LSAY 7th Grade
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1886
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   AB39A       AB39H       AB39I       AB39K       AB39L       AB39M
+   AB39T       AB39U       AB39W       AB39X
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                           10
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/Karen Nylund-Gibson/Box/TC_LTA/g7_enum/lsay_g7.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            32
+     Number of y missing data patterns           0
+     Number of u missing data patterns          32
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              AB39A         AB39H         AB39I         AB39K         AB39L
+              ________      ________      ________      ________      ________
+ AB39A          0.998
+ AB39H          0.980         0.981
+ AB39I          0.978         0.964         0.979
+ AB39K          0.982         0.968         0.966         0.983
+ AB39L          0.984         0.969         0.968         0.972         0.985
+ AB39M          0.992         0.976         0.975         0.978         0.980
+ AB39T          0.975         0.960         0.957         0.961         0.964
+ AB39U          0.980         0.964         0.963         0.966         0.968
+ AB39W          0.984         0.968         0.966         0.970         0.972
+ AB39X          0.992         0.976         0.975         0.978         0.980
+
+
+           Covariance Coverage
+              AB39M         AB39T         AB39U         AB39W         AB39X
+              ________      ________      ________      ________      ________
+ AB39M          0.993
+ AB39T          0.972         0.976
+ AB39U          0.976         0.963         0.981
+ AB39W          0.980         0.967         0.971         0.985
+ AB39X          0.988         0.974         0.980         0.983         0.993
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    AB39A
+      Category 1    0.312          587.000
+      Category 2    0.688         1295.000
+    AB39H
+      Category 1    0.278          515.000
+      Category 2    0.722         1336.000
+    AB39I
+      Category 1    0.347          641.000
+      Category 2    0.653         1206.000
+    AB39K
+      Category 1    0.232          430.000
+      Category 2    0.768         1424.000
+    AB39L
+      Category 1    0.249          462.000
+      Category 2    0.751         1395.000
+    AB39M
+      Category 1    0.376          705.000
+      Category 2    0.624         1168.000
+    AB39T
+      Category 1    0.602         1107.000
+      Category 2    0.398          733.000
+    AB39U
+      Category 1    0.508          939.000
+      Category 2    0.492          911.000
+    AB39W
+      Category 1    0.600         1115.000
+      Category 2    0.400          742.000
+    AB39X
+      Category 1    0.536         1003.000
+      Category 2    0.464          870.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -9871.411  665121           417
+           -9872.124  286735           175
+           -9874.200  848890           95
+           -9876.173  669634           335
+           -9876.914  587946           120
+           -9877.583  529455           268
+           -9877.741  499150           216
+           -9877.806  318230           46
+           -9879.960  790059           469
+           -9888.932  395754           388
+
+
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE WAS NOT REPLICATED.  THE
+     SOLUTION MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.  INCREASE THE
+     NUMBER OF RANDOM STARTS.
+
+     IN THE OPTIMIZATION, ONE OR MORE LOGIT THRESHOLDS APPROACHED EXTREME VALUES
+     OF -15.000 AND 15.000 AND WERE FIXED TO STABILIZE MODEL ESTIMATION.  THESE
+     VALUES IMPLY PROBABILITIES OF 0 AND 1.  IN THE MODEL RESULTS SECTION, THESE
+     PARAMETERS HAVE 0 STANDARD ERRORS AND 999 IN THE Z-SCORE AND P-VALUE COLUMNS.
+
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       87
+
+Loglikelihood
+
+          H0 Value                       -9871.411
+          H0 Scaling Correction Factor      1.1226
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   19916.823
+          Bayesian (BIC)                 20398.995
+          Sample-Size Adjusted BIC       20122.597
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           1569.760
+          Degrees of Freedom                   917
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            897.473
+          Degrees of Freedom                   917
+          P-Value                           0.6714
+
+** Of the 9062 cells in the latent class indicator table, 19
+   were deleted in the calculation of chi-square due to extreme values.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                           2358.034
+          Degrees of Freedom                  8007
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            730.048
+          Degrees of Freedom                  8007
+          P-Value                           1.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        407.41336          0.21602
+       2        351.22864          0.18623
+       3        270.32239          0.14333
+       4        149.90583          0.07948
+       5        307.32945          0.16295
+       6        219.61775          0.11645
+       7         55.49572          0.02943
+       8        124.68685          0.06611
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        407.41336          0.21602
+       2        351.22864          0.18623
+       3        270.32239          0.14333
+       4        149.90583          0.07948
+       5        307.32945          0.16295
+       6        219.61775          0.11645
+       7         55.49572          0.02943
+       8        124.68685          0.06611
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              424          0.22481
+       2              363          0.19247
+       3              270          0.14316
+       4              158          0.08378
+       5              244          0.12937
+       6              246          0.13043
+       7               59          0.03128
+       8              122          0.06469
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.751
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6        7        8
+
+    1   0.905    0.001    0.003    0.001    0.087    0.002    0.000    0.000
+    2   0.000    0.732    0.105    0.035    0.050    0.014    0.013    0.052
+    3   0.007    0.113    0.755    0.002    0.033    0.090    0.000    0.000
+    4   0.002    0.116    0.015    0.788    0.053    0.000    0.017    0.009
+    5   0.055    0.045    0.009    0.018    0.831    0.034    0.008    0.000
+    6   0.032    0.025    0.091    0.000    0.113    0.735    0.004    0.000
+    7   0.000    0.103    0.000    0.103    0.076    0.005    0.691    0.021
+    8   0.000    0.108    0.000    0.012    0.000    0.000    0.037    0.844
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4        5        6        7        8
+
+    1   0.942    0.000    0.005    0.001    0.033    0.019    0.000    0.000
+    2   0.001    0.756    0.087    0.052    0.031    0.018    0.017    0.037
+    3   0.005    0.141    0.754    0.009    0.008    0.083    0.000    0.000
+    4   0.002    0.084    0.003    0.831    0.030    0.000    0.041    0.009
+    5   0.120    0.059    0.029    0.027    0.660    0.090    0.015    0.000
+    6   0.005    0.023    0.110    0.000    0.037    0.823    0.001    0.000
+    7   0.002    0.083    0.000    0.048    0.034    0.018    0.735    0.080
+    8   0.001    0.152    0.000    0.011    0.000    0.000    0.010    0.826
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4        5        6        7        8
+
+    1     13.756    2.847    8.427    6.815   10.407    9.870    0.453    0.000
+    2     -3.225    3.007    0.844    0.329   -0.179   -0.757   -0.770    0.000
+    3      4.984    8.426   10.103    5.667    5.559    7.897   -0.048    0.000
+    4     -1.585    2.181   -1.013    4.477    1.153   -4.706    1.460    0.000
+    5      7.357    6.642    5.943    5.865    9.059    7.069    5.245    0.000
+    6      7.625    9.275   10.821   -0.788    9.744   12.833    6.496    0.000
+    7     -3.672    0.030   -5.133   -0.514   -0.871   -1.494    2.213    0.000
+    8     -6.968   -1.692   -9.946   -4.277  -12.294  -13.624   -4.418    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    AB39A$1           -1.837      0.176    -10.464      0.000
+    AB39H$1           -4.174      0.935     -4.463      0.000
+    AB39I$1          -15.000      0.000    999.000    999.000
+    AB39K$1           -3.505      0.366     -9.587      0.000
+    AB39L$1           -5.567      2.306     -2.414      0.016
+    AB39M$1           -2.321      0.226    -10.257      0.000
+    AB39T$1           -2.525      0.306     -8.241      0.000
+    AB39U$1           -2.988      0.348     -8.586      0.000
+    AB39W$1           -3.965      1.868     -2.122      0.034
+    AB39X$1           -2.856      0.282    -10.142      0.000
+
+Latent Class 2
+
+ Thresholds
+    AB39A$1           -0.379      0.192     -1.972      0.049
+    AB39H$1           -0.075      0.624     -0.121      0.904
+    AB39I$1            0.973      0.305      3.194      0.001
+    AB39K$1           -1.077      0.487     -2.211      0.027
+    AB39L$1           -0.742      0.837     -0.887      0.375
+    AB39M$1            0.457      0.182      2.504      0.012
+    AB39T$1            3.348      0.609      5.494      0.000
+    AB39U$1            2.671      0.528      5.057      0.000
+    AB39W$1            2.283      0.395      5.776      0.000
+    AB39X$1            1.784      0.407      4.383      0.000
+
+Latent Class 3
+
+ Thresholds
+    AB39A$1           -0.975      0.217     -4.501      0.000
+    AB39H$1           -3.964      1.827     -2.169      0.030
+    AB39I$1           -1.656      1.028     -1.612      0.107
+    AB39K$1           -2.905      0.590     -4.926      0.000
+    AB39L$1           -4.160      2.650     -1.570      0.117
+    AB39M$1            0.520      0.223      2.332      0.020
+    AB39T$1            2.613      0.705      3.710      0.000
+    AB39U$1            0.937      0.425      2.206      0.027
+    AB39W$1            1.945      0.268      7.249      0.000
+    AB39X$1           15.000      0.000    999.000    999.000
+
+Latent Class 4
+
+ Thresholds
+    AB39A$1           -0.480      0.232     -2.067      0.039
+    AB39H$1           -0.635      0.291     -2.184      0.029
+    AB39I$1           -1.533      0.544     -2.816      0.005
+    AB39K$1            0.066      0.234      0.280      0.779
+    AB39L$1           15.000      0.000    999.000    999.000
+    AB39M$1           -0.748      0.226     -3.310      0.001
+    AB39T$1            0.580      0.308      1.884      0.060
+    AB39U$1           -0.504      0.341     -1.476      0.140
+    AB39W$1            0.952      0.359      2.652      0.008
+    AB39X$1            2.383      0.934      2.550      0.011
+
+Latent Class 5
+
+ Thresholds
+    AB39A$1           -0.591      0.174     -3.391      0.001
+    AB39H$1           -0.591      0.176     -3.352      0.001
+    AB39I$1           -0.084      0.288     -0.292      0.771
+    AB39K$1           -2.102      0.393     -5.355      0.000
+    AB39L$1           -1.932      0.372     -5.195      0.000
+    AB39M$1           -0.987      0.214     -4.607      0.000
+    AB39T$1           -0.042      0.226     -0.184      0.854
+    AB39U$1           -0.152      0.259     -0.589      0.556
+    AB39W$1           -1.060      0.391     -2.711      0.007
+    AB39X$1           -1.740      0.326     -5.338      0.000
+
+Latent Class 6
+
+ Thresholds
+    AB39A$1           -1.478      0.253     -5.848      0.000
+    AB39H$1           -2.722      0.578     -4.708      0.000
+    AB39I$1           -2.669      0.853     -3.130      0.002
+    AB39K$1           -1.118      0.240     -4.657      0.000
+    AB39L$1          -15.000      0.000    999.000    999.000
+    AB39M$1           -1.467      0.284     -5.168      0.000
+    AB39T$1            0.045      0.269      0.167      0.867
+    AB39U$1           -0.959      0.271     -3.543      0.000
+    AB39W$1           15.000      0.000    999.000    999.000
+    AB39X$1           -0.434      0.321     -1.349      0.177
+
+Latent Class 7
+
+ Thresholds
+    AB39A$1            0.304      0.535      0.569      0.569
+    AB39H$1            2.706      1.794      1.509      0.131
+    AB39I$1            1.872      1.957      0.956      0.339
+    AB39K$1           15.000      0.000    999.000    999.000
+    AB39L$1            0.796      0.692      1.151      0.250
+    AB39M$1           -0.786      0.962     -0.818      0.414
+    AB39T$1            0.321      0.588      0.547      0.585
+    AB39U$1            0.257      0.860      0.299      0.765
+    AB39W$1            1.072      0.527      2.035      0.042
+    AB39X$1           -0.328      0.580     -0.566      0.572
+
+Latent Class 8
+
+ Thresholds
+    AB39A$1            0.438      0.343      1.280      0.201
+    AB39H$1            3.241      1.614      2.007      0.045
+    AB39I$1            3.390      1.436      2.361      0.018
+    AB39K$1            1.559      1.187      1.313      0.189
+    AB39L$1           15.000      0.000    999.000    999.000
+    AB39M$1            1.366      0.583      2.344      0.019
+    AB39T$1            3.987      1.353      2.946      0.003
+    AB39U$1           15.000      0.000    999.000    999.000
+    AB39W$1            3.395      1.071      3.171      0.002
+    AB39X$1           15.000      0.000    999.000    999.000
+
+Categorical Latent Variables
+
+ Means
+    C#1                1.184      0.385      3.078      0.002
+    C#2                1.036      0.381      2.720      0.007
+    C#3                0.774      0.546      1.417      0.157
+    C#4                0.184      0.335      0.550      0.582
+    C#5                0.902      0.404      2.234      0.026
+    C#6                0.566      0.431      1.313      0.189
+    C#7               -0.809      0.509     -1.589      0.112
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.475E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ AB39A
+    Category 1         0.137      0.021      6.603      0.000
+    Category 2         0.863      0.021     41.455      0.000
+ AB39H
+    Category 1         0.015      0.014      1.086      0.278
+    Category 2         0.985      0.014     70.527      0.000
+ AB39I
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ AB39K
+    Category 1         0.029      0.010      2.818      0.005
+    Category 2         0.971      0.010     93.749      0.000
+ AB39L
+    Category 1         0.004      0.009      0.435      0.663
+    Category 2         0.996      0.009    113.850      0.000
+ AB39M
+    Category 1         0.089      0.018      4.852      0.000
+    Category 2         0.911      0.018     49.436      0.000
+ AB39T
+    Category 1         0.074      0.021      3.525      0.000
+    Category 2         0.926      0.021     44.040      0.000
+ AB39U
+    Category 1         0.048      0.016      3.018      0.003
+    Category 2         0.952      0.016     59.896      0.000
+ AB39W
+    Category 1         0.019      0.034      0.545      0.585
+    Category 2         0.981      0.034     28.761      0.000
+ AB39X
+    Category 1         0.054      0.014      3.755      0.000
+    Category 2         0.946      0.014     65.312      0.000
+
+Latent Class 2
+
+ AB39A
+    Category 1         0.406      0.046      8.763      0.000
+    Category 2         0.594      0.046     12.803      0.000
+ AB39H
+    Category 1         0.481      0.156      3.089      0.002
+    Category 2         0.519      0.156      3.331      0.001
+ AB39I
+    Category 1         0.726      0.061     11.969      0.000
+    Category 2         0.274      0.061      4.525      0.000
+ AB39K
+    Category 1         0.254      0.092      2.752      0.006
+    Category 2         0.746      0.092      8.080      0.000
+ AB39L
+    Category 1         0.323      0.183      1.764      0.078
+    Category 2         0.677      0.183      3.705      0.000
+ AB39M
+    Category 1         0.612      0.043     14.138      0.000
+    Category 2         0.388      0.043      8.954      0.000
+ AB39T
+    Category 1         0.966      0.020     48.312      0.000
+    Category 2         0.034      0.020      1.699      0.089
+ AB39U
+    Category 1         0.935      0.032     29.257      0.000
+    Category 2         0.065      0.032      2.025      0.043
+ AB39W
+    Category 1         0.907      0.033     27.335      0.000
+    Category 2         0.093      0.033      2.789      0.005
+ AB39X
+    Category 1         0.856      0.050     17.087      0.000
+    Category 2         0.144      0.050      2.869      0.004
+
+Latent Class 3
+
+ AB39A
+    Category 1         0.274      0.043      6.359      0.000
+    Category 2         0.726      0.043     16.856      0.000
+ AB39H
+    Category 1         0.019      0.033      0.558      0.577
+    Category 2         0.981      0.033     29.356      0.000
+ AB39I
+    Category 1         0.160      0.138      1.159      0.246
+    Category 2         0.840      0.138      6.071      0.000
+ AB39K
+    Category 1         0.052      0.029      1.788      0.074
+    Category 2         0.948      0.029     32.681      0.000
+ AB39L
+    Category 1         0.015      0.040      0.383      0.702
+    Category 2         0.985      0.040     24.544      0.000
+ AB39M
+    Category 1         0.627      0.052     12.022      0.000
+    Category 2         0.373      0.052      7.146      0.000
+ AB39T
+    Category 1         0.932      0.045     20.788      0.000
+    Category 2         0.068      0.045      1.523      0.128
+ AB39U
+    Category 1         0.718      0.086      8.363      0.000
+    Category 2         0.282      0.086      3.277      0.001
+ AB39W
+    Category 1         0.875      0.029     29.791      0.000
+    Category 2         0.125      0.029      4.260      0.000
+ AB39X
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+
+Latent Class 4
+
+ AB39A
+    Category 1         0.382      0.055      6.979      0.000
+    Category 2         0.618      0.055     11.274      0.000
+ AB39H
+    Category 1         0.346      0.066      5.266      0.000
+    Category 2         0.654      0.066      9.933      0.000
+ AB39I
+    Category 1         0.178      0.079      2.234      0.025
+    Category 2         0.822      0.079     10.346      0.000
+ AB39K
+    Category 1         0.516      0.058      8.830      0.000
+    Category 2         0.484      0.058      8.270      0.000
+ AB39L
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ AB39M
+    Category 1         0.321      0.049      6.521      0.000
+    Category 2         0.679      0.049     13.776      0.000
+ AB39T
+    Category 1         0.641      0.071      9.051      0.000
+    Category 2         0.359      0.071      5.069      0.000
+ AB39U
+    Category 1         0.377      0.080      4.700      0.000
+    Category 2         0.623      0.080      7.779      0.000
+ AB39W
+    Category 1         0.721      0.072     10.004      0.000
+    Category 2         0.279      0.072      3.862      0.000
+ AB39X
+    Category 1         0.916      0.072     12.667      0.000
+    Category 2         0.084      0.072      1.169      0.242
+
+Latent Class 5
+
+ AB39A
+    Category 1         0.356      0.040      8.911      0.000
+    Category 2         0.644      0.040     16.095      0.000
+ AB39H
+    Category 1         0.356      0.040      8.805      0.000
+    Category 2         0.644      0.040     15.908      0.000
+ AB39I
+    Category 1         0.479      0.072      6.657      0.000
+    Category 2         0.521      0.072      7.241      0.000
+ AB39K
+    Category 1         0.109      0.038      2.858      0.004
+    Category 2         0.891      0.038     23.395      0.000
+ AB39L
+    Category 1         0.126      0.041      3.078      0.002
+    Category 2         0.874      0.041     21.253      0.000
+ AB39M
+    Category 1         0.271      0.042      6.405      0.000
+    Category 2         0.729      0.042     17.190      0.000
+ AB39T
+    Category 1         0.490      0.056      8.685      0.000
+    Category 2         0.510      0.056      9.054      0.000
+ AB39U
+    Category 1         0.462      0.064      7.183      0.000
+    Category 2         0.538      0.064      8.365      0.000
+ AB39W
+    Category 1         0.257      0.075      3.442      0.001
+    Category 2         0.743      0.075      9.939      0.000
+ AB39X
+    Category 1         0.149      0.041      3.606      0.000
+    Category 2         0.851      0.041     20.548      0.000
+
+Latent Class 6
+
+ AB39A
+    Category 1         0.186      0.038      4.859      0.000
+    Category 2         0.814      0.038     21.305      0.000
+ AB39H
+    Category 1         0.062      0.033      1.843      0.065
+    Category 2         0.938      0.033     28.042      0.000
+ AB39I
+    Category 1         0.065      0.052      1.254      0.210
+    Category 2         0.935      0.052     18.085      0.000
+ AB39K
+    Category 1         0.246      0.045      5.526      0.000
+    Category 2         0.754      0.045     16.905      0.000
+ AB39L
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ AB39M
+    Category 1         0.187      0.043      4.336      0.000
+    Category 2         0.813      0.043     18.797      0.000
+ AB39T
+    Category 1         0.511      0.067      7.600      0.000
+    Category 2         0.489      0.067      7.265      0.000
+ AB39U
+    Category 1         0.277      0.054      5.113      0.000
+    Category 2         0.723      0.054     13.335      0.000
+ AB39W
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ AB39X
+    Category 1         0.393      0.077      5.127      0.000
+    Category 2         0.607      0.077      7.910      0.000
+
+Latent Class 7
+
+ AB39A
+    Category 1         0.576      0.131      4.405      0.000
+    Category 2         0.424      0.131      3.249      0.001
+ AB39H
+    Category 1         0.937      0.105      8.906      0.000
+    Category 2         0.063      0.105      0.595      0.552
+ AB39I
+    Category 1         0.867      0.226      3.832      0.000
+    Category 2         0.133      0.226      0.589      0.556
+ AB39K
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ AB39L
+    Category 1         0.689      0.148      4.649      0.000
+    Category 2         0.311      0.148      2.097      0.036
+ AB39M
+    Category 1         0.313      0.207      1.513      0.130
+    Category 2         0.687      0.207      3.322      0.001
+ AB39T
+    Category 1         0.580      0.143      4.047      0.000
+    Category 2         0.420      0.143      2.935      0.003
+ AB39U
+    Category 1         0.564      0.211      2.666      0.008
+    Category 2         0.436      0.211      2.062      0.039
+ AB39W
+    Category 1         0.745      0.100      7.444      0.000
+    Category 2         0.255      0.100      2.547      0.011
+ AB39X
+    Category 1         0.419      0.141      2.964      0.003
+    Category 2         0.581      0.141      4.116      0.000
+
+Latent Class 8
+
+ AB39A
+    Category 1         0.608      0.082      7.442      0.000
+    Category 2         0.392      0.082      4.800      0.000
+ AB39H
+    Category 1         0.962      0.059     16.446      0.000
+    Category 2         0.038      0.059      0.644      0.520
+ AB39I
+    Category 1         0.967      0.045     21.356      0.000
+    Category 2         0.033      0.045      0.720      0.471
+ AB39K
+    Category 1         0.826      0.170      4.847      0.000
+    Category 2         0.174      0.170      1.020      0.308
+ AB39L
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ AB39M
+    Category 1         0.797      0.094      8.442      0.000
+    Category 2         0.203      0.094      2.154      0.031
+ AB39T
+    Category 1         0.982      0.024     40.578      0.000
+    Category 2         0.018      0.024      0.753      0.452
+ AB39U
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ AB39W
+    Category 1         0.968      0.034     28.773      0.000
+    Category 2         0.032      0.034      0.965      0.334
+ AB39X
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ AB39A
+    Category > 1       4.297      1.083      2.622      7.044
+ AB39H
+    Category > 1      60.229     62.379      7.910    458.571
+ AB39I
+    Category > 1   *********      0.000  *********  *********
+ AB39K
+    Category > 1      11.331      6.841      3.470     37.001
+ AB39L
+    Category > 1     124.564    289.194      1.316  11792.808
+ AB39M
+    Category > 1      16.088      4.670      9.108     28.418
+ AB39T
+    Category > 1     355.347    241.087     94.002   1343.281
+ AB39U
+    Category > 1     286.745    178.165     84.841    969.141
+ AB39W
+    Category > 1     516.899    985.548     12.315  21696.150
+ AB39X
+    Category > 1     103.598     50.102     40.150    267.309
+
+Latent Class 1 Compared to Latent Class 3
+
+ AB39A
+    Category > 1       2.368      0.656      1.376      4.076
+ AB39H
+    Category > 1       1.234      2.429      0.026     58.532
+ AB39I
+    Category > 1   *********      0.000  *********  *********
+ AB39K
+    Category > 1       1.821      1.260      0.469      7.072
+ AB39L
+    Category > 1       4.084     14.325      0.004   3948.902
+ AB39M
+    Category > 1      17.141      5.387      9.258     31.737
+ AB39T
+    Category > 1     170.491    128.638     38.855    748.097
+ AB39U
+    Category > 1      50.644     27.569     17.424    147.201
+ AB39W
+    Category > 1     368.797    702.643      8.811  15436.634
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 1 Compared to Latent Class 4
+
+ AB39A
+    Category > 1       3.886      1.097      2.235      6.757
+ AB39H
+    Category > 1      34.433     33.945      4.987    237.755
+ AB39I
+    Category > 1   *********      0.000  *********  *********
+ AB39K
+    Category > 1      35.529     15.675     14.963     84.358
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1       4.823      1.556      2.562      9.077
+ AB39T
+    Category > 1      22.308     10.303      9.022     55.158
+ AB39U
+    Category > 1      11.991      6.019      4.483     32.075
+ AB39W
+    Category > 1     136.596    258.497      3.346   5575.609
+ AB39X
+    Category > 1     188.452    189.787     26.179   1356.580
+
+Latent Class 1 Compared to Latent Class 5
+
+ AB39A
+    Category > 1       3.476      0.930      2.058      5.871
+ AB39H
+    Category > 1      35.950     33.717      5.719    225.964
+ AB39I
+    Category > 1   *********      0.000  *********  *********
+ AB39K
+    Category > 1       4.065      2.472      1.234     13.389
+ AB39L
+    Category > 1      37.880     93.237      0.304   4715.820
+ AB39M
+    Category > 1       3.796      1.232      2.010      7.170
+ AB39T
+    Category > 1      11.985      4.277      5.955     24.122
+ AB39U
+    Category > 1      17.039      7.114      7.517     38.624
+ AB39W
+    Category > 1      18.262     35.259      0.415    803.569
+ AB39X
+    Category > 1       3.052      1.420      1.226      7.598
+
+Latent Class 1 Compared to Latent Class 6
+
+ AB39A
+    Category > 1       1.432      0.430      0.795      2.579
+ AB39H
+    Category > 1       4.269      4.506      0.539     33.792
+ AB39I
+    Category > 1   *********      0.000  *********  *********
+ AB39K
+    Category > 1      10.877      4.645      4.710     25.119
+ AB39L
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39M
+    Category > 1       2.350      0.819      1.187      4.654
+ AB39T
+    Category > 1      13.070      5.371      5.841     29.249
+ AB39U
+    Category > 1       7.609      3.366      3.197     18.109
+ AB39W
+    Category > 1   *********      0.000  *********  *********
+ AB39X
+    Category > 1      11.274      4.556      5.106     24.893
+
+Latent Class 1 Compared to Latent Class 7
+
+ AB39A
+    Category > 1       8.512      4.769      2.839     25.521
+ AB39H
+    Category > 1     972.688   1976.129     18.140  52157.852
+ AB39I
+    Category > 1   *********      0.000  *********  *********
+ AB39K
+    Category > 1   *********      0.000  *********  *********
+ AB39L
+    Category > 1     580.012   1394.944      5.203  64660.035
+ AB39M
+    Category > 1       4.641      4.617      0.660     32.623
+ AB39T
+    Category > 1      17.228     11.508      4.652     63.805
+ AB39U
+    Category > 1      25.652     23.924      4.123    159.590
+ AB39W
+    Category > 1     154.113    298.363      3.466   6851.689
+ AB39X
+    Category > 1      12.526      8.092      3.531     44.434
+
+Latent Class 1 Compared to Latent Class 8
+
+ AB39A
+    Category > 1       9.734      3.662      4.656     20.349
+ AB39H
+    Category > 1    1659.272   2828.514     58.732  46877.398
+ AB39I
+    Category > 1   *********      0.000  *********  *********
+ AB39K
+    Category > 1     158.113    195.051     14.089   1774.384
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1      39.924     24.546     11.964    133.221
+ AB39T
+    Category > 1     673.669    946.399     42.916  10574.827
+ AB39U
+    Category > 1   *********      0.000  *********  *********
+ AB39W
+    Category > 1    1571.868   3333.858     24.605  *********
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 2 Compared to Latent Class 3
+
+ AB39A
+    Category > 1       0.551      0.159      0.313      0.971
+ AB39H
+    Category > 1       0.020      0.037      0.001      0.705
+ AB39I
+    Category > 1       0.072      0.071      0.011      0.494
+ AB39K
+    Category > 1       0.161      0.114      0.040      0.642
+ AB39L
+    Category > 1       0.033      0.091      0.000      7.771
+ AB39M
+    Category > 1       1.065      0.358      0.551      2.059
+ AB39T
+    Category > 1       0.480      0.506      0.061      3.796
+ AB39U
+    Category > 1       0.177      0.111      0.051      0.608
+ AB39W
+    Category > 1       0.713      0.374      0.255      1.993
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 2 Compared to Latent Class 4
+
+ AB39A
+    Category > 1       0.904      0.299      0.473      1.731
+ AB39H
+    Category > 1       0.572      0.409      0.141      2.320
+ AB39I
+    Category > 1       0.082      0.055      0.022      0.303
+ AB39K
+    Category > 1       3.136      1.631      1.131      8.692
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1       0.300      0.092      0.164      0.548
+ AB39T
+    Category > 1       0.063      0.043      0.017      0.237
+ AB39U
+    Category > 1       0.042      0.027      0.012      0.145
+ AB39W
+    Category > 1       0.264      0.160      0.081      0.867
+ AB39X
+    Category > 1       1.819      1.923      0.229     14.450
+
+Latent Class 2 Compared to Latent Class 5
+
+ AB39A
+    Category > 1       0.809      0.221      0.473      1.382
+ AB39H
+    Category > 1       0.597      0.388      0.167      2.131
+ AB39I
+    Category > 1       0.348      0.146      0.153      0.792
+ AB39K
+    Category > 1       0.359      0.206      0.116      1.108
+ AB39L
+    Category > 1       0.304      0.311      0.041      2.264
+ AB39M
+    Category > 1       0.236      0.072      0.130      0.428
+ AB39T
+    Category > 1       0.034      0.022      0.010      0.119
+ AB39U
+    Category > 1       0.059      0.033      0.020      0.178
+ AB39W
+    Category > 1       0.035      0.018      0.013      0.094
+ AB39X
+    Category > 1       0.029      0.015      0.011      0.080
+
+Latent Class 2 Compared to Latent Class 6
+
+ AB39A
+    Category > 1       0.333      0.103      0.182      0.611
+ AB39H
+    Category > 1       0.071      0.059      0.014      0.361
+ AB39I
+    Category > 1       0.026      0.024      0.004      0.154
+ AB39K
+    Category > 1       0.960      0.574      0.297      3.101
+ AB39L
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39M
+    Category > 1       0.146      0.052      0.073      0.294
+ AB39T
+    Category > 1       0.037      0.024      0.010      0.131
+ AB39U
+    Category > 1       0.027      0.015      0.009      0.080
+ AB39W
+    Category > 1   *********      0.000  *********  *********
+ AB39X
+    Category > 1       0.109      0.057      0.039      0.302
+
+Latent Class 2 Compared to Latent Class 7
+
+ AB39A
+    Category > 1       1.981      1.095      0.670      5.852
+ AB39H
+    Category > 1      16.150     33.375      0.281    927.364
+ AB39I
+    Category > 1       2.458      4.869      0.051    119.336
+ AB39K
+    Category > 1   *********      0.000  *********  *********
+ AB39L
+    Category > 1       4.656      4.003      0.864     25.104
+ AB39M
+    Category > 1       0.288      0.272      0.045      1.834
+ AB39T
+    Category > 1       0.048      0.034      0.012      0.194
+ AB39U
+    Category > 1       0.089      0.096      0.011      0.730
+ AB39W
+    Category > 1       0.298      0.205      0.077      1.150
+ AB39X
+    Category > 1       0.121      0.079      0.033      0.438
+
+Latent Class 2 Compared to Latent Class 8
+
+ AB39A
+    Category > 1       2.265      0.763      1.171      4.383
+ AB39H
+    Category > 1      27.550     37.337      1.934    392.412
+ AB39I
+    Category > 1      11.212     15.852      0.702    179.136
+ AB39K
+    Category > 1      13.954     12.786      2.316     84.075
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1       2.482      1.690      0.653      9.427
+ AB39T
+    Category > 1       1.896      2.648      0.123     29.279
+ AB39U
+    Category > 1   *********      0.000  *********  *********
+ AB39W
+    Category > 1       3.041      3.566      0.305     30.290
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 3 Compared to Latent Class 4
+
+ AB39A
+    Category > 1       1.641      0.526      0.876      3.075
+ AB39H
+    Category > 1      27.911     51.867      0.731   1065.651
+ AB39I
+    Category > 1       1.131      1.531      0.080     16.071
+ AB39K
+    Category > 1      19.513     11.901      5.904     64.491
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1       0.281      0.086      0.155      0.512
+ AB39T
+    Category > 1       0.131      0.107      0.026      0.647
+ AB39U
+    Category > 1       0.237      0.143      0.072      0.773
+ AB39W
+    Category > 1       0.370      0.160      0.159      0.864
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 3 Compared to Latent Class 5
+
+ AB39A
+    Category > 1       1.468      0.415      0.843      2.554
+ AB39H
+    Category > 1      29.140     53.426      0.801   1059.535
+ AB39I
+    Category > 1       4.815      4.869      0.664     34.946
+ AB39K
+    Category > 1       2.233      1.572      0.562      8.873
+ AB39L
+    Category > 1       9.274     25.081      0.046   1859.096
+ AB39M
+    Category > 1       0.221      0.064      0.125      0.391
+ AB39T
+    Category > 1       0.070      0.049      0.018      0.277
+ AB39U
+    Category > 1       0.336      0.150      0.140      0.808
+ AB39W
+    Category > 1       0.050      0.024      0.019      0.129
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 3 Compared to Latent Class 6
+
+ AB39A
+    Category > 1       0.605      0.218      0.298      1.226
+ AB39H
+    Category > 1       3.461      7.011      0.065    183.511
+ AB39I
+    Category > 1       0.363      0.546      0.019      6.912
+ AB39K
+    Category > 1       5.974      4.180      1.516     23.542
+ AB39L
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39M
+    Category > 1       0.137      0.050      0.067      0.280
+ AB39T
+    Category > 1       0.077      0.058      0.017      0.339
+ AB39U
+    Category > 1       0.150      0.077      0.055      0.409
+ AB39W
+    Category > 1   *********      0.000  *********  *********
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 3 Compared to Latent Class 7
+
+ AB39A
+    Category > 1       3.594      1.919      1.262     10.237
+ AB39H
+    Category > 1     788.448   2021.503      5.180  *********
+ AB39I
+    Category > 1      34.053     54.910      1.444    803.038
+ AB39K
+    Category > 1   *********      0.000  *********  *********
+ AB39L
+    Category > 1     142.006    387.664      0.674  29926.322
+ AB39M
+    Category > 1       0.271      0.273      0.038      1.950
+ AB39T
+    Category > 1       0.101      0.106      0.013      0.794
+ AB39U
+    Category > 1       0.507      0.566      0.057      4.533
+ AB39W
+    Category > 1       0.418      0.252      0.128      1.364
+ AB39X
+    Category > 1       0.000      0.000      0.000      0.000
+
+Latent Class 3 Compared to Latent Class 8
+
+ AB39A
+    Category > 1       4.110      1.417      2.091      8.078
+ AB39H
+    Category > 1    1344.983   2903.070     19.562  92474.258
+ AB39I
+    Category > 1     155.340    189.883     14.151   1705.238
+ AB39K
+    Category > 1      86.837     99.974      9.093    829.261
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1       2.329      1.318      0.768      7.064
+ AB39T
+    Category > 1       3.951      6.782      0.137    114.234
+ AB39U
+    Category > 1   *********      0.000  *********  *********
+ AB39W
+    Category > 1       4.262      4.658      0.501     36.294
+ AB39X
+    Category > 1       1.000      0.000      1.000      1.000
+
+Latent Class 4 Compared to Latent Class 5
+
+ AB39A
+    Category > 1       0.894      0.270      0.495      1.617
+ AB39H
+    Category > 1       1.044      0.366      0.525      2.077
+ AB39I
+    Category > 1       4.258      2.816      1.165     15.567
+ AB39K
+    Category > 1       0.114      0.052      0.047      0.277
+ AB39L
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39M
+    Category > 1       0.787      0.251      0.421      1.471
+ AB39T
+    Category > 1       0.537      0.234      0.228      1.264
+ AB39U
+    Category > 1       1.421      0.682      0.555      3.638
+ AB39W
+    Category > 1       0.134      0.073      0.046      0.393
+ AB39X
+    Category > 1       0.016      0.016      0.002      0.110
+
+Latent Class 4 Compared to Latent Class 6
+
+ AB39A
+    Category > 1       0.368      0.123      0.192      0.708
+ AB39H
+    Category > 1       0.124      0.077      0.037      0.416
+ AB39I
+    Category > 1       0.321      0.297      0.053      1.963
+ AB39K
+    Category > 1       0.306      0.105      0.157      0.598
+ AB39L
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39M
+    Category > 1       0.487      0.177      0.239      0.993
+ AB39T
+    Category > 1       0.586      0.238      0.265      1.297
+ AB39U
+    Category > 1       0.635      0.271      0.275      1.467
+ AB39W
+    Category > 1   *********      0.000  *********  *********
+ AB39X
+    Category > 1       0.060      0.057      0.009      0.390
+
+Latent Class 4 Compared to Latent Class 7
+
+ AB39A
+    Category > 1       2.190      1.321      0.672      7.141
+ AB39H
+    Category > 1      28.249     51.109      0.815    979.589
+ AB39I
+    Category > 1      30.112     66.040      0.409   2216.044
+ AB39K
+    Category > 1   *********      0.000  *********  *********
+ AB39L
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39M
+    Category > 1       0.962      0.969      0.134      6.930
+ AB39T
+    Category > 1       0.772      0.492      0.221      2.695
+ AB39U
+    Category > 1       2.139      1.956      0.357     12.836
+ AB39W
+    Category > 1       1.128      0.703      0.333      3.823
+ AB39X
+    Category > 1       0.066      0.070      0.008      0.527
+
+Latent Class 4 Compared to Latent Class 8
+
+ AB39A
+    Category > 1       2.505      1.075      1.080      5.809
+ AB39H
+    Category > 1      48.189     80.879      1.796   1293.021
+ AB39I
+    Category > 1     137.364    229.379      5.205   3624.829
+ AB39K
+    Category > 1       4.450      5.311      0.429     46.151
+ AB39L
+    Category > 1       1.000      0.000      1.000      1.000
+ AB39M
+    Category > 1       8.279      5.104      2.472     27.721
+ AB39T
+    Category > 1      30.199     40.027      2.248    405.719
+ AB39U
+    Category > 1   *********      0.000  *********  *********
+ AB39W
+    Category > 1      11.507     13.431      1.168    113.367
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 5 Compared to Latent Class 6
+
+ AB39A
+    Category > 1       0.412      0.136      0.215      0.788
+ AB39H
+    Category > 1       0.119      0.072      0.036      0.390
+ AB39I
+    Category > 1       0.075      0.070      0.012      0.463
+ AB39K
+    Category > 1       2.676      1.351      0.994      7.199
+ AB39L
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39M
+    Category > 1       0.619      0.222      0.307      1.250
+ AB39T
+    Category > 1       1.091      0.393      0.538      2.209
+ AB39U
+    Category > 1       0.447      0.173      0.209      0.955
+ AB39W
+    Category > 1   *********      0.000  *********  *********
+ AB39X
+    Category > 1       3.693      1.681      1.514      9.011
+
+Latent Class 5 Compared to Latent Class 7
+
+ AB39A
+    Category > 1       2.449      1.403      0.797      7.527
+ AB39H
+    Category > 1      27.057     48.986      0.778    940.574
+ AB39I
+    Category > 1       7.072     13.728      0.157    317.702
+ AB39K
+    Category > 1   *********      0.000  *********  *********
+ AB39L
+    Category > 1      15.312     12.310      3.167     74.026
+ AB39M
+    Category > 1       1.223      1.277      0.158      9.473
+ AB39T
+    Category > 1       1.437      0.947      0.395      5.230
+ AB39U
+    Category > 1       1.505      1.425      0.236      9.620
+ AB39W
+    Category > 1       8.439      5.663      2.265     31.443
+ AB39X
+    Category > 1       4.104      2.853      1.051     16.031
+
+Latent Class 5 Compared to Latent Class 8
+
+ AB39A
+    Category > 1       2.800      1.089      1.307      6.001
+ AB39H
+    Category > 1      46.155     74.060      1.988   1071.703
+ AB39I
+    Category > 1      32.259     45.892      1.985    524.320
+ AB39K
+    Category > 1      38.893     46.608      3.714    407.332
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1      10.517      5.835      3.545     31.199
+ AB39T
+    Category > 1      56.209     79.900      3.466    911.575
+ AB39U
+    Category > 1   *********      0.000  *********  *********
+ AB39W
+    Category > 1      86.072     92.506     10.472    707.468
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 6 Compared to Latent Class 7
+
+ AB39A
+    Category > 1       5.945      3.505      1.872     18.883
+ AB39H
+    Category > 1     227.824    429.259      5.672   9150.396
+ AB39I
+    Category > 1      93.757    208.593      1.197   7341.976
+ AB39K
+    Category > 1   *********      0.000  *********  *********
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1       1.975      2.086      0.249     15.655
+ AB39T
+    Category > 1       1.318      0.854      0.370      4.696
+ AB39U
+    Category > 1       3.371      3.029      0.579     19.612
+ AB39W
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39X
+    Category > 1       1.111      0.729      0.307      4.021
+
+Latent Class 6 Compared to Latent Class 8
+
+ AB39A
+    Category > 1       6.798      2.870      2.972     15.553
+ AB39H
+    Category > 1     388.635    665.731     13.533  11160.277
+ AB39I
+    Category > 1     427.697    749.275     13.801  13254.674
+ AB39K
+    Category > 1      14.536     18.326      1.228    172.029
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1      16.988     10.022      5.345     53.988
+ AB39T
+    Category > 1      51.542     72.072      3.326    798.763
+ AB39U
+    Category > 1   *********      0.000  *********  *********
+ AB39W
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+Latent Class 7 Compared to Latent Class 8
+
+ AB39A
+    Category > 1       1.144      0.687      0.352      3.715
+ AB39H
+    Category > 1       1.706      4.577      0.009    327.858
+ AB39I
+    Category > 1       4.562      9.496      0.077    269.814
+ AB39K
+    Category > 1       0.000      0.000      0.000      0.000
+ AB39L
+    Category > 1   *********      0.000  *********  *********
+ AB39M
+    Category > 1       8.603     11.296      0.656    112.807
+ AB39T
+    Category > 1      39.104     51.697      2.930    521.883
+ AB39U
+    Category > 1   *********      0.000  *********  *********
+ AB39W
+    Category > 1      10.199     13.373      0.781    133.237
+ AB39X
+    Category > 1   *********      0.000  *********  *********
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                    10
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 7 (H0) VERSUS 8 CLASSES
+
+          H0 Loglikelihood Value                        -9891.204
+          2 Times the Loglikelihood Difference             39.585
+          Difference in the Number of Parameters               11
+          Mean                                             19.972
+          Standard Deviation                               55.131
+          P-Value                                          0.3610
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                            39.113
+          P-Value                                          0.3642
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                    10
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 7 (H0) VERSUS 8 CLASSES
+
+          H0 Loglikelihood Value                        -9891.204
+          2 Times the Loglikelihood Difference             39.585
+          Difference in the Number of Parameters               11
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                           49
+
+     WARNING:  OF THE 49 BOOTSTRAP DRAWS, 34 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE
+     OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 8-CLASS MODEL.
+     THIS MEANS THAT THE P-VALUE MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.
+     INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+     Beginning Time:  13:28:13
+        Ending Time:  13:29:55
+       Elapsed Time:  00:01:42
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

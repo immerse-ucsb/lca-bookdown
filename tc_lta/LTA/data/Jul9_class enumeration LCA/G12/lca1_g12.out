@@ -1,0 +1,421 @@
+Mplus VERSION 7.1
+MUTHEN & MUTHEN
+07/09/2013   5:44 PM
+
+INPUT INSTRUCTIONS
+
+  data:
+  file is Dataset_Jul9_Mplus.dat;
+
+  Variable:
+  names are
+  CASENUM COHORT AB39A GA32A KA46A AB39B AB39C AB39D AB39E AB39F AB39G AB39H
+  GA32H KA46H AB39I GA32I KA46I AB39J AB39K GA32K KA46K AB39L GA32L KA46L AB39M
+  GA33A KA47A AB39N AB39O AB39P AB39Q AB39R AB39S AB39T GA33H KA47H AB39U GA33I
+  KA47I AB39V AB39W GA33K KA47K AB39X GA33L KA47L SciG7 SciG8 SciG11
+  MTH7 SCI7 SCI8 MOTHED FATHED PEDUC PEDUC3 RSEDAN RSEDAN6 RSEDAN5 RBACC
+  RMAJFIRST RMAJFIRST2 RMAJLAST2 RMAJLAST RGRADMAJ RGRADMAJ10 RSTEMM RSTEMMX
+  RSTEMMB RSTEMMA WEIGHT7 WEIGHT8 WEIGHT9 WEIGHT10 WEIGHT11 WEIGHT12 WEIGHTP1
+  WEIGHTP2 WEIGHTP4 WGT12A WEIGHTR GENDER RACETH3 RACETH Minority STEM STEMSup
+  ENGINEER MathG7 MathG8 MathG10 MathG11 MathG12 Female;
+
+  categorical = KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L;
+  missing=all(9999);
+  classes =c (1);
+
+  auxiliary =STEM(e)  STEMSup(e) ENGINEER(e) MathG8(e) SciG8(e);
+  usevar = KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L;
+
+  Analysis:
+  Type=mixture;
+   starts = 500 10;
+   process = 4(starts);
+
+  Output:
+   sampstat tech11 tech14;
+
+   Plot:
+  type=plot3;
+  series =KA46A - KA47L (*);
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  153
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  1400
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1563
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   KA46A       KA46H       KA46I       KA46K       KA46L       KA47A
+   KA47H       KA47I       KA47K       KA47L
+
+Observed auxiliary variables
+   STEM        STEMSUP     ENGINEER    MATHG8      SCIG8
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                           10
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  Dataset_Jul9_Mplus.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            25
+     Number of y missing data patterns           0
+     Number of u missing data patterns          25
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              KA46A         KA46H         KA46I         KA46K         KA46L
+              ________      ________      ________      ________      ________
+ KA46A          0.998
+ KA46H          0.990         0.990
+ KA46I          0.987         0.985         0.988
+ KA46K          0.984         0.982         0.980         0.984
+ KA46L          0.985         0.982         0.981         0.978         0.985
+ KA47A          0.985         0.981         0.980         0.977         0.977
+ KA47H          0.978         0.976         0.974         0.971         0.971
+ KA47I          0.979         0.976         0.974         0.972         0.972
+ KA47K          0.980         0.978         0.975         0.972         0.972
+ KA47L          0.983         0.981         0.979         0.976         0.977
+
+
+           Covariance Coverage
+              KA47A         KA47H         KA47I         KA47K         KA47L
+              ________      ________      ________      ________      ________
+ KA47A          0.985
+ KA47H          0.978         0.979
+ KA47I          0.978         0.972         0.980
+ KA47K          0.979         0.974         0.975         0.980
+ KA47L          0.983         0.978         0.978         0.979         0.985
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    KA46A
+      Category 1    0.451      703.000
+      Category 2    0.549      857.000
+    KA46H
+      Category 1    0.359      556.000
+      Category 2    0.641      991.000
+    KA46I
+      Category 1    0.321      496.000
+      Category 2    0.679     1048.000
+    KA46K
+      Category 1    0.412      633.000
+      Category 2    0.588      905.000
+    KA46L
+      Category 1    0.363      559.000
+      Category 2    0.637      981.000
+    KA47A
+      Category 1    0.466      718.000
+      Category 2    0.534      822.000
+    KA47H
+      Category 1    0.537      821.000
+      Category 2    0.463      709.000
+    KA47I
+      Category 1    0.455      697.000
+      Category 2    0.545      834.000
+    KA47K
+      Category 1    0.627      961.000
+      Category 2    0.373      571.000
+    KA47L
+      Category 1    0.578      890.000
+      Category 2    0.422      649.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -10339.025  655497           376
+          -10339.025  642909           251
+          -10339.025  340112           126
+          -10339.025  unperturbed      0
+          -10339.025  93468            3
+          -10339.025  7959             256
+          -10339.025  164305           128
+          -10339.025  814975           129
+          -10339.025  285380           1
+          -10339.025  777045           377
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       10
+
+Loglikelihood
+
+          H0 Value                      -10339.025
+          H0 Scaling Correction Factor      1.0000
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   20698.049
+          Bayesian (BIC)                 20751.593
+          Sample-Size Adjusted BIC       20719.825
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           3208.011
+          Degrees of Freedom                   987
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                           2474.977
+          Degrees of Freedom                   987
+          P-Value                           0.0000
+
+** Of the 6848 cells in the latent class indicator table, 26
+   were deleted in the calculation of chi-square due to extreme values.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                           1119.592
+          Degrees of Freedom                  5800
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            244.967
+          Degrees of Freedom                  5800
+          P-Value                           1.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       1563.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       1563.00000          1.00000
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             1563          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    KA46A$1           -0.198      0.051     -3.893      0.000
+    KA46H$1           -0.578      0.053    -10.907      0.000
+    KA46I$1           -0.748      0.055    -13.726      0.000
+    KA46K$1           -0.357      0.052     -6.899      0.000
+    KA46L$1           -0.562      0.053    -10.613      0.000
+    KA47A$1           -0.135      0.051     -2.648      0.008
+    KA47H$1            0.147      0.051      2.861      0.004
+    KA47I$1           -0.179      0.051     -3.497      0.000
+    KA47K$1            0.521      0.053      9.852      0.000
+    KA47L$1            0.316      0.052      6.118      0.000
+
+
+RESULTS IN PROBABILITY SCALE
+
+Latent Class 1
+
+ KA46A
+    Category 1         0.451      0.013     35.773      0.000
+    Category 2         0.549      0.013     43.609      0.000
+ KA46H
+    Category 1         0.359      0.012     29.461      0.000
+    Category 2         0.641      0.012     52.510      0.000
+ KA46I
+    Category 1         0.321      0.012     27.032      0.000
+    Category 2         0.679      0.012     57.117      0.000
+ KA46K
+    Category 1         0.412      0.013     32.799      0.000
+    Category 2         0.588      0.013     46.892      0.000
+ KA46L
+    Category 1         0.363      0.012     29.623      0.000
+    Category 2         0.637      0.012     51.986      0.000
+ KA47A
+    Category 1         0.466      0.013     36.676      0.000
+    Category 2         0.534      0.013     41.989      0.000
+ KA47H
+    Category 1         0.537      0.013     42.091      0.000
+    Category 2         0.463      0.013     36.349      0.000
+ KA47I
+    Category 1         0.455      0.013     35.770      0.000
+    Category 2         0.545      0.013     42.801      0.000
+ KA47K
+    Category 1         0.627      0.012     50.778      0.000
+    Category 2         0.373      0.012     30.171      0.000
+ KA47L
+    Category 1         0.578      0.013     45.940      0.000
+    Category 2         0.422      0.013     33.500      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.600E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms of sample values
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for Mixture analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  17:44:22
+        Ending Time:  17:44:24
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

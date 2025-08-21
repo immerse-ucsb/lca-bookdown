@@ -1,0 +1,1734 @@
+Mplus VERSION 8.11 (Mac)
+MUTHEN & MUTHEN
+06/18/2025   9:14 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  4-Class LTA for G7, G10, G12
+  DATA:
+  FILE = "/Users/brucecarter/Library/CloudStorage/Box-Box/TC_LTA/lta_enum/lsay_lta.dat";
+
+  VARIABLE:
+  NAMES = AB39A GA32A KA46A AB39H GA32H KA46H AB39I GA32I KA46I AB39K GA32K KA46K
+       AB39L GA32L KA46L AB39M GA33A KA47A AB39T GA33H KA47H AB39U GA33I KA47I AB39W
+       GA33K KA47K AB39X GA33L KA47L SCIENCEG7 SCIG8 SCIG11 MTH7 SCI7 SCI8 MOTHED
+       FATHED PEDUC PEDUC3 RSEDAN RSEDAN6 RSEDAN5 RBACC RMAJFIRST RMAJFIRST2 RMAJLAST2
+       RMAJLAST RGRADMAJ RGRADMAJ10 MINORITY STEM STEMSUP ENGINEER MATHG7 MATHG8
+       MATHG10 MATHG11 MATHG12 FEMALE;
+   MISSING=.;
+   categorical = AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X
+                 GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L
+                 KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L;
+   usevar = AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X
+            GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L
+            KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L
+             FEMALE MINORITY STEM STEMSUP ENGINEER MATHG8 SCIG8 MATHG11 SCIG11
+             MATHG7 MATHG10 MATHG12;
+   auxiliary = FEMALE MINORITY STEM STEMSUP ENGINEER MATHG8 SCIG8 MATHG11 SCIG11
+   MATHG7 MATHG10 MATHG12;
+   missing = all(9999);
+   classes = c1(4) c2(4) c3(4);
+  auxiliary = stem;
+  ANALYSIS:
+
+      estimator = mlr;
+      type = mixture;
+      starts = 500 10;
+      processors = 4;
+  MODEL:
+  %overall%
+  c2 on c1;
+  c3 on c2;
+
+  MODEL c1:
+  %c1#1%
+  [AB39A$1-AB39X$1] (1-10);
+  %c1#2%
+  [AB39A$1-AB39X$1] (11-20);
+  %c1#3%
+  [AB39A$1-AB39X$1] (21-30);
+  %c1#4%
+  [AB39A$1-AB39X$1] (31-40);
+
+  MODEL c2:
+  %c2#1%
+  [GA32A$1-GA33L$1] (1-10);
+  %c2#2%
+  [GA32A$1-GA33L$1] (11-20);
+  %c2#3%
+  [GA32A$1-GA33L$1] (21-30);
+  %c2#4%
+  [GA32A$1-GA33L$1] (31-40);
+
+  MODEL c3:
+  %c3#1%
+  [KA46A$1-KA47L$1] (1-10);
+  %c3#2%
+  [KA46A$1-KA47L$1] (11-20);
+  %c3#3%
+  [KA46A$1-KA47L$1] (21-30);
+  %c3#4%
+  [KA46A$1-KA47L$1] (31-40);
+  OUTPUT:
+  svalues; sampstat; tech11; tech14;
+  SAVEDATA:
+
+      file = lta_4class_cprobs.dat;
+      save = cprobabilities;
+      missflag = 9999;
+  PLOT:
+
+      type = plot3;
+      series = AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X
+               GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L
+               KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L (*);
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with more than one
+  categorical latent variable.  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with more than one
+  categorical latent variable.  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  5
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+4-Class LTA for G7, G10, G12
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1907
+
+Number of dependent variables                                   30
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           3
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   AB39A       AB39H       AB39I       AB39K       AB39L       AB39M
+   AB39T       AB39U       AB39W       AB39X       GA32A       GA32H
+   GA32I       GA32K       GA32L       GA33A       GA33H       GA33I
+   GA33K       GA33L       KA46A       KA46H       KA46I       KA46K
+   KA46L       KA47A       KA47H       KA47I       KA47K       KA47L
+
+Observed auxiliary variables
+   FEMALE      MINORITY    STEM        STEMSUP     ENGINEER    MATHG8
+   SCIG8       MATHG11     SCIG11      MATHG7      MATHG10     MATHG12
+
+Categorical latent variables
+   C1          C2          C3
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-03
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-03
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                           10
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Parameterization                                             LOGIT
+Link                                                         LOGIT
+
+Input data file(s)
+  /Users/brucecarter/Library/CloudStorage/Box-Box/TC_LTA/lta_enum/lsay_lta.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns           129
+     Number of y missing data patterns           0
+     Number of u missing data patterns         129
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              AB39A         AB39H         AB39I         AB39K         AB39L
+              ________      ________      ________      ________      ________
+ AB39A          0.987
+ AB39H          0.970         0.971
+ AB39I          0.967         0.954         0.969
+ AB39K          0.971         0.957         0.955         0.972
+ AB39L          0.973         0.958         0.958         0.961         0.974
+ AB39M          0.981         0.965         0.964         0.967         0.970
+ AB39T          0.964         0.949         0.947         0.950         0.953
+ AB39U          0.969         0.954         0.952         0.955         0.957
+ AB39W          0.973         0.958         0.955         0.959         0.961
+ AB39X          0.981         0.965         0.964         0.967         0.970
+ GA32A          0.793         0.781         0.778         0.781         0.784
+ GA32H          0.787         0.776         0.772         0.775         0.778
+ GA32I          0.786         0.773         0.770         0.773         0.776
+ GA32K          0.786         0.773         0.770         0.773         0.776
+ GA32L          0.790         0.778         0.774         0.777         0.780
+ GA33A          0.790         0.778         0.775         0.778         0.781
+ GA33H          0.785         0.773         0.769         0.772         0.776
+ GA33I          0.785         0.773         0.769         0.772         0.776
+ GA33K          0.786         0.774         0.770         0.773         0.777
+ GA33L          0.789         0.777         0.773         0.777         0.780
+ KA46A          0.579         0.569         0.568         0.571         0.572
+ KA46H          0.574         0.564         0.564         0.566         0.567
+ KA46I          0.573         0.563         0.562         0.565         0.565
+ KA46K          0.571         0.561         0.561         0.564         0.564
+ KA46L          0.571         0.561         0.560         0.563         0.563
+ KA47A          0.571         0.562         0.561         0.563         0.564
+ KA47H          0.568         0.559         0.557         0.560         0.561
+ KA47I          0.568         0.559         0.558         0.561         0.561
+ KA47K          0.568         0.558         0.557         0.560         0.561
+ KA47L          0.570         0.561         0.560         0.562         0.563
+
+
+           Covariance Coverage
+              AB39M         AB39T         AB39U         AB39W         AB39X
+              ________      ________      ________      ________      ________
+ AB39M          0.982
+ AB39T          0.962         0.965
+ AB39U          0.965         0.952         0.970
+ AB39W          0.970         0.956         0.961         0.974
+ AB39X          0.977         0.963         0.969         0.972         0.982
+ GA32A          0.790         0.774         0.779         0.781         0.789
+ GA32H          0.783         0.768         0.773         0.775         0.783
+ GA32I          0.782         0.766         0.771         0.773         0.781
+ GA32K          0.782         0.767         0.772         0.773         0.781
+ GA32L          0.786         0.770         0.776         0.778         0.786
+ GA33A          0.787         0.771         0.776         0.778         0.786
+ GA33H          0.781         0.766         0.771         0.773         0.781
+ GA33I          0.781         0.766         0.771         0.773         0.781
+ GA33K          0.782         0.767         0.772         0.774         0.782
+ GA33L          0.786         0.770         0.775         0.777         0.785
+ KA46A          0.577         0.566         0.572         0.573         0.577
+ KA46H          0.572         0.561         0.567         0.568         0.572
+ KA46I          0.571         0.560         0.565         0.567         0.571
+ KA46K          0.569         0.558         0.564         0.566         0.569
+ KA46L          0.568         0.557         0.563         0.565         0.568
+ KA47A          0.569         0.558         0.564         0.565         0.569
+ KA47H          0.566         0.555         0.561         0.562         0.566
+ KA47I          0.566         0.555         0.561         0.563         0.566
+ KA47K          0.566         0.555         0.561         0.562         0.566
+ KA47L          0.568         0.557         0.563         0.564         0.568
+
+
+           Covariance Coverage
+              GA32A         GA32H         GA32I         GA32K         GA32L
+              ________      ________      ________      ________      ________
+ GA32A          0.803
+ GA32H          0.797         0.797
+ GA32I          0.795         0.790         0.795
+ GA32K          0.795         0.790         0.789         0.795
+ GA32L          0.799         0.794         0.793         0.793         0.800
+ GA33A          0.800         0.794         0.793         0.793         0.798
+ GA33H          0.794         0.789         0.788         0.789         0.792
+ GA33I          0.794         0.789         0.788         0.788         0.792
+ GA33K          0.795         0.790         0.788         0.789         0.793
+ GA33L          0.799         0.793         0.792         0.792         0.797
+ KA46A          0.531         0.528         0.527         0.526         0.531
+ KA46H          0.527         0.524         0.523         0.522         0.526
+ KA46I          0.525         0.522         0.521         0.520         0.524
+ KA46K          0.524         0.521         0.520         0.519         0.523
+ KA46L          0.523         0.520         0.519         0.518         0.522
+ KA47A          0.523         0.520         0.519         0.519         0.523
+ KA47H          0.520         0.517         0.516         0.515         0.520
+ KA47I          0.521         0.518         0.517         0.516         0.520
+ KA47K          0.520         0.517         0.516         0.516         0.520
+ KA47L          0.522         0.519         0.518         0.518         0.522
+
+
+           Covariance Coverage
+              GA33A         GA33H         GA33I         GA33K         GA33L
+              ________      ________      ________      ________      ________
+ GA33A          0.800
+ GA33H          0.793         0.795
+ GA33I          0.793         0.789         0.795
+ GA33K          0.793         0.789         0.789         0.796
+ GA33L          0.797         0.792         0.792         0.793         0.799
+ KA46A          0.529         0.525         0.527         0.526         0.529
+ KA46H          0.525         0.521         0.523         0.522         0.524
+ KA46I          0.523         0.519         0.521         0.520         0.522
+ KA46K          0.522         0.518         0.520         0.519         0.521
+ KA46L          0.521         0.517         0.519         0.518         0.520
+ KA47A          0.521         0.518         0.519         0.519         0.521
+ KA47H          0.518         0.514         0.515         0.515         0.519
+ KA47I          0.519         0.515         0.516         0.516         0.519
+ KA47K          0.518         0.515         0.515         0.515         0.518
+ KA47L          0.520         0.517         0.518         0.518         0.520
+
+
+           Covariance Coverage
+              KA46A         KA46H         KA46I         KA46K         KA46L
+              ________      ________      ________      ________      ________
+ KA46A          0.587
+ KA46H          0.583         0.583
+ KA46I          0.580         0.580         0.581
+ KA46K          0.579         0.579         0.577         0.579
+ KA46L          0.579         0.578         0.577         0.575         0.579
+ KA47A          0.579         0.577         0.576         0.574         0.574
+ KA47H          0.576         0.575         0.573         0.572         0.571
+ KA47I          0.576         0.576         0.574         0.573         0.572
+ KA47K          0.576         0.575         0.573         0.572         0.571
+ KA47L          0.578         0.577         0.575         0.574         0.573
+
+
+           Covariance Coverage
+              KA47A         KA47H         KA47I         KA47K         KA47L
+              ________      ________      ________      ________      ________
+ KA47A          0.579
+ KA47H          0.575         0.576
+ KA47I          0.576         0.574         0.577
+ KA47K          0.575         0.573         0.574         0.576
+ KA47L          0.577         0.575         0.576         0.575         0.578
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    AB39A
+      Category 1    0.312          587.000
+      Category 2    0.688         1295.000
+    AB39H
+      Category 1    0.278          515.000
+      Category 2    0.722         1336.000
+    AB39I
+      Category 1    0.347          641.000
+      Category 2    0.653         1206.000
+    AB39K
+      Category 1    0.232          430.000
+      Category 2    0.768         1424.000
+    AB39L
+      Category 1    0.249          462.000
+      Category 2    0.751         1395.000
+    AB39M
+      Category 1    0.376          705.000
+      Category 2    0.624         1168.000
+    AB39T
+      Category 1    0.602         1107.000
+      Category 2    0.398          733.000
+    AB39U
+      Category 1    0.508          939.000
+      Category 2    0.492          911.000
+    AB39W
+      Category 1    0.600         1115.000
+      Category 2    0.400          742.000
+    AB39X
+      Category 1    0.536         1003.000
+      Category 2    0.464          870.000
+    GA32A
+      Category 1    0.370          567.000
+      Category 2    0.630          965.000
+    GA32H
+      Category 1    0.351          533.000
+      Category 2    0.649          987.000
+    GA32I
+      Category 1    0.314          476.000
+      Category 2    0.686         1041.000
+    GA32K
+      Category 1    0.321          487.000
+      Category 2    0.679         1030.000
+    GA32L
+      Category 1    0.353          539.000
+      Category 2    0.647          986.000
+    GA33A
+      Category 1    0.408          623.000
+      Category 2    0.592          903.000
+    GA33H
+      Category 1    0.565          857.000
+      Category 2    0.435          659.000
+    GA33I
+      Category 1    0.475          720.000
+      Category 2    0.525          796.000
+    GA33K
+      Category 1    0.571          867.000
+      Category 2    0.429          651.000
+    GA33L
+      Category 1    0.580          884.000
+      Category 2    0.420          640.000
+    KA46A
+      Category 1    0.433          485.000
+      Category 2    0.567          635.000
+    KA46H
+      Category 1    0.327          363.000
+      Category 2    0.673          748.000
+    KA46I
+      Category 1    0.288          319.000
+      Category 2    0.712          789.000
+    KA46K
+      Category 1    0.389          430.000
+      Category 2    0.611          675.000
+    KA46L
+      Category 1    0.349          385.000
+      Category 2    0.651          719.000
+    KA47A
+      Category 1    0.448          495.000
+      Category 2    0.552          610.000
+    KA47H
+      Category 1    0.515          566.000
+      Category 2    0.485          533.000
+    KA47I
+      Category 1    0.435          479.000
+      Category 2    0.565          621.000
+    KA47K
+      Category 1    0.617          678.000
+      Category 2    0.383          421.000
+    KA47L
+      Category 1    0.557          614.000
+      Category 2    0.443          489.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -23467.502  314757           345
+          -23467.502  777045           377
+          -23467.502  127215           9
+          -23467.502  850840           232
+          -23467.502  156536           245
+          -23467.502  903420           5
+          -23467.502  505879           424
+          -23467.502  193847           354
+          -23467.503  637345           19
+          -23467.503  948615           140
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     THE CHI-SQUARE TEST CANNOT BE COMPUTED BECAUSE THE FREQUENCY TABLE FOR THE
+     LATENT CLASS INDICATOR MODEL PART IS TOO LARGE.
+
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       67
+
+Loglikelihood
+
+          H0 Value                      -23467.502
+          H0 Scaling Correction Factor      1.2531
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   47069.003
+          Bayesian (BIC)                 47441.074
+          Sample-Size Adjusted BIC       47228.214
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Variable    Class
+
+    C1             1       598.23798          0.31371
+                   2       229.04486          0.12011
+                   3       409.47931          0.21472
+                   4       670.23785          0.35146
+    C2             1       628.27484          0.32946
+                   2       395.73233          0.20752
+                   3       431.57251          0.22631
+                   4       451.42029          0.23672
+    C3             1       644.54639          0.33799
+                   2       430.12939          0.22555
+                   3       443.69318          0.23267
+                   4       388.63101          0.20379
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.646
+
+
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C1
+                       Latent class
+                     1      2      3      4
+     AB39A
+       Category 1  0.173  0.679  0.480  0.291
+       Category 2  0.827  0.321  0.520  0.709
+     AB39H
+       Category 1  0.050  0.871  0.469  0.157
+       Category 2  0.950  0.129  0.531  0.843
+     AB39I
+       Category 1  0.042  0.835  0.373  0.290
+       Category 2  0.958  0.165  0.627  0.710
+     AB39K
+       Category 1  0.054  0.816  0.482  0.127
+       Category 2  0.946  0.184  0.518  0.873
+     AB39L
+       Category 1  0.022  0.905  0.538  0.094
+       Category 2  0.978  0.095  0.462  0.906
+     AB39M
+       Category 1  0.103  0.796  0.291  0.609
+       Category 2  0.897  0.204  0.709  0.391
+     AB39T
+       Category 1  0.109  0.974  0.512  0.903
+       Category 2  0.891  0.026  0.488  0.097
+     AB39U
+       Category 1  0.075  0.949  0.385  0.736
+       Category 2  0.925  0.051  0.615  0.264
+     AB39W
+       Category 1  0.138  0.973  0.612  0.885
+       Category 2  0.862  0.027  0.388  0.115
+     AB39X
+       Category 1  0.089  0.971  0.537  0.865
+       Category 2  0.911  0.029  0.463  0.135
+
+     MEAN/PROBABILITY PROFILES FOR C2
+                       Latent class
+                     1      2      3      4
+     GA32A
+       Category 1  0.173  0.679  0.480  0.291
+       Category 2  0.827  0.321  0.520  0.709
+     GA32H
+       Category 1  0.050  0.871  0.469  0.157
+       Category 2  0.950  0.129  0.531  0.843
+     GA32I
+       Category 1  0.042  0.835  0.373  0.290
+       Category 2  0.958  0.165  0.627  0.710
+     GA32K
+       Category 1  0.054  0.816  0.482  0.127
+       Category 2  0.946  0.184  0.518  0.873
+     GA32L
+       Category 1  0.022  0.905  0.538  0.094
+       Category 2  0.978  0.095  0.462  0.906
+     GA33A
+       Category 1  0.103  0.796  0.291  0.609
+       Category 2  0.897  0.204  0.709  0.391
+     GA33H
+       Category 1  0.109  0.974  0.512  0.903
+       Category 2  0.891  0.026  0.488  0.097
+     GA33I
+       Category 1  0.075  0.949  0.385  0.736
+       Category 2  0.925  0.051  0.615  0.264
+     GA33K
+       Category 1  0.138  0.973  0.612  0.885
+       Category 2  0.862  0.027  0.388  0.115
+     GA33L
+       Category 1  0.089  0.971  0.537  0.865
+       Category 2  0.911  0.029  0.463  0.135
+
+     MEAN/PROBABILITY PROFILES FOR C3
+                       Latent class
+                     1      2      3      4
+     KA46A
+       Category 1  0.173  0.679  0.480  0.291
+       Category 2  0.827  0.321  0.520  0.709
+     KA46H
+       Category 1  0.050  0.871  0.469  0.157
+       Category 2  0.950  0.129  0.531  0.843
+     KA46I
+       Category 1  0.042  0.835  0.373  0.290
+       Category 2  0.958  0.165  0.627  0.710
+     KA46K
+       Category 1  0.054  0.816  0.482  0.127
+       Category 2  0.946  0.184  0.518  0.873
+     KA46L
+       Category 1  0.022  0.905  0.538  0.094
+       Category 2  0.978  0.095  0.462  0.906
+     KA47A
+       Category 1  0.103  0.796  0.291  0.609
+       Category 2  0.897  0.204  0.709  0.391
+     KA47H
+       Category 1  0.109  0.974  0.512  0.903
+       Category 2  0.891  0.026  0.488  0.097
+     KA47I
+       Category 1  0.075  0.949  0.385  0.736
+       Category 2  0.925  0.051  0.615  0.264
+     KA47K
+       Category 1  0.138  0.973  0.612  0.885
+       Category 2  0.862  0.027  0.388  0.115
+     KA47L
+       Category 1  0.089  0.971  0.537  0.865
+       Category 2  0.911  0.029  0.463  0.135
+
+
+LATENT TRANSITION PROBABILITIES BASED ON THE ESTIMATED MODEL
+
+  C1 Classes (Rows) by C2 Classes (Columns)
+
+            1        2        3        4
+
+   1     0.524    0.102    0.196    0.178
+   2     0.130    0.474    0.239    0.156
+   3     0.301    0.212    0.360    0.127
+   4     0.241    0.208    0.167    0.384
+
+  C2 Classes (Rows) by C3 Classes (Columns)
+
+            1        2        3        4
+
+   1     0.661    0.103    0.158    0.078
+   2     0.085    0.537    0.203    0.174
+   3     0.222    0.196    0.512    0.070
+   4     0.220    0.151    0.095    0.534
+
+
+TRANSITION PROBABILITY ODDS
+
+     TRANSITION TABLE ODDS AND 95% CONFIDENCE INTERVALS FOR C1 TO C2
+        1.000(1.000,1.000)   0.195(0.136,0.280)   0.375(0.262,0.537)   0.339(0.247,0.465)
+        0.275(0.154,0.493)   1.000(1.000,1.000)   0.504(0.296,0.859)   0.329(0.169,0.638)
+        0.838(0.550,1.278)   0.589(0.369,0.938)   1.000(1.000,1.000)   0.354(0.172,0.729)
+        0.628(0.459,0.858)   0.541(0.371,0.790)   0.435(0.277,0.683)   1.000(1.000,1.000)
+
+     TRANSITION TABLE ODDS AND 95% CONFIDENCE INTERVALS FOR C2 TO C3
+        1.000(1.000,1.000)   0.156(0.105,0.232)   0.239(0.157,0.364)   0.118(0.068,0.203)
+        0.159(0.083,0.306)   1.000(1.000,1.000)   0.378(0.231,0.620)   0.324(0.187,0.563)
+        0.434(0.262,0.720)   0.383(0.227,0.645)   1.000(1.000,1.000)   0.136(0.038,0.486)
+        0.413(0.273,0.624)   0.283(0.173,0.462)   0.178(0.076,0.419)   1.000(1.000,1.000)
+
+
+C-SPECIFIC CLASSIFICATION RESULTS
+
+Classification Quality for C1
+
+     Entropy                         0.727
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.898    0.001    0.064    0.037
+    2   0.000    0.856    0.079    0.065
+    3   0.069    0.035    0.768    0.129
+    4   0.021    0.032    0.103    0.844
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.934    0.000    0.042    0.024
+    2   0.002    0.845    0.056    0.098
+    3   0.097    0.043    0.684    0.175
+    4   0.034    0.022    0.070    0.873
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      3.648  -10.099    0.544    0.000
+    2     -3.959    2.157   -0.562    0.000
+    3     -0.586   -1.393    1.364    0.000
+    4     -3.234   -3.682   -2.522    0.000
+
+Classification Quality for C2
+
+     Entropy                         0.653
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.847    0.022    0.083    0.048
+    2   0.027    0.820    0.090    0.063
+    3   0.093    0.072    0.740    0.095
+    4   0.063    0.064    0.114    0.758
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.878    0.017    0.058    0.047
+    2   0.036    0.816    0.071    0.077
+    3   0.124    0.082    0.669    0.125
+    4   0.070    0.055    0.082    0.793
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      2.920   -1.018    0.203    0.000
+    2     -0.748    2.363   -0.082    0.000
+    3     -0.003   -0.421    1.678    0.000
+    4     -2.430   -2.665   -2.269    0.000
+
+Classification Quality for C3
+
+     Entropy                         0.509
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.695    0.085    0.133    0.087
+    2   0.053    0.732    0.121    0.094
+    3   0.108    0.090    0.716    0.085
+    4   0.095    0.085    0.118    0.701
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.855    0.034    0.058    0.053
+    2   0.156    0.701    0.072    0.071
+    3   0.238    0.112    0.554    0.096
+    4   0.178    0.100    0.075    0.648
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      2.780   -0.439    0.081    0.000
+    2      0.782    2.286    0.012    0.000
+    3      0.913    0.158    1.756    0.000
+    4     -1.294   -1.869   -2.157    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Parameters for Class-specific Model Parts of C1
+
+Latent Class C1#1
+
+ Thresholds
+    AB39A$1           -1.566      0.101    -15.559      0.000
+    AB39H$1           -2.945      0.271    -10.861      0.000
+    AB39I$1           -3.121      0.335     -9.312      0.000
+    AB39K$1           -2.870      0.230    -12.455      0.000
+    AB39L$1           -3.789      0.386     -9.808      0.000
+    AB39M$1           -2.162      0.116    -18.678      0.000
+    AB39T$1           -2.101      0.161    -13.038      0.000
+    AB39U$1           -2.508      0.178    -14.052      0.000
+    AB39W$1           -1.835      0.166    -11.082      0.000
+    AB39X$1           -2.329      0.166    -14.005      0.000
+
+Latent Class C1#2
+
+ Thresholds
+    AB39A$1            0.751      0.105      7.153      0.000
+    AB39H$1            1.914      0.198      9.678      0.000
+    AB39I$1            1.619      0.198      8.167      0.000
+    AB39K$1            1.492      0.176      8.500      0.000
+    AB39L$1            2.256      0.302      7.469      0.000
+    AB39M$1            1.360      0.180      7.570      0.000
+    AB39T$1            3.636      0.418      8.692      0.000
+    AB39U$1            2.923      0.485      6.022      0.000
+    AB39W$1            3.589      0.403      8.901      0.000
+    AB39X$1            3.510      0.474      7.413      0.000
+
+Latent Class C1#3
+
+ Thresholds
+    AB39A$1           -0.082      0.152     -0.537      0.591
+    AB39H$1           -0.123      0.202     -0.609      0.543
+    AB39I$1           -0.520      0.180     -2.887      0.004
+    AB39K$1           -0.070      0.255     -0.275      0.783
+    AB39L$1            0.153      0.329      0.464      0.642
+    AB39M$1           -0.892      0.127     -7.014      0.000
+    AB39T$1            0.046      0.182      0.256      0.798
+    AB39U$1           -0.468      0.210     -2.229      0.026
+    AB39W$1            0.455      0.186      2.447      0.014
+    AB39X$1            0.150      0.218      0.688      0.491
+
+Latent Class C1#4
+
+ Thresholds
+    AB39A$1           -0.890      0.099     -8.987      0.000
+    AB39H$1           -1.678      0.234     -7.183      0.000
+    AB39I$1           -0.898      0.156     -5.751      0.000
+    AB39K$1           -1.926      0.165    -11.665      0.000
+    AB39L$1           -2.270      0.234     -9.703      0.000
+    AB39M$1            0.441      0.116      3.812      0.000
+    AB39T$1            2.227      0.196     11.342      0.000
+    AB39U$1            1.023      0.125      8.172      0.000
+    AB39W$1            2.039      0.262      7.791      0.000
+    AB39X$1            1.858      0.290      6.403      0.000
+
+Parameters for Class-specific Model Parts of C2
+
+Latent Class C2#1
+
+ Thresholds
+    GA32A$1           -1.566      0.101    -15.559      0.000
+    GA32H$1           -2.945      0.271    -10.861      0.000
+    GA32I$1           -3.121      0.335     -9.312      0.000
+    GA32K$1           -2.870      0.230    -12.455      0.000
+    GA32L$1           -3.789      0.386     -9.808      0.000
+    GA33A$1           -2.162      0.116    -18.678      0.000
+    GA33H$1           -2.101      0.161    -13.038      0.000
+    GA33I$1           -2.508      0.178    -14.052      0.000
+    GA33K$1           -1.835      0.166    -11.082      0.000
+    GA33L$1           -2.329      0.166    -14.005      0.000
+
+Latent Class C2#2
+
+ Thresholds
+    GA32A$1            0.751      0.105      7.153      0.000
+    GA32H$1            1.914      0.198      9.678      0.000
+    GA32I$1            1.619      0.198      8.167      0.000
+    GA32K$1            1.492      0.176      8.500      0.000
+    GA32L$1            2.256      0.302      7.469      0.000
+    GA33A$1            1.360      0.180      7.570      0.000
+    GA33H$1            3.636      0.418      8.692      0.000
+    GA33I$1            2.923      0.485      6.022      0.000
+    GA33K$1            3.589      0.403      8.901      0.000
+    GA33L$1            3.510      0.474      7.413      0.000
+
+Latent Class C2#3
+
+ Thresholds
+    GA32A$1           -0.082      0.152     -0.537      0.591
+    GA32H$1           -0.123      0.202     -0.609      0.543
+    GA32I$1           -0.520      0.180     -2.887      0.004
+    GA32K$1           -0.070      0.255     -0.275      0.783
+    GA32L$1            0.153      0.329      0.464      0.642
+    GA33A$1           -0.892      0.127     -7.014      0.000
+    GA33H$1            0.046      0.182      0.256      0.798
+    GA33I$1           -0.468      0.210     -2.229      0.026
+    GA33K$1            0.455      0.186      2.447      0.014
+    GA33L$1            0.150      0.218      0.688      0.491
+
+Latent Class C2#4
+
+ Thresholds
+    GA32A$1           -0.890      0.099     -8.987      0.000
+    GA32H$1           -1.678      0.234     -7.183      0.000
+    GA32I$1           -0.898      0.156     -5.751      0.000
+    GA32K$1           -1.926      0.165    -11.665      0.000
+    GA32L$1           -2.270      0.234     -9.703      0.000
+    GA33A$1            0.441      0.116      3.812      0.000
+    GA33H$1            2.227      0.196     11.342      0.000
+    GA33I$1            1.023      0.125      8.172      0.000
+    GA33K$1            2.039      0.262      7.791      0.000
+    GA33L$1            1.858      0.290      6.403      0.000
+
+Parameters for Class-specific Model Parts of C3
+
+Latent Class C3#1
+
+ Thresholds
+    KA46A$1           -1.566      0.101    -15.559      0.000
+    KA46H$1           -2.945      0.271    -10.861      0.000
+    KA46I$1           -3.121      0.335     -9.312      0.000
+    KA46K$1           -2.870      0.230    -12.455      0.000
+    KA46L$1           -3.789      0.386     -9.808      0.000
+    KA47A$1           -2.162      0.116    -18.678      0.000
+    KA47H$1           -2.101      0.161    -13.038      0.000
+    KA47I$1           -2.508      0.178    -14.052      0.000
+    KA47K$1           -1.835      0.166    -11.082      0.000
+    KA47L$1           -2.329      0.166    -14.005      0.000
+
+Latent Class C3#2
+
+ Thresholds
+    KA46A$1            0.751      0.105      7.153      0.000
+    KA46H$1            1.914      0.198      9.678      0.000
+    KA46I$1            1.619      0.198      8.167      0.000
+    KA46K$1            1.492      0.176      8.500      0.000
+    KA46L$1            2.256      0.302      7.469      0.000
+    KA47A$1            1.360      0.180      7.570      0.000
+    KA47H$1            3.636      0.418      8.692      0.000
+    KA47I$1            2.923      0.485      6.022      0.000
+    KA47K$1            3.589      0.403      8.901      0.000
+    KA47L$1            3.510      0.474      7.413      0.000
+
+Latent Class C3#3
+
+ Thresholds
+    KA46A$1           -0.082      0.152     -0.537      0.591
+    KA46H$1           -0.123      0.202     -0.609      0.543
+    KA46I$1           -0.520      0.180     -2.887      0.004
+    KA46K$1           -0.070      0.255     -0.275      0.783
+    KA46L$1            0.153      0.329      0.464      0.642
+    KA47A$1           -0.892      0.127     -7.014      0.000
+    KA47H$1            0.046      0.182      0.256      0.798
+    KA47I$1           -0.468      0.210     -2.229      0.026
+    KA47K$1            0.455      0.186      2.447      0.014
+    KA47L$1            0.150      0.218      0.688      0.491
+
+Latent Class C3#4
+
+ Thresholds
+    KA46A$1           -0.890      0.099     -8.987      0.000
+    KA46H$1           -1.678      0.234     -7.183      0.000
+    KA46I$1           -0.898      0.156     -5.751      0.000
+    KA46K$1           -1.926      0.165    -11.665      0.000
+    KA46L$1           -2.270      0.234     -9.703      0.000
+    KA47A$1            0.441      0.116      3.812      0.000
+    KA47H$1            2.227      0.196     11.342      0.000
+    KA47I$1            1.023      0.125      8.172      0.000
+    KA47K$1            2.039      0.262      7.791      0.000
+    KA47L$1            1.858      0.290      6.403      0.000
+
+Categorical Latent Variables
+
+ C2#1     ON
+    C1#1               1.548      0.229      6.766      0.000
+    C1#2               0.287      0.432      0.665      0.506
+    C1#3               1.328      0.411      3.233      0.001
+
+ C2#2     ON
+    C1#1               0.061      0.272      0.224      0.823
+    C1#2               1.726      0.369      4.680      0.000
+    C1#3               1.123      0.449      2.502      0.012
+
+ C2#3     ON
+    C1#1               0.933      0.302      3.089      0.002
+    C1#2               1.260      0.464      2.713      0.007
+    C1#3               1.871      0.482      3.885      0.000
+
+ C3#1     ON
+    C2#1               3.026      0.358      8.449      0.000
+    C2#2               0.173      0.440      0.392      0.695
+    C2#3               2.047      0.708      2.890      0.004
+
+ C3#2     ON
+    C2#1               1.546      0.424      3.650      0.000
+    C2#2               2.388      0.373      6.402      0.000
+    C2#3               2.299      0.728      3.157      0.002
+
+ C3#3     ON
+    C2#1               2.435      0.526      4.626      0.000
+    C2#2               1.879      0.561      3.348      0.001
+    C2#3               3.722      0.761      4.887      0.000
+
+ Means
+    C1#1              -0.114      0.107     -1.058      0.290
+    C1#2              -1.074      0.202     -5.325      0.000
+    C1#3              -0.493      0.332     -1.483      0.138
+    C2#1              -0.466      0.159     -2.922      0.003
+    C2#2              -0.614      0.193     -3.184      0.001
+    C2#3              -0.832      0.230     -3.618      0.000
+    C3#1              -0.885      0.211     -4.198      0.000
+    C3#2              -1.262      0.250     -5.051      0.000
+    C3#3              -1.725      0.436     -3.953      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.176E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Results for Class-specific Model Parts of C1
+
+Latent Class C1#1
+
+ AB39A
+    Category 1         0.173      0.014     12.009      0.000
+    Category 2         0.827      0.014     57.504      0.000
+ AB39H
+    Category 1         0.050      0.013      3.882      0.000
+    Category 2         0.950      0.013     73.806      0.000
+ AB39I
+    Category 1         0.042      0.014      3.116      0.002
+    Category 2         0.958      0.014     70.599      0.000
+ AB39K
+    Category 1         0.054      0.012      4.586      0.000
+    Category 2         0.946      0.012     80.878      0.000
+ AB39L
+    Category 1         0.022      0.008      2.647      0.008
+    Category 2         0.978      0.008    117.070      0.000
+ AB39M
+    Category 1         0.103      0.011      9.634      0.000
+    Category 2         0.897      0.011     83.698      0.000
+ AB39T
+    Category 1         0.109      0.016      6.965      0.000
+    Category 2         0.891      0.016     56.934      0.000
+ AB39U
+    Category 1         0.075      0.012      6.059      0.000
+    Category 2         0.925      0.012     74.413      0.000
+ AB39W
+    Category 1         0.138      0.020      7.005      0.000
+    Category 2         0.862      0.020     43.867      0.000
+ AB39X
+    Category 1         0.089      0.013      6.599      0.000
+    Category 2         0.911      0.013     67.757      0.000
+
+Latent Class C1#2
+
+ AB39A
+    Category 1         0.679      0.023     29.712      0.000
+    Category 2         0.321      0.023     14.022      0.000
+ AB39H
+    Category 1         0.871      0.022     39.335      0.000
+    Category 2         0.129      0.022      5.803      0.000
+ AB39I
+    Category 1         0.835      0.027     30.510      0.000
+    Category 2         0.165      0.027      6.043      0.000
+ AB39K
+    Category 1         0.816      0.026     31.027      0.000
+    Category 2         0.184      0.026      6.977      0.000
+ AB39L
+    Category 1         0.905      0.026     34.906      0.000
+    Category 2         0.095      0.026      3.658      0.000
+ AB39M
+    Category 1         0.796      0.029     27.252      0.000
+    Category 2         0.204      0.029      6.993      0.000
+ AB39T
+    Category 1         0.974      0.010     93.111      0.000
+    Category 2         0.026      0.010      2.453      0.014
+ AB39U
+    Category 1         0.949      0.024     40.362      0.000
+    Category 2         0.051      0.024      2.171      0.030
+ AB39W
+    Category 1         0.973      0.011     92.221      0.000
+    Category 2         0.027      0.011      2.549      0.011
+ AB39X
+    Category 1         0.971      0.013     72.762      0.000
+    Category 2         0.029      0.013      2.175      0.030
+
+Latent Class C1#3
+
+ AB39A
+    Category 1         0.480      0.038     12.599      0.000
+    Category 2         0.520      0.038     13.675      0.000
+ AB39H
+    Category 1         0.469      0.050      9.313      0.000
+    Category 2         0.531      0.050     10.534      0.000
+ AB39I
+    Category 1         0.373      0.042      8.853      0.000
+    Category 2         0.627      0.042     14.891      0.000
+ AB39K
+    Category 1         0.482      0.064      7.566      0.000
+    Category 2         0.518      0.064      8.117      0.000
+ AB39L
+    Category 1         0.538      0.082      6.585      0.000
+    Category 2         0.462      0.082      5.653      0.000
+ AB39M
+    Category 1         0.291      0.026     11.084      0.000
+    Category 2         0.709      0.026     27.048      0.000
+ AB39T
+    Category 1         0.512      0.045     11.280      0.000
+    Category 2         0.488      0.045     10.769      0.000
+ AB39U
+    Category 1         0.385      0.050      7.752      0.000
+    Category 2         0.615      0.050     12.374      0.000
+ AB39W
+    Category 1         0.612      0.044     13.859      0.000
+    Category 2         0.388      0.044      8.794      0.000
+ AB39X
+    Category 1         0.537      0.054      9.903      0.000
+    Category 2         0.463      0.054      8.521      0.000
+
+Latent Class C1#4
+
+ AB39A
+    Category 1         0.291      0.020     14.252      0.000
+    Category 2         0.709      0.020     34.691      0.000
+ AB39H
+    Category 1         0.157      0.031      5.082      0.000
+    Category 2         0.843      0.031     27.201      0.000
+ AB39I
+    Category 1         0.290      0.032      9.018      0.000
+    Category 2         0.710      0.032     22.128      0.000
+ AB39K
+    Category 1         0.127      0.018      6.938      0.000
+    Category 2         0.873      0.018     47.622      0.000
+ AB39L
+    Category 1         0.094      0.020      4.716      0.000
+    Category 2         0.906      0.020     45.654      0.000
+ AB39M
+    Category 1         0.609      0.028     22.065      0.000
+    Category 2         0.391      0.028     14.191      0.000
+ AB39T
+    Category 1         0.903      0.017     52.323      0.000
+    Category 2         0.097      0.017      5.641      0.000
+ AB39U
+    Category 1         0.736      0.024     30.207      0.000
+    Category 2         0.264      0.024     10.856      0.000
+ AB39W
+    Category 1         0.885      0.027     33.178      0.000
+    Category 2         0.115      0.027      4.318      0.000
+ AB39X
+    Category 1         0.865      0.034     25.536      0.000
+    Category 2         0.135      0.034      3.985      0.000
+
+Results for Class-specific Model Parts of C2
+
+Latent Class C2#1
+
+ GA32A
+    Category 1         0.173      0.014     12.009      0.000
+    Category 2         0.827      0.014     57.504      0.000
+ GA32H
+    Category 1         0.050      0.013      3.882      0.000
+    Category 2         0.950      0.013     73.806      0.000
+ GA32I
+    Category 1         0.042      0.014      3.116      0.002
+    Category 2         0.958      0.014     70.599      0.000
+ GA32K
+    Category 1         0.054      0.012      4.586      0.000
+    Category 2         0.946      0.012     80.878      0.000
+ GA32L
+    Category 1         0.022      0.008      2.647      0.008
+    Category 2         0.978      0.008    117.070      0.000
+ GA33A
+    Category 1         0.103      0.011      9.634      0.000
+    Category 2         0.897      0.011     83.698      0.000
+ GA33H
+    Category 1         0.109      0.016      6.965      0.000
+    Category 2         0.891      0.016     56.934      0.000
+ GA33I
+    Category 1         0.075      0.012      6.059      0.000
+    Category 2         0.925      0.012     74.413      0.000
+ GA33K
+    Category 1         0.138      0.020      7.005      0.000
+    Category 2         0.862      0.020     43.867      0.000
+ GA33L
+    Category 1         0.089      0.013      6.599      0.000
+    Category 2         0.911      0.013     67.757      0.000
+
+Latent Class C2#2
+
+ GA32A
+    Category 1         0.679      0.023     29.712      0.000
+    Category 2         0.321      0.023     14.022      0.000
+ GA32H
+    Category 1         0.871      0.022     39.335      0.000
+    Category 2         0.129      0.022      5.803      0.000
+ GA32I
+    Category 1         0.835      0.027     30.510      0.000
+    Category 2         0.165      0.027      6.043      0.000
+ GA32K
+    Category 1         0.816      0.026     31.027      0.000
+    Category 2         0.184      0.026      6.977      0.000
+ GA32L
+    Category 1         0.905      0.026     34.906      0.000
+    Category 2         0.095      0.026      3.658      0.000
+ GA33A
+    Category 1         0.796      0.029     27.252      0.000
+    Category 2         0.204      0.029      6.993      0.000
+ GA33H
+    Category 1         0.974      0.010     93.111      0.000
+    Category 2         0.026      0.010      2.453      0.014
+ GA33I
+    Category 1         0.949      0.024     40.362      0.000
+    Category 2         0.051      0.024      2.171      0.030
+ GA33K
+    Category 1         0.973      0.011     92.221      0.000
+    Category 2         0.027      0.011      2.549      0.011
+ GA33L
+    Category 1         0.971      0.013     72.762      0.000
+    Category 2         0.029      0.013      2.175      0.030
+
+Latent Class C2#3
+
+ GA32A
+    Category 1         0.480      0.038     12.599      0.000
+    Category 2         0.520      0.038     13.675      0.000
+ GA32H
+    Category 1         0.469      0.050      9.313      0.000
+    Category 2         0.531      0.050     10.534      0.000
+ GA32I
+    Category 1         0.373      0.042      8.853      0.000
+    Category 2         0.627      0.042     14.891      0.000
+ GA32K
+    Category 1         0.482      0.064      7.566      0.000
+    Category 2         0.518      0.064      8.117      0.000
+ GA32L
+    Category 1         0.538      0.082      6.585      0.000
+    Category 2         0.462      0.082      5.653      0.000
+ GA33A
+    Category 1         0.291      0.026     11.084      0.000
+    Category 2         0.709      0.026     27.048      0.000
+ GA33H
+    Category 1         0.512      0.045     11.280      0.000
+    Category 2         0.488      0.045     10.769      0.000
+ GA33I
+    Category 1         0.385      0.050      7.752      0.000
+    Category 2         0.615      0.050     12.374      0.000
+ GA33K
+    Category 1         0.612      0.044     13.859      0.000
+    Category 2         0.388      0.044      8.794      0.000
+ GA33L
+    Category 1         0.537      0.054      9.903      0.000
+    Category 2         0.463      0.054      8.521      0.000
+
+Latent Class C2#4
+
+ GA32A
+    Category 1         0.291      0.020     14.252      0.000
+    Category 2         0.709      0.020     34.691      0.000
+ GA32H
+    Category 1         0.157      0.031      5.082      0.000
+    Category 2         0.843      0.031     27.201      0.000
+ GA32I
+    Category 1         0.290      0.032      9.018      0.000
+    Category 2         0.710      0.032     22.128      0.000
+ GA32K
+    Category 1         0.127      0.018      6.938      0.000
+    Category 2         0.873      0.018     47.622      0.000
+ GA32L
+    Category 1         0.094      0.020      4.716      0.000
+    Category 2         0.906      0.020     45.654      0.000
+ GA33A
+    Category 1         0.609      0.028     22.065      0.000
+    Category 2         0.391      0.028     14.191      0.000
+ GA33H
+    Category 1         0.903      0.017     52.323      0.000
+    Category 2         0.097      0.017      5.641      0.000
+ GA33I
+    Category 1         0.736      0.024     30.207      0.000
+    Category 2         0.264      0.024     10.856      0.000
+ GA33K
+    Category 1         0.885      0.027     33.178      0.000
+    Category 2         0.115      0.027      4.318      0.000
+ GA33L
+    Category 1         0.865      0.034     25.536      0.000
+    Category 2         0.135      0.034      3.985      0.000
+
+Results for Class-specific Model Parts of C3
+
+Latent Class C3#1
+
+ KA46A
+    Category 1         0.173      0.014     12.009      0.000
+    Category 2         0.827      0.014     57.504      0.000
+ KA46H
+    Category 1         0.050      0.013      3.882      0.000
+    Category 2         0.950      0.013     73.806      0.000
+ KA46I
+    Category 1         0.042      0.014      3.116      0.002
+    Category 2         0.958      0.014     70.599      0.000
+ KA46K
+    Category 1         0.054      0.012      4.586      0.000
+    Category 2         0.946      0.012     80.878      0.000
+ KA46L
+    Category 1         0.022      0.008      2.647      0.008
+    Category 2         0.978      0.008    117.070      0.000
+ KA47A
+    Category 1         0.103      0.011      9.634      0.000
+    Category 2         0.897      0.011     83.698      0.000
+ KA47H
+    Category 1         0.109      0.016      6.965      0.000
+    Category 2         0.891      0.016     56.934      0.000
+ KA47I
+    Category 1         0.075      0.012      6.059      0.000
+    Category 2         0.925      0.012     74.413      0.000
+ KA47K
+    Category 1         0.138      0.020      7.005      0.000
+    Category 2         0.862      0.020     43.867      0.000
+ KA47L
+    Category 1         0.089      0.013      6.599      0.000
+    Category 2         0.911      0.013     67.757      0.000
+
+Latent Class C3#2
+
+ KA46A
+    Category 1         0.679      0.023     29.712      0.000
+    Category 2         0.321      0.023     14.022      0.000
+ KA46H
+    Category 1         0.871      0.022     39.335      0.000
+    Category 2         0.129      0.022      5.803      0.000
+ KA46I
+    Category 1         0.835      0.027     30.510      0.000
+    Category 2         0.165      0.027      6.043      0.000
+ KA46K
+    Category 1         0.816      0.026     31.027      0.000
+    Category 2         0.184      0.026      6.977      0.000
+ KA46L
+    Category 1         0.905      0.026     34.906      0.000
+    Category 2         0.095      0.026      3.658      0.000
+ KA47A
+    Category 1         0.796      0.029     27.252      0.000
+    Category 2         0.204      0.029      6.993      0.000
+ KA47H
+    Category 1         0.974      0.010     93.111      0.000
+    Category 2         0.026      0.010      2.453      0.014
+ KA47I
+    Category 1         0.949      0.024     40.362      0.000
+    Category 2         0.051      0.024      2.171      0.030
+ KA47K
+    Category 1         0.973      0.011     92.221      0.000
+    Category 2         0.027      0.011      2.549      0.011
+ KA47L
+    Category 1         0.971      0.013     72.762      0.000
+    Category 2         0.029      0.013      2.175      0.030
+
+Latent Class C3#3
+
+ KA46A
+    Category 1         0.480      0.038     12.599      0.000
+    Category 2         0.520      0.038     13.675      0.000
+ KA46H
+    Category 1         0.469      0.050      9.313      0.000
+    Category 2         0.531      0.050     10.534      0.000
+ KA46I
+    Category 1         0.373      0.042      8.853      0.000
+    Category 2         0.627      0.042     14.891      0.000
+ KA46K
+    Category 1         0.482      0.064      7.566      0.000
+    Category 2         0.518      0.064      8.117      0.000
+ KA46L
+    Category 1         0.538      0.082      6.585      0.000
+    Category 2         0.462      0.082      5.653      0.000
+ KA47A
+    Category 1         0.291      0.026     11.084      0.000
+    Category 2         0.709      0.026     27.048      0.000
+ KA47H
+    Category 1         0.512      0.045     11.280      0.000
+    Category 2         0.488      0.045     10.769      0.000
+ KA47I
+    Category 1         0.385      0.050      7.752      0.000
+    Category 2         0.615      0.050     12.374      0.000
+ KA47K
+    Category 1         0.612      0.044     13.859      0.000
+    Category 2         0.388      0.044      8.794      0.000
+ KA47L
+    Category 1         0.537      0.054      9.903      0.000
+    Category 2         0.463      0.054      8.521      0.000
+
+Latent Class C3#4
+
+ KA46A
+    Category 1         0.291      0.020     14.252      0.000
+    Category 2         0.709      0.020     34.691      0.000
+ KA46H
+    Category 1         0.157      0.031      5.082      0.000
+    Category 2         0.843      0.031     27.201      0.000
+ KA46I
+    Category 1         0.290      0.032      9.018      0.000
+    Category 2         0.710      0.032     22.128      0.000
+ KA46K
+    Category 1         0.127      0.018      6.938      0.000
+    Category 2         0.873      0.018     47.622      0.000
+ KA46L
+    Category 1         0.094      0.020      4.716      0.000
+    Category 2         0.906      0.020     45.654      0.000
+ KA47A
+    Category 1         0.609      0.028     22.065      0.000
+    Category 2         0.391      0.028     14.191      0.000
+ KA47H
+    Category 1         0.903      0.017     52.323      0.000
+    Category 2         0.097      0.017      5.641      0.000
+ KA47I
+    Category 1         0.736      0.024     30.207      0.000
+    Category 2         0.264      0.024     10.856      0.000
+ KA47K
+    Category 1         0.885      0.027     33.178      0.000
+    Category 2         0.115      0.027      4.318      0.000
+ KA47L
+    Category 1         0.865      0.034     25.536      0.000
+    Category 2         0.135      0.034      3.985      0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     c2#1 ON c1#1*1.54755;
+     c2#1 ON c1#2*0.28732;
+     c2#1 ON c1#3*1.32812;
+     c2#2 ON c1#1*0.06092;
+     c2#2 ON c1#2*1.72648;
+     c2#2 ON c1#3*1.12293;
+     c2#3 ON c1#1*0.93277;
+     c2#3 ON c1#2*1.26006;
+     c2#3 ON c1#3*1.87085;
+     c3#1 ON c2#1*3.02592;
+     c3#1 ON c2#2*0.17265;
+     c3#1 ON c2#3*2.04657;
+     c3#2 ON c2#1*1.54595;
+     c3#2 ON c2#2*2.38825;
+     c3#2 ON c2#3*2.29856;
+     c3#3 ON c2#1*2.43524;
+     c3#3 ON c2#2*1.87943;
+     c3#3 ON c2#3*3.72166;
+
+     [ c1#1*-0.11364 ];
+     [ c1#2*-1.07371 ];
+     [ c1#3*-0.49275 ];
+     [ c2#1*-0.46566 ];
+     [ c2#2*-0.61393 ];
+     [ c2#3*-0.83191 ];
+     [ c3#1*-0.88466 ];
+     [ c3#2*-1.26224 ];
+     [ c3#3*-1.72499 ];
+
+  MODEL C1:
+
+     %C1#1%
+
+     [ ab39a$1*-1.56616 ] (1);
+     [ ab39h$1*-2.94512 ] (2);
+     [ ab39i$1*-3.12058 ] (3);
+     [ ab39k$1*-2.86993 ] (4);
+     [ ab39l$1*-3.78947 ] (5);
+     [ ab39m$1*-2.16192 ] (6);
+     [ ab39t$1*-2.10106 ] (7);
+     [ ab39u$1*-2.50810 ] (8);
+     [ ab39w$1*-1.83452 ] (9);
+     [ ab39x$1*-2.32903 ] (10);
+
+     %C1#2%
+
+     [ ab39a$1*0.75091 ] (11);
+     [ ab39h$1*1.91376 ] (12);
+     [ ab39i$1*1.61923 ] (13);
+     [ ab39k$1*1.49230 ] (14);
+     [ ab39l$1*2.25578 ] (15);
+     [ ab39m$1*1.36017 ] (16);
+     [ ab39t$1*3.63630 ] (17);
+     [ ab39u$1*2.92252 ] (18);
+     [ ab39w$1*3.58855 ] (19);
+     [ ab39x$1*3.51014 ] (20);
+
+     %C1#3%
+
+     [ ab39a$1*-0.08191 ] (21);
+     [ ab39h$1*-0.12321 ] (22);
+     [ ab39i$1*-0.51998 ] (23);
+     [ ab39k$1*-0.07029 ] (24);
+     [ ab39l$1*0.15264 ] (25);
+     [ ab39m$1*-0.89212 ] (26);
+     [ ab39t$1*0.04640 ] (27);
+     [ ab39u$1*-0.46767 ] (28);
+     [ ab39w$1*0.45490 ] (29);
+     [ ab39x$1*0.15023 ] (30);
+
+     %C1#4%
+
+     [ ab39a$1*-0.88962 ] (31);
+     [ ab39h$1*-1.67760 ] (32);
+     [ ab39i$1*-0.89755 ] (33);
+     [ ab39k$1*-1.92628 ] (34);
+     [ ab39l$1*-2.27017 ] (35);
+     [ ab39m$1*0.44139 ] (36);
+     [ ab39t$1*2.22740 ] (37);
+     [ ab39u$1*1.02334 ] (38);
+     [ ab39w$1*2.03911 ] (39);
+     [ ab39x$1*1.85755 ] (40);
+
+  MODEL C2:
+
+     %C2#1%
+
+     [ ga32a$1*-1.56616 ] (1);
+     [ ga32h$1*-2.94512 ] (2);
+     [ ga32i$1*-3.12058 ] (3);
+     [ ga32k$1*-2.86993 ] (4);
+     [ ga32l$1*-3.78947 ] (5);
+     [ ga33a$1*-2.16192 ] (6);
+     [ ga33h$1*-2.10106 ] (7);
+     [ ga33i$1*-2.50810 ] (8);
+     [ ga33k$1*-1.83452 ] (9);
+     [ ga33l$1*-2.32903 ] (10);
+
+     %C2#2%
+
+     [ ga32a$1*0.75091 ] (11);
+     [ ga32h$1*1.91376 ] (12);
+     [ ga32i$1*1.61923 ] (13);
+     [ ga32k$1*1.49230 ] (14);
+     [ ga32l$1*2.25578 ] (15);
+     [ ga33a$1*1.36017 ] (16);
+     [ ga33h$1*3.63630 ] (17);
+     [ ga33i$1*2.92252 ] (18);
+     [ ga33k$1*3.58855 ] (19);
+     [ ga33l$1*3.51014 ] (20);
+
+     %C2#3%
+
+     [ ga32a$1*-0.08191 ] (21);
+     [ ga32h$1*-0.12321 ] (22);
+     [ ga32i$1*-0.51998 ] (23);
+     [ ga32k$1*-0.07029 ] (24);
+     [ ga32l$1*0.15264 ] (25);
+     [ ga33a$1*-0.89212 ] (26);
+     [ ga33h$1*0.04640 ] (27);
+     [ ga33i$1*-0.46767 ] (28);
+     [ ga33k$1*0.45490 ] (29);
+     [ ga33l$1*0.15023 ] (30);
+
+     %C2#4%
+
+     [ ga32a$1*-0.88962 ] (31);
+     [ ga32h$1*-1.67760 ] (32);
+     [ ga32i$1*-0.89755 ] (33);
+     [ ga32k$1*-1.92628 ] (34);
+     [ ga32l$1*-2.27017 ] (35);
+     [ ga33a$1*0.44139 ] (36);
+     [ ga33h$1*2.22740 ] (37);
+     [ ga33i$1*1.02334 ] (38);
+     [ ga33k$1*2.03911 ] (39);
+     [ ga33l$1*1.85755 ] (40);
+
+  MODEL C3:
+
+     %C3#1%
+
+     [ ka46a$1*-1.56616 ] (1);
+     [ ka46h$1*-2.94512 ] (2);
+     [ ka46i$1*-3.12058 ] (3);
+     [ ka46k$1*-2.86993 ] (4);
+     [ ka46l$1*-3.78947 ] (5);
+     [ ka47a$1*-2.16192 ] (6);
+     [ ka47h$1*-2.10106 ] (7);
+     [ ka47i$1*-2.50810 ] (8);
+     [ ka47k$1*-1.83452 ] (9);
+     [ ka47l$1*-2.32903 ] (10);
+
+     %C3#2%
+
+     [ ka46a$1*0.75091 ] (11);
+     [ ka46h$1*1.91376 ] (12);
+     [ ka46i$1*1.61923 ] (13);
+     [ ka46k$1*1.49230 ] (14);
+     [ ka46l$1*2.25578 ] (15);
+     [ ka47a$1*1.36017 ] (16);
+     [ ka47h$1*3.63630 ] (17);
+     [ ka47i$1*2.92252 ] (18);
+     [ ka47k$1*3.58855 ] (19);
+     [ ka47l$1*3.51014 ] (20);
+
+     %C3#3%
+
+     [ ka46a$1*-0.08191 ] (21);
+     [ ka46h$1*-0.12321 ] (22);
+     [ ka46i$1*-0.51998 ] (23);
+     [ ka46k$1*-0.07029 ] (24);
+     [ ka46l$1*0.15264 ] (25);
+     [ ka47a$1*-0.89212 ] (26);
+     [ ka47h$1*0.04640 ] (27);
+     [ ka47i$1*-0.46767 ] (28);
+     [ ka47k$1*0.45490 ] (29);
+     [ ka47l$1*0.15023 ] (30);
+
+     %C3#4%
+
+     [ ka46a$1*-0.88962 ] (31);
+     [ ka46h$1*-1.67760 ] (32);
+     [ ka46i$1*-0.89755 ] (33);
+     [ ka46k$1*-1.92628 ] (34);
+     [ ka46l$1*-2.27017 ] (35);
+     [ ka47a$1*0.44139 ] (36);
+     [ ka47h$1*2.22740 ] (37);
+     [ ka47i$1*1.02334 ] (38);
+     [ ka47k$1*2.03911 ] (39);
+     [ ka47l$1*1.85755 ] (40);
+
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    lta_4class_cprobs.dat
+
+  Order and format of variables
+
+    AB39A          F10.3
+    AB39H          F10.3
+    AB39I          F10.3
+    AB39K          F10.3
+    AB39L          F10.3
+    AB39M          F10.3
+    AB39T          F10.3
+    AB39U          F10.3
+    AB39W          F10.3
+    AB39X          F10.3
+    GA32A          F10.3
+    GA32H          F10.3
+    GA32I          F10.3
+    GA32K          F10.3
+    GA32L          F10.3
+    GA33A          F10.3
+    GA33H          F10.3
+    GA33I          F10.3
+    GA33K          F10.3
+    GA33L          F10.3
+    KA46A          F10.3
+    KA46H          F10.3
+    KA46I          F10.3
+    KA46K          F10.3
+    KA46L          F10.3
+    KA47A          F10.3
+    KA47H          F10.3
+    KA47I          F10.3
+    KA47K          F10.3
+    KA47L          F10.3
+    FEMALE         F10.3
+    MINORITY       F10.3
+    STEM           F10.3
+    STEMSUP        F10.3
+    ENGINEER       F10.3
+    MATHG8         F10.3
+    SCIG8          F10.3
+    MATHG11        F10.3
+    SCIG11         F10.3
+    MATHG7         F10.3
+    MATHG10        F10.3
+    MATHG12        F10.3
+    CPROB1         F10.3
+    CPROB2         F10.3
+    CPROB3         F10.3
+    CPROB4         F10.3
+    CPROB5         F10.3
+    CPROB6         F10.3
+    CPROB7         F10.3
+    CPROB8         F10.3
+    CPROB9         F10.3
+    CPROB10        F10.3
+    CPROB11        F10.3
+    CPROB12        F10.3
+    CPROB13        F10.3
+    CPROB14        F10.3
+    CPROB15        F10.3
+    CPROB16        F10.3
+    CPROB17        F10.3
+    CPROB18        F10.3
+    CPROB19        F10.3
+    CPROB20        F10.3
+    CPROB21        F10.3
+    CPROB22        F10.3
+    CPROB23        F10.3
+    CPROB24        F10.3
+    CPROB25        F10.3
+    CPROB26        F10.3
+    CPROB27        F10.3
+    CPROB28        F10.3
+    CPROB29        F10.3
+    CPROB30        F10.3
+    CPROB31        F10.3
+    CPROB32        F10.3
+    CPROB33        F10.3
+    CPROB34        F10.3
+    CPROB35        F10.3
+    CPROB36        F10.3
+    CPROB37        F10.3
+    CPROB38        F10.3
+    CPROB39        F10.3
+    CPROB40        F10.3
+    CPROB41        F10.3
+    CPROB42        F10.3
+    CPROB43        F10.3
+    CPROB44        F10.3
+    CPROB45        F10.3
+    CPROB46        F10.3
+    CPROB47        F10.3
+    CPROB48        F10.3
+    CPROB49        F10.3
+    CPROB50        F10.3
+    CPROB51        F10.3
+    CPROB52        F10.3
+    CPROB53        F10.3
+    CPROB54        F10.3
+    CPROB55        F10.3
+    CPROB56        F10.3
+    CPROB57        F10.3
+    CPROB58        F10.3
+    CPROB59        F10.3
+    CPROB60        F10.3
+    CPROB61        F10.3
+    CPROB62        F10.3
+    CPROB63        F10.3
+    CPROB64        F10.3
+    C1             F10.3
+    C2             F10.3
+    C3             F10.3
+    MLCJOINT       F10.3
+
+  Save file format
+    110F10.3
+
+  Save file record length    10000
+
+  Save missing symbol        9999
+
+
+     Beginning Time:  21:14:06
+        Ending Time:  21:14:44
+       Elapsed Time:  00:00:38
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

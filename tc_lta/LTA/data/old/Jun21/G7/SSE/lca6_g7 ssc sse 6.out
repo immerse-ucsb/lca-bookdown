@@ -1,0 +1,778 @@
+Mplus VERSION 7
+MUTHEN & MUTHEN
+06/25/2013  11:06 AM
+
+INPUT INSTRUCTIONS
+
+  data:
+  file is Dataset_Jun21_Final_Mplus.dat;
+
+  Variable:
+  names are
+  CASEID CASENUM COHORT SCHOOLID G7SSEComp G8SSEComp G9SSEComp G10SSEComp
+  G11SSEComp G12SSEComp ABSCIC BBSCIC DBSCIC FBSCIC HASCI1C JASCI1C LASCI1C
+  ABSCID BBSCID DBSCID FBSCID HASCI1D
+  JASCI1D LASCI1D ABSCIE ABSCIF BBSCIF DBSCIF FBSCIF HASCI1F JASCI1F LASCI1F
+  ABSCIG ABSCIH ABSCII ABSCIJ AB15J CB1K EB1K GA1K IA1K KA1K AB15L CB1M EB1M
+  GA1M IA1M KA1M AB19E GC19E AB19F GC19F G7PSPComp G9PSPComp G10PSPComp
+  G11PSPComp G12PSPComp AB19N DB6L FB2L GC19N HB2L JA2L LA2L AB19Q DB6O FB2O
+  GC19Q HB2O JA2O LA2O AB19R FB2P GC19R HB2P JB2P LA2P AB19T DB6Q FB2R GC19T
+  HB2R JA2R LA2R AB20A GC10F AB20B GC10J AB20C GC10G AB20D GC10K AB20H GC10N
+  AB20K AB22A AB34B CB8B EB8B GA8B IA8B JC3B KA9B AB34D CB8D EB8D GA8D IA8D
+  JC3D KA9D AB34J CB8J EB8J GA8K IA8K JC3J KA9K AB35B CB9B EB9B GA9B IA9B JC4B
+  KA10B AB35D CB9D EB9D GA9D IA9D JC4D KA10D AB35J CB9J EB9J GA9K IA9K JC4J
+  KA10K AB37D CB24D EB25D GA29D IA34D KA41D G7ASCComp G8ASCComp G9ASCComp
+  G10ASCComp G11ASCComp G12ASCComp AB37M CB24N EB25N GA29N IA34N KA41N AB37O
+  CB24P EB25P GA29P IA34P KA41P AB38B CB26B EB27B GA31B IA36B KA43B AB38H CB26H
+  EB27H GA31H IA36H KA43H AB38F CB26F EB27F GA31F IA36F KA43F AB39B CB28B EB29B
+  GA32B IA37B KA46B AB39H CB28H EB29H GA32H IA37H KA46H G7SSCComp G8SSCComp
+  G9SSCComp G10SSCComp G11SSCComp G12SSCComp AB39M CB29A EB30A GA33A IA38A KA47A
+  AB39N CB29B EB30B GA33B IA38B KA47B AB39O CB29C EB30C GA33C IA38C KA47C AB39Q
+  CB29E EB30E GA33E IA38E KA47E AB39R CB29F EB30F GA33F IA38F KA47F AB39S CB29G
+  EB30G GA33G IA38G KA47G AB39U CB29I EB30I GA33I IA38I KA47I AB39T CB29H EB30H
+  GA33H IA38H KA47H AB39W CB29K EB30K GA33K IA38K KA47K AB39X CB29L EB30L GA33L
+  IA38L KA47L CB30J EB10J GB10J IA10J KA37J CB30K EB10K GB10K IA10K KA37K CB30M
+  EB10M GB10M IA10M KA37M CB30N EB10N GB10N IA10N KA37N BB10K DB1K FB1K HA1K JA1K
+  LA1K G7ExC G8ExC G9ExC G10ExC G11ExC G12ExC BB10L DB1L FB1L HA1L JA1L LA1L
+  BB10M DB1M FB1M HA1M JA1M LA1M BB11E DB1AA FB1AA HA1AA JA1AA LA1AA BB11J DB1FF
+  FB1FF HA1FF JA1EE LA1FF BB11L DB1HH FB1HH HA1HH JA1FF LA1GG BB12A DB2A FB4A
+  HA4A JA4A LA4A G7TSPSubC G8TSPSubC G9TSPSubC G10TSPSubC G11TSPSubC G12TSPSubC
+  BB12B DB2B FB4B HA4B JA4B LA4B BB12C DB2C FB4C HA4C JA4C LA4C BB12D DB2D FB4D
+  HA4D JA4D LA4D BB12E DB2E FB4E HA4E JA4E LA4E BB12F DB2F FB4F HA4F JA4F LA4F
+  BB12G DB2G FB4G HA4G JA4G LA4G BB12H DB2H FB4H HA4H JA4H LA4H BB12I DB2I FB4I
+  HA4I JA4I LA4I BB12J DB2J FB4J HA4J JA4J LA4J BB12K DB2K FB4K HC4K JC4K LC4K
+  BB12L DB2L FB4L HC4L JC4L LC4L BB12M DB2M FB4M HA4K JA4K LA4K BB12N DB2N FB4N
+  HA4L JA4L LA4L BB12O DB2O FB4O HA4M JA4M LA4M BB12P DB2P FB4P HA4N JA4N LA4N
+  BB17B HA23B JB29B BB17G HC23G BB25A DB15A EB3D FB17A GB27D HA16A IA33D JC15A
+  KB36D LC17A BB25B DB15B EB3A FB17B GB27A HA16B IA33A JC15B KB36A LC17B BB25C
+  DB15C EB3B FB17C GB27B HA16C IA33B JC15C KB36B LC17C BB25D DB15D EB3C FB17D
+  GB27C HA16D IA33C JC15D KB36C LC17D BB25E DB15E EB3E FB17E GB27E HA16E IA33E
+  JC15E KB36E LC17E CB3C IA4C CB24F EB25F GB29F IA34F KA41F CB35A EB31A GB35A
+  IA40A KA48A CB35F EB31F GC35E IA40F KA48G CB35N EB31N GC35L IA40N KA48O DB16E
+  FB18E HB17E JA19E LA16E DB16G FB18G HB17G JA19G LA16G MTH7 MTH8 MTH9 MTH10
+  MTH11 MTH12 MOTHED FATHED MOTHOCC FATHOCC RSTEMM RSTEMMX RSTEMMB RSTEMMA
+  PACPH7 PACPH8 PACPH9 PACPH10 PACPH11 PACPH12 PCOPH7 PCOPH8 PCOPH9 PCOPH10
+  PCOPH11 PCOPH12 PMHPH7 PMHPH8 PMHPH9 PMHPH10 PMHPH11 PMHPH12 PSCPH7 PSCPH9
+  PSCPH10 PSCPH11 PSCPH12 HSCRE7 HSCRE10 HSCRE11 KMHPH7 KMHPH8 KMHPH9 KMHPH10
+  KMHPH11 KMHPH12 KMHSCPH7 KMHSCPH8 KMHSCPH9 KMHSCPH10 KMHSCPH11 KMHSCPH12
+  KSCPH7 KSCPH8 KSCPH9 KSCPH10 KSCPH11 KSCPH12 KACPH10 KACPH11 KACPH12 KACPH7
+  KACPH8 KACPH9 GENDER FEMALE RACETH3 RACETH MINORITY STEMMJOB STEMMJOB1 MOTHED1
+  FATHED1 POCI POCI1 ASCIIRT CSCIIRT ESCIIRT GSCIIRT ISCIIRT KSCIIRT NUMHSSCI;
+
+
+  missing are all (9999);
+  classes =c (6);
+
+  usevar = AB39M AB39N AB39O AB39U AB39X ABSCIC ABSCID ABSCIF;
+
+  Analysis:
+  Type=mixture;
+   starts = 200 50;
+   process = 4(starts);
+
+  Output:
+   sampstat tech11 tech14;
+
+  Plot:
+  type=plot3;
+  series =AB39M - ABSCIF (*);
+
+
+
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G7SSECOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G8SSECOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G9SSECOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G10SSECOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G11SSECOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G12SSECOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G7PSPCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G9PSPCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G10PSPCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G11PSPCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G12PSPCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G7ASCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G8ASCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G9ASCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G10ASCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G11ASCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G12ASCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G7SSCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G8SSCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G9SSCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G10SSCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G11SSCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G12SSCCOMP
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G7TSPSUBC
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G8TSPSUBC
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G9TSPSUBC
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G10TSPSUBC
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G11TSPSUBC
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: G12TSPSUBC
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: KMHSCPH10
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: KMHSCPH11
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: KMHSCPH12
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: STEMMJOB1
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+*** WARNING in PLOT command
+  Note that only the first 8 characters of variable names are used in plots.
+  If variable names are not unique within the first 8 characters, problems
+  may occur.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  14
+  36 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3102
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   AB39M       AB39N       AB39O       AB39U       AB39X       ABSCIC
+   ABSCID      ABSCIF
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        200
+  Number of final stage optimizations                           50
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  Dataset_Jun21_Final_Mplus.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            31
+     Number of y missing data patterns          31
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              AB39M         AB39N         AB39O         AB39U         AB39X
+              ________      ________      ________      ________      ________
+ AB39M          0.981
+ AB39N          0.971         0.975
+ AB39O          0.963         0.957         0.967
+ AB39U          0.959         0.955         0.947         0.965
+ AB39X          0.975         0.970         0.962         0.962         0.981
+ ABSCIC         0.873         0.868         0.862         0.858         0.873
+ ABSCID         0.871         0.867         0.860         0.856         0.871
+ ABSCIF         0.868         0.864         0.858         0.853         0.868
+
+
+           Covariance Coverage
+              ABSCIC        ABSCID        ABSCIF
+              ________      ________      ________
+ ABSCIC         0.891
+ ABSCID         0.889         0.889
+ ABSCIF         0.886         0.886         0.887
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              AB39M         AB39N         AB39O         AB39U         AB39X
+              ________      ________      ________      ________      ________
+ 1              3.551         3.521         3.671         3.466         3.421
+
+
+           Means
+              ABSCIC        ABSCID        ABSCIF
+              ________      ________      ________
+ 1              3.802         4.171         3.778
+
+
+           Covariances
+              AB39M         AB39N         AB39O         AB39U         AB39X
+              ________      ________      ________      ________      ________
+ AB39M          1.559
+ AB39N          0.945         1.275
+ AB39O          0.777         0.818         1.142
+ AB39U          0.480         0.406         0.395         1.088
+ AB39X          0.616         0.480         0.455         0.553         1.266
+ ABSCIC         0.891         0.660         0.571         0.343         0.370
+ ABSCID         0.501         0.367         0.395         0.227         0.215
+ ABSCIF         0.573         0.383         0.340         0.389         0.629
+
+
+           Covariances
+              ABSCIC        ABSCID        ABSCIF
+              ________      ________      ________
+ ABSCIC         1.720
+ ABSCID         0.709         1.358
+ ABSCIF         0.663         0.476         1.998
+
+
+           Correlations
+              AB39M         AB39N         AB39O         AB39U         AB39X
+              ________      ________      ________      ________      ________
+ AB39M          1.000
+ AB39N          0.670         1.000
+ AB39O          0.582         0.678         1.000
+ AB39U          0.369         0.345         0.354         1.000
+ AB39X          0.438         0.378         0.379         0.472         1.000
+ ABSCIC         0.544         0.445         0.408         0.250         0.251
+ ABSCID         0.344         0.279         0.317         0.187         0.164
+ ABSCIF         0.324         0.240         0.225         0.264         0.396
+
+
+           Correlations
+              ABSCIC        ABSCID        ABSCIF
+              ________      ________      ________
+ ABSCIC         1.000
+ ABSCID         0.464         1.000
+ ABSCIF         0.357         0.289         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -32998.544
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -32655.688  440841           118
+          -32655.688  576596           99
+          -32655.688  354208           196
+          -32655.688  846194           93
+          -32655.688  297518           166
+          -32655.688  68985            17
+          -32655.688  466971           109
+          -32655.688  821011           161
+          -32655.688  648555           113
+          -32655.688  402224           91
+          -32655.688  793035           187
+          -32655.688  723775           97
+          -32655.688  286735           175
+          -32655.688  107446           12
+          -32655.688  417035           149
+          -32655.688  268896           124
+          -32655.688  939021           8
+          -32655.688  40340            188
+          -32655.688  626891           32
+          -32655.688  192071           142
+          -32655.688  726035           191
+          -32655.688  579995           183
+          -32655.688  851945           18
+          -32655.688  509733           130
+          -32655.688  794236           127
+          -32655.688  370466           41
+          -32655.688  263268           165
+          -32655.688  153942           31
+          -32655.688  782200           84
+          -32706.294  967237           48
+          -32706.294  76337            76
+          -32706.294  915642           40
+          -32706.294  468036           131
+          -32706.294  784664           75
+          -32706.294  645664           39
+          -32713.369  728038           177
+          -32713.369  695155           150
+          -32713.369  481835           57
+          -32724.391  609185           181
+          -32732.933  928287           197
+          -32732.933  575700           100
+          -32732.933  992389           77
+          -32732.933  354559           73
+          -32732.933  371246           101
+          -32742.596  311214           64
+          -32776.491  462953           7
+          -32776.491  27071            15
+          -32776.948  967902           52
+          -32815.412  830392           35
+          -32871.677  292884           103
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       61
+
+Loglikelihood
+
+          H0 Value                      -32655.688
+          H0 Scaling Correction Factor      1.4853
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   65433.376
+          Bayesian (BIC)                 65801.804
+          Sample-Size Adjusted BIC       65607.982
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        132.00264          0.04255
+       2        233.85734          0.07539
+       3        232.04404          0.07480
+       4        512.41538          0.16519
+       5        712.57106          0.22971
+       6       1279.10954          0.41235
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        132.00264          0.04255
+       2        233.85737          0.07539
+       3        232.04401          0.07480
+       4        512.41548          0.16519
+       5        712.57094          0.22971
+       6       1279.10957          0.41235
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.815
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              126          0.04062
+       2              190          0.06125
+       3              226          0.07286
+       4              531          0.17118
+       5              676          0.21792
+       6             1353          0.43617
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6
+
+    1   0.922    0.012    0.061    0.005    0.000    0.000
+    2   0.011    0.928    0.000    0.024    0.004    0.032
+    3   0.052    0.001    0.841    0.101    0.000    0.005
+    4   0.004    0.035    0.060    0.807    0.000    0.094
+    5   0.000    0.001    0.000    0.000    0.904    0.094
+    6   0.000    0.027    0.002    0.041    0.074    0.856
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Means
+    AB39M              1.358      0.065     20.802      0.000
+    AB39N              1.522      0.088     17.279      0.000
+    AB39O              1.694      0.111     15.225      0.000
+    AB39U              2.462      0.124     19.816      0.000
+    AB39X              2.252      0.121     18.663      0.000
+    ABSCIC             1.408      0.080     17.562      0.000
+    ABSCID             1.524      0.125     12.144      0.000
+    ABSCIF             1.977      0.150     13.216      0.000
+
+ Variances
+    AB39M              0.367      0.026     13.885      0.000
+    AB39N              0.534      0.024     22.702      0.000
+    AB39O              0.523      0.029     17.968      0.000
+    AB39U              0.847      0.027     31.924      0.000
+    AB39X              0.926      0.028     32.551      0.000
+    ABSCIC             1.004      0.038     26.369      0.000
+    ABSCID             0.452      0.017     26.227      0.000
+    ABSCIF             1.654      0.046     35.739      0.000
+
+Latent Class 2
+
+ Means
+    AB39M              3.535      0.119     29.698      0.000
+    AB39N              3.542      0.100     35.346      0.000
+    AB39O              3.571      0.100     35.827      0.000
+    AB39U              3.400      0.088     38.582      0.000
+    AB39X              3.452      0.093     36.952      0.000
+    ABSCIC             2.920      0.122     23.840      0.000
+    ABSCID             1.700      0.125     13.563      0.000
+    ABSCIF             3.274      0.133     24.682      0.000
+
+ Variances
+    AB39M              0.367      0.026     13.885      0.000
+    AB39N              0.534      0.024     22.702      0.000
+    AB39O              0.523      0.029     17.968      0.000
+    AB39U              0.847      0.027     31.924      0.000
+    AB39X              0.926      0.028     32.551      0.000
+    ABSCIC             1.004      0.038     26.369      0.000
+    ABSCID             0.452      0.017     26.227      0.000
+    ABSCIF             1.654      0.046     35.739      0.000
+
+Latent Class 3
+
+ Means
+    AB39M              1.671      0.155     10.788      0.000
+    AB39N              1.750      0.109     16.009      0.000
+    AB39O              1.987      0.136     14.646      0.000
+    AB39U              2.842      0.106     26.878      0.000
+    AB39X              2.432      0.148     16.445      0.000
+    ABSCIC             2.882      0.265     10.879      0.000
+    ABSCID             4.194      0.134     31.384      0.000
+    ABSCIF             3.197      0.253     12.618      0.000
+
+ Variances
+    AB39M              0.367      0.026     13.885      0.000
+    AB39N              0.534      0.024     22.702      0.000
+    AB39O              0.523      0.029     17.968      0.000
+    AB39U              0.847      0.027     31.924      0.000
+    AB39X              0.926      0.028     32.551      0.000
+    ABSCIC             1.004      0.038     26.369      0.000
+    ABSCID             0.452      0.017     26.227      0.000
+    ABSCIF             1.654      0.046     35.739      0.000
+
+Latent Class 4
+
+ Means
+    AB39M              2.232      0.100     22.317      0.000
+    AB39N              3.043      0.103     29.483      0.000
+    AB39O              3.484      0.112     30.971      0.000
+    AB39U              3.087      0.050     61.291      0.000
+    AB39X              2.982      0.061     48.957      0.000
+    ABSCIC             3.019      0.158     19.066      0.000
+    ABSCID             4.121      0.099     41.735      0.000
+    ABSCIF             3.253      0.151     21.495      0.000
+
+ Variances
+    AB39M              0.367      0.026     13.885      0.000
+    AB39N              0.534      0.024     22.702      0.000
+    AB39O              0.523      0.029     17.968      0.000
+    AB39U              0.847      0.027     31.924      0.000
+    AB39X              0.926      0.028     32.551      0.000
+    ABSCIC             1.004      0.038     26.369      0.000
+    ABSCID             0.452      0.017     26.227      0.000
+    ABSCIF             1.654      0.046     35.739      0.000
+
+Latent Class 5
+
+ Means
+    AB39M              4.835      0.024    198.630      0.000
+    AB39N              4.665      0.036    131.266      0.000
+    AB39O              4.680      0.033    139.917      0.000
+    AB39U              4.254      0.055     77.945      0.000
+    AB39X              4.299      0.054     80.038      0.000
+    ABSCIC             4.713      0.025    187.725      0.000
+    ABSCID             4.759      0.024    201.271      0.000
+    ABSCIF             4.466      0.046     96.327      0.000
+
+ Variances
+    AB39M              0.367      0.026     13.885      0.000
+    AB39N              0.534      0.024     22.702      0.000
+    AB39O              0.523      0.029     17.968      0.000
+    AB39U              0.847      0.027     31.924      0.000
+    AB39X              0.926      0.028     32.551      0.000
+    ABSCIC             1.004      0.038     26.369      0.000
+    ABSCID             0.452      0.017     26.227      0.000
+    ABSCIF             1.654      0.046     35.739      0.000
+
+Latent Class 6
+
+ Means
+    AB39M              3.934      0.051     77.193      0.000
+    AB39N              3.599      0.047     76.383      0.000
+    AB39O              3.713      0.042     89.010      0.000
+    AB39U              3.411      0.034    101.612      0.000
+    AB39X              3.404      0.037     91.492      0.000
+    ABSCIC             4.187      0.047     89.579      0.000
+    ABSCID             4.588      0.027    168.152      0.000
+    ABSCIF             3.968      0.046     85.742      0.000
+
+ Variances
+    AB39M              0.367      0.026     13.885      0.000
+    AB39N              0.534      0.024     22.702      0.000
+    AB39O              0.523      0.029     17.968      0.000
+    AB39U              0.847      0.027     31.924      0.000
+    AB39X              0.926      0.028     32.551      0.000
+    ABSCIC             1.004      0.038     26.369      0.000
+    ABSCID             0.452      0.017     26.227      0.000
+    ABSCIF             1.654      0.046     35.739      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -2.271      0.120    -18.895      0.000
+    C#2               -1.699      0.122    -13.971      0.000
+    C#3               -1.707      0.166    -10.284      0.000
+    C#4               -0.915      0.175     -5.229      0.000
+    C#5               -0.585      0.082     -7.165      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.321E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                    50
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
+
+          H0 Loglikelihood Value                       -32871.677
+          2 Times the Loglikelihood Difference            431.979
+          Difference in the Number of Parameters                9
+          Mean                                             66.048
+          Standard Deviation                              145.788
+          P-Value                                          0.0196
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                           426.090
+          P-Value                                          0.0205
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                    50
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 5 (H0) VERSUS 6 CLASSES
+
+          H0 Loglikelihood Value                       -32871.677
+          2 Times the Loglikelihood Difference            431.979
+          Difference in the Number of Parameters                9
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                            5
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE FOR THE 5 CLASS MODEL FOR THE GENERATED DATA
+     WAS NOT REPLICATED IN 4 OUT OF 5 BOOTSTRAP DRAWS.  THE P-VALUE MAY NOT BE TRUSTWORTHY
+     DUE TO LOCAL MAXIMA.  INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms of sample values
+  Histograms of estimated values
+  Scatterplots (sample values, estimated values)
+  Sample means
+  Estimated means
+  Sample and estimated means
+  Observed individual values
+  Estimated individual values
+  Estimated means and observed individual values
+  Estimated means and estimated individual values
+  Mixture distributions
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for Mixture analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  11:06:40
+        Ending Time:  11:09:17
+       Elapsed Time:  00:02:37
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2012 Muthen & Muthen

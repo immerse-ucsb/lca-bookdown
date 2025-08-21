@@ -1,0 +1,9 @@
+call mplus LCA10_1.inp
+call mplus LCA10_2.inp
+call mplus LCA10_3.inp
+call mplus LCA10_4.inp
+call mplus LCA10_5.inp
+call mplus LCA10_6.inp
+call mplus LCA10_7.inp
+call mplus LCA10_8.inp
+call mplus LCA10_9.inp

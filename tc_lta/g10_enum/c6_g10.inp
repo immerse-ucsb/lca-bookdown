@@ -1,0 +1,24 @@
+TITLE:
+6-Class LCA for LCA 10th Grade
+DATA:
+FILE = "C:/Users/Karen Nylund-Gibson/Box/TC_LTA/g10_enum/lsay_g10.dat"; 
+VARIABLE:
+NAMES = GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L; 
+ MISSING=.;
+ categorical = GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L;
+usevar = GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L;
+missing = all(9999);
+classes = c(6);
+ANALYSIS:
+
+      estimator = mlr;
+      type = mixture;
+      starts = 500 10;
+      processors = 10;
+OUTPUT:
+sampstat; residual; tech11; tech14;
+PLOT:
+
+      type = plot3;
+      series = GA32A GA32H GA32I GA32K GA32L GA33A 
+               GA33H GA33I GA33K GA33L (*);

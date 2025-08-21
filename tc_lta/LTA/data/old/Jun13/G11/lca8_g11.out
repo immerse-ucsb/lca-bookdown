@@ -1,0 +1,1240 @@
+Mplus VERSION 7.1
+MUTHEN & MUTHEN
+06/14/2013   1:13 PM
+
+INPUT INSTRUCTIONS
+
+  data:
+  file is Dataset_May28_Final_Mplus.dat;
+
+  Variable:
+  names are
+  CASEID CASENUM COHORT SCHOOLID G7SSEComp G8SSEComp G9SSEComp G10SSEComp
+  G11SSEComp G12SSEComp ABSCIC BBSCIC DBSCIC FBSCIC HASCI1C JASCI1C LASCI1C
+  ABSCID BBSCID DBSCID FBSCID HASCI1D
+  JASCI1D LASCI1D ABSCIE ABSCIF BBSCIF DBSCIF FBSCIF HASCI1F JASCI1F LASCI1F
+  ABSCIG ABSCIH ABSCII ABSCIJ AB15J CB1K EB1K GA1K IA1K KA1K AB15L CB1M EB1M
+  GA1M IA1M KA1M AB19E GC19E AB19F GC19F G7PSPComp G9PSPComp G10PSPComp
+  G11PSPComp G12PSPComp AB19N DB6L FB2L GC19N HB2L JA2L LA2L AB19Q DB6O FB2O
+  GC19Q HB2O JA2O LA2O AB19R FB2P GC19R HB2P JB2P LA2P AB19T DB6Q FB2R GC19T
+  HB2R JA2R LA2R AB20A GC10F AB20B GC10J AB20C GC10G AB20D GC10K AB20H GC10N
+  AB20K AB22A AB34B CB8B EB8B GA8B IA8B JC3B KA9B AB34D CB8D EB8D GA8D IA8D
+  JC3D KA9D AB34J CB8J EB8J GA8K IA8K JC3J KA9K AB35B CB9B EB9B GA9B IA9B JC4B
+  KA10B AB35D CB9D EB9D GA9D IA9D JC4D KA10D AB35J CB9J EB9J GA9K IA9K JC4J
+  KA10K AB37D CB24D EB25D GA29D IA34D KA41D G7ASCComp G8ASCComp G9ASCComp
+  G10ASCComp G11ASCComp G12ASCComp AB37M CB24N EB25N GA29N IA34N KA41N AB37O
+  CB24P EB25P GA29P IA34P KA41P AB38B CB26B EB27B GA31B IA36B KA43B AB38H CB26H
+  EB27H GA31H IA36H KA43H AB38F CB26F EB27F GA31F IA36F KA43F AB39B CB28B EB29B
+  GA32B IA37B KA46B AB39H CB28H EB29H GA32H IA37H KA46H G7SSCComp G8SSCComp
+  G9SSCComp G10SSCComp G11SSCComp G12SSCComp AB39M CB29A EB30A GA33A IA38A KA47A
+  AB39N CB29B EB30B GA33B IA38B KA47B AB39O CB29C EB30C GA33C IA38C KA47C AB39Q
+  CB29E EB30E GA33E IA38E KA47E AB39R CB29F EB30F GA33F IA38F KA47F AB39S CB29G
+  EB30G GA33G IA38G KA47G AB39U CB29I EB30I GA33I IA38I KA47I AB39T CB29H EB30H
+  GA33H IA38H KA47H AB39W CB29K EB30K GA33K IA38K KA47K AB39X CB29L EB30L GA33L
+  IA38L KA47L CB30J EB10J GB10J IA10J KA37J CB30K EB10K GB10K IA10K KA37K CB30M
+  EB10M GB10M IA10M KA37M CB30N EB10N GB10N IA10N KA37N BB10K DB1K FB1K HA1K JA1K
+  LA1K G7ExC G8ExC G9ExC G10ExC G11ExC G12ExC BB10L DB1L FB1L HA1L JA1L LA1L
+  BB10M DB1M FB1M HA1M JA1M LA1M BB11E DB1AA FB1AA HA1AA JA1AA LA1AA BB11J DB1FF
+  FB1FF HA1FF JA1EE LA1FF BB11L DB1HH FB1HH HA1HH JA1FF LA1GG BB12A DB2A FB4A
+  HA4A JA4A LA4A G7TSPSubC G8TSPSubC G9TSPSubC G10TSPSubC G11TSPSubC G12TSPSubC
+  BB12B DB2B FB4B HA4B JA4B LA4B BB12C DB2C FB4C HA4C JA4C LA4C BB12D DB2D FB4D
+  HA4D JA4D LA4D BB12E DB2E FB4E HA4E JA4E LA4E BB12F DB2F FB4F HA4F JA4F LA4F
+  BB12G DB2G FB4G HA4G JA4G LA4G BB12H DB2H FB4H HA4H JA4H LA4H BB12I DB2I FB4I
+  HA4I JA4I LA4I BB12J DB2J FB4J HA4J JA4J LA4J BB12K DB2K FB4K HC4K JC4K LC4K
+  BB12L DB2L FB4L HC4L JC4L LC4L BB12M DB2M FB4M HA4K JA4K LA4K BB12N DB2N FB4N
+  HA4L JA4L LA4L BB12O DB2O FB4O HA4M JA4M LA4M BB12P DB2P FB4P HA4N JA4N LA4N
+  BB17B HA23B JB29B BB17G HC23G BB25A DB15A EB3D FB17A GB27D HA16A IA33D JC15A
+  KB36D LC17A BB25B DB15B EB3A FB17B GB27A HA16B IA33A JC15B KB36A LC17B BB25C
+  DB15C EB3B FB17C GB27B HA16C IA33B JC15C KB36B LC17C BB25D DB15D EB3C FB17D
+  GB27C HA16D IA33C JC15D KB36C LC17D BB25E DB15E EB3E FB17E GB27E HA16E IA33E
+  JC15E KB36E LC17E CB3C IA4C CB24F EB25F GB29F IA34F KA41F CB35A EB31A GB35A
+  IA40A KA48A CB35F EB31F GC35E IA40F KA48G CB35N EB31N GC35L IA40N KA48O DB16E
+  FB18E HB17E JA19E LA16E DB16G FB18G HB17G JA19G LA16G MTH7 MTH8 MTH9 MTH10
+  MTH11 MTH12 MOTHED FATHED MOTHOCC FATHOCC RSTEMM RSTEMMX RSTEMMB RSTEMMA
+  PACPH7 PACPH8 PACPH9 PACPH10 PACPH11 PACPH12 PCOPH7 PCOPH8 PCOPH9 PCOPH10
+  PCOPH11 PCOPH12 PMHPH7 PMHPH8 PMHPH9 PMHPH10 PMHPH11 PMHPH12 PSCPH7 PSCPH9
+  PSCPH10 PSCPH11 PSCPH12 HSCRE7 HSCRE10 HSCRE11 KMHPH7 KMHPH8 KMHPH9 KMHPH10
+  KMHPH11 KMHPH12 KMHSCPH7 KMHSCPH8 KMHSCPH9 KMHSCPH10 KMHSCPH11 KMHSCPH12
+  KSCPH7 KSCPH8 KSCPH9 KSCPH10 KSCPH11 KSCPH12 KACPH10 KACPH11 KACPH12 KACPH7
+  KACPH8 KACPH9 GENDER FEMALE RACETH3 RACETH MINORITY STEMMJOB STEMMJOB1 MOTHED1
+  FATHED1 POCI POCI1 ASCIIRT CSCIIRT ESCIIRT GSCIIRT ISCIIRT KSCIIRT NUMHSSCI;
+
+
+  missing are all (9999);
+  classes =c (8);
+
+  usevar = G11PSPComp G11ExC G11ASCComp G11SSCComp G11SSEComp KSCPH11;
+
+  Analysis:
+  Type=mixture;
+   starts = 200 50;
+   process = 4(starts);
+
+  Output:
+   sampstat tech11 tech14;
+
+  Plot:
+  type=plot3;
+  series =G11PSPComp - KSCPH11 (*);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+*** WARNING in PLOT command
+  Note that only the first 8 characters of variable names are used in plots.
+  If variable names are not unique within the first 8 characters, problems
+  may occur.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  1245
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        4700
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   G11PSPCOMP  G11EXC      G11ASCCOMP  G11SSCCOMP  G11SSECOMP  KSCPH11
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        200
+  Number of final stage optimizations                           50
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  Dataset_May28_Final_Mplus.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            27
+     Number of y missing data patterns          27
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       0.826
+ G11EXC         0.826         0.946
+ G11ASCCO       0.777         0.893         0.947
+ G11SSCCO       0.749         0.862         0.861         0.863
+ G11SSECO       0.588         0.630         0.631         0.576         0.665
+ KSCPH11        0.757         0.873         0.868         0.858         0.584
+
+
+           Covariance Coverage
+              KSCPH11
+              ________
+ KSCPH11        0.874
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1              1.238         1.073         2.766         3.296         3.379
+
+
+           Means
+              KSCPH11
+              ________
+ 1              0.515
+
+
+           Covariances
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       1.330
+ G11EXC         0.373         2.119
+ G11ASCCO      -0.034        -0.004         0.286
+ G11SSCCO       0.320         0.200         0.044         0.662
+ G11SSECO       0.331         0.163        -0.047         0.344         0.962
+ KSCPH11        0.191         0.127         0.011         0.185         0.124
+
+
+           Covariances
+              KSCPH11
+              ________
+ KSCPH11        0.822
+
+
+           Correlations
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       1.000
+ G11EXC         0.222         1.000
+ G11ASCCO      -0.055        -0.005         1.000
+ G11SSCCO       0.341         0.168         0.101         1.000
+ G11SSECO       0.292         0.114        -0.091         0.431         1.000
+ KSCPH11        0.182         0.097         0.022         0.250         0.139
+
+
+           Correlations
+              KSCPH11
+              ________
+ KSCPH11        1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -31400.798
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -25855.778  422103           62
+          -25954.530  407168           44
+          -25973.150  319144           176
+          -26021.328  153942           31
+          -26029.588  987090           70
+          -26895.875  232559           136
+          -27899.847  127215           9
+          -27901.685  443917           60
+          -28809.878  637345           19
+          -28829.109  369602           146
+          -28879.165  573096           20
+          -28911.367  526324           178
+          -28911.367  939021           8
+          -28916.280  51375            148
+          -28916.280  192071           142
+          -28918.185  848163           47
+          -28996.405  609185           181
+          -28996.405  603842           61
+          -28996.405  347515           24
+          -28999.105  626891           32
+          -28999.105  136842           58
+          -29010.551  481835           57
+          -29038.133  415931           10
+          -29038.133  915107           54
+          -29050.984  569833           85
+          -29055.734  717754           180
+          -29081.175  314084           81
+          -29081.175  726035           191
+          -29100.110  383986           159
+          -29109.101  928287           197
+          -29112.932  25127            107
+          -29121.474  268217           83
+          -29150.560  963053           43
+          -29191.544  751153           110
+          -29191.755  804561           59
+          -29197.805  569131           26
+          -29199.647  960438           116
+          -29199.647  950604           172
+          -29203.743  372176           23
+          -29210.619  165853           105
+          -29211.900  411615           171
+          -29243.734  715561           125
+          -29309.963  674171           195
+          -29318.149  967902           52
+          -29337.785  685657           69
+          -29342.542  648555           113
+          -29344.200  576220           115
+          -29519.830  948615           140
+
+2 perturbed starting value run(s) did not converge.
+
+
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE WAS NOT REPLICATED.  THE
+     SOLUTION MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.  INCREASE THE
+     NUMBER OF RANDOM STARTS.
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES MAY NOT BE
+     TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE
+     FIRST-ORDER DERIVATIVE PRODUCT MATRIX.  THIS MAY BE DUE TO THE STARTING
+     VALUES BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE
+     CONDITION NUMBER IS      -0.112D-20.  PROBLEM INVOLVING PARAMETER 18.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       61
+
+Loglikelihood
+
+          H0 Value                      -25855.778
+          H0 Scaling Correction Factor      1.6323
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   51833.557
+          Bayesian (BIC)                 52227.331
+          Sample-Size Adjusted BIC       52033.496
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        149.83980          0.03188
+       2        753.36235          0.16029
+       3        246.00657          0.05234
+       4        305.82731          0.06507
+       5        645.21749          0.13728
+       6       2000.02267          0.42554
+       7        372.94810          0.07935
+       8        226.77571          0.04825
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        149.83994          0.03188
+       2        753.36251          0.16029
+       3        246.00657          0.05234
+       4        305.82725          0.06507
+       5        645.21734          0.13728
+       6       2000.02257          0.42554
+       7        372.94810          0.07935
+       8        226.77571          0.04825
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.832
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              132          0.02809
+       2              655          0.13936
+       3              230          0.04894
+       4              334          0.07106
+       5              607          0.12915
+       6             2186          0.46511
+       7              346          0.07362
+       8              210          0.04468
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6        7        8
+
+    1   0.866    0.002    0.002    0.004    0.125    0.000    0.001    0.001
+    2   0.005    0.748    0.007    0.029    0.013    0.178    0.012    0.009
+    3   0.002    0.006    0.955    0.003    0.013    0.017    0.003    0.001
+    4   0.015    0.117    0.001    0.763    0.003    0.090    0.006    0.005
+    5   0.039    0.000    0.012    0.000    0.949    0.000    0.000    0.000
+    6   0.002    0.102    0.006    0.014    0.018    0.846    0.008    0.004
+    7   0.000    0.001    0.000    0.000    0.000    0.000    0.998    0.001
+    8   0.000    0.000    0.000    0.000    0.000    0.000    0.000    1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5        6        7        8
+
+    1   0.762    0.020    0.003    0.033    0.158    0.024    0.000    0.000
+    2   0.000    0.650    0.002    0.052    0.000    0.296    0.000    0.000
+    3   0.001    0.018    0.893    0.001    0.030    0.057    0.000    0.000
+    4   0.002    0.062    0.002    0.833    0.000    0.101    0.000    0.000
+    5   0.026    0.014    0.005    0.002    0.893    0.062    0.000    0.000
+    6   0.000    0.058    0.002    0.015    0.000    0.925    0.000    0.000
+    7   0.000    0.022    0.002    0.006    0.000    0.045    0.926    0.000
+    8   0.000    0.025    0.001    0.008    0.000    0.039    0.001    0.926
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+              1        2        3        4        5        6        7        8
+
+    1     13.544    9.892    8.017   10.391   11.971   10.080    5.228    0.000
+    2      5.741   13.385    7.476   10.859    0.000   12.597    5.437    0.000
+    3      6.937    9.776   13.703    7.201   10.306   10.948    0.000    0.000
+    4      7.494   11.034    7.543   13.633    0.000   11.523    4.520    0.000
+    5     10.148    9.521    8.430    7.400   13.702   11.030    5.396    0.000
+    6      2.202   10.972    7.607    9.613    0.000   13.737    3.884    0.000
+    7      5.849    9.991    7.444    8.627    0.000   10.709   13.738    0.000
+    8     -7.852   -3.621   -6.659   -4.810  -13.739   -3.169   -6.680    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Means
+    G11PSPCOMP         2.227      0.131     16.996      0.000
+    G11EXC             3.587      0.252     14.259      0.000
+    G11ASCCOMP         2.802      0.040     70.212      0.000
+    G11SSCCOMP         3.880      0.081     48.122      0.000
+    G11SSECOMP         3.991      0.094     42.483      0.000
+    KSCPH11            1.000      0.000  *********      0.000
+
+ Variances
+    G11PSPCOMP         0.926      0.046     20.029      0.000
+    G11EXC             1.181      0.092     12.854      0.000
+    G11ASCCOMP         0.165      0.005     35.490      0.000
+    G11SSCCOMP         0.515      0.016     31.731      0.000
+    G11SSECOMP         0.792      0.029     26.906      0.000
+    KSCPH11            0.011      0.001     11.633      0.000
+
+Latent Class 2
+
+ Means
+    G11PSPCOMP         2.126      0.131     16.229      0.000
+    G11EXC             0.804      0.085      9.436      0.000
+    G11ASCCOMP         2.865      0.021    136.631      0.000
+    G11SSCCOMP         3.738      0.031    120.973      0.000
+    G11SSECOMP         3.904      0.037    106.605      0.000
+    KSCPH11            0.000      0.000     -7.858      0.000
+
+ Variances
+    G11PSPCOMP         0.926      0.046     20.029      0.000
+    G11EXC             1.181      0.092     12.854      0.000
+    G11ASCCOMP         0.165      0.005     35.490      0.000
+    G11SSCCOMP         0.515      0.016     31.731      0.000
+    G11SSECOMP         0.792      0.029     26.906      0.000
+    KSCPH11            0.011      0.001     11.633      0.000
+
+Latent Class 3
+
+ Means
+    G11PSPCOMP         1.172      0.169      6.953      0.000
+    G11EXC             0.679      0.128      5.320      0.000
+    G11ASCCOMP         1.293      0.023     56.743      0.000
+    G11SSCCOMP         2.464      0.239     10.317      0.000
+    G11SSECOMP         3.948      0.064     62.131      0.000
+    KSCPH11            1.000      0.000  *********      0.000
+
+ Variances
+    G11PSPCOMP         0.926      0.046     20.029      0.000
+    G11EXC             1.181      0.092     12.854      0.000
+    G11ASCCOMP         0.165      0.005     35.490      0.000
+    G11SSCCOMP         0.515      0.016     31.731      0.000
+    G11SSECOMP         0.792      0.029     26.906      0.000
+    KSCPH11            0.011      0.001     11.633      0.000
+
+Latent Class 4
+
+ Means
+    G11PSPCOMP         1.789      0.156     11.491      0.000
+    G11EXC             4.012      0.202     19.878      0.000
+    G11ASCCOMP         2.845      0.028    100.952      0.000
+    G11SSCCOMP         3.567      0.086     41.390      0.000
+    G11SSECOMP         3.701      0.090     41.038      0.000
+    KSCPH11            0.000      0.000     -5.200      0.000
+
+ Variances
+    G11PSPCOMP         0.926      0.046     20.029      0.000
+    G11EXC             1.181      0.092     12.854      0.000
+    G11ASCCOMP         0.165      0.005     35.490      0.000
+    G11SSCCOMP         0.515      0.016     31.731      0.000
+    G11SSECOMP         0.792      0.029     26.906      0.000
+    KSCPH11            0.011      0.001     11.633      0.000
+
+Latent Class 5
+
+ Means
+    G11PSPCOMP         1.318      0.061     21.471      0.000
+    G11EXC             0.721      0.054     13.381      0.000
+    G11ASCCOMP         2.830      0.019    152.859      0.000
+    G11SSCCOMP         3.340      0.038     88.502      0.000
+    G11SSECOMP         3.383      0.053     63.315      0.000
+    KSCPH11            1.000      0.000  *********      0.000
+
+ Variances
+    G11PSPCOMP         0.926      0.046     20.029      0.000
+    G11EXC             1.181      0.092     12.854      0.000
+    G11ASCCOMP         0.165      0.005     35.490      0.000
+    G11SSCCOMP         0.515      0.016     31.731      0.000
+    G11SSECOMP         0.792      0.029     26.906      0.000
+    KSCPH11            0.011      0.001     11.633      0.000
+
+Latent Class 6
+
+ Means
+    G11PSPCOMP         0.585      0.026     22.122      0.000
+    G11EXC             0.581      0.045     12.929      0.000
+    G11ASCCOMP         2.840      0.012    246.846      0.000
+    G11SSCCOMP         2.916      0.031     95.281      0.000
+    G11SSECOMP         2.980      0.051     59.010      0.000
+    KSCPH11            0.000      0.000     10.209      0.000
+
+ Variances
+    G11PSPCOMP         0.926      0.046     20.029      0.000
+    G11EXC             1.181      0.092     12.854      0.000
+    G11ASCCOMP         0.165      0.005     35.490      0.000
+    G11SSCCOMP         0.515      0.016     31.731      0.000
+    G11SSECOMP         0.792      0.029     26.906      0.000
+    KSCPH11            0.011      0.001     11.633      0.000
+
+Latent Class 7
+
+ Means
+    G11PSPCOMP         1.618      0.068     23.685      0.000
+    G11EXC             1.293      0.086     15.031      0.000
+    G11ASCCOMP         2.862      0.024    117.552      0.000
+    G11SSCCOMP         3.681      0.040     91.154      0.000
+    G11SSECOMP         3.659      0.057     63.742      0.000
+    KSCPH11            2.000      0.000  *********      0.000
+
+ Variances
+    G11PSPCOMP         0.926      0.046     20.029      0.000
+    G11EXC             1.181      0.092     12.854      0.000
+    G11ASCCOMP         0.165      0.005     35.490      0.000
+    G11SSCCOMP         0.515      0.016     31.731      0.000
+    G11SSECOMP         0.792      0.029     26.906      0.000
+    KSCPH11            0.011      0.001     11.633      0.000
+
+Latent Class 8
+
+ Means
+    G11PSPCOMP         1.676      0.093     17.938      0.000
+    G11EXC             1.420      0.107     13.243      0.000
+    G11ASCCOMP         2.908      0.032     90.796      0.000
+    G11SSCCOMP         3.899      0.057     68.598      0.000
+    G11SSECOMP         3.837      0.084     45.561      0.000
+    KSCPH11            3.319      0.032    103.190      0.000
+
+ Variances
+    G11PSPCOMP         0.926      0.046     20.029      0.000
+    G11EXC             1.181      0.092     12.854      0.000
+    G11ASCCOMP         0.165      0.005     35.490      0.000
+    G11SSCCOMP         0.515      0.016     31.731      0.000
+    G11SSECOMP         0.792      0.029     26.906      0.000
+    KSCPH11            0.011      0.001     11.633      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.414      0.155     -2.674      0.008
+    C#2                1.201      0.113     10.592      0.000
+    C#3                0.081      0.098      0.827      0.408
+    C#4                0.299      0.184      1.623      0.105
+    C#5                1.046      0.083     12.559      0.000
+    C#6                2.177      0.081     26.784      0.000
+    C#7                0.497      0.088      5.683      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix             -0.112E-20
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 1
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1                  1             2             3             4             5
+
+
+           NU
+              KSCPH11
+              ________
+ 1                  6
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO           7
+ G11EXC             0             8
+ G11ASCCO           0             0             9
+ G11SSCCO           0             0             0            10
+ G11SSECO           0             0             0             0            11
+ KSCPH11            0             0             0             0             0
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11           12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 2
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1                 13            14            15            16            17
+
+
+           NU
+              KSCPH11
+              ________
+ 1                 18
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO           7
+ G11EXC             0             8
+ G11ASCCO           0             0             9
+ G11SSCCO           0             0             0            10
+ G11SSECO           0             0             0             0            11
+ KSCPH11            0             0             0             0             0
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11           12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 3
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1                 19            20            21            22            23
+
+
+           NU
+              KSCPH11
+              ________
+ 1                 24
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO           7
+ G11EXC             0             8
+ G11ASCCO           0             0             9
+ G11SSCCO           0             0             0            10
+ G11SSECO           0             0             0             0            11
+ KSCPH11            0             0             0             0             0
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11           12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 4
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1                 25            26            27            28            29
+
+
+           NU
+              KSCPH11
+              ________
+ 1                 30
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO           7
+ G11EXC             0             8
+ G11ASCCO           0             0             9
+ G11SSCCO           0             0             0            10
+ G11SSECO           0             0             0             0            11
+ KSCPH11            0             0             0             0             0
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11           12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 5
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1                 31            32            33            34            35
+
+
+           NU
+              KSCPH11
+              ________
+ 1                 36
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO           7
+ G11EXC             0             8
+ G11ASCCO           0             0             9
+ G11SSCCO           0             0             0            10
+ G11SSECO           0             0             0             0            11
+ KSCPH11            0             0             0             0             0
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11           12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 6
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1                 37            38            39            40            41
+
+
+           NU
+              KSCPH11
+              ________
+ 1                 42
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO           7
+ G11EXC             0             8
+ G11ASCCO           0             0             9
+ G11SSCCO           0             0             0            10
+ G11SSECO           0             0             0             0            11
+ KSCPH11            0             0             0             0             0
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11           12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 7
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1                 43            44            45            46            47
+
+
+           NU
+              KSCPH11
+              ________
+ 1                 48
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO           7
+ G11EXC             0             8
+ G11ASCCO           0             0             9
+ G11SSCCO           0             0             0            10
+ G11SSECO           0             0             0             0            11
+ KSCPH11            0             0             0             0             0
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11           12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 8
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1                 49            50            51            52            53
+
+
+           NU
+              KSCPH11
+              ________
+ 1                 54
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO           7
+ G11EXC             0             8
+ G11ASCCO           0             0             9
+ G11SSCCO           0             0             0            10
+ G11SSECO           0             0             0             0            11
+ KSCPH11            0             0             0             0             0
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11           12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4           C#5
+              ________      ________      ________      ________      ________
+ 1                 55            56            57            58            59
+
+
+           ALPHA(C)
+              C#6           C#7           C#8
+              ________      ________      ________
+ 1                 60            61             0
+
+
+     STARTING VALUES FOR LATENT CLASS 1
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1             -1.078        -1.841         1.697         1.680         1.501
+
+
+           NU
+              KSCPH11
+              ________
+ 1             -1.295
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       0.659
+ G11EXC         0.000         1.060
+ G11ASCCO       0.000         0.000         0.143
+ G11SSCCO       0.000         0.000         0.000         0.331
+ G11SSECO       0.000         0.000         0.000         0.000         0.477
+ KSCPH11        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11        0.411
+
+
+     STARTING VALUES FOR LATENT CLASS 2
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1              0.071        -0.386         2.231         2.494         2.477
+
+
+           NU
+              KSCPH11
+              ________
+ 1             -0.388
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       0.659
+ G11EXC         0.000         1.060
+ G11ASCCO       0.000         0.000         0.143
+ G11SSCCO       0.000         0.000         0.000         0.331
+ G11SSECO       0.000         0.000         0.000         0.000         0.477
+ KSCPH11        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11        0.411
+
+
+     STARTING VALUES FOR LATENT CLASS 3
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1              1.219         1.070         2.766         3.308         3.454
+
+
+           NU
+              KSCPH11
+              ________
+ 1              0.519
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       0.659
+ G11EXC         0.000         1.060
+ G11ASCCO       0.000         0.000         0.143
+ G11SSCCO       0.000         0.000         0.000         0.331
+ G11SSECO       0.000         0.000         0.000         0.000         0.477
+ KSCPH11        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11        0.411
+
+
+     STARTING VALUES FOR LATENT CLASS 4
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1              1.219         1.070         2.766         3.308         3.454
+
+
+           NU
+              KSCPH11
+              ________
+ 1              0.519
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       0.659
+ G11EXC         0.000         1.060
+ G11ASCCO       0.000         0.000         0.143
+ G11SSCCO       0.000         0.000         0.000         0.331
+ G11SSECO       0.000         0.000         0.000         0.000         0.477
+ KSCPH11        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11        0.411
+
+
+     STARTING VALUES FOR LATENT CLASS 5
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1              1.219         1.070         2.766         3.308         3.454
+
+
+           NU
+              KSCPH11
+              ________
+ 1              0.519
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       0.659
+ G11EXC         0.000         1.060
+ G11ASCCO       0.000         0.000         0.143
+ G11SSCCO       0.000         0.000         0.000         0.331
+ G11SSECO       0.000         0.000         0.000         0.000         0.477
+ KSCPH11        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11        0.411
+
+
+     STARTING VALUES FOR LATENT CLASS 6
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1              1.219         1.070         2.766         3.308         3.454
+
+
+           NU
+              KSCPH11
+              ________
+ 1              0.519
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       0.659
+ G11EXC         0.000         1.060
+ G11ASCCO       0.000         0.000         0.143
+ G11SSCCO       0.000         0.000         0.000         0.331
+ G11SSECO       0.000         0.000         0.000         0.000         0.477
+ KSCPH11        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11        0.411
+
+
+     STARTING VALUES FOR LATENT CLASS 7
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1              2.367         2.526         3.300         4.122         4.430
+
+
+           NU
+              KSCPH11
+              ________
+ 1              1.426
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       0.659
+ G11EXC         0.000         1.060
+ G11ASCCO       0.000         0.000         0.143
+ G11SSCCO       0.000         0.000         0.000         0.331
+ G11SSECO       0.000         0.000         0.000         0.000         0.477
+ KSCPH11        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11        0.411
+
+
+     STARTING VALUES FOR LATENT CLASS 8
+
+
+           NU
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ 1              3.516         3.982         3.835         4.936         5.407
+
+
+           NU
+              KSCPH11
+              ________
+ 1              2.333
+
+
+           THETA
+              G11PSPCO      G11EXC        G11ASCCO      G11SSCCO      G11SSECO
+              ________      ________      ________      ________      ________
+ G11PSPCO       0.659
+ G11EXC         0.000         1.060
+ G11ASCCO       0.000         0.000         0.143
+ G11SSCCO       0.000         0.000         0.000         0.331
+ G11SSECO       0.000         0.000         0.000         0.000         0.477
+ KSCPH11        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              KSCPH11
+              ________
+ KSCPH11        0.411
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4           C#5
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA(C)
+              C#6           C#7           C#8
+              ________      ________      ________
+ 1              0.000         0.000         0.000
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                    50
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 7 (H0) VERSUS 8 CLASSES
+
+          H0 Loglikelihood Value                       -26029.588
+          2 Times the Loglikelihood Difference            347.620
+          Difference in the Number of Parameters               13
+          Mean                                            -35.701
+          Standard Deviation                              126.888
+          P-Value                                          0.0007
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                           344.486
+          P-Value                                          0.0007
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 200
+        Number of final stage optimizations                    50
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 7 (H0) VERSUS 8 CLASSES
+
+          H0 Loglikelihood Value                       -26029.588
+          2 Times the Loglikelihood Difference            347.620
+          Difference in the Number of Parameters               13
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                            5
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE FOR THE 8 CLASS MODEL FOR THE GENERATED DATA
+     WAS NOT REPLICATED IN 5 OUT OF 5 BOOTSTRAP DRAWS.  THE P-VALUE MAY NOT BE TRUSTWORTHY
+     DUE TO LOCAL MAXIMA.  INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms of sample values
+  Histograms of estimated values
+  Scatterplots (sample values, estimated values)
+  Sample means
+  Estimated means
+  Sample and estimated means
+  Observed individual values
+  Estimated individual values
+  Estimated means and observed individual values
+  Estimated means and estimated individual values
+  Mixture distributions
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for Mixture analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  13:13:06
+        Ending Time:  13:17:02
+       Elapsed Time:  00:03:56
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

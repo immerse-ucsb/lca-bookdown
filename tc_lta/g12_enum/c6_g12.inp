@@ -1,0 +1,25 @@
+TITLE:
+6-Class LCA for LCA 12th Grade
+DATA:
+FILE = "/Users/brucecarter/Library/CloudStorage/Box-Box/TC_LTA/g12_enum/lsay_g12.dat";
+ 
+VARIABLE:
+NAMES = KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L; 
+ MISSING=.;
+ categorical = KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L;
+usevar = KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L;
+missing = all(9999);
+classes = c(6);
+ANALYSIS:
+
+      estimator = mlr;
+      type = mixture;
+      starts = 500 10;
+      processors = 10;
+OUTPUT:
+sampstat; residual; tech11; tech14;
+PLOT:
+
+      type = plot3;
+      series = KA46A KA46H KA46I KA46K KA46L KA47A 
+               KA47H KA47I KA47K KA47L (*);

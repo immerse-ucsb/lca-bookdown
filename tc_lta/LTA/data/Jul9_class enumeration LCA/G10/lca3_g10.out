@@ -1,0 +1,737 @@
+Mplus VERSION 7.1
+MUTHEN & MUTHEN
+07/09/2013   4:29 PM
+
+INPUT INSTRUCTIONS
+
+  data:
+  file is Dataset_Jul9_Mplus.dat;
+
+  Variable:
+  names are
+  CASENUM COHORT AB39A GA32A KA46A AB39B AB39C AB39D AB39E AB39F AB39G AB39H
+  GA32H KA46H AB39I GA32I KA46I AB39J AB39K GA32K KA46K AB39L GA32L KA46L AB39M
+  GA33A KA47A AB39N AB39O AB39P AB39Q AB39R AB39S AB39T GA33H KA47H AB39U GA33I
+  KA47I AB39V AB39W GA33K KA47K AB39X GA33L KA47L SciG7 SciG8 SciG11
+  MTH7 SCI7 SCI8 MOTHED FATHED PEDUC PEDUC3 RSEDAN RSEDAN6 RSEDAN5 RBACC
+  RMAJFIRST RMAJFIRST2 RMAJLAST2 RMAJLAST RGRADMAJ RGRADMAJ10 RSTEMM RSTEMMX
+  RSTEMMB RSTEMMA WEIGHT7 WEIGHT8 WEIGHT9 WEIGHT10 WEIGHT11 WEIGHT12 WEIGHTP1
+  WEIGHTP2 WEIGHTP4 WGT12A WEIGHTR GENDER RACETH3 RACETH Minority STEM STEMSup
+  ENGINEER MathG7 MathG8 MathG10 MathG11 MathG12 Female;
+
+  categorical = GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L;
+  missing=all(9999);
+  classes =c (3);
+
+  auxiliary =STEM(e)  STEMSup(e) ENGINEER(e) MathG8(e) SciG8(e);
+  usevar = GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L;
+
+  Analysis:
+  Type=mixture;
+   starts = 500 10;
+   process = 4(starts);
+
+  Output:
+   sampstat tech11 tech14;
+
+   Plot:
+  type=plot3;
+  series =GA32A - GA33L (*);
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  126
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  728
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2262
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   GA32A       GA32H       GA32I       GA32K       GA32L       GA33A
+   GA33H       GA33I       GA33K       GA33L
+
+Observed auxiliary variables
+   STEM        STEMSUP     ENGINEER    MATHG8      SCIG8
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                           10
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  Dataset_Jul9_Mplus.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            30
+     Number of y missing data patterns           0
+     Number of u missing data patterns          30
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              GA32A         GA32H         GA32I         GA32K         GA32L
+              ________      ________      ________      ________      ________
+ GA32A          0.999
+ GA32H          0.989         0.989
+ GA32I          0.987         0.979         0.987
+ GA32K          0.989         0.981         0.980         0.990
+ GA32L          0.993         0.985         0.983         0.986         0.994
+ GA33A          0.994         0.986         0.984         0.987         0.991
+ GA33H          0.987         0.979         0.977         0.981         0.984
+ GA33I          0.987         0.978         0.976         0.979         0.984
+ GA33K          0.988         0.980         0.977         0.981         0.985
+ GA33L          0.994         0.985         0.983         0.986         0.990
+
+
+           Covariance Coverage
+              GA33A         GA33H         GA33I         GA33K         GA33L
+              ________      ________      ________      ________      ________
+ GA33A          0.995
+ GA33H          0.985         0.988
+ GA33I          0.985         0.979         0.988
+ GA33K          0.986         0.981         0.980         0.989
+ GA33L          0.992         0.985         0.985         0.987         0.995
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    GA32A
+      Category 1    0.375      847.000
+      Category 2    0.625     1412.000
+    GA32H
+      Category 1    0.365      817.000
+      Category 2    0.635     1421.000
+    GA32I
+      Category 1    0.339      757.000
+      Category 2    0.661     1475.000
+    GA32K
+      Category 1    0.329      737.000
+      Category 2    0.671     1502.000
+    GA32L
+      Category 1    0.353      794.000
+      Category 2    0.647     1454.000
+    GA33A
+      Category 1    0.425      956.000
+      Category 2    0.575     1294.000
+    GA33H
+      Category 1    0.572     1278.000
+      Category 2    0.428      957.000
+    GA33I
+      Category 1    0.491     1097.000
+      Category 2    0.509     1137.000
+    GA33K
+      Category 1    0.580     1297.000
+      Category 2    0.420      941.000
+    GA33L
+      Category 1    0.584     1314.000
+      Category 2    0.416      936.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -12014.103  468036           131
+          -12014.103  391179           78
+          -12014.103  354395           486
+          -12014.103  840078           203
+          -12014.103  618000           190
+          -12014.103  268896           124
+          -12014.103  350608           334
+          -12014.103  224950           455
+          -12014.103  836066           372
+          -12014.103  153942           31
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       32
+
+Loglikelihood
+
+          H0 Value                      -12014.103
+          H0 Scaling Correction Factor      1.1171
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   24092.206
+          Bayesian (BIC)                 24275.374
+          Sample-Size Adjusted BIC       24173.705
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           3074.795
+          Degrees of Freedom                   960
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                           1882.344
+          Degrees of Freedom                   960
+          P-Value                           0.0000
+
+** Of the 9020 cells in the latent class indicator table, 31
+   were deleted in the calculation of chi-square due to extreme values.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                           1971.392
+          Degrees of Freedom                  7967
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            485.505
+          Degrees of Freedom                  7967
+          P-Value                           1.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        437.97482          0.19362
+       2       1070.45617          0.47323
+       3        753.56902          0.33314
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        437.97439          0.19362
+       2       1070.45696          0.47323
+       3        753.56866          0.33314
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.832
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              423          0.18700
+       2             1085          0.47966
+       3              754          0.33333
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3
+
+    1   0.914    0.086    0.000
+    2   0.047    0.914    0.039
+    3   0.000    0.056    0.944
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3
+
+    1   0.883    0.117    0.000
+    2   0.034    0.927    0.040
+    3   0.000    0.056    0.944
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+              1        2        3
+
+    1     11.622    9.600    0.000
+    2     -0.157    3.152    0.000
+    3    -13.758   -2.830    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    GA32A$1            0.933      0.131      7.137      0.000
+    GA32H$1            2.284      0.235      9.716      0.000
+    GA32I$1            1.936      0.250      7.732      0.000
+    GA32K$1            2.041      0.290      7.032      0.000
+    GA32L$1            2.607      0.320      8.151      0.000
+    GA33A$1            1.295      0.177      7.320      0.000
+    GA33H$1            2.872      0.355      8.101      0.000
+    GA33I$1            2.798      0.449      6.234      0.000
+    GA33K$1            3.582      0.653      5.484      0.000
+    GA33L$1            3.122      0.452      6.903      0.000
+
+Latent Class 2
+
+ Thresholds
+    GA32A$1           -0.554      0.080     -6.939      0.000
+    GA32H$1           -0.703      0.112     -6.280      0.000
+    GA32I$1           -0.797      0.100     -7.954      0.000
+    GA32K$1           -0.887      0.099     -8.942      0.000
+    GA32L$1           -0.761      0.111     -6.883      0.000
+    GA33A$1            0.026      0.078      0.329      0.742
+    GA33H$1            1.120      0.105     10.641      0.000
+    GA33I$1            0.422      0.088      4.806      0.000
+    GA33K$1            1.188      0.102     11.609      0.000
+    GA33L$1            1.318      0.118     11.212      0.000
+
+Latent Class 3
+
+ Thresholds
+    GA32A$1           -1.450      0.103    -14.093      0.000
+    GA32H$1           -2.232      0.186    -12.016      0.000
+    GA32I$1           -2.566      0.205    -12.502      0.000
+    GA32K$1           -2.745      0.248    -11.070      0.000
+    GA32L$1           -2.644      0.231    -11.447      0.000
+    GA33A$1           -2.197      0.137    -16.037      0.000
+    GA33H$1           -2.247      0.166    -13.508      0.000
+    GA33I$1           -2.643      0.186    -14.189      0.000
+    GA33K$1           -2.359      0.197    -11.960      0.000
+    GA33L$1           -2.498      0.198    -12.622      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.543      0.097     -5.613      0.000
+    C#2                0.351      0.079      4.462      0.000
+
+
+RESULTS IN PROBABILITY SCALE
+
+Latent Class 1
+
+ GA32A
+    Category 1         0.718      0.026     27.092      0.000
+    Category 2         0.282      0.026     10.655      0.000
+ GA32H
+    Category 1         0.908      0.020     46.015      0.000
+    Category 2         0.092      0.020      4.687      0.000
+ GA32I
+    Category 1         0.874      0.028     31.679      0.000
+    Category 2         0.126      0.028      4.569      0.000
+ GA32K
+    Category 1         0.885      0.030     29.965      0.000
+    Category 2         0.115      0.030      3.894      0.000
+ GA32L
+    Category 1         0.931      0.020     45.517      0.000
+    Category 2         0.069      0.020      3.357      0.001
+ GA33A
+    Category 1         0.785      0.030     26.291      0.000
+    Category 2         0.215      0.030      7.202      0.000
+ GA33H
+    Category 1         0.946      0.018     52.677      0.000
+    Category 2         0.054      0.018      2.980      0.003
+ GA33I
+    Category 1         0.943      0.024     38.797      0.000
+    Category 2         0.057      0.024      2.364      0.018
+ GA33K
+    Category 1         0.973      0.017     56.548      0.000
+    Category 2         0.027      0.017      1.574      0.116
+ GA33L
+    Category 1         0.958      0.018     52.381      0.000
+    Category 2         0.042      0.018      2.309      0.021
+
+Latent Class 2
+
+ GA32A
+    Category 1         0.365      0.019     19.726      0.000
+    Category 2         0.635      0.019     34.325      0.000
+ GA32H
+    Category 1         0.331      0.025     13.346      0.000
+    Category 2         0.669      0.025     26.968      0.000
+ GA32I
+    Category 1         0.311      0.021     14.474      0.000
+    Category 2         0.689      0.021     32.121      0.000
+ GA32K
+    Category 1         0.292      0.020     14.230      0.000
+    Category 2         0.708      0.020     34.553      0.000
+ GA32L
+    Category 1         0.318      0.024     13.276      0.000
+    Category 2         0.682      0.024     28.409      0.000
+ GA33A
+    Category 1         0.506      0.019     26.008      0.000
+    Category 2         0.494      0.019     25.350      0.000
+ GA33H
+    Category 1         0.754      0.020     38.620      0.000
+    Category 2         0.246      0.020     12.601      0.000
+ GA33I
+    Category 1         0.604      0.021     28.774      0.000
+    Category 2         0.396      0.021     18.874      0.000
+ GA33K
+    Category 1         0.766      0.018     41.827      0.000
+    Category 2         0.234      0.018     12.750      0.000
+ GA33L
+    Category 1         0.789      0.020     40.289      0.000
+    Category 2         0.211      0.020     10.779      0.000
+
+Latent Class 3
+
+ GA32A
+    Category 1         0.190      0.016     12.005      0.000
+    Category 2         0.810      0.016     51.152      0.000
+ GA32H
+    Category 1         0.097      0.016      5.962      0.000
+    Category 2         0.903      0.016     55.543      0.000
+ GA32I
+    Category 1         0.071      0.014      5.246      0.000
+    Category 2         0.929      0.014     68.287      0.000
+ GA32K
+    Category 1         0.060      0.014      4.292      0.000
+    Category 2         0.940      0.014     66.793      0.000
+ GA32L
+    Category 1         0.066      0.014      4.638      0.000
+    Category 2         0.934      0.014     65.232      0.000
+ GA33A
+    Category 1         0.100      0.012      8.109      0.000
+    Category 2         0.900      0.012     72.991      0.000
+ GA33H
+    Category 1         0.096      0.014      6.649      0.000
+    Category 2         0.904      0.014     62.867      0.000
+ GA33I
+    Category 1         0.066      0.012      5.751      0.000
+    Category 2         0.934      0.012     80.820      0.000
+ GA33K
+    Category 1         0.086      0.016      5.549      0.000
+    Category 2         0.914      0.016     58.715      0.000
+ GA33L
+    Category 1         0.076      0.014      5.468      0.000
+    Category 2         0.924      0.014     66.496      0.000
+
+
+LATENT CLASS ODDS RATIO RESULTS
+
+Latent Class 1 Compared to Latent Class 2
+
+ GA32A
+    Category > 1       0.226      0.034      6.642      0.000
+ GA32H
+    Category > 1       0.050      0.012      4.046      0.000
+ GA32I
+    Category > 1       0.065      0.016      3.993      0.000
+ GA32K
+    Category > 1       0.054      0.015      3.567      0.000
+ GA32L
+    Category > 1       0.034      0.011      3.144      0.002
+ GA33A
+    Category > 1       0.281      0.058      4.865      0.000
+ GA33H
+    Category > 1       0.173      0.069      2.531      0.011
+ GA33I
+    Category > 1       0.093      0.044      2.121      0.034
+ GA33K
+    Category > 1       0.091      0.063      1.452      0.147
+ GA33L
+    Category > 1       0.165      0.083      1.987      0.047
+
+Latent Class 1 Compared to Latent Class 3
+
+ GA32A
+    Category > 1       0.092      0.015      6.013      0.000
+ GA32H
+    Category > 1       0.011      0.003      3.383      0.001
+ GA32I
+    Category > 1       0.011      0.004      2.962      0.003
+ GA32K
+    Category > 1       0.008      0.003      2.539      0.011
+ GA32L
+    Category > 1       0.005      0.002      2.533      0.011
+ GA33A
+    Category > 1       0.030      0.007      4.458      0.000
+ GA33H
+    Category > 1       0.006      0.002      2.509      0.012
+ GA33I
+    Category > 1       0.004      0.002      2.042      0.041
+ GA33K
+    Category > 1       0.003      0.002      1.464      0.143
+ GA33L
+    Category > 1       0.004      0.002      2.013      0.044
+
+Latent Class 2 Compared to Latent Class 3
+
+ GA32A
+    Category > 1       0.408      0.056      7.270      0.000
+ GA32H
+    Category > 1       0.217      0.053      4.060      0.000
+ GA32I
+    Category > 1       0.171      0.043      3.995      0.000
+ GA32K
+    Category > 1       0.156      0.046      3.408      0.001
+ GA32L
+    Category > 1       0.152      0.044      3.495      0.000
+ GA33A
+    Category > 1       0.108      0.017      6.447      0.000
+ GA33H
+    Category > 1       0.035      0.006      5.642      0.000
+ GA33I
+    Category > 1       0.047      0.009      5.029      0.000
+ GA33K
+    Category > 1       0.029      0.006      4.954      0.000
+ GA33L
+    Category > 1       0.022      0.005      4.793      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.648E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+EQUALITY TESTS OF MEANS ACROSS CLASSES USING POSTERIOR PROBABILITY-BASED
+MULTIPLE IMPUTATIONS WITH 2 DEGREE(S) OF FREEDOM FOR THE OVERALL TEST AND
+1 DEGREE OF FREEDOM FOR THE PAIRWISE TESTS
+
+STEM
+                          Mean       S.E.
+
+  Class 1                0.030      0.011
+  Class 2                0.064      0.010
+  Class 3                0.131      0.015
+
+                    Chi-Square     P-Value
+
+  Overall test          22.141      0.000
+  Class 1 vs. 2          4.860      0.027
+  Class 1 vs. 3         28.746      0.000
+  Class 2 vs. 3         12.713      0.000
+
+STEMSUP
+                          Mean       S.E.
+
+  Class 1                0.076      0.017
+  Class 2                0.128      0.013
+  Class 3                0.243      0.019
+
+                    Chi-Square     P-Value
+
+  Overall test          33.643      0.000
+  Class 1 vs. 2          5.341      0.021
+  Class 1 vs. 3         42.187      0.000
+  Class 2 vs. 3         23.014      0.000
+
+ENGINEER
+                          Mean       S.E.
+
+  Class 1                0.015      0.008
+  Class 2                0.020      0.005
+  Class 3                0.041      0.009
+
+                    Chi-Square     P-Value
+
+  Overall test           4.876      0.087
+  Class 1 vs. 2          0.203      0.652
+  Class 1 vs. 3          4.877      0.027
+  Class 2 vs. 3          4.117      0.042
+
+MATHG8
+                          Mean       S.E.
+
+  Class 1               51.716      0.572
+  Class 2               55.017      0.356
+  Class 3               56.884      0.454
+
+                    Chi-Square     P-Value
+
+  Overall test          36.167      0.000
+  Class 1 vs. 2         22.156      0.000
+  Class 1 vs. 3         49.811      0.000
+  Class 2 vs. 3          9.761      0.002
+
+SCIG8
+                          Mean       S.E.
+
+  Class 1               52.262      0.562
+  Class 2               54.838      0.354
+  Class 3               57.491      0.451
+
+                    Chi-Square     P-Value
+
+  Overall test          39.844      0.000
+  Class 1 vs. 2         14.121      0.000
+  Class 1 vs. 3         52.564      0.000
+  Class 2 vs. 3         20.013      0.000
+
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                    10
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 2 (H0) VERSUS 3 CLASSES
+
+          H0 Loglikelihood Value                       -12538.671
+          2 Times the Loglikelihood Difference           1049.136
+          Difference in the Number of Parameters               11
+          Mean                                             15.572
+          Standard Deviation                               30.307
+          P-Value                                          0.0000
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                          1036.932
+          P-Value                                          0.0000
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                    10
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 2 (H0) VERSUS 3 CLASSES
+
+          H0 Loglikelihood Value                       -12538.671
+          2 Times the Loglikelihood Difference           1049.136
+          Difference in the Number of Parameters               11
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                            5
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE FOR THE 3 CLASS MODEL FOR THE GENERATED DATA
+     WAS NOT REPLICATED IN 3 OUT OF 5 BOOTSTRAP DRAWS.  THE P-VALUE MAY NOT BE TRUSTWORTHY
+     DUE TO LOCAL MAXIMA.  INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms of sample values
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for Mixture analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  16:29:24
+        Ending Time:  16:29:35
+       Elapsed Time:  00:00:11
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

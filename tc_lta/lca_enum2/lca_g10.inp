@@ -1,0 +1,89 @@
+TITLE:
+4-Class G10 LCA with Fixed Thresholds from Invariant LTA
+DATA:
+FILE = "/Users/brucecarter/Library/CloudStorage/Box-Box/TC_LTA/lca_enum2/lca_g10.dat";
+ 
+VARIABLE:
+NAMES = CASENUM AB39A GA32A KA46A AB39H GA32H KA46H AB39I GA32I KA46I AB39K GA32K
+     KA46K AB39L GA32L KA46L AB39M GA33A KA47A AB39T GA33H KA47H AB39U GA33I KA47I
+     AB39W GA33K KA47K AB39X GA33L KA47L SCIG8 SCIG11 MINORITY STEM STEMSUP ENGINEER
+     MATHG7 MATHG8 MATHG10 MATHG11 MATHG12 FEMALE; 
+ MISSING=.;
+ 
+  categorical = GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L;
+  usevar = GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L;
+  auxiliary = AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X
+              KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L
+              STEM STEMSup ENGINEER MathG8 SciG8 MathG11 SciG11 Female 
+              Minority MathG7 MathG10 MathG12 CASENUM;
+  missing = all(9999);
+  classes = c(4);
+ANALYSIS:
+
+      estimator = mlr;
+      type = mixture;
+      starts = 0;
+      processors = 4;
+MODEL:
+  %OVERALL%
+    [c#1@0];
+
+  %c#1%
+    [GA32A$1@-1.566]
+    [GA32H$1@-2.945]
+    [GA32I$1@-3.121]
+    [GA32K$1@-2.87]
+    [GA32L$1@-3.789]
+    [GA33A$1@-2.162]
+    [GA33H$1@-2.101]
+    [GA33I$1@-2.508]
+    [GA33K$1@-1.835]
+    [GA33L$1@-2.329]
+
+  %c#2%
+    [GA32A$1@0.751]
+    [GA32H$1@1.914]
+    [GA32I$1@1.619]
+    [GA32K$1@1.492]
+    [GA32L$1@2.256]
+    [GA33A$1@1.36]
+    [GA33H$1@3.636]
+    [GA33I$1@2.923]
+    [GA33K$1@3.589]
+    [GA33L$1@3.51]
+
+  %c#3%
+    [GA32A$1@-0.082]
+    [GA32H$1@-0.123]
+    [GA32I$1@-0.52]
+    [GA32K$1@-0.07]
+    [GA32L$1@0.153]
+    [GA33A$1@-0.892]
+    [GA33H$1@0.046]
+    [GA33I$1@-0.468]
+    [GA33K$1@0.455]
+    [GA33L$1@0.15]
+
+  %c#4%
+    [GA32A$1@-0.89]
+    [GA32H$1@-1.678]
+    [GA32I$1@-0.898]
+    [GA32K$1@-1.926]
+    [GA32L$1@-2.27]
+    [GA33A$1@0.441]
+    [GA33H$1@2.227]
+    [GA33I$1@1.023]
+    [GA33K$1@2.039]
+    [GA33L$1@1.858]
+OUTPUT:
+
+      sampstat;
+      tech1;
+      tech11;
+      tech14;
+      svalues;
+SAVEDATA:
+
+      file = g10.dat;
+      save = cprob;
+      missflag = 9999;

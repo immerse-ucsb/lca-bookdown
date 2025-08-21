@@ -1,0 +1,104 @@
+data:
+file is merge.dat;
+
+Variable:
+names are
+KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L 
+AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X
+GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L
+STEM STEMSup ENGINEER MathG8 SciG8 MathG11 SciG11 Female Minority MathG7 MathG10 MathG12
+n2 casenum p1 p2 p3 p4 n3 n1;
+
+missing=all(9999);
+classes =c1(4) c2(4) c3(4);
+
+usevar = n1 n2 n3 Female Minority MathG7
+MathG10 MathG12;
+nominal = n1 n2 n3;
+
+
+Analysis:
+Type=mixture;
+ starts = 0;
+
+Model:
+%overall%
+c1 on Minority Female MathG7;
+c2 on c1 Female MathG10;
+c3 on c2 Female MathG12;
+
+Model c1:
+%c1#1%
+[n1#1@12.635];
+[n1#2@8.500];
+[n1#3@9.476];
+c2 on Minority;
+
+%c1#2%
+[n1#1@0.719];
+[n1#2@3.850];
+[n1#3@1.650];
+c2 on Minority;
+
+%c1#3%
+[n1#1@0.799];
+[n1#2@1.278];
+[n1#3@2.830];
+c2 on Minority;
+
+%c1#4%
+[n1#1@-7.592];
+[n1#2@-2.537];
+[n1#3@-2.319];
+c2 on Minority;
+
+
+Model c2:
+%c2#1%
+[n2#1@8.417];
+[n2#2@4.063];
+[n2#3@5.008];
+c3 on Minority;
+
+%c2#2%
+[n2#1@-0.204];
+[n2#2@3.108];
+[n2#3@0.819];
+c3 on Minority;
+
+%c2#3%
+[n2#1@0.392];
+[n2#2@0.635];
+[n2#3@2.504];
+c3 on Minority;
+
+%c2#4%
+[n2#1@-8.315];
+[n2#2@-3.583];
+[n2#3@-2.828];
+c3 on Minority;
+
+
+
+Model c3:
+%c3#1%
+[n3#1@6.487];
+[n3#2@2.381];
+[n3#3@3.313];
+
+%c3#2%
+[n3#1@0.117];
+[n3#2@3.193];
+[n3#3@0.804];
+
+%c3#3%
+[n3#1@0.316];
+[n3#2@0.424];
+[n3#3@2.422];
+
+%c3#4%
+[n3#1@-6.714];
+[n3#2@-3.688];
+[n3#3@-3.289];
+
+ 

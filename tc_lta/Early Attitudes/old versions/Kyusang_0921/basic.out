@@ -1,0 +1,166 @@
+Mplus VERSION 7
+MUTHEN & MUTHEN
+09/26/2012   3:25 PM
+
+INPUT INSTRUCTIONS
+
+  data:
+  file is recoded_LSAY_09212012.dat;
+
+  Variable:
+  names are
+  CASENUM COHORT AB39A AB39B AB39C AB39D AB39E AB39F AB39G AB39H AB39I AB39J
+  AB39K AB39L AB39M AB39N AB39O AB39P AB39Q AB39R AB39S AB39T AB39U AB39V AB39W
+  AB39X ASCIIRT CSCIIRT MTH7 SCI7 SCI8 MOTHED FATHED PEDUC PEDUC3 RSEDAN RSEDAN6
+  RSEDAN5 RBACC RMAJFIR RMAJFIR2 RMAJLST2 RMAJLST RGRMAJ RGRMAJ10
+  RSTEMM RSTEMMX RSTEMMB RSTEMMA WEIGHT7 WEIGHT8 WEIGHT9 WEIGHT10 WEIGHT11
+  WEIGHT12 WEIGHTP1 WEIGHTP2 WEIGHTP4 WGT12A WEIGHTR GENDER RACETH3 RACETH AB39A1
+  AB39H1 AB39I1 AB39K1 AB39L1 AB39M1 AB39T1 AB39U1 AB39W1 AB39X1 RACETH1 STEM
+  STEMSup ENGINEER AMTHIRT CMTHIRT GENDER1 AB39A2 AB39H2 AB39I2 AB39K2 AB39L2
+  AB39M2 AB39T2 AB39U2 AB39W2 AB39X2;
+
+  categorical = RACETH;
+
+  missing=all(9999);
+
+
+
+  usevar = RACETH;
+
+  Analysis:
+  Type=basic;
+
+  Output:
+   sampstat ;
+
+   !Plot:
+  !type=plot3;
+  !series =AB39A2 - AB39X2 (*);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        5945
+
+Number of dependent variables                                    1
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   RACETH
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+
+Input data file(s)
+  recoded_LSAY_09212012.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+SUMMARY OF MISSING DATA PATTERNS
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1
+ RACETH    x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency
+          1        5945
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              RACETH
+              ________
+ RACETH         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    RACETH
+      Category 1    0.066      391.000
+      Category 2    0.088      524.000
+      Category 3    0.108      645.000
+      Category 4    0.693     4122.000
+      Category 5    0.032      191.000
+      Category 6    0.012       72.000
+
+
+
+
+
+RESULTS FOR BASIC ANALYSIS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              RACETH$1      RACETH$2      RACETH$3      RACETH$4      RACETH$5
+              ________      ________      ________      ________      ________
+      1        -1.508        -1.020        -0.636         1.703         2.254
+
+
+     STANDARD ERRORS FOR ESTIMATED SAMPLE STATISTICS
+
+
+           S.E. FOR MEANS/INTERCEPTS/THRESHOLDS
+              RACETH$1      RACETH$2      RACETH$3      RACETH$4      RACETH$5
+              ________      ________      ________      ________      ________
+      1         0.025         0.020         0.018         0.029         0.045
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for TYPE=BASIC.
+  No diagram output was produced.
+
+
+     Beginning Time:  15:25:53
+        Ending Time:  15:25:54
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2012 Muthen & Muthen
