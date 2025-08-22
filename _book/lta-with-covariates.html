@@ -86,7 +86,6 @@
 <li><a class="" href="classification-diagnostics.html"><span class="header-section-number">8</span> Classification Diagnostics</a></li>
 <li class="book-part">Including Auxiliary Variables</li>
 <li><a class="" href="a-single-covariate.html"><span class="header-section-number">9</span> A Single Covariate</a></li>
-<li class="book-part">Including Auxiliary Variables</li>
 <li><a class="" href="a-single-distal-outcome.html"><span class="header-section-number">10</span> A Single Distal Outcome</a></li>
 <li><a class="" href="two-covariates-and-a-single-distal-outcome.html"><span class="header-section-number">11</span> Two Covariates and a Single Distal Outcome</a></li>
 <li class="book-part">Extensions of Latent Class Models</li>
@@ -115,13 +114,13 @@
 <p><strong>Data Source</strong>: The data used to illustrate these analyses include elementary school student <em>Science Attitude</em> survey items collected during 7th and 10th grades from the <strong>Longitudinal Study of American Youth</strong> (LSAY; Miller, 2015).</p>
 <hr>
 <p>To install package {<code>rhdf5</code>}</p>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#BiocManager::install("rhdf5")</span></span></code></pre></div>
 <p><em>Load packages</em></p>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Huber-group-EMBL/rhdf5">rhdf5</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>       </span>
@@ -140,13 +139,13 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jakelawlor/PNWColors">PNWColors</a></span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p>Read in LSAY data file, <code>lsay_new.csv</code>.</p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lsay_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>,<span class="st">"lsay_lta.csv"</span><span class="op">)</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"9999"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">as.numeric</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-e7e8bd1e9f797a649c7f" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-e7e8bd1e9f797a649c7f">{"x":{"diagram":" digraph model {\n\n    graph [layout = dot, overlap = true]\n\n    node [shape=box]\n    ab39m ab39t ab39u ab39w ab39x \n    ga33a ga33h ga33i ga33k ga33l;\n \n \n    node [shape=circle, fixedsize = true, width = 1.5, height = 0.5]\n    T1 [label = \"7th Grade \nScience Attitudes\n(T1)\"]\n    T2 [label = \"10th Grade \nScience Attitudes\n(T2)\"]\n    \n    edge []\n    T1 -> {ab39m ab39t ab39u ab39w ab39x}\n    T2 -> {ga33a ga33h ga33i ga33k ga33l}\n    T1 -> T2\n    {rank = same; T1; T2;}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-88a65eb2ad0cad571d6c" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-88a65eb2ad0cad571d6c">{"x":{"diagram":" digraph model {\n\n    graph [layout = dot, overlap = true]\n\n    node [shape=box]\n    ab39m ab39t ab39u ab39w ab39x \n    ga33a ga33h ga33i ga33k ga33l;\n \n \n    node [shape=circle, fixedsize = true, width = 1.5, height = 0.5]\n    T1 [label = \"7th Grade \nScience Attitudes\n(T1)\"]\n    T2 [label = \"10th Grade \nScience Attitudes\n(T2)\"]\n    \n    edge []\n    T1 -> {ab39m ab39t ab39u ab39w ab39x}\n    T2 -> {ga33a ga33h ga33i ga33k ga33l}\n    T1 -> T2\n    {rank = same; T1; T2;}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <div id="descriptive-statistics-11" class="section level2" number="14.1">
 <h2>
 <span class="header-section-number">14.1</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-11"><i class="fas fa-link"></i></a>
@@ -156,7 +155,7 @@
 <h3>
 <span class="header-section-number">14.1.1</span> Data Summary<a class="anchor" aria-label="anchor" href="#data-summary-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">lsay_data</span></span>
 <span></span>
 <span><span class="va">select_data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -168,8 +167,8 @@
 
     <script>
 
-      function styleCell_dfj1hejo0u9pzsj0qbme(i, j, css_id) {
-          var table = document.getElementById("tinytable_dfj1hejo0u9pzsj0qbme");
+      function styleCell_cgibvg3fv1p6jgl1vmfu(i, j, css_id) {
+          var table = document.getElementById("tinytable_cgibvg3fv1p6jgl1vmfu");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -179,7 +178,7 @@
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_dfj1hejo0u9pzsj0qbme');
+        var table = document.getElementById('tinytable_cgibvg3fv1p6jgl1vmfu');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -187,8 +186,8 @@
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_dfj1hejo0u9pzsj0qbme(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_dfj1hejo0u9pzsj0qbme");
+      function spanCell_cgibvg3fv1p6jgl1vmfu(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_cgibvg3fv1p6jgl1vmfu");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -218,32 +217,32 @@
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 2 }, { i: 12, j: 3 }, { i: 12, j: 4 }, { i: 12, j: 5 }, { i: 12, j: 6 },  ], css_id: 'tinytable_css_9jrffbst4j4enc9xg1hy',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 }, { i: 1, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 2, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 1, j: 3 }, { i: 6, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 10, j: 3 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 9, j: 3 }, { i: 1, j: 4 }, { i: 2, j: 4 }, { i: 7, j: 4 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 11, j: 4 }, { i: 8, j: 4 }, { i: 9, j: 4 }, { i: 10, j: 4 }, { i: 2, j: 5 }, { i: 3, j: 5 }, { i: 4, j: 5 }, { i: 1, j: 5 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 8, j: 5 }, { i: 5, j: 5 }, { i: 10, j: 5 }, { i: 11, j: 5 }, { i: 3, j: 6 }, { i: 9, j: 5 }, { i: 1, j: 6 }, { i: 2, j: 6 }, { i: 7, j: 6 }, { i: 4, j: 6 }, { i: 5, j: 6 }, { i: 6, j: 6 }, { i: 11, j: 6 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 10, j: 6 },  ], css_id: 'tinytable_css_ufemhc4v4tnc1rgqegko',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 }, { i: 0, j: 6 },  ], css_id: 'tinytable_css_h351taqs2ozpk3lyywjv',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_zulvgqc0mgomi0v8z0cg',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_3i07oyjijk4peduos9nu',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_rtks77wuthbaiya0rlup',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 2 }, { i: 12, j: 3 }, { i: 12, j: 4 }, { i: 12, j: 5 }, { i: 12, j: 6 },  ], css_id: 'tinytable_css_ufu588p0kul43yda8fjc',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 }, { i: 1, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 2, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 1, j: 3 }, { i: 6, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 10, j: 3 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 9, j: 3 }, { i: 1, j: 4 }, { i: 2, j: 4 }, { i: 7, j: 4 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 11, j: 4 }, { i: 8, j: 4 }, { i: 9, j: 4 }, { i: 10, j: 4 }, { i: 2, j: 5 }, { i: 3, j: 5 }, { i: 4, j: 5 }, { i: 1, j: 5 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 8, j: 5 }, { i: 5, j: 5 }, { i: 10, j: 5 }, { i: 11, j: 5 }, { i: 3, j: 6 }, { i: 9, j: 5 }, { i: 1, j: 6 }, { i: 2, j: 6 }, { i: 7, j: 6 }, { i: 4, j: 6 }, { i: 5, j: 6 }, { i: 6, j: 6 }, { i: 11, j: 6 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 10, j: 6 },  ], css_id: 'tinytable_css_44wzl3cazqx269atzifl',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 }, { i: 0, j: 6 },  ], css_id: 'tinytable_css_0lmrk983dhbbpk0ji8wb',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_j2myfmpxs4qxusgdu3um',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_c0ztgbbauod6bkbsgtza',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_8hr18pc5ow05agw3nbwj',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_dfj1hejo0u9pzsj0qbme(cell.i, cell.j, group.css_id);
+                  styleCell_cgibvg3fv1p6jgl1vmfu(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><style>
       /* tinytable css entries after */
-      .table td.tinytable_css_9jrffbst4j4enc9xg1hy, .table th.tinytable_css_9jrffbst4j4enc9xg1hy { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_ufemhc4v4tnc1rgqegko, .table th.tinytable_css_ufemhc4v4tnc1rgqegko { text-align: right; }
-      .table td.tinytable_css_h351taqs2ozpk3lyywjv, .table th.tinytable_css_h351taqs2ozpk3lyywjv { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_zulvgqc0mgomi0v8z0cg, .table th.tinytable_css_zulvgqc0mgomi0v8z0cg { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_3i07oyjijk4peduos9nu, .table th.tinytable_css_3i07oyjijk4peduos9nu { text-align: left; }
-      .table td.tinytable_css_rtks77wuthbaiya0rlup, .table th.tinytable_css_rtks77wuthbaiya0rlup { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_ufu588p0kul43yda8fjc, .table th.tinytable_css_ufu588p0kul43yda8fjc { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_44wzl3cazqx269atzifl, .table th.tinytable_css_44wzl3cazqx269atzifl { text-align: right; }
+      .table td.tinytable_css_0lmrk983dhbbpk0ji8wb, .table th.tinytable_css_0lmrk983dhbbpk0ji8wb { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_j2myfmpxs4qxusgdu3um, .table th.tinytable_css_j2myfmpxs4qxusgdu3um { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_c0ztgbbauod6bkbsgtza, .table th.tinytable_css_c0ztgbbauod6bkbsgtza { text-align: left; }
+      .table td.tinytable_css_8hr18pc5ow05agw3nbwj, .table th.tinytable_css_8hr18pc5ow05agw3nbwj { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
     </style>
 <div class="container">
-      <div class="inline-table"><table class="table table-borderless" id="tinytable_dfj1hejo0u9pzsj0qbme" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <div class="inline-table"><table class="table table-borderless" id="tinytable_cgibvg3fv1p6jgl1vmfu" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col"> </th>
                 <th scope="col">Mean</th>
@@ -369,9 +368,9 @@
 <hr>
 </div>
 </div>
-<div id="adding-covariates-1" class="section level2" number="14.2">
+<div id="adding-covariates" class="section level2" number="14.2">
 <h2>
-<span class="header-section-number">14.2</span> Adding Covariates<a class="anchor" aria-label="anchor" href="#adding-covariates-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2</span> Adding Covariates<a class="anchor" aria-label="anchor" href="#adding-covariates"><i class="fas fa-link"></i></a>
 </h2>
 <p>Continuing from the previous section <a href="lta.html#lta">13</a>, we use the ML three-step method to estimate LTA models with predictors and distal outcomes). Estimate the unconditional model for each latent variable with the predictors included in the <code>auxiliary</code> option for at least one of the models.</p>
 <p>Covariates</p>
@@ -386,12 +385,12 @@
 <code>female</code>: Gender (0 = Male, 1 = Female)</li>
 </ul>
 <hr>
-<div id="step-1---estimate-unconditional-model-w-auxiliary-specification-2" class="section level3" number="14.2.1">
+<div id="step-1---estimate-unconditional-model-w-auxiliary-specification-1" class="section level3" number="14.2.1">
 <h3>
-<span class="header-section-number">14.2.1</span> Step 1 - Estimate Unconditional Model w/ Auxiliary Specification<a class="anchor" aria-label="anchor" href="#step-1---estimate-unconditional-model-w-auxiliary-specification-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.1</span> Step 1 - Estimate Unconditional Model w/ Auxiliary Specification<a class="anchor" aria-label="anchor" href="#step-1---estimate-unconditional-model-w-auxiliary-specification-1"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>7th Grade</em></p>
-<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 1 - T1"</span>, </span>
@@ -430,7 +429,7 @@
 <span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p><em>10th Grade</em></p>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 1 - T1"</span>, </span>
@@ -467,116 +466,86 @@
 <span>                            dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"t2.dat"</span><span class="op">)</span>,</span>
 <span>                            modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"one_T2.inp"</span><span class="op">)</span> ,</span>
 <span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-table"><table class="table table-sm">
-<colgroup><col width="100%"></colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">
-<code>plot_lca_function</code> requires 5 arguments:</td>
-</tr>
-<tr class="even">
-<td align="left">- <code>model_name</code>: name of Mplus model object (e.g., <code>model_t1_c4</code>)
-- <code>item_num</code>: the number of items in LCA measurement model (e.g., <code>5</code>)
-- <code>class_num</code>: the number of classes (<em>k</em>) in LCA model (e.g., <code>4</code>)
-- <code>item_labels</code>: the item labels for x-axis (e.g., <code>c("Enjoy","Useful","Logical","Job","Adult")</code>)
-- <code>plot_title</code>: include the title of the plot here (e.g., <code>"Time 1 LCA Conditional Item Probability Plot"</code>)</td>
-</tr>
-<tr class="odd">
-<td align="left">``` r</td>
-</tr>
-<tr class="even">
-<td align="left">plot_lca_function &lt;- function(model_name,item_num,class_num,item_labels,plot_title){</td>
-</tr>
-<tr class="odd">
-<td align="left">mplus_model &lt;- as.data.frame(model_name<span class="math inline">\(gh5\)</span>means_and_variances_data<span class="math inline">\(estimated_probs\)</span>values)
-plot_t1 &lt;- mplus_model[seq(2, 2*item_num, 2),]</td>
-</tr>
-<tr class="even">
-<td align="left">c_size &lt;- as.data.frame(model_name<span class="math inline">\(class_counts\)</span>modelEstimated$proportion)
-colnames(c_size) &lt;- paste0(“cs”)
-c_size &lt;- c_size %&gt;% mutate(cs = round(cs*100, 2))
-colnames(plot_t1) &lt;- paste0(“C”, 1:class_num, glue(” ({c_size[1:class_num,]}%)“))</td>
-</tr>
-<tr class="odd">
-<td align="left">plot_t1 &lt;- cbind(Var = paste0(“U”, 1:item_num), plot_t1)
-plot_t1<span class="math inline">\(Var &lt;- factor(plot_t1\)</span>Var,
-labels = item_labels)
-plot_t1<span class="math inline">\(Var &lt;- fct_inorder(plot_t1\)</span>Var)
-pd_long_t1 &lt;- melt(plot_t1, id.vars = “Var”)</td>
-</tr>
-<tr class="even">
-<td align="left">p &lt;- pd_long_t1 %&gt;%
-ggplot(aes(x = as.integer(Var), y = value,
-shape = variable, colour = variable, lty = variable)) +
-geom_point(size = 4) + geom_line() +
-scale_x_continuous(““, breaks = 1:5, labels = plot_t1$Var) +
-scale_colour_grey() +
-labs(title = plot_title, y =”Probability”) +
-theme_cowplot() +
-theme(legend.title = element_blank(),
-legend.position = “top”)</td>
-</tr>
-<tr class="odd">
-<td align="left">p
-return(p)
-}</td>
-</tr>
-<tr class="even">
-<td align="left">```</td>
-</tr>
-<tr class="odd">
-<td align="left">Plot Time 1</td>
-</tr>
-<tr class="even">
-<td align="left">``` r</td>
-</tr>
-<tr class="odd">
-<td align="left">output_T1 &lt;- readModels(here(“lta”,“cov_model”,“one_T1.out”))</td>
-</tr>
-<tr class="even">
-<td align="left">plot_lca_function(
-model_name = output_T1,
-item_num = 5,
-class_num = 4,
-item_labels = c(“Enjoy”,“Useful”,“Logical”,“Job”,“Adult”),
-plot_title = “Time 1 LCA Conditional Item Probability Plot”
-)
-```</td>
-</tr>
-<tr class="odd">
-<td align="left"><img src="14-lta-cov_files/figure-html/unnamed-chunk-9-1.png" width="960"></td>
-</tr>
-<tr class="even">
-<td align="left">Plot Time 2</td>
-</tr>
-<tr class="odd">
-<td align="left">``` r</td>
-</tr>
-<tr class="even">
-<td align="left">output_T2 &lt;- readModels(here(“lta”,“cov_model”,“one_T2.out”))</td>
-</tr>
-<tr class="odd">
-<td align="left">plot_lca_function(
-model_name = output_T2,
-item_num = 5,
-class_num = 4,
-item_labels = c(“Enjoy”,“Useful”,“Logical”,“Job”,“Adult”),
-plot_title = “Time 2 LCA Conditional Item Probability Plot”
-)
-```</td>
-</tr>
-<tr class="even">
-<td align="left"><img src="14-lta-cov_files/figure-html/unnamed-chunk-10-1.png" width="960"></td>
-</tr>
-</tbody>
-</table></div>
+<hr>
+<p><code>plot_lca_function</code> requires 5 arguments:</p>
+<ul>
+<li>
+<code>model_name</code>: name of Mplus model object (e.g., <code>model_t1_c4</code>)</li>
+<li>
+<code>item_num</code>: the number of items in LCA measurement model (e.g., <code>5</code>)</li>
+<li>
+<code>class_num</code>: the number of classes (<em>k</em>) in LCA model (e.g., <code>4</code>)</li>
+<li>
+<code>item_labels</code>: the item labels for x-axis (e.g., <code>c("Enjoy","Useful","Logical","Job","Adult")</code>)</li>
+<li>
+<code>plot_title</code>: include the title of the plot here (e.g., <code>"Time 1 LCA Conditional Item Probability Plot"</code>)</li>
+</ul>
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">plot_lca_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model_name</span>,<span class="va">item_num</span>,<span class="va">class_num</span>,<span class="va">item_labels</span>,<span class="va">plot_title</span><span class="op">)</span><span class="op">{</span></span>
+<span></span>
+<span><span class="va">mplus_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">model_name</span><span class="op">$</span><span class="va">gh5</span><span class="op">$</span><span class="va">means_and_variances_data</span><span class="op">$</span><span class="va">estimated_probs</span><span class="op">$</span><span class="va">values</span><span class="op">)</span></span>
+<span><span class="va">plot_t1</span> <span class="op">&lt;-</span> <span class="va">mplus_model</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">*</span><span class="va">item_num</span>, <span class="fl">2</span><span class="op">)</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="va">c_size</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">model_name</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">modelEstimated</span><span class="op">$</span><span class="va">proportion</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">c_size</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"cs"</span><span class="op">)</span></span>
+<span><span class="va">c_size</span> <span class="op">&lt;-</span> <span class="va">c_size</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">cs</span><span class="op">*</span><span class="fl">100</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">plot_t1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="fl">1</span><span class="op">:</span><span class="va">class_num</span>, <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">" ({c_size[1:class_num,]}%)"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plot_t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span>Var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"U"</span>, <span class="fl">1</span><span class="op">:</span><span class="va">item_num</span><span class="op">)</span>, <span class="va">plot_t1</span><span class="op">)</span></span>
+<span><span class="va">plot_t1</span><span class="op">$</span><span class="va">Var</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">plot_t1</span><span class="op">$</span><span class="va">Var</span>,</span>
+<span>               labels <span class="op">=</span> <span class="va">item_labels</span><span class="op">)</span></span>
+<span><span class="va">plot_t1</span><span class="op">$</span><span class="va">Var</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_inorder.html">fct_inorder</a></span><span class="op">(</span><span class="va">plot_t1</span><span class="op">$</span><span class="va">Var</span><span class="op">)</span></span>
+<span><span class="va">pd_long_t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reshape2/man/melt.html">melt</a></span><span class="op">(</span><span class="va">plot_t1</span>, id.vars <span class="op">=</span> <span class="st">"Var"</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">pd_long_t1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">Var</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">value</span>,</span>
+<span>  shape <span class="op">=</span> <span class="va">variable</span>, colour <span class="op">=</span> <span class="va">variable</span>, lty <span class="op">=</span> <span class="va">variable</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span><span class="st">""</span>, breaks <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, labels <span class="op">=</span> <span class="va">plot_t1</span><span class="op">$</span><span class="va">Var</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_grey.html">scale_colour_grey</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="va">plot_title</span>, y <span class="op">=</span> <span class="st">"Probability"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkelab.org/cowplot/reference/theme_cowplot.html">theme_cowplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<span>        legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Plot Time 1</p>
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">output_T1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"one_T1.out"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">plot_lca_function</span><span class="op">(</span></span>
+<span>  model_name <span class="op">=</span> <span class="va">output_T1</span>, </span>
+<span>  item_num <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  class_num <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  item_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Enjoy"</span>,<span class="st">"Useful"</span>,<span class="st">"Logical"</span>,<span class="st">"Job"</span>,<span class="st">"Adult"</span><span class="op">)</span>,</span>
+<span>  plot_title <span class="op">=</span> <span class="st">"Time 1 LCA Conditional Item Probability Plot"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="14-lta-cov_files/figure-html/unnamed-chunk-9-1.png" width="960"></div>
+<p>Plot Time 2</p>
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">output_T2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"one_T2.out"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">plot_lca_function</span><span class="op">(</span></span>
+<span>  model_name <span class="op">=</span> <span class="va">output_T2</span>, </span>
+<span>  item_num <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  class_num <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  item_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Enjoy"</span>,<span class="st">"Useful"</span>,<span class="st">"Logical"</span>,<span class="st">"Job"</span>,<span class="st">"Adult"</span><span class="op">)</span>,</span>
+<span>  plot_title <span class="op">=</span> <span class="st">"Time 2 LCA Conditional Item Probability Plot"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="14-lta-cov_files/figure-html/unnamed-chunk-10-1.png" width="960"></div>
+<hr>
 </div>
-<div id="step-2---determine-measurement-error-5" class="section level3" number="14.2.2">
+<div id="step-2---determine-measurement-error-4" class="section level3" number="14.2.2">
 <h3>
-<span class="header-section-number">14.2.2</span> Step 2 - Determine Measurement Error<a class="anchor" aria-label="anchor" href="#step-2---determine-measurement-error-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.2</span> Step 2 - Determine Measurement Error<a class="anchor" aria-label="anchor" href="#step-2---determine-measurement-error-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>Extract logits for the classification probabilities for the most likely latent class:</p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">logit_cprobs_T1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_T1</span><span class="op">[[</span><span class="st">"class_counts"</span><span class="op">]</span><span class="op">]</span></span>
 <span>                                       <span class="op">[[</span><span class="st">"logitProbs.mostLikely"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
@@ -584,12 +553,12 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <span><span class="va">logit_cprobs_T2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_T2</span><span class="op">[[</span><span class="st">"class_counts"</span><span class="op">]</span><span class="op">]</span></span>
 <span>                                       <span class="op">[[</span><span class="st">"logitProbs.mostLikely"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p>Extract saved dataset:</p>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">savedata_T1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_T1</span><span class="op">[[</span><span class="st">"savedata"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">savedata_T2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_T2</span><span class="op">[[</span><span class="st">"savedata"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p>Rename the column in savedata named “C” and change to “N”</p>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_T1</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_T1</span><span class="op">)</span><span class="op">==</span><span class="st">"C"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"N_T1"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_T2</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_T2</span><span class="op">)</span><span class="op">==</span><span class="st">"C"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"N_T2"</span></span>
@@ -598,11 +567,11 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">savedata_T2</span>, by <span class="op">=</span> <span class="st">"CASENUM"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
-<div id="step-3---add-auxiliary-variables-2" class="section level3" number="14.2.3">
+<div id="step-3---add-auxiliary-variables-1" class="section level3" number="14.2.3">
 <h3>
-<span class="header-section-number">14.2.3</span> Step 3 - Add Auxiliary Variables<a class="anchor" aria-label="anchor" href="#step-3---add-auxiliary-variables-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.3</span> Step 3 - Add Auxiliary Variables<a class="anchor" aria-label="anchor" href="#step-3---add-auxiliary-variables-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"ML Three Step LTA Model"</span>, </span>
 <span>  </span>
@@ -680,13 +649,13 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"three.inp"</span><span class="op">)</span>, </span>
 <span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <hr>
-<div id="lta-transition-plot-1" class="section level4" number="14.2.3.1">
+<div id="lta-transition-plot" class="section level4" number="14.2.3.1">
 <h4>
-<span class="header-section-number">14.2.3.1</span> LTA Transition Plot<a class="anchor" aria-label="anchor" href="#lta-transition-plot-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.3.1</span> LTA Transition Plot<a class="anchor" aria-label="anchor" href="#lta-transition-plot"><i class="fas fa-link"></i></a>
 </h4>
 <p>This code is adapted from the source code for the <code>plotLTA</code> function found in the <a href="https://github.com/michaelhallquist/MplusAutomation/blob/995d1ecfae3656524153456ce647f86fe8c1cf1e/R/mixtures.R"></a></p>
 <p><strong>NOTE:</strong> The function found in <code>plot_transitions_function.R</code> is specific to a model with 2 time-points and 4-classes &amp; must be updated to accommodate other models.</p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"plot_transitions_function.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">lta_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"three.out"</span><span class="op">)</span><span class="op">)</span></span>
@@ -708,7 +677,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="14-lta-cov_files/figure-html/unnamed-chunk-15-1.png" width="768"></div>
 <p>Table:</p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lta_prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">lta_model</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">transitionProbs</span><span class="op">$</span><span class="va">probability</span><span class="op">)</span></span>
 <span></span>
 <span></span>
@@ -726,23 +695,23 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <span>    title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**Transition Probabilities**"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_number.html">fmt_number</a></span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">5</span>,decimals <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"10th Grade"</span>,columns <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="co">#%&gt;% </span></span></code></pre></div>
-<div id="oowfvxegeg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#oowfvxegeg table {
+<div id="lirwjmmvdn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lirwjmmvdn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#oowfvxegeg thead, #oowfvxegeg tbody, #oowfvxegeg tfoot, #oowfvxegeg tr, #oowfvxegeg td, #oowfvxegeg th {
+#lirwjmmvdn thead, #lirwjmmvdn tbody, #lirwjmmvdn tfoot, #lirwjmmvdn tr, #lirwjmmvdn td, #lirwjmmvdn th {
   border-style: none;
 }
 
-#oowfvxegeg p {
+#lirwjmmvdn p {
   margin: 0;
   padding: 0;
 }
 
-#oowfvxegeg .gt_table {
+#lirwjmmvdn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -768,12 +737,12 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-left-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_caption {
+#lirwjmmvdn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#oowfvxegeg .gt_title {
+#lirwjmmvdn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -785,7 +754,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-width: 0;
 }
 
-#oowfvxegeg .gt_subtitle {
+#lirwjmmvdn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -797,7 +766,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-top-width: 0;
 }
 
-#oowfvxegeg .gt_heading {
+#lirwjmmvdn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -809,13 +778,13 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_bottom_border {
+#lirwjmmvdn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_col_headings {
+#lirwjmmvdn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -830,7 +799,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_col_heading {
+#lirwjmmvdn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -850,7 +819,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   overflow-x: hidden;
 }
 
-#oowfvxegeg .gt_column_spanner_outer {
+#lirwjmmvdn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -862,15 +831,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 4px;
 }
 
-#oowfvxegeg .gt_column_spanner_outer:first-child {
+#lirwjmmvdn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oowfvxegeg .gt_column_spanner_outer:last-child {
+#lirwjmmvdn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oowfvxegeg .gt_column_spanner {
+#lirwjmmvdn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -882,11 +851,11 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   width: 100%;
 }
 
-#oowfvxegeg .gt_spanner_row {
+#lirwjmmvdn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#oowfvxegeg .gt_group_heading {
+#lirwjmmvdn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -912,7 +881,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   text-align: left;
 }
 
-#oowfvxegeg .gt_empty_group_heading {
+#lirwjmmvdn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -927,15 +896,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   vertical-align: middle;
 }
 
-#oowfvxegeg .gt_from_md > :first-child {
+#lirwjmmvdn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oowfvxegeg .gt_from_md > :last-child {
+#lirwjmmvdn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oowfvxegeg .gt_row {
+#lirwjmmvdn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -954,7 +923,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   overflow-x: hidden;
 }
 
-#oowfvxegeg .gt_stub {
+#lirwjmmvdn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -967,7 +936,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#oowfvxegeg .gt_stub_row_group {
+#lirwjmmvdn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -981,15 +950,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   vertical-align: top;
 }
 
-#oowfvxegeg .gt_row_group_first td {
+#lirwjmmvdn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#oowfvxegeg .gt_row_group_first th {
+#lirwjmmvdn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#oowfvxegeg .gt_summary_row {
+#lirwjmmvdn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -999,16 +968,16 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#oowfvxegeg .gt_first_summary_row {
+#lirwjmmvdn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_first_summary_row.thick {
+#lirwjmmvdn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#oowfvxegeg .gt_last_summary_row {
+#lirwjmmvdn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1018,7 +987,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_grand_summary_row {
+#lirwjmmvdn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1028,7 +997,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#oowfvxegeg .gt_first_grand_summary_row {
+#lirwjmmvdn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1038,7 +1007,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-top-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_last_grand_summary_row_top {
+#lirwjmmvdn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1048,11 +1017,11 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_striped {
+#lirwjmmvdn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oowfvxegeg .gt_table_body {
+#lirwjmmvdn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1061,7 +1030,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_footnotes {
+#lirwjmmvdn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1075,7 +1044,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_footnote {
+#lirwjmmvdn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1084,7 +1053,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#oowfvxegeg .gt_sourcenotes {
+#lirwjmmvdn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1098,7 +1067,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#oowfvxegeg .gt_sourcenote {
+#lirwjmmvdn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1106,72 +1075,72 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#oowfvxegeg .gt_left {
+#lirwjmmvdn .gt_left {
   text-align: left;
 }
 
-#oowfvxegeg .gt_center {
+#lirwjmmvdn .gt_center {
   text-align: center;
 }
 
-#oowfvxegeg .gt_right {
+#lirwjmmvdn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oowfvxegeg .gt_font_normal {
+#lirwjmmvdn .gt_font_normal {
   font-weight: normal;
 }
 
-#oowfvxegeg .gt_font_bold {
+#lirwjmmvdn .gt_font_bold {
   font-weight: bold;
 }
 
-#oowfvxegeg .gt_font_italic {
+#lirwjmmvdn .gt_font_italic {
   font-style: italic;
 }
 
-#oowfvxegeg .gt_super {
+#lirwjmmvdn .gt_super {
   font-size: 65%;
 }
 
-#oowfvxegeg .gt_footnote_marks {
+#lirwjmmvdn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#oowfvxegeg .gt_asterisk {
+#lirwjmmvdn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#oowfvxegeg .gt_indent_1 {
+#lirwjmmvdn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#oowfvxegeg .gt_indent_2 {
+#lirwjmmvdn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#oowfvxegeg .gt_indent_3 {
+#lirwjmmvdn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#oowfvxegeg .gt_indent_4 {
+#lirwjmmvdn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#oowfvxegeg .gt_indent_5 {
+#lirwjmmvdn .gt_indent_5 {
   text-indent: 25px;
 }
 
-#oowfvxegeg .katex-display {
+#lirwjmmvdn .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#oowfvxegeg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lirwjmmvdn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1225,15 +1194,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 </tbody>
 </table></div>
 </div>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="co">#gtsave("matrix.docx")</span></span></code></pre></div>
 <hr>
 </div>
-<div id="covariate-table-1" class="section level4" number="14.2.3.2">
+<div id="covariate-table" class="section level4" number="14.2.3.2">
 <h4>
-<span class="header-section-number">14.2.3.2</span> Covariate Table<a class="anchor" aria-label="anchor" href="#covariate-table-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.3.2</span> Covariate Table<a class="anchor" aria-label="anchor" href="#covariate-table"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># REFERENCE CLASS 4</span></span>
 <span><span class="va">cov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">lta_model</span><span class="op">[[</span><span class="st">"parameters"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"unstandardized"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">param</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SCI_IRT7"</span>, <span class="st">"FEMALE"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -1283,23 +1252,23 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="va">cov_m1</span></span></code></pre></div>
-<div id="qwftnyltpr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qwftnyltpr table {
+<div id="blqjfnxuru" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#blqjfnxuru table {
   font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qwftnyltpr thead, #qwftnyltpr tbody, #qwftnyltpr tfoot, #qwftnyltpr tr, #qwftnyltpr td, #qwftnyltpr th {
+#blqjfnxuru thead, #blqjfnxuru tbody, #blqjfnxuru tfoot, #blqjfnxuru tr, #blqjfnxuru td, #blqjfnxuru th {
   border-style: none;
 }
 
-#qwftnyltpr p {
+#blqjfnxuru p {
   margin: 0;
   padding: 0;
 }
 
-#qwftnyltpr .gt_table {
+#blqjfnxuru .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1325,12 +1294,12 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-left-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_caption {
+#blqjfnxuru .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qwftnyltpr .gt_title {
+#blqjfnxuru .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1342,7 +1311,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-width: 0;
 }
 
-#qwftnyltpr .gt_subtitle {
+#blqjfnxuru .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1354,7 +1323,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-top-width: 0;
 }
 
-#qwftnyltpr .gt_heading {
+#blqjfnxuru .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1366,13 +1335,13 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_bottom_border {
+#blqjfnxuru .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_col_headings {
+#blqjfnxuru .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1387,7 +1356,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_col_heading {
+#blqjfnxuru .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1407,7 +1376,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   overflow-x: hidden;
 }
 
-#qwftnyltpr .gt_column_spanner_outer {
+#blqjfnxuru .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1419,15 +1388,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 4px;
 }
 
-#qwftnyltpr .gt_column_spanner_outer:first-child {
+#blqjfnxuru .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qwftnyltpr .gt_column_spanner_outer:last-child {
+#blqjfnxuru .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qwftnyltpr .gt_column_spanner {
+#blqjfnxuru .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1439,11 +1408,11 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   width: 100%;
 }
 
-#qwftnyltpr .gt_spanner_row {
+#blqjfnxuru .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qwftnyltpr .gt_group_heading {
+#blqjfnxuru .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1469,7 +1438,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   text-align: left;
 }
 
-#qwftnyltpr .gt_empty_group_heading {
+#blqjfnxuru .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1484,15 +1453,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   vertical-align: middle;
 }
 
-#qwftnyltpr .gt_from_md > :first-child {
+#blqjfnxuru .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qwftnyltpr .gt_from_md > :last-child {
+#blqjfnxuru .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qwftnyltpr .gt_row {
+#blqjfnxuru .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1511,7 +1480,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   overflow-x: hidden;
 }
 
-#qwftnyltpr .gt_stub {
+#blqjfnxuru .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1524,7 +1493,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#qwftnyltpr .gt_stub_row_group {
+#blqjfnxuru .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1538,15 +1507,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   vertical-align: top;
 }
 
-#qwftnyltpr .gt_row_group_first td {
+#blqjfnxuru .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qwftnyltpr .gt_row_group_first th {
+#blqjfnxuru .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qwftnyltpr .gt_summary_row {
+#blqjfnxuru .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1556,16 +1525,16 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#qwftnyltpr .gt_first_summary_row {
+#blqjfnxuru .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_first_summary_row.thick {
+#blqjfnxuru .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qwftnyltpr .gt_last_summary_row {
+#blqjfnxuru .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1575,7 +1544,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_grand_summary_row {
+#blqjfnxuru .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1585,7 +1554,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#qwftnyltpr .gt_first_grand_summary_row {
+#blqjfnxuru .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1595,7 +1564,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-top-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_last_grand_summary_row_top {
+#blqjfnxuru .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1605,11 +1574,11 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_striped {
+#blqjfnxuru .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qwftnyltpr .gt_table_body {
+#blqjfnxuru .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1618,7 +1587,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_footnotes {
+#blqjfnxuru .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1632,7 +1601,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_footnote {
+#blqjfnxuru .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1641,7 +1610,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#qwftnyltpr .gt_sourcenotes {
+#blqjfnxuru .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1655,7 +1624,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#qwftnyltpr .gt_sourcenote {
+#blqjfnxuru .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1663,72 +1632,72 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#qwftnyltpr .gt_left {
+#blqjfnxuru .gt_left {
   text-align: left;
 }
 
-#qwftnyltpr .gt_center {
+#blqjfnxuru .gt_center {
   text-align: center;
 }
 
-#qwftnyltpr .gt_right {
+#blqjfnxuru .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qwftnyltpr .gt_font_normal {
+#blqjfnxuru .gt_font_normal {
   font-weight: normal;
 }
 
-#qwftnyltpr .gt_font_bold {
+#blqjfnxuru .gt_font_bold {
   font-weight: bold;
 }
 
-#qwftnyltpr .gt_font_italic {
+#blqjfnxuru .gt_font_italic {
   font-style: italic;
 }
 
-#qwftnyltpr .gt_super {
+#blqjfnxuru .gt_super {
   font-size: 65%;
 }
 
-#qwftnyltpr .gt_footnote_marks {
+#blqjfnxuru .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qwftnyltpr .gt_asterisk {
+#blqjfnxuru .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qwftnyltpr .gt_indent_1 {
+#blqjfnxuru .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qwftnyltpr .gt_indent_2 {
+#blqjfnxuru .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qwftnyltpr .gt_indent_3 {
+#blqjfnxuru .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qwftnyltpr .gt_indent_4 {
+#blqjfnxuru .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qwftnyltpr .gt_indent_5 {
+#blqjfnxuru .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qwftnyltpr .katex-display {
+#blqjfnxuru .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qwftnyltpr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#blqjfnxuru div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1833,11 +1802,11 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 </div>
 <hr>
 </div>
-<div id="manually-calculate-transition-probabilities-by-covariate-1" class="section level4" number="14.2.3.3">
+<div id="manually-calculate-transition-probabilities-by-covariate" class="section level4" number="14.2.3.3">
 <h4>
-<span class="header-section-number">14.2.3.3</span> Manually calculate transition probabilities by covariate<a class="anchor" aria-label="anchor" href="#manually-calculate-transition-probabilities-by-covariate-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.3.3</span> Manually calculate transition probabilities by covariate<a class="anchor" aria-label="anchor" href="#manually-calculate-transition-probabilities-by-covariate"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"LTA (invariant)"</span>, </span>
 <span>  </span>
@@ -1984,7 +1953,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"calc_tran.inp"</span><span class="op">)</span>, </span>
 <span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Read invariance model and extract parameters (intercepts and multinomial regression coefficients)</p>
-<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lta_inv1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"calc_tran.out"</span> <span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -1994,7 +1963,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">est</span><span class="op">)</span>,</span>
 <span>         label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"b11"</span>, <span class="st">"b12"</span>, <span class="st">"b13"</span>, <span class="st">"b21"</span>, <span class="st">"b22"</span>, <span class="st">"b23"</span>, <span class="st">"b31"</span>, <span class="st">"b32"</span>, <span class="st">"b33"</span>, <span class="st">"b212"</span>, <span class="st">"b222"</span>, <span class="st">"b232"</span>, <span class="st">"b112"</span>, <span class="st">"b122"</span>, <span class="st">"b132"</span>, <span class="st">"a11"</span>, <span class="st">"a21"</span>, <span class="st">"a31"</span>, <span class="st">"a12"</span>, <span class="st">"a22"</span>, <span class="st">"a32"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Manual method to calculate transition probabilities by covariate:</p>
-<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Name each parameter individually to make the subsequent calculations more readable</span></span>
 <span><span class="va">a1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">19</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; </span>
 <span><span class="va">a2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">20</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; </span>
@@ -2068,11 +2037,11 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <p>Create table</p>
 </div>
 </div>
-<div id="create-transition-table-2" class="section level3" number="14.2.4">
+<div id="create-transition-table-1" class="section level3" number="14.2.4">
 <h3>
-<span class="header-section-number">14.2.4</span> Create Transition Table<a class="anchor" aria-label="anchor" href="#create-transition-table-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.4</span> Create Transition Table<a class="anchor" aria-label="anchor" href="#create-transition-table-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">t_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Time1"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C1=Anti-Science"</span>,<span class="st">"C1=Amb. w/ Elevated"</span>,<span class="st">"C1=Amb. w/ Minimal"</span>,<span class="st">"C1=Pro-Science"</span><span class="op">)</span>,</span>
@@ -2094,23 +2063,23 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
 <span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
 <span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="aruudjkcwv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#aruudjkcwv table {
+<div id="ahehjwuldi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ahehjwuldi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#aruudjkcwv thead, #aruudjkcwv tbody, #aruudjkcwv tfoot, #aruudjkcwv tr, #aruudjkcwv td, #aruudjkcwv th {
+#ahehjwuldi thead, #ahehjwuldi tbody, #ahehjwuldi tfoot, #ahehjwuldi tr, #ahehjwuldi td, #ahehjwuldi th {
   border-style: none;
 }
 
-#aruudjkcwv p {
+#ahehjwuldi p {
   margin: 0;
   padding: 0;
 }
 
-#aruudjkcwv .gt_table {
+#ahehjwuldi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2136,12 +2105,12 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-left-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_caption {
+#ahehjwuldi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#aruudjkcwv .gt_title {
+#ahehjwuldi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2153,7 +2122,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-width: 0;
 }
 
-#aruudjkcwv .gt_subtitle {
+#ahehjwuldi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2165,7 +2134,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-top-width: 0;
 }
 
-#aruudjkcwv .gt_heading {
+#ahehjwuldi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2177,13 +2146,13 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_bottom_border {
+#ahehjwuldi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_col_headings {
+#ahehjwuldi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2198,7 +2167,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_col_heading {
+#ahehjwuldi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2218,7 +2187,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   overflow-x: hidden;
 }
 
-#aruudjkcwv .gt_column_spanner_outer {
+#ahehjwuldi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2230,15 +2199,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 4px;
 }
 
-#aruudjkcwv .gt_column_spanner_outer:first-child {
+#ahehjwuldi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#aruudjkcwv .gt_column_spanner_outer:last-child {
+#ahehjwuldi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#aruudjkcwv .gt_column_spanner {
+#ahehjwuldi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2250,11 +2219,11 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   width: 100%;
 }
 
-#aruudjkcwv .gt_spanner_row {
+#ahehjwuldi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#aruudjkcwv .gt_group_heading {
+#ahehjwuldi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2280,7 +2249,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   text-align: left;
 }
 
-#aruudjkcwv .gt_empty_group_heading {
+#ahehjwuldi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2295,15 +2264,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   vertical-align: middle;
 }
 
-#aruudjkcwv .gt_from_md > :first-child {
+#ahehjwuldi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#aruudjkcwv .gt_from_md > :last-child {
+#ahehjwuldi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#aruudjkcwv .gt_row {
+#ahehjwuldi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2322,7 +2291,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   overflow-x: hidden;
 }
 
-#aruudjkcwv .gt_stub {
+#ahehjwuldi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2335,7 +2304,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#aruudjkcwv .gt_stub_row_group {
+#ahehjwuldi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2349,15 +2318,15 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   vertical-align: top;
 }
 
-#aruudjkcwv .gt_row_group_first td {
+#ahehjwuldi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#aruudjkcwv .gt_row_group_first th {
+#ahehjwuldi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#aruudjkcwv .gt_summary_row {
+#ahehjwuldi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2367,16 +2336,16 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#aruudjkcwv .gt_first_summary_row {
+#ahehjwuldi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_first_summary_row.thick {
+#ahehjwuldi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#aruudjkcwv .gt_last_summary_row {
+#ahehjwuldi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2386,7 +2355,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_grand_summary_row {
+#ahehjwuldi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2396,7 +2365,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#aruudjkcwv .gt_first_grand_summary_row {
+#ahehjwuldi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2406,7 +2375,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-top-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_last_grand_summary_row_top {
+#ahehjwuldi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2416,11 +2385,11 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_striped {
+#ahehjwuldi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#aruudjkcwv .gt_table_body {
+#ahehjwuldi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2429,7 +2398,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-bottom-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_footnotes {
+#ahehjwuldi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2443,7 +2412,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_footnote {
+#ahehjwuldi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2452,7 +2421,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#aruudjkcwv .gt_sourcenotes {
+#ahehjwuldi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2466,7 +2435,7 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   border-right-color: #D3D3D3;
 }
 
-#aruudjkcwv .gt_sourcenote {
+#ahehjwuldi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2474,72 +2443,72 @@ plot_title = “Time 2 LCA Conditional Item Probability Plot”
   padding-right: 5px;
 }
 
-#aruudjkcwv .gt_left {
+#ahehjwuldi .gt_left {
   text-align: left;
 }
 
-#aruudjkcwv .gt_center {
+#ahehjwuldi .gt_center {
   text-align: center;
 }
 
-#aruudjkcwv .gt_right {
+#ahehjwuldi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#aruudjkcwv .gt_font_normal {
+#ahehjwuldi .gt_font_normal {
   font-weight: normal;
 }
 
-#aruudjkcwv .gt_font_bold {
+#ahehjwuldi .gt_font_bold {
   font-weight: bold;
 }
 
-#aruudjkcwv .gt_font_italic {
+#ahehjwuldi .gt_font_italic {
   font-style: italic;
 }
 
-#aruudjkcwv .gt_super {
+#ahehjwuldi .gt_super {
   font-size: 65%;
 }
 
-#aruudjkcwv .gt_footnote_marks {
+#ahehjwuldi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#aruudjkcwv .gt_asterisk {
+#ahehjwuldi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#aruudjkcwv .gt_indent_1 {
+#ahehjwuldi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#aruudjkcwv .gt_indent_2 {
+#ahehjwuldi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#aruudjkcwv .gt_indent_3 {
+#ahehjwuldi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#aruudjkcwv .gt_indent_4 {
+#ahehjwuldi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#aruudjkcwv .gt_indent_5 {
+#ahehjwuldi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#aruudjkcwv .katex-display {
+#ahehjwuldi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#aruudjkcwv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ahehjwuldi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2602,7 +2571,7 @@ directly through Mplus syntax using start values.</span>
     </tr></tfoot>
 </table></div>
 </div>
-<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
 <span></span>
@@ -2626,23 +2595,23 @@ directly through Mplus syntax using start values.</span>
 <span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
 <span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="sgmdutoktg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#sgmdutoktg table {
+<div id="mtmcspzxqq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mtmcspzxqq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#sgmdutoktg thead, #sgmdutoktg tbody, #sgmdutoktg tfoot, #sgmdutoktg tr, #sgmdutoktg td, #sgmdutoktg th {
+#mtmcspzxqq thead, #mtmcspzxqq tbody, #mtmcspzxqq tfoot, #mtmcspzxqq tr, #mtmcspzxqq td, #mtmcspzxqq th {
   border-style: none;
 }
 
-#sgmdutoktg p {
+#mtmcspzxqq p {
   margin: 0;
   padding: 0;
 }
 
-#sgmdutoktg .gt_table {
+#mtmcspzxqq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2668,12 +2637,12 @@ directly through Mplus syntax using start values.</span>
   border-left-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_caption {
+#mtmcspzxqq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#sgmdutoktg .gt_title {
+#mtmcspzxqq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2685,7 +2654,7 @@ directly through Mplus syntax using start values.</span>
   border-bottom-width: 0;
 }
 
-#sgmdutoktg .gt_subtitle {
+#mtmcspzxqq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2697,7 +2666,7 @@ directly through Mplus syntax using start values.</span>
   border-top-width: 0;
 }
 
-#sgmdutoktg .gt_heading {
+#mtmcspzxqq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2709,13 +2678,13 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_bottom_border {
+#mtmcspzxqq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_col_headings {
+#mtmcspzxqq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2730,7 +2699,7 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_col_heading {
+#mtmcspzxqq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2750,7 +2719,7 @@ directly through Mplus syntax using start values.</span>
   overflow-x: hidden;
 }
 
-#sgmdutoktg .gt_column_spanner_outer {
+#mtmcspzxqq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2762,15 +2731,15 @@ directly through Mplus syntax using start values.</span>
   padding-right: 4px;
 }
 
-#sgmdutoktg .gt_column_spanner_outer:first-child {
+#mtmcspzxqq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sgmdutoktg .gt_column_spanner_outer:last-child {
+#mtmcspzxqq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sgmdutoktg .gt_column_spanner {
+#mtmcspzxqq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2782,11 +2751,11 @@ directly through Mplus syntax using start values.</span>
   width: 100%;
 }
 
-#sgmdutoktg .gt_spanner_row {
+#mtmcspzxqq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#sgmdutoktg .gt_group_heading {
+#mtmcspzxqq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2812,7 +2781,7 @@ directly through Mplus syntax using start values.</span>
   text-align: left;
 }
 
-#sgmdutoktg .gt_empty_group_heading {
+#mtmcspzxqq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2827,15 +2796,15 @@ directly through Mplus syntax using start values.</span>
   vertical-align: middle;
 }
 
-#sgmdutoktg .gt_from_md > :first-child {
+#mtmcspzxqq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sgmdutoktg .gt_from_md > :last-child {
+#mtmcspzxqq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sgmdutoktg .gt_row {
+#mtmcspzxqq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2854,7 +2823,7 @@ directly through Mplus syntax using start values.</span>
   overflow-x: hidden;
 }
 
-#sgmdutoktg .gt_stub {
+#mtmcspzxqq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2867,7 +2836,7 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#sgmdutoktg .gt_stub_row_group {
+#mtmcspzxqq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2881,15 +2850,15 @@ directly through Mplus syntax using start values.</span>
   vertical-align: top;
 }
 
-#sgmdutoktg .gt_row_group_first td {
+#mtmcspzxqq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sgmdutoktg .gt_row_group_first th {
+#mtmcspzxqq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#sgmdutoktg .gt_summary_row {
+#mtmcspzxqq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2899,16 +2868,16 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#sgmdutoktg .gt_first_summary_row {
+#mtmcspzxqq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_first_summary_row.thick {
+#mtmcspzxqq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sgmdutoktg .gt_last_summary_row {
+#mtmcspzxqq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2918,7 +2887,7 @@ directly through Mplus syntax using start values.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_grand_summary_row {
+#mtmcspzxqq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2928,7 +2897,7 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#sgmdutoktg .gt_first_grand_summary_row {
+#mtmcspzxqq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2938,7 +2907,7 @@ directly through Mplus syntax using start values.</span>
   border-top-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_last_grand_summary_row_top {
+#mtmcspzxqq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2948,11 +2917,11 @@ directly through Mplus syntax using start values.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_striped {
+#mtmcspzxqq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sgmdutoktg .gt_table_body {
+#mtmcspzxqq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2961,7 +2930,7 @@ directly through Mplus syntax using start values.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_footnotes {
+#mtmcspzxqq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2975,7 +2944,7 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_footnote {
+#mtmcspzxqq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2984,7 +2953,7 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#sgmdutoktg .gt_sourcenotes {
+#mtmcspzxqq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2998,7 +2967,7 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#sgmdutoktg .gt_sourcenote {
+#mtmcspzxqq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3006,72 +2975,72 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#sgmdutoktg .gt_left {
+#mtmcspzxqq .gt_left {
   text-align: left;
 }
 
-#sgmdutoktg .gt_center {
+#mtmcspzxqq .gt_center {
   text-align: center;
 }
 
-#sgmdutoktg .gt_right {
+#mtmcspzxqq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sgmdutoktg .gt_font_normal {
+#mtmcspzxqq .gt_font_normal {
   font-weight: normal;
 }
 
-#sgmdutoktg .gt_font_bold {
+#mtmcspzxqq .gt_font_bold {
   font-weight: bold;
 }
 
-#sgmdutoktg .gt_font_italic {
+#mtmcspzxqq .gt_font_italic {
   font-style: italic;
 }
 
-#sgmdutoktg .gt_super {
+#mtmcspzxqq .gt_super {
   font-size: 65%;
 }
 
-#sgmdutoktg .gt_footnote_marks {
+#mtmcspzxqq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#sgmdutoktg .gt_asterisk {
+#mtmcspzxqq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sgmdutoktg .gt_indent_1 {
+#mtmcspzxqq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#sgmdutoktg .gt_indent_2 {
+#mtmcspzxqq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#sgmdutoktg .gt_indent_3 {
+#mtmcspzxqq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#sgmdutoktg .gt_indent_4 {
+#mtmcspzxqq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#sgmdutoktg .gt_indent_5 {
+#mtmcspzxqq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#sgmdutoktg .katex-display {
+#mtmcspzxqq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#sgmdutoktg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mtmcspzxqq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3152,11 +3121,11 @@ directly through Mplus syntax using start values.</span>
 <a class="nav-link" href="#descriptive-statistics-11"><span class="header-section-number">14.1</span> Descriptive Statistics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#data-summary-1"><span class="header-section-number">14.1.1</span> Data Summary</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#adding-covariates-1"><span class="header-section-number">14.2</span> Adding Covariates</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-1---estimate-unconditional-model-w-auxiliary-specification-2"><span class="header-section-number">14.2.1</span> Step 1 - Estimate Unconditional Model w/ Auxiliary Specification</a></li>
-<li><a class="nav-link" href="#step-2---determine-measurement-error-5"><span class="header-section-number">14.2.2</span> Step 2 - Determine Measurement Error</a></li>
-<li><a class="nav-link" href="#step-3---add-auxiliary-variables-2"><span class="header-section-number">14.2.3</span> Step 3 - Add Auxiliary Variables</a></li>
-<li><a class="nav-link" href="#create-transition-table-2"><span class="header-section-number">14.2.4</span> Create Transition Table</a></li>
+<a class="nav-link" href="#adding-covariates"><span class="header-section-number">14.2</span> Adding Covariates</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1---estimate-unconditional-model-w-auxiliary-specification-1"><span class="header-section-number">14.2.1</span> Step 1 - Estimate Unconditional Model w/ Auxiliary Specification</a></li>
+<li><a class="nav-link" href="#step-2---determine-measurement-error-4"><span class="header-section-number">14.2.2</span> Step 2 - Determine Measurement Error</a></li>
+<li><a class="nav-link" href="#step-3---add-auxiliary-variables-1"><span class="header-section-number">14.2.3</span> Step 3 - Add Auxiliary Variables</a></li>
+<li><a class="nav-link" href="#create-transition-table-1"><span class="header-section-number">14.2.4</span> Create Transition Table</a></li>
 </ul>
 </li>
 </ul>

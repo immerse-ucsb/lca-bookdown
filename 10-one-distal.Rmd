@@ -7,9 +7,6 @@ library(extrafont)
 loadfonts()
 ```
 
-
-# (PART) Including Auxiliary Variables {-}
-
 # A Single Distal Outcome
 
 ------------------------------------------------------------------------

@@ -200,6 +200,7 @@ step1_fit <- mplusModeler(step1,
 
 
 ------------------------------------------------------------------------
+
 `plot_lca_function` requires 5 arguments:
 
 -   `model_name`: name of Mplus model object (e.g., `model_t1_c4`)
