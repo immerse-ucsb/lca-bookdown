@@ -1,8 +1,8 @@
 TITLE:
 Step 1 - Three-Step using LSAL
 DATA:
-FILE = "C:/Users/Karen Nylund-Gibson/Box/lca-bookdown/three_step/manual_3step/Step1.dat";
- 
+FILE = "C:/Users/dnajiarch/Box/lca-bookdown/three_step/manual_3step/
+Step1.dat"; 
 VARIABLE:
 NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
      undrstnd nervous scared useful logical job adult female; 

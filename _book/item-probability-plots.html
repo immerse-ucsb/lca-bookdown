@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>4 Item Probability Plots | Mixture Modeling with MplusAutomation</title>
+<meta name="author" content="Dina Arch">
+<meta name="description" content="Example: Bullying in Schools To demonstrate mixture modeling in the training program and online resource components of the IES grant we utilize the Civil Rights Data Collection (CRDC)9 data...">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="4 Item Probability Plots | Mixture Modeling with MplusAutomation">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/item-probability-plots.html">
+<meta property="og:description" content="Example: Bullying in Schools To demonstrate mixture modeling in the training program and online resource components of the IES grant we utilize the Civil Rights Data Collection (CRDC)9 data...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4 Item Probability Plots | Mixture Modeling with MplusAutomation">
+<meta name="twitter:description" content="Example: Bullying in Schools To demonstrate mixture modeling in the training program and online resource components of the IES grant we utilize the Civil Rights Data Collection (CRDC)9 data...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Mixture Modeling with MplusAutomation</a></li>
+<li class="book-part">Introduction</li>
+<li><a class="" href="r-and-rstudio.html"><span class="header-section-number">1</span> R and RStudio</a></li>
+<li><a class="" href="mplusautomation.html"><span class="header-section-number">2</span> MplusAutomation</a></li>
+<li class="book-part">Latent Class Analysis</li>
+<li><a class="" href="enumeration.html"><span class="header-section-number">3</span> Enumeration</a></li>
+<li><a class="active" href="item-probability-plots.html"><span class="header-section-number">4</span> Item Probability Plots</a></li>
+<li class="book-part">Polytomous LCA</li>
+<li><a class="" href="enumeration-2.html"><span class="header-section-number">5</span> Enumeration</a></li>
+<li class="book-part">Latent Profile Analysis</li>
+<li><a class="" href="enumeration-4.html"><span class="header-section-number">6</span> Enumeration</a></li>
+<li class="book-part">Understanding the Data</li>
+<li><a class="" href="observed-response-patterns.html"><span class="header-section-number">7</span> Observed Response Patterns</a></li>
+<li><a class="" href="classification-diagnostics.html"><span class="header-section-number">8</span> Classification Diagnostics</a></li>
+<li class="book-part">Including Auxiliary Variables</li>
+<li><a class="" href="a-single-covariate.html"><span class="header-section-number">9</span> A Single Covariate</a></li>
+<li class="book-part">Including Auxiliary Variables</li>
+<li><a class="" href="a-single-distal-outcome.html"><span class="header-section-number">10</span> A Single Distal Outcome</a></li>
+<li><a class="" href="two-covariates-and-a-single-distal-outcome.html"><span class="header-section-number">11</span> Two Covariates and a Single Distal Outcome</a></li>
+<li class="book-part">Extensions of Latent Class Models</li>
+<li><a class="" href="moderation.html"><span class="header-section-number">12</span> Moderation</a></li>
+<li><a class="" href="lta.html"><span class="header-section-number">13</span> Latent Transition Analysis</a></li>
+<li><a class="" href="lta-with-covariates.html"><span class="header-section-number">14</span> LTA with Covariates</a></li>
+<li><a class="" href="joint-occurrence.html"><span class="header-section-number">15</span> Joint Occurrence</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">16</span> Growth Mixture Models</a></li>
+<li class="book-part">Published Manuscripts</li>
+<li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">17</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
+<li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">18</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
+<li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">19</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/immerse-ucsb/lca-bookdown">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="item-probability-plots" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> Item Probability Plots<a class="anchor" aria-label="anchor" href="#item-probability-plots"><i class="fas fa-link"></i></a>
+</h1>
+<hr>
+<p>Example: Bullying in Schools</p>
+<hr>
+<p>To demonstrate mixture modeling in the training program and online resource components of the IES grant we utilize the <em>Civil Rights Data Collection (CRDC)</em><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;US Department of Education Office for Civil Rights.&lt;/p&gt;"><sup>9</sup></a></span> data repository.
+The CRDC is a federally mandated school-level data collection effort that occurs every other year.
+This public data is currently available for selected latent class indicators across 4 years (2011, 2013, 2015, 2017) and all US states.
+In this example, we use the Arizona state sample.
+We utilize six focal indicators which constitute the latent class model in our example; three variables which report on harassment/bullying in schools based on disability, race, or sex, and three variables on full-time equivalent school staff hires (counselor, psychologist, law enforcement).
+This data source also includes covariates on a variety of subjects and distal outcomes reported in 2018 such as math/reading assessments and graduation rates.</p>
+<hr>
+<p>Load packages</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/">glue</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rich-iannone.github.io/DiagrammeR/">DiagrammeR</a></span><span class="op">)</span> </span></code></pre></div>
+<div id="variable-description-1" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Variable Description<a class="anchor" aria-label="anchor" href="#variable-description-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="xfjgaztezh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xfjgaztezh table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xfjgaztezh thead, #xfjgaztezh tbody, #xfjgaztezh tfoot, #xfjgaztezh tr, #xfjgaztezh td, #xfjgaztezh th {
+  border-style: none;
+}
+
+#xfjgaztezh p {
+  margin: 0;
+  padding: 0;
+}
+
+#xfjgaztezh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 75%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xfjgaztezh .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xfjgaztezh .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xfjgaztezh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xfjgaztezh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xfjgaztezh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xfjgaztezh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xfjgaztezh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xfjgaztezh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xfjgaztezh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xfjgaztezh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xfjgaztezh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xfjgaztezh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xfjgaztezh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xfjgaztezh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xfjgaztezh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xfjgaztezh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xfjgaztezh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xfjgaztezh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xfjgaztezh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xfjgaztezh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xfjgaztezh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xfjgaztezh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xfjgaztezh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xfjgaztezh .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xfjgaztezh .gt_left {
+  text-align: left;
+}
+
+#xfjgaztezh .gt_center {
+  text-align: center;
+}
+
+#xfjgaztezh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xfjgaztezh .gt_font_normal {
+  font-weight: normal;
+}
+
+#xfjgaztezh .gt_font_bold {
+  font-weight: bold;
+}
+
+#xfjgaztezh .gt_font_italic {
+  font-style: italic;
+}
+
+#xfjgaztezh .gt_super {
+  font-size: 65%;
+}
+
+#xfjgaztezh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xfjgaztezh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xfjgaztezh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xfjgaztezh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xfjgaztezh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xfjgaztezh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xfjgaztezh .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xfjgaztezh .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xfjgaztezh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>LCA indicators<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Name">Name</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Label">Label</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Values">Values</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="Name" class="gt_row gt_left">leaid</td>
+<td headers="Label" class="gt_row gt_left">District Identification Code</td>
+<td headers="Values" class="gt_row gt_left"></td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">ncessch</td>
+<td headers="Label" class="gt_row gt_left">School Identification Code</td>
+<td headers="Values" class="gt_row gt_left"></td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">report_dis</td>
+<td headers="Label" class="gt_row gt_left">Number of students harassed or bullied on the basis of disability</td>
+<td headers="Values" class="gt_row gt_left">0 = No reported incidents, 1 = At least one reported incident</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">report_race</td>
+<td headers="Label" class="gt_row gt_left">Number of students harassed or bullied on the basis of race, color, or national origin</td>
+<td headers="Values" class="gt_row gt_left">0 = No reported incidents, 1 = At least one reported incident</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">report_sex</td>
+<td headers="Label" class="gt_row gt_left">Number of students harassed or bullied on the basis of sex</td>
+<td headers="Values" class="gt_row gt_left">0 = No reported incidents, 1 = At least one reported incident</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">counselors_fte</td>
+<td headers="Label" class="gt_row gt_left">Number of full time equivalent counselors hired as school staff</td>
+<td headers="Values" class="gt_row gt_left">0 = No staff present, 1 = At least one staff present</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">psych_fte</td>
+<td headers="Label" class="gt_row gt_left">Number of full time equivalent psychologists hired as school staff</td>
+<td headers="Values" class="gt_row gt_left">0 = No staff present, 1 = At least one staff present</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">law_fte</td>
+<td headers="Label" class="gt_row gt_left">Number of full time equivalent law enforcement officers hired as school staff</td>
+<td headers="Values" class="gt_row gt_left">0 = No staff present, 1 = At least one staff present</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="3">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Civil Rights Data Collection (CRDC)</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<hr>
+<p><strong>Variables have been transformed to be dichotomous indicators using the following coding strategy</strong></p>
+<p>Harassment and bullying count variables are recoded <code>1</code> if the school reported at least one incident of harassment (<code>0</code> indicates no reported incidents).
+On the original scale reported by the CDRC staff variables for full time equivalent employees (FTE) are represented as <code>1</code> and part time employees are represented by values between <code>1</code> and <code>0</code>.
+Schools with greater than one staff of the designated type are represented by values greater than 1.
+All values greater than zero were recorded as <code>1s</code> (e.g., <code>.5</code>, <code>1</code>,<code>3</code>) indicating that the school has a staff present on campus at least part time.
+Schools with no staff of the designated type are indicated as <code>0</code> for the dichotomous variable.</p>
+<hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-15f97a7a9f34a89f2807" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-15f97a7a9f34a89f2807">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    report_dis report_race report_sex counselors_fte psych_fte law_fte;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Bullying <br/>C<sub>k<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {report_dis report_race report_sex counselors_fte psych_fte law_fte}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+</div>
+<div id="prepare-data-1" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Prepare Data<a class="anchor" aria-label="anchor" href="#prepare-data-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_bully</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"crdc_lca_data.csv"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">report_dis</span>, <span class="va">report_race</span>, <span class="va">report_sex</span>, <span class="va">counselors_fte</span>, <span class="va">psych_fte</span>, <span class="va">law_fte</span><span class="op">)</span> </span></code></pre></div>
+<hr>
+</div>
+<div id="descriptive-statistics-1" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dframe</span> <span class="op">&lt;-</span> <span class="va">df_bully</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">report_dis</span>, <span class="va">report_race</span>, <span class="va">report_sex</span>, <span class="va">counselors_fte</span>, <span class="va">psych_fte</span>, <span class="va">law_fte</span><span class="op">)</span>,</span>
+<span>    names_to <span class="op">=</span> <span class="st">"Variable"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    Count <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">value</span> <span class="op">==</span> <span class="fl">1</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    Total <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    .groups <span class="op">=</span> <span class="st">"drop"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>`Proportion Endorsed` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Count</span> <span class="op">/</span> <span class="va">Total</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Variable</span>, <span class="va">`Proportion Endorsed`</span>, <span class="va">Count</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="va">dframe</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**LCA Indicator Endorsement**"</span><span class="op">)</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"&amp;nbsp;"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span></span>
+<span>    column_labels.font.weight <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>    row_group.font.weight <span class="op">=</span> <span class="st">"bold"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div id="vzuiihgdwt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vzuiihgdwt table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#vzuiihgdwt thead, #vzuiihgdwt tbody, #vzuiihgdwt tfoot, #vzuiihgdwt tr, #vzuiihgdwt td, #vzuiihgdwt th {
+  border-style: none;
+}
+
+#vzuiihgdwt p {
+  margin: 0;
+  padding: 0;
+}
+
+#vzuiihgdwt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vzuiihgdwt .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#vzuiihgdwt .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#vzuiihgdwt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vzuiihgdwt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vzuiihgdwt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vzuiihgdwt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vzuiihgdwt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vzuiihgdwt .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#vzuiihgdwt .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#vzuiihgdwt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vzuiihgdwt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vzuiihgdwt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vzuiihgdwt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vzuiihgdwt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vzuiihgdwt .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vzuiihgdwt .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vzuiihgdwt .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#vzuiihgdwt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vzuiihgdwt .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vzuiihgdwt .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vzuiihgdwt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#vzuiihgdwt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vzuiihgdwt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vzuiihgdwt .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vzuiihgdwt .gt_left {
+  text-align: left;
+}
+
+#vzuiihgdwt .gt_center {
+  text-align: center;
+}
+
+#vzuiihgdwt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vzuiihgdwt .gt_font_normal {
+  font-weight: normal;
+}
+
+#vzuiihgdwt .gt_font_bold {
+  font-weight: bold;
+}
+
+#vzuiihgdwt .gt_font_italic {
+  font-style: italic;
+}
+
+#vzuiihgdwt .gt_super {
+  font-size: 65%;
+}
+
+#vzuiihgdwt .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#vzuiihgdwt .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vzuiihgdwt .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#vzuiihgdwt .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#vzuiihgdwt .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#vzuiihgdwt .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#vzuiihgdwt .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#vzuiihgdwt .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#vzuiihgdwt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="3" class="gt_heading gt_title gt_font_normal" style><span class="gt_from_md"><strong>LCA Indicator Endorsement</strong></span></td>
+    </tr>
+<tr class="gt_heading">
+<td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class="gt_from_md"> </span></td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Variable">Variable</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Proportion-Endorsed">Proportion Endorsed</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Count">Count</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="Variable" class="gt_row gt_left">counselors_fte</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.453</td>
+<td headers="Count" class="gt_row gt_right">919</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">law_fte</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.124</td>
+<td headers="Count" class="gt_row gt_right">251</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">psych_fte</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.467</td>
+<td headers="Count" class="gt_row gt_right">947</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">report_dis</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.042</td>
+<td headers="Count" class="gt_row gt_right">85</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">report_race</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.102</td>
+<td headers="Count" class="gt_row gt_right">206</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">report_sex</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.168</td>
+<td headers="Count" class="gt_row gt_right">340</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Save as image</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html">gtsave</a></span><span class="op">(</span><span class="va">prop_table</span>, <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"prop_table.png"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="class-probability-plot" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> 3-Class Probability Plot<a class="anchor" aria-label="anchor" href="#class-probability-plot"><i class="fas fa-link"></i></a>
+</h2>
+<p>Continuing the example from the bookdown, use the <code>plot_lca</code> function provided in the folder to plot the item probability plot. This function requires one argument:
+- <code>model_name</code>: The name of the Mplus <code>readModels</code> object (e.g., <code>output_enum$c3_bully.out</code>)</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract outputs from the enumeration folder</span></span>
+<span><span class="va">output_enum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"enum"</span><span class="op">)</span>, filefilter <span class="op">=</span> <span class="st">"bully"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">plot_lca</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_enum</span><span class="op">$</span><span class="va">c3_bully.out</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="04-prob-plots_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
+<hr>
+<p>Save figure:</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"C3_bully_LCA_Plot.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, height<span class="op">=</span><span class="fl">5</span>, width<span class="op">=</span><span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div style="text-align: center;">
+<img src="images/ucsb_logo.png" width="75%">
+</div>
+
+</div>
+</div>
+
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="enumeration.html"><span class="header-section-number">3</span> Enumeration</a></div>
+<div class="next"><a href="enumeration-2.html"><span class="header-section-number">5</span> Enumeration</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#item-probability-plots"><span class="header-section-number">4</span> Item Probability Plots</a></li>
+<li><a class="nav-link" href="#variable-description-1"><span class="header-section-number">4.1</span> Variable Description</a></li>
+<li><a class="nav-link" href="#prepare-data-1"><span class="header-section-number">4.2</span> Prepare Data</a></li>
+<li><a class="nav-link" href="#descriptive-statistics-1"><span class="header-section-number">4.3</span> Descriptive Statistics</a></li>
+<li><a class="nav-link" href="#class-probability-plot"><span class="header-section-number">4.4</span> 3-Class Probability Plot</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/04-prob-plots.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/04-prob-plots.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

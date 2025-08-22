@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>9 A Single Covariate | Mixture Modeling with MplusAutomation</title>
+<meta name="author" content="Dina Arch">
+<meta name="description" content="Data source: The first examples utilizes the public-use dataset, The Longitudinal Survey of American Youth (LSAY): See documentation here The second example utilizes a dataset on undergraduate...">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="9 A Single Covariate | Mixture Modeling with MplusAutomation">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/a-single-covariate.html">
+<meta property="og:description" content="Data source: The first examples utilizes the public-use dataset, The Longitudinal Survey of American Youth (LSAY): See documentation here The second example utilizes a dataset on undergraduate...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="9 A Single Covariate | Mixture Modeling with MplusAutomation">
+<meta name="twitter:description" content="Data source: The first examples utilizes the public-use dataset, The Longitudinal Survey of American Youth (LSAY): See documentation here The second example utilizes a dataset on undergraduate...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Mixture Modeling with MplusAutomation</a></li>
+<li class="book-part">Introduction</li>
+<li><a class="" href="r-and-rstudio.html"><span class="header-section-number">1</span> R and RStudio</a></li>
+<li><a class="" href="mplusautomation.html"><span class="header-section-number">2</span> MplusAutomation</a></li>
+<li class="book-part">Latent Class Analysis</li>
+<li><a class="" href="enumeration.html"><span class="header-section-number">3</span> Enumeration</a></li>
+<li><a class="" href="item-probability-plots.html"><span class="header-section-number">4</span> Item Probability Plots</a></li>
+<li class="book-part">Polytomous LCA</li>
+<li><a class="" href="enumeration-2.html"><span class="header-section-number">5</span> Enumeration</a></li>
+<li class="book-part">Latent Profile Analysis</li>
+<li><a class="" href="enumeration-4.html"><span class="header-section-number">6</span> Enumeration</a></li>
+<li class="book-part">Understanding the Data</li>
+<li><a class="" href="observed-response-patterns.html"><span class="header-section-number">7</span> Observed Response Patterns</a></li>
+<li><a class="" href="classification-diagnostics.html"><span class="header-section-number">8</span> Classification Diagnostics</a></li>
+<li class="book-part">Including Auxiliary Variables</li>
+<li><a class="active" href="a-single-covariate.html"><span class="header-section-number">9</span> A Single Covariate</a></li>
+<li class="book-part">Including Auxiliary Variables</li>
+<li><a class="" href="a-single-distal-outcome.html"><span class="header-section-number">10</span> A Single Distal Outcome</a></li>
+<li><a class="" href="two-covariates-and-a-single-distal-outcome.html"><span class="header-section-number">11</span> Two Covariates and a Single Distal Outcome</a></li>
+<li class="book-part">Extensions of Latent Class Models</li>
+<li><a class="" href="moderation.html"><span class="header-section-number">12</span> Moderation</a></li>
+<li><a class="" href="lta.html"><span class="header-section-number">13</span> Latent Transition Analysis</a></li>
+<li><a class="" href="lta-with-covariates.html"><span class="header-section-number">14</span> LTA with Covariates</a></li>
+<li><a class="" href="joint-occurrence.html"><span class="header-section-number">15</span> Joint Occurrence</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">16</span> Growth Mixture Models</a></li>
+<li class="book-part">Published Manuscripts</li>
+<li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">17</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
+<li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">18</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
+<li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">19</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/immerse-ucsb/lca-bookdown">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="a-single-covariate" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> A Single Covariate<a class="anchor" aria-label="anchor" href="#a-single-covariate"><i class="fas fa-link"></i></a>
+</h1>
+<hr>
+<p><strong>Data source:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The first examples utilizes the public-use dataset, <em>The Longitudinal Survey of American Youth</em> (<strong>LSAY</strong>): <a href="https://www.lsay.org/">See documentation here</a></p></li>
+<li><p>The second example utilizes a dataset on undergraduate <em>Cheating</em> available from the <code>poLCA</code> package (Dayton, 1998): <a href="https://cran.r-project.org/web/packages/poLCA/poLCA.pdf">See documentation here</a></p></li>
+</ol>
+<hr>
+<div id="load-packages-1" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> Load packages<a class="anchor" aria-label="anchor" href="#load-packages-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co">#collection of R packages designed for data science</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span> <span class="co">#helps with filepaths</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span> <span class="co">#clean_names</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span> <span class="co"># create tables</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span> <span class="co"># a ggplot theme</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rich-iannone.github.io/DiagrammeR/">DiagrammeR</a></span><span class="op">)</span> <span class="co"># create path diagrams</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/">glue</a></span><span class="op">)</span> <span class="co"># allows us to paste expressions into R code</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span> <span class="co"># used for `melt()` function  </span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dlinzer/poLCA">poLCA</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span></span></code></pre></div>
+<hr>
+<p>Our example is Mother’s Education as a predictor of latent class membership of Math Attitudes</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-1009ec0c98a49a0a0f84" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-1009ec0c98a49a0a0f84">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult MothEd;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    math [label=<Math <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    math -> {Enjoy Useful Logical Job Adult}\n    MothEd -> math [minlen = 4];\n    \n {rank = same; math; MothEd;}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<p>Application: Longitudinal Study of American Youth, <strong>Science Attitudes</strong></p>
+<div id="msgdxtdyqe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#msgdxtdyqe table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#msgdxtdyqe thead, #msgdxtdyqe tbody, #msgdxtdyqe tfoot, #msgdxtdyqe tr, #msgdxtdyqe td, #msgdxtdyqe th {
+  border-style: none;
+}
+
+#msgdxtdyqe p {
+  margin: 0;
+  padding: 0;
+}
+
+#msgdxtdyqe .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#msgdxtdyqe .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#msgdxtdyqe .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#msgdxtdyqe .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#msgdxtdyqe .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#msgdxtdyqe .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#msgdxtdyqe .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#msgdxtdyqe .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#msgdxtdyqe .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#msgdxtdyqe .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#msgdxtdyqe .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#msgdxtdyqe .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#msgdxtdyqe .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#msgdxtdyqe .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#msgdxtdyqe .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#msgdxtdyqe .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#msgdxtdyqe .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#msgdxtdyqe .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#msgdxtdyqe .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#msgdxtdyqe .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#msgdxtdyqe .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#msgdxtdyqe .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#msgdxtdyqe .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#msgdxtdyqe .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#msgdxtdyqe .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#msgdxtdyqe .gt_left {
+  text-align: left;
+}
+
+#msgdxtdyqe .gt_center {
+  text-align: center;
+}
+
+#msgdxtdyqe .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#msgdxtdyqe .gt_font_normal {
+  font-weight: normal;
+}
+
+#msgdxtdyqe .gt_font_bold {
+  font-weight: bold;
+}
+
+#msgdxtdyqe .gt_font_italic {
+  font-style: italic;
+}
+
+#msgdxtdyqe .gt_super {
+  font-size: 65%;
+}
+
+#msgdxtdyqe .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#msgdxtdyqe .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#msgdxtdyqe .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#msgdxtdyqe .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#msgdxtdyqe .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#msgdxtdyqe .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#msgdxtdyqe .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#msgdxtdyqe .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#msgdxtdyqe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="2" class="gt_heading gt_title gt_font_normal" style><span class="gt_from_md"><strong>LCA Indicators &amp; Auxiliary Variables: Math Attitudes Example</strong></span></td>
+    </tr>
+<tr class="gt_heading">
+<td colspan="2" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class="gt_from_md"> </span></td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Name">Name</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="a-Variable-Description"> Variable Description</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="gt_group_heading_row">
+<th colspan="2" class="gt_empty_group_heading" scope="colgroup"></th>
+    </tr>
+<tr class="gt_row_group_first">
+<td headers="  Name" class="gt_row gt_left">enjoy</td>
+<td headers="   Variable Description" class="gt_row gt_left">I enjoy math.</td>
+</tr>
+<tr>
+<td headers="  Name" class="gt_row gt_left">useful</td>
+<td headers="   Variable Description" class="gt_row gt_left">Math is useful in everyday problems.</td>
+</tr>
+<tr>
+<td headers="  Name" class="gt_row gt_left">logical</td>
+<td headers="   Variable Description" class="gt_row gt_left">Math helps a person think logically.</td>
+</tr>
+<tr>
+<td headers="  Name" class="gt_row gt_left">job</td>
+<td headers="   Variable Description" class="gt_row gt_left">It is important to know math to get a good job.</td>
+</tr>
+<tr>
+<td headers="  Name" class="gt_row gt_left">adult</td>
+<td headers="   Variable Description" class="gt_row gt_left">I will use math in many ways as an adult.</td>
+</tr>
+<tr class="gt_group_heading_row">
+<th colspan="2" class="gt_group_heading" scope="colgroup" id="Auxiliary Variables">Auxiliary Variables</th>
+    </tr>
+<tr class="gt_row_group_first">
+<td headers="Auxiliary Variables  Name" class="gt_row gt_left">mothed</td>
+<td headers="Auxiliary Variables   Variable Description" class="gt_row gt_left">Level of education:  (1) less than high school, (2) high school diploma, (3) some college, (4) 4-year college, and (5) an advanced degree.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<p>The data can be found in the <code>data</code> folder and is called <code>lsay_subset.csv</code>.</p>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">lsay_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>,<span class="st">"data"</span>,<span class="st">"lsay_subset.csv"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   <span class="co"># make variable names lowercase</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>female <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">gender</span>, `1` <span class="op">=</span> <span class="fl">0</span>, `2` <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># relabel values from 1,2 to 0,1</span></span></code></pre></div>
+<hr>
+</div>
+<div id="descriptive-statistics-6" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-6"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dframe</span> <span class="op">&lt;-</span> <span class="va">lsay_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">enjoy</span>, <span class="va">useful</span>, <span class="va">logical</span>, <span class="va">job</span>, <span class="va">adult</span><span class="op">)</span>,</span>
+<span>    names_to <span class="op">=</span> <span class="st">"Variable"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    Count <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">value</span> <span class="op">==</span> <span class="fl">1</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    Total <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    .groups <span class="op">=</span> <span class="st">"drop"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>`Proportion Endorsed` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Count</span> <span class="op">/</span> <span class="va">Total</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Variable</span>, <span class="va">`Proportion Endorsed`</span>, <span class="va">Count</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="va">dframe</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**LCA Indicator Endorsement**"</span><span class="op">)</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"&amp;nbsp;"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span></span>
+<span>    column_labels.font.weight <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>    row_group.font.weight <span class="op">=</span> <span class="st">"bold"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div id="tntgpiarym" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tntgpiarym table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#tntgpiarym thead, #tntgpiarym tbody, #tntgpiarym tfoot, #tntgpiarym tr, #tntgpiarym td, #tntgpiarym th {
+  border-style: none;
+}
+
+#tntgpiarym p {
+  margin: 0;
+  padding: 0;
+}
+
+#tntgpiarym .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#tntgpiarym .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#tntgpiarym .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#tntgpiarym .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#tntgpiarym .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#tntgpiarym .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#tntgpiarym .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#tntgpiarym .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#tntgpiarym .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#tntgpiarym .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#tntgpiarym .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#tntgpiarym .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#tntgpiarym .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#tntgpiarym .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#tntgpiarym .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tntgpiarym .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#tntgpiarym .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#tntgpiarym .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#tntgpiarym .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tntgpiarym .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#tntgpiarym .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tntgpiarym .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#tntgpiarym .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tntgpiarym .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tntgpiarym .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tntgpiarym .gt_left {
+  text-align: left;
+}
+
+#tntgpiarym .gt_center {
+  text-align: center;
+}
+
+#tntgpiarym .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#tntgpiarym .gt_font_normal {
+  font-weight: normal;
+}
+
+#tntgpiarym .gt_font_bold {
+  font-weight: bold;
+}
+
+#tntgpiarym .gt_font_italic {
+  font-style: italic;
+}
+
+#tntgpiarym .gt_super {
+  font-size: 65%;
+}
+
+#tntgpiarym .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#tntgpiarym .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#tntgpiarym .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#tntgpiarym .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#tntgpiarym .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#tntgpiarym .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#tntgpiarym .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#tntgpiarym .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#tntgpiarym div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="3" class="gt_heading gt_title gt_font_normal" style><span class="gt_from_md"><strong>LCA Indicator Endorsement</strong></span></td>
+    </tr>
+<tr class="gt_heading">
+<td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class="gt_from_md"> </span></td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Variable">Variable</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Proportion-Endorsed">Proportion Endorsed</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Count">Count</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="Variable" class="gt_row gt_left">adult</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.596</td>
+<td headers="Count" class="gt_row gt_right">1858</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">enjoy</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.573</td>
+<td headers="Count" class="gt_row gt_right">1784</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">job</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.625</td>
+<td headers="Count" class="gt_row gt_right">1947</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">logical</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.541</td>
+<td headers="Count" class="gt_row gt_right">1686</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">useful</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.589</td>
+<td headers="Count" class="gt_row gt_right">1835</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Mother’s Education</p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">lsay_data</span><span class="op">$</span><span class="va">mothed</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    1    2    3    4    5 NA's </span></span>
+<span><span class="co">#&gt;  452 1732  304  368  158  102</span></span></code></pre></div>
+<hr>
+</div>
+<div id="manual-ml-three-step" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Manual ML Three-step<a class="anchor" aria-label="anchor" href="#manual-ml-three-step"><i class="fas fa-link"></i></a>
+</h2>
+<hr>
+<div id="step-1---class-enumeration-w-auxiliary-specification" class="section level3" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> Step 1 - Class Enumeration w/ Auxiliary Specification<a class="anchor" aria-label="anchor" href="#step-1---class-enumeration-w-auxiliary-specification"><i class="fas fa-link"></i></a>
+</h3>
+<hr>
+<p>This step is done after class enumeration (or after you have selected the best latent class model). In this example, the four class model was the best. Now, we re-estimate the four-class model using <code>optseed</code> for efficiency. The difference here is the <code>SAVEDATA</code> command, where I can save the posterior probabilities and the modal class assignment that will be used in steps two and three.</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"Step 1 - Three-Step using LSAL"</span>, </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span>  <span class="st">"categorical = enjoy useful logical job adult; </span></span>
+<span><span class="st">   usevar = enjoy useful logical job adult;</span></span>
+<span><span class="st">    </span></span>
+<span><span class="st">   classes = c(4); </span></span>
+<span><span class="st">    </span></span>
+<span><span class="st">   auxiliary =  mothed  ! covariate "</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>   <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 0;</span></span>
+<span><span class="st">    optseed = 568405;"</span>,</span>
+<span>  </span>
+<span>  SAVEDATA <span class="op">=</span> </span>
+<span>   <span class="st">"File=3step_savedata.dat;</span></span>
+<span><span class="st">    Save=cprob;"</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"residual tech11 tech14"</span>,</span>
+<span>  </span>
+<span>  PLOT <span class="op">=</span> </span>
+<span>    <span class="st">"type = plot3; </span></span>
+<span><span class="st">    series = enjoy-adult(*);"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lsay_data</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">lsay_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">step1_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">step1</span>,</span>
+<span>                            dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"Step1.dat"</span><span class="op">)</span>,</span>
+<span>                            modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"one_cov.inp"</span><span class="op">)</span> ,</span>
+<span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">output_lsay</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>,<span class="st">"one_cov.out"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">plot_lca</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_lsay</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="09-one-covariate_files/figure-html/unnamed-chunk-8-1.png" width="90%"></div>
+<hr>
+</div>
+<div id="step-2---determine-measurement-error" class="section level3" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> Step 2 - Determine Measurement Error<a class="anchor" aria-label="anchor" href="#step-2---determine-measurement-error"><i class="fas fa-link"></i></a>
+</h3>
+<hr>
+<p>Extract logits for the classification probabilities for the most likely latent class</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">logit_cprobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_lsay</span><span class="op">[[</span><span class="st">"class_counts"</span><span class="op">]</span><span class="op">]</span></span>
+<span>                                       <span class="op">[[</span><span class="st">"logitProbs.mostLikely"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<p>Extract saved dataset which is part of the mplusObject “step1_fit”</p>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">savedata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_lsay</span><span class="op">[[</span><span class="st">"savedata"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<p>Rename the column in savedata named “C” and change to “N”</p>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata</span><span class="op">)</span><span class="op">==</span><span class="st">"C"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"N"</span></span></code></pre></div>
+<hr>
+</div>
+<div id="step-3---lca-auxiliary-variable-model-with-1-covariate" class="section level3" number="9.3.3">
+<h3>
+<span class="header-section-number">9.3.3</span> Step 3 - LCA Auxiliary Variable Model with 1 Covariate<a class="anchor" aria-label="anchor" href="#step-3---lca-auxiliary-variable-model-with-1-covariate"><i class="fas fa-link"></i></a>
+</h3>
+<hr>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">step3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"Step3 - 3step LSAY"</span>, </span>
+<span>  </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span> <span class="st">"nominal=N;</span></span>
+<span><span class="st">  usevar = n;</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  classes = c(4);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  usevar = mothed;"</span> ,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span> <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">  type = mixture; </span></span>
+<span><span class="st">  starts = 0;"</span>,</span>
+<span> </span>
+<span>  DEFINE <span class="op">=</span> </span>
+<span>   <span class="st">"center mothed (grandmean);"</span>,</span>
+<span>  </span>
+<span>  MODEL <span class="op">=</span></span>
+<span>  <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span> <span class="st">" %OVERALL%</span></span>
+<span><span class="st"> </span></span>
+<span><span class="st">  C on mothed;        ! covariate as predictor of C</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">     %C#1%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 4-class model. </span></span>
+<span><span class="st">  [n#2@{logit_cprobs[1,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[1,3]}];</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#2%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[2,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[2,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[2,3]}];</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  %C#3%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[3,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[3,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[3,3]}];</span></span>
+<span><span class="st"></span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  %C#4%</span></span>
+<span><span class="st">  [n#1@{logit_cprobs[4,1]}];</span></span>
+<span><span class="st">  [n#2@{logit_cprobs[4,2]}];</span></span>
+<span><span class="st">  [n#3@{logit_cprobs[4,3]}];"</span><span class="op">)</span>,</span>
+<span>  </span>
+<span> </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata</span><span class="op">)</span>, </span>
+<span>  rdata <span class="op">=</span> <span class="va">savedata</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">step3_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">step3</span>,</span>
+<span>               dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"Step3.dat"</span><span class="op">)</span>, </span>
+<span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three_cov.inp"</span><span class="op">)</span>, </span>
+<span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div id="covariates-relations" class="section level4" number="9.3.3.1">
+<h4>
+<span class="header-section-number">9.3.3.1</span> Covariates Relations<a class="anchor" aria-label="anchor" href="#covariates-relations"><i class="fas fa-link"></i></a>
+</h4>
+<hr>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"manual_3step"</span>, <span class="st">"three_cov.out"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract information as data frame</span></span>
+<span><span class="va">cov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">modelParams</span><span class="op">[[</span><span class="st">"parameters"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"unstandardized"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">paramHeader</span>, <span class="st">"^C#\\d+\\.ON$"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span><span class="co">#  mutate(param = str_replace(param, "FEMALE", "Gender")) %&gt;% # Change this to your own covariates</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>param <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">param</span>, <span class="st">"MOTHED"</span>, <span class="st">"Mother's Education"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">est</span>, <span class="fl">3</span><span class="op">)</span>, nsmall <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
+<span>         se <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">se</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<span>         pval <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">pval</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>latent_class <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">paramHeader</span>, <span class="st">"^C#(\\d+)\\.ON$"</span>, <span class="st">"Class \\1"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">param</span>, <span class="va">est</span>, <span class="va">se</span>, <span class="va">pval</span>, <span class="va">latent_class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>se <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"("</span>, <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">se</span>,<span class="fl">2</span><span class="op">)</span>, nsmall <span class="op">=</span><span class="fl">2</span><span class="op">)</span>, <span class="st">")"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html">unite</a></span><span class="op">(</span><span class="va">logit</span>, <span class="va">est</span>, <span class="va">se</span>, sep <span class="op">=</span> <span class="st">" "</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">param</span>, <span class="va">logit</span>, <span class="va">pval</span>, <span class="va">latent_class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>pval <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">pval</span><span class="op">&lt;</span><span class="fl">0.001</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"&lt;.001*"</span><span class="op">)</span>,</span>
+<span>                       <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">pval</span><span class="op">&lt;</span><span class="fl">0.05</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html">number</a></span><span class="op">(</span><span class="va">pval</span>, accuracy <span class="op">=</span> <span class="fl">.001</span><span class="op">)</span>, <span class="st">"*"</span><span class="op">)</span>,</span>
+<span>                              <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html">number</a></span><span class="op">(</span><span class="va">pval</span>, accuracy <span class="op">=</span> <span class="fl">.001</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">or</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">modelParams</span><span class="op">[[</span><span class="st">"parameters"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"odds"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">paramHeader</span>, <span class="st">"^C#\\d+\\.ON$"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span> <span class="co"># mutate(param = str_replace(param, "FEMALE", "Gender")) %&gt;% # Change this to your own covariates</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>param <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">param</span>, <span class="st">"MOTHED"</span>, <span class="st">"Mother's Education"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">est</span>, <span class="fl">3</span><span class="op">)</span>, nsmall <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>latent_class <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">paramHeader</span>, <span class="st">"^C#(\\d+)\\.ON$"</span>, <span class="st">"Class \\1"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>CI <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"["</span>, <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">lower_2.5ci</span>, <span class="fl">3</span><span class="op">)</span>, nsmall <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, <span class="st">", "</span>, <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">upper_2.5ci</span>, <span class="fl">3</span><span class="op">)</span>, nsmall <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, <span class="st">"]"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">param</span>, <span class="va">est</span>, <span class="va">CI</span>, <span class="va">latent_class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>or <span class="op">=</span> <span class="va">est</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="va">combined</span> <span class="op">&lt;-</span> <span class="va">or</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">cov</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">param</span>, <span class="va">latent_class</span>, <span class="va">logit</span>, <span class="va">pval</span>, <span class="va">or</span>, <span class="va">CI</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Create table</span></span>
+<span></span>
+<span><span class="va">combined</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span>groupname_col <span class="op">=</span> <span class="st">"latent_class"</span>, rowname_col <span class="op">=</span> <span class="st">"param"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Covariate Results: Mother's Education on Class"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_label.html">cols_label</a></span><span class="op">(</span></span>
+<span>    logit <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"Logit (*se*)"</span><span class="op">)</span>,</span>
+<span>    or <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"Odds Ratio"</span><span class="op">)</span>,</span>
+<span>    CI <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"95% CI"</span><span class="op">)</span>,</span>
+<span>    pval <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"*p*-value"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/sub_missing.html">sub_missing</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,</span>
+<span>              missing_text <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/sub_values.html">sub_values</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"999.000"</span><span class="op">)</span>, replacement <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_align.html">cols_align</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"center"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/opt_align_table_header.html">opt_align_table_header</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html">tab_footnote</a></span><span class="op">(</span></span>
+<span>    footnote <span class="op">=</span> <span class="st">"Reference Class: 4"</span>,</span>
+<span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span>groups <span class="op">=</span> <span class="st">"title"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div id="nesedruikg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nesedruikg table {
+  font-family: serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#nesedruikg thead, #nesedruikg tbody, #nesedruikg tfoot, #nesedruikg tr, #nesedruikg td, #nesedruikg th {
+  border-style: none;
+}
+
+#nesedruikg p {
+  margin: 0;
+  padding: 0;
+}
+
+#nesedruikg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nesedruikg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#nesedruikg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nesedruikg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nesedruikg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nesedruikg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nesedruikg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nesedruikg .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nesedruikg .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nesedruikg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nesedruikg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nesedruikg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nesedruikg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#nesedruikg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#nesedruikg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nesedruikg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nesedruikg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nesedruikg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nesedruikg .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nesedruikg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#nesedruikg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#nesedruikg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#nesedruikg .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nesedruikg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#nesedruikg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#nesedruikg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nesedruikg .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nesedruikg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nesedruikg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nesedruikg .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nesedruikg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nesedruikg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nesedruikg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nesedruikg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nesedruikg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nesedruikg .gt_left {
+  text-align: left;
+}
+
+#nesedruikg .gt_center {
+  text-align: center;
+}
+
+#nesedruikg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nesedruikg .gt_font_normal {
+  font-weight: normal;
+}
+
+#nesedruikg .gt_font_bold {
+  font-weight: bold;
+}
+
+#nesedruikg .gt_font_italic {
+  font-style: italic;
+}
+
+#nesedruikg .gt_super {
+  font-size: 65%;
+}
+
+#nesedruikg .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#nesedruikg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#nesedruikg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#nesedruikg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#nesedruikg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#nesedruikg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#nesedruikg .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#nesedruikg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#nesedruikg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Covariate Results: Mother's Education on Class<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="a::stub"></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="logit"><span class="gt_from_md">Logit (<em>se</em>)</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="pval"><span class="gt_from_md"><em>p</em>-value</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="or"><span class="gt_from_md">Odds Ratio</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CI"><span class="gt_from_md">95% CI</span></th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="gt_group_heading_row">
+<th colspan="5" class="gt_group_heading" scope="colgroup" id="Class 1">Class 1</th>
+    </tr>
+<tr class="gt_row_group_first">
+<th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub">Mother's Education</th>
+<td headers="Class 1 stub_1_1 logit" class="gt_row gt_center">0.044 (0.01)</td>
+<td headers="Class 1 stub_1_1 pval" class="gt_row gt_center">&lt;.001*</td>
+<td headers="Class 1 stub_1_1 or" class="gt_row gt_center">1.045</td>
+<td headers="Class 1 stub_1_1 CI" class="gt_row gt_center">[1.029, 1.062]</td>
+</tr>
+<tr class="gt_group_heading_row">
+<th colspan="5" class="gt_group_heading" scope="colgroup" id="Class 2">Class 2</th>
+    </tr>
+<tr class="gt_row_group_first">
+<th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub">Mother's Education</th>
+<td headers="Class 2 stub_1_2 logit" class="gt_row gt_center">0.000 (0.01)</td>
+<td headers="Class 2 stub_1_2 pval" class="gt_row gt_center">0.985</td>
+<td headers="Class 2 stub_1_2 or" class="gt_row gt_center">1.000</td>
+<td headers="Class 2 stub_1_2 CI" class="gt_row gt_center">[0.982, 1.018]</td>
+</tr>
+<tr class="gt_group_heading_row">
+<th colspan="5" class="gt_group_heading" scope="colgroup" id="Class 3">Class 3</th>
+    </tr>
+<tr class="gt_row_group_first">
+<th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub">Mother's Education</th>
+<td headers="Class 3 stub_1_3 logit" class="gt_row gt_center">0.024 (0.01)</td>
+<td headers="Class 3 stub_1_3 pval" class="gt_row gt_center">0.007*</td>
+<td headers="Class 3 stub_1_3 or" class="gt_row gt_center">1.025</td>
+<td headers="Class 3 stub_1_3 CI" class="gt_row gt_center">[1.007, 1.043]</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="5">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Reference Class: 4</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="automated-three-step" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> Automated Three-Step<a class="anchor" aria-label="anchor" href="#automated-three-step"><i class="fas fa-link"></i></a>
+</h2>
+<hr>
+<p><em>Application: Undergraduate Cheating behavior</em></p>
+<p>“Dichotomous self-report responses by 319 undergraduates to four questions about cheating behavior” (poLCA, 2016).</p>
+<hr>
+<p>Prepare data</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">cheating</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cheating</span> <span class="op">&lt;-</span> <span class="va">cheating</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">df_cheat</span> <span class="op">&lt;-</span>  <span class="va">cheating</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>                                  </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>                                  </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/funs.html">funs</a></span><span class="op">(</span><span class="va">.</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>                                </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>gpa <span class="op">=</span> <span class="va">cheating</span><span class="op">$</span><span class="va">gpa</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Detaching packages that mask the dpylr functions </span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/detach.html">detach</a></span><span class="op">(</span><span class="va">package</span><span class="op">:</span><span class="va">poLCA</span>, unload <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/detach.html">detach</a></span><span class="op">(</span><span class="va">package</span><span class="op">:</span><span class="va">MASS</span>, unload <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div id="r3step" class="section level3" number="9.4.1">
+<h3>
+<span class="header-section-number">9.4.1</span> R3STEP<a class="anchor" aria-label="anchor" href="#r3step"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>R3STEP</strong> incorporates latent class predictors with mixture models. However, it is recommended to use the manual three-step.</p>
+<hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-d716cea2feecce7102be" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-d716cea2feecce7102be">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div id="run-the-r3step-model-with-gpa-as-the-latent-class-predictor" class="section level4" number="9.4.1.1">
+<h4>
+<span class="header-section-number">9.4.1.1</span> Run the <strong>R3STEP</strong> model with <code>gpa</code> as the latent class predictor<a class="anchor" aria-label="anchor" href="#run-the-r3step-model-with-gpa-as-the-latent-class-predictor"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">m_stepr</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  TITLE <span class="op">=</span> <span class="st">"R3STEP - GPA as Predictor"</span>, </span>
+<span>  VARIABLE <span class="op">=</span> </span>
+<span>   <span class="st">"categorical = lieexam-copyexam; </span></span>
+<span><span class="st">    usevar = lieexam-copyexam;</span></span>
+<span><span class="st">    auxiliary = gpa (R3STEP);</span></span>
+<span><span class="st">    classes = c(2);"</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>   <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 500 100; </span></span>
+<span><span class="st">    processors = 10;"</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"sampstat patterns tech11 tech14;"</span>,</span>
+<span>  </span>
+<span>  PLOT <span class="op">=</span> </span>
+<span>    <span class="st">"type = plot3; </span></span>
+<span><span class="st">     series = lieexam-copyexam(*);"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_cheat</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">df_cheat</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">m_stepr_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">m_stepr</span>, </span>
+<span>                            dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"auto_3step"</span>, <span class="st">"r3step.dat"</span><span class="op">)</span>,</span>
+<span>                            modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_step"</span>, <span class="st">"auto_3step"</span>, <span class="st">"c2_r3step.inp"</span><span class="op">)</span> ,</span>
+<span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="regression-slopes-and-odds-ratios" class="section level4" number="9.4.1.2">
+<h4>
+<span class="header-section-number">9.4.1.2</span> Regression slopes and odds ratios<a class="anchor" aria-label="anchor" href="#regression-slopes-and-odds-ratios"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS USING
+THE 3-STEP PROCEDURE
+
+   WARNING:  LISTWISE DELETION IS APPLIED TO THE AUXILIARY VARIABLES IN THE
+   ANALYSIS.  TO AVOID LISTWISE DELETION, DATA IMPUTATION CAN BE USED
+   FOR THE AUXILIARY VARIABLES FOLLOWED BY ANALYSIS WITH TYPE=IMPUTATION.
+   NUMBER OF DELETED OBSERVATIONS:  4
+   NUMBER OF OBSERVATIONS USED:  315
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ C#1        ON
+    GPA               -0.698      0.255     -2.739      0.006
+
+ Intercepts
+    C#1               -0.241      0.460     -0.523      0.601
+
+Parameterization using Reference Class 1
+
+ C#2        ON
+    GPA                0.698      0.255      2.739      0.006
+
+ Intercepts
+    C#2                0.241      0.460      0.523      0.601
+
+
+ODDS RATIOS FOR TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS
+USING THE 3-STEP PROCEDURE
+
+                                                95% C.I.
+                    Estimate       S.E. Lower 2.5% Upper 2.5%
+
+ C#1        ON
+    GPA                0.498      0.127      0.302      0.820
+
+
+Parameterization using Reference Class 1
+
+ C#2        ON
+    GPA                2.009      0.512      1.220      3.310</code></pre>
+<div style="text-align: center;">
+<img src="images/ucsb_logo.png" width="75%">
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="classification-diagnostics.html"><span class="header-section-number">8</span> Classification Diagnostics</a></div>
+<div class="next"><a href="a-single-distal-outcome.html"><span class="header-section-number">10</span> A Single Distal Outcome</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#a-single-covariate"><span class="header-section-number">9</span> A Single Covariate</a></li>
+<li><a class="nav-link" href="#load-packages-1"><span class="header-section-number">9.1</span> Load packages</a></li>
+<li><a class="nav-link" href="#descriptive-statistics-6"><span class="header-section-number">9.2</span> Descriptive Statistics</a></li>
+<li>
+<a class="nav-link" href="#manual-ml-three-step"><span class="header-section-number">9.3</span> Manual ML Three-step</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1---class-enumeration-w-auxiliary-specification"><span class="header-section-number">9.3.1</span> Step 1 - Class Enumeration w/ Auxiliary Specification</a></li>
+<li><a class="nav-link" href="#step-2---determine-measurement-error"><span class="header-section-number">9.3.2</span> Step 2 - Determine Measurement Error</a></li>
+<li><a class="nav-link" href="#step-3---lca-auxiliary-variable-model-with-1-covariate"><span class="header-section-number">9.3.3</span> Step 3 - LCA Auxiliary Variable Model with 1 Covariate</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#automated-three-step"><span class="header-section-number">9.4</span> Automated Three-Step</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#r3step"><span class="header-section-number">9.4.1</span> R3STEP</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/09-one-covariate.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/09-one-covariate.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

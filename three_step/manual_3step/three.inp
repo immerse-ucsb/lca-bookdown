@@ -12,9 +12,9 @@ NAMES = ENJOY USEFUL LOGICAL JOB ADULT FEMALE MOTHED MATH_IRT CPROB1 CPROB2 CPRO
   
   classes = c(4);
   
-  usevar = female math_irt;
+  usevar = female mothed math_irt;
 DEFINE:
-center female (grandmean);
+center female mothed (grandmean);
 ANALYSIS:
 estimator = mlr; 
   type = mixture; 
@@ -22,8 +22,9 @@ estimator = mlr;
 MODEL:
 %OVERALL%
  
-math_irt on female; ! covariate as a predictor of the distal outcome
-C on female;        ! covariate as predictor of C
+math_irt on female mothed; ! covariate as a related to the distal outcome
+C on female (f1-f3);
+c on mothed (e1-e3);      ! covariate as predictor of C
 
    %C#1%
 [n#1@3.52]; ! MUST EDIT if you do not have a 4-class model. 
@@ -58,7 +59,14 @@ math_irt;
 math_irt; 
 MODEL CONSTRAINT:
 New (diff12 diff13 diff23 
-    diff14 diff24 diff34);
+    diff14 diff24 diff34
+    
+    d_fem_12 d_fem_13 
+    d_fem_23
+ 
+    d_ed_12 d_ed_13 
+    d_ed_23 
+    );
   
     diff12 = m1-m2;  ! test pairwise distal mean differences
     diff13 = m1-m3;
@@ -66,8 +74,25 @@ New (diff12 diff13 diff23
     diff14 = m1-m4;
     diff24 = m2-m4;
     diff34 = m3-m4;
+ 
+    d_fem_12 = f1-f2;
+    d_fem_13 = f1-f3;
+    d_fem_23 = f2-f3; 
+
+    d_ed_12 = e1-e2;
+    d_ed_13 = e1-e3;
+    d_ed_23 = e2-e3; 
+
+ 
 MODEL TEST:
      ! omnibus test of distal means 
-    m1=m2;
-    m2=m3;
-    m3=m4;
+  !  m1=m2;
+  !  m2=m3;
+  !  m3=m4;
+ 
+  ! f1=f2;       ! omnibus test of covariate logits (female)  
+  !  f1=f3;
+ 
+    e1=e2;       ! omnibus test of covariate logits (mothers ed)  
+    e1=e3;
+   

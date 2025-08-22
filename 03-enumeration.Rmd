@@ -120,43 +120,55 @@ df_bully <- read_csv(here("data", "crdc_lca_data.csv")) %>%
 ## Descriptive Statistics
 
 ```{r}
-# Set up data to find proportions of binary indicators
-ds <- df_bully %>% 
-  pivot_longer(c(report_dis, report_race, report_sex, counselors_fte, psych_fte, law_fte), names_to = "variable") 
-
-
-# Create table of variables and counts, then find proportions and round to 3 decimal places
-prop_df <- ds %>%
-  count(variable, value) %>%
-  group_by(variable) %>%
-  mutate(prop = n / sum(n)) %>%
-  ungroup() %>%
-  mutate(prop = round(prop, 3))
-
-
-# Make it a gt() table
-prop_table <- prop_df %>% 
-  gt(groupname_col = "variable", rowname_col = "value") %>%
-  tab_stubhead(label = md("*Values*")) %>%
-  tab_header(
-    md(
-      "Variable Proportions"
-    )
+dframe <- df_bully %>%
+  pivot_longer(
+    c(report_dis, report_race, report_sex, counselors_fte, psych_fte, law_fte),
+    names_to = "Variable"
   ) %>%
-  cols_label(
-    variable = md("*Variable*"),
-    value = md("*Value*"),
-    n = md("*N*"),
-    prop = md("*Proportion*")
-  ) 
-  
-prop_table
+  group_by(Variable) %>%
+  summarise(
+    Count = sum(value == 1, na.rm = TRUE),
+    Total = n(),
+    .groups = "drop"
+  ) %>%
+  mutate(`Proportion Endorsed` = round(Count / Total, 3)) %>%
+  select(Variable, `Proportion Endorsed`, Count)
+
+gt(dframe) %>%
+  tab_header(
+    title = md("**LCA Indicator Endorsement**"),
+    subtitle = md("&nbsp;")
+  ) %>%
+  tab_options(
+    column_labels.font.weight = "bold",
+    row_group.font.weight = "bold"
+  )
 ```
 
 Save as image
 
 ```{r, eval = FALSE}
 gtsave(prop_table, here("figures", "prop_table.png"))
+```
+
+Frequency Plot
+
+```{r out.width="90%"}
+data_long <- df_bully %>%
+  pivot_longer(c(report_dis, report_race, report_sex, counselors_fte, psych_fte, law_fte), names_to = "variable")
+
+# Bar plot for 0/1 indicators
+ggplot(data_long, aes(x = factor(value))) +
+  geom_bar(fill = "#69b3a2", color = "black") +
+  geom_text(stat = "count", aes(label = after_stat(count)), 
+            vjust = -0.5, size = 3.5) +
+  facet_wrap(~ variable) +
+  labs(
+    title = "Binary Indicator Distributions",
+    x = "Value (0 = No, 1 = Yes)",
+    y = "Count"
+  ) +
+  theme_cowplot()
 ```
 
 ------------------------------------------------------------------------
@@ -554,285 +566,5 @@ Save figure:
 ggsave(here("figures", "compare_kclass_plot.png"), dpi=300, height=5, width=7, units="in")
 ```
 
-------------------------------------------------------------------------
-
-## 3-Class Probability Plot
-
-Use the `plot_lca` function provided in the folder to plot the item probability plot. This function requires one argument:
-- `model_name`: The name of the Mplus `readModels` object (e.g., `output_enum$c3_bully.out`)
-
-```{r, height=5, width=7}
-source(here("functions", "plot_lca.R"))
-
-plot_lca(model_name = output_enum$c3_bully.out)
-```
-
-------------------------------------------------------------------------
-
-Save figure:
-
-```{r, eval = FALSE}
-ggsave(here("figures", "C3_bully_LCA_Plot.png"), dpi="retina", height=5, width=7, units="in")
-```
-
-------------------------------------------------------------------------
-
-## Observed Response Patterns
-
-Save response frequencies for the 3-class model from the previous lab with `response is _____.dat` under `SAVEDATA.`
-
-```{r, cache = TRUE}
-
-patterns  <- mplusObject(
-  
-  TITLE = "C3 LCA - Save response patterns", 
-  
-  VARIABLE = 
-  "categorical = report_dis-law_fte; 
-   usevar =  report_dis-law_fte;
-   classes = c(3);",
-  
-  ANALYSIS = 
-   "estimator = mlr; 
-    type = mixture;
-    starts = 0;
-    processors = 10;
-    optseed = 802779;",
-  
-  SAVEDATA = 
-   "File=savedata.dat;
-    Save=cprob;
-    
-    ! Code to save response frequency data 
-    
-    response is resp_patterns.dat;",
-  
-  OUTPUT = "residual patterns tech11 tech14",
-  
-  usevariables = colnames(df_bully),
-  rdata = df_bully)
-
-patterns_fit <- mplusModeler(patterns,
-                dataout=here("mplus", "bully.dat"),
-                modelout=here("mplus", "patterns.inp") ,
-                check=TRUE, run = TRUE, hashfilename = FALSE)
-```
-
-------------------------------------------------------------------------
-
-Read in observed response pattern data and relabel the columns
-
-```{r}
-# Read in response frequency data that we just created:
-patterns <- read_table(here("mplus", "resp_patterns.dat"),
-                        col_names=FALSE, na = "*") 
-
-# Extract the column names
-names <- names(readModels(here("mplus", "patterns.out"))[['savedata']]) 
-
-# Add the names back to the dataset
-colnames(patterns) <- c("Frequency", names)  
-```
-
-Create a table with the top 5 unconditional response pattern, then top of conditional response pattern for each modal class assignment
-
-```{r,eval=TRUE}
-# Order responses by highest frequency
-order_highest <- patterns %>% 
-  arrange(desc(Frequency)) 
-
-# Loop `patterns` data to list top 5 conditional response patterns for each class
-loop_cond  <- lapply(1:max(patterns$C), function(k) {       
-order_cond <- patterns %>%                    
-  filter(C == k) %>%                    
-  arrange(desc(Frequency)) %>%                
-  head(5)                                     
-  })                                          
-
-# Convert loop into data frame
-table_data <- as.data.frame(bind_rows(loop_cond))
-
-# Combine unconditional and conditional responses patterns
-response_patterns <-  rbind(order_highest[1:5,], table_data) 
-```
-
-Finally, use `{gt}` to make a nicely formatted table
-
-```{r}
-resp_table <- response_patterns %>% 
-  gt() %>%
-    tab_header(
-    title = "Observed Response Patterns",
-    subtitle = html("Response patterns, estimated frequencies, estimated posterior class probabilities and modal assignments")) %>% 
-    tab_source_note(
-    source_note = md("Data Source: **Civil Rights Data Collection (CRDC)**")) %>%
-    cols_label(
-      Frequency = html("<i>f</i><sub>r</sub>"),
-    REPORT_D = "Harrassment: Disability",
-    REPORT_R = "Harrassment: Race",
-    REPORT_S = "Harrassment: Sex",
-    COUNSELO = "Staff: Counselor",
-    PSYCH_FT = "Staff: Psychologist",
-    LAW_FTE = "Staff: Law Enforcement",
-    CPROB1 = html("P<sub><i>k</i></sub>=1"),
-    CPROB2 = html("P<sub><i>k</i></sub>=2"),
-    CPROB3 = html("P<sub><i>k</i></sub>=3"),
-    C = md("*k*")) %>% 
-  tab_row_group(
-    label = "Unconditional response patterns",
-    rows = 1:5) %>%
-  tab_row_group(
-    label = md("*k* = 1 Conditional response patterns"),
-    rows = 6:10) %>% #EDIT THESE VALUES BASED ON THE LAST COLUMN
-  tab_row_group(
-    label = md("*k* = 2 Conditional response patterns"),
-    rows = 11:15)  %>% #EDIT THESE VALUES BASED ON THE LAST COLUMN
-  tab_row_group(
-    label = md("*k* = 3 Conditional response patterns"),
-    rows = 16:20)  %>% #EDIT THESE VALUES BASED ON THE LAST COLUMN  
-    row_group_order(
-      groups = c("Unconditional response patterns",
-                 md("*k* = 1 Conditional response patterns"),
-                 md("*k* = 2 Conditional response patterns"),
-                 md("*k* = 3 Conditional response patterns"))) %>% 
-    tab_footnote(
-    footnote = html(
-      "<i>Note.</i> <i>f</i><sub>r</sub> = response pattern frequency; P<sub><i>k</i></sub> = posterior class probabilities"
-    )
-  ) %>% 
-  cols_align(align = "center") %>% 
-  opt_align_table_header(align = "left") %>% 
-  gt::tab_options(table.font.names = "Times New Roman")
-
-resp_table
-```
-
-------------------------------------------------------------------------
-
-Save table:
-
-```{r, eval = FALSE}
-gtsave(resp_table, here("figures","resp_table.png"))
-```
-
-------------------------------------------------------------------------
-
-## Classification Diagnostics
-
-Use Mplus to calculate k-class confidence intervals (Note: Change the synax to make your chosen *k*-class model):
-
-```{r, cache = TRUE}
-classification  <- mplusObject(
-  
-  TITLE = "C3 LCA - Calculated k-Class 95% CI",
-  
-  VARIABLE =
-    "categorical = report_dis-law_fte;
-   usevar =  report_dis-law_fte;
-   classes = c(3);", 
-  
-  ANALYSIS =
-    "estimator = ml;
-    type = mixture;
-    starts = 0; 
-    processors = 10;
-    optseed = 802779;
-    bootstrap = 1000;",
-  
-  MODEL =
-    "
-  !CHANGE THIS SECTION TO YOUR CHOSEN k-CLASS MODEL
-    
-  %OVERALL%
-  [C#1](c1);
-  
-  [C#2](C2);
-
-  Model Constraint:
-  New(p1 p2 p3);
-  
-  p1 = exp(c1)/(1+exp(c1)+exp(c2));
-  p2 = exp(c2)/(1+exp(c1)+exp(c2));
-  p3 = 1/(1+exp(c1)+exp(c2));",
-
-  
-  OUTPUT = "cinterval(bcbootstrap)",
-  
-  usevariables = colnames(df_bully),
-  rdata = df_bully)
-
-classification_fit <- mplusModeler(classification,
-                dataout=here("mplus", "bully.dat"),
-                modelout=here("mplus", "class.inp") ,
-                check=TRUE, run = TRUE, hashfilename = FALSE)
-```
-
-*Note*: Ensure that the classes did not shift during this step (i.g., Class 1 in the enumeration run is now Class 4). Evaluate output and compare the class counts and proportions for the latent classes. Using the OPTSEED function ensures replication of the best loglikelihood value run.
-
-------------------------------------------------------------------------
-
-Read in the 3-class model:
-
-```{r}
-# Read in the 3-class model and extract information needed
-output_enum <- readModels(here("mplus", "class.out"))
-
-# Entropy
-entropy <- c(output_enum$summaries$Entropy, rep(NA, output_enum$summaries$NLatentClasses-1))
-
-# 95% k-Class and k-class 95% Confidence Intervals
-k_ci <- output_enum$parameters$ci.unstandardized %>% 
-  filter(paramHeader == "New.Additional.Parameters") %>% 
-  unite(CI, c(low2.5,up2.5), sep=", ", remove = TRUE) %>% 
-  mutate(CI = paste0("[", CI, "]")) %>% 
-  rename(kclass=est) %>% 
-  dplyr::select(kclass, CI)
-
-# AvePPk = Average Latent Class Probabilities for Most Likely Latent Class Membership (Row) by Latent Class (Column)
-avePPk <- tibble(avePPk = diag(output_enum$class_counts$avgProbs.mostLikely))
-
-# mcaPk = modal class assignment proportion 
-mcaPk <- round(output_enum$class_counts$mostLikely,3) %>% 
-  mutate(model = paste0("Class ", class)) %>% 
-  add_column(avePPk, k_ci) %>% 
-  rename(mcaPk = proportion) %>% 
-  dplyr::select(model, kclass, CI, mcaPk, avePPk)
-
-# OCCk = odds of correct classification
-OCCk <- mcaPk %>% 
-  mutate(OCCk = round((avePPk/(1-avePPk))/(kclass/(1-kclass)),3))
-
-# Put everything together
-class_table <- data.frame(OCCk, entropy)
-```
-
-Now, use `{gt}` to make a nicely formatted table
-
-```{r}
-class_table <- class_table %>% 
-  gt() %>%
-    tab_header(
-    title = "Model Classification Diagnostics for the 3-Class Solution") %>%
-    cols_label(
-      model = md("*k*-Class"),
-      kclass = md("*k*-Class Proportions"),
-      CI = "95% CI",
-      mcaPk = html("McaP<sub>k</sub>"),
-      avePPk = md("AvePP<sub>k</sub>"),
-      OCCk = md("OCC<sub>k</sub>"),
-      entropy = "Entropy") %>% 
-    sub_missing(7,
-              missing_text = "") %>%
-    tab_footnote(
-    footnote = html(
-      "<i>Note.</i> McaP<sub>k</sub> = Modal class assignment proportion; AvePP<sub>k</sub> = Average posterior class probabilities; OCC<sub>k</sub> = Odds of correct classification; "
-    )
-  ) %>% 
-  cols_align(align = "center") %>% 
-  opt_align_table_header(align = "left") %>% 
-  gt::tab_options(table.font.names = "Times New Roman")
-
-class_table
-```
 
 <div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>

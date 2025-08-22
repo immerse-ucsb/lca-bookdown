@@ -1,7 +1,7 @@
 ---
 title: "Mixture Modeling with `MplusAutomation`"
 author: "Dina Arch"
-date: "2025-08-20"
+date: "2025-08-22"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -15,6 +15,8 @@ csl: chicago-fullnote-bibliography.csl
 # Mixture Modeling with `MplusAutomation` {.unnumbered}
 
 <img src="images/immerse_hex.png" class="cover" width="250" height="193"/> Welcome! This will be a collection of resources that will teach you how to apply mixture modeling using Mplus[@muthen2017] and `MplusAutomation`[@hallquist2018]! These resources will serve as a comprehensive guide to understanding and applying LCA using Mplus and its automation capabilities with `MplusAutomation`. Here, you will learn from start to finish how to apply mixture modeling using Mplus with the `MplusAutomation` package.
+
+Note: This book is a continuous work in progress. The code presented may be updated and/or expanded as research progresses. Please treat the material as a living document rather than a final product.
 
 ## Stay in touch! {.unnumbered}
 
@@ -47,6 +49,8 @@ Additional code contributors:
 -   **Adam Garber, PhD**
 
 -   **Delwin Carter, PhD**
+
+-   **Yidi Zhang, MA**
 
 We also thank all the IMMERSE fellows who provided feedback during the development of these materials.
 

@@ -1,14 +1,14 @@
 Mplus VERSION 8.11
 MUTHEN & MUTHEN
-06/11/2025   1:55 PM
+08/22/2025   1:18 PM
 
 INPUT INSTRUCTIONS
 
   TITLE:
   Step 1 - Three-Step using LSAL
   DATA:
-  FILE = "C:/Users/Karen Nylund-Gibson/Box/lca-bookdown/three_step/manual_3step/Step1.dat";
-
+  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/three_step/manual_3step/
+  Step1.dat";
   VARIABLE:
   NAMES = rand lsayid region urban gender mothed fathed raceth math_irt enjoy good
        undrstnd nervous scared useful logical job adult female;
@@ -104,7 +104,7 @@ Random Starts Specifications
 Link                                                         LOGIT
 
 Input data file(s)
-  C:/Users/Karen Nylund-Gibson/Box/lca-bookdown/three_step/manual_3step/Step1.da
+  C:/Users/dnajiarch/Box/lca-bookdown/three_step/manual_3step/Step1.dat
 Input data format  FREE
 
 
@@ -604,8 +604,8 @@ SAVEDATA INFORMATION
   Save missing symbol        *
 
 
-     Beginning Time:  13:55:11
-        Ending Time:  13:55:15
+     Beginning Time:  13:18:02
+        Ending Time:  13:18:06
        Elapsed Time:  00:00:04
 
 

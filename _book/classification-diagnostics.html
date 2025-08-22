@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>8 Classification Diagnostics | Mixture Modeling with MplusAutomation</title>
+<meta name="author" content="Dina Arch">
+<meta name="description" content="Example: Bullying in Schools To demonstrate mixture modeling in the training program and online resource components of the IES grant we utilize the Civil Rights Data Collection (CRDC)11 data...">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="8 Classification Diagnostics | Mixture Modeling with MplusAutomation">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/classification-diagnostics.html">
+<meta property="og:description" content="Example: Bullying in Schools To demonstrate mixture modeling in the training program and online resource components of the IES grant we utilize the Civil Rights Data Collection (CRDC)11 data...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="8 Classification Diagnostics | Mixture Modeling with MplusAutomation">
+<meta name="twitter:description" content="Example: Bullying in Schools To demonstrate mixture modeling in the training program and online resource components of the IES grant we utilize the Civil Rights Data Collection (CRDC)11 data...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Mixture Modeling with MplusAutomation</a></li>
+<li class="book-part">Introduction</li>
+<li><a class="" href="r-and-rstudio.html"><span class="header-section-number">1</span> R and RStudio</a></li>
+<li><a class="" href="mplusautomation.html"><span class="header-section-number">2</span> MplusAutomation</a></li>
+<li class="book-part">Latent Class Analysis</li>
+<li><a class="" href="enumeration.html"><span class="header-section-number">3</span> Enumeration</a></li>
+<li><a class="" href="item-probability-plots.html"><span class="header-section-number">4</span> Item Probability Plots</a></li>
+<li class="book-part">Polytomous LCA</li>
+<li><a class="" href="enumeration-2.html"><span class="header-section-number">5</span> Enumeration</a></li>
+<li class="book-part">Latent Profile Analysis</li>
+<li><a class="" href="enumeration-4.html"><span class="header-section-number">6</span> Enumeration</a></li>
+<li class="book-part">Understanding the Data</li>
+<li><a class="" href="observed-response-patterns.html"><span class="header-section-number">7</span> Observed Response Patterns</a></li>
+<li><a class="active" href="classification-diagnostics.html"><span class="header-section-number">8</span> Classification Diagnostics</a></li>
+<li class="book-part">Including Auxiliary Variables</li>
+<li><a class="" href="a-single-covariate.html"><span class="header-section-number">9</span> A Single Covariate</a></li>
+<li class="book-part">Including Auxiliary Variables</li>
+<li><a class="" href="a-single-distal-outcome.html"><span class="header-section-number">10</span> A Single Distal Outcome</a></li>
+<li><a class="" href="two-covariates-and-a-single-distal-outcome.html"><span class="header-section-number">11</span> Two Covariates and a Single Distal Outcome</a></li>
+<li class="book-part">Extensions of Latent Class Models</li>
+<li><a class="" href="moderation.html"><span class="header-section-number">12</span> Moderation</a></li>
+<li><a class="" href="lta.html"><span class="header-section-number">13</span> Latent Transition Analysis</a></li>
+<li><a class="" href="lta-with-covariates.html"><span class="header-section-number">14</span> LTA with Covariates</a></li>
+<li><a class="" href="joint-occurrence.html"><span class="header-section-number">15</span> Joint Occurrence</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">16</span> Growth Mixture Models</a></li>
+<li class="book-part">Published Manuscripts</li>
+<li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">17</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
+<li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">18</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
+<li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">19</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/immerse-ucsb/lca-bookdown">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="classification-diagnostics" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Classification Diagnostics<a class="anchor" aria-label="anchor" href="#classification-diagnostics"><i class="fas fa-link"></i></a>
+</h1>
+<hr>
+<p>Example: Bullying in Schools</p>
+<hr>
+<p>To demonstrate mixture modeling in the training program and online resource components of the IES grant we utilize the <em>Civil Rights Data Collection (CRDC)</em><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;US Department of Education Office for Civil Rights.&lt;/p&gt;"><sup>11</sup></a></span> data repository.
+The CRDC is a federally mandated school-level data collection effort that occurs every other year.
+This public data is currently available for selected latent class indicators across 4 years (2011, 2013, 2015, 2017) and all US states.
+In this example, we use the Arizona state sample.
+We utilize six focal indicators which constitute the latent class model in our example; three variables which report on harassment/bullying in schools based on disability, race, or sex, and three variables on full-time equivalent school staff hires (counselor, psychologist, law enforcement).
+This data source also includes covariates on a variety of subjects and distal outcomes reported in 2018 such as math/reading assessments and graduation rates.</p>
+<hr>
+<p>Load packages</p>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/">glue</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rich-iannone.github.io/DiagrammeR/">DiagrammeR</a></span><span class="op">)</span> </span></code></pre></div>
+<div id="variable-description-3" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Variable Description<a class="anchor" aria-label="anchor" href="#variable-description-3"><i class="fas fa-link"></i></a>
+</h2>
+<div id="wsncnofrsc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wsncnofrsc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wsncnofrsc thead, #wsncnofrsc tbody, #wsncnofrsc tfoot, #wsncnofrsc tr, #wsncnofrsc td, #wsncnofrsc th {
+  border-style: none;
+}
+
+#wsncnofrsc p {
+  margin: 0;
+  padding: 0;
+}
+
+#wsncnofrsc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 75%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wsncnofrsc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wsncnofrsc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wsncnofrsc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wsncnofrsc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wsncnofrsc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wsncnofrsc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wsncnofrsc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wsncnofrsc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wsncnofrsc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wsncnofrsc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wsncnofrsc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wsncnofrsc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wsncnofrsc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wsncnofrsc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wsncnofrsc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wsncnofrsc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wsncnofrsc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wsncnofrsc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wsncnofrsc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wsncnofrsc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wsncnofrsc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wsncnofrsc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wsncnofrsc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wsncnofrsc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wsncnofrsc .gt_left {
+  text-align: left;
+}
+
+#wsncnofrsc .gt_center {
+  text-align: center;
+}
+
+#wsncnofrsc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wsncnofrsc .gt_font_normal {
+  font-weight: normal;
+}
+
+#wsncnofrsc .gt_font_bold {
+  font-weight: bold;
+}
+
+#wsncnofrsc .gt_font_italic {
+  font-style: italic;
+}
+
+#wsncnofrsc .gt_super {
+  font-size: 65%;
+}
+
+#wsncnofrsc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wsncnofrsc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wsncnofrsc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wsncnofrsc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wsncnofrsc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wsncnofrsc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wsncnofrsc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#wsncnofrsc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wsncnofrsc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>LCA indicators<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Name">Name</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Label">Label</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Values">Values</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="Name" class="gt_row gt_left">leaid</td>
+<td headers="Label" class="gt_row gt_left">District Identification Code</td>
+<td headers="Values" class="gt_row gt_left"></td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">ncessch</td>
+<td headers="Label" class="gt_row gt_left">School Identification Code</td>
+<td headers="Values" class="gt_row gt_left"></td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">report_dis</td>
+<td headers="Label" class="gt_row gt_left">Number of students harassed or bullied on the basis of disability</td>
+<td headers="Values" class="gt_row gt_left">0 = No reported incidents, 1 = At least one reported incident</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">report_race</td>
+<td headers="Label" class="gt_row gt_left">Number of students harassed or bullied on the basis of race, color, or national origin</td>
+<td headers="Values" class="gt_row gt_left">0 = No reported incidents, 1 = At least one reported incident</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">report_sex</td>
+<td headers="Label" class="gt_row gt_left">Number of students harassed or bullied on the basis of sex</td>
+<td headers="Values" class="gt_row gt_left">0 = No reported incidents, 1 = At least one reported incident</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">counselors_fte</td>
+<td headers="Label" class="gt_row gt_left">Number of full time equivalent counselors hired as school staff</td>
+<td headers="Values" class="gt_row gt_left">0 = No staff present, 1 = At least one staff present</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">psych_fte</td>
+<td headers="Label" class="gt_row gt_left">Number of full time equivalent psychologists hired as school staff</td>
+<td headers="Values" class="gt_row gt_left">0 = No staff present, 1 = At least one staff present</td>
+</tr>
+<tr>
+<td headers="Name" class="gt_row gt_left">law_fte</td>
+<td headers="Label" class="gt_row gt_left">Number of full time equivalent law enforcement officers hired as school staff</td>
+<td headers="Values" class="gt_row gt_left">0 = No staff present, 1 = At least one staff present</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="3">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Civil Rights Data Collection (CRDC)</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<hr>
+<p><strong>Variables have been transformed to be dichotomous indicators using the following coding strategy</strong></p>
+<p>Harassment and bullying count variables are recoded <code>1</code> if the school reported at least one incident of harassment (<code>0</code> indicates no reported incidents).
+On the original scale reported by the CDRC staff variables for full time equivalent employees (FTE) are represented as <code>1</code> and part time employees are represented by values between <code>1</code> and <code>0</code>.
+Schools with greater than one staff of the designated type are represented by values greater than 1.
+All values greater than zero were recorded as <code>1s</code> (e.g., <code>.5</code>, <code>1</code>,<code>3</code>) indicating that the school has a staff present on campus at least part time.
+Schools with no staff of the designated type are indicated as <code>0</code> for the dichotomous variable.</p>
+<hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-9c8ff66f933c36f739c4" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9c8ff66f933c36f739c4">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    report_dis report_race report_sex counselors_fte psych_fte law_fte;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Bullying <br/>C<sub>k<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {report_dis report_race report_sex counselors_fte psych_fte law_fte}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+</div>
+<div id="prepare-data-5" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> Prepare Data<a class="anchor" aria-label="anchor" href="#prepare-data-5"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_bully</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"crdc_lca_data.csv"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">report_dis</span>, <span class="va">report_race</span>, <span class="va">report_sex</span>, <span class="va">counselors_fte</span>, <span class="va">psych_fte</span>, <span class="va">law_fte</span><span class="op">)</span> </span></code></pre></div>
+<hr>
+</div>
+<div id="descriptive-statistics-5" class="section level2" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>Proportion of indicators using R:</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dframe</span> <span class="op">&lt;-</span> <span class="va">df_bully</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">report_dis</span>, <span class="va">report_race</span>, <span class="va">report_sex</span>, <span class="va">counselors_fte</span>, <span class="va">psych_fte</span>, <span class="va">law_fte</span><span class="op">)</span>,</span>
+<span>    names_to <span class="op">=</span> <span class="st">"Variable"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    Count <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">value</span> <span class="op">==</span> <span class="fl">1</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    Total <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    .groups <span class="op">=</span> <span class="st">"drop"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>`Proportion Endorsed` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Count</span> <span class="op">/</span> <span class="va">Total</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Variable</span>, <span class="va">`Proportion Endorsed`</span>, <span class="va">Count</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="va">dframe</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**LCA Indicator Endorsement**"</span><span class="op">)</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"&amp;nbsp;"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span></span>
+<span>    column_labels.font.weight <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>    row_group.font.weight <span class="op">=</span> <span class="st">"bold"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div id="pwptwxzemq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pwptwxzemq table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#pwptwxzemq thead, #pwptwxzemq tbody, #pwptwxzemq tfoot, #pwptwxzemq tr, #pwptwxzemq td, #pwptwxzemq th {
+  border-style: none;
+}
+
+#pwptwxzemq p {
+  margin: 0;
+  padding: 0;
+}
+
+#pwptwxzemq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pwptwxzemq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pwptwxzemq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pwptwxzemq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pwptwxzemq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pwptwxzemq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pwptwxzemq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pwptwxzemq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pwptwxzemq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pwptwxzemq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#pwptwxzemq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pwptwxzemq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pwptwxzemq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pwptwxzemq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pwptwxzemq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pwptwxzemq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pwptwxzemq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pwptwxzemq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pwptwxzemq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pwptwxzemq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pwptwxzemq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pwptwxzemq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pwptwxzemq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pwptwxzemq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pwptwxzemq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pwptwxzemq .gt_left {
+  text-align: left;
+}
+
+#pwptwxzemq .gt_center {
+  text-align: center;
+}
+
+#pwptwxzemq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pwptwxzemq .gt_font_normal {
+  font-weight: normal;
+}
+
+#pwptwxzemq .gt_font_bold {
+  font-weight: bold;
+}
+
+#pwptwxzemq .gt_font_italic {
+  font-style: italic;
+}
+
+#pwptwxzemq .gt_super {
+  font-size: 65%;
+}
+
+#pwptwxzemq .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#pwptwxzemq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pwptwxzemq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pwptwxzemq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pwptwxzemq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pwptwxzemq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pwptwxzemq .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#pwptwxzemq .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#pwptwxzemq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="3" class="gt_heading gt_title gt_font_normal" style><span class="gt_from_md"><strong>LCA Indicator Endorsement</strong></span></td>
+    </tr>
+<tr class="gt_heading">
+<td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class="gt_from_md"> </span></td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Variable">Variable</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Proportion-Endorsed">Proportion Endorsed</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Count">Count</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="Variable" class="gt_row gt_left">counselors_fte</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.453</td>
+<td headers="Count" class="gt_row gt_right">919</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">law_fte</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.124</td>
+<td headers="Count" class="gt_row gt_right">251</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">psych_fte</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.467</td>
+<td headers="Count" class="gt_row gt_right">947</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">report_dis</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.042</td>
+<td headers="Count" class="gt_row gt_right">85</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">report_race</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.102</td>
+<td headers="Count" class="gt_row gt_right">206</td>
+</tr>
+<tr>
+<td headers="Variable" class="gt_row gt_left">report_sex</td>
+<td headers="Proportion Endorsed" class="gt_row gt_right">0.168</td>
+<td headers="Count" class="gt_row gt_right">340</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+</div>
+<div id="classification-diagnostics-1" class="section level2" number="8.4">
+<h2>
+<span class="header-section-number">8.4</span> Classification Diagnostics<a class="anchor" aria-label="anchor" href="#classification-diagnostics-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Continuing the example from this bookdown, use Mplus to calculate k-class confidence intervals (Note: Change the sytnax to make your chosen <em>k</em>-class model):</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">classification</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>  </span>
+<span>  TITLE <span class="op">=</span> <span class="st">"C3 LCA - Calculated k-Class 95% CI"</span>,</span>
+<span>  </span>
+<span>  VARIABLE <span class="op">=</span></span>
+<span>    <span class="st">"categorical = report_dis-law_fte;</span></span>
+<span><span class="st">   usevar =  report_dis-law_fte;</span></span>
+<span><span class="st">   classes = c(3);"</span>, </span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span></span>
+<span>    <span class="st">"estimator = ml;</span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 0; </span></span>
+<span><span class="st">    processors = 10;</span></span>
+<span><span class="st">    optseed = 802779;</span></span>
+<span><span class="st">    bootstrap = 1000;"</span>,</span>
+<span>  </span>
+<span>  MODEL <span class="op">=</span></span>
+<span>    <span class="st">"</span></span>
+<span><span class="st">  !CHANGE THIS SECTION TO YOUR CHOSEN k-CLASS MODEL</span></span>
+<span><span class="st">    </span></span>
+<span><span class="st">  %OVERALL%</span></span>
+<span><span class="st">  [C#1](c1);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  [C#2](C2);</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  Model Constraint:</span></span>
+<span><span class="st">  New(p1 p2 p3);</span></span>
+<span><span class="st">  </span></span>
+<span><span class="st">  p1 = exp(c1)/(1+exp(c1)+exp(c2));</span></span>
+<span><span class="st">  p2 = exp(c2)/(1+exp(c1)+exp(c2));</span></span>
+<span><span class="st">  p3 = 1/(1+exp(c1)+exp(c2));"</span>,</span>
+<span></span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"cinterval(bcbootstrap)"</span>,</span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_bully</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">df_bully</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">classification_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">classification</span>,</span>
+<span>                dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"mplus"</span>, <span class="st">"bully.dat"</span><span class="op">)</span>,</span>
+<span>                modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"mplus"</span>, <span class="st">"class.inp"</span><span class="op">)</span> ,</span>
+<span>                check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p><em>Note</em>: Ensure that the classes did not shift during this step (i.g., Class 1 in the enumeration run is now Class 4). Evaluate output and compare the class counts and proportions for the latent classes. Using the OPTSEED function ensures replication of the best loglikelihood value run.</p>
+<hr>
+<p>Read in the 3-class model:</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Read in the 3-class model and extract information needed</span></span>
+<span><span class="va">output_enum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"mplus"</span>, <span class="st">"class.out"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Entropy</span></span>
+<span><span class="va">entropy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">output_enum</span><span class="op">$</span><span class="va">summaries</span><span class="op">$</span><span class="va">Entropy</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="va">output_enum</span><span class="op">$</span><span class="va">summaries</span><span class="op">$</span><span class="va">NLatentClasses</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 95% k-Class and k-class 95% Confidence Intervals</span></span>
+<span><span class="va">k_ci</span> <span class="op">&lt;-</span> <span class="va">output_enum</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">ci.unstandardized</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">paramHeader</span> <span class="op">==</span> <span class="st">"New.Additional.Parameters"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html">unite</a></span><span class="op">(</span><span class="va">CI</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">low2.5</span>,<span class="va">up2.5</span><span class="op">)</span>, sep<span class="op">=</span><span class="st">", "</span>, remove <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>CI <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"["</span>, <span class="va">CI</span>, <span class="st">"]"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>kclass<span class="op">=</span><span class="va">est</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">kclass</span>, <span class="va">CI</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># AvePPk = Average Latent Class Probabilities for Most Likely Latent Class Membership (Row) by Latent Class (Column)</span></span>
+<span><span class="va">avePPk</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>avePPk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">output_enum</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">avgProbs.mostLikely</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># mcaPk = modal class assignment proportion </span></span>
+<span><span class="va">mcaPk</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">output_enum</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">mostLikely</span>,<span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Class "</span>, <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/add_column.html">add_column</a></span><span class="op">(</span><span class="va">avePPk</span>, <span class="va">k_ci</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>mcaPk <span class="op">=</span> <span class="va">proportion</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">kclass</span>, <span class="va">CI</span>, <span class="va">mcaPk</span>, <span class="va">avePPk</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># OCCk = odds of correct classification</span></span>
+<span><span class="va">OCCk</span> <span class="op">&lt;-</span> <span class="va">mcaPk</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>OCCk <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">(</span><span class="va">avePPk</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">avePPk</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">kclass</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">kclass</span><span class="op">)</span><span class="op">)</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Put everything together</span></span>
+<span><span class="va">class_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">OCCk</span>, <span class="va">entropy</span><span class="op">)</span></span></code></pre></div>
+<p>Now, use <a href="https://gt.rstudio.com">gt</a> to make a nicely formatted table</p>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">class_table</span> <span class="op">&lt;-</span> <span class="va">class_table</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Model Classification Diagnostics for the 3-Class Solution"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://gt.rstudio.com/reference/cols_label.html">cols_label</a></span><span class="op">(</span></span>
+<span>      model <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"*k*-Class"</span><span class="op">)</span>,</span>
+<span>      kclass <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"*k*-Class Proportions"</span><span class="op">)</span>,</span>
+<span>      CI <span class="op">=</span> <span class="st">"95% CI"</span>,</span>
+<span>      mcaPk <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/html.html">html</a></span><span class="op">(</span><span class="st">"McaP&lt;sub&gt;k&lt;/sub&gt;"</span><span class="op">)</span>,</span>
+<span>      avePPk <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"AvePP&lt;sub&gt;k&lt;/sub&gt;"</span><span class="op">)</span>,</span>
+<span>      OCCk <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"OCC&lt;sub&gt;k&lt;/sub&gt;"</span><span class="op">)</span>,</span>
+<span>      entropy <span class="op">=</span> <span class="st">"Entropy"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://gt.rstudio.com/reference/sub_missing.html">sub_missing</a></span><span class="op">(</span><span class="fl">7</span>,</span>
+<span>              missing_text <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html">tab_footnote</a></span><span class="op">(</span></span>
+<span>    footnote <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/html.html">html</a></span><span class="op">(</span></span>
+<span>      <span class="st">"&lt;i&gt;Note.&lt;/i&gt; McaP&lt;sub&gt;k&lt;/sub&gt; = Modal class assignment proportion; AvePP&lt;sub&gt;k&lt;/sub&gt; = Average posterior class probabilities; OCC&lt;sub&gt;k&lt;/sub&gt; = Odds of correct classification; "</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_align.html">cols_align</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"center"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/opt_align_table_header.html">opt_align_table_header</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"Times New Roman"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">class_table</span></span></code></pre></div>
+<div id="hfhiffrzhk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hfhiffrzhk table {
+  font-family: 'Times New Roman';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hfhiffrzhk thead, #hfhiffrzhk tbody, #hfhiffrzhk tfoot, #hfhiffrzhk tr, #hfhiffrzhk td, #hfhiffrzhk th {
+  border-style: none;
+}
+
+#hfhiffrzhk p {
+  margin: 0;
+  padding: 0;
+}
+
+#hfhiffrzhk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hfhiffrzhk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hfhiffrzhk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hfhiffrzhk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hfhiffrzhk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hfhiffrzhk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hfhiffrzhk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hfhiffrzhk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hfhiffrzhk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hfhiffrzhk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hfhiffrzhk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hfhiffrzhk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hfhiffrzhk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hfhiffrzhk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hfhiffrzhk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hfhiffrzhk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hfhiffrzhk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hfhiffrzhk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hfhiffrzhk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hfhiffrzhk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hfhiffrzhk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hfhiffrzhk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hfhiffrzhk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hfhiffrzhk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hfhiffrzhk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hfhiffrzhk .gt_left {
+  text-align: left;
+}
+
+#hfhiffrzhk .gt_center {
+  text-align: center;
+}
+
+#hfhiffrzhk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hfhiffrzhk .gt_font_normal {
+  font-weight: normal;
+}
+
+#hfhiffrzhk .gt_font_bold {
+  font-weight: bold;
+}
+
+#hfhiffrzhk .gt_font_italic {
+  font-style: italic;
+}
+
+#hfhiffrzhk .gt_super {
+  font-size: 65%;
+}
+
+#hfhiffrzhk .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hfhiffrzhk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hfhiffrzhk .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hfhiffrzhk .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hfhiffrzhk .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hfhiffrzhk .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hfhiffrzhk .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#hfhiffrzhk .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hfhiffrzhk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="7" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Model Classification Diagnostics for the 3-Class Solution</td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="model"><span class="gt_from_md"><em>k</em>-Class</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="kclass"><span class="gt_from_md"><em>k</em>-Class Proportions</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CI">95% CI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="mcaPk">McaP<sub>k</sub>
+</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="avePPk"><span class="gt_from_md">AvePP<sub>k</sub></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="OCCk"><span class="gt_from_md">OCC<sub>k</sub></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="entropy">Entropy</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="model" class="gt_row gt_center">Class 1</td>
+<td headers="kclass" class="gt_row gt_center">0.249</td>
+<td headers="CI" class="gt_row gt_center">[0.166, 0.329]</td>
+<td headers="mcaPk" class="gt_row gt_center">0.282</td>
+<td headers="avePPk" class="gt_row gt_center">0.675</td>
+<td headers="OCCk" class="gt_row gt_center">6.264</td>
+<td headers="entropy" class="gt_row gt_center">0.635</td>
+</tr>
+<tr>
+<td headers="model" class="gt_row gt_center">Class 2</td>
+<td headers="kclass" class="gt_row gt_center">0.106</td>
+<td headers="CI" class="gt_row gt_center">[0.083, 0.136]</td>
+<td headers="mcaPk" class="gt_row gt_center">0.095</td>
+<td headers="avePPk" class="gt_row gt_center">0.904</td>
+<td headers="OCCk" class="gt_row gt_center">79.420</td>
+<td headers="entropy" class="gt_row gt_center"><br></td>
+</tr>
+<tr>
+<td headers="model" class="gt_row gt_center">Class 3</td>
+<td headers="kclass" class="gt_row gt_center">0.644</td>
+<td headers="CI" class="gt_row gt_center">[0.561, 0.731]</td>
+<td headers="mcaPk" class="gt_row gt_center">0.623</td>
+<td headers="avePPk" class="gt_row gt_center">0.893</td>
+<td headers="OCCk" class="gt_row gt_center">4.614</td>
+<td headers="entropy" class="gt_row gt_center"><br></td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="7"> <i>Note.</i> McaP<sub>k</sub> = Modal class assignment proportion; AvePP<sub>k</sub> = Average posterior class probabilities; OCC<sub>k</sub> = Odds of correct classification; </td>
+    </tr></tfoot>
+</table></div>
+</div>
+<div style="text-align: center;">
+<img src="images/ucsb_logo.png" width="75%">
+</div>
+
+</div>
+</div>
+
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="observed-response-patterns.html"><span class="header-section-number">7</span> Observed Response Patterns</a></div>
+<div class="next"><a href="a-single-covariate.html"><span class="header-section-number">9</span> A Single Covariate</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#classification-diagnostics"><span class="header-section-number">8</span> Classification Diagnostics</a></li>
+<li><a class="nav-link" href="#variable-description-3"><span class="header-section-number">8.1</span> Variable Description</a></li>
+<li><a class="nav-link" href="#prepare-data-5"><span class="header-section-number">8.2</span> Prepare Data</a></li>
+<li><a class="nav-link" href="#descriptive-statistics-5"><span class="header-section-number">8.3</span> Descriptive Statistics</a></li>
+<li><a class="nav-link" href="#classification-diagnostics-1"><span class="header-section-number">8.4</span> Classification Diagnostics</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/08-classification-diagnostics.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/08-classification-diagnostics.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

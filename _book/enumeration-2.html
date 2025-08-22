@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>5 Enumeration | Mixture Modeling with MplusAutomation</title>
+<meta name="author" content="Dina Arch">
+<meta name="description" content="Polytomous LCA deals with variables that have more than two categories, such as survey questions with responses like never, sometimes, and always. The workflow of a polytomous LCA model is similar...">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="5 Enumeration | Mixture Modeling with MplusAutomation">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/enumeration-2.html">
+<meta property="og:description" content="Polytomous LCA deals with variables that have more than two categories, such as survey questions with responses like never, sometimes, and always. The workflow of a polytomous LCA model is similar...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5 Enumeration | Mixture Modeling with MplusAutomation">
+<meta name="twitter:description" content="Polytomous LCA deals with variables that have more than two categories, such as survey questions with responses like never, sometimes, and always. The workflow of a polytomous LCA model is similar...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Mixture Modeling with MplusAutomation</a></li>
+<li class="book-part">Introduction</li>
+<li><a class="" href="r-and-rstudio.html"><span class="header-section-number">1</span> R and RStudio</a></li>
+<li><a class="" href="mplusautomation.html"><span class="header-section-number">2</span> MplusAutomation</a></li>
+<li class="book-part">Latent Class Analysis</li>
+<li><a class="" href="enumeration.html"><span class="header-section-number">3</span> Enumeration</a></li>
+<li><a class="" href="item-probability-plots.html"><span class="header-section-number">4</span> Item Probability Plots</a></li>
+<li class="book-part">Polytomous LCA</li>
+<li><a class="active" href="enumeration-2.html"><span class="header-section-number">5</span> Enumeration</a></li>
+<li class="book-part">Latent Profile Analysis</li>
+<li><a class="" href="enumeration-4.html"><span class="header-section-number">6</span> Enumeration</a></li>
+<li class="book-part">Understanding the Data</li>
+<li><a class="" href="observed-response-patterns.html"><span class="header-section-number">7</span> Observed Response Patterns</a></li>
+<li><a class="" href="classification-diagnostics.html"><span class="header-section-number">8</span> Classification Diagnostics</a></li>
+<li class="book-part">Including Auxiliary Variables</li>
+<li><a class="" href="a-single-covariate.html"><span class="header-section-number">9</span> A Single Covariate</a></li>
+<li class="book-part">Including Auxiliary Variables</li>
+<li><a class="" href="a-single-distal-outcome.html"><span class="header-section-number">10</span> A Single Distal Outcome</a></li>
+<li><a class="" href="two-covariates-and-a-single-distal-outcome.html"><span class="header-section-number">11</span> Two Covariates and a Single Distal Outcome</a></li>
+<li class="book-part">Extensions of Latent Class Models</li>
+<li><a class="" href="moderation.html"><span class="header-section-number">12</span> Moderation</a></li>
+<li><a class="" href="lta.html"><span class="header-section-number">13</span> Latent Transition Analysis</a></li>
+<li><a class="" href="lta-with-covariates.html"><span class="header-section-number">14</span> LTA with Covariates</a></li>
+<li><a class="" href="joint-occurrence.html"><span class="header-section-number">15</span> Joint Occurrence</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">16</span> Growth Mixture Models</a></li>
+<li class="book-part">Published Manuscripts</li>
+<li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">17</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
+<li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">18</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
+<li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">19</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/immerse-ucsb/lca-bookdown">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="enumeration-2" class="section level1" number="5">
+<h1>
+<span class="header-section-number">5</span> Enumeration<a class="anchor" aria-label="anchor" href="#enumeration-2"><i class="fas fa-link"></i></a>
+</h1>
+<p>Polytomous LCA deals with variables that have more than two categories, such as survey questions with responses like <code>never</code>, <code>sometimes</code>, and <code>always</code>. The workflow of a polytomous LCA model is similar to that of an LCA model with binary indicators. However, polytomous LCA captures more complex response patterns, which can make interpretation more complex. The following code demonstrates an example, along with a visualization of the model.</p>
+<hr>
+<div id="example-elections" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Example: Elections<a class="anchor" aria-label="anchor" href="#example-elections"><i class="fas fa-link"></i></a>
+</h2>
+<p>“Two sets of six questions with four responses each, asking respondents’ opinions of how well various traits describe presidential candidates Al Gore and George W. Bush. Also potential covariates vote choice, age, education, gender, and party ID. Source: The National Election Studies (2000).” (poLCA, 2016) <a href="https://cran.r-project.org/web/packages/poLCA/poLCA.pdf">See documentation here</a></p>
+<p>Two sets of six questions with four responses each, asking respondents’ opinions of how well various traits describe presidential candidates Al Gore and George W. Bush. In the election data set, respondents to the 2000 American National Election Study public opinion poll were asked to evaluate how well a series of traits—moral, caring, knowledgeable, good leader, dishonest, and intelligent—described presidential candidates Al Gore and George W. Bush. Each question had four possible choices: (1) extremely well; (2) quite well; (3) not too well; and (4) not well at all.</p>
+<hr>
+<p>Load packages</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dlinzer/poLCA">poLCA</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/">glue</a></span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="prepare-data-2" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Prepare Data<a class="anchor" aria-label="anchor" href="#prepare-data-2"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">election</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Detaching packages that mask the dpylr functions </span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/detach.html">detach</a></span><span class="op">(</span><span class="va">package</span><span class="op">:</span><span class="va">poLCA</span>, unload <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/detach.html">detach</a></span><span class="op">(</span><span class="va">package</span><span class="op">:</span><span class="va">MASS</span>, unload <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_election</span> <span class="op">&lt;-</span>  <span class="va">election</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">moralb</span><span class="op">:</span><span class="va">intelb</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<span>                <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"\\D"</span>, <span class="st">""</span>, <span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>                .names <span class="op">=</span> <span class="st">"{.col}1"</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># Quick summary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df_election</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                moralb                  caresb   </span></span>
+<span><span class="co">#&gt;  1 Extremely well :340   1 Extremely well :155  </span></span>
+<span><span class="co">#&gt;  2 Quite well     :841   2 Quite well     :625  </span></span>
+<span><span class="co">#&gt;  3 Not too well   :330   3 Not too well   :562  </span></span>
+<span><span class="co">#&gt;  4 Not well at all: 98   4 Not well at all:342  </span></span>
+<span><span class="co">#&gt;  NA's             :176   NA's             :101  </span></span>
+<span><span class="co">#&gt;                knowb                   leadb    </span></span>
+<span><span class="co">#&gt;  1 Extremely well :274   1 Extremely well :266  </span></span>
+<span><span class="co">#&gt;  2 Quite well     :933   2 Quite well     :842  </span></span>
+<span><span class="co">#&gt;  3 Not too well   :379   3 Not too well   :407  </span></span>
+<span><span class="co">#&gt;  4 Not well at all:133   4 Not well at all:166  </span></span>
+<span><span class="co">#&gt;  NA's             : 66   NA's             :104  </span></span>
+<span><span class="co">#&gt;               dishonb                  intelb    moralb1   </span></span>
+<span><span class="co">#&gt;  1 Extremely well : 70   1 Extremely well :329   1   :340  </span></span>
+<span><span class="co">#&gt;  2 Quite well     :288   2 Quite well     :967   2   :841  </span></span>
+<span><span class="co">#&gt;  3 Not too well   :653   3 Not too well   :306   3   :330  </span></span>
+<span><span class="co">#&gt;  4 Not well at all:574   4 Not well at all:110   4   : 98  </span></span>
+<span><span class="co">#&gt;  NA's             :200   NA's             : 73   NA's:176  </span></span>
+<span><span class="co">#&gt;  caresb1     knowb1     leadb1    dishonb1   intelb1   </span></span>
+<span><span class="co">#&gt;  1   :155   1   :274   1   :266   1   : 70   1   :329  </span></span>
+<span><span class="co">#&gt;  2   :625   2   :933   2   :842   2   :288   2   :967  </span></span>
+<span><span class="co">#&gt;  3   :562   3   :379   3   :407   3   :653   3   :306  </span></span>
+<span><span class="co">#&gt;  4   :342   4   :133   4   :166   4   :574   4   :110  </span></span>
+<span><span class="co">#&gt;  NA's:101   NA's: 66   NA's:104   NA's:200   NA's: 73</span></span></code></pre></div>
+<hr>
+</div>
+<div id="descriptive-statistics-2" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-2"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">df_election</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">moralb1</span><span class="op">:</span><span class="va">intelb1</span>, names_to <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">variable</span>, <span class="va">value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># Count occurrences of each value for each variable</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="va">n</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">variable</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create the table</span></span>
+<span><span class="va">prop_table</span> <span class="op">&lt;-</span> <span class="va">ds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span>title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**Descriptive Summary**"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_label.html">cols_label</a></span><span class="op">(</span></span>
+<span>    variable <span class="op">=</span> <span class="st">"Variable"</span>,</span>
+<span>    n <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"*N*"</span><span class="op">)</span>,</span>
+<span>    prop <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"Proportion"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_number.html">fmt_number</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"n"</span>, <span class="st">"prop"</span><span class="op">)</span>, decimals <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># Format both n and prop columns</span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_align.html">cols_align</a></span><span class="op">(</span></span>
+<span>    align <span class="op">=</span> <span class="st">"center"</span>,</span>
+<span>    columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">prop</span>, <span class="va">n</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># View the table</span></span>
+<span><span class="va">prop_table</span></span></code></pre></div>
+<div id="khjowgbuon" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#khjowgbuon table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#khjowgbuon thead, #khjowgbuon tbody, #khjowgbuon tfoot, #khjowgbuon tr, #khjowgbuon td, #khjowgbuon th {
+  border-style: none;
+}
+
+#khjowgbuon p {
+  margin: 0;
+  padding: 0;
+}
+
+#khjowgbuon .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#khjowgbuon .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#khjowgbuon .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#khjowgbuon .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#khjowgbuon .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#khjowgbuon .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#khjowgbuon .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#khjowgbuon .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#khjowgbuon .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#khjowgbuon .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#khjowgbuon .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#khjowgbuon .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#khjowgbuon .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#khjowgbuon .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#khjowgbuon .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khjowgbuon .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#khjowgbuon .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#khjowgbuon .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#khjowgbuon .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khjowgbuon .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#khjowgbuon .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khjowgbuon .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#khjowgbuon .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khjowgbuon .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#khjowgbuon .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khjowgbuon .gt_left {
+  text-align: left;
+}
+
+#khjowgbuon .gt_center {
+  text-align: center;
+}
+
+#khjowgbuon .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#khjowgbuon .gt_font_normal {
+  font-weight: normal;
+}
+
+#khjowgbuon .gt_font_bold {
+  font-weight: bold;
+}
+
+#khjowgbuon .gt_font_italic {
+  font-style: italic;
+}
+
+#khjowgbuon .gt_super {
+  font-size: 65%;
+}
+
+#khjowgbuon .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#khjowgbuon .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#khjowgbuon .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#khjowgbuon .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#khjowgbuon .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#khjowgbuon .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#khjowgbuon .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#khjowgbuon .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#khjowgbuon div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border" style><span class="gt_from_md"><strong>Descriptive Summary</strong></span></td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="value">value</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="n"><span class="gt_from_md"><em>N</em></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="prop"><span class="gt_from_md">Proportion</span></th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="gt_group_heading_row">
+<th colspan="3" class="gt_group_heading" scope="colgroup" id="moralb1">moralb1</th>
+    </tr>
+<tr class="gt_row_group_first">
+<td headers="moralb1  value" class="gt_row gt_center">1</td>
+<td headers="moralb1  n" class="gt_row gt_center">340.00</td>
+<td headers="moralb1  prop" class="gt_row gt_center">0.19</td>
+</tr>
+<tr>
+<td headers="moralb1  value" class="gt_row gt_center">2</td>
+<td headers="moralb1  n" class="gt_row gt_center">841.00</td>
+<td headers="moralb1  prop" class="gt_row gt_center">0.47</td>
+</tr>
+<tr>
+<td headers="moralb1  value" class="gt_row gt_center">3</td>
+<td headers="moralb1  n" class="gt_row gt_center">330.00</td>
+<td headers="moralb1  prop" class="gt_row gt_center">0.18</td>
+</tr>
+<tr>
+<td headers="moralb1  value" class="gt_row gt_center">4</td>
+<td headers="moralb1  n" class="gt_row gt_center">98.00</td>
+<td headers="moralb1  prop" class="gt_row gt_center">0.05</td>
+</tr>
+<tr>
+<td headers="moralb1  value" class="gt_row gt_center">NA</td>
+<td headers="moralb1  n" class="gt_row gt_center">176.00</td>
+<td headers="moralb1  prop" class="gt_row gt_center">0.10</td>
+</tr>
+<tr class="gt_group_heading_row">
+<th colspan="3" class="gt_group_heading" scope="colgroup" id="leadb1">leadb1</th>
+    </tr>
+<tr class="gt_row_group_first">
+<td headers="leadb1  value" class="gt_row gt_center">1</td>
+<td headers="leadb1  n" class="gt_row gt_center">266.00</td>
+<td headers="leadb1  prop" class="gt_row gt_center">0.15</td>
+</tr>
+<tr>
+<td headers="leadb1  value" class="gt_row gt_center">2</td>
+<td headers="leadb1  n" class="gt_row gt_center">842.00</td>
+<td headers="leadb1  prop" class="gt_row gt_center">0.47</td>
+</tr>
+<tr>
+<td headers="leadb1  value" class="gt_row gt_center">3</td>
+<td headers="leadb1  n" class="gt_row gt_center">407.00</td>
+<td headers="leadb1  prop" class="gt_row gt_center">0.23</td>
+</tr>
+<tr>
+<td headers="leadb1  value" class="gt_row gt_center">4</td>
+<td headers="leadb1  n" class="gt_row gt_center">166.00</td>
+<td headers="leadb1  prop" class="gt_row gt_center">0.09</td>
+</tr>
+<tr>
+<td headers="leadb1  value" class="gt_row gt_center">NA</td>
+<td headers="leadb1  n" class="gt_row gt_center">104.00</td>
+<td headers="leadb1  prop" class="gt_row gt_center">0.06</td>
+</tr>
+<tr class="gt_group_heading_row">
+<th colspan="3" class="gt_group_heading" scope="colgroup" id="knowb1">knowb1</th>
+    </tr>
+<tr class="gt_row_group_first">
+<td headers="knowb1  value" class="gt_row gt_center">1</td>
+<td headers="knowb1  n" class="gt_row gt_center">274.00</td>
+<td headers="knowb1  prop" class="gt_row gt_center">0.15</td>
+</tr>
+<tr>
+<td headers="knowb1  value" class="gt_row gt_center">2</td>
+<td headers="knowb1  n" class="gt_row gt_center">933.00</td>
+<td headers="knowb1  prop" class="gt_row gt_center">0.52</td>
+</tr>
+<tr>
+<td headers="knowb1  value" class="gt_row gt_center">3</td>
+<td headers="knowb1  n" class="gt_row gt_center">379.00</td>
+<td headers="knowb1  prop" class="gt_row gt_center">0.21</td>
+</tr>
+<tr>
+<td headers="knowb1  value" class="gt_row gt_center">4</td>
+<td headers="knowb1  n" class="gt_row gt_center">133.00</td>
+<td headers="knowb1  prop" class="gt_row gt_center">0.07</td>
+</tr>
+<tr>
+<td headers="knowb1  value" class="gt_row gt_center">NA</td>
+<td headers="knowb1  n" class="gt_row gt_center">66.00</td>
+<td headers="knowb1  prop" class="gt_row gt_center">0.04</td>
+</tr>
+<tr class="gt_group_heading_row">
+<th colspan="3" class="gt_group_heading" scope="colgroup" id="intelb1">intelb1</th>
+    </tr>
+<tr class="gt_row_group_first">
+<td headers="intelb1  value" class="gt_row gt_center">1</td>
+<td headers="intelb1  n" class="gt_row gt_center">329.00</td>
+<td headers="intelb1  prop" class="gt_row gt_center">0.18</td>
+</tr>
+<tr>
+<td headers="intelb1  value" class="gt_row gt_center">2</td>
+<td headers="intelb1  n" class="gt_row gt_center">967.00</td>
+<td headers="intelb1  prop" class="gt_row gt_center">0.54</td>
+</tr>
+<tr>
+<td headers="intelb1  value" class="gt_row gt_center">3</td>
+<td headers="intelb1  n" class="gt_row gt_center">306.00</td>
+<td headers="intelb1  prop" class="gt_row gt_center">0.17</td>
+</tr>
+<tr>
+<td headers="intelb1  value" class="gt_row gt_center">4</td>
+<td headers="intelb1  n" class="gt_row gt_center">110.00</td>
+<td headers="intelb1  prop" class="gt_row gt_center">0.06</td>
+</tr>
+<tr>
+<td headers="intelb1  value" class="gt_row gt_center">NA</td>
+<td headers="intelb1  n" class="gt_row gt_center">73.00</td>
+<td headers="intelb1  prop" class="gt_row gt_center">0.04</td>
+</tr>
+<tr class="gt_group_heading_row">
+<th colspan="3" class="gt_group_heading" scope="colgroup" id="dishonb1">dishonb1</th>
+    </tr>
+<tr class="gt_row_group_first">
+<td headers="dishonb1  value" class="gt_row gt_center">1</td>
+<td headers="dishonb1  n" class="gt_row gt_center">70.00</td>
+<td headers="dishonb1  prop" class="gt_row gt_center">0.04</td>
+</tr>
+<tr>
+<td headers="dishonb1  value" class="gt_row gt_center">2</td>
+<td headers="dishonb1  n" class="gt_row gt_center">288.00</td>
+<td headers="dishonb1  prop" class="gt_row gt_center">0.16</td>
+</tr>
+<tr>
+<td headers="dishonb1  value" class="gt_row gt_center">3</td>
+<td headers="dishonb1  n" class="gt_row gt_center">653.00</td>
+<td headers="dishonb1  prop" class="gt_row gt_center">0.37</td>
+</tr>
+<tr>
+<td headers="dishonb1  value" class="gt_row gt_center">4</td>
+<td headers="dishonb1  n" class="gt_row gt_center">574.00</td>
+<td headers="dishonb1  prop" class="gt_row gt_center">0.32</td>
+</tr>
+<tr>
+<td headers="dishonb1  value" class="gt_row gt_center">NA</td>
+<td headers="dishonb1  n" class="gt_row gt_center">200.00</td>
+<td headers="dishonb1  prop" class="gt_row gt_center">0.11</td>
+</tr>
+<tr class="gt_group_heading_row">
+<th colspan="3" class="gt_group_heading" scope="colgroup" id="caresb1">caresb1</th>
+    </tr>
+<tr class="gt_row_group_first">
+<td headers="caresb1  value" class="gt_row gt_center">1</td>
+<td headers="caresb1  n" class="gt_row gt_center">155.00</td>
+<td headers="caresb1  prop" class="gt_row gt_center">0.09</td>
+</tr>
+<tr>
+<td headers="caresb1  value" class="gt_row gt_center">2</td>
+<td headers="caresb1  n" class="gt_row gt_center">625.00</td>
+<td headers="caresb1  prop" class="gt_row gt_center">0.35</td>
+</tr>
+<tr>
+<td headers="caresb1  value" class="gt_row gt_center">3</td>
+<td headers="caresb1  n" class="gt_row gt_center">562.00</td>
+<td headers="caresb1  prop" class="gt_row gt_center">0.31</td>
+</tr>
+<tr>
+<td headers="caresb1  value" class="gt_row gt_center">4</td>
+<td headers="caresb1  n" class="gt_row gt_center">342.00</td>
+<td headers="caresb1  prop" class="gt_row gt_center">0.19</td>
+</tr>
+<tr>
+<td headers="caresb1  value" class="gt_row gt_center">NA</td>
+<td headers="caresb1  n" class="gt_row gt_center">101.00</td>
+<td headers="caresb1  prop" class="gt_row gt_center">0.06</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Save as a Word doc</span></span>
+<span><span class="co">#gtsave(prop_table, here("figures", "prop_table.docx"))</span></span></code></pre></div>
+<hr>
+</div>
+<div id="enumeration-3" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Enumeration<a class="anchor" aria-label="anchor" href="#enumeration-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>This code uses the <code>mplusObject</code> function in the <code>MplusAutomation</code> package.</p>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">lca_enumeration</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">lca_enum</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
+<span>      </span>
+<span>    TITLE <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{k}-Class"</span><span class="op">)</span>, </span>
+<span>  </span>
+<span>    VARIABLE <span class="op">=</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span>    <span class="st">"categorical = moralb1-intelb1; </span></span>
+<span><span class="st">     usevar = moralb1-intelb1;</span></span>
+<span><span class="st">     classes = c({k}); "</span><span class="op">)</span>,</span>
+<span>  </span>
+<span>  ANALYSIS <span class="op">=</span> </span>
+<span>   <span class="st">"estimator = mlr; </span></span>
+<span><span class="st">    type = mixture;</span></span>
+<span><span class="st">    starts = 500 100; </span></span>
+<span><span class="st">    processors = 10;"</span>,</span>
+<span>  </span>
+<span>  OUTPUT <span class="op">=</span> <span class="st">"sampstat residual tech11 tech14 svalues;"</span>,</span>
+<span></span>
+<span>  </span>
+<span>  usevariables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_election</span><span class="op">)</span>,</span>
+<span>  rdata <span class="op">=</span> <span class="va">df_election</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">lca_enum_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusModeler.html">mplusModeler</a></span><span class="op">(</span><span class="va">lca_enum</span>, </span>
+<span>                            dataout<span class="op">=</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"poLCA"</span>, <span class="st">"election.dat"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                            modelout<span class="op">=</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"poLCA"</span>, <span class="st">"c{k}_election.inp"</span><span class="op">)</span><span class="op">)</span> ,</span>
+<span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div id="table-of-fit-1" class="section level3" number="5.4.1">
+<h3>
+<span class="header-section-number">5.4.1</span> Table of Fit<a class="anchor" aria-label="anchor" href="#table-of-fit-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"enum_table.R"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">output_election</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"poLCA"</span><span class="op">)</span>, filefilter <span class="op">=</span> <span class="st">"election"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># To see rows:</span></span>
+<span><span class="co">#seeRows(output_election)</span></span>
+<span></span>
+<span><span class="co"># Arguments for `enum_table`</span></span>
+<span><span class="co"># 1. readModels objects</span></span>
+<span><span class="co"># 2-5. Rows of successfully estimated models </span></span>
+<span><span class="va">fit_table</span> <span class="op">&lt;-</span> <span class="fu">enum_table</span><span class="op">(</span><span class="va">output_election</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span></span>
+<span><span class="va">fit_table</span></span></code></pre></div>
+<div id="ohhebjepdr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ohhebjepdr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ohhebjepdr thead, #ohhebjepdr tbody, #ohhebjepdr tfoot, #ohhebjepdr tr, #ohhebjepdr td, #ohhebjepdr th {
+  border-style: none;
+}
+
+#ohhebjepdr p {
+  margin: 0;
+  padding: 0;
+}
+
+#ohhebjepdr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ohhebjepdr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ohhebjepdr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ohhebjepdr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ohhebjepdr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ohhebjepdr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ohhebjepdr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ohhebjepdr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ohhebjepdr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ohhebjepdr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ohhebjepdr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ohhebjepdr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ohhebjepdr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ohhebjepdr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ohhebjepdr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ohhebjepdr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ohhebjepdr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ohhebjepdr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ohhebjepdr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ohhebjepdr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ohhebjepdr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ohhebjepdr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ohhebjepdr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ohhebjepdr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ohhebjepdr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ohhebjepdr .gt_left {
+  text-align: left;
+}
+
+#ohhebjepdr .gt_center {
+  text-align: center;
+}
+
+#ohhebjepdr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ohhebjepdr .gt_font_normal {
+  font-weight: normal;
+}
+
+#ohhebjepdr .gt_font_bold {
+  font-weight: bold;
+}
+
+#ohhebjepdr .gt_font_italic {
+  font-style: italic;
+}
+
+#ohhebjepdr .gt_super {
+  font-size: 65%;
+}
+
+#ohhebjepdr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ohhebjepdr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ohhebjepdr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ohhebjepdr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ohhebjepdr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ohhebjepdr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ohhebjepdr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ohhebjepdr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ohhebjepdr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="11" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>
+<span class="gt_from_md"><strong>Model Fit Summary Table</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Title">Classes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Parameters"><span class="gt_from_md">Par</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="LL"><span class="gt_from_md"><em>LL</em></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="BIC">BIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="aBIC">aBIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CAIC">CAIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="AWE">AWE</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="BLRT_PValue">BLRT</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="T11_VLMR_PValue">VLMR</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="BF"><span class="gt_from_md">BF</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="cmPk"><span class="gt_from_md"><em>cmPk</em></span></th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="Title" class="gt_row gt_left">1-Class</td>
+<td headers="Parameters" class="gt_row gt_right">18</td>
+<td headers="LL" class="gt_row gt_right">−11,838.63</td>
+<td headers="BIC" class="gt_row gt_right">23,811.84</td>
+<td headers="aBIC" class="gt_row gt_right">23,754.66</td>
+<td headers="CAIC" class="gt_row gt_right">23,829.84</td>
+<td headers="AWE" class="gt_row gt_right">24,000.42</td>
+<td headers="BLRT_PValue" class="gt_row gt_right">–</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right">–</td>
+<td headers="BF" class="gt_row gt_right">0.0</td>
+<td headers="cmPk" class="gt_row gt_right">&lt;.001</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_left">2-Class</td>
+<td headers="Parameters" class="gt_row gt_right">37</td>
+<td headers="LL" class="gt_row gt_right">−10,680.33</td>
+<td headers="BIC" class="gt_row gt_right">21,637.30</td>
+<td headers="aBIC" class="gt_row gt_right">21,519.75</td>
+<td headers="CAIC" class="gt_row gt_right">21,674.30</td>
+<td headers="AWE" class="gt_row gt_right">22,024.92</td>
+<td headers="BLRT_PValue" class="gt_row gt_right">&lt;.001</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right">&lt;.001</td>
+<td headers="BF" class="gt_row gt_right">0.0</td>
+<td headers="cmPk" class="gt_row gt_right">&lt;.001</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_left">3-Class</td>
+<td headers="Parameters" class="gt_row gt_right">56</td>
+<td headers="LL" class="gt_row gt_right">−10,184.89</td>
+<td headers="BIC" class="gt_row gt_right">20,788.46</td>
+<td headers="aBIC" class="gt_row gt_right">20,610.55</td>
+<td headers="CAIC" class="gt_row gt_right">20,844.46</td>
+<td headers="AWE" class="gt_row gt_right">21,375.14</td>
+<td headers="BLRT_PValue" class="gt_row gt_right">&lt;.001</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right">&lt;.001</td>
+<td headers="BF" class="gt_row gt_right">0.0</td>
+<td headers="cmPk" class="gt_row gt_right">&lt;.001</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_left">4-Class</td>
+<td headers="Parameters" class="gt_row gt_right">75</td>
+<td headers="LL" class="gt_row gt_right">−9,979.58</td>
+<td headers="BIC" class="gt_row gt_right">20,519.89</td>
+<td headers="aBIC" class="gt_row gt_right">20,281.62</td>
+<td headers="CAIC" class="gt_row gt_right">20,594.89</td>
+<td headers="AWE" class="gt_row gt_right" style="font-weight: bold;">21,305.63</td>
+<td headers="BLRT_PValue" class="gt_row gt_right">&lt;.001</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right">&lt;.001</td>
+<td headers="BF" class="gt_row gt_right">0.0</td>
+<td headers="cmPk" class="gt_row gt_right">&lt;.001</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_left">5-Class</td>
+<td headers="Parameters" class="gt_row gt_right">94</td>
+<td headers="LL" class="gt_row gt_right">−9,863.42</td>
+<td headers="BIC" class="gt_row gt_right" style="font-weight: bold;">20,429.62</td>
+<td headers="aBIC" class="gt_row gt_right">20,130.99</td>
+<td headers="CAIC" class="gt_row gt_right" style="font-weight: bold;">20,523.62</td>
+<td headers="AWE" class="gt_row gt_right">21,414.41</td>
+<td headers="BLRT_PValue" class="gt_row gt_right">&lt;.001</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right" style="font-weight: bold;">&lt;.001</td>
+<td headers="BF" class="gt_row gt_right" style="font-weight: bold;">&gt;100</td>
+<td headers="cmPk" class="gt_row gt_right" style="font-weight: bold;">1.000</td>
+</tr>
+<tr>
+<td headers="Title" class="gt_row gt_left">6-Class</td>
+<td headers="Parameters" class="gt_row gt_right">113</td>
+<td headers="LL" class="gt_row gt_right">−9,809.63</td>
+<td headers="BIC" class="gt_row gt_right">20,464.09</td>
+<td headers="aBIC" class="gt_row gt_right" style="font-weight: bold;">20,105.10</td>
+<td headers="CAIC" class="gt_row gt_right">20,577.09</td>
+<td headers="AWE" class="gt_row gt_right">21,647.93</td>
+<td headers="BLRT_PValue" class="gt_row gt_right">&lt;.001</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_right">0.629</td>
+<td headers="BF" class="gt_row gt_right">–</td>
+<td headers="cmPk" class="gt_row gt_right">&lt;.001</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="11">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class="gt_from_md"><em>Note.</em> Par = Parameters; <em>LL</em> = model log likelihood;
+BIC = Bayesian information criterion;
+aBIC = sample size adjusted BIC; CAIC = consistent Akaike information criterion;
+AWE = approximate weight of evidence criterion;
+BLRT = bootstrapped likelihood ratio test p-value;
+cmPk = approximate correct model probability.</span>
+</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<hr>
+<p>Save table:</p>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html">gtsave</a></span><span class="op">(</span><span class="va">fit_table</span>, <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"fit_table.png"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="information-criteria-plot-1" class="section level3" number="5.4.2">
+<h3>
+<span class="header-section-number">5.4.2</span> Information Criteria Plot<a class="anchor" aria-label="anchor" href="#information-criteria-plot-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ic_plot</span><span class="op">(</span><span class="va">output_election</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-poly-lca_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
+<hr>
+<p>Save figure:</p>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"info_criteria.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>, height<span class="op">=</span><span class="fl">5</span>, width<span class="op">=</span><span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="class-probability-plot-1" class="section level3" number="5.4.3">
+<h3>
+<span class="header-section-number">5.4.3</span> 4-Class Probability Plot<a class="anchor" aria-label="anchor" href="#class-probability-plot-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>The functions <code>poLCA_stacked</code> and <code>poLCA_grouped</code> create visualizations of class probabilities for LCA with polytomous indicators. Each function takes the following arguments:</p>
+<ul>
+<li>
+<strong><code>model_name</code></strong>: The LCA model read into R using the <code>readModels</code> function from the <code>MplusAutomation</code> package.</li>
+<li>
+<strong><code>category_labels</code></strong>: A character vector of category labels for the response options (e.g., survey answers).</li>
+</ul>
+<p>Note: Double check that the labels are in the correct order!</p>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"poLCA_plot.R"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">poLCA_stacked</span><span class="op">(</span><span class="va">output_election</span><span class="op">$</span><span class="va">c5_election.out</span>, category_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span> <span class="op">=</span> <span class="st">"1: Extremely well"</span>, </span>
+<span>                                                                   <span class="st">"2"</span> <span class="op">=</span> <span class="st">"2: Quite Well"</span>, </span>
+<span>                                                                   <span class="st">"3"</span> <span class="op">=</span> <span class="st">"3: Not Too Well"</span>, </span>
+<span>                                                                   <span class="st">"4"</span> <span class="op">=</span> <span class="st">"4: Not Well at All"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-poly-lca_files/figure-html/unnamed-chunk-9-1.png" width="1728"></div>
+<p>Alternative plot</p>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">poLCA_grouped</span><span class="op">(</span><span class="va">output_election</span><span class="op">$</span><span class="va">c5_election.out</span>, category_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span> <span class="op">=</span> <span class="st">"1: Extremely well"</span>, </span>
+<span>                                                                   <span class="st">"2"</span> <span class="op">=</span> <span class="st">"2: Quite Well"</span>, </span>
+<span>                                                                   <span class="st">"3"</span> <span class="op">=</span> <span class="st">"3: Not Too Well"</span>, </span>
+<span>                                                                   <span class="st">"4"</span> <span class="op">=</span> <span class="st">"4: Not Well at All"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-poly-lca_files/figure-html/unnamed-chunk-10-1.png" width="1728"></div>
+<hr>
+</div>
+<div id="apa-formatted-plot" class="section level3" number="5.4.4">
+<h3>
+<span class="header-section-number">5.4.4</span> APA-formatted Plot<a class="anchor" aria-label="anchor" href="#apa-formatted-plot"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Model </span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="va">output_election</span><span class="op">$</span><span class="va">c5_election.out</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Title</span></span>
+<span><span class="va">title</span> <span class="op">&lt;-</span> <span class="st">"2000 Descriptions of Presidential Candidate George W. Bush; Item Probabilities by Class"</span></span>
+<span></span>
+<span><span class="co"># Item names</span></span>
+<span><span class="va">item_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CARESB1"</span> <span class="op">=</span> <span class="st">"Caring"</span>,</span>
+<span>                 <span class="st">"DISHONB1"</span> <span class="op">=</span> <span class="st">"Dishonest"</span>,</span>
+<span>                 <span class="st">"INTELB1"</span> <span class="op">=</span> <span class="st">"Intelligent"</span>,</span>
+<span>                 <span class="st">"KNOWB1"</span> <span class="op">=</span> <span class="st">"Knowledgeable"</span>,</span>
+<span>                 <span class="st">"LEADB1"</span> <span class="op">=</span> <span class="st">"Good Leader"</span>,</span>
+<span>                 <span class="st">"MORALB1"</span> <span class="op">=</span> <span class="st">"Moral"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Item Category</span></span>
+<span><span class="va">category_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span> <span class="op">=</span> <span class="st">"1: Extremely well"</span>, </span>
+<span>                     <span class="st">"2"</span> <span class="op">=</span> <span class="st">"2: Quite Well"</span>, </span>
+<span>                     <span class="st">"3"</span> <span class="op">=</span> <span class="st">"3: Not Too Well"</span>, </span>
+<span>                     <span class="st">"4"</span> <span class="op">=</span> <span class="st">"4: Not Well at All"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Class labels</span></span>
+<span><span class="va">class_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span> <span class="op">=</span> <span class="st">"Poor Decsription (9.95%)"</span>,</span>
+<span>                  <span class="st">"2"</span> <span class="op">=</span> <span class="st">"Mostly Poor Description (22.40%)"</span>,</span>
+<span>                  <span class="st">"3"</span> <span class="op">=</span> <span class="st">"In-Between (24.06%)"</span>,</span>
+<span>                  <span class="st">"4"</span> <span class="op">=</span> <span class="st">"Mostly Well-Described But Not Intelligent (28.29%)"</span>,</span>
+<span>                  <span class="st">"5"</span> <span class="op">=</span> <span class="st">"Well-Described But Not Intelligent (15.30%)"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#### END EDIT ####</span></span></code></pre></div>
+<div id="extract-data-needed-for-plotting" class="section level4" number="5.4.4.1">
+<h4>
+<span class="header-section-number">5.4.4.1</span> Extract data needed for plotting<a class="anchor" aria-label="anchor" href="#extract-data-needed-for-plotting"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Extract data needed for plotting </span></span>
+<span><span class="va">plot_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">parameters</span><span class="op">$</span><span class="va">probability.scale</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">est</span>, <span class="va">LatentClass</span>, <span class="va">param</span>, <span class="va">category</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    items <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">param</span>, labels <span class="op">=</span> <span class="va">item_labels</span><span class="op">)</span>,</span>
+<span>    class <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">LatentClass</span>, labels <span class="op">=</span> <span class="va">class_labels</span><span class="op">)</span>,</span>
+<span>    cat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">category</span>, labels <span class="op">=</span> <span class="va">category_labels</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>class <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">class</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<hr>
+</div>
+<div id="final-grouped-bar-plot" class="section level4" number="5.4.4.2">
+<h4>
+<span class="header-section-number">5.4.4.2</span> Final grouped bar plot<a class="anchor" aria-label="anchor" href="#final-grouped-bar-plot"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co">## Plot data</span></span>
+<span><span class="va">plot_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">items</span>,</span>
+<span>    y <span class="op">=</span> <span class="va">est</span>,</span>
+<span>    fill <span class="op">=</span> <span class="va">cat</span>,</span>
+<span>    group <span class="op">=</span> <span class="va">cat</span></span>
+<span>  <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">sub</a></span><span class="op">(</span><span class="st">"^0\\."</span>, <span class="st">"."</span>, <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%.2f"</span>, <span class="va">est</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>            position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span>, </span>
+<span>            vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">class</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span></span>
+<span>    <span class="st">""</span>,</span>
+<span>    labels <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html">str_wrap</a></span><span class="op">(</span><span class="va">x</span>, width <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Figure 1"</span>,</span>
+<span>       subtitle <span class="op">=</span> <span class="va">title</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Probability"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_grey.html">scale_fill_grey</a></span><span class="op">(</span>start <span class="op">=</span> <span class="fl">0.8</span>, end <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Gives different shades</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>    text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"sans"</span>, size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>    legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"sans"</span>, size <span class="op">=</span> <span class="fl">12</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>    legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>    legend.justification <span class="op">=</span> <span class="st">"center"</span>, </span>
+<span>    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>vjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    plot.subtitle <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span>, size <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
+<span>    plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
+<span>    strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"grey90"</span>, color <span class="op">=</span> <span class="st">"black"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    strip.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="05-poly-lca_files/figure-html/unnamed-chunk-13-1.png" width="1440"></div>
+<hr>
+<p>Save figure:</p>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"APA_plot1.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>, height<span class="op">=</span><span class="fl">9</span>, width<span class="op">=</span><span class="fl">15</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div id="alternative" class="section level4" number="5.4.4.3">
+<h4>
+<span class="header-section-number">5.4.4.3</span> Alternative<a class="anchor" aria-label="anchor" href="#alternative"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Plot data</span></span>
+<span><span class="va">plot_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">items</span>,</span>
+<span>    y <span class="op">=</span> <span class="va">est</span>,</span>
+<span>    fill <span class="op">=</span> <span class="va">cat</span>,</span>
+<span>    group <span class="op">=</span> <span class="va">cat</span></span>
+<span>  <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">sub</a></span><span class="op">(</span><span class="st">"^0\\."</span>, <span class="st">"."</span>, <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%.2f"</span>, <span class="va">est</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>            position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span>, </span>
+<span>            vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">class</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span></span>
+<span>    <span class="st">""</span>,</span>
+<span>    labels <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>      <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html">str_wrap</a></span><span class="op">(</span><span class="va">x</span>, width <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Figure 1"</span>,</span>
+<span>       subtitle <span class="op">=</span> <span class="va">title</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Probability"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkelab.org/cowplot/reference/theme_cowplot.html">theme_cowplot</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_grey.html">scale_fill_grey</a></span><span class="op">(</span>start <span class="op">=</span> <span class="fl">0.8</span>, end <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Gives different shades</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>    text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"sans"</span>, size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>    legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"sans"</span>, size <span class="op">=</span> <span class="fl">12</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>    legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>    legend.justification <span class="op">=</span> <span class="st">"center"</span>, </span>
+<span>    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>vjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    plot.subtitle <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"italic"</span>, size <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
+<span>    plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
+<span>    strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"grey90"</span>, color <span class="op">=</span> <span class="st">"black"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    strip.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05-poly-lca_files/figure-html/unnamed-chunk-15-1.png" width="1632"></div>
+<hr>
+<p>Save figure:</p>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"APA_plot2.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>, height<span class="op">=</span><span class="fl">10</span>, width<span class="op">=</span><span class="fl">17</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
+<div style="text-align: center;">
+<img src="images/ucsb_logo.png" width="75%">
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="item-probability-plots.html"><span class="header-section-number">4</span> Item Probability Plots</a></div>
+<div class="next"><a href="enumeration-4.html"><span class="header-section-number">6</span> Enumeration</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#enumeration-2"><span class="header-section-number">5</span> Enumeration</a></li>
+<li><a class="nav-link" href="#example-elections"><span class="header-section-number">5.1</span> Example: Elections</a></li>
+<li><a class="nav-link" href="#prepare-data-2"><span class="header-section-number">5.2</span> Prepare Data</a></li>
+<li><a class="nav-link" href="#descriptive-statistics-2"><span class="header-section-number">5.3</span> Descriptive Statistics</a></li>
+<li>
+<a class="nav-link" href="#enumeration-3"><span class="header-section-number">5.4</span> Enumeration</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#table-of-fit-1"><span class="header-section-number">5.4.1</span> Table of Fit</a></li>
+<li><a class="nav-link" href="#information-criteria-plot-1"><span class="header-section-number">5.4.2</span> Information Criteria Plot</a></li>
+<li><a class="nav-link" href="#class-probability-plot-1"><span class="header-section-number">5.4.3</span> 4-Class Probability Plot</a></li>
+<li><a class="nav-link" href="#apa-formatted-plot"><span class="header-section-number">5.4.4</span> APA-formatted Plot</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/05-poly-lca.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/05-poly-lca.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
