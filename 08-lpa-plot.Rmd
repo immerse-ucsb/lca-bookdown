@@ -1,0 +1,176 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE,
+                      message = FALSE) #Here, I have made it so that when you knit your .rmd, warnings and messages will not show up in the html markdown. 
+```
+
+# Item Mean Plots
+
+------------------------------------------------------------------------
+
+*Example: PISA Student Data*
+
+1.  The first example closely follows the vignette used to demonstrate the [tidyLPA](https://data-edu.github.io/tidyLPA/articles/Introduction_to_tidyLPA.html) package (Rosenberg, 2019).
+
+-   This model utilizes the `PISA` data collected in the U.S. in 2015. To learn more about this data [see here](http://www.oecd.org/pisa/data/).
+-   To access the 2015 US `PISA` data & documentation in R use the following code:
+
+Variables:
+
+`broad_interest`
+
+:   composite measure of students' self reported broad interest
+
+`enjoyment`
+
+:   composite measure of students' self reported enjoyment
+
+`instrumental_mot`
+
+:   composite measure of students' self reported instrumental motivation
+
+`self_efficacy`
+
+:   composite measure of students' self reported self efficacy
+
+```{r, eval = FALSE}
+#devtools::install_github("jrosen48/pisaUSA15")
+#library(pisaUSA15)
+```
+
+------------------------------------------------------------------------
+
+## Load packages
+
+```{r}
+library(naniar)
+library(tidyverse)
+library(haven)
+library(glue)
+library(MplusAutomation)
+library(here)
+library(janitor)
+library(gt)
+library(tidyLPA)
+library(pisaUSA15)
+library(cowplot)
+library(filesstrings)
+library(patchwork)
+library(RcppAlgos)
+```
+
+------------------------------------------------------------------------
+
+## Prepare Data
+
+```{r, eval=TRUE}
+
+pisa <- pisaUSA15[1:500,] %>%
+  dplyr::select(broad_interest, enjoyment, instrumental_mot, self_efficacy)
+
+```
+
+------------------------------------------------------------------------
+
+## Descriptive Statistics
+
+Quick Summary
+
+```{r}
+summary(pisa)
+```
+
+
+Mean Table
+
+```{r}
+ds <- pisa %>% 
+  pivot_longer(broad_interest:self_efficacy, names_to = "variable") %>% 
+  group_by(variable) %>% 
+  summarise(mean = mean(value, na.rm = TRUE),
+            sd = sd(value, na.rm = TRUE)) 
+
+ds %>% 
+  gt () %>% 
+  tab_header(title = md("**Descriptive Summary**")) %>%
+  cols_label(
+    variable = "Variable",
+    mean = md("M"),
+    sd = md("SD")
+  ) %>%
+  fmt_number(c(2:3),
+             decimals = 2) %>% 
+  cols_align(
+    align = "center",
+    columns = mean
+  ) 
+```
+
+Histograms
+
+```{r out.width="90%"}
+data_long <- pisa %>%
+  pivot_longer(broad_interest:self_efficacy, names_to = "variable")
+
+ggplot(data_long, aes(x = value)) +
+  geom_histogram(binwidth = .3, fill = "#69b3a2", color = "black") +
+  facet_wrap(~ variable, scales = "free_x") +
+  labs(title = "Histograms of Variables", x = "Value", y = "Frequency") +
+  theme_cowplot()
+```
+
+------------------------------------------------------------------------
+
+## Visualization
+
+### Latent Profile Plot
+
+```{r}
+source(here("functions", "plot_lpa.R"))
+
+# Read in models
+output_enum <- readModels(here("lpa", "tidyLPA"), quiet = TRUE)
+
+plot_lpa(model_name = output_enum$model_3_class_4.out)
+```
+
+Save figure
+
+```{r, eval = FALSE}
+ggsave(here("figures", "model3_profile4.png"), dpi = "retina", bg = "white", height=5, width=8, units="in")
+```
+
+------------------------------------------------------------------------
+
+### Plots Means and Variances
+
+```{r}
+plotMixtures(output_enum$model_3_class_4.out, ci = 0.95, bw = FALSE) + 
+  labs(title = "Model 3: Equal Variances, Equal Covariances")
+```
+
+------------------------------------------------------------------------
+
+### Plot comparison
+
+We can also plot the comparisons and look at the error bars.
+
+NOTE: The `plotMixtures()` function is used for plotting LPA models only (i.e., means & variances)
+
+```{r, fig.width= 10}
+a <- plotMixtures(output_enum$model_2_class_3.out,
+  ci = 0.95, bw = FALSE) 
+
+b <- plotMixtures(output_enum$model_4_class_3.out,
+  ci = 0.95, bw = FALSE) 
+
+a + labs(title = "Model 2") +
+    theme(plot.title = element_text(size = 12)) +
+b + labs(title = "Model 4") +
+    theme(plot.title = element_text(size = 12))
+```
+
+------------------------------------------------------------------------
+
+<div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>

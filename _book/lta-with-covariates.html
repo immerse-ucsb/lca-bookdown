@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>14 LTA with Covariates | Mixture Modeling with MplusAutomation</title>
+<title>18 LTA with Covariates | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="Data Source: The data used to illustrate these analyses include elementary school student Science Attitude survey items collected during 7th and 10th grades from the Longitudinal Study of American...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="14 LTA with Covariates | Mixture Modeling with MplusAutomation">
+<meta property="og:title" content="18 LTA with Covariates | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/lta-with-covariates.html">
 <meta property="og:description" content="Data Source: The data used to illustrate these analyses include elementary school student Science Attitude survey items collected during 7th and 10th grades from the Longitudinal Study of American...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="14 LTA with Covariates | Mixture Modeling with MplusAutomation">
+<meta name="twitter:title" content="18 LTA with Covariates | Mixture Modeling with MplusAutomation">
 <meta name="twitter:description" content="Data Source: The data used to illustrate these analyses include elementary school student Science Attitude survey items collected during 7th and 10th grades from the Longitudinal Study of American...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -75,29 +75,33 @@
 <li><a class="" href="r-and-rstudio.html"><span class="header-section-number">1</span> R and RStudio</a></li>
 <li><a class="" href="mplusautomation.html"><span class="header-section-number">2</span> MplusAutomation</a></li>
 <li class="book-part">Latent Class Analysis</li>
-<li><a class="" href="enumeration.html"><span class="header-section-number">3</span> Enumeration</a></li>
+<li><a class="" href="lca-enum.html"><span class="header-section-number">3</span> Enumeration</a></li>
 <li><a class="" href="item-probability-plots.html"><span class="header-section-number">4</span> Item Probability Plots</a></li>
 <li class="book-part">Polytomous LCA</li>
-<li><a class="" href="enumeration-2.html"><span class="header-section-number">5</span> Enumeration</a></li>
+<li><a class="" href="enumeration-1.html"><span class="header-section-number">5</span> Enumeration</a></li>
+<li><a class="" href="item-probability-plots-1.html"><span class="header-section-number">6</span> Item Probability Plots</a></li>
 <li class="book-part">Latent Profile Analysis</li>
-<li><a class="" href="enumeration-4.html"><span class="header-section-number">6</span> Enumeration</a></li>
+<li><a class="" href="lpa-enum.html"><span class="header-section-number">7</span> Enumeration</a></li>
+<li><a class="" href="item-mean-plots.html"><span class="header-section-number">8</span> Item Mean Plots</a></li>
 <li class="book-part">Understanding the Data</li>
-<li><a class="" href="observed-response-patterns.html"><span class="header-section-number">7</span> Observed Response Patterns</a></li>
-<li><a class="" href="classification-diagnostics.html"><span class="header-section-number">8</span> Classification Diagnostics</a></li>
+<li><a class="" href="observed-response-patterns.html"><span class="header-section-number">9</span> Observed Response Patterns</a></li>
+<li><a class="" href="classification-diagnostics.html"><span class="header-section-number">10</span> Classification Diagnostics</a></li>
+<li><a class="" href="class-homogeneity.html"><span class="header-section-number">11</span> Class Homogeneity</a></li>
+<li><a class="" href="class-separation.html"><span class="header-section-number">12</span> Class Separation</a></li>
 <li class="book-part">Including Auxiliary Variables</li>
-<li><a class="" href="a-single-covariate.html"><span class="header-section-number">9</span> A Single Covariate</a></li>
-<li><a class="" href="a-single-distal-outcome.html"><span class="header-section-number">10</span> A Single Distal Outcome</a></li>
-<li><a class="" href="two-covariates-and-a-single-distal-outcome.html"><span class="header-section-number">11</span> Two Covariates and a Single Distal Outcome</a></li>
+<li><a class="" href="a-single-covariate.html"><span class="header-section-number">13</span> A Single Covariate</a></li>
+<li><a class="" href="a-single-distal-outcome.html"><span class="header-section-number">14</span> A Single Distal Outcome</a></li>
+<li><a class="" href="two-covariates-and-a-single-distal-outcome.html"><span class="header-section-number">15</span> Two Covariates and a Single Distal Outcome</a></li>
 <li class="book-part">Extensions of Latent Class Models</li>
-<li><a class="" href="moderation.html"><span class="header-section-number">12</span> Moderation</a></li>
-<li><a class="" href="lta.html"><span class="header-section-number">13</span> Latent Transition Analysis</a></li>
-<li><a class="active" href="lta-with-covariates.html"><span class="header-section-number">14</span> LTA with Covariates</a></li>
-<li><a class="" href="joint-occurrence.html"><span class="header-section-number">15</span> Joint Occurrence</a></li>
-<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">16</span> Growth Mixture Models</a></li>
+<li><a class="" href="moderation.html"><span class="header-section-number">16</span> Moderation</a></li>
+<li><a class="" href="lta.html"><span class="header-section-number">17</span> Latent Transition Analysis</a></li>
+<li><a class="active" href="lta-with-covariates.html"><span class="header-section-number">18</span> LTA with Covariates</a></li>
+<li><a class="" href="joint-occurrence.html"><span class="header-section-number">19</span> Joint Occurrence</a></li>
+<li><a class="" href="growth-mixture-models.html"><span class="header-section-number">20</span> Growth Mixture Models</a></li>
 <li class="book-part">Published Manuscripts</li>
-<li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">17</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
-<li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">18</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
-<li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">19</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
+<li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">21</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
+<li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">22</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
+<li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">23</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
 
@@ -106,21 +110,21 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="lta-with-covariates" class="section level1" number="14">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="lta-with-covariates" class="section level1" number="18">
 <h1>
-<span class="header-section-number">14</span> LTA with Covariates<a class="anchor" aria-label="anchor" href="#lta-with-covariates"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18</span> LTA with Covariates<a class="anchor" aria-label="anchor" href="#lta-with-covariates"><i class="fas fa-link"></i></a>
 </h1>
 <hr>
 <p><strong>Data Source</strong>: The data used to illustrate these analyses include elementary school student <em>Science Attitude</em> survey items collected during 7th and 10th grades from the <strong>Longitudinal Study of American Youth</strong> (LSAY; Miller, 2015).</p>
 <hr>
 <p>To install package {<code>rhdf5</code>}</p>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#BiocManager::install("rhdf5")</span></span></code></pre></div>
 <p><em>Load packages</em></p>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Huber-group-EMBL/rhdf5">rhdf5</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>       </span>
@@ -139,23 +143,23 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jakelawlor/PNWColors">PNWColors</a></span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p>Read in LSAY data file, <code>lsay_new.csv</code>.</p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lsay_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>,<span class="st">"lsay_lta.csv"</span><span class="op">)</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"9999"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">as.numeric</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-88a65eb2ad0cad571d6c" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-88a65eb2ad0cad571d6c">{"x":{"diagram":" digraph model {\n\n    graph [layout = dot, overlap = true]\n\n    node [shape=box]\n    ab39m ab39t ab39u ab39w ab39x \n    ga33a ga33h ga33i ga33k ga33l;\n \n \n    node [shape=circle, fixedsize = true, width = 1.5, height = 0.5]\n    T1 [label = \"7th Grade \nScience Attitudes\n(T1)\"]\n    T2 [label = \"10th Grade \nScience Attitudes\n(T2)\"]\n    \n    edge []\n    T1 -> {ab39m ab39t ab39u ab39w ab39x}\n    T2 -> {ga33a ga33h ga33i ga33k ga33l}\n    T1 -> T2\n    {rank = same; T1; T2;}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
-<div id="descriptive-statistics-11" class="section level2" number="14.1">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-c4cb3e213b6a5b818019" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-c4cb3e213b6a5b818019">{"x":{"diagram":" digraph model {\n\n    graph [layout = dot, overlap = true]\n\n    node [shape=box]\n    ab39m ab39t ab39u ab39w ab39x \n    ga33a ga33h ga33i ga33k ga33l;\n \n \n    node [shape=circle, fixedsize = true, width = 1.5, height = 0.5]\n    T1 [label = \"7th Grade \nScience Attitudes\n(T1)\"]\n    T2 [label = \"10th Grade \nScience Attitudes\n(T2)\"]\n    \n    edge []\n    T1 -> {ab39m ab39t ab39u ab39w ab39x}\n    T2 -> {ga33a ga33h ga33i ga33k ga33l}\n    T1 -> T2\n    {rank = same; T1; T2;}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div id="descriptive-statistics-11" class="section level2" number="18.1">
 <h2>
-<span class="header-section-number">14.1</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-11"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.1</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-11"><i class="fas fa-link"></i></a>
 </h2>
 <hr>
-<div id="data-summary-1" class="section level3" number="14.1.1">
+<div id="data-summary-1" class="section level3" number="18.1.1">
 <h3>
-<span class="header-section-number">14.1.1</span> Data Summary<a class="anchor" aria-label="anchor" href="#data-summary-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.1.1</span> Data Summary<a class="anchor" aria-label="anchor" href="#data-summary-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">lsay_data</span></span>
 <span></span>
 <span><span class="va">select_data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -167,8 +171,8 @@
 
     <script>
 
-      function styleCell_cgibvg3fv1p6jgl1vmfu(i, j, css_id) {
-          var table = document.getElementById("tinytable_cgibvg3fv1p6jgl1vmfu");
+      function styleCell_u9i42gvfzq0cx5kmqnqz(i, j, css_id) {
+          var table = document.getElementById("tinytable_u9i42gvfzq0cx5kmqnqz");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -178,7 +182,7 @@
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_cgibvg3fv1p6jgl1vmfu');
+        var table = document.getElementById('tinytable_u9i42gvfzq0cx5kmqnqz');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -186,8 +190,8 @@
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_cgibvg3fv1p6jgl1vmfu(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_cgibvg3fv1p6jgl1vmfu");
+      function spanCell_u9i42gvfzq0cx5kmqnqz(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_u9i42gvfzq0cx5kmqnqz");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -217,32 +221,32 @@
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 2 }, { i: 12, j: 3 }, { i: 12, j: 4 }, { i: 12, j: 5 }, { i: 12, j: 6 },  ], css_id: 'tinytable_css_ufu588p0kul43yda8fjc',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 }, { i: 1, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 2, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 1, j: 3 }, { i: 6, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 10, j: 3 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 9, j: 3 }, { i: 1, j: 4 }, { i: 2, j: 4 }, { i: 7, j: 4 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 11, j: 4 }, { i: 8, j: 4 }, { i: 9, j: 4 }, { i: 10, j: 4 }, { i: 2, j: 5 }, { i: 3, j: 5 }, { i: 4, j: 5 }, { i: 1, j: 5 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 8, j: 5 }, { i: 5, j: 5 }, { i: 10, j: 5 }, { i: 11, j: 5 }, { i: 3, j: 6 }, { i: 9, j: 5 }, { i: 1, j: 6 }, { i: 2, j: 6 }, { i: 7, j: 6 }, { i: 4, j: 6 }, { i: 5, j: 6 }, { i: 6, j: 6 }, { i: 11, j: 6 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 10, j: 6 },  ], css_id: 'tinytable_css_44wzl3cazqx269atzifl',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 }, { i: 0, j: 6 },  ], css_id: 'tinytable_css_0lmrk983dhbbpk0ji8wb',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_j2myfmpxs4qxusgdu3um',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_c0ztgbbauod6bkbsgtza',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_8hr18pc5ow05agw3nbwj',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 2 }, { i: 12, j: 3 }, { i: 12, j: 4 }, { i: 12, j: 5 }, { i: 12, j: 6 },  ], css_id: 'tinytable_css_dnx9745zb5cvv06mq1ps',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 }, { i: 1, j: 1 }, { i: 6, j: 1 }, { i: 7, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 2, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 1, j: 3 }, { i: 6, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 10, j: 3 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 9, j: 3 }, { i: 1, j: 4 }, { i: 2, j: 4 }, { i: 7, j: 4 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 11, j: 4 }, { i: 8, j: 4 }, { i: 9, j: 4 }, { i: 10, j: 4 }, { i: 2, j: 5 }, { i: 3, j: 5 }, { i: 4, j: 5 }, { i: 1, j: 5 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 8, j: 5 }, { i: 5, j: 5 }, { i: 10, j: 5 }, { i: 11, j: 5 }, { i: 3, j: 6 }, { i: 9, j: 5 }, { i: 1, j: 6 }, { i: 2, j: 6 }, { i: 7, j: 6 }, { i: 4, j: 6 }, { i: 5, j: 6 }, { i: 6, j: 6 }, { i: 11, j: 6 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 10, j: 6 },  ], css_id: 'tinytable_css_lror7s0ywhqk3nqmdtfd',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 }, { i: 0, j: 6 },  ], css_id: 'tinytable_css_pm8ithkgbaatt9tlk8nb',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_6g4zumkqyrmwuzih8n1r',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_ugtai6c2nddnffs1s84m',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_ghthx8vvvh1zrv88yhc0',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_cgibvg3fv1p6jgl1vmfu(cell.i, cell.j, group.css_id);
+                  styleCell_u9i42gvfzq0cx5kmqnqz(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><style>
       /* tinytable css entries after */
-      .table td.tinytable_css_ufu588p0kul43yda8fjc, .table th.tinytable_css_ufu588p0kul43yda8fjc { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_44wzl3cazqx269atzifl, .table th.tinytable_css_44wzl3cazqx269atzifl { text-align: right; }
-      .table td.tinytable_css_0lmrk983dhbbpk0ji8wb, .table th.tinytable_css_0lmrk983dhbbpk0ji8wb { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_j2myfmpxs4qxusgdu3um, .table th.tinytable_css_j2myfmpxs4qxusgdu3um { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_c0ztgbbauod6bkbsgtza, .table th.tinytable_css_c0ztgbbauod6bkbsgtza { text-align: left; }
-      .table td.tinytable_css_8hr18pc5ow05agw3nbwj, .table th.tinytable_css_8hr18pc5ow05agw3nbwj { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_dnx9745zb5cvv06mq1ps, .table th.tinytable_css_dnx9745zb5cvv06mq1ps { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_lror7s0ywhqk3nqmdtfd, .table th.tinytable_css_lror7s0ywhqk3nqmdtfd { text-align: right; }
+      .table td.tinytable_css_pm8ithkgbaatt9tlk8nb, .table th.tinytable_css_pm8ithkgbaatt9tlk8nb { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_6g4zumkqyrmwuzih8n1r, .table th.tinytable_css_6g4zumkqyrmwuzih8n1r { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_ugtai6c2nddnffs1s84m, .table th.tinytable_css_ugtai6c2nddnffs1s84m { text-align: left; }
+      .table td.tinytable_css_ghthx8vvvh1zrv88yhc0, .table th.tinytable_css_ghthx8vvvh1zrv88yhc0 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
     </style>
 <div class="container">
-      <div class="inline-table"><table class="table table-borderless" id="tinytable_cgibvg3fv1p6jgl1vmfu" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <div class="inline-table"><table class="table table-borderless" id="tinytable_u9i42gvfzq0cx5kmqnqz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col"> </th>
                 <th scope="col">Mean</th>
@@ -368,11 +372,11 @@
 <hr>
 </div>
 </div>
-<div id="adding-covariates" class="section level2" number="14.2">
+<div id="adding-covariates" class="section level2" number="18.2">
 <h2>
-<span class="header-section-number">14.2</span> Adding Covariates<a class="anchor" aria-label="anchor" href="#adding-covariates"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.2</span> Adding Covariates<a class="anchor" aria-label="anchor" href="#adding-covariates"><i class="fas fa-link"></i></a>
 </h2>
-<p>Continuing from the previous section <a href="lta.html#lta">13</a>, we use the ML three-step method to estimate LTA models with predictors and distal outcomes). Estimate the unconditional model for each latent variable with the predictors included in the <code>auxiliary</code> option for at least one of the models.</p>
+<p>Continuing from the previous section <a href="lta.html#lta">17</a>, we use the ML three-step method to estimate LTA models with predictors and distal outcomes). Estimate the unconditional model for each latent variable with the predictors included in the <code>auxiliary</code> option for at least one of the models.</p>
 <p>Covariates</p>
 <ul>
 <li>
@@ -385,12 +389,12 @@
 <code>female</code>: Gender (0 = Male, 1 = Female)</li>
 </ul>
 <hr>
-<div id="step-1---estimate-unconditional-model-w-auxiliary-specification-1" class="section level3" number="14.2.1">
+<div id="step-1---estimate-unconditional-model-w-auxiliary-specification-1" class="section level3" number="18.2.1">
 <h3>
-<span class="header-section-number">14.2.1</span> Step 1 - Estimate Unconditional Model w/ Auxiliary Specification<a class="anchor" aria-label="anchor" href="#step-1---estimate-unconditional-model-w-auxiliary-specification-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.2.1</span> Step 1 - Estimate Unconditional Model w/ Auxiliary Specification<a class="anchor" aria-label="anchor" href="#step-1---estimate-unconditional-model-w-auxiliary-specification-1"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>7th Grade</em></p>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 1 - T1"</span>, </span>
@@ -429,7 +433,7 @@
 <span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p><em>10th Grade</em></p>
-<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 1 - T1"</span>, </span>
@@ -480,7 +484,7 @@
 <li>
 <code>plot_title</code>: include the title of the plot here (e.g., <code>"Time 1 LCA Conditional Item Probability Plot"</code>)</li>
 </ul>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">plot_lca_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model_name</span>,<span class="va">item_num</span>,<span class="va">class_num</span>,<span class="va">item_labels</span>,<span class="va">plot_title</span><span class="op">)</span><span class="op">{</span></span>
 <span></span>
@@ -513,7 +517,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Plot Time 1</p>
-<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">output_T1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"one_T1.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -524,9 +528,9 @@
 <span>  item_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Enjoy"</span>,<span class="st">"Useful"</span>,<span class="st">"Logical"</span>,<span class="st">"Job"</span>,<span class="st">"Adult"</span><span class="op">)</span>,</span>
 <span>  plot_title <span class="op">=</span> <span class="st">"Time 1 LCA Conditional Item Probability Plot"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="14-lta-cov_files/figure-html/unnamed-chunk-9-1.png" width="960"></div>
+<div class="inline-figure"><img src="18-lta-cov_files/figure-html/unnamed-chunk-9-1.png" width="960"></div>
 <p>Plot Time 2</p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">output_T2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"one_T2.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -537,15 +541,15 @@
 <span>  item_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Enjoy"</span>,<span class="st">"Useful"</span>,<span class="st">"Logical"</span>,<span class="st">"Job"</span>,<span class="st">"Adult"</span><span class="op">)</span>,</span>
 <span>  plot_title <span class="op">=</span> <span class="st">"Time 2 LCA Conditional Item Probability Plot"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="14-lta-cov_files/figure-html/unnamed-chunk-10-1.png" width="960"></div>
+<div class="inline-figure"><img src="18-lta-cov_files/figure-html/unnamed-chunk-10-1.png" width="960"></div>
 <hr>
 </div>
-<div id="step-2---determine-measurement-error-4" class="section level3" number="14.2.2">
+<div id="step-2---determine-measurement-error-4" class="section level3" number="18.2.2">
 <h3>
-<span class="header-section-number">14.2.2</span> Step 2 - Determine Measurement Error<a class="anchor" aria-label="anchor" href="#step-2---determine-measurement-error-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.2.2</span> Step 2 - Determine Measurement Error<a class="anchor" aria-label="anchor" href="#step-2---determine-measurement-error-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>Extract logits for the classification probabilities for the most likely latent class:</p>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">logit_cprobs_T1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_T1</span><span class="op">[[</span><span class="st">"class_counts"</span><span class="op">]</span><span class="op">]</span></span>
 <span>                                       <span class="op">[[</span><span class="st">"logitProbs.mostLikely"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
@@ -553,12 +557,12 @@
 <span><span class="va">logit_cprobs_T2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_T2</span><span class="op">[[</span><span class="st">"class_counts"</span><span class="op">]</span><span class="op">]</span></span>
 <span>                                       <span class="op">[[</span><span class="st">"logitProbs.mostLikely"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p>Extract saved dataset:</p>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">savedata_T1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_T1</span><span class="op">[[</span><span class="st">"savedata"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">savedata_T2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_T2</span><span class="op">[[</span><span class="st">"savedata"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p>Rename the column in savedata named “C” and change to “N”</p>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_T1</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_T1</span><span class="op">)</span><span class="op">==</span><span class="st">"C"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"N_T1"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_T2</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">savedata_T2</span><span class="op">)</span><span class="op">==</span><span class="st">"C"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"N_T2"</span></span>
@@ -567,11 +571,11 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">savedata_T2</span>, by <span class="op">=</span> <span class="st">"CASENUM"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
-<div id="step-3---add-auxiliary-variables-1" class="section level3" number="14.2.3">
+<div id="step-3---add-auxiliary-variables-1" class="section level3" number="18.2.3">
 <h3>
-<span class="header-section-number">14.2.3</span> Step 3 - Add Auxiliary Variables<a class="anchor" aria-label="anchor" href="#step-3---add-auxiliary-variables-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.2.3</span> Step 3 - Add Auxiliary Variables<a class="anchor" aria-label="anchor" href="#step-3---add-auxiliary-variables-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"ML Three Step LTA Model"</span>, </span>
 <span>  </span>
@@ -649,13 +653,13 @@
 <span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"three.inp"</span><span class="op">)</span>, </span>
 <span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <hr>
-<div id="lta-transition-plot" class="section level4" number="14.2.3.1">
+<div id="lta-transition-plot" class="section level4" number="18.2.3.1">
 <h4>
-<span class="header-section-number">14.2.3.1</span> LTA Transition Plot<a class="anchor" aria-label="anchor" href="#lta-transition-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.2.3.1</span> LTA Transition Plot<a class="anchor" aria-label="anchor" href="#lta-transition-plot"><i class="fas fa-link"></i></a>
 </h4>
 <p>This code is adapted from the source code for the <code>plotLTA</code> function found in the <a href="https://github.com/michaelhallquist/MplusAutomation/blob/995d1ecfae3656524153456ce647f86fe8c1cf1e/R/mixtures.R"></a></p>
 <p><strong>NOTE:</strong> The function found in <code>plot_transitions_function.R</code> is specific to a model with 2 time-points and 4-classes &amp; must be updated to accommodate other models.</p>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"plot_transitions_function.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">lta_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"three.out"</span><span class="op">)</span><span class="op">)</span></span>
@@ -675,9 +679,9 @@
 <span>    <span class="st">"Amb. / Min. Utility"</span>,</span>
 <span>    <span class="st">"Anti-Science"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="14-lta-cov_files/figure-html/unnamed-chunk-15-1.png" width="768"></div>
+<div class="inline-figure"><img src="18-lta-cov_files/figure-html/unnamed-chunk-15-1.png" width="768"></div>
 <p>Table:</p>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lta_prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">lta_model</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">transitionProbs</span><span class="op">$</span><span class="va">probability</span><span class="op">)</span></span>
 <span></span>
 <span></span>
@@ -695,23 +699,23 @@
 <span>    title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**Transition Probabilities**"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_number.html">fmt_number</a></span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">5</span>,decimals <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"10th Grade"</span>,columns <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="co">#%&gt;% </span></span></code></pre></div>
-<div id="lirwjmmvdn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lirwjmmvdn table {
+<div id="pryyclciyy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pryyclciyy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lirwjmmvdn thead, #lirwjmmvdn tbody, #lirwjmmvdn tfoot, #lirwjmmvdn tr, #lirwjmmvdn td, #lirwjmmvdn th {
+#pryyclciyy thead, #pryyclciyy tbody, #pryyclciyy tfoot, #pryyclciyy tr, #pryyclciyy td, #pryyclciyy th {
   border-style: none;
 }
 
-#lirwjmmvdn p {
+#pryyclciyy p {
   margin: 0;
   padding: 0;
 }
 
-#lirwjmmvdn .gt_table {
+#pryyclciyy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -737,12 +741,12 @@
   border-left-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_caption {
+#pryyclciyy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lirwjmmvdn .gt_title {
+#pryyclciyy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -754,7 +758,7 @@
   border-bottom-width: 0;
 }
 
-#lirwjmmvdn .gt_subtitle {
+#pryyclciyy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -766,7 +770,7 @@
   border-top-width: 0;
 }
 
-#lirwjmmvdn .gt_heading {
+#pryyclciyy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -778,13 +782,13 @@
   border-right-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_bottom_border {
+#pryyclciyy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_col_headings {
+#pryyclciyy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -799,7 +803,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_col_heading {
+#pryyclciyy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -819,7 +823,7 @@
   overflow-x: hidden;
 }
 
-#lirwjmmvdn .gt_column_spanner_outer {
+#pryyclciyy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -831,15 +835,15 @@
   padding-right: 4px;
 }
 
-#lirwjmmvdn .gt_column_spanner_outer:first-child {
+#pryyclciyy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lirwjmmvdn .gt_column_spanner_outer:last-child {
+#pryyclciyy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lirwjmmvdn .gt_column_spanner {
+#pryyclciyy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -851,11 +855,11 @@
   width: 100%;
 }
 
-#lirwjmmvdn .gt_spanner_row {
+#pryyclciyy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lirwjmmvdn .gt_group_heading {
+#pryyclciyy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -881,7 +885,7 @@
   text-align: left;
 }
 
-#lirwjmmvdn .gt_empty_group_heading {
+#pryyclciyy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -896,15 +900,15 @@
   vertical-align: middle;
 }
 
-#lirwjmmvdn .gt_from_md > :first-child {
+#pryyclciyy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lirwjmmvdn .gt_from_md > :last-child {
+#pryyclciyy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lirwjmmvdn .gt_row {
+#pryyclciyy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -923,7 +927,7 @@
   overflow-x: hidden;
 }
 
-#lirwjmmvdn .gt_stub {
+#pryyclciyy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -936,7 +940,7 @@
   padding-right: 5px;
 }
 
-#lirwjmmvdn .gt_stub_row_group {
+#pryyclciyy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -950,15 +954,15 @@
   vertical-align: top;
 }
 
-#lirwjmmvdn .gt_row_group_first td {
+#pryyclciyy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lirwjmmvdn .gt_row_group_first th {
+#pryyclciyy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lirwjmmvdn .gt_summary_row {
+#pryyclciyy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -968,16 +972,16 @@
   padding-right: 5px;
 }
 
-#lirwjmmvdn .gt_first_summary_row {
+#pryyclciyy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_first_summary_row.thick {
+#pryyclciyy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lirwjmmvdn .gt_last_summary_row {
+#pryyclciyy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -987,7 +991,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_grand_summary_row {
+#pryyclciyy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -997,7 +1001,7 @@
   padding-right: 5px;
 }
 
-#lirwjmmvdn .gt_first_grand_summary_row {
+#pryyclciyy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1007,7 +1011,7 @@
   border-top-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_last_grand_summary_row_top {
+#pryyclciyy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1017,11 +1021,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_striped {
+#pryyclciyy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lirwjmmvdn .gt_table_body {
+#pryyclciyy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1030,7 +1034,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_footnotes {
+#pryyclciyy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1044,7 +1048,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_footnote {
+#pryyclciyy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1053,7 +1057,7 @@
   padding-right: 5px;
 }
 
-#lirwjmmvdn .gt_sourcenotes {
+#pryyclciyy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1067,7 +1071,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lirwjmmvdn .gt_sourcenote {
+#pryyclciyy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1075,72 +1079,72 @@
   padding-right: 5px;
 }
 
-#lirwjmmvdn .gt_left {
+#pryyclciyy .gt_left {
   text-align: left;
 }
 
-#lirwjmmvdn .gt_center {
+#pryyclciyy .gt_center {
   text-align: center;
 }
 
-#lirwjmmvdn .gt_right {
+#pryyclciyy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lirwjmmvdn .gt_font_normal {
+#pryyclciyy .gt_font_normal {
   font-weight: normal;
 }
 
-#lirwjmmvdn .gt_font_bold {
+#pryyclciyy .gt_font_bold {
   font-weight: bold;
 }
 
-#lirwjmmvdn .gt_font_italic {
+#pryyclciyy .gt_font_italic {
   font-style: italic;
 }
 
-#lirwjmmvdn .gt_super {
+#pryyclciyy .gt_super {
   font-size: 65%;
 }
 
-#lirwjmmvdn .gt_footnote_marks {
+#pryyclciyy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lirwjmmvdn .gt_asterisk {
+#pryyclciyy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lirwjmmvdn .gt_indent_1 {
+#pryyclciyy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lirwjmmvdn .gt_indent_2 {
+#pryyclciyy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lirwjmmvdn .gt_indent_3 {
+#pryyclciyy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lirwjmmvdn .gt_indent_4 {
+#pryyclciyy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lirwjmmvdn .gt_indent_5 {
+#pryyclciyy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lirwjmmvdn .katex-display {
+#pryyclciyy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lirwjmmvdn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pryyclciyy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1194,15 +1198,15 @@
 </tbody>
 </table></div>
 </div>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="co">#gtsave("matrix.docx")</span></span></code></pre></div>
 <hr>
 </div>
-<div id="covariate-table" class="section level4" number="14.2.3.2">
+<div id="covariate-table" class="section level4" number="18.2.3.2">
 <h4>
-<span class="header-section-number">14.2.3.2</span> Covariate Table<a class="anchor" aria-label="anchor" href="#covariate-table"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.2.3.2</span> Covariate Table<a class="anchor" aria-label="anchor" href="#covariate-table"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># REFERENCE CLASS 4</span></span>
 <span><span class="va">cov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">lta_model</span><span class="op">[[</span><span class="st">"parameters"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"unstandardized"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">param</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SCI_IRT7"</span>, <span class="st">"FEMALE"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -1252,23 +1256,23 @@
 <span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="va">cov_m1</span></span></code></pre></div>
-<div id="blqjfnxuru" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#blqjfnxuru table {
+<div id="byimgqrodp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#byimgqrodp table {
   font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#blqjfnxuru thead, #blqjfnxuru tbody, #blqjfnxuru tfoot, #blqjfnxuru tr, #blqjfnxuru td, #blqjfnxuru th {
+#byimgqrodp thead, #byimgqrodp tbody, #byimgqrodp tfoot, #byimgqrodp tr, #byimgqrodp td, #byimgqrodp th {
   border-style: none;
 }
 
-#blqjfnxuru p {
+#byimgqrodp p {
   margin: 0;
   padding: 0;
 }
 
-#blqjfnxuru .gt_table {
+#byimgqrodp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1294,12 +1298,12 @@
   border-left-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_caption {
+#byimgqrodp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#blqjfnxuru .gt_title {
+#byimgqrodp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1311,7 +1315,7 @@
   border-bottom-width: 0;
 }
 
-#blqjfnxuru .gt_subtitle {
+#byimgqrodp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1323,7 +1327,7 @@
   border-top-width: 0;
 }
 
-#blqjfnxuru .gt_heading {
+#byimgqrodp .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1335,13 +1339,13 @@
   border-right-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_bottom_border {
+#byimgqrodp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_col_headings {
+#byimgqrodp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1356,7 +1360,7 @@
   border-right-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_col_heading {
+#byimgqrodp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1376,7 +1380,7 @@
   overflow-x: hidden;
 }
 
-#blqjfnxuru .gt_column_spanner_outer {
+#byimgqrodp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1388,15 +1392,15 @@
   padding-right: 4px;
 }
 
-#blqjfnxuru .gt_column_spanner_outer:first-child {
+#byimgqrodp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#blqjfnxuru .gt_column_spanner_outer:last-child {
+#byimgqrodp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#blqjfnxuru .gt_column_spanner {
+#byimgqrodp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1408,11 +1412,11 @@
   width: 100%;
 }
 
-#blqjfnxuru .gt_spanner_row {
+#byimgqrodp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#blqjfnxuru .gt_group_heading {
+#byimgqrodp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1438,7 +1442,7 @@
   text-align: left;
 }
 
-#blqjfnxuru .gt_empty_group_heading {
+#byimgqrodp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1453,15 +1457,15 @@
   vertical-align: middle;
 }
 
-#blqjfnxuru .gt_from_md > :first-child {
+#byimgqrodp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#blqjfnxuru .gt_from_md > :last-child {
+#byimgqrodp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#blqjfnxuru .gt_row {
+#byimgqrodp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1480,7 +1484,7 @@
   overflow-x: hidden;
 }
 
-#blqjfnxuru .gt_stub {
+#byimgqrodp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1493,7 +1497,7 @@
   padding-right: 5px;
 }
 
-#blqjfnxuru .gt_stub_row_group {
+#byimgqrodp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1507,15 +1511,15 @@
   vertical-align: top;
 }
 
-#blqjfnxuru .gt_row_group_first td {
+#byimgqrodp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#blqjfnxuru .gt_row_group_first th {
+#byimgqrodp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#blqjfnxuru .gt_summary_row {
+#byimgqrodp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1525,16 +1529,16 @@
   padding-right: 5px;
 }
 
-#blqjfnxuru .gt_first_summary_row {
+#byimgqrodp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_first_summary_row.thick {
+#byimgqrodp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#blqjfnxuru .gt_last_summary_row {
+#byimgqrodp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1544,7 +1548,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_grand_summary_row {
+#byimgqrodp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1554,7 +1558,7 @@
   padding-right: 5px;
 }
 
-#blqjfnxuru .gt_first_grand_summary_row {
+#byimgqrodp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1564,7 +1568,7 @@
   border-top-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_last_grand_summary_row_top {
+#byimgqrodp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1574,11 +1578,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_striped {
+#byimgqrodp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#blqjfnxuru .gt_table_body {
+#byimgqrodp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1587,7 +1591,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_footnotes {
+#byimgqrodp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1601,7 +1605,7 @@
   border-right-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_footnote {
+#byimgqrodp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1610,7 +1614,7 @@
   padding-right: 5px;
 }
 
-#blqjfnxuru .gt_sourcenotes {
+#byimgqrodp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1624,7 +1628,7 @@
   border-right-color: #D3D3D3;
 }
 
-#blqjfnxuru .gt_sourcenote {
+#byimgqrodp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1632,72 +1636,72 @@
   padding-right: 5px;
 }
 
-#blqjfnxuru .gt_left {
+#byimgqrodp .gt_left {
   text-align: left;
 }
 
-#blqjfnxuru .gt_center {
+#byimgqrodp .gt_center {
   text-align: center;
 }
 
-#blqjfnxuru .gt_right {
+#byimgqrodp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#blqjfnxuru .gt_font_normal {
+#byimgqrodp .gt_font_normal {
   font-weight: normal;
 }
 
-#blqjfnxuru .gt_font_bold {
+#byimgqrodp .gt_font_bold {
   font-weight: bold;
 }
 
-#blqjfnxuru .gt_font_italic {
+#byimgqrodp .gt_font_italic {
   font-style: italic;
 }
 
-#blqjfnxuru .gt_super {
+#byimgqrodp .gt_super {
   font-size: 65%;
 }
 
-#blqjfnxuru .gt_footnote_marks {
+#byimgqrodp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#blqjfnxuru .gt_asterisk {
+#byimgqrodp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#blqjfnxuru .gt_indent_1 {
+#byimgqrodp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#blqjfnxuru .gt_indent_2 {
+#byimgqrodp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#blqjfnxuru .gt_indent_3 {
+#byimgqrodp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#blqjfnxuru .gt_indent_4 {
+#byimgqrodp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#blqjfnxuru .gt_indent_5 {
+#byimgqrodp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#blqjfnxuru .katex-display {
+#byimgqrodp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#blqjfnxuru div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#byimgqrodp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1802,11 +1806,11 @@
 </div>
 <hr>
 </div>
-<div id="manually-calculate-transition-probabilities-by-covariate" class="section level4" number="14.2.3.3">
+<div id="manually-calculate-transition-probabilities-by-covariate" class="section level4" number="18.2.3.3">
 <h4>
-<span class="header-section-number">14.2.3.3</span> Manually calculate transition probabilities by covariate<a class="anchor" aria-label="anchor" href="#manually-calculate-transition-probabilities-by-covariate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.2.3.3</span> Manually calculate transition probabilities by covariate<a class="anchor" aria-label="anchor" href="#manually-calculate-transition-probabilities-by-covariate"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"LTA (invariant)"</span>, </span>
 <span>  </span>
@@ -1953,7 +1957,7 @@
 <span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"calc_tran.inp"</span><span class="op">)</span>, </span>
 <span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Read invariance model and extract parameters (intercepts and multinomial regression coefficients)</p>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lta_inv1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"cov_model"</span>,<span class="st">"calc_tran.out"</span> <span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -1963,7 +1967,7 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">est</span><span class="op">)</span>,</span>
 <span>         label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"b11"</span>, <span class="st">"b12"</span>, <span class="st">"b13"</span>, <span class="st">"b21"</span>, <span class="st">"b22"</span>, <span class="st">"b23"</span>, <span class="st">"b31"</span>, <span class="st">"b32"</span>, <span class="st">"b33"</span>, <span class="st">"b212"</span>, <span class="st">"b222"</span>, <span class="st">"b232"</span>, <span class="st">"b112"</span>, <span class="st">"b122"</span>, <span class="st">"b132"</span>, <span class="st">"a11"</span>, <span class="st">"a21"</span>, <span class="st">"a31"</span>, <span class="st">"a12"</span>, <span class="st">"a22"</span>, <span class="st">"a32"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Manual method to calculate transition probabilities by covariate:</p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Name each parameter individually to make the subsequent calculations more readable</span></span>
 <span><span class="va">a1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">19</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; </span>
 <span><span class="va">a2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">20</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; </span>
@@ -2037,11 +2041,11 @@
 <p>Create table</p>
 </div>
 </div>
-<div id="create-transition-table-1" class="section level3" number="14.2.4">
+<div id="create-transition-table-1" class="section level3" number="18.2.4">
 <h3>
-<span class="header-section-number">14.2.4</span> Create Transition Table<a class="anchor" aria-label="anchor" href="#create-transition-table-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.2.4</span> Create Transition Table<a class="anchor" aria-label="anchor" href="#create-transition-table-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">t_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Time1"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C1=Anti-Science"</span>,<span class="st">"C1=Amb. w/ Elevated"</span>,<span class="st">"C1=Amb. w/ Minimal"</span>,<span class="st">"C1=Pro-Science"</span><span class="op">)</span>,</span>
@@ -2063,23 +2067,23 @@
 <span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
 <span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="ahehjwuldi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ahehjwuldi table {
+<div id="nfhkjualxj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nfhkjualxj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ahehjwuldi thead, #ahehjwuldi tbody, #ahehjwuldi tfoot, #ahehjwuldi tr, #ahehjwuldi td, #ahehjwuldi th {
+#nfhkjualxj thead, #nfhkjualxj tbody, #nfhkjualxj tfoot, #nfhkjualxj tr, #nfhkjualxj td, #nfhkjualxj th {
   border-style: none;
 }
 
-#ahehjwuldi p {
+#nfhkjualxj p {
   margin: 0;
   padding: 0;
 }
 
-#ahehjwuldi .gt_table {
+#nfhkjualxj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2105,12 +2109,12 @@
   border-left-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_caption {
+#nfhkjualxj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ahehjwuldi .gt_title {
+#nfhkjualxj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2122,7 +2126,7 @@
   border-bottom-width: 0;
 }
 
-#ahehjwuldi .gt_subtitle {
+#nfhkjualxj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2134,7 +2138,7 @@
   border-top-width: 0;
 }
 
-#ahehjwuldi .gt_heading {
+#nfhkjualxj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2146,13 +2150,13 @@
   border-right-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_bottom_border {
+#nfhkjualxj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_col_headings {
+#nfhkjualxj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2167,7 +2171,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_col_heading {
+#nfhkjualxj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2187,7 +2191,7 @@
   overflow-x: hidden;
 }
 
-#ahehjwuldi .gt_column_spanner_outer {
+#nfhkjualxj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2199,15 +2203,15 @@
   padding-right: 4px;
 }
 
-#ahehjwuldi .gt_column_spanner_outer:first-child {
+#nfhkjualxj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ahehjwuldi .gt_column_spanner_outer:last-child {
+#nfhkjualxj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ahehjwuldi .gt_column_spanner {
+#nfhkjualxj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2219,11 +2223,11 @@
   width: 100%;
 }
 
-#ahehjwuldi .gt_spanner_row {
+#nfhkjualxj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ahehjwuldi .gt_group_heading {
+#nfhkjualxj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2249,7 +2253,7 @@
   text-align: left;
 }
 
-#ahehjwuldi .gt_empty_group_heading {
+#nfhkjualxj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2264,15 +2268,15 @@
   vertical-align: middle;
 }
 
-#ahehjwuldi .gt_from_md > :first-child {
+#nfhkjualxj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ahehjwuldi .gt_from_md > :last-child {
+#nfhkjualxj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ahehjwuldi .gt_row {
+#nfhkjualxj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2291,7 +2295,7 @@
   overflow-x: hidden;
 }
 
-#ahehjwuldi .gt_stub {
+#nfhkjualxj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2304,7 +2308,7 @@
   padding-right: 5px;
 }
 
-#ahehjwuldi .gt_stub_row_group {
+#nfhkjualxj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2318,15 +2322,15 @@
   vertical-align: top;
 }
 
-#ahehjwuldi .gt_row_group_first td {
+#nfhkjualxj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ahehjwuldi .gt_row_group_first th {
+#nfhkjualxj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ahehjwuldi .gt_summary_row {
+#nfhkjualxj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2336,16 +2340,16 @@
   padding-right: 5px;
 }
 
-#ahehjwuldi .gt_first_summary_row {
+#nfhkjualxj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_first_summary_row.thick {
+#nfhkjualxj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ahehjwuldi .gt_last_summary_row {
+#nfhkjualxj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2355,7 +2359,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_grand_summary_row {
+#nfhkjualxj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2365,7 +2369,7 @@
   padding-right: 5px;
 }
 
-#ahehjwuldi .gt_first_grand_summary_row {
+#nfhkjualxj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2375,7 +2379,7 @@
   border-top-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_last_grand_summary_row_top {
+#nfhkjualxj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2385,11 +2389,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_striped {
+#nfhkjualxj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ahehjwuldi .gt_table_body {
+#nfhkjualxj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2398,7 +2402,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_footnotes {
+#nfhkjualxj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2412,7 +2416,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_footnote {
+#nfhkjualxj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2421,7 +2425,7 @@
   padding-right: 5px;
 }
 
-#ahehjwuldi .gt_sourcenotes {
+#nfhkjualxj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2435,7 +2439,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ahehjwuldi .gt_sourcenote {
+#nfhkjualxj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2443,72 +2447,72 @@
   padding-right: 5px;
 }
 
-#ahehjwuldi .gt_left {
+#nfhkjualxj .gt_left {
   text-align: left;
 }
 
-#ahehjwuldi .gt_center {
+#nfhkjualxj .gt_center {
   text-align: center;
 }
 
-#ahehjwuldi .gt_right {
+#nfhkjualxj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ahehjwuldi .gt_font_normal {
+#nfhkjualxj .gt_font_normal {
   font-weight: normal;
 }
 
-#ahehjwuldi .gt_font_bold {
+#nfhkjualxj .gt_font_bold {
   font-weight: bold;
 }
 
-#ahehjwuldi .gt_font_italic {
+#nfhkjualxj .gt_font_italic {
   font-style: italic;
 }
 
-#ahehjwuldi .gt_super {
+#nfhkjualxj .gt_super {
   font-size: 65%;
 }
 
-#ahehjwuldi .gt_footnote_marks {
+#nfhkjualxj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ahehjwuldi .gt_asterisk {
+#nfhkjualxj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ahehjwuldi .gt_indent_1 {
+#nfhkjualxj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ahehjwuldi .gt_indent_2 {
+#nfhkjualxj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ahehjwuldi .gt_indent_3 {
+#nfhkjualxj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ahehjwuldi .gt_indent_4 {
+#nfhkjualxj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ahehjwuldi .gt_indent_5 {
+#nfhkjualxj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ahehjwuldi .katex-display {
+#nfhkjualxj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ahehjwuldi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#nfhkjualxj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2571,7 +2575,7 @@ directly through Mplus syntax using start values.</span>
     </tr></tfoot>
 </table></div>
 </div>
-<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
 <span></span>
@@ -2595,23 +2599,23 @@ directly through Mplus syntax using start values.</span>
 <span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
 <span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="mtmcspzxqq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mtmcspzxqq table {
+<div id="jcpquzknqx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jcpquzknqx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mtmcspzxqq thead, #mtmcspzxqq tbody, #mtmcspzxqq tfoot, #mtmcspzxqq tr, #mtmcspzxqq td, #mtmcspzxqq th {
+#jcpquzknqx thead, #jcpquzknqx tbody, #jcpquzknqx tfoot, #jcpquzknqx tr, #jcpquzknqx td, #jcpquzknqx th {
   border-style: none;
 }
 
-#mtmcspzxqq p {
+#jcpquzknqx p {
   margin: 0;
   padding: 0;
 }
 
-#mtmcspzxqq .gt_table {
+#jcpquzknqx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2637,12 +2641,12 @@ directly through Mplus syntax using start values.</span>
   border-left-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_caption {
+#jcpquzknqx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mtmcspzxqq .gt_title {
+#jcpquzknqx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2654,7 +2658,7 @@ directly through Mplus syntax using start values.</span>
   border-bottom-width: 0;
 }
 
-#mtmcspzxqq .gt_subtitle {
+#jcpquzknqx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2666,7 +2670,7 @@ directly through Mplus syntax using start values.</span>
   border-top-width: 0;
 }
 
-#mtmcspzxqq .gt_heading {
+#jcpquzknqx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2678,13 +2682,13 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_bottom_border {
+#jcpquzknqx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_col_headings {
+#jcpquzknqx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2699,7 +2703,7 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_col_heading {
+#jcpquzknqx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2719,7 +2723,7 @@ directly through Mplus syntax using start values.</span>
   overflow-x: hidden;
 }
 
-#mtmcspzxqq .gt_column_spanner_outer {
+#jcpquzknqx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2731,15 +2735,15 @@ directly through Mplus syntax using start values.</span>
   padding-right: 4px;
 }
 
-#mtmcspzxqq .gt_column_spanner_outer:first-child {
+#jcpquzknqx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mtmcspzxqq .gt_column_spanner_outer:last-child {
+#jcpquzknqx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mtmcspzxqq .gt_column_spanner {
+#jcpquzknqx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2751,11 +2755,11 @@ directly through Mplus syntax using start values.</span>
   width: 100%;
 }
 
-#mtmcspzxqq .gt_spanner_row {
+#jcpquzknqx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mtmcspzxqq .gt_group_heading {
+#jcpquzknqx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2781,7 +2785,7 @@ directly through Mplus syntax using start values.</span>
   text-align: left;
 }
 
-#mtmcspzxqq .gt_empty_group_heading {
+#jcpquzknqx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2796,15 +2800,15 @@ directly through Mplus syntax using start values.</span>
   vertical-align: middle;
 }
 
-#mtmcspzxqq .gt_from_md > :first-child {
+#jcpquzknqx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mtmcspzxqq .gt_from_md > :last-child {
+#jcpquzknqx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mtmcspzxqq .gt_row {
+#jcpquzknqx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2823,7 +2827,7 @@ directly through Mplus syntax using start values.</span>
   overflow-x: hidden;
 }
 
-#mtmcspzxqq .gt_stub {
+#jcpquzknqx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2836,7 +2840,7 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#mtmcspzxqq .gt_stub_row_group {
+#jcpquzknqx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2850,15 +2854,15 @@ directly through Mplus syntax using start values.</span>
   vertical-align: top;
 }
 
-#mtmcspzxqq .gt_row_group_first td {
+#jcpquzknqx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mtmcspzxqq .gt_row_group_first th {
+#jcpquzknqx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mtmcspzxqq .gt_summary_row {
+#jcpquzknqx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2868,16 +2872,16 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#mtmcspzxqq .gt_first_summary_row {
+#jcpquzknqx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_first_summary_row.thick {
+#jcpquzknqx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mtmcspzxqq .gt_last_summary_row {
+#jcpquzknqx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2887,7 +2891,7 @@ directly through Mplus syntax using start values.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_grand_summary_row {
+#jcpquzknqx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2897,7 +2901,7 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#mtmcspzxqq .gt_first_grand_summary_row {
+#jcpquzknqx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2907,7 +2911,7 @@ directly through Mplus syntax using start values.</span>
   border-top-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_last_grand_summary_row_top {
+#jcpquzknqx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2917,11 +2921,11 @@ directly through Mplus syntax using start values.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_striped {
+#jcpquzknqx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mtmcspzxqq .gt_table_body {
+#jcpquzknqx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2930,7 +2934,7 @@ directly through Mplus syntax using start values.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_footnotes {
+#jcpquzknqx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2944,7 +2948,7 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_footnote {
+#jcpquzknqx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2953,7 +2957,7 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#mtmcspzxqq .gt_sourcenotes {
+#jcpquzknqx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2967,7 +2971,7 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#mtmcspzxqq .gt_sourcenote {
+#jcpquzknqx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2975,72 +2979,72 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#mtmcspzxqq .gt_left {
+#jcpquzknqx .gt_left {
   text-align: left;
 }
 
-#mtmcspzxqq .gt_center {
+#jcpquzknqx .gt_center {
   text-align: center;
 }
 
-#mtmcspzxqq .gt_right {
+#jcpquzknqx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mtmcspzxqq .gt_font_normal {
+#jcpquzknqx .gt_font_normal {
   font-weight: normal;
 }
 
-#mtmcspzxqq .gt_font_bold {
+#jcpquzknqx .gt_font_bold {
   font-weight: bold;
 }
 
-#mtmcspzxqq .gt_font_italic {
+#jcpquzknqx .gt_font_italic {
   font-style: italic;
 }
 
-#mtmcspzxqq .gt_super {
+#jcpquzknqx .gt_super {
   font-size: 65%;
 }
 
-#mtmcspzxqq .gt_footnote_marks {
+#jcpquzknqx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mtmcspzxqq .gt_asterisk {
+#jcpquzknqx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mtmcspzxqq .gt_indent_1 {
+#jcpquzknqx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mtmcspzxqq .gt_indent_2 {
+#jcpquzknqx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mtmcspzxqq .gt_indent_3 {
+#jcpquzknqx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mtmcspzxqq .gt_indent_4 {
+#jcpquzknqx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mtmcspzxqq .gt_indent_5 {
+#jcpquzknqx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#mtmcspzxqq .katex-display {
+#jcpquzknqx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#mtmcspzxqq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jcpquzknqx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3111,29 +3115,29 @@ directly through Mplus syntax using start values.</span>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="lta.html"><span class="header-section-number">13</span> Latent Transition Analysis</a></div>
-<div class="next"><a href="joint-occurrence.html"><span class="header-section-number">15</span> Joint Occurrence</a></div>
+<div class="prev"><a href="lta.html"><span class="header-section-number">17</span> Latent Transition Analysis</a></div>
+<div class="next"><a href="joint-occurrence.html"><span class="header-section-number">19</span> Joint Occurrence</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#lta-with-covariates"><span class="header-section-number">14</span> LTA with Covariates</a></li>
+<li><a class="nav-link" href="#lta-with-covariates"><span class="header-section-number">18</span> LTA with Covariates</a></li>
 <li>
-<a class="nav-link" href="#descriptive-statistics-11"><span class="header-section-number">14.1</span> Descriptive Statistics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#data-summary-1"><span class="header-section-number">14.1.1</span> Data Summary</a></li></ul>
+<a class="nav-link" href="#descriptive-statistics-11"><span class="header-section-number">18.1</span> Descriptive Statistics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#data-summary-1"><span class="header-section-number">18.1.1</span> Data Summary</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#adding-covariates"><span class="header-section-number">14.2</span> Adding Covariates</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-1---estimate-unconditional-model-w-auxiliary-specification-1"><span class="header-section-number">14.2.1</span> Step 1 - Estimate Unconditional Model w/ Auxiliary Specification</a></li>
-<li><a class="nav-link" href="#step-2---determine-measurement-error-4"><span class="header-section-number">14.2.2</span> Step 2 - Determine Measurement Error</a></li>
-<li><a class="nav-link" href="#step-3---add-auxiliary-variables-1"><span class="header-section-number">14.2.3</span> Step 3 - Add Auxiliary Variables</a></li>
-<li><a class="nav-link" href="#create-transition-table-1"><span class="header-section-number">14.2.4</span> Create Transition Table</a></li>
+<a class="nav-link" href="#adding-covariates"><span class="header-section-number">18.2</span> Adding Covariates</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1---estimate-unconditional-model-w-auxiliary-specification-1"><span class="header-section-number">18.2.1</span> Step 1 - Estimate Unconditional Model w/ Auxiliary Specification</a></li>
+<li><a class="nav-link" href="#step-2---determine-measurement-error-4"><span class="header-section-number">18.2.2</span> Step 2 - Determine Measurement Error</a></li>
+<li><a class="nav-link" href="#step-3---add-auxiliary-variables-1"><span class="header-section-number">18.2.3</span> Step 3 - Add Auxiliary Variables</a></li>
+<li><a class="nav-link" href="#create-transition-table-1"><span class="header-section-number">18.2.4</span> Create Transition Table</a></li>
 </ul>
 </li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/14-lta-cov.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/14-lta-cov.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/18-lta-cov.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/18-lta-cov.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

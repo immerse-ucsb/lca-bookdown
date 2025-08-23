@@ -1,6 +1,6 @@
 Mplus VERSION 8.11
 MUTHEN & MUTHEN
-08/22/2025   1:18 PM
+08/22/2025   4:28 PM
 
 INPUT INSTRUCTIONS
 
@@ -29,7 +29,7 @@ INPUT INSTRUCTIONS
   OUTPUT:
   residual tech11 tech14
   SAVEDATA:
-  File=3step_savedata.dat;
+  File=savedata.dat;
       Save=cprob;
   PLOT:
   type = plot3;
@@ -578,7 +578,7 @@ SAVEDATA INFORMATION
 
 
   Save file
-    3step_savedata.dat
+    savedata.dat
 
   Order and format of variables
 
@@ -604,9 +604,9 @@ SAVEDATA INFORMATION
   Save missing symbol        *
 
 
-     Beginning Time:  13:18:02
-        Ending Time:  13:18:06
-       Elapsed Time:  00:00:04
+     Beginning Time:  16:28:29
+        Ending Time:  16:28:34
+       Elapsed Time:  00:00:05
 
 
 

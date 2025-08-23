@@ -47,7 +47,7 @@ plot_lpa <-
       ) +
       geom_point(size = 4) + geom_line() +
       scale_x_discrete("") +
-      scale_colour_grey(end = .3) +
+      #scale_colour_grey(end = .3) +
       labs(title = glue("{name} Profile Plot"), y = "Means") +
       theme_cowplot() +
       theme(

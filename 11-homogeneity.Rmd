@@ -1,0 +1,203 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE,
+                      message = FALSE) #Here, I have made it so that when you knit your .rmd, warnings and messages will not show up in the html markdown. 
+```
+
+# Class Homogeneity
+
+------------------------------------------------------------------------
+
+## Load packages
+
+```{r}
+library(naniar)
+library(tidyverse)
+library(haven)
+library(glue)
+library(MplusAutomation)
+library(here)
+library(janitor)
+library(gt)
+library(tidyLPA)
+library(pisaUSA15)
+library(cowplot)
+library(filesstrings)
+library(patchwork)
+library(RcppAlgos)
+```
+
+------------------------------------------------------------------------
+
+## LCA
+
+Continuing the LCA example (\@ref(lca-enum)) in this bookdown, use R to evaluate the LCA class homogeneity.
+
+------------------------------------------------------------------------
+
+We want a high degree of homogeneity (small variance) within each class (i.e., people in each class are not identical but are more similar to each other than to people in different classes).
+
+Class-specific response probabilities above .70 or below .30 indicate high homogeneity in that particular class for that specific item. For a binary variable, $X$, $Var(X) = p(1-p)$. The largest variance possible for a binary variable is when $p = .5$, the smallest variance (0) is when $p = 0$ or $p = 1$.
+
+The easiest way is to visualize the item probability plot:
+
+```{r out.width="90%"}
+source(here("functions", "plot_lca.R"))
+
+# Read in model
+output_enum <- readModels(here("enum"), filefilter = "bully", quiet = TRUE)
+
+# Change this to look at your chosen LCA model
+chosen_model <- output_enum$c4_bully.out
+
+# Add lines
+plot_lca(chosen_model) + geom_hline(yintercept = c(0.7, 0.3))
+```
+
+Or create a table:
+
+```{r}
+# Read in model
+output_enum <- readModels(here("enum"), filefilter = "bully", quiet = TRUE)
+
+# Change this to look at your chosen LCA model
+chosen_model <- output_enum$c4_bully.out
+
+# Extract table of probabilities
+probabilities <- data.frame(chosen_model$parameters$probability.scale) %>%
+  mutate(LatentClass = sub("^", "Class ", LatentClass)) %>%
+  filter(category == 2) %>%
+  dplyr::select(est, LatentClass, param) %>%
+  pivot_wider(names_from = LatentClass, values_from = est) %>%
+  relocate(param, .after = last_col()) %>%
+  rename(Items = param)
+
+# Bold above .7 and below .3
+bold_condition <- function(x) {
+  ifelse(x > 0.7 | x < 0.3, paste0("**", sprintf("%.3f", x), "**"),
+         sprintf("%.3f", x))
+}
+
+# Apply the bold formatting condition to the table
+homogeneity <- probabilities %>%
+  mutate(across(where(is.numeric), ~ sapply(., bold_condition))) %>% 
+  relocate(Items, .before = 1)
+
+
+# Display the formatted table and percentage
+homogeneity %>%
+  gt()  %>%
+  cols_label(
+    Items = "Item"
+  ) %>%
+  fmt_number(
+    columns = everything(),
+    decimals = 3
+  ) %>%
+  tab_header(
+    title = "Class Homogeneity Table"
+  ) %>%
+  fmt_markdown(columns = everything()) %>% 
+  tab_footnote(
+    footnote = "Cells in bold indicate probabilities > 0.7 or < 0.3"
+  )
+```
+
+------------------------------------------------------------------------
+
+## LPA
+
+Continuing the LPA example (\@ref(lpa-enum)) in this bookdown, use R to evaluate the LPA profile homogeneity.
+
+------------------------------------------------------------------------
+
+Profile homogeneity is the model-estimated within-profile variances for each indicator m across the *k*-profiles and comparing them to the total overall sample variance:
+
+$$ \frac{\theta_{mk}}{\theta_{m}} $$
+
+Where $\theta{mk}$ is the item variance for item $m$, class $k$ and $\theta{m}$ is the item variance for item $m$ not conditioned on class.
+
+Individuals belonging to the same class are more similar to other members of that class than they are compared to members of other classes. Individuals belonging to the same class are closer to the class mean than they are to the overall population mean. Within-class variance for each indicator is smaller than overall population variance, therefore:
+
+-   Values \> .90 corresponds to a high degree of homogeneity
+
+-   Values \< .60 corresponds to a low degree of homogeneity
+
+To calculate the values in a table:
+
+```{r}
+# Read in model
+output_enum <- readModels(here("lpa", "tidyLPA"), quiet = TRUE)
+
+# Change this to look at your chosen LPA model
+chosen_model <- output_enum$model_3_class_4.out
+
+# Extract overall and profile-specific variances
+overall_variances <- data.frame(chosen_model$sampstat$univariate.sample.statistics) %>% 
+  dplyr::select(Variance) %>% 
+  rownames_to_column(var = "item") %>% 
+  clean_names() %>% 
+  mutate(item = str_sub(item, 1, 8))
+
+profile_variances <- data.frame(chosen_model$parameters$unstandardized) %>% 
+  filter(paramHeader == "Variances") %>% 
+  dplyr::select(param, est, LatentClass) %>% 
+  rename(item = param,
+         variance = est,
+         k = LatentClass) %>% 
+  mutate(k = paste0("Profile ", k)) %>% 
+  mutate(item = str_sub(item, 1, 8))
+
+
+# Bold above 0.90 and italicize below 0.60
+format_condition <- function(x) {
+  ifelse(x > 0.9,
+         paste0("**", sprintf("%.3f", x), "**"),   # bold
+         ifelse(x < 0.6,
+                paste0("*", sprintf("%.3f", x), "*"),  # italic
+                sprintf("%.3f", x)))  # normal
+}
+
+# Evaluate the ratio
+homogeneity <- profile_variances %>%
+  left_join(overall_variances, by = "item") %>%
+  mutate(homogeneity_ratio = round((variance.x / variance.y),2)) %>% 
+  mutate(across(where(is.numeric), ~ as.character(sapply(., format_condition))))
+
+# Create a gt table
+homogeneity %>%
+  dplyr::select(homogeneity_ratio, k, item) %>% 
+  pivot_wider(
+    names_from = k, 
+    values_from = homogeneity_ratio
+  ) %>%
+  gt() %>%
+  cols_label(
+    item = "Item"
+  ) %>%
+  fmt_number(
+    columns = everything(),
+    decimals = 3
+  ) %>%
+  tab_header(
+    title = "Profile Homogeneity Table"
+  ) %>%
+  tab_footnote(
+    footnote = "Cells in bold indicate proportions > 0.90 and cells in italics indicate proportions < 0.60. 
+    Note: In this example, the class variances are set to be equal.") %>% 
+  fmt_markdown(columns = everything())
+```
+
+You can also visualize the plot:
+
+```{r out.width="90%"}
+source(here("functions", "plot_lpa.R"))
+
+output_enum <- readModels(here("lpa", "tidyLPA"), quiet = TRUE)
+
+plot_lpa(model_name = output_enum$model_3_class_4.out)
+```
+
+::: {style="text-align: center;"}
+<img src="images/ucsb_logo.png" width="75%"/>
+:::

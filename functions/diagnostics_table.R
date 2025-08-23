@@ -44,7 +44,12 @@ class_table <- class_df %>%
               missing_text = "") %>%
   cols_align(align = "center") %>% 
   opt_align_table_header(align = "left") %>% 
-  gt::tab_options(table.font.names = "Times New Roman")
+  gt::tab_options(table.font.names = "Times New Roman") %>% 
+  tab_footnote(
+    footnote = html(
+      "<i>Note.</i> McaP<sub>k</sub> = Modal class assignment proportion; AvePP<sub>k</sub> = Average posterior class probabilities; OCC<sub>k</sub> = Odds of correct classification; "
+    )
+  ) 
 
 class_table
 

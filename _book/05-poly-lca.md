@@ -114,23 +114,23 @@ prop_table
 
 
 ```{=html}
-<div id="ibuunyvnrg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ibuunyvnrg table {
+<div id="bkzugewydg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bkzugewydg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ibuunyvnrg thead, #ibuunyvnrg tbody, #ibuunyvnrg tfoot, #ibuunyvnrg tr, #ibuunyvnrg td, #ibuunyvnrg th {
+#bkzugewydg thead, #bkzugewydg tbody, #bkzugewydg tfoot, #bkzugewydg tr, #bkzugewydg td, #bkzugewydg th {
   border-style: none;
 }
 
-#ibuunyvnrg p {
+#bkzugewydg p {
   margin: 0;
   padding: 0;
 }
 
-#ibuunyvnrg .gt_table {
+#bkzugewydg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -156,12 +156,12 @@ prop_table
   border-left-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_caption {
+#bkzugewydg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ibuunyvnrg .gt_title {
+#bkzugewydg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -173,7 +173,7 @@ prop_table
   border-bottom-width: 0;
 }
 
-#ibuunyvnrg .gt_subtitle {
+#bkzugewydg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -185,7 +185,7 @@ prop_table
   border-top-width: 0;
 }
 
-#ibuunyvnrg .gt_heading {
+#bkzugewydg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -197,13 +197,13 @@ prop_table
   border-right-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_bottom_border {
+#bkzugewydg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_col_headings {
+#bkzugewydg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -218,7 +218,7 @@ prop_table
   border-right-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_col_heading {
+#bkzugewydg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -238,7 +238,7 @@ prop_table
   overflow-x: hidden;
 }
 
-#ibuunyvnrg .gt_column_spanner_outer {
+#bkzugewydg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -250,15 +250,15 @@ prop_table
   padding-right: 4px;
 }
 
-#ibuunyvnrg .gt_column_spanner_outer:first-child {
+#bkzugewydg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ibuunyvnrg .gt_column_spanner_outer:last-child {
+#bkzugewydg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ibuunyvnrg .gt_column_spanner {
+#bkzugewydg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -270,11 +270,11 @@ prop_table
   width: 100%;
 }
 
-#ibuunyvnrg .gt_spanner_row {
+#bkzugewydg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ibuunyvnrg .gt_group_heading {
+#bkzugewydg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -300,7 +300,7 @@ prop_table
   text-align: left;
 }
 
-#ibuunyvnrg .gt_empty_group_heading {
+#bkzugewydg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -315,15 +315,15 @@ prop_table
   vertical-align: middle;
 }
 
-#ibuunyvnrg .gt_from_md > :first-child {
+#bkzugewydg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ibuunyvnrg .gt_from_md > :last-child {
+#bkzugewydg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ibuunyvnrg .gt_row {
+#bkzugewydg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -342,7 +342,7 @@ prop_table
   overflow-x: hidden;
 }
 
-#ibuunyvnrg .gt_stub {
+#bkzugewydg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -355,7 +355,7 @@ prop_table
   padding-right: 5px;
 }
 
-#ibuunyvnrg .gt_stub_row_group {
+#bkzugewydg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -369,15 +369,15 @@ prop_table
   vertical-align: top;
 }
 
-#ibuunyvnrg .gt_row_group_first td {
+#bkzugewydg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ibuunyvnrg .gt_row_group_first th {
+#bkzugewydg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ibuunyvnrg .gt_summary_row {
+#bkzugewydg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -387,16 +387,16 @@ prop_table
   padding-right: 5px;
 }
 
-#ibuunyvnrg .gt_first_summary_row {
+#bkzugewydg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_first_summary_row.thick {
+#bkzugewydg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ibuunyvnrg .gt_last_summary_row {
+#bkzugewydg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -406,7 +406,7 @@ prop_table
   border-bottom-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_grand_summary_row {
+#bkzugewydg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -416,7 +416,7 @@ prop_table
   padding-right: 5px;
 }
 
-#ibuunyvnrg .gt_first_grand_summary_row {
+#bkzugewydg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -426,7 +426,7 @@ prop_table
   border-top-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_last_grand_summary_row_top {
+#bkzugewydg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -436,11 +436,11 @@ prop_table
   border-bottom-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_striped {
+#bkzugewydg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ibuunyvnrg .gt_table_body {
+#bkzugewydg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -449,7 +449,7 @@ prop_table
   border-bottom-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_footnotes {
+#bkzugewydg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -463,7 +463,7 @@ prop_table
   border-right-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_footnote {
+#bkzugewydg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -472,7 +472,7 @@ prop_table
   padding-right: 5px;
 }
 
-#ibuunyvnrg .gt_sourcenotes {
+#bkzugewydg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -486,7 +486,7 @@ prop_table
   border-right-color: #D3D3D3;
 }
 
-#ibuunyvnrg .gt_sourcenote {
+#bkzugewydg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -494,72 +494,72 @@ prop_table
   padding-right: 5px;
 }
 
-#ibuunyvnrg .gt_left {
+#bkzugewydg .gt_left {
   text-align: left;
 }
 
-#ibuunyvnrg .gt_center {
+#bkzugewydg .gt_center {
   text-align: center;
 }
 
-#ibuunyvnrg .gt_right {
+#bkzugewydg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ibuunyvnrg .gt_font_normal {
+#bkzugewydg .gt_font_normal {
   font-weight: normal;
 }
 
-#ibuunyvnrg .gt_font_bold {
+#bkzugewydg .gt_font_bold {
   font-weight: bold;
 }
 
-#ibuunyvnrg .gt_font_italic {
+#bkzugewydg .gt_font_italic {
   font-style: italic;
 }
 
-#ibuunyvnrg .gt_super {
+#bkzugewydg .gt_super {
   font-size: 65%;
 }
 
-#ibuunyvnrg .gt_footnote_marks {
+#bkzugewydg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ibuunyvnrg .gt_asterisk {
+#bkzugewydg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ibuunyvnrg .gt_indent_1 {
+#bkzugewydg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ibuunyvnrg .gt_indent_2 {
+#bkzugewydg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ibuunyvnrg .gt_indent_3 {
+#bkzugewydg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ibuunyvnrg .gt_indent_4 {
+#bkzugewydg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ibuunyvnrg .gt_indent_5 {
+#bkzugewydg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ibuunyvnrg .katex-display {
+#bkzugewydg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ibuunyvnrg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bkzugewydg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1343,204 +1343,5 @@ ggsave(here("figures", "info_criteria.png"), dpi="retina", bg = "white", height=
 ```
 
 ------------------------------------------------------------------------
-
-### 4-Class Probability Plot 
-
-The functions `poLCA_stacked` and `poLCA_grouped` create visualizations of class probabilities for LCA with polytomous indicators. Each function takes the following arguments:
-
-- **`model_name`**: The LCA model read into R using the `readModels` function from the `MplusAutomation` package.
-- **`category_labels`**: A character vector of category labels for the response options (e.g., survey answers). 
-
-Note: Double check that the labels are in the correct order!
-
-
-
-``` r
-source(here("functions","poLCA_plot.R"))
-
-poLCA_stacked(output_election$c5_election.out, category_labels = c("1" = "1: Extremely well", 
-                                                                   "2" = "2: Quite Well", 
-                                                                   "3" = "3: Not Too Well", 
-                                                                   "4" = "4: Not Well at All"))
-```
-
-<img src="05-poly-lca_files/figure-html/unnamed-chunk-9-1.png" width="1728" />
-
-
-Alternative plot
-
-
-``` r
-poLCA_grouped(output_election$c5_election.out, category_labels = c("1" = "1: Extremely well", 
-                                                                   "2" = "2: Quite Well", 
-                                                                   "3" = "3: Not Too Well", 
-                                                                   "4" = "4: Not Well at All"))
-```
-
-<img src="05-poly-lca_files/figure-html/unnamed-chunk-10-1.png" width="1728" />
-
-------------------------------------------------------------------------
-
-### APA-formatted Plot
-
-
-``` r
-# Model 
-model <- output_election$c5_election.out
-
-
-# Title
-title <- "2000 Descriptions of Presidential Candidate George W. Bush; Item Probabilities by Class"
-
-# Item names
-item_labels <- c("CARESB1" = "Caring",
-                 "DISHONB1" = "Dishonest",
-                 "INTELB1" = "Intelligent",
-                 "KNOWB1" = "Knowledgeable",
-                 "LEADB1" = "Good Leader",
-                 "MORALB1" = "Moral")
-
-# Item Category
-category_labels <- c("1" = "1: Extremely well", 
-                     "2" = "2: Quite Well", 
-                     "3" = "3: Not Too Well", 
-                     "4" = "4: Not Well at All")
-
-# Class labels
-class_labels <- c("1" = "Poor Decsription (9.95%)",
-                  "2" = "Mostly Poor Description (22.40%)",
-                  "3" = "In-Between (24.06%)",
-                  "4" = "Mostly Well-Described But Not Intelligent (28.29%)",
-                  "5" = "Well-Described But Not Intelligent (15.30%)")
-
-
-#### END EDIT ####
-```
-
-#### Extract data needed for plotting
-
-
-``` r
-# Extract data needed for plotting 
-plot_data <- data.frame(model$parameters$probability.scale) %>%
-  dplyr::select(est, LatentClass, param, category) %>%
-  mutate(
-    items = factor(param, labels = item_labels),
-    class = factor(LatentClass, labels = class_labels),
-    cat = factor(category, labels = category_labels)
-  ) %>% 
-  mutate(class = factor(class, levels = rev(levels(factor(class))))) 
-```
-
-------------------------------------------------------------------------
-
-#### Final grouped bar plot
-
-
-``` r
-
-## Plot data
-plot_data %>%
-  ggplot(aes(
-    x = items,
-    y = est,
-    fill = cat,
-    group = cat
-  )) +
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_text(aes(label = sub("^0\\.", ".", sprintf("%.2f", est))), 
-            position = position_dodge(width = 0.9), 
-            vjust = -0.5, size = 3) +
-  facet_wrap(~ class) + 
-  ylim(0, 1) +
-  scale_x_discrete(
-    "",
-    labels = function(x)
-      str_wrap(x, width = 10)
-  ) +
-  labs(title = "Figure 1",
-       subtitle = title,
-       y = "Probability") +
-  theme_bw(12) +
-  scale_fill_grey(start = 0.8, end = 0.2) + # Gives different shades
-  theme(
-    text = element_text(family = "sans", size = 12),
-    legend.text = element_text(family = "sans", size = 12, color = "black"),
-    legend.title = element_blank(),
-    legend.position = "bottom",
-    legend.justification = "center", 
-    axis.text.x = element_text(vjust = 1),
-    plot.subtitle = element_text(face = "italic", size = 15),
-    plot.title = element_text(size = 15),
-    strip.background = element_rect(fill = "grey90", color = "black", size = 1),
-    strip.text = element_text(size = 12)
-  ) 
-```
-
-<img src="05-poly-lca_files/figure-html/unnamed-chunk-13-1.png" width="1440" />
-
-------------------------------------------------------------------------
-
-Save figure:
-
-
-``` r
-ggsave(here("figures", "APA_plot1.png"), dpi="retina", bg = "white", height=9, width=15, units="in")
-```
-
-------------------------------------------------------------------------
-
-#### Alternative
-
-
-``` r
-## Plot data
-plot_data %>%
-  ggplot(aes(
-    x = items,
-    y = est,
-    fill = cat,
-    group = cat
-  )) +
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_text(aes(label = sub("^0\\.", ".", sprintf("%.2f", est))), 
-            position = position_dodge(width = 0.9), 
-            vjust = -0.5, size = 3) +
-  facet_wrap(~ class) + 
-  ylim(0, 1) +
-  scale_x_discrete(
-    "",
-    labels = function(x)
-      str_wrap(x, width = 10)
-  ) +
-  labs(title = "Figure 1",
-       subtitle = title,
-       y = "Probability") +
-  theme_cowplot(12) +
-  scale_fill_grey(start = 0.8, end = 0.2) + # Gives different shades
-  theme(
-    text = element_text(family = "sans", size = 12),
-    legend.text = element_text(family = "sans", size = 12, color = "black"),
-    legend.title = element_blank(),
-    legend.position = "bottom",
-    legend.justification = "center", 
-    axis.text.x = element_text(vjust = 1),
-    plot.subtitle = element_text(face = "italic", size = 15),
-    plot.title = element_text(size = 15),
-    strip.background = element_rect(fill = "grey90", color = "black", size = 1),
-    strip.text = element_text(size = 12)
-  )
-```
-
-<img src="05-poly-lca_files/figure-html/unnamed-chunk-15-1.png" width="1632" />
-
-------------------------------------------------------------------------
-
-Save figure:
-
-
-``` r
-ggsave(here("figures", "APA_plot2.png"), dpi="retina", bg = "white", height=10, width=17, units="in")
-```
 
 <div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>

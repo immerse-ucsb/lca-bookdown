@@ -21,7 +21,7 @@ estimator = mlr;
 OUTPUT:
 residual tech11 tech14
 SAVEDATA:
-File=3step_savedata.dat;
+File=savedata_cov.dat;
     Save=cprob;
 PLOT:
 type = plot3; 

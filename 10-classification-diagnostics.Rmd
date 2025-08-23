@@ -1,0 +1,284 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE,
+                      message = FALSE) #Here, I have made it so that when you knit your .rmd, warnings and messages will not show up in the html markdown. 
+```
+
+# Classification Diagnostics
+
+------------------------------------------------------------------------
+
+## Load Packages
+
+```{r}
+library(naniar)
+library(tidyverse)
+library(haven)
+library(glue)
+library(MplusAutomation)
+library(here)
+library(janitor)
+library(gt)
+library(tidyLPA)
+library(pisaUSA15)
+library(cowplot)
+library(filesstrings)
+library(patchwork)
+library(RcppAlgos)
+```
+
+------------------------------------------------------------------------
+
+## LCA
+
+Prepare Data
+
+```{r, eval=TRUE}
+df_bully <- read_csv(here("data", "crdc_lca_data.csv")) %>% 
+  clean_names() %>% 
+  dplyr::select(report_dis, report_race, report_sex, counselors_fte, psych_fte, law_fte) 
+```
+
+------------------------------------------------------------------------
+
+Continuing the LCA example (\@ref(lca-enum)) in this bookdown, use Mplus to calculate k-class confidence intervals (Note: Change the syntax to make your chosen *k*-class model):
+
+```{r, cache = TRUE}
+classification  <- mplusObject(
+  
+  TITLE = "C3 LCA - Calculated k-Class 95% CI",
+  
+  VARIABLE =
+    "categorical = report_dis-law_fte;
+   usevar =  report_dis-law_fte;
+   classes = c(3);", 
+  
+  ANALYSIS =
+    "estimator = ml;
+    type = mixture;
+    starts = 0; 
+    processors = 10;
+    optseed = 802779;
+    bootstrap = 1000;",
+  
+  MODEL =
+    "
+  !CHANGE THIS SECTION TO YOUR CHOSEN k-CLASS MODEL
+    
+  %OVERALL%
+  [C#1](c1);
+  
+  [C#2](C2);
+
+  Model Constraint:
+  New(p1 p2 p3);
+  
+  p1 = exp(c1)/(1+exp(c1)+exp(c2));
+  p2 = exp(c2)/(1+exp(c1)+exp(c2));
+  p3 = 1/(1+exp(c1)+exp(c2));",
+
+  
+  OUTPUT = "cinterval(bcbootstrap)",
+  
+  usevariables = colnames(df_bully),
+  rdata = df_bully)
+
+classification_fit <- mplusModeler(classification,
+                dataout=here("mplus", "bully.dat"),
+                modelout=here("mplus", "class.inp") ,
+                check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+*Note*: Ensure that the classes did not shift during this step (i.g., Class 1 in the enumeration run is now Class 4). Evaluate output and compare the class counts and proportions for the latent classes. Using the OPTSEED function ensures replication of the best loglikelihood value run.
+
+------------------------------------------------------------------------
+
+Read in the 3-class model:
+
+```{r}
+# Read in the 3-class model and extract information needed
+output_enum <- readModels(here("mplus", "class.out"))
+
+# 95% k-Class and k-class 95% Confidence Intervals
+k_ci <- output_enum$parameters$ci.unstandardized %>% 
+  filter(paramHeader == "New.Additional.Parameters") %>% 
+  unite(CI, c(low2.5,up2.5), sep=", ", remove = TRUE) %>% 
+  mutate(CI = paste0("[", CI, "]")) %>% 
+  rename(kclass=est) %>% 
+  dplyr::select(kclass, CI)
+
+# AvePPk = Average Latent Class Probabilities for Most Likely Latent Class Membership (Row) by Latent Class (Column)
+avePPk <- tibble(avePPk = diag(output_enum$class_counts$avgProbs.mostLikely))
+
+# mcaPk = modal class assignment proportion 
+mcaPk <- round(output_enum$class_counts$mostLikely,3) %>% 
+  mutate(model = paste0("Class ", class)) %>% 
+  add_column(avePPk, k_ci) %>% 
+  rename(mcaPk = proportion) %>% 
+  dplyr::select(model, kclass, CI, mcaPk, avePPk)
+
+# OCCk = odds of correct classification
+OCCk <- mcaPk %>% 
+  mutate(OCCk = round((avePPk/(1-avePPk))/(kclass/(1-kclass)),3))
+
+# Put everything together
+class_data <- data.frame(OCCk)
+```
+
+Now, use `{gt}` to make a nicely formatted table
+
+```{r}
+class_table <- class_data %>% 
+  gt() %>%
+    tab_header(
+    title = "Model Classification Diagnostics for the 3-Class Solution") %>%
+    cols_label(
+      model = md("*k*-Class"),
+      kclass = md("*k*-Class Proportions"),
+      CI = "95% CI",
+      mcaPk = html("McaP<sub>k</sub>"),
+      avePPk = md("AvePP<sub>k</sub>"),
+      OCCk = md("OCC<sub>k</sub>")
+    ) %>% 
+    tab_footnote(
+    footnote = html(
+      "<i>Note.</i> McaP<sub>k</sub> = Modal class assignment proportion; AvePP<sub>k</sub> = Average posterior class probabilities; OCC<sub>k</sub> = Odds of correct classification; "
+    )
+  ) %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "Times New Roman")
+
+class_table
+```
+
+------------------------------------------------------------------------
+
+## LPA
+
+Prepare Data
+
+```{r, eval=TRUE}
+pisa <- pisaUSA15[1:500,] %>%
+  dplyr::select(broad_interest, enjoyment, instrumental_mot, self_efficacy)
+```
+
+------------------------------------------------------------------------
+
+Continuing the LPA example (\@ref(lpa-enum)) in this bookdown, use Mplus to calculate k-class confidence intervals (Note: Change the syntax to make your chosen *k*-class model):
+
+```{r, eval = FALSE}
+classification  <- mplusObject(
+  
+  TITLE = "LPA - Calculated k-Class 95% CI",
+  
+  VARIABLE = 
+  "usevar =  broad_interest-self_efficacy;
+   classes = c1(4);",
+  
+  ANALYSIS = 
+   "estimator = ml; 
+    type = mixture;    
+    starts = 0; 
+    processors = 10;
+    optseed = 468036; ! This seed is taken from chosen model output
+    bootstrap = 1000;",
+  
+  MODEL =
+    " 
+    ! This is copied and pasted from the chosen model input
+  %c1#1%
+  broad_interest (vbroad_interest);
+  enjoyment (venjoyment);
+  instrumental_mot (vinstrumental_mot);
+  self_efficacy (vself_efficacy);
+
+  broad_interest WITH enjoyment (broad_interestWenjoyment);
+  broad_interest WITH instrumental_mot (broad_interestWinstrumental_mot);
+  broad_interest WITH self_efficacy (broad_interestWself_efficacy);
+  enjoyment WITH instrumental_mot (enjoymentWinstrumental_mot);
+  enjoyment WITH self_efficacy (enjoymentWself_efficacy);
+  instrumental_mot WITH self_efficacy (instrumental_motWself_efficacy);
+
+  %c1#2%
+  broad_interest (vbroad_interest);
+  enjoyment (venjoyment);
+  instrumental_mot (vinstrumental_mot);
+  self_efficacy (vself_efficacy);
+
+  broad_interest WITH enjoyment (broad_interestWenjoyment);
+  broad_interest WITH instrumental_mot (broad_interestWinstrumental_mot);
+  broad_interest WITH self_efficacy (broad_interestWself_efficacy);
+  enjoyment WITH instrumental_mot (enjoymentWinstrumental_mot);
+  enjoyment WITH self_efficacy (enjoymentWself_efficacy);
+  instrumental_mot WITH self_efficacy (instrumental_motWself_efficacy);
+
+  %c1#3%
+  broad_interest (vbroad_interest);
+  enjoyment (venjoyment);
+  instrumental_mot (vinstrumental_mot);
+  self_efficacy (vself_efficacy);
+
+  broad_interest WITH enjoyment (broad_interestWenjoyment);
+  broad_interest WITH instrumental_mot (broad_interestWinstrumental_mot);
+  broad_interest WITH self_efficacy (broad_interestWself_efficacy);
+  enjoyment WITH instrumental_mot (enjoymentWinstrumental_mot);
+  enjoyment WITH self_efficacy (enjoymentWself_efficacy);
+  instrumental_mot WITH self_efficacy (instrumental_motWself_efficacy);
+
+  %c1#4%
+  broad_interest (vbroad_interest);
+  enjoyment (venjoyment);
+  instrumental_mot (vinstrumental_mot);
+  self_efficacy (vself_efficacy);
+
+  broad_interest WITH enjoyment (broad_interestWenjoyment);
+  broad_interest WITH instrumental_mot (broad_interestWinstrumental_mot);
+  broad_interest WITH self_efficacy (broad_interestWself_efficacy);
+  enjoyment WITH instrumental_mot (enjoymentWinstrumental_mot);
+  enjoyment WITH self_efficacy (enjoymentWself_efficacy);
+  instrumental_mot WITH self_efficacy (instrumental_motWself_efficacy);
+  
+  
+  !CHANGE THIS SECTION TO YOUR CHOSEN k-CLASS MODEL
+    
+  %OVERALL%
+  [C1#1](c1);
+  [C1#2](c2);
+  [C1#3](c3);
+
+  Model Constraint:
+  New(p1 p2 p3 p4);
+  
+  p1 = exp(c1)/(1+exp(c1)+exp(c2)+exp(c3));
+  p2 = exp(c2)/(1+exp(c1)+exp(c2)+exp(c3));
+  p3 = exp(c3)/(1+exp(c1)+exp(c2)+exp(c3));  
+  p4 = 1/(1+exp(c1)+exp(c2)+exp(c3));",
+
+  
+  OUTPUT = "cinterval(bcbootstrap)",
+  
+  usevariables = colnames(pisa),
+  rdata = pisa)
+
+classification_fit <- mplusModeler(classification,
+                dataout=here("lpa", "mplus", "class.dat"),
+                modelout=here("lpa", "mplus", "class.inp") ,
+                check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+------------------------------------------------------------------------
+
+Create table using `diagnostics_table` function
+
+```{r}
+source(here("functions", "diagnostics_table.R"))
+
+class_output <- readModels(here("mplus", "class.out"))
+
+diagnostics_table(class_output)
+```
+
+
+<div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>
