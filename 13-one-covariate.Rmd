@@ -10,7 +10,7 @@ loadfonts()
 
 # (PART) Including Auxiliary Variables {-}
 
-# A Single Covariate
+# Manual 3-Step Covariate Only
 
 ------------------------------------------------------------------------
 

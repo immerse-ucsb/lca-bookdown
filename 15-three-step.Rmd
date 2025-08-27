@@ -8,7 +8,7 @@ loadfonts()
 ```
 
 
-# Two Covariates and a Single Distal Outcome
+# Manual 3-Step Covariate and Distal 
 
 ------------------------------------------------------------------------
 

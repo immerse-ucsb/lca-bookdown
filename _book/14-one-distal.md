@@ -1,7 +1,7 @@
 
 
 
-# A Single Distal Outcome
+# Manual 3-Step Distal Only
 
 ------------------------------------------------------------------------
 
@@ -36,8 +36,8 @@ Our example is Math IRT Score as a distal outcome of Math Attitude classes
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-ddd8661ef76307eb63af" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-ddd8661ef76307eb63af">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    math [label=<Math <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    math -> {Enjoy Useful Logical Job Adult}\n    math -> MathScore [minlen = 4];\n    \n {rank = same; math; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-d6a26f653793c81fe06a" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-d6a26f653793c81fe06a">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    math [label=<Math <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    math -> {Enjoy Useful Logical Job Adult}\n    math -> MathScore [minlen = 4];\n    \n {rank = same; math; MathScore}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -48,23 +48,23 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
 
 
 ```{=html}
-<div id="hereetaxtd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hereetaxtd table {
+<div id="qlisarwmhu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qlisarwmhu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hereetaxtd thead, #hereetaxtd tbody, #hereetaxtd tfoot, #hereetaxtd tr, #hereetaxtd td, #hereetaxtd th {
+#qlisarwmhu thead, #qlisarwmhu tbody, #qlisarwmhu tfoot, #qlisarwmhu tr, #qlisarwmhu td, #qlisarwmhu th {
   border-style: none;
 }
 
-#hereetaxtd p {
+#qlisarwmhu p {
   margin: 0;
   padding: 0;
 }
 
-#hereetaxtd .gt_table {
+#qlisarwmhu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -90,12 +90,12 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-left-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_caption {
+#qlisarwmhu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hereetaxtd .gt_title {
+#qlisarwmhu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -107,7 +107,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-bottom-width: 0;
 }
 
-#hereetaxtd .gt_subtitle {
+#qlisarwmhu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -119,7 +119,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-top-width: 0;
 }
 
-#hereetaxtd .gt_heading {
+#qlisarwmhu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -131,13 +131,13 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-right-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_bottom_border {
+#qlisarwmhu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_col_headings {
+#qlisarwmhu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -152,7 +152,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-right-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_col_heading {
+#qlisarwmhu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -172,7 +172,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   overflow-x: hidden;
 }
 
-#hereetaxtd .gt_column_spanner_outer {
+#qlisarwmhu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -184,15 +184,15 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   padding-right: 4px;
 }
 
-#hereetaxtd .gt_column_spanner_outer:first-child {
+#qlisarwmhu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hereetaxtd .gt_column_spanner_outer:last-child {
+#qlisarwmhu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hereetaxtd .gt_column_spanner {
+#qlisarwmhu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -204,11 +204,11 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   width: 100%;
 }
 
-#hereetaxtd .gt_spanner_row {
+#qlisarwmhu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hereetaxtd .gt_group_heading {
+#qlisarwmhu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -234,7 +234,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   text-align: left;
 }
 
-#hereetaxtd .gt_empty_group_heading {
+#qlisarwmhu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -249,15 +249,15 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   vertical-align: middle;
 }
 
-#hereetaxtd .gt_from_md > :first-child {
+#qlisarwmhu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hereetaxtd .gt_from_md > :last-child {
+#qlisarwmhu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hereetaxtd .gt_row {
+#qlisarwmhu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -276,7 +276,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   overflow-x: hidden;
 }
 
-#hereetaxtd .gt_stub {
+#qlisarwmhu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -289,7 +289,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   padding-right: 5px;
 }
 
-#hereetaxtd .gt_stub_row_group {
+#qlisarwmhu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -303,15 +303,15 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   vertical-align: top;
 }
 
-#hereetaxtd .gt_row_group_first td {
+#qlisarwmhu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hereetaxtd .gt_row_group_first th {
+#qlisarwmhu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hereetaxtd .gt_summary_row {
+#qlisarwmhu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -321,16 +321,16 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   padding-right: 5px;
 }
 
-#hereetaxtd .gt_first_summary_row {
+#qlisarwmhu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_first_summary_row.thick {
+#qlisarwmhu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hereetaxtd .gt_last_summary_row {
+#qlisarwmhu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -340,7 +340,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-bottom-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_grand_summary_row {
+#qlisarwmhu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -350,7 +350,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   padding-right: 5px;
 }
 
-#hereetaxtd .gt_first_grand_summary_row {
+#qlisarwmhu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -360,7 +360,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-top-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_last_grand_summary_row_top {
+#qlisarwmhu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -370,11 +370,11 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-bottom-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_striped {
+#qlisarwmhu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hereetaxtd .gt_table_body {
+#qlisarwmhu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -383,7 +383,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-bottom-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_footnotes {
+#qlisarwmhu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -397,7 +397,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-right-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_footnote {
+#qlisarwmhu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -406,7 +406,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   padding-right: 5px;
 }
 
-#hereetaxtd .gt_sourcenotes {
+#qlisarwmhu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -420,7 +420,7 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   border-right-color: #D3D3D3;
 }
 
-#hereetaxtd .gt_sourcenote {
+#qlisarwmhu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -428,72 +428,72 @@ Application: Longitudinal Study of American Youth, **Math Attitudes**
   padding-right: 5px;
 }
 
-#hereetaxtd .gt_left {
+#qlisarwmhu .gt_left {
   text-align: left;
 }
 
-#hereetaxtd .gt_center {
+#qlisarwmhu .gt_center {
   text-align: center;
 }
 
-#hereetaxtd .gt_right {
+#qlisarwmhu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hereetaxtd .gt_font_normal {
+#qlisarwmhu .gt_font_normal {
   font-weight: normal;
 }
 
-#hereetaxtd .gt_font_bold {
+#qlisarwmhu .gt_font_bold {
   font-weight: bold;
 }
 
-#hereetaxtd .gt_font_italic {
+#qlisarwmhu .gt_font_italic {
   font-style: italic;
 }
 
-#hereetaxtd .gt_super {
+#qlisarwmhu .gt_super {
   font-size: 65%;
 }
 
-#hereetaxtd .gt_footnote_marks {
+#qlisarwmhu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hereetaxtd .gt_asterisk {
+#qlisarwmhu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hereetaxtd .gt_indent_1 {
+#qlisarwmhu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hereetaxtd .gt_indent_2 {
+#qlisarwmhu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hereetaxtd .gt_indent_3 {
+#qlisarwmhu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hereetaxtd .gt_indent_4 {
+#qlisarwmhu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hereetaxtd .gt_indent_5 {
+#qlisarwmhu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hereetaxtd .katex-display {
+#qlisarwmhu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hereetaxtd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qlisarwmhu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -582,23 +582,23 @@ gt(dframe) %>%
 
 
 ```{=html}
-<div id="xgqdjsmnoi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xgqdjsmnoi table {
+<div id="juiooeiyzh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#juiooeiyzh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xgqdjsmnoi thead, #xgqdjsmnoi tbody, #xgqdjsmnoi tfoot, #xgqdjsmnoi tr, #xgqdjsmnoi td, #xgqdjsmnoi th {
+#juiooeiyzh thead, #juiooeiyzh tbody, #juiooeiyzh tfoot, #juiooeiyzh tr, #juiooeiyzh td, #juiooeiyzh th {
   border-style: none;
 }
 
-#xgqdjsmnoi p {
+#juiooeiyzh p {
   margin: 0;
   padding: 0;
 }
 
-#xgqdjsmnoi .gt_table {
+#juiooeiyzh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -624,12 +624,12 @@ gt(dframe) %>%
   border-left-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_caption {
+#juiooeiyzh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xgqdjsmnoi .gt_title {
+#juiooeiyzh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -641,7 +641,7 @@ gt(dframe) %>%
   border-bottom-width: 0;
 }
 
-#xgqdjsmnoi .gt_subtitle {
+#juiooeiyzh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -653,7 +653,7 @@ gt(dframe) %>%
   border-top-width: 0;
 }
 
-#xgqdjsmnoi .gt_heading {
+#juiooeiyzh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -665,13 +665,13 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_bottom_border {
+#juiooeiyzh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_col_headings {
+#juiooeiyzh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -686,7 +686,7 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_col_heading {
+#juiooeiyzh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -706,7 +706,7 @@ gt(dframe) %>%
   overflow-x: hidden;
 }
 
-#xgqdjsmnoi .gt_column_spanner_outer {
+#juiooeiyzh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -718,15 +718,15 @@ gt(dframe) %>%
   padding-right: 4px;
 }
 
-#xgqdjsmnoi .gt_column_spanner_outer:first-child {
+#juiooeiyzh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xgqdjsmnoi .gt_column_spanner_outer:last-child {
+#juiooeiyzh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xgqdjsmnoi .gt_column_spanner {
+#juiooeiyzh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -738,11 +738,11 @@ gt(dframe) %>%
   width: 100%;
 }
 
-#xgqdjsmnoi .gt_spanner_row {
+#juiooeiyzh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xgqdjsmnoi .gt_group_heading {
+#juiooeiyzh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -768,7 +768,7 @@ gt(dframe) %>%
   text-align: left;
 }
 
-#xgqdjsmnoi .gt_empty_group_heading {
+#juiooeiyzh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -783,15 +783,15 @@ gt(dframe) %>%
   vertical-align: middle;
 }
 
-#xgqdjsmnoi .gt_from_md > :first-child {
+#juiooeiyzh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xgqdjsmnoi .gt_from_md > :last-child {
+#juiooeiyzh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xgqdjsmnoi .gt_row {
+#juiooeiyzh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -810,7 +810,7 @@ gt(dframe) %>%
   overflow-x: hidden;
 }
 
-#xgqdjsmnoi .gt_stub {
+#juiooeiyzh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -823,7 +823,7 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xgqdjsmnoi .gt_stub_row_group {
+#juiooeiyzh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -837,15 +837,15 @@ gt(dframe) %>%
   vertical-align: top;
 }
 
-#xgqdjsmnoi .gt_row_group_first td {
+#juiooeiyzh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xgqdjsmnoi .gt_row_group_first th {
+#juiooeiyzh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xgqdjsmnoi .gt_summary_row {
+#juiooeiyzh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -855,16 +855,16 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xgqdjsmnoi .gt_first_summary_row {
+#juiooeiyzh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_first_summary_row.thick {
+#juiooeiyzh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xgqdjsmnoi .gt_last_summary_row {
+#juiooeiyzh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -874,7 +874,7 @@ gt(dframe) %>%
   border-bottom-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_grand_summary_row {
+#juiooeiyzh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -884,7 +884,7 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xgqdjsmnoi .gt_first_grand_summary_row {
+#juiooeiyzh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -894,7 +894,7 @@ gt(dframe) %>%
   border-top-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_last_grand_summary_row_top {
+#juiooeiyzh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -904,11 +904,11 @@ gt(dframe) %>%
   border-bottom-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_striped {
+#juiooeiyzh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xgqdjsmnoi .gt_table_body {
+#juiooeiyzh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -917,7 +917,7 @@ gt(dframe) %>%
   border-bottom-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_footnotes {
+#juiooeiyzh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -931,7 +931,7 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_footnote {
+#juiooeiyzh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -940,7 +940,7 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xgqdjsmnoi .gt_sourcenotes {
+#juiooeiyzh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -954,7 +954,7 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#xgqdjsmnoi .gt_sourcenote {
+#juiooeiyzh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -962,72 +962,72 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xgqdjsmnoi .gt_left {
+#juiooeiyzh .gt_left {
   text-align: left;
 }
 
-#xgqdjsmnoi .gt_center {
+#juiooeiyzh .gt_center {
   text-align: center;
 }
 
-#xgqdjsmnoi .gt_right {
+#juiooeiyzh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xgqdjsmnoi .gt_font_normal {
+#juiooeiyzh .gt_font_normal {
   font-weight: normal;
 }
 
-#xgqdjsmnoi .gt_font_bold {
+#juiooeiyzh .gt_font_bold {
   font-weight: bold;
 }
 
-#xgqdjsmnoi .gt_font_italic {
+#juiooeiyzh .gt_font_italic {
   font-style: italic;
 }
 
-#xgqdjsmnoi .gt_super {
+#juiooeiyzh .gt_super {
   font-size: 65%;
 }
 
-#xgqdjsmnoi .gt_footnote_marks {
+#juiooeiyzh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xgqdjsmnoi .gt_asterisk {
+#juiooeiyzh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xgqdjsmnoi .gt_indent_1 {
+#juiooeiyzh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xgqdjsmnoi .gt_indent_2 {
+#juiooeiyzh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xgqdjsmnoi .gt_indent_3 {
+#juiooeiyzh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xgqdjsmnoi .gt_indent_4 {
+#juiooeiyzh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xgqdjsmnoi .gt_indent_5 {
+#juiooeiyzh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#xgqdjsmnoi .katex-display {
+#juiooeiyzh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#xgqdjsmnoi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#juiooeiyzh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2406,8 +2406,8 @@ detach(package:MASS, unload = TRUE)
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-31d09cacd43c8baf480d" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-31d09cacd43c8baf480d">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-0b9b93a652c000d1eca4" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-0b9b93a652c000d1eca4">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 

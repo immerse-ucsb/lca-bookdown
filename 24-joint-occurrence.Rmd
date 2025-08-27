@@ -40,7 +40,7 @@ library(ggrepel)
 
 ## Path Diagram
 
-```{r}
+```{r, echo = FALSE}
 grViz("
 digraph model {
     graph [layout=dot, overlap=true]

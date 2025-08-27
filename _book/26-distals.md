@@ -1,10 +1,6 @@
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, 
-                      warning = FALSE,
-                      message = FALSE) #Here, I have made it so that when you knit your .rmd, warnings and messages will not show up in the html markdown. 
-```
 
-# (PART) Published Manuscripts {.unnumbered}
+
+# (PART) Workflow for Published Manuscripts {.unnumbered}
 
 # Distal Outcomes (Nylund-Gibson, Grimm, & Masyn, 2019)
 
@@ -44,7 +40,8 @@ Five math attitudinal variables were used as the response indicators for the LCA
 
 ## Load Packages
 
-```{r, eval = TRUE}
+
+``` r
 library(MplusAutomation)
 library(tidyverse)
 library(here)
@@ -62,7 +59,8 @@ library(naniar)
 
 ## Data Preparation
 
-```{r}
+
+``` r
 lsay_df <- read_csv(here("distals", "data", "lsay_df.csv"))
 ```
 
@@ -70,19 +68,42 @@ lsay_df <- read_csv(here("distals", "data", "lsay_df.csv"))
 
 ## Descriptive Statistics
 
-```{r}
+
+``` r
 psych::describe(lsay_df)
+#>          vars    n  mean    sd median trimmed   mad   min
+#> enjoym      1 2668  0.67  0.47    1.0    0.71  0.00  0.00
+#> goodm       2 2670  0.69  0.46    1.0    0.74  0.00  0.00
+#> undrstdm    3 2648  0.76  0.43    1.0    0.83  0.00  0.00
+#> nervousm    4 2622  0.59  0.49    1.0    0.61  0.00  0.00
+#> scaredm     5 2651  0.69  0.46    1.0    0.73  0.00  0.00
+#> mathjob     6 2321  0.69  0.46    1.0    0.74  0.00  0.00
+#> mathirt     7 2241 58.81 12.60   59.3   58.93 13.49 26.57
+#> female      8 3116  0.48  0.50    0.0    0.47  0.00  0.00
+#>            max range  skew kurtosis   se
+#> enjoym    1.00  1.00 -0.72    -1.49 0.01
+#> goodm     1.00  1.00 -0.84    -1.30 0.01
+#> undrstdm  1.00  1.00 -1.24    -0.47 0.01
+#> nervousm  1.00  1.00 -0.36    -1.87 0.01
+#> scaredm   1.00  1.00 -0.81    -1.35 0.01
+#> mathjob   1.00  1.00 -0.81    -1.34 0.01
+#> mathirt  94.19 67.62 -0.06    -0.55 0.27
+#> female    1.00  1.00  0.09    -1.99 0.01
 ```
 
-```{r}
+
+``` r
 vis_miss(lsay_df)
 ```
+
+<img src="26-distals_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ------------------------------------------------------------------------
 
 ## Enumeration - Maysn (2017)
 
-```{r eval=FALSE}
+
+``` r
 lca_math  <- lapply(1:6, function(k) {
   lca_math_enum  <- mplusObject(
       
@@ -123,7 +144,8 @@ The distal-as-indicator approach, also called the 1-step approach because the la
 
 For this model, five math attitude variables, the gender covariate, and the two distal outcomes are included as class indicators.
 
-```{r eval=FALSE}
+
+``` r
 dasi <- lapply(1:6, function(k) {
   lca_enum  <- mplusObject(
       
@@ -156,7 +178,8 @@ dasi_enum_fit <- mplusModeler(lca_enum,
 
 ### Table of fit
 
-```{r}
+
+``` r
 source(here("functions", "extract_mplus_info.R"))
 
 # Define the directory where all of the .out files are located.
@@ -241,7 +264,8 @@ merged_table <- allFit %>%
 
 Create table:
 
-```{r}
+
+``` r
 fit_table1 <- merged_table %>%
   dplyr::select(
     Title,
@@ -338,6 +362,582 @@ fit_table1 <- merged_table %>%
 fit_table1
 ```
 
+
+```{=html}
+<div id="tykiufejzn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tykiufejzn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#tykiufejzn thead, #tykiufejzn tbody, #tykiufejzn tfoot, #tykiufejzn tr, #tykiufejzn td, #tykiufejzn th {
+  border-style: none;
+}
+
+#tykiufejzn p {
+  margin: 0;
+  padding: 0;
+}
+
+#tykiufejzn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#tykiufejzn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#tykiufejzn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#tykiufejzn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#tykiufejzn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#tykiufejzn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#tykiufejzn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#tykiufejzn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#tykiufejzn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#tykiufejzn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#tykiufejzn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#tykiufejzn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#tykiufejzn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#tykiufejzn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#tykiufejzn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tykiufejzn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#tykiufejzn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#tykiufejzn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#tykiufejzn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tykiufejzn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#tykiufejzn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tykiufejzn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#tykiufejzn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tykiufejzn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tykiufejzn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tykiufejzn .gt_left {
+  text-align: left;
+}
+
+#tykiufejzn .gt_center {
+  text-align: center;
+}
+
+#tykiufejzn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#tykiufejzn .gt_font_normal {
+  font-weight: normal;
+}
+
+#tykiufejzn .gt_font_bold {
+  font-weight: bold;
+}
+
+#tykiufejzn .gt_font_italic {
+  font-style: italic;
+}
+
+#tykiufejzn .gt_super {
+  font-size: 65%;
+}
+
+#tykiufejzn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#tykiufejzn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#tykiufejzn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#tykiufejzn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#tykiufejzn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#tykiufejzn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#tykiufejzn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#tykiufejzn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#tykiufejzn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="12" class="gt_heading gt_title gt_font_normal gt_bottom_border" style><span class='gt_from_md'><strong>Model Fit Summary Table</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></td>
+    </tr>
+    
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="Title">Classes</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="Parameters"><span class='gt_from_md'>npar</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="LL"><span class='gt_from_md'><em>LL</em></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="Perc_Convergence">% Converged</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="Replicated_LL_Perc">% Replicated</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="Model Fit Indices">
+        <div class="gt_column_spanner">Model Fit Indices</div>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="LRTs">
+        <div class="gt_column_spanner">LRTs</div>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="1" scope="col" id="Smallest Class">
+        <div class="gt_column_spanner"><span class='gt_from_md'>Smallest Class</span></div>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="BIC">BIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="aBIC">aBIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="CAIC">CAIC</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="AWE">AWE</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="T11_VLMR_PValue">VLMR</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="BLRT_PValue">BLRT</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Smallest_Class_Combined">n (%)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Title" class="gt_row gt_center">1-Class</td>
+<td headers="Parameters" class="gt_row gt_center">9</td>
+<td headers="LL" class="gt_row gt_center">−20,669.36</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">100%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">100%</td>
+<td headers="BIC" class="gt_row gt_center">41,411.11</td>
+<td headers="aBIC" class="gt_row gt_center">41,382.51</td>
+<td headers="CAIC" class="gt_row gt_center">41,420.11</td>
+<td headers="AWE" class="gt_row gt_center">41,510.51</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center">—</td>
+<td headers="BLRT_PValue" class="gt_row gt_center">—</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">3116 (100%)</td></tr>
+    <tr><td headers="Title" class="gt_row gt_center">2-Class</td>
+<td headers="Parameters" class="gt_row gt_center">18</td>
+<td headers="LL" class="gt_row gt_center">−19,655.62</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">100%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">100%</td>
+<td headers="BIC" class="gt_row gt_center">39,456.04</td>
+<td headers="aBIC" class="gt_row gt_center">39,398.85</td>
+<td headers="CAIC" class="gt_row gt_center">39,474.04</td>
+<td headers="AWE" class="gt_row gt_center">39,654.84</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center"><.001</td>
+<td headers="BLRT_PValue" class="gt_row gt_center"><.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">1034 (33.2%)</td></tr>
+    <tr><td headers="Title" class="gt_row gt_center">3-Class</td>
+<td headers="Parameters" class="gt_row gt_center">27</td>
+<td headers="LL" class="gt_row gt_center">−19,420.74</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">99%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">100%</td>
+<td headers="BIC" class="gt_row gt_center">39,058.68</td>
+<td headers="aBIC" class="gt_row gt_center">38,972.89</td>
+<td headers="CAIC" class="gt_row gt_center">39,085.68</td>
+<td headers="AWE" class="gt_row gt_center" style="font-weight: bold;">39,356.88</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center"><.001</td>
+<td headers="BLRT_PValue" class="gt_row gt_center"><.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">447 (14.4%)</td></tr>
+    <tr><td headers="Title" class="gt_row gt_center">4-Class</td>
+<td headers="Parameters" class="gt_row gt_center">36</td>
+<td headers="LL" class="gt_row gt_center">−19,349.10</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">80%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">89%</td>
+<td headers="BIC" class="gt_row gt_center" style="font-weight: bold;">38,987.80</td>
+<td headers="aBIC" class="gt_row gt_center" style="font-weight: bold;">38,873.41</td>
+<td headers="CAIC" class="gt_row gt_center" style="font-weight: bold;">39,023.80</td>
+<td headers="AWE" class="gt_row gt_center">39,385.39</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center" style="font-weight: bold;"><.001</td>
+<td headers="BLRT_PValue" class="gt_row gt_center"><.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">491 (15.7%)</td></tr>
+    <tr><td headers="Title" class="gt_row gt_center">5-Class</td>
+<td headers="Parameters" class="gt_row gt_center">45</td>
+<td headers="LL" class="gt_row gt_center">−19,331.73</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">34%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">35%</td>
+<td headers="BIC" class="gt_row gt_center">39,025.45</td>
+<td headers="aBIC" class="gt_row gt_center">38,882.47</td>
+<td headers="CAIC" class="gt_row gt_center">39,070.45</td>
+<td headers="AWE" class="gt_row gt_center">39,522.45</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center">0.29</td>
+<td headers="BLRT_PValue" class="gt_row gt_center"><.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">182 (5.8%)</td></tr>
+    <tr><td headers="Title" class="gt_row gt_center">6-Class</td>
+<td headers="Parameters" class="gt_row gt_center">54</td>
+<td headers="LL" class="gt_row gt_center">−19,313.44</td>
+<td headers="Perc_Convergence" class="gt_row gt_center">31%</td>
+<td headers="Replicated_LL_Perc" class="gt_row gt_center">42%</td>
+<td headers="BIC" class="gt_row gt_center">39,061.27</td>
+<td headers="aBIC" class="gt_row gt_center">38,889.69</td>
+<td headers="CAIC" class="gt_row gt_center">39,115.27</td>
+<td headers="AWE" class="gt_row gt_center">39,657.66</td>
+<td headers="T11_VLMR_PValue" class="gt_row gt_center">0.12</td>
+<td headers="BLRT_PValue" class="gt_row gt_center"><.001</td>
+<td headers="Smallest_Class_Combined" class="gt_row gt_center">258 (8.3%)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="12"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'><em>Note.</em> Par = Parameters; <em>LL</em> = model log likelihood;
+BIC = Bayesian information criterion;
+aBIC = sample size adjusted BIC; CAIC = consistent Akaike information criterion;
+AWE = approximate weight of evidence criterion;
+BLRT = bootstrapped likelihood ratio test p-value;
+VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
+<em>cmPk</em> = approximate correct model probability;
+Smallest K = Number of cases in the smallest class (n (%));
+LL Replicated = Whether the best log-likelihood was replicated.</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+```
+
+
 ------------------------------------------------------------------------
 
 The results from the distal-as-indicator approach suggested a 4-class model as well. Though there were some differences in the emergent latent classes compared to the classes from the unconditional LCA model without distals, the substantive interpretation would largely remain the same with respect to the math attitudinal variables.
@@ -354,17 +954,21 @@ The distal mean of the continuous outcome variable (in this case, *math IRT scor
 
 ### Conditional Item Probability Plot
 
-```{r warning=FALSE, fig.width=8}
+
+``` r
 source(here("functions", "plot_lca.R"))
 
 plot_lca(model_name = output_dasi$c4_dasi.out)
 ```
 
+<img src="26-distals_files/figure-html/unnamed-chunk-9-1.png" width="768" />
+
 ------------------------------------------------------------------------
 
 ## Adding constraints to test the distal means
 
-```{r eval=FALSE}
+
+``` r
 dasi_cons  <- mplusObject(
   TITLE = "D as I with constraints", 
   VARIABLE = 
@@ -458,7 +1062,8 @@ This step is done after class enumeration. In this example, the four class model
 
 In the `SAVEDATA` command, we can save the posterior probabilities and the modal class assignment for steps two and three.
 
-```{r eval=FALSE}
+
+``` r
 ml_step1  <- mplusObject(
   TITLE = "Step 1 ", 
   VARIABLE = 
@@ -496,7 +1101,8 @@ ml_step1_fit <- mplusModeler(ml_step1,
 
 ### Step 2 - Determine Measurement Error
 
-```{r eval=FALSE}
+
+``` r
 output_lsay <- readModels(here("distals","three_step","ML_step1.out"))
 
 logit_cprobs <- as.data.frame(output_lsay[["class_counts"]]
@@ -511,7 +1117,8 @@ colnames(savedata_lsay)[colnames(savedata_lsay)=="C"] <- "N"
 
 ### Step 3 - Add Auxiliary Variables
 
-```{r eval=FALSE}
+
+``` r
 ML_step3  <- mplusObject(
   TITLE = "Step3 ", 
   
@@ -627,7 +1234,8 @@ The BCH method is very similar to the three-step approach except that instead of
 
 ### Step 1 - Class Enumeration w/ Auxiliary Specification and BCH Weights
 
-```{r, eval=FALSE}
+
+``` r
 step1_bch  <- mplusObject(
   TITLE = "Step 1 - BCH Method", 
   VARIABLE = 
@@ -671,7 +1279,8 @@ step1_fit_bch <- mplusModeler(step1_bch,
 
 Extract saved dataset which is part of the mplusObject "step1_fit_bch"
 
-```{r}
+
+``` r
 output_bch <- readModels(here("distals","three_step","BCH_step1.out"))
 
 savedata_bch <- as.data.frame(output_bch[["savedata"]])
@@ -679,7 +1288,8 @@ savedata_bch <- as.data.frame(output_bch[["savedata"]])
 
 Rename the column in savedata named "C" and change to "N"
 
-```{r}
+
+``` r
 colnames(savedata_bch)[colnames(savedata_bch)=="C"] <- "N"
 ```
 
@@ -687,7 +1297,8 @@ colnames(savedata_bch)[colnames(savedata_bch)=="C"] <- "N"
 
 #### Step 3 - Add Auxiliary Variables and BCH Weights
 
-```{r eval=FALSE}
+
+``` r
 step3_bch  <- mplusObject(
   TITLE = "Step3 - BCH Method", 
   
