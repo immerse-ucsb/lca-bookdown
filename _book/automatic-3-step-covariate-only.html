@@ -96,7 +96,6 @@
 <li><a class="" href="automatic-3-step-distal-only.html"><span class="header-section-number">17</span> Automatic 3-Step Distal Only</a></li>
 <li class="book-part">Latent Transition Analysis</li>
 <li><a class="" href="lta.html"><span class="header-section-number">18</span> Enumeration</a></li>
-<li class="book-part">Latent Transition Analysis</li>
 <li><a class="" href="measurement-invariance.html"><span class="header-section-number">19</span> Measurement Invariance</a></li>
 <li><a class="" href="adding-covariates.html"><span class="header-section-number">20</span> Adding Covariates</a></li>
 <li class="book-part">Extensions of Latent Class Models</li>
@@ -171,8 +170,8 @@
 </h3>
 <p><strong>R3STEP</strong> incorporates latent class predictors with mixture models. However, it is recommended to use the manual three-step.</p>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-19afcf04cdab44e274e7" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-19afcf04cdab44e274e7">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-993c290615cd9fa8844c" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-993c290615cd9fa8844c">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <div id="run-the-r3step-model-with-gpa-as-the-latent-class-predictor-1" class="section level4" number="16.2.1.1">
 <h4>
 <span class="header-section-number">16.2.1.1</span> Run the <strong>R3STEP</strong> model with <code>gpa</code> as the latent class predictor<a class="anchor" aria-label="anchor" href="#run-the-r3step-model-with-gpa-as-the-latent-class-predictor-1"><i class="fas fa-link"></i></a>

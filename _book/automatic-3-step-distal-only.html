@@ -96,7 +96,6 @@
 <li><a class="active" href="automatic-3-step-distal-only.html"><span class="header-section-number">17</span> Automatic 3-Step Distal Only</a></li>
 <li class="book-part">Latent Transition Analysis</li>
 <li><a class="" href="lta.html"><span class="header-section-number">18</span> Enumeration</a></li>
-<li class="book-part">Latent Transition Analysis</li>
 <li><a class="" href="measurement-invariance.html"><span class="header-section-number">19</span> Measurement Invariance</a></li>
 <li><a class="" href="adding-covariates.html"><span class="header-section-number">20</span> Adding Covariates</a></li>
 <li class="book-part">Extensions of Latent Class Models</li>
@@ -171,8 +170,8 @@
 </h3>
 <p><strong>DU3STEP</strong> incorporates distal outcome variables (assumed to have unequal means and variances) with mixture models.</p>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-cd0fc7c53e58b2026311" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-cd0fc7c53e58b2026311">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-838823ffbd68c10db51c" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-838823ffbd68c10db51c">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    bully -> GPA [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <div id="run-the-du3step-model-with-gpa-as-distal-outcome-1" class="section level4" number="17.2.1.1">
 <h4>
 <span class="header-section-number">17.2.1.1</span> Run the <strong>DU3step</strong> model with <code>gpa</code> as distal outcome<a class="anchor" aria-label="anchor" href="#run-the-du3step-model-with-gpa-as-distal-outcome-1"><i class="fas fa-link"></i></a>
