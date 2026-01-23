@@ -51,7 +51,8 @@ c_prob <- data.frame(chosen_model$parameters$probability.scale) %>%
   dplyr::select(est, LatentClass, param) %>%
   rename(item = param, prob = est, k = LatentClass) %>%
   mutate(# Adjust probabilities by setting a minimum of 0.01 and a maximum of 0.99
-    prob = pmin(pmax(prob, 0.01), 0.99))
+    prob = pmin(pmax(prob, 0.01), 0.99),
+    prob = as.numeric(prob))
 
 
 # Relative class sizes
@@ -128,23 +129,23 @@ formatted_results %>%
 
 
 ```{=html}
-<div id="rnvezxmatc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rnvezxmatc table {
+<div id="kgemfnvkah" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kgemfnvkah table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rnvezxmatc thead, #rnvezxmatc tbody, #rnvezxmatc tfoot, #rnvezxmatc tr, #rnvezxmatc td, #rnvezxmatc th {
+#kgemfnvkah thead, #kgemfnvkah tbody, #kgemfnvkah tfoot, #kgemfnvkah tr, #kgemfnvkah td, #kgemfnvkah th {
   border-style: none;
 }
 
-#rnvezxmatc p {
+#kgemfnvkah p {
   margin: 0;
   padding: 0;
 }
 
-#rnvezxmatc .gt_table {
+#kgemfnvkah .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -170,12 +171,12 @@ formatted_results %>%
   border-left-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_caption {
+#kgemfnvkah .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rnvezxmatc .gt_title {
+#kgemfnvkah .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -187,7 +188,7 @@ formatted_results %>%
   border-bottom-width: 0;
 }
 
-#rnvezxmatc .gt_subtitle {
+#kgemfnvkah .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -199,7 +200,7 @@ formatted_results %>%
   border-top-width: 0;
 }
 
-#rnvezxmatc .gt_heading {
+#kgemfnvkah .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -211,13 +212,13 @@ formatted_results %>%
   border-right-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_bottom_border {
+#kgemfnvkah .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_col_headings {
+#kgemfnvkah .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -232,7 +233,7 @@ formatted_results %>%
   border-right-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_col_heading {
+#kgemfnvkah .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -252,7 +253,7 @@ formatted_results %>%
   overflow-x: hidden;
 }
 
-#rnvezxmatc .gt_column_spanner_outer {
+#kgemfnvkah .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -264,15 +265,15 @@ formatted_results %>%
   padding-right: 4px;
 }
 
-#rnvezxmatc .gt_column_spanner_outer:first-child {
+#kgemfnvkah .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rnvezxmatc .gt_column_spanner_outer:last-child {
+#kgemfnvkah .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rnvezxmatc .gt_column_spanner {
+#kgemfnvkah .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -284,11 +285,11 @@ formatted_results %>%
   width: 100%;
 }
 
-#rnvezxmatc .gt_spanner_row {
+#kgemfnvkah .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rnvezxmatc .gt_group_heading {
+#kgemfnvkah .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -314,7 +315,7 @@ formatted_results %>%
   text-align: left;
 }
 
-#rnvezxmatc .gt_empty_group_heading {
+#kgemfnvkah .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -329,15 +330,15 @@ formatted_results %>%
   vertical-align: middle;
 }
 
-#rnvezxmatc .gt_from_md > :first-child {
+#kgemfnvkah .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rnvezxmatc .gt_from_md > :last-child {
+#kgemfnvkah .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rnvezxmatc .gt_row {
+#kgemfnvkah .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -356,7 +357,7 @@ formatted_results %>%
   overflow-x: hidden;
 }
 
-#rnvezxmatc .gt_stub {
+#kgemfnvkah .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -369,7 +370,7 @@ formatted_results %>%
   padding-right: 5px;
 }
 
-#rnvezxmatc .gt_stub_row_group {
+#kgemfnvkah .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -383,15 +384,15 @@ formatted_results %>%
   vertical-align: top;
 }
 
-#rnvezxmatc .gt_row_group_first td {
+#kgemfnvkah .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rnvezxmatc .gt_row_group_first th {
+#kgemfnvkah .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rnvezxmatc .gt_summary_row {
+#kgemfnvkah .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -401,16 +402,16 @@ formatted_results %>%
   padding-right: 5px;
 }
 
-#rnvezxmatc .gt_first_summary_row {
+#kgemfnvkah .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_first_summary_row.thick {
+#kgemfnvkah .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rnvezxmatc .gt_last_summary_row {
+#kgemfnvkah .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -420,7 +421,7 @@ formatted_results %>%
   border-bottom-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_grand_summary_row {
+#kgemfnvkah .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -430,7 +431,7 @@ formatted_results %>%
   padding-right: 5px;
 }
 
-#rnvezxmatc .gt_first_grand_summary_row {
+#kgemfnvkah .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -440,7 +441,7 @@ formatted_results %>%
   border-top-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_last_grand_summary_row_top {
+#kgemfnvkah .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -450,11 +451,11 @@ formatted_results %>%
   border-bottom-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_striped {
+#kgemfnvkah .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rnvezxmatc .gt_table_body {
+#kgemfnvkah .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -463,7 +464,7 @@ formatted_results %>%
   border-bottom-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_footnotes {
+#kgemfnvkah .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -477,7 +478,7 @@ formatted_results %>%
   border-right-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_footnote {
+#kgemfnvkah .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -486,7 +487,7 @@ formatted_results %>%
   padding-right: 5px;
 }
 
-#rnvezxmatc .gt_sourcenotes {
+#kgemfnvkah .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -500,7 +501,7 @@ formatted_results %>%
   border-right-color: #D3D3D3;
 }
 
-#rnvezxmatc .gt_sourcenote {
+#kgemfnvkah .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -508,72 +509,72 @@ formatted_results %>%
   padding-right: 5px;
 }
 
-#rnvezxmatc .gt_left {
+#kgemfnvkah .gt_left {
   text-align: left;
 }
 
-#rnvezxmatc .gt_center {
+#kgemfnvkah .gt_center {
   text-align: center;
 }
 
-#rnvezxmatc .gt_right {
+#kgemfnvkah .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rnvezxmatc .gt_font_normal {
+#kgemfnvkah .gt_font_normal {
   font-weight: normal;
 }
 
-#rnvezxmatc .gt_font_bold {
+#kgemfnvkah .gt_font_bold {
   font-weight: bold;
 }
 
-#rnvezxmatc .gt_font_italic {
+#kgemfnvkah .gt_font_italic {
   font-style: italic;
 }
 
-#rnvezxmatc .gt_super {
+#kgemfnvkah .gt_super {
   font-size: 65%;
 }
 
-#rnvezxmatc .gt_footnote_marks {
+#kgemfnvkah .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rnvezxmatc .gt_asterisk {
+#kgemfnvkah .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rnvezxmatc .gt_indent_1 {
+#kgemfnvkah .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rnvezxmatc .gt_indent_2 {
+#kgemfnvkah .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rnvezxmatc .gt_indent_3 {
+#kgemfnvkah .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rnvezxmatc .gt_indent_4 {
+#kgemfnvkah .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rnvezxmatc .gt_indent_5 {
+#kgemfnvkah .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rnvezxmatc .katex-display {
+#kgemfnvkah .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rnvezxmatc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kgemfnvkah div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -595,47 +596,47 @@ formatted_results %>%
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="item" class="gt_row gt_left"><span class='gt_from_md'>REPORT_DIS</span></td>
-<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'><strong>0.022</strong></span></td>
-<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>0.621</span></td>
-<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>0.621</span></td>
-<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>28.150</strong></span></td>
-<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>28.150</strong></span></td>
-<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>1.000</span></td></tr>
+<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'><strong>28.150</strong></span></td>
+<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>28.150</strong></span></td>
+<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>45.315</strong></span></td>
+<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>1.000</span></td>
+<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>1.610</span></td>
+<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>1.610</span></td></tr>
     <tr><td headers="item" class="gt_row gt_left"><span class='gt_from_md'>REPORT_RAC</span></td>
-<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'><strong>0.012</strong></span></td>
-<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>4.665</span></td>
-<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>2.571</span></td>
-<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>388.685</strong></span></td>
-<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>214.191</strong></span></td>
-<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>0.551</span></td></tr>
+<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'><strong>388.685</strong></span></td>
+<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>214.191</strong></span></td>
+<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>83.321</strong></span></td>
+<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>0.551</span></td>
+<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>0.214</span></td>
+<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>0.389</span></td></tr>
     <tr><td headers="item" class="gt_row gt_left"><span class='gt_from_md'>REPORT_SEX</span></td>
-<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'><strong>0.050</strong></span></td>
-<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>0.453</span></td>
-<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>4.527</span></td>
-<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>9.018</strong></span></td>
-<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>90.139</strong></span></td>
-<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>9.995</strong></span></td></tr>
+<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'><strong>9.018</strong></span></td>
+<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>90.139</strong></span></td>
+<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>19.912</strong></span></td>
+<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>9.995</strong></span></td>
+<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>2.208</span></td>
+<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>0.221</span></td></tr>
     <tr><td headers="item" class="gt_row gt_left"><span class='gt_from_md'>COUNSELORS</span></td>
-<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'><strong>0.007</strong></span></td>
-<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>0.000</strong></span></td>
-<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>0.016</strong></span></td>
-<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>0.014</strong></span></td>
-<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>2.161</span></td>
-<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>158.812</strong></span></td></tr>
+<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'><strong>0.014</strong></span></td>
+<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>2.161</span></td>
+<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>133.394</strong></span></td>
+<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>158.812</strong></span></td>
+<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>9801.000</strong></span></td>
+<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>61.714</strong></span></td></tr>
     <tr><td headers="item" class="gt_row gt_left"><span class='gt_from_md'>PSYCH_FTE</span></td>
-<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'>0.842</span></td>
-<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>0.547</span></td>
-<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>168.568</strong></span></td>
-<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>0.649</span></td>
-<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>200.094</strong></span></td>
-<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>308.407</strong></span></td></tr>
+<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'>0.649</span></td>
+<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>200.094</strong></span></td>
+<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>1.187</span></td>
+<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>308.407</strong></span></td>
+<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>1.830</span></td>
+<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>0.006</strong></span></td></tr>
     <tr><td headers="item" class="gt_row gt_left"><span class='gt_from_md'>LAW_FTE</span></td>
-<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'>0.262</span></td>
-<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>0.277</span></td>
-<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>9.434</strong></span></td>
-<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'>1.059</span></td>
-<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>36.061</strong></span></td>
-<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>34.065</strong></span></td></tr>
+<td headers="Class 1 vs Class 2" class="gt_row gt_right"><span class='gt_from_md'>1.059</span></td>
+<td headers="Class 1 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>36.061</strong></span></td>
+<td headers="Class 1 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>3.823</span></td>
+<td headers="Class 2 vs Class 3" class="gt_row gt_right"><span class='gt_from_md'><strong>34.065</strong></span></td>
+<td headers="Class 2 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'>3.611</span></td>
+<td headers="Class 3 vs Class 4" class="gt_row gt_right"><span class='gt_from_md'><strong>0.106</strong></span></td></tr>
   </tbody>
   
   <tfoot class="gt_footnotes">
@@ -809,23 +810,23 @@ gt_table
 
 
 ```{=html}
-<div id="riystwpvee" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#riystwpvee table {
+<div id="rkouljgvxy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rkouljgvxy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#riystwpvee thead, #riystwpvee tbody, #riystwpvee tfoot, #riystwpvee tr, #riystwpvee td, #riystwpvee th {
+#rkouljgvxy thead, #rkouljgvxy tbody, #rkouljgvxy tfoot, #rkouljgvxy tr, #rkouljgvxy td, #rkouljgvxy th {
   border-style: none;
 }
 
-#riystwpvee p {
+#rkouljgvxy p {
   margin: 0;
   padding: 0;
 }
 
-#riystwpvee .gt_table {
+#rkouljgvxy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -851,12 +852,12 @@ gt_table
   border-left-color: #D3D3D3;
 }
 
-#riystwpvee .gt_caption {
+#rkouljgvxy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#riystwpvee .gt_title {
+#rkouljgvxy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -868,7 +869,7 @@ gt_table
   border-bottom-width: 0;
 }
 
-#riystwpvee .gt_subtitle {
+#rkouljgvxy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -880,7 +881,7 @@ gt_table
   border-top-width: 0;
 }
 
-#riystwpvee .gt_heading {
+#rkouljgvxy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -892,13 +893,13 @@ gt_table
   border-right-color: #D3D3D3;
 }
 
-#riystwpvee .gt_bottom_border {
+#rkouljgvxy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#riystwpvee .gt_col_headings {
+#rkouljgvxy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -913,7 +914,7 @@ gt_table
   border-right-color: #D3D3D3;
 }
 
-#riystwpvee .gt_col_heading {
+#rkouljgvxy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -933,7 +934,7 @@ gt_table
   overflow-x: hidden;
 }
 
-#riystwpvee .gt_column_spanner_outer {
+#rkouljgvxy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -945,15 +946,15 @@ gt_table
   padding-right: 4px;
 }
 
-#riystwpvee .gt_column_spanner_outer:first-child {
+#rkouljgvxy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#riystwpvee .gt_column_spanner_outer:last-child {
+#rkouljgvxy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#riystwpvee .gt_column_spanner {
+#rkouljgvxy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -965,11 +966,11 @@ gt_table
   width: 100%;
 }
 
-#riystwpvee .gt_spanner_row {
+#rkouljgvxy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#riystwpvee .gt_group_heading {
+#rkouljgvxy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -995,7 +996,7 @@ gt_table
   text-align: left;
 }
 
-#riystwpvee .gt_empty_group_heading {
+#rkouljgvxy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1010,15 +1011,15 @@ gt_table
   vertical-align: middle;
 }
 
-#riystwpvee .gt_from_md > :first-child {
+#rkouljgvxy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#riystwpvee .gt_from_md > :last-child {
+#rkouljgvxy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#riystwpvee .gt_row {
+#rkouljgvxy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1037,7 +1038,7 @@ gt_table
   overflow-x: hidden;
 }
 
-#riystwpvee .gt_stub {
+#rkouljgvxy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1050,7 +1051,7 @@ gt_table
   padding-right: 5px;
 }
 
-#riystwpvee .gt_stub_row_group {
+#rkouljgvxy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1064,15 +1065,15 @@ gt_table
   vertical-align: top;
 }
 
-#riystwpvee .gt_row_group_first td {
+#rkouljgvxy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#riystwpvee .gt_row_group_first th {
+#rkouljgvxy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#riystwpvee .gt_summary_row {
+#rkouljgvxy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1082,16 +1083,16 @@ gt_table
   padding-right: 5px;
 }
 
-#riystwpvee .gt_first_summary_row {
+#rkouljgvxy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#riystwpvee .gt_first_summary_row.thick {
+#rkouljgvxy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#riystwpvee .gt_last_summary_row {
+#rkouljgvxy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1101,7 +1102,7 @@ gt_table
   border-bottom-color: #D3D3D3;
 }
 
-#riystwpvee .gt_grand_summary_row {
+#rkouljgvxy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1111,7 +1112,7 @@ gt_table
   padding-right: 5px;
 }
 
-#riystwpvee .gt_first_grand_summary_row {
+#rkouljgvxy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1121,7 +1122,7 @@ gt_table
   border-top-color: #D3D3D3;
 }
 
-#riystwpvee .gt_last_grand_summary_row_top {
+#rkouljgvxy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1131,11 +1132,11 @@ gt_table
   border-bottom-color: #D3D3D3;
 }
 
-#riystwpvee .gt_striped {
+#rkouljgvxy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#riystwpvee .gt_table_body {
+#rkouljgvxy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1144,7 +1145,7 @@ gt_table
   border-bottom-color: #D3D3D3;
 }
 
-#riystwpvee .gt_footnotes {
+#rkouljgvxy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1158,7 +1159,7 @@ gt_table
   border-right-color: #D3D3D3;
 }
 
-#riystwpvee .gt_footnote {
+#rkouljgvxy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1167,7 +1168,7 @@ gt_table
   padding-right: 5px;
 }
 
-#riystwpvee .gt_sourcenotes {
+#rkouljgvxy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1181,7 +1182,7 @@ gt_table
   border-right-color: #D3D3D3;
 }
 
-#riystwpvee .gt_sourcenote {
+#rkouljgvxy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1189,72 +1190,72 @@ gt_table
   padding-right: 5px;
 }
 
-#riystwpvee .gt_left {
+#rkouljgvxy .gt_left {
   text-align: left;
 }
 
-#riystwpvee .gt_center {
+#rkouljgvxy .gt_center {
   text-align: center;
 }
 
-#riystwpvee .gt_right {
+#rkouljgvxy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#riystwpvee .gt_font_normal {
+#rkouljgvxy .gt_font_normal {
   font-weight: normal;
 }
 
-#riystwpvee .gt_font_bold {
+#rkouljgvxy .gt_font_bold {
   font-weight: bold;
 }
 
-#riystwpvee .gt_font_italic {
+#rkouljgvxy .gt_font_italic {
   font-style: italic;
 }
 
-#riystwpvee .gt_super {
+#rkouljgvxy .gt_super {
   font-size: 65%;
 }
 
-#riystwpvee .gt_footnote_marks {
+#rkouljgvxy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#riystwpvee .gt_asterisk {
+#rkouljgvxy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#riystwpvee .gt_indent_1 {
+#rkouljgvxy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#riystwpvee .gt_indent_2 {
+#rkouljgvxy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#riystwpvee .gt_indent_3 {
+#rkouljgvxy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#riystwpvee .gt_indent_4 {
+#rkouljgvxy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#riystwpvee .gt_indent_5 {
+#rkouljgvxy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#riystwpvee .katex-display {
+#rkouljgvxy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#riystwpvee div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rkouljgvxy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

@@ -11,7 +11,7 @@ classes = c(5);
 ANALYSIS:
 estimator = mlr; 
     type = mixture;
-    starts = 200 100; 
+    starts = 500 100; 
     processors = 10;
 OUTPUT:
 sampstat residual tech11 tech14;

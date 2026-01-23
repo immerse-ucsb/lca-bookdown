@@ -53,7 +53,8 @@ c_prob <- data.frame(chosen_model$parameters$probability.scale) %>%
   dplyr::select(est, LatentClass, param) %>%
   rename(item = param, prob = est, k = LatentClass) %>%
   mutate(# Adjust probabilities by setting a minimum of 0.01 and a maximum of 0.99
-    prob = pmin(pmax(prob, 0.01), 0.99))
+    prob = pmin(pmax(prob, 0.01), 0.99),
+    prob = as.numeric(prob))
 
 
 # Relative class sizes

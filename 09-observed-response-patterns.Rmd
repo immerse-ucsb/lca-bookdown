@@ -95,7 +95,11 @@ patterns <- read_table(here("mplus", "resp_patterns.dat"),
 names <- names(readModels(here("mplus", "patterns.out"))[['savedata']]) 
 
 # Add the names back to the dataset
-colnames(patterns) <- c("Frequency", names)  
+colnames(patterns) <- c("Frequency", names) 
+
+# Rename the variable 
+patterns <- patterns %>% 
+  rename(C = dplyr::any_of(c("C", "MLCC")))
 ```
 
 Create a table with the top 5 unconditional response pattern, then top of conditional response pattern for each modal class assignment
@@ -103,7 +107,8 @@ Create a table with the top 5 unconditional response pattern, then top of condit
 ```{r,eval=TRUE}
 # Order responses by highest frequency
 order_highest <- patterns %>% 
-  arrange(desc(Frequency)) 
+  rename(C = dplyr::any_of(c("C", "MLCC"))) %>% 
+  arrange(desc(Frequency))
 
 # Loop `patterns` data to list top 5 conditional response patterns for each class
 loop_cond  <- lapply(1:max(patterns$C), function(k) {       

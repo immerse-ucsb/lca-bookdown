@@ -1,6 +1,6 @@
-Mplus VERSION 8.11
+Mplus VERSION 9
 MUTHEN & MUTHEN
-08/27/2025  11:30 AM
+01/22/2026   3:02 PM
 
 INPUT INSTRUCTIONS
 
@@ -75,7 +75,7 @@ Optimization Specifications for the EM Algorithm
     Relative loglikelihood change                        0.100D-06
     Derivative                                           0.100D-05
 Optimization Specifications for the M step of the EM Algorithm for
-Categorical Latent variables
+Categorical Latent Variables
   Number of M step iterations                                    1
   M step convergence criterion                           0.100D-05
   Basis for M step termination                           ITERATION
@@ -382,6 +382,25 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C
+                   Latent class
+                     1      2
+     LIEEXAM
+       Category 1  0.423  0.983
+       Category 2  0.577  0.017
+     LIEPAPER
+       Category 1  0.411  0.971
+       Category 2  0.589  0.029
+     FRAUD
+       Category 1  0.784  0.963
+       Category 2  0.216  0.037
+     COPYEXAM
+       Category 1  0.624  0.818
+       Category 2  0.376  0.182
+
+
 RESULTS IN PROBABILITY SCALE
 
                                                     Two-Tailed
@@ -418,6 +437,24 @@ Latent Class 2
     Category 2         0.182      0.027      6.844      0.000
 
 
+EQUALITY TESTS OF PROBABILITIES ACROSS THE LATENT CLASSES
+
+                    Chi-Square     P-Value   Degrees of Freedom
+
+
+LIEEXAM
+  Overall test          7.355      0.007        1
+
+LIEPAPER
+  Overall test         14.026      0.000        1
+
+FRAUD
+  Overall test          7.713      0.005        1
+
+COPYEXAM
+  Overall test          3.726      0.054        1
+
+
 LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
 
                                                 95% C.I.
@@ -435,8 +472,8 @@ Latent Class 1 Compared to Latent Class 2
     Category > 1       2.713      1.403      0.985      7.476
 
 
-TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS USING
-THE 3-STEP PROCEDURE
+CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS USING
+THE 3-STEP (FIXED LOGITS) PROCEDURE
 
    WARNING:  LISTWISE DELETION IS APPLIED TO THE AUXILIARY VARIABLES IN THE
    ANALYSIS.  TO AVOID LISTWISE DELETION, DATA IMPUTATION CAN BE USED
@@ -462,8 +499,8 @@ Parameterization using Reference Class 1
     C#2                0.241      0.460      0.523      0.601
 
 
-ODDS RATIOS FOR TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS
-USING THE 3-STEP PROCEDURE
+ODDS RATIOS FOR CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS
+USING THE 3-STEP (FIXED LOGITS) PROCEDURE
 
                                                 95% C.I.
                     Estimate       S.E. Lower 2.5% Upper 2.5%
@@ -534,9 +571,9 @@ The following plots are available:
   Scatterplots (sample values)
   Sample proportions and estimated probabilities
 
-     Beginning Time:  11:30:41
-        Ending Time:  11:30:50
-       Elapsed Time:  00:00:09
+     Beginning Time:  15:02:04
+        Ending Time:  15:02:14
+       Elapsed Time:  00:00:10
 
 
 
@@ -549,4 +586,4 @@ Fax: (310) 391-8971
 Web: www.StatModel.com
 Support: Support@StatModel.com
 
-Copyright (c) 1998-2024 Muthen & Muthen
+Copyright (c) 1998-2025 Muthen & Muthen

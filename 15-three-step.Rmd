@@ -500,7 +500,9 @@ ggsave(here("figures","ManualDistal_Plot.jpeg"),
  
 #### Covariates Relations
 
-```{r}
+As of 1/1/2026, this code is outdated. See here: https://github.com/michaelhallquist/MplusAutomation/issues/228
+
+```{r, eval = FALSE}
 modelParams <- readModels(here("three_step", "manual_3step", "three.out"))
 
 # Extract information as data frame

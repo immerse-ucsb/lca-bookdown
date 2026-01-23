@@ -1,6 +1,6 @@
-Mplus VERSION 8.11
+Mplus VERSION 9
 MUTHEN & MUTHEN
-08/22/2025   4:09 PM
+01/20/2026   8:47 PM
 
 INPUT INSTRUCTIONS
 
@@ -17,7 +17,7 @@ INPUT INSTRUCTIONS
   ANALYSIS:
   estimator = mlr;
       type = mixture;
-      starts = 200 100;
+      starts = 500 100;
       processors = 10;
   OUTPUT:
   sampstat residual tech11 tech14;
@@ -77,7 +77,7 @@ Optimization Specifications for the EM Algorithm
     Relative loglikelihood change                        0.100D-06
     Derivative                                           0.100D-05
 Optimization Specifications for the M step of the EM Algorithm for
-Categorical Latent variables
+Categorical Latent Variables
   Number of M step iterations                                    1
   M step convergence criterion                           0.100D-05
   Basis for M step termination                           ITERATION
@@ -94,7 +94,7 @@ Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 Random Starts Specifications
-  Number of initial stage random starts                        200
+  Number of initial stage random starts                        500
   Number of final stage optimizations                          100
   Number of initial stage iterations                            10
   Initial stage convergence criterion                    0.100D+01
@@ -165,64 +165,94 @@ RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
 
 Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
 
-           -5194.136  848331           137
-           -5194.136  902278           21
-           -5194.136  804561           59
-           -5194.136  168762           200
+           -5194.136  535063           329
            -5194.136  437181           135
+           -5194.136  804561           59
+           -5194.136  769907           457
            -5194.136  93468            3
-           -5194.136  107446           12
            -5194.136  415502           194
-           -5194.136  100874           108
-           -5194.136  195873           6
+           -5194.136  614535           449
+           -5194.136  580405           286
            -5194.136  608496           4
-           -5194.136  967237           48
+           -5194.136  100874           108
+           -5194.136  637095           207
+           -5194.136  741484           441
+           -5194.136  614009           317
+           -5194.136  342019           301
+           -5194.136  92689            304
+           -5194.136  568405           233
+           -5194.136  354624           448
+           -5194.136  391949           295
+           -5194.136  835767           210
+           -5194.136  267983           228
+           -5194.136  471040           403
            -5194.136  268217           83
            -5194.136  887676           22
+           -5194.136  539751           459
            -5194.136  471398           74
            -5194.136  462953           7
+           -5194.136  484687           306
+           -5194.136  951709           348
            -5194.136  751054           117
-           -5194.136  957392           79
            -5194.136  587946           120
-           -5194.136  207896           25
+           -5194.136  153394           429
+           -5194.136  963053           43
            -5194.136  741888           138
-           -5194.136  830392           35
+           -5194.136  175199           247
+           -5194.136  216565           474
+           -5194.136  922042           492
+           -5194.136  988761           475
            -5194.136  784664           75
            -5194.136  340112           126
+           -5194.136  970689           266
            -5194.136  458181           189
-           -5194.136  150531           154
            -5194.136  674171           195
+           -5194.136  923437           398
            -5194.136  650371           14
-           -5194.136  76974            16
            -5194.136  848163           47
+           -5194.136  655497           376
            -5194.136  645664           39
            -5194.136  259507           53
            -5194.136  464179           106
-           -5194.136  903369           134
+           -5194.136  68850            462
+           -5194.136  875667           367
+           -5194.136  595153           230
+           -5194.136  395754           388
            -5194.136  972873           157
            -5194.136  789985           67
            -5194.136  533738           11
-           -5194.136  352277           42
            -5194.136  848890           95
+           -5194.136  217130           443
+           -5194.136  317640           437
            -5194.136  21345            199
            -5194.136  931874           141
            -5194.136  443917           60
+           -5194.136  830529           279
+           -5194.136  195763           358
+           -5194.136  354395           486
+           -5194.136  185071           370
            -5194.136  535804           111
-           -5194.136  576220           115
-           -5194.136  391179           78
+           -5194.136  926283           269
+           -5194.136  514326           325
+           -5194.136  232226           235
+           -5194.136  945065           255
+           -5194.136  545140           278
            -5194.136  411615           171
-           -5194.136  939709           112
-           -5194.136  247224           94
-           -5194.136  544048           87
            -5194.136  913639           162
-           -5194.136  802779           122
-           -5194.136  551639           55
-           -5194.136  788796           145
+           -5194.136  922596           456
+           -5194.136  863691           481
+           -5194.136  399508           415
+           -5194.136  76451            211
+           -5194.136  830570           369
            -5194.136  268896           124
+           -5194.136  220454           288
            -5194.136  127215           9
+           -5194.136  156536           245
            -5194.136  467339           66
+           -5194.136  349562           359
+           -5194.136  81117            305
 
-44 perturbed starting value run(s) did not converge or were rejected in the third stage.
+14 perturbed starting value run(s) did not converge or were rejected in the third stage.
 
 
 
@@ -256,7 +286,7 @@ Chi-Square Test of Model Fit for the Binary and Ordered Categorical
 
           Pearson Chi-Square
 
-          Value                            224.521
+          Value                            224.520
           Degrees of Freedom                    50
           P-Value                           0.0000
 
@@ -288,8 +318,8 @@ BASED ON THE ESTIMATED MODEL
     Latent
    Classes
 
-       1        443.66507          0.21888
-       2       1583.33493          0.78112
+       1        443.66269          0.21888
+       2       1583.33731          0.78112
 
 
 FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
@@ -298,8 +328,8 @@ BASED ON ESTIMATED POSTERIOR PROBABILITIES
     Latent
    Classes
 
-       1        443.66507          0.21888
-       2       1583.33493          0.78112
+       1        443.66269          0.21888
+       2       1583.33731          0.78112
 
 
 FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
@@ -366,7 +396,7 @@ Latent Class 2
  Thresholds
     REPORT_D$1         5.266      0.620      8.493      0.000
     REPORT_R$1         3.912      0.346     11.314      0.000
-    REPORT_S$1         3.087      0.289     10.667      0.000
+    REPORT_S$1         3.087      0.289     10.668      0.000
     COUNSELO$1         0.385      0.082      4.699      0.000
     PSYCH_FT$1         0.403      0.089      4.539      0.000
     LAW_FTE$1          2.472      0.212     11.682      0.000
@@ -383,6 +413,31 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C
+                   Latent class
+                     1      2
+     REPORT_D
+       Category 1  0.825  0.995
+       Category 2  0.175  0.005
+     REPORT_R
+       Category 1  0.602  0.980
+       Category 2  0.398  0.020
+     REPORT_S
+       Category 1  0.383  0.956
+       Category 2  0.617  0.044
+     COUNSELO
+       Category 1  0.348  0.595
+       Category 2  0.652  0.405
+     PSYCH_FT
+       Category 1  0.267  0.599
+       Category 2  0.733  0.401
+     LAW_FTE
+       Category 1  0.707  0.922
+       Category 2  0.293  0.078
+
+
 RESULTS IN PROBABILITY SCALE
 
                                                     Two-Tailed
@@ -391,7 +446,7 @@ RESULTS IN PROBABILITY SCALE
 Latent Class 1
 
  REPORT_DIS
-    Category 1         0.825      0.034     24.598      0.000
+    Category 1         0.825      0.034     24.597      0.000
     Category 2         0.175      0.034      5.203      0.000
  REPORT_RAC
     Category 1         0.602      0.064      9.385      0.000
@@ -412,14 +467,14 @@ Latent Class 1
 Latent Class 2
 
  REPORT_DIS
-    Category 1         0.995      0.003    313.802      0.000
+    Category 1         0.995      0.003    313.806      0.000
     Category 2         0.005      0.003      1.621      0.105
  REPORT_RAC
-    Category 1         0.980      0.007    147.535      0.000
+    Category 1         0.980      0.007    147.534      0.000
     Category 2         0.020      0.007      2.950      0.003
  REPORT_SEX
-    Category 1         0.956      0.012     79.166      0.000
-    Category 2         0.044      0.012      3.613      0.000
+    Category 1         0.956      0.012     79.167      0.000
+    Category 2         0.044      0.012      3.614      0.000
  COUNSELORS
     Category 1         0.595      0.020     30.132      0.000
     Category 2         0.405      0.020     20.500      0.000
@@ -427,8 +482,32 @@ Latent Class 2
     Category 1         0.599      0.021     28.138      0.000
     Category 2         0.401      0.021     18.813      0.000
  LAW_FTE
-    Category 1         0.922      0.015     60.704      0.000
+    Category 1         0.922      0.015     60.703      0.000
     Category 2         0.078      0.015      5.125      0.000
+
+
+EQUALITY TESTS OF PROBABILITIES ACROSS THE LATENT CLASSES
+
+                    Chi-Square     P-Value   Degrees of Freedom
+
+
+REPORT_D
+  Overall test         36.410      0.000        1
+
+REPORT_R
+  Overall test         92.226      0.000        1
+
+REPORT_S
+  Overall test        117.584      0.000        1
+
+COUNSELO
+  Overall test         28.394      0.000        1
+
+PSYCH_FT
+  Overall test         57.366      0.000        1
+
+LAW_FTE
+  Overall test         26.082      0.000        1
 
 
 LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
@@ -439,11 +518,11 @@ LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
 Latent Class 1 Compared to Latent Class 2
 
  REPORT_D
-    Category > 1      40.941     25.188     12.260    136.723
+    Category > 1      40.940     25.186     12.260    136.714
  REPORT_R
-    Category > 1      33.047     12.037     16.184     67.480
+    Category > 1      33.048     12.037     16.184     67.482
  REPORT_S
-    Category > 1      35.250     11.581     18.514     67.114
+    Category > 1      35.249     11.580     18.514     67.111
  COUNSELO
     Category > 1       2.753      0.523      1.897      3.995
  PSYCH_FT
@@ -462,7 +541,7 @@ RESIDUAL OUTPUT
 TECHNICAL 11 OUTPUT
 
      Random Starts Specifications for the k-1 Class Analysis Model
-        Number of initial stage random starts                 200
+        Number of initial stage random starts                 500
         Number of final stage optimizations                   100
 
 
@@ -485,7 +564,7 @@ TECHNICAL 11 OUTPUT
 TECHNICAL 14 OUTPUT
 
      Random Starts Specifications for the k-1 Class Analysis Model
-        Number of initial stage random starts                 200
+        Number of initial stage random starts                 500
         Number of final stage optimizations                   100
 
      Random Starts Specification for the k-1 Class Model for Generated Data
@@ -521,9 +600,9 @@ The following plots are available:
   Scatterplots (sample values)
   Sample proportions and estimated probabilities
 
-     Beginning Time:  16:09:23
-        Ending Time:  16:09:30
-       Elapsed Time:  00:00:07
+     Beginning Time:  20:47:41
+        Ending Time:  20:47:51
+       Elapsed Time:  00:00:10
 
 
 
@@ -536,4 +615,4 @@ Fax: (310) 391-8971
 Web: www.StatModel.com
 Support: Support@StatModel.com
 
-Copyright (c) 1998-2024 Muthen & Muthen
+Copyright (c) 1998-2025 Muthen & Muthen

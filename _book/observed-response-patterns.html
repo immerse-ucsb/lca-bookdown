@@ -196,12 +196,17 @@
 <span><span class="va">names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"mplus"</span>, <span class="st">"patterns.out"</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="st">'savedata'</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="co"># Add the names back to the dataset</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">patterns</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Frequency"</span>, <span class="va">names</span><span class="op">)</span>  </span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">patterns</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Frequency"</span>, <span class="va">names</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># Rename the variable </span></span>
+<span><span class="va">patterns</span> <span class="op">&lt;-</span> <span class="va">patterns</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>C <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"MLCC"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Create a table with the top 5 unconditional response pattern, then top of conditional response pattern for each modal class assignment</p>
 <div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Order responses by highest frequency</span></span>
 <span><span class="va">order_highest</span> <span class="op">&lt;-</span> <span class="va">patterns</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>C <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"MLCC"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Loop `patterns` data to list top 5 conditional response patterns for each class</span></span>
 <span><span class="va">loop_cond</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">patterns</span><span class="op">$</span><span class="va">C</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span>       </span>
@@ -264,23 +269,23 @@
 <span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"Times New Roman"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">resp_table</span></span></code></pre></div>
-<div id="erpcjfmffl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#erpcjfmffl table {
+<div id="ohmeeuhsig" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ohmeeuhsig table {
   font-family: 'Times New Roman';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#erpcjfmffl thead, #erpcjfmffl tbody, #erpcjfmffl tfoot, #erpcjfmffl tr, #erpcjfmffl td, #erpcjfmffl th {
+#ohmeeuhsig thead, #ohmeeuhsig tbody, #ohmeeuhsig tfoot, #ohmeeuhsig tr, #ohmeeuhsig td, #ohmeeuhsig th {
   border-style: none;
 }
 
-#erpcjfmffl p {
+#ohmeeuhsig p {
   margin: 0;
   padding: 0;
 }
 
-#erpcjfmffl .gt_table {
+#ohmeeuhsig .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -306,12 +311,12 @@
   border-left-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_caption {
+#ohmeeuhsig .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#erpcjfmffl .gt_title {
+#ohmeeuhsig .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -323,7 +328,7 @@
   border-bottom-width: 0;
 }
 
-#erpcjfmffl .gt_subtitle {
+#ohmeeuhsig .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -335,7 +340,7 @@
   border-top-width: 0;
 }
 
-#erpcjfmffl .gt_heading {
+#ohmeeuhsig .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -347,13 +352,13 @@
   border-right-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_bottom_border {
+#ohmeeuhsig .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_col_headings {
+#ohmeeuhsig .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -368,7 +373,7 @@
   border-right-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_col_heading {
+#ohmeeuhsig .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -388,7 +393,7 @@
   overflow-x: hidden;
 }
 
-#erpcjfmffl .gt_column_spanner_outer {
+#ohmeeuhsig .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -400,15 +405,15 @@
   padding-right: 4px;
 }
 
-#erpcjfmffl .gt_column_spanner_outer:first-child {
+#ohmeeuhsig .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#erpcjfmffl .gt_column_spanner_outer:last-child {
+#ohmeeuhsig .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#erpcjfmffl .gt_column_spanner {
+#ohmeeuhsig .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -420,11 +425,11 @@
   width: 100%;
 }
 
-#erpcjfmffl .gt_spanner_row {
+#ohmeeuhsig .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#erpcjfmffl .gt_group_heading {
+#ohmeeuhsig .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -450,7 +455,7 @@
   text-align: left;
 }
 
-#erpcjfmffl .gt_empty_group_heading {
+#ohmeeuhsig .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -465,15 +470,15 @@
   vertical-align: middle;
 }
 
-#erpcjfmffl .gt_from_md > :first-child {
+#ohmeeuhsig .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#erpcjfmffl .gt_from_md > :last-child {
+#ohmeeuhsig .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#erpcjfmffl .gt_row {
+#ohmeeuhsig .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -492,7 +497,7 @@
   overflow-x: hidden;
 }
 
-#erpcjfmffl .gt_stub {
+#ohmeeuhsig .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -505,7 +510,7 @@
   padding-right: 5px;
 }
 
-#erpcjfmffl .gt_stub_row_group {
+#ohmeeuhsig .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -519,15 +524,15 @@
   vertical-align: top;
 }
 
-#erpcjfmffl .gt_row_group_first td {
+#ohmeeuhsig .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#erpcjfmffl .gt_row_group_first th {
+#ohmeeuhsig .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#erpcjfmffl .gt_summary_row {
+#ohmeeuhsig .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -537,16 +542,16 @@
   padding-right: 5px;
 }
 
-#erpcjfmffl .gt_first_summary_row {
+#ohmeeuhsig .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_first_summary_row.thick {
+#ohmeeuhsig .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#erpcjfmffl .gt_last_summary_row {
+#ohmeeuhsig .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -556,7 +561,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_grand_summary_row {
+#ohmeeuhsig .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -566,7 +571,7 @@
   padding-right: 5px;
 }
 
-#erpcjfmffl .gt_first_grand_summary_row {
+#ohmeeuhsig .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -576,7 +581,7 @@
   border-top-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_last_grand_summary_row_top {
+#ohmeeuhsig .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -586,11 +591,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_striped {
+#ohmeeuhsig .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#erpcjfmffl .gt_table_body {
+#ohmeeuhsig .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -599,7 +604,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_footnotes {
+#ohmeeuhsig .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -613,7 +618,7 @@
   border-right-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_footnote {
+#ohmeeuhsig .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -622,7 +627,7 @@
   padding-right: 5px;
 }
 
-#erpcjfmffl .gt_sourcenotes {
+#ohmeeuhsig .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -636,7 +641,7 @@
   border-right-color: #D3D3D3;
 }
 
-#erpcjfmffl .gt_sourcenote {
+#ohmeeuhsig .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -644,72 +649,72 @@
   padding-right: 5px;
 }
 
-#erpcjfmffl .gt_left {
+#ohmeeuhsig .gt_left {
   text-align: left;
 }
 
-#erpcjfmffl .gt_center {
+#ohmeeuhsig .gt_center {
   text-align: center;
 }
 
-#erpcjfmffl .gt_right {
+#ohmeeuhsig .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#erpcjfmffl .gt_font_normal {
+#ohmeeuhsig .gt_font_normal {
   font-weight: normal;
 }
 
-#erpcjfmffl .gt_font_bold {
+#ohmeeuhsig .gt_font_bold {
   font-weight: bold;
 }
 
-#erpcjfmffl .gt_font_italic {
+#ohmeeuhsig .gt_font_italic {
   font-style: italic;
 }
 
-#erpcjfmffl .gt_super {
+#ohmeeuhsig .gt_super {
   font-size: 65%;
 }
 
-#erpcjfmffl .gt_footnote_marks {
+#ohmeeuhsig .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#erpcjfmffl .gt_asterisk {
+#ohmeeuhsig .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#erpcjfmffl .gt_indent_1 {
+#ohmeeuhsig .gt_indent_1 {
   text-indent: 5px;
 }
 
-#erpcjfmffl .gt_indent_2 {
+#ohmeeuhsig .gt_indent_2 {
   text-indent: 10px;
 }
 
-#erpcjfmffl .gt_indent_3 {
+#ohmeeuhsig .gt_indent_3 {
   text-indent: 15px;
 }
 
-#erpcjfmffl .gt_indent_4 {
+#ohmeeuhsig .gt_indent_4 {
   text-indent: 20px;
 }
 
-#erpcjfmffl .gt_indent_5 {
+#ohmeeuhsig .gt_indent_5 {
   text-indent: 25px;
 }
 
-#erpcjfmffl .katex-display {
+#ohmeeuhsig .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#erpcjfmffl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ohmeeuhsig div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1055,7 +1060,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2025-08-27.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-01-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

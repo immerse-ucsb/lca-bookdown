@@ -1,6 +1,6 @@
-Mplus VERSION 8.11
+Mplus VERSION 9
 MUTHEN & MUTHEN
-08/27/2025  11:31 AM
+01/22/2026   3:02 PM
 
 INPUT INSTRUCTIONS
 
@@ -137,7 +137,7 @@ Optimization Specifications for the EM Algorithm
     Relative loglikelihood change                        0.100D-06
     Derivative                                           0.100D-05
 Optimization Specifications for the M step of the EM Algorithm for
-Categorical Latent variables
+Categorical Latent Variables
   Number of M step iterations                                    1
   M step convergence criterion                           0.100D-05
   Basis for M step termination                           ITERATION
@@ -407,6 +407,14 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C
+                       Latent class
+                     1      2      3      4
+     MATH_IRT     53.769 54.391 57.889 61.293
+
+
 RESULTS IN PROBABILITY SCALE
 
                                                     Two-Tailed
@@ -415,34 +423,49 @@ RESULTS IN PROBABILITY SCALE
 Latent Class 1
 
  N
-    Category 1         0.816      0.010     83.664      0.000
-    Category 2         0.004      0.000     83.664      0.000
-    Category 3         0.001      0.000     83.664      0.000
-    Category 4         0.179      0.010     18.257      0.000
+    Category 1         0.816      0.000      0.000      1.000
+    Category 2         0.004      0.000      0.000      1.000
+    Category 3         0.001      0.000      0.000      1.000
+    Category 4         0.179      0.000      0.000      1.000
 
 Latent Class 2
 
  N
-    Category 1         0.000      0.000  10781.389      0.000
-    Category 2         0.879      0.000  10781.389      0.000
-    Category 3         0.119      0.000  10781.389      0.000
-    Category 4         0.001      0.000     15.007      0.000
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         0.879      0.000      0.000      1.000
+    Category 3         0.119      0.000      0.000      1.000
+    Category 4         0.001      0.000      0.000      1.000
 
 Latent Class 3
 
  N
-    Category 1         0.082      0.001     68.116      0.000
-    Category 2         0.063      0.001     68.116      0.000
-    Category 3         0.635      0.009     68.116      0.000
-    Category 4         0.220      0.011     19.213      0.000
+    Category 1         0.082      0.000      0.000      1.000
+    Category 2         0.063      0.000      0.000      1.000
+    Category 3         0.635      0.000      0.000      1.000
+    Category 4         0.220      0.000      0.000      1.000
 
 Latent Class 4
 
  N
-    Category 1         0.028      0.002     15.628      0.000
-    Category 2         0.000      0.000     15.628      0.000
-    Category 3         0.013      0.001     15.628      0.000
-    Category 4         0.959      0.003    364.907      0.000
+    Category 1         0.028      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+    Category 3         0.013      0.000      0.000      1.000
+    Category 4         0.959      0.000      0.000      1.000
+
+
+EQUALITY TESTS OF INTERCEPTS ACROSS THE LATENT CLASSES
+
+                    Chi-Square     P-Value   Degrees of Freedom
+
+
+MATH_IRT
+  Overall test         18.597      0.000        3
+  Class 1 vs. 2         0.201      0.654        1
+  Class 1 vs. 3         4.437      0.035        1
+  Class 1 vs. 4        11.123      0.001        1
+  Class 2 vs. 3         3.050      0.081        1
+  Class 2 vs. 4        10.640      0.001        1
+  Class 3 vs. 4         2.142      0.143        1
 
 
 LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
@@ -453,54 +476,54 @@ LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
 Latent Class 1 Compared to Latent Class 2
 
  N
-    Category = 1   *********  *********  *********  *********
+    Category = 1   *********      0.000  *********  *********
     Category = 2       0.001      0.000      0.001      0.001
-    Category = 3       0.009      0.000      0.008      0.009
+    Category = 3       0.009      0.000      0.009      0.009
     Category = 4     156.768      0.000    156.768    156.768
 
 Latent Class 1 Compared to Latent Class 3
 
  N
-    Category = 1      49.778      2.433     45.231     54.783
-    Category = 2       0.059      0.000      0.059      0.060
+    Category = 1      49.778      0.000     49.778     49.778
+    Category = 2       0.059      0.000      0.059      0.059
     Category = 3       0.001      0.000      0.001      0.001
     Category = 4       0.774      0.000      0.774      0.774
 
 Latent Class 1 Compared to Latent Class 4
 
  N
-    Category = 1     151.538      0.150    151.244    151.833
-    Category = 2     121.174      6.300    109.435    134.173
-    Category = 3       0.090      0.005      0.081      0.100
+    Category = 1     151.538      0.000    151.538    151.538
+    Category = 2     121.174      0.000    121.174    121.174
+    Category = 3       0.090      0.000      0.090      0.090
     Category = 4       0.009      0.000      0.009      0.009
 
 Latent Class 2 Compared to Latent Class 3
 
  N
     Category = 1       0.000      0.000      0.000      0.000
-    Category = 2     107.996      1.609    104.887    111.197
-    Category = 3       0.078      0.003      0.072      0.084
+    Category = 2     107.996      0.000    107.996    107.996
+    Category = 3       0.078      0.000      0.078      0.078
     Category = 4       0.005      0.000      0.005      0.005
 
 Latent Class 2 Compared to Latent Class 4
 
  N
     Category = 1       0.000      0.000      0.000      0.000
-    Category = 2   *********  13962.854  *********  *********
-    Category = 3      10.555      0.683      9.298     11.982
+    Category = 2   *********      0.000  *********  *********
+    Category = 3      10.555      0.000     10.555     10.555
     Category = 4       0.000      0.000      0.000      0.000
 
 Latent Class 3 Compared to Latent Class 4
 
  N
-    Category = 1       3.044      0.152      2.761      3.357
-    Category = 2    2045.102     98.812   1860.318   2248.240
-    Category = 3     135.785      3.338    129.398    142.488
+    Category = 1       3.044      0.000      3.044      3.044
+    Category = 2    2045.102      0.000   2045.102   2045.102
+    Category = 3     135.785      0.000    135.785    135.785
     Category = 4       0.012      0.000      0.012      0.012
 
 
-     Beginning Time:  11:31:49
-        Ending Time:  11:31:49
+     Beginning Time:  15:02:57
+        Ending Time:  15:02:57
        Elapsed Time:  00:00:00
 
 
@@ -514,4 +537,4 @@ Fax: (310) 391-8971
 Web: www.StatModel.com
 Support: Support@StatModel.com
 
-Copyright (c) 1998-2024 Muthen & Muthen
+Copyright (c) 1998-2025 Muthen & Muthen

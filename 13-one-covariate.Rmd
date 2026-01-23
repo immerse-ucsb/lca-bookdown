@@ -224,7 +224,7 @@ savedata <- as.data.frame(output_lsay[["savedata"]])
 Rename the column in savedata named "C" and change to "N"
 
 ```{r}
-colnames(savedata)[colnames(savedata)=="C"] <- "N"
+colnames(savedata)[colnames(savedata) %in% c("C", "MLCC")] <- "N"
 ```
 
 ------------------------------------------------------------------------
@@ -298,7 +298,9 @@ step3_fit <- mplusModeler(step3,
 
 ------------------------------------------------------------------------
 
-```{r}
+As of 1/1/2026, this code is outdated. See here: https://github.com/michaelhallquist/MplusAutomation/issues/228
+
+```{r, eval = FALSE}
 modelParams <- readModels(here("three_step", "manual_3step", "three_cov.out"))
 
 # Extract information as data frame
@@ -318,7 +320,7 @@ cov <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
                        ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
                               scales::number(pval, accuracy = .001)))) 
 
-or <- as.data.frame(modelParams[["parameters"]][["odds"]]) %>%
+or <- as.data.frame(modelParams[["parameters"]][["odds"]])%>%
   filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
  # mutate(param = str_replace(param, "FEMALE", "Gender")) %>% # Change this to your own covariates
   mutate(param = str_replace(param, "MOTHED", "Mother's Education")) %>%

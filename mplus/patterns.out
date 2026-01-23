@@ -1,6 +1,6 @@
-Mplus VERSION 8.11
+Mplus VERSION 9
 MUTHEN & MUTHEN
-08/22/2025   4:19 PM
+01/20/2026   8:49 PM
 
 INPUT INSTRUCTIONS
 
@@ -74,7 +74,7 @@ Optimization Specifications for the EM Algorithm
     Relative loglikelihood change                        0.100D-06
     Derivative                                           0.100D-05
 Optimization Specifications for the M step of the EM Algorithm for
-Categorical Latent variables
+Categorical Latent Variables
   Number of M step iterations                                    1
   M step convergence criterion                           0.100D-05
   Basis for M step termination                           ITERATION
@@ -352,6 +352,31 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C
+                       Latent class
+                     1      2      3
+     REPORT_D
+       Category 1  0.983  0.699  0.991
+       Category 2  0.017  0.301  0.009
+     REPORT_R
+       Category 1  1.000  0.192  0.974
+       Category 2  0.000  0.808  0.026
+     REPORT_S
+       Category 1  0.748  0.313  0.948
+       Category 2  0.252  0.687  0.052
+     COUNSELO
+       Category 1  0.222  0.456  0.678
+       Category 2  0.778  0.544  0.322
+     PSYCH_FT
+       Category 1  0.229  0.318  0.676
+       Category 2  0.771  0.682  0.324
+     LAW_FTE
+       Category 1  0.660  0.738  0.981
+       Category 2  0.340  0.262  0.019
+
+
 RESULTS IN PROBABILITY SCALE
 
                                                     Two-Tailed
@@ -419,6 +444,48 @@ Latent Class 3
  LAW_FTE
     Category 1         0.981      0.012     78.917      0.000
     Category 2         0.019      0.012      1.552      0.121
+
+
+EQUALITY TESTS OF PROBABILITIES ACROSS THE LATENT CLASSES
+
+                    Chi-Square     P-Value   Degrees of Freedom
+
+
+REPORT_D
+  Overall test        110.029      0.000        2
+  Class 1 vs. 2        18.477      0.000        1
+  Class 1 vs. 3         0.393      0.531        1
+  Class 2 vs. 3        71.719      0.000        1
+
+REPORT_R
+  Overall test       2406.028      0.000        2
+  Class 1 vs. 2      1192.190      0.000        1
+  Class 1 vs. 3      1329.473      0.000        1
+  Class 2 vs. 3        82.908      0.000        1
+
+REPORT_S
+  Overall test        165.015      0.000        2
+  Class 1 vs. 2        44.629      0.000        1
+  Class 1 vs. 3        43.441      0.000        1
+  Class 2 vs. 3       164.994      0.000        1
+
+COUNSELO
+  Overall test         65.862      0.000        2
+  Class 1 vs. 2         9.688      0.002        1
+  Class 1 vs. 3        46.600      0.000        1
+  Class 2 vs. 3        21.826      0.000        1
+
+PSYCH_FT
+  Overall test        102.187      0.000        2
+  Class 1 vs. 2         2.141      0.143        1
+  Class 1 vs. 3        58.912      0.000        1
+  Class 2 vs. 3        53.597      0.000        1
+
+LAW_FTE
+  Overall test         27.567      0.000        2
+  Class 1 vs. 2         2.033      0.154        1
+  Class 1 vs. 3        26.079      0.000        1
+  Class 2 vs. 3        18.019      0.000        1
 
 
 LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
@@ -550,7 +617,7 @@ SAVEDATA INFORMATION
     CPROB1         F10.3
     CPROB2         F10.3
     CPROB3         F10.3
-    C              F10.3
+    MLCC           F10.3
 
   Save file format
     10F10.3
@@ -580,8 +647,8 @@ SAVEDATA INFORMATION
     CPROB3
     C
 
-     Beginning Time:  16:19:08
-        Ending Time:  16:19:10
+     Beginning Time:  20:49:58
+        Ending Time:  20:50:00
        Elapsed Time:  00:00:02
 
 
@@ -595,4 +662,4 @@ Fax: (310) 391-8971
 Web: www.StatModel.com
 Support: Support@StatModel.com
 
-Copyright (c) 1998-2024 Muthen & Muthen
+Copyright (c) 1998-2025 Muthen & Muthen

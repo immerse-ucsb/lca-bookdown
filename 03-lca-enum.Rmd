@@ -192,7 +192,7 @@ lca_6  <- lapply(1:6, function(k) {
   ANALYSIS = 
    "estimator = mlr; 
     type = mixture;
-    starts = 200 100; 
+    starts = 500 100; 
     processors = 10;",
   
   OUTPUT = "sampstat residual tech11 tech14;",
@@ -519,20 +519,19 @@ Compare probability plots for $K = 1:6$ class solutions
 model_results <- data.frame()
 
 for (i in 1:length(output_enum)) {
-  
-  temp <- output_enum[[i]]$parameters$probability.scale %>%                                       
-    mutate(model = paste(i,"-Class Model"))                                                  
+  temp <- output_enum[[i]]$parameters$probability.scale %>% 
+    mutate(model = paste(i, "-Class Model")) 
   
   model_results <- rbind(model_results, temp)
-}
+} 
 
 rm(temp)
 
-compare_plot <-
-  model_results %>%
-  filter(category == 2) %>%
-  dplyr::select(est, model, LatentClass, param) %>%
-  mutate(param = as.factor(str_to_lower(param))) 
+compare_plot <- model_results %>% 
+  filter(category == 2) %>% 
+  dplyr::select(est, model, LatentClass, param) %>% 
+  mutate(param = as.factor(str_to_lower(param)),
+         est = as.numeric(est))
 
 compare_plot$param <- fct_inorder(compare_plot$param)
 
@@ -547,15 +546,15 @@ ggplot(
     lty = LatentClass
   )
 ) +
-  geom_point() + 
+  geom_point() +
   geom_line() +
   scale_colour_viridis_d() +
+  ylim(0,1) +
   facet_wrap( ~ model, ncol = 2) +
-  labs(title = "Bullying Items",
-       x = " ", y = "Probability") +
+  labs(title = "Bullying Items", x = NULL, y = "Probability") +
   theme_minimal() +
   theme(panel.grid.major.y = element_blank(),
-                          axis.text.x = element_text(angle = -45, hjust = -.1))                            
+        axis.text.x = element_text(angle = -45, hjust = -.1))                            
 ```
 
 ------------------------------------------------------------------------

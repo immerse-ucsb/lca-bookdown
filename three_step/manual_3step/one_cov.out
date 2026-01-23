@@ -1,6 +1,6 @@
-Mplus VERSION 8.11
+Mplus VERSION 9
 MUTHEN & MUTHEN
-08/22/2025   4:27 PM
+01/21/2026  10:17 AM
 
 INPUT INSTRUCTIONS
 
@@ -81,7 +81,7 @@ Optimization Specifications for the EM Algorithm
     Relative loglikelihood change                        0.100D-06
     Derivative                                           0.100D-05
 Optimization Specifications for the M step of the EM Algorithm for
-Categorical Latent variables
+Categorical Latent Variables
   Number of M step iterations                                    1
   M step convergence criterion                           0.100D-05
   Basis for M step termination                           ITERATION
@@ -341,6 +341,28 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C
+                       Latent class
+                     1      2      3      4
+     ENJOY
+       Category 1  0.195  0.693  0.373  0.442
+       Category 2  0.805  0.307  0.627  0.558
+     USEFUL
+       Category 1  0.070  0.929  0.350  0.572
+       Category 2  0.930  0.071  0.650  0.428
+     LOGICAL
+       Category 1  0.101  0.958  0.317  1.000
+       Category 2  0.899  0.042  0.683  0.000
+     JOB
+       Category 1  0.047  0.826  0.365  0.295
+       Category 2  0.953  0.174  0.635  0.705
+     ADULT
+       Category 1  0.000  1.000  0.651  0.000
+       Category 2  1.000  0.000  0.349  1.000
+
+
 RESULTS IN PROBABILITY SCALE
 
                                                     Two-Tailed
@@ -417,6 +439,57 @@ Latent Class 4
  ADULT
     Category 1         0.000      0.000      0.000      1.000
     Category 2         1.000      0.000      0.000      1.000
+
+
+EQUALITY TESTS OF PROBABILITIES ACROSS THE LATENT CLASSES
+
+                    Chi-Square     P-Value   Degrees of Freedom
+
+
+ENJOY
+  Overall test        192.096      0.000        3
+  Class 1 vs. 2       184.715      0.000        1
+  Class 1 vs. 3        35.346      0.000        1
+  Class 1 vs. 4        30.971      0.000        1
+  Class 2 vs. 3        50.344      0.000        1
+  Class 2 vs. 4        19.867      0.000        1
+  Class 3 vs. 4         1.619      0.203        1
+
+USEFUL
+  Overall test        170.601      0.000        3
+  Class 1 vs. 2       121.480      0.000        1
+  Class 1 vs. 3        74.333      0.000        1
+  Class 1 vs. 4        63.841      0.000        1
+  Class 2 vs. 3        47.482      0.000        1
+  Class 2 vs. 4        20.082      0.000        1
+  Class 3 vs. 4         6.663      0.010        1
+
+LOGICAL
+  Overall test      13505.212      0.000        3
+  Class 1 vs. 2        42.691      0.000        1
+  Class 1 vs. 3        27.030      0.000        1
+  Class 1 vs. 4      6017.323      0.000        1
+  Class 2 vs. 3        24.480      0.000        1
+  Class 2 vs. 4       226.095      0.000        1
+  Class 3 vs. 4      8332.075      0.000        1
+
+JOB
+  Overall test        189.317      0.000        3
+  Class 1 vs. 2       172.376      0.000        1
+  Class 1 vs. 3        57.775      0.000        1
+  Class 1 vs. 4        38.407      0.000        1
+  Class 2 vs. 3        77.132      0.000        1
+  Class 2 vs. 4        76.221      0.000        1
+  Class 3 vs. 4         1.640      0.200        1
+
+ADULT
+  Overall test  *************      0.000        3
+  Class 1 vs. 2  ************      0.000        1
+  Class 1 vs. 3      1464.758      0.000        1
+  Class 1 vs. 4         0.000      1.000        1
+  Class 2 vs. 3      1240.656      0.000        1
+  Class 2 vs. 4  ************      0.000        1
+  Class 3 vs. 4      1464.758      0.000        1
 
 
 LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
@@ -590,7 +663,7 @@ SAVEDATA INFORMATION
     CPROB2         F10.3
     CPROB3         F10.3
     CPROB4         F10.3
-    C              F10.3
+    MLCC           F10.3
 
   Save file format
     11F10.3
@@ -600,9 +673,9 @@ SAVEDATA INFORMATION
   Save missing symbol        *
 
 
-     Beginning Time:  16:27:07
-        Ending Time:  16:27:12
-       Elapsed Time:  00:00:05
+     Beginning Time:  10:17:37
+        Ending Time:  10:17:41
+       Elapsed Time:  00:00:04
 
 
 
@@ -615,4 +688,4 @@ Fax: (310) 391-8971
 Web: www.StatModel.com
 Support: Support@StatModel.com
 
-Copyright (c) 1998-2024 Muthen & Muthen
+Copyright (c) 1998-2025 Muthen & Muthen

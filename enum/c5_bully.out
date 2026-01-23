@@ -1,6 +1,6 @@
-Mplus VERSION 8.11
+Mplus VERSION 9
 MUTHEN & MUTHEN
-08/22/2025   4:10 PM
+01/20/2026   8:48 PM
 
 INPUT INSTRUCTIONS
 
@@ -17,7 +17,7 @@ INPUT INSTRUCTIONS
   ANALYSIS:
   estimator = mlr;
       type = mixture;
-      starts = 200 100;
+      starts = 500 100;
       processors = 10;
   OUTPUT:
   sampstat residual tech11 tech14;
@@ -77,7 +77,7 @@ Optimization Specifications for the EM Algorithm
     Relative loglikelihood change                        0.100D-06
     Derivative                                           0.100D-05
 Optimization Specifications for the M step of the EM Algorithm for
-Categorical Latent variables
+Categorical Latent Variables
   Number of M step iterations                                    1
   M step convergence criterion                           0.100D-05
   Basis for M step termination                           ITERATION
@@ -94,7 +94,7 @@ Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 Random Starts Specifications
-  Number of initial stage random starts                        200
+  Number of initial stage random starts                        500
   Number of final stage optimizations                          100
   Number of initial stage iterations                            10
   Initial stage convergence criterion                    0.100D+01
@@ -167,43 +167,44 @@ Final stage loglikelihood values at local maxima, seeds, and initial stage start
 
            -5105.589  21345            199
            -5105.589  414284           158
-           -5105.589  915642           40
-           -5105.589  476498           179
-           -5105.589  608496           4
-           -5105.589  345070           114
+           -5105.589  563002           360
+           -5105.589  797594           234
+           -5105.589  830570           369
            -5105.589  383986           159
-           -5105.661  263268           165
-           -5105.791  967902           52
-           -5105.791  533738           11
-           -5105.791  259507           53
+           -5105.661  972430           491
+           -5105.791  471040           403
+           -5105.791  232226           235
+           -5105.791  637095           207
            -5105.799  793035           187
            -5105.799  576220           115
-           -5105.799  587946           120
-           -5105.799  284109           82
-           -5106.748  131856           90
+           -5105.799  669634           335
+           -5106.628  856536           144
            -5106.748  318230           46
+           -5106.864  263221           447
+           -5106.975  667250           318
            -5106.983  164305           128
-           -5107.169  749453           33
-           -5107.169  399671           13
            -5107.172  467339           66
            -5107.172  120506           45
-           -5107.172  481835           57
-           -5107.172  402224           91
+           -5107.172  514326           325
+           -5107.172  375590           438
            -5107.449  813779           92
+           -5107.450  360419           356
            -5107.450  784664           75
            -5107.458  70118            104
            -5107.728  372176           23
            -5107.958  227563           63
+           -5108.003  46437            153
            -5108.058  650371           14
-           -5108.084  unperturbed      0
-           -5108.860  573096           20
            -5108.860  76974            16
            -5108.860  285380           1
            -5108.860  392418           28
            -5109.002  68985            17
+           -5110.373  997222           229
            -5110.474  107446           12
+           -5111.532  320494           465
+           -5112.695  967237           48
 
-63 perturbed starting value run(s) did not converge or were rejected in the third stage.
+62 perturbed starting value run(s) did not converge or were rejected in the third stage.
 
 
 
@@ -422,6 +423,31 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C
+                       Latent class
+                     1      2      3      4      5
+     REPORT_D
+       Category 1  0.589  0.984  0.732  0.985  1.000
+       Category 2  0.411  0.016  0.268  0.015  0.000
+     REPORT_R
+       Category 1  0.141  1.000  0.249  0.991  0.961
+       Category 2  0.859  0.000  0.751  0.009  0.039
+     REPORT_S
+       Category 1  0.175  0.797  0.373  0.983  0.898
+       Category 2  0.825  0.203  0.627  0.017  0.102
+     COUNSELO
+       Category 1  0.268  0.000  0.484  0.610  1.000
+       Category 2  0.732  1.000  0.516  0.390  0.000
+     PSYCH_FT
+       Category 1  0.195  0.248  0.388  1.000  0.387
+       Category 2  0.805  0.752  0.612  0.000  0.613
+     LAW_FTE
+       Category 1  0.000  0.744  0.945  1.000  0.912
+       Category 2  1.000  0.256  0.055  0.000  0.088
+
+
 RESULTS IN PROBABILITY SCALE
 
                                                     Two-Tailed
@@ -531,6 +557,90 @@ Latent Class 5
  LAW_FTE
     Category 1         0.912      0.020     46.045      0.000
     Category 2         0.088      0.020      4.450      0.000
+
+
+EQUALITY TESTS OF PROBABILITIES ACROSS THE LATENT CLASSES
+
+                    Chi-Square     P-Value   Degrees of Freedom
+
+
+REPORT_D
+  Overall test       8081.207      0.000        4
+  Class 1 vs. 2        25.320      0.000        1
+  Class 1 vs. 3         0.911      0.340        1
+  Class 1 vs. 4        27.618      0.000        1
+  Class 1 vs. 5       670.191      0.000        1
+  Class 2 vs. 3        31.401      0.000        1
+  Class 2 vs. 4         0.010      0.922        1
+  Class 2 vs. 5       465.742      0.000        1
+  Class 3 vs. 4        37.081      0.000        1
+  Class 3 vs. 5      4137.497      0.000        1
+  Class 4 vs. 5       503.888      0.000        1
+
+REPORT_R
+  Overall test       3247.383      0.000        4
+  Class 1 vs. 2       427.697      0.000        1
+  Class 1 vs. 3         0.596      0.440        1
+  Class 1 vs. 4        17.746      0.000        1
+  Class 1 vs. 5        30.209      0.000        1
+  Class 2 vs. 3      1607.311      0.000        1
+  Class 2 vs. 4        60.784      0.000        1
+  Class 2 vs. 5       777.401      0.000        1
+  Class 3 vs. 4        18.504      0.000        1
+  Class 3 vs. 5        48.093      0.000        1
+  Class 4 vs. 5         1.067      0.302        1
+
+REPORT_S
+  Overall test        136.164      0.000        4
+  Class 1 vs. 2        30.419      0.000        1
+  Class 1 vs. 3         3.453      0.063        1
+  Class 1 vs. 4         9.295      0.002        1
+  Class 1 vs. 5        45.585      0.000        1
+  Class 2 vs. 3        50.689      0.000        1
+  Class 2 vs. 4         2.125      0.145        1
+  Class 2 vs. 5        14.245      0.000        1
+  Class 3 vs. 4         6.407      0.011        1
+  Class 3 vs. 5        75.435      0.000        1
+  Class 4 vs. 5         0.957      0.328        1
+
+COUNSELO
+  Overall test   36480761.013      0.000        4
+  Class 1 vs. 2       569.461      0.000        1
+  Class 1 vs. 3         2.177      0.140        1
+  Class 1 vs. 4         4.593      0.032        1
+  Class 1 vs. 5       744.668      0.000        1
+  Class 2 vs. 3      5732.417      0.000        1
+  Class 2 vs. 4      2786.711      0.000        1
+  Class 2 vs. 5  ************      0.000        1
+  Class 3 vs. 4         2.128      0.145        1
+  Class 3 vs. 5      5832.119      0.000        1
+  Class 4 vs. 5      2474.596      0.000        1
+
+PSYCH_FT
+  Overall test      16608.890      0.000        4
+  Class 1 vs. 2         0.104      0.748        1
+  Class 1 vs. 3         0.882      0.348        1
+  Class 1 vs. 4       305.427      0.000        1
+  Class 1 vs. 5         0.891      0.345        1
+  Class 2 vs. 3         5.695      0.017        1
+  Class 2 vs. 4      9436.941      0.000        1
+  Class 2 vs. 5         2.140      0.143        1
+  Class 3 vs. 4      5041.187      0.000        1
+  Class 3 vs. 5         0.000      0.994        1
+  Class 4 vs. 5      1207.219      0.000        1
+
+LAW_FTE
+  Overall test     692712.489      0.000        4
+  Class 1 vs. 2     21635.777      0.000        1
+  Class 1 vs. 3        47.536      0.000        1
+  Class 1 vs. 4  ************      0.000        1
+  Class 1 vs. 5      4948.388      0.000        1
+  Class 2 vs. 3         0.465      0.495        1
+  Class 2 vs. 4     16261.590      0.000        1
+  Class 2 vs. 5        23.527      0.000        1
+  Class 3 vs. 4        22.057      0.000        1
+  Class 3 vs. 5         0.037      0.847        1
+  Class 4 vs. 5      2640.058      0.000        1
 
 
 LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
@@ -699,7 +809,7 @@ RESIDUAL OUTPUT
 TECHNICAL 11 OUTPUT
 
      Random Starts Specifications for the k-1 Class Analysis Model
-        Number of initial stage random starts                 200
+        Number of initial stage random starts                 500
         Number of final stage optimizations                   100
 
 
@@ -722,7 +832,7 @@ TECHNICAL 11 OUTPUT
 TECHNICAL 14 OUTPUT
 
      Random Starts Specifications for the k-1 Class Analysis Model
-        Number of initial stage random starts                 200
+        Number of initial stage random starts                 500
         Number of final stage optimizations                   100
 
      Random Starts Specification for the k-1 Class Model for Generated Data
@@ -740,8 +850,8 @@ TECHNICAL 14 OUTPUT
           H0 Loglikelihood Value                        -5111.757
           2 Times the Loglikelihood Difference             12.336
           Difference in the Number of Parameters                7
-          Approximate P-Value                              0.2857
-          Successful Bootstrap Draws                           14
+          Approximate P-Value                              0.3750
+          Successful Bootstrap Draws                            8
 
 
 PLOT INFORMATION
@@ -752,9 +862,9 @@ The following plots are available:
   Scatterplots (sample values)
   Sample proportions and estimated probabilities
 
-     Beginning Time:  16:10:01
-        Ending Time:  16:10:14
-       Elapsed Time:  00:00:13
+     Beginning Time:  20:48:43
+        Ending Time:  20:48:57
+       Elapsed Time:  00:00:14
 
 
 
@@ -767,4 +877,4 @@ Fax: (310) 391-8971
 Web: www.StatModel.com
 Support: Support@StatModel.com
 
-Copyright (c) 1998-2024 Muthen & Muthen
+Copyright (c) 1998-2025 Muthen & Muthen

@@ -1,6 +1,6 @@
-Mplus VERSION 8.11
+Mplus VERSION 9
 MUTHEN & MUTHEN
-08/22/2025   4:19 PM
+01/20/2026  11:28 PM
 
 INPUT INSTRUCTIONS
 
@@ -83,7 +83,7 @@ Optimization Specifications for the EM Algorithm
     Relative loglikelihood change                        0.100D-06
     Derivative                                           0.100D-05
 Optimization Specifications for the M step of the EM Algorithm for
-Categorical Latent variables
+Categorical Latent Variables
   Number of M step iterations                                    1
   M step convergence criterion                           0.100D-05
   Basis for M step termination                           ITERATION
@@ -338,6 +338,31 @@ New/Additional Parameters
     P3                 0.644      0.043     14.825      0.000
 
 
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C
+                       Latent class
+                     1      2      3
+     REPORT_D
+       Category 1  0.983  0.699  0.991
+       Category 2  0.017  0.301  0.009
+     REPORT_R
+       Category 1  1.000  0.192  0.974
+       Category 2  0.000  0.808  0.026
+     REPORT_S
+       Category 1  0.748  0.313  0.948
+       Category 2  0.252  0.687  0.052
+     COUNSELO
+       Category 1  0.222  0.456  0.678
+       Category 2  0.778  0.544  0.322
+     PSYCH_FT
+       Category 1  0.229  0.318  0.676
+       Category 2  0.771  0.682  0.324
+     LAW_FTE
+       Category 1  0.660  0.738  0.981
+       Category 2  0.340  0.262  0.019
+
+
 RESULTS IN PROBABILITY SCALE
 
                                                     Two-Tailed
@@ -519,8 +544,8 @@ Latent Class 3
     Category 2       0.000       0.000       0.000       0.019       0.042       0.049       0.057
 
 
-     Beginning Time:  16:19:19
-        Ending Time:  16:19:35
+     Beginning Time:  23:28:10
+        Ending Time:  23:28:26
        Elapsed Time:  00:00:16
 
 
@@ -534,4 +559,4 @@ Fax: (310) 391-8971
 Web: www.StatModel.com
 Support: Support@StatModel.com
 
-Copyright (c) 1998-2024 Muthen & Muthen
+Copyright (c) 1998-2025 Muthen & Muthen
