@@ -170,8 +170,8 @@
 </h3>
 <p><strong>R3STEP</strong> incorporates latent class predictors with mixture models. However, it is recommended to use the manual three-step.</p>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-43f6178e7e0ceda09bfa" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-43f6178e7e0ceda09bfa">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-9899b0967ba8037b8dce" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9899b0967ba8037b8dce">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <div id="run-the-r3step-model-with-gpa-as-the-latent-class-predictor-1" class="section level4" number="16.2.1.1">
 <h4>
 <span class="header-section-number">16.2.1.1</span> Run the <strong>R3STEP</strong> model with <code>gpa</code> as the latent class predictor<a class="anchor" aria-label="anchor" href="#run-the-r3step-model-with-gpa-as-the-latent-class-predictor-1"><i class="fas fa-link"></i></a>
@@ -288,7 +288,7 @@ Parameterization using Reference Class 1
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-01-22.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-01-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

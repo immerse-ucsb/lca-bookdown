@@ -42,16 +42,8 @@ Variables:
 
 ## Latent Profile Models
 
-Latent Profile Analysis (LPA) is a statistical modeling approach for estimating distinct profiles of variables.
-In the social sciences and in educational research, these profiles could represent, for example, how different youth experience dimensions of being engaged (i.e., cognitively, behaviorally, and affectively) at the same time.
-Note that LPA works best with continuous variables (and, in some cases, ordinal variables), but is not appropriate for dichotomous (binary) variables.
-
-Many analysts have carried out LPA using a latent variable modeling approach.
-From this approach, different parameters - means, variances, and covariances - are freely estimated across profiles, fixed to be the same across profiles, or constrained to be zero.
-The MPlus software is commonly used to estimate these models (see [here](https://www.statmodel.com/examples/mixture.shtml)) using the expectation-maximization (EM) algorithm to obtain the maximum likelihood estimates for the parameters.
-
-Different *models* (or how or whether parameters are estimated) can be specified and estimated.
-While MPlus is widely-used (and powerful), it is costly, closed-source, and can be difficult to use, particularly with respect to interpreting or using the output of specified models as part of a reproducible workflow.
+Latent Profile Analysis (LPA) is a statistical modeling approach for estimating distinct profiles of variables and uses continuous - rather than
+categorical - indicators. Unlike latent class analysis, which uses categorical indicators, LPA models the means, variances, and covariances of continuous indicators within each latent profile.
 
 ------------------------------------------------------------------------
 
@@ -272,23 +264,23 @@ ds %>%
 
 
 ```{=html}
-<div id="favzvgvqqb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#favzvgvqqb table {
+<div id="wlniwvolqi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wlniwvolqi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#favzvgvqqb thead, #favzvgvqqb tbody, #favzvgvqqb tfoot, #favzvgvqqb tr, #favzvgvqqb td, #favzvgvqqb th {
+#wlniwvolqi thead, #wlniwvolqi tbody, #wlniwvolqi tfoot, #wlniwvolqi tr, #wlniwvolqi td, #wlniwvolqi th {
   border-style: none;
 }
 
-#favzvgvqqb p {
+#wlniwvolqi p {
   margin: 0;
   padding: 0;
 }
 
-#favzvgvqqb .gt_table {
+#wlniwvolqi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -314,12 +306,12 @@ ds %>%
   border-left-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_caption {
+#wlniwvolqi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#favzvgvqqb .gt_title {
+#wlniwvolqi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -331,7 +323,7 @@ ds %>%
   border-bottom-width: 0;
 }
 
-#favzvgvqqb .gt_subtitle {
+#wlniwvolqi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -343,7 +335,7 @@ ds %>%
   border-top-width: 0;
 }
 
-#favzvgvqqb .gt_heading {
+#wlniwvolqi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -355,13 +347,13 @@ ds %>%
   border-right-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_bottom_border {
+#wlniwvolqi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_col_headings {
+#wlniwvolqi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -376,7 +368,7 @@ ds %>%
   border-right-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_col_heading {
+#wlniwvolqi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -396,7 +388,7 @@ ds %>%
   overflow-x: hidden;
 }
 
-#favzvgvqqb .gt_column_spanner_outer {
+#wlniwvolqi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -408,15 +400,15 @@ ds %>%
   padding-right: 4px;
 }
 
-#favzvgvqqb .gt_column_spanner_outer:first-child {
+#wlniwvolqi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#favzvgvqqb .gt_column_spanner_outer:last-child {
+#wlniwvolqi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#favzvgvqqb .gt_column_spanner {
+#wlniwvolqi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -428,11 +420,11 @@ ds %>%
   width: 100%;
 }
 
-#favzvgvqqb .gt_spanner_row {
+#wlniwvolqi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#favzvgvqqb .gt_group_heading {
+#wlniwvolqi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -458,7 +450,7 @@ ds %>%
   text-align: left;
 }
 
-#favzvgvqqb .gt_empty_group_heading {
+#wlniwvolqi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -473,15 +465,15 @@ ds %>%
   vertical-align: middle;
 }
 
-#favzvgvqqb .gt_from_md > :first-child {
+#wlniwvolqi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#favzvgvqqb .gt_from_md > :last-child {
+#wlniwvolqi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#favzvgvqqb .gt_row {
+#wlniwvolqi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -500,7 +492,7 @@ ds %>%
   overflow-x: hidden;
 }
 
-#favzvgvqqb .gt_stub {
+#wlniwvolqi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -513,7 +505,7 @@ ds %>%
   padding-right: 5px;
 }
 
-#favzvgvqqb .gt_stub_row_group {
+#wlniwvolqi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -527,15 +519,15 @@ ds %>%
   vertical-align: top;
 }
 
-#favzvgvqqb .gt_row_group_first td {
+#wlniwvolqi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#favzvgvqqb .gt_row_group_first th {
+#wlniwvolqi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#favzvgvqqb .gt_summary_row {
+#wlniwvolqi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -545,16 +537,16 @@ ds %>%
   padding-right: 5px;
 }
 
-#favzvgvqqb .gt_first_summary_row {
+#wlniwvolqi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_first_summary_row.thick {
+#wlniwvolqi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#favzvgvqqb .gt_last_summary_row {
+#wlniwvolqi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -564,7 +556,7 @@ ds %>%
   border-bottom-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_grand_summary_row {
+#wlniwvolqi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -574,7 +566,7 @@ ds %>%
   padding-right: 5px;
 }
 
-#favzvgvqqb .gt_first_grand_summary_row {
+#wlniwvolqi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -584,7 +576,7 @@ ds %>%
   border-top-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_last_grand_summary_row_top {
+#wlniwvolqi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -594,11 +586,11 @@ ds %>%
   border-bottom-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_striped {
+#wlniwvolqi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#favzvgvqqb .gt_table_body {
+#wlniwvolqi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -607,7 +599,7 @@ ds %>%
   border-bottom-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_footnotes {
+#wlniwvolqi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -621,7 +613,7 @@ ds %>%
   border-right-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_footnote {
+#wlniwvolqi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -630,7 +622,7 @@ ds %>%
   padding-right: 5px;
 }
 
-#favzvgvqqb .gt_sourcenotes {
+#wlniwvolqi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -644,7 +636,7 @@ ds %>%
   border-right-color: #D3D3D3;
 }
 
-#favzvgvqqb .gt_sourcenote {
+#wlniwvolqi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -652,72 +644,72 @@ ds %>%
   padding-right: 5px;
 }
 
-#favzvgvqqb .gt_left {
+#wlniwvolqi .gt_left {
   text-align: left;
 }
 
-#favzvgvqqb .gt_center {
+#wlniwvolqi .gt_center {
   text-align: center;
 }
 
-#favzvgvqqb .gt_right {
+#wlniwvolqi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#favzvgvqqb .gt_font_normal {
+#wlniwvolqi .gt_font_normal {
   font-weight: normal;
 }
 
-#favzvgvqqb .gt_font_bold {
+#wlniwvolqi .gt_font_bold {
   font-weight: bold;
 }
 
-#favzvgvqqb .gt_font_italic {
+#wlniwvolqi .gt_font_italic {
   font-style: italic;
 }
 
-#favzvgvqqb .gt_super {
+#wlniwvolqi .gt_super {
   font-size: 65%;
 }
 
-#favzvgvqqb .gt_footnote_marks {
+#wlniwvolqi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#favzvgvqqb .gt_asterisk {
+#wlniwvolqi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#favzvgvqqb .gt_indent_1 {
+#wlniwvolqi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#favzvgvqqb .gt_indent_2 {
+#wlniwvolqi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#favzvgvqqb .gt_indent_3 {
+#wlniwvolqi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#favzvgvqqb .gt_indent_4 {
+#wlniwvolqi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#favzvgvqqb .gt_indent_5 {
+#wlniwvolqi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#favzvgvqqb .katex-display {
+#wlniwvolqi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#favzvgvqqb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wlniwvolqi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
