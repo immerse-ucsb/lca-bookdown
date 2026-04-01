@@ -120,8 +120,8 @@ create_flextable <- function(data, sample_size) {
   coral_shades_ll <- colorRampPalette(c("#E44D26", "#FFECE6"))  # Coral → Light Coral
   
   # Normalize values from 0 to 1 for color scaling
-  ll_min <- min(data$Replicated_LL_Perc[data$Replicated_LL_Perc < 100], na.rm = TRUE)
-  ll_max <- max(data$Replicated_LL_Perc[data$Replicated_LL_Perc < 100], na.rm = TRUE)
+  ll_min <- min(data$Replicated_LL_Perc[data$Replicated_LL_Perc <= 100], na.rm = TRUE)
+  ll_max <- max(data$Replicated_LL_Perc[data$Replicated_LL_Perc <= 100], na.rm = TRUE)
   ll_scaled <- (data$Replicated_LL_Perc - ll_min) / (ll_max - ll_min)
   
   # Convert normalized values to hex colors
@@ -142,8 +142,8 @@ create_flextable <- function(data, sample_size) {
 coral_shades_ll <- colorRampPalette(c("#E44D26", "#FFECE6"))  # Coral → Light Coral
 
 # Normalize values from 0 to 1 for color scaling
-ll_min <- min(data$Replicated_LL_Perc[data$Replicated_LL_Perc < 100], na.rm = TRUE)
-ll_max <- max(data$Replicated_LL_Perc[data$Replicated_LL_Perc < 100], na.rm = TRUE)
+ll_min <- min(data$Replicated_LL_Perc[data$Replicated_LL_Perc <= 100], na.rm = TRUE)
+ll_max <- max(data$Replicated_LL_Perc[data$Replicated_LL_Perc <= 100], na.rm = TRUE)
 ll_scaled <- (data$Replicated_LL_Perc - ll_min) / (ll_max - ll_min)
 
 # Convert normalized values to hex colors
