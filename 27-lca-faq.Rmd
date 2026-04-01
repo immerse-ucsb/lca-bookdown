@@ -443,7 +443,7 @@ allFit %>%
   theme_cowplot() +
   labs(x = "Number of Classes", y = "Information Criteria Value", title = "Information Criteria") +
   theme(
-    text = element_text(family = "serif", size = 12),  # Change font to Avenir Next
+    text = element_text(family = "serif", size = 12),  # Change font to Arial
     legend.text = element_text(family="serif", size=12),
     legend.key.width = unit(3, "line"),
     legend.title = element_blank(),

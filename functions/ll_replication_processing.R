@@ -95,7 +95,7 @@ header_labels <- setNames(
 ll_replication_table_all <- flextable(ll_replication_df) %>%
   set_header_labels(.list = header_labels) %>%
   align(align = "center", part = "all") %>%
-  font(fontname = "Avenir Next", part = "all") %>%
+  font(fontname = "Arial", part = "all") %>%
   fontsize(size = 10, part = "body") %>%
   fontsize(size = 11, part = "header") %>%
   bold(part = "header", bold = FALSE)

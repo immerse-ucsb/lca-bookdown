@@ -1,20 +1,21 @@
 ---
 title: "Mixture Modeling with `MplusAutomation`"
 author: "Dina Arch"
-date: "2026-01-26"
+date: "2026-03-31"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography:
+- book.bib
+- packages.bib
 url: "https://bookdown.org/dina_arch/lca-bookdown/"
-description: 
-  latent class analysis with 
+description: latent class analysis with
 biblio-style: apalike
-csl: chicago-fullnote-bibliography.csl
+csl: "chicago-fullnote-bibliography.csl"
 ---
 
 # Mixture Modeling with `MplusAutomation` {.unnumbered}
 
-<img src="images/immerse_hex.png" class="cover" width="250" height="193"/> Welcome! This will be a collection of resources that will teach you how to apply mixture modeling using Mplus[@muthen2017] and `MplusAutomation`[@hallquist2018]! These resources will serve as a comprehensive guide to understanding and applying LCA using Mplus and its automation capabilities with `MplusAutomation`. Here, you will learn from start to finish how to apply mixture modeling using Mplus with the `MplusAutomation` package.
+<img src="images/immerse_hex.png" class="cover" width="250" height="193"/> Welcome! This will be a collection of resources that will teach you how to apply mixture modeling using Mplus[@muthen2017] and `MplusAutomation`[@hallquist2018]! These resources will serve as a comprehensive guide to understanding and applying mixture models using Mplus and its automation capabilities with `MplusAutomation`. Here, you will learn from start to finish how to apply a range of mixture modeling using Mplus with the `MplusAutomation` package.
 
 Note: This book is a continuous work in progress. The code presented may be updated and/or expanded as research progresses. Please treat the material as a living document rather than a final product.
 
@@ -32,7 +33,7 @@ Note: This book is a continuous work in progress. The code presented may be upda
 
 <img src="images/ies_logo.jpg" class="cover" width="250"/> The Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (IMMERSE) is an IES funded training grant (R305B220021) to support education scholars in integrating mixture modeling into their research.
 
-How to reference this workshop: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025). IMMERSE Online Resources (IES No. 305B220021). Institute of Education Sciences. <https://mixture-modeling.netlify.app/>
+How to reference this website: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025). IMMERSE Online Resources (IES No. 305B220021). Institute of Education Sciences. <https://mixture-modeling.netlify.app/>
 
 ## Authors & Contributors {.unnumbered}
 
@@ -43,6 +44,8 @@ This resource was developed by the IMMERSE team:
 -   **Karen Nylund-Gibson, PhD**, Principal Investigator
 
 -   **Marsha Ing, PhD**, Co-Principal Investigator
+
+-   **Katherine Masyn, PhD**, Co-Principal Investigator
 
 Additional code contributors:
 

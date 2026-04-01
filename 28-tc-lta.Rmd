@@ -40,6 +40,8 @@ library(psych)
 library(ggrepel)
 library(PNWColors)
 library(multcompView)
+library(showtext)
+showtext_auto()
 ```
 
 ------------------------------------------------------------------------
@@ -1950,17 +1952,17 @@ plot_full <- plot_full +
   ggtitle("Attitudinal Profile Transitions: Grade 7 to 10 and Grade 10 to 12") +
   theme(
     strip.text = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       size = 11,
       face = "plain"
     ),
     plot.title = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       hjust = 0.5,
       size = 14,
       margin = margin(b = 10)
     ),
-    text = element_text(family = "Avenir Next")
+    text = element_text(family = "Arial")
   )
 
 #### 5. Render plot ####
@@ -2010,17 +2012,17 @@ plot_female <- plot_transitions_function(
   ggtitle("Attitudinal Profile Transitions\nFemale Students: Grade 7 to 10 and Grade 10 to 12") +
   theme(
     strip.text = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       size = 11,
       face = "plain"
     ),
     plot.title = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       hjust = 0.5,
       size = 14,
       margin = margin(b = 10)
     ),
-    text = element_text(family = "Avenir Next")
+    text = element_text(family = "Arial")
   )
 
 #### 4. Display plot ####
@@ -2070,17 +2072,17 @@ plot_male <- plot_transitions_function(
   ggtitle("Attitudinal Profile Transitions\nMale Students: Grade 7 to 10 and Grade 10 to 12") +
   theme(
     strip.text = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       size = 11,
       face = "plain"
     ),
     plot.title = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       hjust = 0.5,
       size = 14,
       margin = margin(b = 10)
     ),
-    text = element_text(family = "Avenir Next")
+    text = element_text(family = "Arial")
   )
 
 #### 4. Display plot ####
@@ -2131,17 +2133,17 @@ plot_female_minority <- plot_transitions_function(
   ggtitle("Attitudinal Profile Transitions\nFemale Minority Students: Grade 7 to 10 and Grade 10 to 12") +
   theme(
     strip.text = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       size = 11,
       face = "plain"
     ),
     plot.title = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       hjust = 0.5,
       size = 14,
       margin = margin(b = 10)
     ),
-    text = element_text(family = "Avenir Next")
+    text = element_text(family = "Arial")
   )
 
 #### 4. Display plot ####
@@ -2172,7 +2174,7 @@ merged_female_nonminority <- merged %>%
 #### 2. Build Mplus-style transition object from modal assignments ####
 female_nonminority_obj <- make_transition_object(merged_female_nonminority, "N1", "N2", "N3")
 
-#### 3. Assign plot to object with labeled facets and Avenir Next font ####
+#### 3. Assign plot to object with labeled facets and Arial font ####
 plot_female_nonminority <- plot_transitions_function(
   model_name       = female_nonminority_obj,
   color_palette    = class_colors,
@@ -2192,17 +2194,17 @@ plot_female_nonminority <- plot_transitions_function(
   ggtitle("Attitudinal Profile Transitions\nNon-Minority Female Students: Grade 7 to 10 and Grade 10 to 12") +
   theme(
     strip.text = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       size = 11,
       face = "plain"
     ),
     plot.title = element_text(
-      family = "Avenir Next",
+      family = "Arial",
       hjust = 0.5,
       size = 14,
       margin = margin(b = 10)
     ),
-    text = element_text(family = "Avenir Next")
+    text = element_text(family = "Arial")
   )
 
 #### 4. Display plot ####

@@ -52,7 +52,7 @@ library(flextable)
     valign(valign = "bottom", part = "header") %>%
     
     # **Apply font**
-    font(fontname = "Avenir Next", part = "all")
+    font(fontname = "Arial", part = "all")
   
   # **🚀 Add Superheader**
   summary_table <- add_header_row(
