@@ -164,6 +164,8 @@ gtsave(fit_table, here("figures", "fit_table.png"))
 
 ### Information Criteria Plot
 
+Use the information criteria plot to display changes in information poLCA criteria.
+
 ```{r height=5, width=7}
 ic_plot(output_election)
 ```
