@@ -759,6 +759,7 @@ t44 <- 1 - (t41 + t42 + t43)
 Create table
 
 ### Create Transition Table
+The table below shows the transition probabilities estimated for girls only. These are hand calculated in Mplus using the `OVERALL` section of the model and `Model Constraints` command.
 
 ```{r, eval=TRUE}
 
