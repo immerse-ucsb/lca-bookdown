@@ -313,6 +313,7 @@ savedata <- savedata_T1 %>%
 
 ### Step 3 - Add Auxiliary Variables
 
+Here, we add covariates and distal outcomes to the overall model statement. This specifies the overall relationship between observed covariates and the latent classes at cross sectional timepoints.
 
 ```{r, eval = FALSE}
 step3  <- mplusObject(
@@ -426,6 +427,8 @@ plot_transitions_function(
 
 Table:
 
+Transition probability across classes can also be described using a table, or transition matrix. The table shows the 7th grade classes by 10th grade latent class, with the cells represented the overall transition.
+
 ```{r}
 lta_prob <- as.data.frame(lta_model$class_counts$transitionProbs$probability)
 
@@ -451,6 +454,8 @@ t_matrix %>%
 ------------------------------------------------------------------------
 
 #### Covariate Table
+
+The covariate table shows the relationship between covariate (gender) and distal outcome (IRT score) and latent classes for both cross sectional timepoints.
 
 ```{r}
 # REFERENCE CLASS 4
@@ -508,6 +513,7 @@ cov_m1
 
 #### Manually calculate transition probabilities by covariate
 
+Optionally, transition probabilities can be calculated for each level of the covariate. For example, transition probabilities for males or females only, depending on the research question.
 
 ```{r, eval = FALSE}
 step3  <- mplusObject(
