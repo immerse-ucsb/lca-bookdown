@@ -32,8 +32,8 @@ library(Hmisc)
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-079753943cf894b1cdd9" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-079753943cf894b1cdd9">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-53e22d9a6d64b83e2921" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-53e22d9a6d64b83e2921">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -183,7 +183,7 @@ ggplot() +
   theme_cowplot()                                                                              
 ```
 
-<img src="25-gmm_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="25-gmm_files/figure-html/unnamed-chunk-6-1.png" alt="" width="672" />
 
 ------------------------------------------------------------------------
 
@@ -379,23 +379,23 @@ fit_table1
 
 
 ```{=html}
-<div id="lefoxujxbr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lefoxujxbr table {
+<div id="hlajrriimy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hlajrriimy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lefoxujxbr thead, #lefoxujxbr tbody, #lefoxujxbr tfoot, #lefoxujxbr tr, #lefoxujxbr td, #lefoxujxbr th {
+#hlajrriimy thead, #hlajrriimy tbody, #hlajrriimy tfoot, #hlajrriimy tr, #hlajrriimy td, #hlajrriimy th {
   border-style: none;
 }
 
-#lefoxujxbr p {
+#hlajrriimy p {
   margin: 0;
   padding: 0;
 }
 
-#lefoxujxbr .gt_table {
+#hlajrriimy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -421,12 +421,12 @@ fit_table1
   border-left-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_caption {
+#hlajrriimy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lefoxujxbr .gt_title {
+#hlajrriimy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -438,7 +438,7 @@ fit_table1
   border-bottom-width: 0;
 }
 
-#lefoxujxbr .gt_subtitle {
+#hlajrriimy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -450,7 +450,7 @@ fit_table1
   border-top-width: 0;
 }
 
-#lefoxujxbr .gt_heading {
+#hlajrriimy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -462,13 +462,13 @@ fit_table1
   border-right-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_bottom_border {
+#hlajrriimy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_col_headings {
+#hlajrriimy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -483,7 +483,7 @@ fit_table1
   border-right-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_col_heading {
+#hlajrriimy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -503,7 +503,7 @@ fit_table1
   overflow-x: hidden;
 }
 
-#lefoxujxbr .gt_column_spanner_outer {
+#hlajrriimy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -515,15 +515,15 @@ fit_table1
   padding-right: 4px;
 }
 
-#lefoxujxbr .gt_column_spanner_outer:first-child {
+#hlajrriimy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lefoxujxbr .gt_column_spanner_outer:last-child {
+#hlajrriimy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lefoxujxbr .gt_column_spanner {
+#hlajrriimy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -535,11 +535,11 @@ fit_table1
   width: 100%;
 }
 
-#lefoxujxbr .gt_spanner_row {
+#hlajrriimy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lefoxujxbr .gt_group_heading {
+#hlajrriimy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -565,7 +565,7 @@ fit_table1
   text-align: left;
 }
 
-#lefoxujxbr .gt_empty_group_heading {
+#hlajrriimy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -580,15 +580,15 @@ fit_table1
   vertical-align: middle;
 }
 
-#lefoxujxbr .gt_from_md > :first-child {
+#hlajrriimy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lefoxujxbr .gt_from_md > :last-child {
+#hlajrriimy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lefoxujxbr .gt_row {
+#hlajrriimy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -607,7 +607,7 @@ fit_table1
   overflow-x: hidden;
 }
 
-#lefoxujxbr .gt_stub {
+#hlajrriimy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -620,7 +620,7 @@ fit_table1
   padding-right: 5px;
 }
 
-#lefoxujxbr .gt_stub_row_group {
+#hlajrriimy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -634,15 +634,15 @@ fit_table1
   vertical-align: top;
 }
 
-#lefoxujxbr .gt_row_group_first td {
+#hlajrriimy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lefoxujxbr .gt_row_group_first th {
+#hlajrriimy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lefoxujxbr .gt_summary_row {
+#hlajrriimy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -652,16 +652,16 @@ fit_table1
   padding-right: 5px;
 }
 
-#lefoxujxbr .gt_first_summary_row {
+#hlajrriimy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_first_summary_row.thick {
+#hlajrriimy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lefoxujxbr .gt_last_summary_row {
+#hlajrriimy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -671,7 +671,7 @@ fit_table1
   border-bottom-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_grand_summary_row {
+#hlajrriimy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -681,7 +681,7 @@ fit_table1
   padding-right: 5px;
 }
 
-#lefoxujxbr .gt_first_grand_summary_row {
+#hlajrriimy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -691,7 +691,7 @@ fit_table1
   border-top-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_last_grand_summary_row_top {
+#hlajrriimy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -701,11 +701,11 @@ fit_table1
   border-bottom-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_striped {
+#hlajrriimy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lefoxujxbr .gt_table_body {
+#hlajrriimy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -714,7 +714,7 @@ fit_table1
   border-bottom-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_footnotes {
+#hlajrriimy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -728,7 +728,7 @@ fit_table1
   border-right-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_footnote {
+#hlajrriimy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -737,7 +737,7 @@ fit_table1
   padding-right: 5px;
 }
 
-#lefoxujxbr .gt_sourcenotes {
+#hlajrriimy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -751,7 +751,7 @@ fit_table1
   border-right-color: #D3D3D3;
 }
 
-#lefoxujxbr .gt_sourcenote {
+#hlajrriimy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -759,72 +759,72 @@ fit_table1
   padding-right: 5px;
 }
 
-#lefoxujxbr .gt_left {
+#hlajrriimy .gt_left {
   text-align: left;
 }
 
-#lefoxujxbr .gt_center {
+#hlajrriimy .gt_center {
   text-align: center;
 }
 
-#lefoxujxbr .gt_right {
+#hlajrriimy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lefoxujxbr .gt_font_normal {
+#hlajrriimy .gt_font_normal {
   font-weight: normal;
 }
 
-#lefoxujxbr .gt_font_bold {
+#hlajrriimy .gt_font_bold {
   font-weight: bold;
 }
 
-#lefoxujxbr .gt_font_italic {
+#hlajrriimy .gt_font_italic {
   font-style: italic;
 }
 
-#lefoxujxbr .gt_super {
+#hlajrriimy .gt_super {
   font-size: 65%;
 }
 
-#lefoxujxbr .gt_footnote_marks {
+#hlajrriimy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lefoxujxbr .gt_asterisk {
+#hlajrriimy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lefoxujxbr .gt_indent_1 {
+#hlajrriimy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lefoxujxbr .gt_indent_2 {
+#hlajrriimy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lefoxujxbr .gt_indent_3 {
+#hlajrriimy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lefoxujxbr .gt_indent_4 {
+#hlajrriimy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lefoxujxbr .gt_indent_5 {
+#hlajrriimy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lefoxujxbr .katex-display {
+#hlajrriimy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lefoxujxbr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hlajrriimy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -923,9 +923,8 @@ fit_table1
 <td headers="BF" class="gt_row gt_right">–</td>
 <td headers="cmPk" class="gt_row gt_right"><.001</td></tr>
   </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
+  <tfoot>
+    <tr class="gt_footnotes">
       <td class="gt_footnote" colspan="12"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'><em>Note.</em> Par = Parameters; <em>LL</em> = model log likelihood;
 BIC = Bayesian information criterion;
 aBIC = sample size adjusted BIC; CAIC = consistent Akaike information criterion;
@@ -976,7 +975,7 @@ allFit %>%
   )
 ```
 
-<img src="25-gmm_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="25-gmm_files/figure-html/unnamed-chunk-10-1.png" alt="" width="672" />
 
 ------------------------------------------------------------------------
 
@@ -988,7 +987,7 @@ plotGrowthMixtures(output_gmm, estimated = TRUE, rawdata = TRUE,
                    time_scale = c(1, 2, 3, 4, 5, 6), alpha_range = c(0, 0.01))
 ```
 
-<img src="25-gmm_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="25-gmm_files/figure-html/unnamed-chunk-11-1.png" alt="" width="672" />
 
 ------------------------------------------------------------------------
 
@@ -1068,7 +1067,7 @@ plotGrowthMixtures(gmm_cov, estimated = TRUE, rawdata = TRUE,
                    time_scale = c(1, 2, 3, 4, 5, 6), alpha_range = c(0, 0.01), bw = TRUE)
 ```
 
-<img src="25-gmm_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="25-gmm_files/figure-html/unnamed-chunk-13-1.png" alt="" width="672" />
 
 
 <div style="text-align: center;"><img src="images/ucsb_logo.png" width="75%" /></div>
