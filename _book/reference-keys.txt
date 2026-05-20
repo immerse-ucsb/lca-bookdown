@@ -313,6 +313,7 @@ examine-transition-probability-plot-for-non-underrepresented-females
 examine-table-of-covariate-results-for-the-step-3-lta
 examine-outcome-variables
 gender-differences-in-transition-probabilities
+lta-with-measurement-invariance
 introduction
 data-setup-and-preparation
 load-required-packages
@@ -339,7 +340,6 @@ time-3-reorder
 diagnostic-class-plots-post-reordering
 completion-of-phase-1
 phase-2-testing-for-measurement-invariance
-purpose-1
 workflow-overview
 estimate-the-non-invariant-joint-configural-model-no-transitions
 estimate-the-full-measurement-invariance-model
@@ -349,8 +349,6 @@ alternatively-nested-model-testing-using-comparemodels-in-mplusautomation
 completion-of-phase-2
 phase-3-apply-multi-step-estimation-methods
 ml-three-step-procedure
-purpose-2
-what-this-phase-produces-1
 workflow-overview-1
 ml-step-1-re-estimate
 plotting-the-fixed-threshold-lcas
@@ -361,9 +359,6 @@ ml-step-3b-estimate-the-covariate-adjusted-lta-model-with-fixed-logits
 covariate-effects-table
 completion-of-phase-3-ml-three-step
 bch-method
-purpose-3
-what-this-phase-produces-2
-workflow-overview-2
 bch-step-1-estimate-the-invariant-lta-model-and-compute-bch-training-weights
 diagnostic-plot-of-the-invariant-bch-model
 bch-step-2-extract-bch-weights

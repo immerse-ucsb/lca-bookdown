@@ -106,15 +106,7 @@
 <li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">24</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
 <li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">25</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
 <li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">26</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">27</span> Introduction</a></li>
-<li><a class="" href="data-setup-and-preparation.html"><span class="header-section-number">28</span> Data Setup and Preparation</a></li>
-<li><a class="" href="descriptive-statistics-17.html"><span class="header-section-number">29</span> Descriptive Statistics</a></li>
-<li><a class="" href="phase-1-latent-class-enumeration-at-each-timepoint-exploratory-stage.html"><span class="header-section-number">30</span> Phase 1: Latent Class Enumeration at Each Timepoint (Exploratory Stage)</a></li>
-<li><a class="" href="what-this-phase-produces.html"><span class="header-section-number">31</span> What This Phase Produces</a></li>
-<li><a class="" href="phase-2-testing-for-measurement-invariance.html"><span class="header-section-number">32</span> Phase 2: Testing for Measurement Invariance</a></li>
-<li><a class="" href="phase-3-apply-multi-step-estimation-methods.html"><span class="header-section-number">33</span> Phase 3: Apply Multi-Step Estimation Methods</a></li>
-<li><a class="" href="ml-three-step-procedure.html"><span class="header-section-number">34</span> ML Three-Step Procedure</a></li>
-<li><a class="" href="bch-method.html"><span class="header-section-number">35</span> BCH Method</a></li>
+<li><a class="" href="lta-with-measurement-invariance.html"><span class="header-section-number">27</span> LTA with Measurement Invariance</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
 
@@ -179,8 +171,8 @@
 </h3>
 <p><strong>R3STEP</strong> incorporates latent class predictors with mixture models. However, it is recommended to use the manual three-step.</p>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-77716e6300754c759dbe" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-77716e6300754c759dbe">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-773607103974620ef13d" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-773607103974620ef13d">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <div id="run-the-r3step-model-with-gpa-as-the-latent-class-predictor-1" class="section level4" number="16.2.1.1">
 <h4>
 <span class="header-section-number">16.2.1.1</span> Run the <strong>R3STEP</strong> model with <code>gpa</code> as the latent class predictor<a class="anchor" aria-label="anchor" href="#run-the-r3step-model-with-gpa-as-the-latent-class-predictor-1"><i class="fas fa-link"></i></a>
