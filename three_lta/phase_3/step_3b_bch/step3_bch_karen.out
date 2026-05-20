@@ -1,0 +1,493 @@
+Mplus VERSION 9
+MUTHEN & MUTHEN
+11/12/2025   7:36 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Step 3 - BCH Method
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/LTA/ML 3 Step in LTA/step_3_bch/step3.dat";
+  VARIABLE:
+  NAMES = AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X GA32A GA32H
+       GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L KA46A KA46H KA46I KA46K KA46L
+       KA47A KA47H KA47I KA47K KA47L MINORITY FEMALE MATHG7 MATHG10 MATHG12 BCHW1
+       BCHW2 BCHW3 BCHW4 BCHW5 BCHW6 BCHW7 BCHW8 BCHW9 BCHW10 BCHW11 BCHW12 BCHW13
+       BCHW14 BCHW15 BCHW16 BCHW17 BCHW18 BCHW19 BCHW20 BCHW21 BCHW22 BCHW23 BCHW24
+       BCHW25 BCHW26 BCHW27 BCHW28 BCHW29 BCHW30 BCHW31 BCHW32 BCHW33 BCHW34 BCHW35
+       BCHW36 BCHW37 BCHW38 BCHW39 BCHW40 BCHW41 BCHW42 BCHW43 BCHW44 BCHW45 BCHW46
+       BCHW47 BCHW48 BCHW49 BCHW50 BCHW51 BCHW52 BCHW53 BCHW54 BCHW55 BCHW56 BCHW57
+       BCHW58 BCHW59 BCHW60 BCHW61 BCHW62 BCHW63 BCHW64 CASENUM;
+   MISSING=.;
+   usevar = BCHW1-BCHW64 MINORITY; ! FEMALE, MATHG7, MATHG10, MATHG12;
+
+    training = BCHW1-BCHW64(bch);
+
+    classes = c1(4) c2(4) c3(4);
+  ANALYSIS:
+  estimator = mlr;
+    type = mixture;
+    starts = 0;
+  MODEL:
+  %OVERALL%
+
+  c1 ON MINORITY ;
+  c2 ON c1 MINORITY  ;
+  c3 ON c2 MINORITY ;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  85
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Step 3 - BCH Method
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1822
+
+Number of dependent variables                                    0
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+Number of categorical latent variables                           3
+
+Observed dependent variables
+
+Observed independent variables
+   MINORITY
+
+Categorical latent variables
+   C1          C2          C3
+
+Variables with special functions
+
+  Training variables (BCH)
+   BCHW1       BCHW2       BCHW3       BCHW4       BCHW5       BCHW6
+   BCHW7       BCHW8       BCHW9       BCHW10      BCHW11      BCHW12
+   BCHW13      BCHW14      BCHW15      BCHW16      BCHW17      BCHW18
+   BCHW19      BCHW20      BCHW21      BCHW22      BCHW23      BCHW24
+   BCHW25      BCHW26      BCHW27      BCHW28      BCHW29      BCHW30
+   BCHW31      BCHW32      BCHW33      BCHW34      BCHW35      BCHW36
+   BCHW37      BCHW38      BCHW39      BCHW40      BCHW41      BCHW42
+   BCHW43      BCHW44      BCHW45      BCHW46      BCHW47      BCHW48
+   BCHW49      BCHW50      BCHW51      BCHW52      BCHW53      BCHW54
+   BCHW55      BCHW56      BCHW57      BCHW58      BCHW59      BCHW60
+   BCHW61      BCHW62      BCHW63      BCHW64
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-03
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-03
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent Variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Parameterization                                             LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/LTA/ML 3 Step in LTA/step_3_bch/step3.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     MINORITY              0.170       1.761       0.000   83.04%       0.000      0.000      0.000
+            1822.000       0.141       1.101       1.000   16.96%       0.000      0.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       36
+
+Loglikelihood
+
+          H0 Value                       -6538.348
+          H0 Scaling Correction Factor      5.9260
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   13148.696
+          Bayesian (BIC)                 13346.973
+          Sample-Size Adjusted BIC       13232.603
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Variable    Class
+
+    C1             1       575.27527          0.31574
+                   2       656.87744          0.36053
+                   3       381.65979          0.20947
+                   4       208.18747          0.11426
+    C2             1       594.23499          0.32614
+                   2       441.12662          0.24211
+                   3       429.62811          0.23580
+                   4       357.01041          0.19594
+    C3             1       623.25952          0.34207
+                   2       386.55920          0.21216
+                   3       433.17474          0.23775
+                   4       379.00656          0.20802
+
+     Additional output is available using the TECH15 option of the OUTPUT command.
+
+
+LATENT TRANSITION PROBABILITIES BASED ON THE ESTIMATED MODEL
+
+  C1 Classes (Rows) by C2 Classes (Columns)
+
+            1        2        3        4
+
+   1     0.498    0.175    0.227    0.101
+   2     0.203    0.391    0.195    0.210
+   3     0.348    0.132    0.329    0.191
+   4     0.198    0.161    0.217    0.423
+
+  C2 Classes (Rows) by C3 Classes (Columns)
+
+            1        2        3        4
+
+   1     0.836    0.049    0.085    0.029
+   2     0.158    0.523    0.136    0.183
+   3     0.091    0.132    0.539    0.239
+   4     0.050    0.198    0.259    0.492
+
+
+TRANSITION PROBABILITY ODDS
+
+     EVALUATED AT THE SAMPLE MEAN FOR ALL COVARIATES
+
+     TRANSITION TABLE ODDS AND 95% CONFIDENCE INTERVALS FOR C1 TO C2
+        1.000(1.000,1.000)   0.351(0.247,0.499)   0.455(0.321,0.644)   0.201(0.132,0.306)
+        0.520(0.348,0.776)   1.000(1.000,1.000)   0.500(0.330,0.756)   0.534(0.389,0.733)
+        1.055(0.625,1.780)   0.400(0.181,0.884)   1.000(1.000,1.000)   0.577(0.326,1.021)
+        0.467(0.237,0.922)   0.380(0.196,0.739)   0.514(0.276,0.956)   1.000(1.000,1.000)
+
+     TRANSITION TABLE ODDS AND 95% CONFIDENCE INTERVALS FOR C2 TO C3
+        1.000(1.000,1.000)   0.059(0.015,0.228)   0.102(0.038,0.272)   0.034(0.005,0.238)
+        0.303(0.127,0.726)   1.000(1.000,1.000)   0.261(0.115,0.589)   0.337(0.198,0.572)
+        0.169(0.033,0.857)   0.242(0.101,0.579)   1.000(1.000,1.000)   0.431(0.253,0.733)
+        0.104(0.009,1.255)   0.401(0.228,0.705)   0.533(0.314,0.905)   1.000(1.000,1.000)
+
+
+C-SPECIFIC CLASSIFICATION RESULTS
+
+Classification Quality for C1
+
+     Entropy is not available with BCH weights.
+
+BCH Weights for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   1.084    -.026    -.062    0.004
+    2   -.038    1.176    -.111    -.028
+    3   -.123    -.312    1.500    -.065
+    4   0.011    -.106    -.094    1.188
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   1.113    -.044    -.073    0.004
+    2   -.023    1.219    -.162    -.034
+    3   -.095    -.197    1.344    -.051
+    4   0.011    -.091    -.107    1.187
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      5.608   -8.315   -8.315    0.000
+    2      0.000   14.014    0.000    0.000
+    3      0.000    0.000   14.111    0.000
+    4     -4.713  -13.987  -13.987    0.000
+
+Classification Quality for C2
+
+     Entropy is not available with BCH weights.
+
+BCH Weights for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   1.053    -.007    -.050    0.004
+    2   -.292    1.459    -.126    -.041
+    3   -.390    -.230    1.725    -.105
+    4   -.248    -.031    -.063    1.342
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   1.507    -.178    -.204    -.125
+    2   -.014    1.197    -.162    -.021
+    3   -.098    -.106    1.248    -.044
+    4   0.009    -.042    -.091    1.124
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1     14.225    0.000    0.000    0.000
+    2      0.000   13.996    0.000    0.000
+    3      0.000    0.000   14.037    0.000
+    4     -4.842  -13.933  -13.933    0.000
+
+Classification Quality for C3
+
+     Entropy is not available with BCH weights.
+
+BCH Weights for the Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   1.057    -.013    -.046    0.002
+    2   -.797    2.046    -.181    -.068
+    3   -.932    -.279    2.349    -.138
+    4   -.733    -.049    -.056    1.838
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   1.914    -.298    -.344    -.272
+    2   -.038    1.233    -.166    -.029
+    3   -.120    -.097    1.247    -.030
+    4   0.005    -.042    -.084    1.121
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1     14.464    0.000    0.000    0.000
+    2      0.000   14.025    0.000    0.000
+    3      0.000    0.000   14.036    0.000
+    4     -5.343  -13.929  -13.929    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Categorical Latent Variables
+
+ C2#1     ON
+    C1#1               2.366      0.404      5.852      0.000
+    C1#2               0.735      0.426      1.726      0.084
+    C1#3               1.365      0.469      2.912      0.004
+
+ C2#2     ON
+    C1#1               1.524      0.419      3.639      0.000
+    C1#2               1.594      0.386      4.125      0.000
+    C1#3               0.601      0.549      1.096      0.273
+
+ C2#3     ON
+    C1#1               1.483      0.402      3.686      0.000
+    C1#2               0.598      0.401      1.492      0.136
+    C1#3               1.216      0.454      2.679      0.007
+
+ C3#1     ON
+    C2#1               5.661      1.701      3.328      0.001
+    C2#2               2.160      1.380      1.565      0.118
+    C2#3               1.330      1.595      0.834      0.404
+
+ C3#2     ON
+    C2#1               1.476      1.300      1.135      0.256
+    C2#2               2.003      0.403      4.971      0.000
+    C2#3               0.337      0.561      0.601      0.548
+
+ C3#3     ON
+    C2#1               1.744      1.208      1.444      0.149
+    C2#2               0.374      0.537      0.696      0.487
+    C2#3               1.472      0.402      3.666      0.000
+
+ C1#1       ON
+    MINORITY           0.188      0.268      0.702      0.483
+
+ C1#2       ON
+    MINORITY           0.103      0.284      0.362      0.717
+
+ C1#3       ON
+    MINORITY           0.477      0.314      1.521      0.128
+
+ C2#1       ON
+    MINORITY           0.436      0.268      1.630      0.103
+
+ C2#2       ON
+    MINORITY           0.471      0.271      1.738      0.082
+
+ C2#3       ON
+    MINORITY           0.149      0.307      0.483      0.629
+
+ C3#1       ON
+    MINORITY           0.782      0.592      1.320      0.187
+
+ C3#2       ON
+    MINORITY           1.079      0.395      2.734      0.006
+
+ C3#3       ON
+    MINORITY           0.802      0.398      2.018      0.044
+
+ Intercepts
+    C1#1               0.987      0.101      9.744      0.000
+    C1#2               1.134      0.106     10.678      0.000
+    C1#3               0.522      0.128      4.067      0.000
+    C2#1              -0.835      0.349     -2.391      0.017
+    C2#2              -1.046      0.340     -3.076      0.002
+    C2#3              -0.690      0.319     -2.166      0.030
+    C3#1              -2.398      1.277     -1.877      0.060
+    C3#2              -1.098      0.294     -3.737      0.000
+    C3#3              -0.766      0.273     -2.803      0.005
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.286E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+COVARIATE EFFECTS ON TRANSITION PROBABILITY ODDS RATIOS
+
+     EFFECT OF MINORITY
+
+     TRANSITION TABLE ODDS RATIO AND 95% CONFIDENCE INTERVALS FOR C1 TO C2
+        1.000(1.000,1.000)   1.036(0.635,1.689)   0.750(0.440,1.278)   0.647(0.383,1.092)
+        0.966(0.592,1.575)   1.000(1.000,1.000)   0.724(0.398,1.318)   0.624(0.367,1.062)
+        1.333(0.782,2.272)   1.380(0.759,2.512)   1.000(1.000,1.000)   0.862(0.472,1.574)
+        1.546(0.915,2.612)   1.602(0.942,2.724)   1.160(0.635,2.118)   1.000(1.000,1.000)
+
+     TRANSITION TABLE ODDS RATIO AND 95% CONFIDENCE INTERVALS FOR C2 TO C3
+        1.000(1.000,1.000)   1.346(0.474,3.820)   1.021(0.340,3.062)   0.458(0.143,1.460)
+        0.743(0.262,2.110)   1.000(1.000,1.000)   0.758(0.348,1.654)   0.340(0.157,0.737)
+        0.980(0.327,2.939)   1.318(0.605,2.875)   1.000(1.000,1.000)   0.448(0.206,0.977)
+        2.186(0.685,6.976)   2.941(1.357,6.374)   2.231(1.023,4.863)   1.000(1.000,1.000)
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS FOR LATENT CLASS VARIABLES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+ C1#1     ON
+    MINORITY           1.207      0.324      0.713      2.043
+
+ C1#2     ON
+    MINORITY           1.108      0.315      0.635      1.933
+
+ C1#3     ON
+    MINORITY           1.612      0.506      0.871      2.981
+
+ C2#1     ON
+    MINORITY           1.546      0.414      0.915      2.612
+
+ C2#2     ON
+    MINORITY           1.602      0.434      0.942      2.724
+
+ C2#3     ON
+    MINORITY           1.160      0.356      0.635      2.118
+
+ C3#1     ON
+    MINORITY           2.186      1.294      0.685      6.976
+
+ C3#2     ON
+    MINORITY           2.941      1.161      1.357      6.374
+
+ C3#3     ON
+    MINORITY           2.231      0.887      1.023      4.863
+
+Available post-processing tools
+
+  Conditional probabilities and odds for the latent class variables
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for Mixture analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  19:36:46
+        Ending Time:  19:36:48
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2025 Muthen & Muthen

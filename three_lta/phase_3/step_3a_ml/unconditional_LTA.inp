@@ -1,0 +1,86 @@
+TITLE:
+Step3a of 3-step
+DATA:
+FILE = "C:/Users/dnajiarch/Box/LTA/ML 3 Step in LTA/phase_3/step_3a_ml/
+t123_LTA.dat"; 
+VARIABLE:
+NAMES = casenum ab39a ab39h ab39i ab39k ab39l ab39m ab39t ab39u ab39w ab39x
+     minority_x female_x mathg7_x mathg10_x mathg12_x cprob11 cprob12 cprob13
+     cprob14 n1 ga32a ga32h ga32i ga32k ga32l ga33a ga33h ga33i ga33k ga33l
+     minority_y female_y mathg7_y mathg10_y mathg12_y cprob21 cprob22 cprob23
+     cprob24 n2 ka46a ka46h ka46i ka46k ka46l ka47a ka47h ka47i ka47k ka47l minority
+     female mathg7 mathg10 mathg12 cprob31 cprob32 cprob33 cprob34 n3; 
+ MISSING=.;
+ idvariable =casenum;
+ 
+  nominal=n1 n2 n3;
+  
+  usevar = n1 n2 n3;
+
+  classes = c1(4) c2(4) c3(4);
+ 
+  auxiliary = MINORITY, FEMALE, MATHG7, MATHG10, MATHG12;
+ANALYSIS:
+estimator = mlr; 
+  type = mixture; 
+  starts = 0;
+MODEL:
+%overall%
+c2 on c1; 
+c3 on c2;
+
+Model c1:
+  %c1#1%
+    [n1#1@13.754];
+    [n1#2@9.912];
+    [n1#3@10.585];
+  %c1#2%
+    [n1#1@0.464];
+    [n1#2@3.567];
+    [n1#3@1.028];
+  %c1#3%
+    [n1#1@0.711];
+    [n1#2@1.418];
+    [n1#3@2.781];
+  %c1#4%
+    [n1#1@-7.072];
+    [n1#2@-2.34];
+    [n1#3@-2.645];
+ 
+Model c2:
+  %c2#1%
+    [n2#1@8.032];
+    [n2#2@3.621];
+    [n2#3@4.753];
+  %c2#2%
+    [n2#1@-0.035];
+    [n2#2@3.292];
+    [n2#3@0.822];
+  %c2#3%
+    [n2#1@0.245];
+    [n2#2@0.669];
+    [n2#3@2.5];
+  %c2#4%
+    [n2#1@-7.896];
+    [n2#2@-3.502];
+    [n2#3@-3.054];
+
+Model c3:
+  %c3#1%
+    [n3#1@6.291];
+    [n3#2@2.931];
+    [n3#3@2.198];
+  %c3#2%
+    [n3#1@0.334];
+    [n3#2@2.525];
+    [n3#3@0.587];
+  %c3#3%
+    [n3#1@-0.063];
+    [n3#2@0.773];
+    [n3#3@3.12];
+  %c3#4%
+    [n3#1@-6.703];
+    [n3#2@-3.179];
+    [n3#3@-3.353];
+OUTPUT:
+svalues;

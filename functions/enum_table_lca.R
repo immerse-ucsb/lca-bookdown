@@ -29,13 +29,7 @@ fit_table_lca <- function(x, final_data) {
     arrange(Parameters)
   
   # Merge with external final_data
-  merged_table <- allFit %>%
-    mutate(Title = str_trim(Title)) %>%
-    left_join(
-      final_data %>%
-        select(Class_Model, Perc_Convergence, Replicated_LL_Perc, Smallest_Class, Smallest_Class_Perc),
-      by = c("Title" = "Class_Model")
-    ) %>%
+  merged_table <-  cbind(allFit, final_data) %>%
     mutate(
       Smallest_Class = coalesce(Smallest_Class, final_data$Smallest_Class[match(Title, final_data$Class_Model)]),
       Smallest_Class_Combined = paste0(Smallest_Class, "\u00A0(", Smallest_Class_Perc, "%)")

@@ -1,7 +1,7 @@
 ---
 title: "Mixture Modeling with `MplusAutomation`"
 author: "Dina Arch"
-date: "2026-05-06"
+date: "2026-05-20"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -54,6 +54,8 @@ Additional code contributors:
 -   **Delwin Carter, PhD**
 
 -   **Yidi Zhang, MA**
+
+-   **Travis Candieas**
 
 We also thank all the IMMERSE fellows who provided feedback during the development of these materials.
 

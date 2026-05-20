@@ -192,7 +192,7 @@ lta_non_inv_fit <- mplusModeler(lta_non_inv,
 ------------------------------------------------------------------------
 
 
-### Conduct Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing
+### Nested Model Testing: Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing
 
 -   non-invariant (comparison): This model has **more** parameters.
 
@@ -238,7 +238,373 @@ df <- abs(p0 - p1)
 **RESULT**: The Log Likelihood $\chi^2$ difference test comparing the invariant and non-invariant LTA models was, $\chi^2 (20) = 21.542, p = .624$.
 
 [Reference](https://stats.idre.ucla.edu/mplus/faq/how-can-i-compute-a-chi-square-test-for-nested-models-with-the-mlr-or-mlm-estimators/)
-    
+
+#### Alternative: Nested Model Testing Using `compareModels` in MplusAutomation
+
+
+``` r
+compareModels(lta_models$X4.class.invariant.out, lta_models$X4.class.non.invariant.out, show="all", diffTest=TRUE)
+#> 
+#> ==============
+#> 
+#> Mplus model comparison
+#> ----------------------
+#> 
+#> ------
+#> Model 1:  C:\Users\trcan\Box\lca-bookdown\lta\lta_model/4-class-invariant.out 
+#> Model 2:  C:\Users\trcan\Box\lca-bookdown\lta\lta_model/4-class-non-invariant.out 
+#> ------
+#> 
+#> Model Summary Comparison
+#> ------------------------
+#> 
+#>              m1            m2               
+#> Title        Invariant LTA Non-Invariant LTA
+#> Observations 3092          3092             
+#> Estimator    MLR           MLR              
+#> Parameters   35            55               
+#> LL           -14542.768    -14531.997       
+#> AIC          29155.536     29173.994        
+#> BIC          29366.816     29506.005        
+#> 
+#>   MLR Chi-Square Difference Test for Nested Models Based on Loglikelihood
+#>   -----------------------------------------------------------------------
+#> 
+#>   Difference Test Scaling Correction:  1.2355 
+#>   Chi-square difference:  17.4359 
+#>   Diff degrees of freedom:  20 
+#>   P-value:  0.6245 
+#> 
+#>   Note: The chi-square difference test assumes that these models are nested.
+#>   It is up to you to verify this assumption.
+#> 
+#>   MLR Chi-Square Difference test for nested models
+#>   --------------------------------------------
+#> 
+#>   Difference Test Scaling Correction:  
+#>   Chi-square difference:  
+#>   Diff degrees of freedom:  
+#>   P-value:  
+#> 
+#> Note: The chi-square difference test assumes that these models are nested.
+#>   It is up to you to verify this assumption.
+#> 
+#> =========
+#> 
+#> Model parameter comparison
+#> --------------------------
+#>   Parameters present in both models
+#> =========
+#> 
+#>   Approximately equal in both models (param. est. diff <= 1e-04)
+#>   ----------------------------------------------
+#> None
+#> 
+#> 
+#>   Parameter estimates that differ between models (param. est. diff > 1e-04)
+#>   ----------------------------------------------
+#>  paramHeader   param                  LatentClass m1_est
+#>      C2#1.ON    C1#1 Categorical.Latent.Variables  1.915
+#>      C2#1.ON    C1#2 Categorical.Latent.Variables  0.789
+#>      C2#1.ON    C1#3 Categorical.Latent.Variables  1.551
+#>      C2#2.ON    C1#1 Categorical.Latent.Variables  0.420
+#>      C2#2.ON    C1#2 Categorical.Latent.Variables  1.114
+#>      C2#2.ON    C1#3 Categorical.Latent.Variables  0.451
+#>      C2#3.ON    C1#1 Categorical.Latent.Variables  0.896
+#>      C2#3.ON    C1#2 Categorical.Latent.Variables  0.349
+#>      C2#3.ON    C1#3 Categorical.Latent.Variables  1.634
+#>        Means    C1#1 Categorical.Latent.Variables  0.735
+#>        Means    C1#2 Categorical.Latent.Variables  0.710
+#>        Means    C1#3 Categorical.Latent.Variables  0.637
+#>        Means    C2#1 Categorical.Latent.Variables -1.326
+#>        Means    C2#2 Categorical.Latent.Variables  0.165
+#>        Means    C2#3 Categorical.Latent.Variables -0.126
+#>   Thresholds AB39M$1                         C1#1 -0.718
+#>   Thresholds AB39M$1                         C1#2  0.964
+#>   Thresholds AB39M$1                         C1#3 -2.101
+#>   Thresholds AB39M$1                         C1#4 -0.298
+#>   Thresholds AB39T$1                         C1#1  0.830
+#>   Thresholds AB39T$1                         C1#2  3.759
+#>   Thresholds AB39T$1                         C1#3 -2.553
+#>   Thresholds AB39T$1                         C1#4  0.398
+#>   Thresholds AB39U$1                         C1#1  0.287
+#>   Thresholds AB39U$1                         C1#2  3.293
+#>   Thresholds AB39U$1                         C1#3 -2.824
+#>   Thresholds AB39U$1                         C1#4 -0.907
+#>   Thresholds AB39W$1                         C1#1  0.289
+#>   Thresholds AB39W$1                         C1#2  2.828
+#>   Thresholds AB39W$1                         C1#3 -2.186
+#>   Thresholds AB39W$1                         C1#4  1.572
+#>   Thresholds AB39X$1                         C1#1 -0.802
+#>   Thresholds AB39X$1                         C1#2  4.328
+#>   Thresholds AB39X$1                         C1#3 -2.561
+#>   Thresholds AB39X$1                         C1#4 14.639
+#>   Thresholds GA33A$1                         C2#1 -0.718
+#>   Thresholds GA33A$1                         C2#2  0.964
+#>   Thresholds GA33A$1                         C2#3 -2.101
+#>   Thresholds GA33A$1                         C2#4 -0.298
+#>   Thresholds GA33H$1                         C2#1  0.830
+#>   Thresholds GA33H$1                         C2#2  3.759
+#>   Thresholds GA33H$1                         C2#3 -2.553
+#>   Thresholds GA33H$1                         C2#4  0.398
+#>   Thresholds GA33I$1                         C2#1  0.287
+#>   Thresholds GA33I$1                         C2#2  3.293
+#>   Thresholds GA33I$1                         C2#3 -2.824
+#>   Thresholds GA33I$1                         C2#4 -0.907
+#>   Thresholds GA33K$1                         C2#1  0.289
+#>   Thresholds GA33K$1                         C2#2  2.828
+#>   Thresholds GA33K$1                         C2#3 -2.186
+#>   Thresholds GA33K$1                         C2#4  1.572
+#>   Thresholds GA33L$1                         C2#1 -0.802
+#>   Thresholds GA33L$1                         C2#2  4.328
+#>   Thresholds GA33L$1                         C2#3 -2.561
+#>   Thresholds GA33L$1                         C2#4 14.639
+#>  m2_est . m1_se m2_se . m1_est_se m2_est_se . m1_pval
+#>   1.137 | 1.591 2.298 |     1.204     0.495 |   0.229
+#>   2.293 | 1.536 3.033 |     0.514     0.756 |   0.607
+#>   2.559 | 1.486 2.767 |     1.044     0.925 |   0.297
+#>   1.320 | 0.609 0.628 |     0.690     2.101 |   0.490
+#>   0.873 | 0.468 1.039 |     2.382     0.841 |   0.017
+#>   0.864 | 0.510 1.029 |     0.885     0.840 |   0.376
+#>   0.477 | 0.624 0.616 |     1.435     0.775 |   0.151
+#>   2.019 | 0.546 1.032 |     0.639     1.957 |   0.523
+#>   1.220 | 0.542 0.878 |     3.015     1.391 |   0.003
+#>   0.875 | 0.580 0.930 |     1.266     0.940 |   0.206
+#>   0.788 | 0.505 0.911 |     1.408     0.865 |   0.159
+#>   0.818 | 0.464 1.314 |     1.373     0.622 |   0.170
+#>  -1.612 | 1.046 2.355 |    -1.267    -0.685 |   0.205
+#>  -0.065 | 0.270 0.491 |     0.609    -0.133 |   0.543
+#>  -0.370 | 0.269 0.487 |    -0.469    -0.759 |   0.639
+#>   0.784 | 0.101 0.133 |    -7.092     5.902 |   0.000
+#>  -2.033 | 0.097 0.144 |     9.911   -14.150 |   0.000
+#>  -0.637 | 0.108 0.163 |   -19.444    -3.898 |   0.000
+#>  -0.580 | 0.158 0.338 |    -1.882    -1.715 |   0.060
+#>   3.150 | 0.147 0.656 |     5.636     4.802 |   0.000
+#>  -2.236 | 1.017 0.363 |     3.697    -6.164 |   0.000
+#>   0.937 | 0.266 0.223 |    -9.588     4.202 |   0.000
+#>   0.192 | 0.239 0.717 |     1.667     0.267 |   0.096
+#>   2.918 | 0.146 1.278 |     1.965     2.284 |   0.049
+#>  -2.560 | 0.882 0.323 |     3.735    -7.916 |   0.000
+#>   0.581 | 0.223 0.311 |   -12.652     1.865 |   0.000
+#>  -2.164 | 0.781 5.381 |    -1.162    -0.402 |   0.245
+#>   3.026 | 0.174 0.516 |     1.664     5.868 |   0.096
+#>  -2.203 | 0.175 0.311 |    16.117    -7.089 |   0.000
+#>   0.433 | 0.144 0.472 |   -15.195     0.917 |   0.000
+#>   1.416 | 0.291 0.650 |     5.401     2.180 |   0.000
+#>   4.450 | 0.563 2.507 |    -1.424     1.775 |   0.154
+#>  -2.936 | 0.770 0.664 |     5.619    -4.418 |   0.000
+#>  -0.378 | 0.186 0.874 |   -13.796    -0.433 |   0.000
+#>   1.595 | 1.419 0.958 |    10.318     1.666 |   0.000
+#>  -0.859 | 0.101 0.225 |    -7.092    -3.818 |   0.000
+#>   1.132 | 0.097 0.137 |     9.911     8.270 |   0.000
+#>  -2.197 | 0.108 0.166 |   -19.444   -13.253 |   0.000
+#>  -0.141 | 0.158 0.237 |    -1.882    -0.597 |   0.060
+#>   0.544 | 0.147 0.269 |     5.636     2.020 |   0.000
+#>   3.836 | 1.017 1.458 |     3.697     2.631 |   0.000
+#>  -2.883 | 0.266 0.600 |    -9.588    -4.809 |   0.000
+#>   0.414 | 0.239 0.299 |     1.667     1.386 |   0.096
+#>   0.103 | 0.146 0.298 |     1.965     0.344 |   0.049
+#>   3.144 | 0.882 1.048 |     3.735     2.999 |   0.000
+#>  -3.328 | 0.223 0.544 |   -12.652    -6.119 |   0.000
+#>  -0.901 | 0.781 0.861 |    -1.162    -1.047 |   0.245
+#>  -0.089 | 0.174 0.256 |     1.664    -0.349 |   0.096
+#>   2.796 | 0.175 0.233 |    16.117    12.025 |   0.000
+#>  -2.334 | 0.144 0.230 |   -15.195   -10.132 |   0.000
+#>   1.726 | 0.291 0.523 |     5.401     3.303 |   0.000
+#>  -0.847 | 0.563 0.673 |    -1.424    -1.259 |   0.154
+#>   4.079 | 0.770 0.643 |     5.619     6.339 |   0.000
+#>  -2.402 | 0.186 0.219 |   -13.796   -10.981 |   0.000
+#>  15.000 | 1.419 0.000 |    10.318   999.000 |   0.000
+#>  m2_pval
+#>    0.621
+#>    0.450
+#>    0.355
+#>    0.036
+#>    0.401
+#>    0.401
+#>    0.438
+#>    0.050
+#>    0.164
+#>    0.347
+#>    0.387
+#>    0.534
+#>    0.494
+#>    0.894
+#>    0.448
+#>    0.000
+#>    0.000
+#>    0.000
+#>    0.086
+#>    0.000
+#>    0.000
+#>    0.000
+#>    0.789
+#>    0.022
+#>    0.000
+#>    0.062
+#>    0.688
+#>    0.000
+#>    0.000
+#>    0.359
+#>    0.029
+#>    0.076
+#>    0.000
+#>    0.665
+#>    0.096
+#>    0.000
+#>    0.000
+#>    0.000
+#>    0.550
+#>    0.043
+#>    0.009
+#>    0.000
+#>    0.166
+#>    0.731
+#>    0.003
+#>    0.000
+#>    0.295
+#>    0.727
+#>    0.000
+#>    0.000
+#>    0.001
+#>    0.208
+#>    0.000
+#>    0.000
+#>  999.000
+#> 
+#> 
+#>   P-values that differ between models (p-value diff > 1e-04)
+#>   -----------------------------------
+#>  paramHeader   param                  LatentClass m1_est
+#>      C2#1.ON    C1#1 Categorical.Latent.Variables  1.915
+#>      C2#1.ON    C1#2 Categorical.Latent.Variables  0.789
+#>      C2#1.ON    C1#3 Categorical.Latent.Variables  1.551
+#>      C2#2.ON    C1#1 Categorical.Latent.Variables  0.420
+#>      C2#2.ON    C1#2 Categorical.Latent.Variables  1.114
+#>      C2#2.ON    C1#3 Categorical.Latent.Variables  0.451
+#>      C2#3.ON    C1#1 Categorical.Latent.Variables  0.896
+#>      C2#3.ON    C1#2 Categorical.Latent.Variables  0.349
+#>      C2#3.ON    C1#3 Categorical.Latent.Variables  1.634
+#>        Means    C1#1 Categorical.Latent.Variables  0.735
+#>        Means    C1#2 Categorical.Latent.Variables  0.710
+#>        Means    C1#3 Categorical.Latent.Variables  0.637
+#>        Means    C2#1 Categorical.Latent.Variables -1.326
+#>        Means    C2#2 Categorical.Latent.Variables  0.165
+#>        Means    C2#3 Categorical.Latent.Variables -0.126
+#>   Thresholds AB39M$1                         C1#4 -0.298
+#>   Thresholds AB39T$1                         C1#4  0.398
+#>   Thresholds AB39U$1                         C1#1  0.287
+#>   Thresholds AB39U$1                         C1#3 -2.824
+#>   Thresholds AB39U$1                         C1#4 -0.907
+#>   Thresholds AB39W$1                         C1#1  0.289
+#>   Thresholds AB39W$1                         C1#3 -2.186
+#>   Thresholds AB39W$1                         C1#4  1.572
+#>   Thresholds AB39X$1                         C1#1 -0.802
+#>   Thresholds AB39X$1                         C1#3 -2.561
+#>   Thresholds AB39X$1                         C1#4 14.639
+#>   Thresholds GA33A$1                         C2#4 -0.298
+#>   Thresholds GA33H$1                         C2#1  0.830
+#>   Thresholds GA33H$1                         C2#2  3.759
+#>   Thresholds GA33H$1                         C2#4  0.398
+#>   Thresholds GA33I$1                         C2#1  0.287
+#>   Thresholds GA33I$1                         C2#2  3.293
+#>   Thresholds GA33I$1                         C2#4 -0.907
+#>   Thresholds GA33K$1                         C2#1  0.289
+#>   Thresholds GA33K$1                         C2#4  1.572
+#>   Thresholds GA33L$1                         C2#1 -0.802
+#>   Thresholds GA33L$1                         C2#4 14.639
+#>  m2_est . m1_se m2_se . m1_est_se m2_est_se . m1_pval
+#>   1.137 | 1.591 2.298 |     1.204     0.495 |   0.229
+#>   2.293 | 1.536 3.033 |     0.514     0.756 |   0.607
+#>   2.559 | 1.486 2.767 |     1.044     0.925 |   0.297
+#>   1.320 | 0.609 0.628 |     0.690     2.101 |   0.490
+#>   0.873 | 0.468 1.039 |     2.382     0.841 |   0.017
+#>   0.864 | 0.510 1.029 |     0.885     0.840 |   0.376
+#>   0.477 | 0.624 0.616 |     1.435     0.775 |   0.151
+#>   2.019 | 0.546 1.032 |     0.639     1.957 |   0.523
+#>   1.220 | 0.542 0.878 |     3.015     1.391 |   0.003
+#>   0.875 | 0.580 0.930 |     1.266     0.940 |   0.206
+#>   0.788 | 0.505 0.911 |     1.408     0.865 |   0.159
+#>   0.818 | 0.464 1.314 |     1.373     0.622 |   0.170
+#>  -1.612 | 1.046 2.355 |    -1.267    -0.685 |   0.205
+#>  -0.065 | 0.270 0.491 |     0.609    -0.133 |   0.543
+#>  -0.370 | 0.269 0.487 |    -0.469    -0.759 |   0.639
+#>  -0.580 | 0.158 0.338 |    -1.882    -1.715 |   0.060
+#>   0.192 | 0.239 0.717 |     1.667     0.267 |   0.096
+#>   2.918 | 0.146 1.278 |     1.965     2.284 |   0.049
+#>   0.581 | 0.223 0.311 |   -12.652     1.865 |   0.000
+#>  -2.164 | 0.781 5.381 |    -1.162    -0.402 |   0.245
+#>   3.026 | 0.174 0.516 |     1.664     5.868 |   0.096
+#>   0.433 | 0.144 0.472 |   -15.195     0.917 |   0.000
+#>   1.416 | 0.291 0.650 |     5.401     2.180 |   0.000
+#>   4.450 | 0.563 2.507 |    -1.424     1.775 |   0.154
+#>  -0.378 | 0.186 0.874 |   -13.796    -0.433 |   0.000
+#>   1.595 | 1.419 0.958 |    10.318     1.666 |   0.000
+#>  -0.141 | 0.158 0.237 |    -1.882    -0.597 |   0.060
+#>   0.544 | 0.147 0.269 |     5.636     2.020 |   0.000
+#>   3.836 | 1.017 1.458 |     3.697     2.631 |   0.000
+#>   0.414 | 0.239 0.299 |     1.667     1.386 |   0.096
+#>   0.103 | 0.146 0.298 |     1.965     0.344 |   0.049
+#>   3.144 | 0.882 1.048 |     3.735     2.999 |   0.000
+#>  -0.901 | 0.781 0.861 |    -1.162    -1.047 |   0.245
+#>  -0.089 | 0.174 0.256 |     1.664    -0.349 |   0.096
+#>   1.726 | 0.291 0.523 |     5.401     3.303 |   0.000
+#>  -0.847 | 0.563 0.673 |    -1.424    -1.259 |   0.154
+#>  15.000 | 1.419 0.000 |    10.318   999.000 |   0.000
+#>  m2_pval
+#>    0.621
+#>    0.450
+#>    0.355
+#>    0.036
+#>    0.401
+#>    0.401
+#>    0.438
+#>    0.050
+#>    0.164
+#>    0.347
+#>    0.387
+#>    0.534
+#>    0.494
+#>    0.894
+#>    0.448
+#>    0.086
+#>    0.789
+#>    0.022
+#>    0.062
+#>    0.688
+#>    0.000
+#>    0.359
+#>    0.029
+#>    0.076
+#>    0.665
+#>    0.096
+#>    0.550
+#>    0.043
+#>    0.009
+#>    0.166
+#>    0.731
+#>    0.003
+#>    0.295
+#>    0.727
+#>    0.001
+#>    0.208
+#>  999.000
+#> 
+#> 
+#>   Parameters unique to model 1: 0
+#>   -----------------------------
+#> 
+#>   None
+#> 
+#> 
+#>   Parameters unique to model 2: 0
+#>   -----------------------------
+#> 
+#>  None
+#> 
+#> 
+#> ==============
+```
 
 --------------------------------------------------------------------------------------
 
@@ -319,23 +685,23 @@ t_matrix %>%
 
 
 ```{=html}
-<div id="faifbxcyng" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#faifbxcyng table {
+<div id="xsfkqevxym" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xsfkqevxym table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#faifbxcyng thead, #faifbxcyng tbody, #faifbxcyng tfoot, #faifbxcyng tr, #faifbxcyng td, #faifbxcyng th {
+#xsfkqevxym thead, #xsfkqevxym tbody, #xsfkqevxym tfoot, #xsfkqevxym tr, #xsfkqevxym td, #xsfkqevxym th {
   border-style: none;
 }
 
-#faifbxcyng p {
+#xsfkqevxym p {
   margin: 0;
   padding: 0;
 }
 
-#faifbxcyng .gt_table {
+#xsfkqevxym .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -361,12 +727,12 @@ t_matrix %>%
   border-left-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_caption {
+#xsfkqevxym .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#faifbxcyng .gt_title {
+#xsfkqevxym .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -378,7 +744,7 @@ t_matrix %>%
   border-bottom-width: 0;
 }
 
-#faifbxcyng .gt_subtitle {
+#xsfkqevxym .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -390,7 +756,7 @@ t_matrix %>%
   border-top-width: 0;
 }
 
-#faifbxcyng .gt_heading {
+#xsfkqevxym .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -402,13 +768,13 @@ t_matrix %>%
   border-right-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_bottom_border {
+#xsfkqevxym .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_col_headings {
+#xsfkqevxym .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -423,7 +789,7 @@ t_matrix %>%
   border-right-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_col_heading {
+#xsfkqevxym .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -443,7 +809,7 @@ t_matrix %>%
   overflow-x: hidden;
 }
 
-#faifbxcyng .gt_column_spanner_outer {
+#xsfkqevxym .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -455,15 +821,15 @@ t_matrix %>%
   padding-right: 4px;
 }
 
-#faifbxcyng .gt_column_spanner_outer:first-child {
+#xsfkqevxym .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#faifbxcyng .gt_column_spanner_outer:last-child {
+#xsfkqevxym .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#faifbxcyng .gt_column_spanner {
+#xsfkqevxym .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -475,11 +841,11 @@ t_matrix %>%
   width: 100%;
 }
 
-#faifbxcyng .gt_spanner_row {
+#xsfkqevxym .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#faifbxcyng .gt_group_heading {
+#xsfkqevxym .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -505,7 +871,7 @@ t_matrix %>%
   text-align: left;
 }
 
-#faifbxcyng .gt_empty_group_heading {
+#xsfkqevxym .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -520,15 +886,15 @@ t_matrix %>%
   vertical-align: middle;
 }
 
-#faifbxcyng .gt_from_md > :first-child {
+#xsfkqevxym .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#faifbxcyng .gt_from_md > :last-child {
+#xsfkqevxym .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#faifbxcyng .gt_row {
+#xsfkqevxym .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -547,7 +913,7 @@ t_matrix %>%
   overflow-x: hidden;
 }
 
-#faifbxcyng .gt_stub {
+#xsfkqevxym .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -560,7 +926,7 @@ t_matrix %>%
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_stub_row_group {
+#xsfkqevxym .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -574,15 +940,15 @@ t_matrix %>%
   vertical-align: top;
 }
 
-#faifbxcyng .gt_row_group_first td {
+#xsfkqevxym .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#faifbxcyng .gt_row_group_first th {
+#xsfkqevxym .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#faifbxcyng .gt_summary_row {
+#xsfkqevxym .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -592,16 +958,16 @@ t_matrix %>%
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_first_summary_row {
+#xsfkqevxym .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_first_summary_row.thick {
+#xsfkqevxym .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#faifbxcyng .gt_last_summary_row {
+#xsfkqevxym .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -611,7 +977,7 @@ t_matrix %>%
   border-bottom-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_grand_summary_row {
+#xsfkqevxym .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -621,7 +987,7 @@ t_matrix %>%
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_first_grand_summary_row {
+#xsfkqevxym .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -631,7 +997,7 @@ t_matrix %>%
   border-top-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_last_grand_summary_row_top {
+#xsfkqevxym .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -641,11 +1007,11 @@ t_matrix %>%
   border-bottom-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_striped {
+#xsfkqevxym .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#faifbxcyng .gt_table_body {
+#xsfkqevxym .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -654,7 +1020,7 @@ t_matrix %>%
   border-bottom-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_footnotes {
+#xsfkqevxym .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -668,7 +1034,7 @@ t_matrix %>%
   border-right-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_footnote {
+#xsfkqevxym .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -677,7 +1043,7 @@ t_matrix %>%
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_sourcenotes {
+#xsfkqevxym .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -691,7 +1057,7 @@ t_matrix %>%
   border-right-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_sourcenote {
+#xsfkqevxym .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -699,72 +1065,72 @@ t_matrix %>%
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_left {
+#xsfkqevxym .gt_left {
   text-align: left;
 }
 
-#faifbxcyng .gt_center {
+#xsfkqevxym .gt_center {
   text-align: center;
 }
 
-#faifbxcyng .gt_right {
+#xsfkqevxym .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#faifbxcyng .gt_font_normal {
+#xsfkqevxym .gt_font_normal {
   font-weight: normal;
 }
 
-#faifbxcyng .gt_font_bold {
+#xsfkqevxym .gt_font_bold {
   font-weight: bold;
 }
 
-#faifbxcyng .gt_font_italic {
+#xsfkqevxym .gt_font_italic {
   font-style: italic;
 }
 
-#faifbxcyng .gt_super {
+#xsfkqevxym .gt_super {
   font-size: 65%;
 }
 
-#faifbxcyng .gt_footnote_marks {
+#xsfkqevxym .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#faifbxcyng .gt_asterisk {
+#xsfkqevxym .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#faifbxcyng .gt_indent_1 {
+#xsfkqevxym .gt_indent_1 {
   text-indent: 5px;
 }
 
-#faifbxcyng .gt_indent_2 {
+#xsfkqevxym .gt_indent_2 {
   text-indent: 10px;
 }
 
-#faifbxcyng .gt_indent_3 {
+#xsfkqevxym .gt_indent_3 {
   text-indent: 15px;
 }
 
-#faifbxcyng .gt_indent_4 {
+#xsfkqevxym .gt_indent_4 {
   text-indent: 20px;
 }
 
-#faifbxcyng .gt_indent_5 {
+#xsfkqevxym .gt_indent_5 {
   text-indent: 25px;
 }
 
-#faifbxcyng .katex-display {
+#xsfkqevxym .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#faifbxcyng div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xsfkqevxym div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

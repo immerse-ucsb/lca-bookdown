@@ -32,8 +32,8 @@ library(Hmisc)
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-53e22d9a6d64b83e2921" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-53e22d9a6d64b83e2921">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-d1b0e4d214e67704af68" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-d1b0e4d214e67704af68">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -379,23 +379,23 @@ fit_table1
 
 
 ```{=html}
-<div id="hlajrriimy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hlajrriimy table {
+<div id="gnwybxhfhx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gnwybxhfhx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hlajrriimy thead, #hlajrriimy tbody, #hlajrriimy tfoot, #hlajrriimy tr, #hlajrriimy td, #hlajrriimy th {
+#gnwybxhfhx thead, #gnwybxhfhx tbody, #gnwybxhfhx tfoot, #gnwybxhfhx tr, #gnwybxhfhx td, #gnwybxhfhx th {
   border-style: none;
 }
 
-#hlajrriimy p {
+#gnwybxhfhx p {
   margin: 0;
   padding: 0;
 }
 
-#hlajrriimy .gt_table {
+#gnwybxhfhx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -421,12 +421,12 @@ fit_table1
   border-left-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_caption {
+#gnwybxhfhx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hlajrriimy .gt_title {
+#gnwybxhfhx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -438,7 +438,7 @@ fit_table1
   border-bottom-width: 0;
 }
 
-#hlajrriimy .gt_subtitle {
+#gnwybxhfhx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -450,7 +450,7 @@ fit_table1
   border-top-width: 0;
 }
 
-#hlajrriimy .gt_heading {
+#gnwybxhfhx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -462,13 +462,13 @@ fit_table1
   border-right-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_bottom_border {
+#gnwybxhfhx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_col_headings {
+#gnwybxhfhx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -483,7 +483,7 @@ fit_table1
   border-right-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_col_heading {
+#gnwybxhfhx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -503,7 +503,7 @@ fit_table1
   overflow-x: hidden;
 }
 
-#hlajrriimy .gt_column_spanner_outer {
+#gnwybxhfhx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -515,15 +515,15 @@ fit_table1
   padding-right: 4px;
 }
 
-#hlajrriimy .gt_column_spanner_outer:first-child {
+#gnwybxhfhx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hlajrriimy .gt_column_spanner_outer:last-child {
+#gnwybxhfhx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hlajrriimy .gt_column_spanner {
+#gnwybxhfhx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -535,11 +535,11 @@ fit_table1
   width: 100%;
 }
 
-#hlajrriimy .gt_spanner_row {
+#gnwybxhfhx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hlajrriimy .gt_group_heading {
+#gnwybxhfhx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -565,7 +565,7 @@ fit_table1
   text-align: left;
 }
 
-#hlajrriimy .gt_empty_group_heading {
+#gnwybxhfhx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -580,15 +580,15 @@ fit_table1
   vertical-align: middle;
 }
 
-#hlajrriimy .gt_from_md > :first-child {
+#gnwybxhfhx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hlajrriimy .gt_from_md > :last-child {
+#gnwybxhfhx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hlajrriimy .gt_row {
+#gnwybxhfhx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -607,7 +607,7 @@ fit_table1
   overflow-x: hidden;
 }
 
-#hlajrriimy .gt_stub {
+#gnwybxhfhx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -620,7 +620,7 @@ fit_table1
   padding-right: 5px;
 }
 
-#hlajrriimy .gt_stub_row_group {
+#gnwybxhfhx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -634,15 +634,15 @@ fit_table1
   vertical-align: top;
 }
 
-#hlajrriimy .gt_row_group_first td {
+#gnwybxhfhx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hlajrriimy .gt_row_group_first th {
+#gnwybxhfhx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hlajrriimy .gt_summary_row {
+#gnwybxhfhx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -652,16 +652,16 @@ fit_table1
   padding-right: 5px;
 }
 
-#hlajrriimy .gt_first_summary_row {
+#gnwybxhfhx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_first_summary_row.thick {
+#gnwybxhfhx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hlajrriimy .gt_last_summary_row {
+#gnwybxhfhx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -671,7 +671,7 @@ fit_table1
   border-bottom-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_grand_summary_row {
+#gnwybxhfhx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -681,7 +681,7 @@ fit_table1
   padding-right: 5px;
 }
 
-#hlajrriimy .gt_first_grand_summary_row {
+#gnwybxhfhx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -691,7 +691,7 @@ fit_table1
   border-top-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_last_grand_summary_row_top {
+#gnwybxhfhx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -701,11 +701,11 @@ fit_table1
   border-bottom-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_striped {
+#gnwybxhfhx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hlajrriimy .gt_table_body {
+#gnwybxhfhx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -714,7 +714,7 @@ fit_table1
   border-bottom-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_footnotes {
+#gnwybxhfhx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -728,7 +728,7 @@ fit_table1
   border-right-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_footnote {
+#gnwybxhfhx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -737,7 +737,7 @@ fit_table1
   padding-right: 5px;
 }
 
-#hlajrriimy .gt_sourcenotes {
+#gnwybxhfhx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -751,7 +751,7 @@ fit_table1
   border-right-color: #D3D3D3;
 }
 
-#hlajrriimy .gt_sourcenote {
+#gnwybxhfhx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -759,72 +759,72 @@ fit_table1
   padding-right: 5px;
 }
 
-#hlajrriimy .gt_left {
+#gnwybxhfhx .gt_left {
   text-align: left;
 }
 
-#hlajrriimy .gt_center {
+#gnwybxhfhx .gt_center {
   text-align: center;
 }
 
-#hlajrriimy .gt_right {
+#gnwybxhfhx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hlajrriimy .gt_font_normal {
+#gnwybxhfhx .gt_font_normal {
   font-weight: normal;
 }
 
-#hlajrriimy .gt_font_bold {
+#gnwybxhfhx .gt_font_bold {
   font-weight: bold;
 }
 
-#hlajrriimy .gt_font_italic {
+#gnwybxhfhx .gt_font_italic {
   font-style: italic;
 }
 
-#hlajrriimy .gt_super {
+#gnwybxhfhx .gt_super {
   font-size: 65%;
 }
 
-#hlajrriimy .gt_footnote_marks {
+#gnwybxhfhx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hlajrriimy .gt_asterisk {
+#gnwybxhfhx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hlajrriimy .gt_indent_1 {
+#gnwybxhfhx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hlajrriimy .gt_indent_2 {
+#gnwybxhfhx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hlajrriimy .gt_indent_3 {
+#gnwybxhfhx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hlajrriimy .gt_indent_4 {
+#gnwybxhfhx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hlajrriimy .gt_indent_5 {
+#gnwybxhfhx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hlajrriimy .katex-display {
+#gnwybxhfhx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hlajrriimy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gnwybxhfhx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

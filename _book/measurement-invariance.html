@@ -106,6 +106,15 @@
 <li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">24</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
 <li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">25</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
 <li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">26</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">27</span> Introduction</a></li>
+<li><a class="" href="data-setup-and-preparation.html"><span class="header-section-number">28</span> Data Setup and Preparation</a></li>
+<li><a class="" href="descriptive-statistics-17.html"><span class="header-section-number">29</span> Descriptive Statistics</a></li>
+<li><a class="" href="phase-1-latent-class-enumeration-at-each-timepoint-exploratory-stage.html"><span class="header-section-number">30</span> Phase 1: Latent Class Enumeration at Each Timepoint (Exploratory Stage)</a></li>
+<li><a class="" href="what-this-phase-produces.html"><span class="header-section-number">31</span> What This Phase Produces</a></li>
+<li><a class="" href="phase-2-testing-for-measurement-invariance.html"><span class="header-section-number">32</span> Phase 2: Testing for Measurement Invariance</a></li>
+<li><a class="" href="phase-3-apply-multi-step-estimation-methods.html"><span class="header-section-number">33</span> Phase 3: Apply Multi-Step Estimation Methods</a></li>
+<li><a class="" href="ml-three-step-procedure.html"><span class="header-section-number">34</span> ML Three-Step Procedure</a></li>
+<li><a class="" href="bch-method.html"><span class="header-section-number">35</span> BCH Method</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
 
@@ -288,9 +297,9 @@
 <span>                     check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
-<div id="conduct-sattorra-bentler-adjusted-log-likelihood-ratio-difference-testing-1" class="section level3" number="19.1.3">
+<div id="nested-model-testing-sattorra-bentler-adjusted-log-likelihood-ratio-difference-testing" class="section level3" number="19.1.3">
 <h3>
-<span class="header-section-number">19.1.3</span> Conduct Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing<a class="anchor" aria-label="anchor" href="#conduct-sattorra-bentler-adjusted-log-likelihood-ratio-difference-testing-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">19.1.3</span> Nested Model Testing: Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing<a class="anchor" aria-label="anchor" href="#nested-model-testing-sattorra-bentler-adjusted-log-likelihood-ratio-difference-testing"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li><p>non-invariant (comparison): This model has <strong>more</strong> parameters.</p></li>
@@ -332,9 +341,375 @@
 <span><span class="co">#&gt; [1] 0.6245173</span></span></code></pre></div>
 <p><strong>RESULT</strong>: The Log Likelihood <span class="math inline">\(\chi^2\)</span> difference test comparing the invariant and non-invariant LTA models was, <span class="math inline">\(\chi^2 (20) = 21.542, p = .624\)</span>.</p>
 <p><a href="https://stats.idre.ucla.edu/mplus/faq/how-can-i-compute-a-chi-square-test-for-nested-models-with-the-mlr-or-mlm-estimators/">Reference</a></p>
+<div id="alternative-nested-model-testing-using-comparemodels-in-mplusautomation" class="section level4" number="19.1.3.1">
+<h4>
+<span class="header-section-number">19.1.3.1</span> Alternative: Nested Model Testing Using <code>compareModels</code> in MplusAutomation<a class="anchor" aria-label="anchor" href="#alternative-nested-model-testing-using-comparemodels-in-mplusautomation"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/compareModels.html">compareModels</a></span><span class="op">(</span><span class="va">lta_models</span><span class="op">$</span><span class="va">X4.class.invariant.out</span>, <span class="va">lta_models</span><span class="op">$</span><span class="va">X4.class.non.invariant.out</span>, show<span class="op">=</span><span class="st">"all"</span>, diffTest<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ==============</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Mplus model comparison</span></span>
+<span><span class="co">#&gt; ----------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------</span></span>
+<span><span class="co">#&gt; Model 1:  C:\Users\trcan\Box\lca-bookdown\lta\lta_model/4-class-invariant.out </span></span>
+<span><span class="co">#&gt; Model 2:  C:\Users\trcan\Box\lca-bookdown\lta\lta_model/4-class-non-invariant.out </span></span>
+<span><span class="co">#&gt; ------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Model Summary Comparison</span></span>
+<span><span class="co">#&gt; ------------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;              m1            m2               </span></span>
+<span><span class="co">#&gt; Title        Invariant LTA Non-Invariant LTA</span></span>
+<span><span class="co">#&gt; Observations 3092          3092             </span></span>
+<span><span class="co">#&gt; Estimator    MLR           MLR              </span></span>
+<span><span class="co">#&gt; Parameters   35            55               </span></span>
+<span><span class="co">#&gt; LL           -14542.768    -14531.997       </span></span>
+<span><span class="co">#&gt; AIC          29155.536     29173.994        </span></span>
+<span><span class="co">#&gt; BIC          29366.816     29506.005        </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   MLR Chi-Square Difference Test for Nested Models Based on Loglikelihood</span></span>
+<span><span class="co">#&gt;   -----------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Difference Test Scaling Correction:  1.2355 </span></span>
+<span><span class="co">#&gt;   Chi-square difference:  17.4359 </span></span>
+<span><span class="co">#&gt;   Diff degrees of freedom:  20 </span></span>
+<span><span class="co">#&gt;   P-value:  0.6245 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Note: The chi-square difference test assumes that these models are nested.</span></span>
+<span><span class="co">#&gt;   It is up to you to verify this assumption.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   MLR Chi-Square Difference test for nested models</span></span>
+<span><span class="co">#&gt;   --------------------------------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Difference Test Scaling Correction:  </span></span>
+<span><span class="co">#&gt;   Chi-square difference:  </span></span>
+<span><span class="co">#&gt;   Diff degrees of freedom:  </span></span>
+<span><span class="co">#&gt;   P-value:  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Note: The chi-square difference test assumes that these models are nested.</span></span>
+<span><span class="co">#&gt;   It is up to you to verify this assumption.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; =========</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Model parameter comparison</span></span>
+<span><span class="co">#&gt; --------------------------</span></span>
+<span><span class="co">#&gt;   Parameters present in both models</span></span>
+<span><span class="co">#&gt; =========</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Approximately equal in both models (param. est. diff &lt;= 1e-04)</span></span>
+<span><span class="co">#&gt;   ----------------------------------------------</span></span>
+<span><span class="co">#&gt; None</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Parameter estimates that differ between models (param. est. diff &gt; 1e-04)</span></span>
+<span><span class="co">#&gt;   ----------------------------------------------</span></span>
+<span><span class="co">#&gt;  paramHeader   param                  LatentClass m1_est</span></span>
+<span><span class="co">#&gt;      C2#1.ON    C1#1 Categorical.Latent.Variables  1.915</span></span>
+<span><span class="co">#&gt;      C2#1.ON    C1#2 Categorical.Latent.Variables  0.789</span></span>
+<span><span class="co">#&gt;      C2#1.ON    C1#3 Categorical.Latent.Variables  1.551</span></span>
+<span><span class="co">#&gt;      C2#2.ON    C1#1 Categorical.Latent.Variables  0.420</span></span>
+<span><span class="co">#&gt;      C2#2.ON    C1#2 Categorical.Latent.Variables  1.114</span></span>
+<span><span class="co">#&gt;      C2#2.ON    C1#3 Categorical.Latent.Variables  0.451</span></span>
+<span><span class="co">#&gt;      C2#3.ON    C1#1 Categorical.Latent.Variables  0.896</span></span>
+<span><span class="co">#&gt;      C2#3.ON    C1#2 Categorical.Latent.Variables  0.349</span></span>
+<span><span class="co">#&gt;      C2#3.ON    C1#3 Categorical.Latent.Variables  1.634</span></span>
+<span><span class="co">#&gt;        Means    C1#1 Categorical.Latent.Variables  0.735</span></span>
+<span><span class="co">#&gt;        Means    C1#2 Categorical.Latent.Variables  0.710</span></span>
+<span><span class="co">#&gt;        Means    C1#3 Categorical.Latent.Variables  0.637</span></span>
+<span><span class="co">#&gt;        Means    C2#1 Categorical.Latent.Variables -1.326</span></span>
+<span><span class="co">#&gt;        Means    C2#2 Categorical.Latent.Variables  0.165</span></span>
+<span><span class="co">#&gt;        Means    C2#3 Categorical.Latent.Variables -0.126</span></span>
+<span><span class="co">#&gt;   Thresholds AB39M$1                         C1#1 -0.718</span></span>
+<span><span class="co">#&gt;   Thresholds AB39M$1                         C1#2  0.964</span></span>
+<span><span class="co">#&gt;   Thresholds AB39M$1                         C1#3 -2.101</span></span>
+<span><span class="co">#&gt;   Thresholds AB39M$1                         C1#4 -0.298</span></span>
+<span><span class="co">#&gt;   Thresholds AB39T$1                         C1#1  0.830</span></span>
+<span><span class="co">#&gt;   Thresholds AB39T$1                         C1#2  3.759</span></span>
+<span><span class="co">#&gt;   Thresholds AB39T$1                         C1#3 -2.553</span></span>
+<span><span class="co">#&gt;   Thresholds AB39T$1                         C1#4  0.398</span></span>
+<span><span class="co">#&gt;   Thresholds AB39U$1                         C1#1  0.287</span></span>
+<span><span class="co">#&gt;   Thresholds AB39U$1                         C1#2  3.293</span></span>
+<span><span class="co">#&gt;   Thresholds AB39U$1                         C1#3 -2.824</span></span>
+<span><span class="co">#&gt;   Thresholds AB39U$1                         C1#4 -0.907</span></span>
+<span><span class="co">#&gt;   Thresholds AB39W$1                         C1#1  0.289</span></span>
+<span><span class="co">#&gt;   Thresholds AB39W$1                         C1#2  2.828</span></span>
+<span><span class="co">#&gt;   Thresholds AB39W$1                         C1#3 -2.186</span></span>
+<span><span class="co">#&gt;   Thresholds AB39W$1                         C1#4  1.572</span></span>
+<span><span class="co">#&gt;   Thresholds AB39X$1                         C1#1 -0.802</span></span>
+<span><span class="co">#&gt;   Thresholds AB39X$1                         C1#2  4.328</span></span>
+<span><span class="co">#&gt;   Thresholds AB39X$1                         C1#3 -2.561</span></span>
+<span><span class="co">#&gt;   Thresholds AB39X$1                         C1#4 14.639</span></span>
+<span><span class="co">#&gt;   Thresholds GA33A$1                         C2#1 -0.718</span></span>
+<span><span class="co">#&gt;   Thresholds GA33A$1                         C2#2  0.964</span></span>
+<span><span class="co">#&gt;   Thresholds GA33A$1                         C2#3 -2.101</span></span>
+<span><span class="co">#&gt;   Thresholds GA33A$1                         C2#4 -0.298</span></span>
+<span><span class="co">#&gt;   Thresholds GA33H$1                         C2#1  0.830</span></span>
+<span><span class="co">#&gt;   Thresholds GA33H$1                         C2#2  3.759</span></span>
+<span><span class="co">#&gt;   Thresholds GA33H$1                         C2#3 -2.553</span></span>
+<span><span class="co">#&gt;   Thresholds GA33H$1                         C2#4  0.398</span></span>
+<span><span class="co">#&gt;   Thresholds GA33I$1                         C2#1  0.287</span></span>
+<span><span class="co">#&gt;   Thresholds GA33I$1                         C2#2  3.293</span></span>
+<span><span class="co">#&gt;   Thresholds GA33I$1                         C2#3 -2.824</span></span>
+<span><span class="co">#&gt;   Thresholds GA33I$1                         C2#4 -0.907</span></span>
+<span><span class="co">#&gt;   Thresholds GA33K$1                         C2#1  0.289</span></span>
+<span><span class="co">#&gt;   Thresholds GA33K$1                         C2#2  2.828</span></span>
+<span><span class="co">#&gt;   Thresholds GA33K$1                         C2#3 -2.186</span></span>
+<span><span class="co">#&gt;   Thresholds GA33K$1                         C2#4  1.572</span></span>
+<span><span class="co">#&gt;   Thresholds GA33L$1                         C2#1 -0.802</span></span>
+<span><span class="co">#&gt;   Thresholds GA33L$1                         C2#2  4.328</span></span>
+<span><span class="co">#&gt;   Thresholds GA33L$1                         C2#3 -2.561</span></span>
+<span><span class="co">#&gt;   Thresholds GA33L$1                         C2#4 14.639</span></span>
+<span><span class="co">#&gt;  m2_est . m1_se m2_se . m1_est_se m2_est_se . m1_pval</span></span>
+<span><span class="co">#&gt;   1.137 | 1.591 2.298 |     1.204     0.495 |   0.229</span></span>
+<span><span class="co">#&gt;   2.293 | 1.536 3.033 |     0.514     0.756 |   0.607</span></span>
+<span><span class="co">#&gt;   2.559 | 1.486 2.767 |     1.044     0.925 |   0.297</span></span>
+<span><span class="co">#&gt;   1.320 | 0.609 0.628 |     0.690     2.101 |   0.490</span></span>
+<span><span class="co">#&gt;   0.873 | 0.468 1.039 |     2.382     0.841 |   0.017</span></span>
+<span><span class="co">#&gt;   0.864 | 0.510 1.029 |     0.885     0.840 |   0.376</span></span>
+<span><span class="co">#&gt;   0.477 | 0.624 0.616 |     1.435     0.775 |   0.151</span></span>
+<span><span class="co">#&gt;   2.019 | 0.546 1.032 |     0.639     1.957 |   0.523</span></span>
+<span><span class="co">#&gt;   1.220 | 0.542 0.878 |     3.015     1.391 |   0.003</span></span>
+<span><span class="co">#&gt;   0.875 | 0.580 0.930 |     1.266     0.940 |   0.206</span></span>
+<span><span class="co">#&gt;   0.788 | 0.505 0.911 |     1.408     0.865 |   0.159</span></span>
+<span><span class="co">#&gt;   0.818 | 0.464 1.314 |     1.373     0.622 |   0.170</span></span>
+<span><span class="co">#&gt;  -1.612 | 1.046 2.355 |    -1.267    -0.685 |   0.205</span></span>
+<span><span class="co">#&gt;  -0.065 | 0.270 0.491 |     0.609    -0.133 |   0.543</span></span>
+<span><span class="co">#&gt;  -0.370 | 0.269 0.487 |    -0.469    -0.759 |   0.639</span></span>
+<span><span class="co">#&gt;   0.784 | 0.101 0.133 |    -7.092     5.902 |   0.000</span></span>
+<span><span class="co">#&gt;  -2.033 | 0.097 0.144 |     9.911   -14.150 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.637 | 0.108 0.163 |   -19.444    -3.898 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.580 | 0.158 0.338 |    -1.882    -1.715 |   0.060</span></span>
+<span><span class="co">#&gt;   3.150 | 0.147 0.656 |     5.636     4.802 |   0.000</span></span>
+<span><span class="co">#&gt;  -2.236 | 1.017 0.363 |     3.697    -6.164 |   0.000</span></span>
+<span><span class="co">#&gt;   0.937 | 0.266 0.223 |    -9.588     4.202 |   0.000</span></span>
+<span><span class="co">#&gt;   0.192 | 0.239 0.717 |     1.667     0.267 |   0.096</span></span>
+<span><span class="co">#&gt;   2.918 | 0.146 1.278 |     1.965     2.284 |   0.049</span></span>
+<span><span class="co">#&gt;  -2.560 | 0.882 0.323 |     3.735    -7.916 |   0.000</span></span>
+<span><span class="co">#&gt;   0.581 | 0.223 0.311 |   -12.652     1.865 |   0.000</span></span>
+<span><span class="co">#&gt;  -2.164 | 0.781 5.381 |    -1.162    -0.402 |   0.245</span></span>
+<span><span class="co">#&gt;   3.026 | 0.174 0.516 |     1.664     5.868 |   0.096</span></span>
+<span><span class="co">#&gt;  -2.203 | 0.175 0.311 |    16.117    -7.089 |   0.000</span></span>
+<span><span class="co">#&gt;   0.433 | 0.144 0.472 |   -15.195     0.917 |   0.000</span></span>
+<span><span class="co">#&gt;   1.416 | 0.291 0.650 |     5.401     2.180 |   0.000</span></span>
+<span><span class="co">#&gt;   4.450 | 0.563 2.507 |    -1.424     1.775 |   0.154</span></span>
+<span><span class="co">#&gt;  -2.936 | 0.770 0.664 |     5.619    -4.418 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.378 | 0.186 0.874 |   -13.796    -0.433 |   0.000</span></span>
+<span><span class="co">#&gt;   1.595 | 1.419 0.958 |    10.318     1.666 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.859 | 0.101 0.225 |    -7.092    -3.818 |   0.000</span></span>
+<span><span class="co">#&gt;   1.132 | 0.097 0.137 |     9.911     8.270 |   0.000</span></span>
+<span><span class="co">#&gt;  -2.197 | 0.108 0.166 |   -19.444   -13.253 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.141 | 0.158 0.237 |    -1.882    -0.597 |   0.060</span></span>
+<span><span class="co">#&gt;   0.544 | 0.147 0.269 |     5.636     2.020 |   0.000</span></span>
+<span><span class="co">#&gt;   3.836 | 1.017 1.458 |     3.697     2.631 |   0.000</span></span>
+<span><span class="co">#&gt;  -2.883 | 0.266 0.600 |    -9.588    -4.809 |   0.000</span></span>
+<span><span class="co">#&gt;   0.414 | 0.239 0.299 |     1.667     1.386 |   0.096</span></span>
+<span><span class="co">#&gt;   0.103 | 0.146 0.298 |     1.965     0.344 |   0.049</span></span>
+<span><span class="co">#&gt;   3.144 | 0.882 1.048 |     3.735     2.999 |   0.000</span></span>
+<span><span class="co">#&gt;  -3.328 | 0.223 0.544 |   -12.652    -6.119 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.901 | 0.781 0.861 |    -1.162    -1.047 |   0.245</span></span>
+<span><span class="co">#&gt;  -0.089 | 0.174 0.256 |     1.664    -0.349 |   0.096</span></span>
+<span><span class="co">#&gt;   2.796 | 0.175 0.233 |    16.117    12.025 |   0.000</span></span>
+<span><span class="co">#&gt;  -2.334 | 0.144 0.230 |   -15.195   -10.132 |   0.000</span></span>
+<span><span class="co">#&gt;   1.726 | 0.291 0.523 |     5.401     3.303 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.847 | 0.563 0.673 |    -1.424    -1.259 |   0.154</span></span>
+<span><span class="co">#&gt;   4.079 | 0.770 0.643 |     5.619     6.339 |   0.000</span></span>
+<span><span class="co">#&gt;  -2.402 | 0.186 0.219 |   -13.796   -10.981 |   0.000</span></span>
+<span><span class="co">#&gt;  15.000 | 1.419 0.000 |    10.318   999.000 |   0.000</span></span>
+<span><span class="co">#&gt;  m2_pval</span></span>
+<span><span class="co">#&gt;    0.621</span></span>
+<span><span class="co">#&gt;    0.450</span></span>
+<span><span class="co">#&gt;    0.355</span></span>
+<span><span class="co">#&gt;    0.036</span></span>
+<span><span class="co">#&gt;    0.401</span></span>
+<span><span class="co">#&gt;    0.401</span></span>
+<span><span class="co">#&gt;    0.438</span></span>
+<span><span class="co">#&gt;    0.050</span></span>
+<span><span class="co">#&gt;    0.164</span></span>
+<span><span class="co">#&gt;    0.347</span></span>
+<span><span class="co">#&gt;    0.387</span></span>
+<span><span class="co">#&gt;    0.534</span></span>
+<span><span class="co">#&gt;    0.494</span></span>
+<span><span class="co">#&gt;    0.894</span></span>
+<span><span class="co">#&gt;    0.448</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.086</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.789</span></span>
+<span><span class="co">#&gt;    0.022</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.062</span></span>
+<span><span class="co">#&gt;    0.688</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.359</span></span>
+<span><span class="co">#&gt;    0.029</span></span>
+<span><span class="co">#&gt;    0.076</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.665</span></span>
+<span><span class="co">#&gt;    0.096</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.550</span></span>
+<span><span class="co">#&gt;    0.043</span></span>
+<span><span class="co">#&gt;    0.009</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.166</span></span>
+<span><span class="co">#&gt;    0.731</span></span>
+<span><span class="co">#&gt;    0.003</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.295</span></span>
+<span><span class="co">#&gt;    0.727</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.001</span></span>
+<span><span class="co">#&gt;    0.208</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;  999.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   P-values that differ between models (p-value diff &gt; 1e-04)</span></span>
+<span><span class="co">#&gt;   -----------------------------------</span></span>
+<span><span class="co">#&gt;  paramHeader   param                  LatentClass m1_est</span></span>
+<span><span class="co">#&gt;      C2#1.ON    C1#1 Categorical.Latent.Variables  1.915</span></span>
+<span><span class="co">#&gt;      C2#1.ON    C1#2 Categorical.Latent.Variables  0.789</span></span>
+<span><span class="co">#&gt;      C2#1.ON    C1#3 Categorical.Latent.Variables  1.551</span></span>
+<span><span class="co">#&gt;      C2#2.ON    C1#1 Categorical.Latent.Variables  0.420</span></span>
+<span><span class="co">#&gt;      C2#2.ON    C1#2 Categorical.Latent.Variables  1.114</span></span>
+<span><span class="co">#&gt;      C2#2.ON    C1#3 Categorical.Latent.Variables  0.451</span></span>
+<span><span class="co">#&gt;      C2#3.ON    C1#1 Categorical.Latent.Variables  0.896</span></span>
+<span><span class="co">#&gt;      C2#3.ON    C1#2 Categorical.Latent.Variables  0.349</span></span>
+<span><span class="co">#&gt;      C2#3.ON    C1#3 Categorical.Latent.Variables  1.634</span></span>
+<span><span class="co">#&gt;        Means    C1#1 Categorical.Latent.Variables  0.735</span></span>
+<span><span class="co">#&gt;        Means    C1#2 Categorical.Latent.Variables  0.710</span></span>
+<span><span class="co">#&gt;        Means    C1#3 Categorical.Latent.Variables  0.637</span></span>
+<span><span class="co">#&gt;        Means    C2#1 Categorical.Latent.Variables -1.326</span></span>
+<span><span class="co">#&gt;        Means    C2#2 Categorical.Latent.Variables  0.165</span></span>
+<span><span class="co">#&gt;        Means    C2#3 Categorical.Latent.Variables -0.126</span></span>
+<span><span class="co">#&gt;   Thresholds AB39M$1                         C1#4 -0.298</span></span>
+<span><span class="co">#&gt;   Thresholds AB39T$1                         C1#4  0.398</span></span>
+<span><span class="co">#&gt;   Thresholds AB39U$1                         C1#1  0.287</span></span>
+<span><span class="co">#&gt;   Thresholds AB39U$1                         C1#3 -2.824</span></span>
+<span><span class="co">#&gt;   Thresholds AB39U$1                         C1#4 -0.907</span></span>
+<span><span class="co">#&gt;   Thresholds AB39W$1                         C1#1  0.289</span></span>
+<span><span class="co">#&gt;   Thresholds AB39W$1                         C1#3 -2.186</span></span>
+<span><span class="co">#&gt;   Thresholds AB39W$1                         C1#4  1.572</span></span>
+<span><span class="co">#&gt;   Thresholds AB39X$1                         C1#1 -0.802</span></span>
+<span><span class="co">#&gt;   Thresholds AB39X$1                         C1#3 -2.561</span></span>
+<span><span class="co">#&gt;   Thresholds AB39X$1                         C1#4 14.639</span></span>
+<span><span class="co">#&gt;   Thresholds GA33A$1                         C2#4 -0.298</span></span>
+<span><span class="co">#&gt;   Thresholds GA33H$1                         C2#1  0.830</span></span>
+<span><span class="co">#&gt;   Thresholds GA33H$1                         C2#2  3.759</span></span>
+<span><span class="co">#&gt;   Thresholds GA33H$1                         C2#4  0.398</span></span>
+<span><span class="co">#&gt;   Thresholds GA33I$1                         C2#1  0.287</span></span>
+<span><span class="co">#&gt;   Thresholds GA33I$1                         C2#2  3.293</span></span>
+<span><span class="co">#&gt;   Thresholds GA33I$1                         C2#4 -0.907</span></span>
+<span><span class="co">#&gt;   Thresholds GA33K$1                         C2#1  0.289</span></span>
+<span><span class="co">#&gt;   Thresholds GA33K$1                         C2#4  1.572</span></span>
+<span><span class="co">#&gt;   Thresholds GA33L$1                         C2#1 -0.802</span></span>
+<span><span class="co">#&gt;   Thresholds GA33L$1                         C2#4 14.639</span></span>
+<span><span class="co">#&gt;  m2_est . m1_se m2_se . m1_est_se m2_est_se . m1_pval</span></span>
+<span><span class="co">#&gt;   1.137 | 1.591 2.298 |     1.204     0.495 |   0.229</span></span>
+<span><span class="co">#&gt;   2.293 | 1.536 3.033 |     0.514     0.756 |   0.607</span></span>
+<span><span class="co">#&gt;   2.559 | 1.486 2.767 |     1.044     0.925 |   0.297</span></span>
+<span><span class="co">#&gt;   1.320 | 0.609 0.628 |     0.690     2.101 |   0.490</span></span>
+<span><span class="co">#&gt;   0.873 | 0.468 1.039 |     2.382     0.841 |   0.017</span></span>
+<span><span class="co">#&gt;   0.864 | 0.510 1.029 |     0.885     0.840 |   0.376</span></span>
+<span><span class="co">#&gt;   0.477 | 0.624 0.616 |     1.435     0.775 |   0.151</span></span>
+<span><span class="co">#&gt;   2.019 | 0.546 1.032 |     0.639     1.957 |   0.523</span></span>
+<span><span class="co">#&gt;   1.220 | 0.542 0.878 |     3.015     1.391 |   0.003</span></span>
+<span><span class="co">#&gt;   0.875 | 0.580 0.930 |     1.266     0.940 |   0.206</span></span>
+<span><span class="co">#&gt;   0.788 | 0.505 0.911 |     1.408     0.865 |   0.159</span></span>
+<span><span class="co">#&gt;   0.818 | 0.464 1.314 |     1.373     0.622 |   0.170</span></span>
+<span><span class="co">#&gt;  -1.612 | 1.046 2.355 |    -1.267    -0.685 |   0.205</span></span>
+<span><span class="co">#&gt;  -0.065 | 0.270 0.491 |     0.609    -0.133 |   0.543</span></span>
+<span><span class="co">#&gt;  -0.370 | 0.269 0.487 |    -0.469    -0.759 |   0.639</span></span>
+<span><span class="co">#&gt;  -0.580 | 0.158 0.338 |    -1.882    -1.715 |   0.060</span></span>
+<span><span class="co">#&gt;   0.192 | 0.239 0.717 |     1.667     0.267 |   0.096</span></span>
+<span><span class="co">#&gt;   2.918 | 0.146 1.278 |     1.965     2.284 |   0.049</span></span>
+<span><span class="co">#&gt;   0.581 | 0.223 0.311 |   -12.652     1.865 |   0.000</span></span>
+<span><span class="co">#&gt;  -2.164 | 0.781 5.381 |    -1.162    -0.402 |   0.245</span></span>
+<span><span class="co">#&gt;   3.026 | 0.174 0.516 |     1.664     5.868 |   0.096</span></span>
+<span><span class="co">#&gt;   0.433 | 0.144 0.472 |   -15.195     0.917 |   0.000</span></span>
+<span><span class="co">#&gt;   1.416 | 0.291 0.650 |     5.401     2.180 |   0.000</span></span>
+<span><span class="co">#&gt;   4.450 | 0.563 2.507 |    -1.424     1.775 |   0.154</span></span>
+<span><span class="co">#&gt;  -0.378 | 0.186 0.874 |   -13.796    -0.433 |   0.000</span></span>
+<span><span class="co">#&gt;   1.595 | 1.419 0.958 |    10.318     1.666 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.141 | 0.158 0.237 |    -1.882    -0.597 |   0.060</span></span>
+<span><span class="co">#&gt;   0.544 | 0.147 0.269 |     5.636     2.020 |   0.000</span></span>
+<span><span class="co">#&gt;   3.836 | 1.017 1.458 |     3.697     2.631 |   0.000</span></span>
+<span><span class="co">#&gt;   0.414 | 0.239 0.299 |     1.667     1.386 |   0.096</span></span>
+<span><span class="co">#&gt;   0.103 | 0.146 0.298 |     1.965     0.344 |   0.049</span></span>
+<span><span class="co">#&gt;   3.144 | 0.882 1.048 |     3.735     2.999 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.901 | 0.781 0.861 |    -1.162    -1.047 |   0.245</span></span>
+<span><span class="co">#&gt;  -0.089 | 0.174 0.256 |     1.664    -0.349 |   0.096</span></span>
+<span><span class="co">#&gt;   1.726 | 0.291 0.523 |     5.401     3.303 |   0.000</span></span>
+<span><span class="co">#&gt;  -0.847 | 0.563 0.673 |    -1.424    -1.259 |   0.154</span></span>
+<span><span class="co">#&gt;  15.000 | 1.419 0.000 |    10.318   999.000 |   0.000</span></span>
+<span><span class="co">#&gt;  m2_pval</span></span>
+<span><span class="co">#&gt;    0.621</span></span>
+<span><span class="co">#&gt;    0.450</span></span>
+<span><span class="co">#&gt;    0.355</span></span>
+<span><span class="co">#&gt;    0.036</span></span>
+<span><span class="co">#&gt;    0.401</span></span>
+<span><span class="co">#&gt;    0.401</span></span>
+<span><span class="co">#&gt;    0.438</span></span>
+<span><span class="co">#&gt;    0.050</span></span>
+<span><span class="co">#&gt;    0.164</span></span>
+<span><span class="co">#&gt;    0.347</span></span>
+<span><span class="co">#&gt;    0.387</span></span>
+<span><span class="co">#&gt;    0.534</span></span>
+<span><span class="co">#&gt;    0.494</span></span>
+<span><span class="co">#&gt;    0.894</span></span>
+<span><span class="co">#&gt;    0.448</span></span>
+<span><span class="co">#&gt;    0.086</span></span>
+<span><span class="co">#&gt;    0.789</span></span>
+<span><span class="co">#&gt;    0.022</span></span>
+<span><span class="co">#&gt;    0.062</span></span>
+<span><span class="co">#&gt;    0.688</span></span>
+<span><span class="co">#&gt;    0.000</span></span>
+<span><span class="co">#&gt;    0.359</span></span>
+<span><span class="co">#&gt;    0.029</span></span>
+<span><span class="co">#&gt;    0.076</span></span>
+<span><span class="co">#&gt;    0.665</span></span>
+<span><span class="co">#&gt;    0.096</span></span>
+<span><span class="co">#&gt;    0.550</span></span>
+<span><span class="co">#&gt;    0.043</span></span>
+<span><span class="co">#&gt;    0.009</span></span>
+<span><span class="co">#&gt;    0.166</span></span>
+<span><span class="co">#&gt;    0.731</span></span>
+<span><span class="co">#&gt;    0.003</span></span>
+<span><span class="co">#&gt;    0.295</span></span>
+<span><span class="co">#&gt;    0.727</span></span>
+<span><span class="co">#&gt;    0.001</span></span>
+<span><span class="co">#&gt;    0.208</span></span>
+<span><span class="co">#&gt;  999.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Parameters unique to model 1: 0</span></span>
+<span><span class="co">#&gt;   -----------------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   None</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Parameters unique to model 2: 0</span></span>
+<span><span class="co">#&gt;   -----------------------------</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  None</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ==============</span></span></code></pre></div>
 <hr>
 <p>Read invariance model and extract parameters (intercepts and multinomial regression coefficients)</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lta_inv1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"lta_model"</span>,<span class="st">"4-Class-Invariant.out"</span> <span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -344,7 +719,7 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">est</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Manual method to calculate transition probabilities:</p>
 <p>Although possible to extract transition probabilities directly from the output the following code illustrates how the parameters are used to calculate each transition. This is useful for conducting advanced LTA model specifications such as making specific constraints within or between transition matrices, or testing the equivalence of specific transition probabilities.</p>
-<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Name each parameter individually to make the subsequent calculations more readable</span></span>
 <span><span class="va">a1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">13</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">a2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">14</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">a3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">15</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b11</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>;</span>
 <span><span class="va">b21</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">4</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b31</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">7</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b12</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">5</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>;</span>
@@ -371,11 +746,12 @@
 <span><span class="va">t43</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a1</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a2</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">a3</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">t44</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="op">(</span><span class="va">t41</span> <span class="op">+</span> <span class="va">t42</span> <span class="op">+</span> <span class="va">t43</span><span class="op">)</span></span></code></pre></div>
 </div>
+</div>
 <div id="create-transition-table-1" class="section level3" number="19.1.4">
 <h3>
 <span class="header-section-number">19.1.4</span> Create Transition Table<a class="anchor" aria-label="anchor" href="#create-transition-table-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">t_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Time1"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C1=Anti-Science"</span>,<span class="st">"C1=Amb. w/ Elevated"</span>,<span class="st">"C1=Amb. w/ Minimal"</span>,<span class="st">"C1=Pro-Science"</span><span class="op">)</span>,</span>
@@ -398,23 +774,23 @@
 <span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
 <span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="faifbxcyng" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#faifbxcyng table {
+<div id="xsfkqevxym" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xsfkqevxym table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#faifbxcyng thead, #faifbxcyng tbody, #faifbxcyng tfoot, #faifbxcyng tr, #faifbxcyng td, #faifbxcyng th {
+#xsfkqevxym thead, #xsfkqevxym tbody, #xsfkqevxym tfoot, #xsfkqevxym tr, #xsfkqevxym td, #xsfkqevxym th {
   border-style: none;
 }
 
-#faifbxcyng p {
+#xsfkqevxym p {
   margin: 0;
   padding: 0;
 }
 
-#faifbxcyng .gt_table {
+#xsfkqevxym .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -440,12 +816,12 @@
   border-left-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_caption {
+#xsfkqevxym .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#faifbxcyng .gt_title {
+#xsfkqevxym .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -457,7 +833,7 @@
   border-bottom-width: 0;
 }
 
-#faifbxcyng .gt_subtitle {
+#xsfkqevxym .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -469,7 +845,7 @@
   border-top-width: 0;
 }
 
-#faifbxcyng .gt_heading {
+#xsfkqevxym .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -481,13 +857,13 @@
   border-right-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_bottom_border {
+#xsfkqevxym .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_col_headings {
+#xsfkqevxym .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -502,7 +878,7 @@
   border-right-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_col_heading {
+#xsfkqevxym .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -522,7 +898,7 @@
   overflow-x: hidden;
 }
 
-#faifbxcyng .gt_column_spanner_outer {
+#xsfkqevxym .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -534,15 +910,15 @@
   padding-right: 4px;
 }
 
-#faifbxcyng .gt_column_spanner_outer:first-child {
+#xsfkqevxym .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#faifbxcyng .gt_column_spanner_outer:last-child {
+#xsfkqevxym .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#faifbxcyng .gt_column_spanner {
+#xsfkqevxym .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -554,11 +930,11 @@
   width: 100%;
 }
 
-#faifbxcyng .gt_spanner_row {
+#xsfkqevxym .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#faifbxcyng .gt_group_heading {
+#xsfkqevxym .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -584,7 +960,7 @@
   text-align: left;
 }
 
-#faifbxcyng .gt_empty_group_heading {
+#xsfkqevxym .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -599,15 +975,15 @@
   vertical-align: middle;
 }
 
-#faifbxcyng .gt_from_md > :first-child {
+#xsfkqevxym .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#faifbxcyng .gt_from_md > :last-child {
+#xsfkqevxym .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#faifbxcyng .gt_row {
+#xsfkqevxym .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -626,7 +1002,7 @@
   overflow-x: hidden;
 }
 
-#faifbxcyng .gt_stub {
+#xsfkqevxym .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -639,7 +1015,7 @@
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_stub_row_group {
+#xsfkqevxym .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -653,15 +1029,15 @@
   vertical-align: top;
 }
 
-#faifbxcyng .gt_row_group_first td {
+#xsfkqevxym .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#faifbxcyng .gt_row_group_first th {
+#xsfkqevxym .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#faifbxcyng .gt_summary_row {
+#xsfkqevxym .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -671,16 +1047,16 @@
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_first_summary_row {
+#xsfkqevxym .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_first_summary_row.thick {
+#xsfkqevxym .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#faifbxcyng .gt_last_summary_row {
+#xsfkqevxym .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -690,7 +1066,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_grand_summary_row {
+#xsfkqevxym .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -700,7 +1076,7 @@
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_first_grand_summary_row {
+#xsfkqevxym .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -710,7 +1086,7 @@
   border-top-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_last_grand_summary_row_top {
+#xsfkqevxym .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -720,11 +1096,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_striped {
+#xsfkqevxym .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#faifbxcyng .gt_table_body {
+#xsfkqevxym .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -733,7 +1109,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_footnotes {
+#xsfkqevxym .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -747,7 +1123,7 @@
   border-right-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_footnote {
+#xsfkqevxym .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -756,7 +1132,7 @@
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_sourcenotes {
+#xsfkqevxym .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -770,7 +1146,7 @@
   border-right-color: #D3D3D3;
 }
 
-#faifbxcyng .gt_sourcenote {
+#xsfkqevxym .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -778,72 +1154,72 @@
   padding-right: 5px;
 }
 
-#faifbxcyng .gt_left {
+#xsfkqevxym .gt_left {
   text-align: left;
 }
 
-#faifbxcyng .gt_center {
+#xsfkqevxym .gt_center {
   text-align: center;
 }
 
-#faifbxcyng .gt_right {
+#xsfkqevxym .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#faifbxcyng .gt_font_normal {
+#xsfkqevxym .gt_font_normal {
   font-weight: normal;
 }
 
-#faifbxcyng .gt_font_bold {
+#xsfkqevxym .gt_font_bold {
   font-weight: bold;
 }
 
-#faifbxcyng .gt_font_italic {
+#xsfkqevxym .gt_font_italic {
   font-style: italic;
 }
 
-#faifbxcyng .gt_super {
+#xsfkqevxym .gt_super {
   font-size: 65%;
 }
 
-#faifbxcyng .gt_footnote_marks {
+#xsfkqevxym .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#faifbxcyng .gt_asterisk {
+#xsfkqevxym .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#faifbxcyng .gt_indent_1 {
+#xsfkqevxym .gt_indent_1 {
   text-indent: 5px;
 }
 
-#faifbxcyng .gt_indent_2 {
+#xsfkqevxym .gt_indent_2 {
   text-indent: 10px;
 }
 
-#faifbxcyng .gt_indent_3 {
+#xsfkqevxym .gt_indent_3 {
   text-indent: 15px;
 }
 
-#faifbxcyng .gt_indent_4 {
+#xsfkqevxym .gt_indent_4 {
   text-indent: 20px;
 }
 
-#faifbxcyng .gt_indent_5 {
+#xsfkqevxym .gt_indent_5 {
   text-indent: 25px;
 }
 
-#faifbxcyng .katex-display {
+#xsfkqevxym .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#faifbxcyng div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xsfkqevxym div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -929,7 +1305,7 @@ directly through Mplus syntax using start values.</span>
 <a class="nav-link" href="#estimate-latent-transition-analysis-lta-model-1"><span class="header-section-number">19.1</span> Estimate Latent Transition Analysis (LTA) Model</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#estimate-invariant-lta-model-1"><span class="header-section-number">19.1.1</span> Estimate Invariant LTA Model</a></li>
 <li><a class="nav-link" href="#estimate-non-invariant-estimated-lta-model-1"><span class="header-section-number">19.1.2</span> Estimate Non-Invariant Estimated LTA Model</a></li>
-<li><a class="nav-link" href="#conduct-sattorra-bentler-adjusted-log-likelihood-ratio-difference-testing-1"><span class="header-section-number">19.1.3</span> Conduct Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing</a></li>
+<li><a class="nav-link" href="#nested-model-testing-sattorra-bentler-adjusted-log-likelihood-ratio-difference-testing"><span class="header-section-number">19.1.3</span> Nested Model Testing: Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing</a></li>
 <li><a class="nav-link" href="#create-transition-table-1"><span class="header-section-number">19.1.4</span> Create Transition Table</a></li>
 </ul>
 </li>
@@ -950,7 +1326,7 @@ directly through Mplus syntax using start values.</span>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-05-06.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-05-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

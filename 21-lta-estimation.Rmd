@@ -191,7 +191,7 @@ lta_non_inv_fit <- mplusModeler(lta_non_inv,
 ------------------------------------------------------------------------
 
 
-### Conduct Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing
+### Nested Model Testing: Sattorra-Bentler adjusted Log Likelihood Ratio Difference Testing
 
 -   non-invariant (comparison): This model has **more** parameters.
 
@@ -236,7 +236,12 @@ df <- abs(p0 - p1)
 **RESULT**: The Log Likelihood $\chi^2$ difference test comparing the invariant and non-invariant LTA models was, $\chi^2 (20) = 21.542, p = .624$.
 
 [Reference](https://stats.idre.ucla.edu/mplus/faq/how-can-i-compute-a-chi-square-test-for-nested-models-with-the-mlr-or-mlm-estimators/)
-    
+
+#### Alternative: Nested Model Testing Using `compareModels` in MplusAutomation
+
+```{r}
+compareModels(lta_models$X4.class.invariant.out, lta_models$X4.class.non.invariant.out, show="all", diffTest=TRUE)
+```
 
 --------------------------------------------------------------------------------------
 

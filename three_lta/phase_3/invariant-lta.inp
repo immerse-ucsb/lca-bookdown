@@ -1,0 +1,203 @@
+TITLE:
+LTA-Invariant
+DATA:
+FILE = "/Users/traviscandieas/Library/CloudStorage/Box-Box/lca-bookdown/
+three_lta/phase_3/lta.dat"; 
+VARIABLE:
+NAMES = CASENUM COHORT AB39A GA32A KA46A AB39B AB39C AB39D AB39E AB39F AB39G AB39H
+     GA32H KA46H AB39I GA32I KA46I AB39J AB39K GA32K KA46K AB39L GA32L KA46L AB39M
+     GA33A KA47A AB39N AB39O AB39P AB39Q AB39R AB39S AB39T GA33H KA47H AB39U GA33I
+     KA47I AB39V AB39W GA33K KA47K AB39X GA33L KA47L SCIENCEG7 SCIG8 SCIG11 MTH7
+     SCI7 SCI8 MOTHED FATHED PEDUC PEDUC3 RSEDAN RSEDAN6 RSEDAN5 RBACC RMAJFIRST
+     RMAJFIRST2 RMAJLAST2 RMAJLAST RGRADMAJ RGRADMAJ10 RSTEMM RSTEMMX RSTEMMB
+     RSTEMMA WEIGHT7 WEIGHT8 WEIGHT9 WEIGHT10 WEIGHT11 WEIGHT12 WEIGHTP1 WEIGHTP2
+     WEIGHTP4 WGT12A WEIGHTR GENDER RACETH3 RACETH MINORITY STEM STEMSUP ENGINEER
+     MATHG7 MATHG8 MATHG10 MATHG11 MATHG12 FEMALE; 
+ MISSING=.;
+ idvariable=CASENUM;
+     
+      usev =        
+      AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X
+      GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L
+      KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L;
+
+      categorical = 
+      AB39A AB39H AB39I AB39K AB39L AB39M AB39T AB39U AB39W AB39X
+      GA32A GA32H GA32I GA32K GA32L GA33A GA33H GA33I GA33K GA33L
+      KA46A KA46H KA46I KA46K KA46L KA47A KA47H KA47I KA47K KA47L;
+
+      classes = c1(4) c2(4) c3(4);
+      
+      !useobs = patw2==0 AND patw4==0 AND patw6==0;
+ANALYSIS:
+estimator = mlr;
+      type = mixture;
+      starts =  0;
+      processors=10;
+MODEL:
+%overall%
+     
+  MODEL C1:
+
+     %C1#2%
+
+     [ ab39a$1*-0.88317 ] (1);
+     [ ab39h$1*-1.67846 ] (2);
+     [ ab39i$1*-0.87678 ] (3);
+     [ ab39k$1*-1.94488 ] (4);
+     [ ab39l$1*-2.31449 ] (5);
+     [ ab39m$1*0.42902 ] (6);
+     [ ab39t$1*2.29579 ] (7);
+     [ ab39u$1*1.02888 ] (8);
+     [ ab39w$1*1.97217 ] (9);
+     [ ab39x$1*1.81015 ] (10);
+
+     %C1#3%
+
+     [ ab39a$1*-0.06251 ] (11);
+     [ ab39h$1*-0.07794 ] (12);
+     [ ab39i$1*-0.52318 ] (13);
+     [ ab39k$1*-0.01050 ] (14);
+     [ ab39l$1*0.25710 ] (15);
+     [ ab39m$1*-0.83191 ] (16);
+     [ ab39t$1*0.08240 ] (17);
+     [ ab39u$1*-0.45007 ] (18);
+     [ ab39w$1*0.52048 ] (19);
+     [ ab39x$1*0.22802 ] (20);
+
+     %C1#1%
+
+     [ ab39a$1*-1.53256 ] (21);
+     [ ab39h$1*-2.90158 ] (22);
+     [ ab39i$1*-2.99387 ] (23);
+     [ ab39k$1*-2.83161 ] (24);
+     [ ab39l$1*-3.85026 ] (25);
+     [ ab39m$1*-2.16328 ] (26);
+     [ ab39t$1*-2.13763 ] (27);
+     [ ab39u$1*-2.48259 ] (28);
+     [ ab39w$1*-1.81387 ] (29);
+     [ ab39x$1*-2.35033 ] (30);
+
+     %C1#4%
+
+     [ ab39a$1*0.74772 ] (31);
+     [ ab39h$1*2.01371 ] (32);
+     [ ab39i$1*1.68130 ] (33);
+     [ ab39k$1*1.54255 ] (34);
+     [ ab39l$1*2.35013 ] (35);
+     [ ab39m$1*1.38420 ] (36);
+     [ ab39t$1*3.73628 ] (37);
+     [ ab39u$1*3.10536 ] (38);
+     [ ab39w$1*3.69862 ] (39);
+     [ ab39x$1*3.69492 ] (40);
+
+  MODEL C2:
+
+     %C2#2%
+
+     [ ga32a$1*-0.88317 ] (1);
+     [ ga32h$1*-1.67846 ] (2);
+     [ ga32i$1*-0.87678 ] (3);
+     [ ga32k$1*-1.94488 ] (4);
+     [ ga32l$1*-2.31449 ] (5);
+     [ ga33a$1*0.42902 ] (6);
+     [ ga33h$1*2.29579 ] (7);
+     [ ga33i$1*1.02888 ] (8);
+     [ ga33k$1*1.97217 ] (9);
+     [ ga33l$1*1.81015 ] (10);
+
+     %C2#3%
+
+     [ ga32a$1*-0.06251 ] (11);
+     [ ga32h$1*-0.07794 ] (12);
+     [ ga32i$1*-0.52318 ] (13);
+     [ ga32k$1*-0.01050 ] (14);
+     [ ga32l$1*0.25710 ] (15);
+     [ ga33a$1*-0.83191 ] (16);
+     [ ga33h$1*0.08240 ] (17);
+     [ ga33i$1*-0.45007 ] (18);
+     [ ga33k$1*0.52048 ] (19);
+     [ ga33l$1*0.22802 ] (20);
+
+     %C2#1%
+
+     [ ga32a$1*-1.53256 ] (21);
+     [ ga32h$1*-2.90158 ] (22);
+     [ ga32i$1*-2.99387 ] (23);
+     [ ga32k$1*-2.83161 ] (24);
+     [ ga32l$1*-3.85026 ] (25);
+     [ ga33a$1*-2.16328 ] (26);
+     [ ga33h$1*-2.13763 ] (27);
+     [ ga33i$1*-2.48259 ] (28);
+     [ ga33k$1*-1.81387 ] (29);
+     [ ga33l$1*-2.35033 ] (30);
+
+     %C2#4%
+
+     [ ga32a$1*0.74772 ] (31);
+     [ ga32h$1*2.01371 ] (32);
+     [ ga32i$1*1.68130 ] (33);
+     [ ga32k$1*1.54255 ] (34);
+     [ ga32l$1*2.35013 ] (35);
+     [ ga33a$1*1.38420 ] (36);
+     [ ga33h$1*3.73628 ] (37);
+     [ ga33i$1*3.10536 ] (38);
+     [ ga33k$1*3.69862 ] (39);
+     [ ga33l$1*3.69492 ] (40);
+
+  MODEL C3:
+
+     %C3#2%
+
+     [ ka46a$1*-0.88317 ] (1);
+     [ ka46h$1*-1.67846 ] (2);
+     [ ka46i$1*-0.87678 ] (3);
+     [ ka46k$1*-1.94488 ] (4);
+     [ ka46l$1*-2.31449 ] (5);
+     [ ka47a$1*0.42902 ] (6);
+     [ ka47h$1*2.29579 ] (7);
+     [ ka47i$1*1.02888 ] (8);
+     [ ka47k$1*1.97217 ] (9);
+     [ ka47l$1*1.81015 ] (10);
+
+     %C3#3%
+
+     [ ka46a$1*-0.06251 ] (11);
+     [ ka46h$1*-0.07794 ] (12);
+     [ ka46i$1*-0.52318 ] (13);
+     [ ka46k$1*-0.01050 ] (14);
+     [ ka46l$1*0.25710 ] (15);
+     [ ka47a$1*-0.83191 ] (16);
+     [ ka47h$1*0.08240 ] (17);
+     [ ka47i$1*-0.45007 ] (18);
+     [ ka47k$1*0.52048 ] (19);
+     [ ka47l$1*0.22802 ] (20);
+
+     %C3#1%
+
+     [ ka46a$1*-1.53256 ] (21);
+     [ ka46h$1*-2.90158 ] (22);
+     [ ka46i$1*-2.99387 ] (23);
+     [ ka46k$1*-2.83161 ] (24);
+     [ ka46l$1*-3.85026 ] (25);
+     [ ka47a$1*-2.16328 ] (26);
+     [ ka47h$1*-2.13763 ] (27);
+     [ ka47i$1*-2.48259 ] (28);
+     [ ka47k$1*-1.81387 ] (29);
+     [ ka47l$1*-2.35033 ] (30);
+
+     %C3#4%
+
+     [ ka46a$1*0.74772 ] (31);
+     [ ka46h$1*2.01371 ] (32);
+     [ ka46i$1*1.68130 ] (33);
+     [ ka46k$1*1.54255 ] (34);
+     [ ka46l$1*2.35013 ] (35);
+     [ ka47a$1*1.38420 ] (36);
+     [ ka47h$1*3.73628 ] (37);
+     [ ka47i$1*3.10536 ] (38);
+     [ ka47k$1*3.69862 ] (39);
+     [ ka47l$1*3.69492 ] (40);
+
+OUTPUT:
+svalues;

@@ -55,6 +55,8 @@ Additional code contributors:
 
 -   **Yidi Zhang, MA**
 
+-   **Travis Candieas**
+
 We also thank all the IMMERSE fellows who provided feedback during the development of these materials.
 
 ::: {style="text-align: center;"}
