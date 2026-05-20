@@ -313,6 +313,8 @@ examine-transition-probability-plot-for-non-underrepresented-females
 examine-table-of-covariate-results-for-the-step-3-lta
 examine-outcome-variables
 gender-differences-in-transition-probabilities
+lta-with-measurement-invariance
+introduction
 data-setup-and-preparation
 load-required-packages
 set-working-directory

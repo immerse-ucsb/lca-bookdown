@@ -5,10 +5,11 @@ library(extrafont)
 loadfonts()
 ```
 
-------------------------------------------------------------------------
 # LTA with Measurement Invariance
 
-# Introduction
+------------------------------------------------------------------------
+
+## Introduction
 
 This R Markdown document accompanies the tutorial manuscript *Latent Transition Analysis with Auxiliary Variables: A Demonstration of the ML 3-Step and BCH Methods in Mplus* using data from the Longitudinal Study of American Youth (LSAY). Its purpose is to provide a fully reproducible, step-by-step implementation of the multi-step LTA workflow described in the paper using **Mplus** and the **MplusAutomation** package in R.
 
