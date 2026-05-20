@@ -8,7 +8,7 @@ loadfonts()
 ------------------------------------------------------------------------
 # LTA with Measurement Invariance
 
-### Introduction
+## Introduction
 
 This R Markdown document accompanies the tutorial manuscript *Latent Transition Analysis with Auxiliary Variables: A Demonstration of the ML 3-Step and BCH Methods in Mplus* using data from the Longitudinal Study of American Youth (LSAY). Its purpose is to provide a fully reproducible, step-by-step implementation of the multi-step LTA workflow described in the paper using **Mplus** and the **MplusAutomation** package in R.
 
@@ -20,11 +20,11 @@ Before estimating the latent class structure, we begin by loading the necessary 
 
 ------------------------------------------------------------------------
 
-### Data Setup and Preparation
+## Data Setup and Preparation
 
 
 
-#### Load Required Packages
+### Load Required Packages
 
 ```{r, eval=TRUE}
 
@@ -51,7 +51,7 @@ library(patchwork)
 
 ------------------------------------------------------------------------
 
-#### Set Working Directory
+### Set Working Directory
 
 ```{r}
 here::i_am("29-lta-three-timepoint.Rmd")
@@ -61,7 +61,7 @@ Using `here()` finds your project's files, based on the current working director
 
 ------------------------------------------------------------------------
 
-#### Import LSAY Data
+### Import LSAY Data
 
 ```{r}
 lsay_data <- read_csv(here("data", "lsay_data.csv"), na = c("9999", "-99", "-98", "-96")) %>%
@@ -74,11 +74,11 @@ lsay_data <- read_csv(here("data", "lsay_data.csv"), na = c("9999", "-99", "-98"
 
 ------------------------------------------------------------------------
 
-### Descriptive Statistics
+## Descriptive Statistics
 
 ------------------------------------------------------------------------
 
-#### Indicators
+### Indicators
 
 ```{r}
 # Define survey questions
@@ -170,7 +170,7 @@ All attitudinal indicators fall within the expected 0–1 range and show adequat
 
 ------------------------------------------------------------------------
 
-#### Covariates
+### Covariates
 
 ```{r}
 # Define covariates
@@ -253,12 +253,12 @@ Covariates show valid ranges, expected missingness patterns, and sufficient vari
 
 ------------------------------------------------------------------------
 
-### **Phase 1**: Latent Class Enumeration at Each Timepoint (Exploratory Stage)
+## **Phase 1**: Latent Class Enumeration at Each Timepoint (Exploratory Stage)
 
 ------------------------------------------------------------------------
 
 
-#### Time 1 Enumeration (Grade 7)
+### Time 1 Enumeration (Grade 7)
 
 ```{r, eval = FALSE}
 t1_enum <- lapply(1:6, function(k) { 
@@ -290,7 +290,7 @@ enum_t1_fit <- mplusModeler(enum_t1,
 })
 ```
 
-#### Time 2 Enumeration (Grade 10)
+### Time 2 Enumeration (Grade 10)
 
 ```{r, eval = FALSE}
 t2_enum <- lapply(1:6, function(k) { 
@@ -322,7 +322,7 @@ enum_t2_fit <- mplusModeler(enum_t2,
 })
 ```
 
-#### Time 3 Enumeration (Grade 12)
+### Time 3 Enumeration (Grade 12)
 
 ```{r, eval = FALSE}
 t3_enum <- lapply(1:6, function(k) { 
@@ -358,11 +358,11 @@ Enumeration is completed for Grade 12. Agreement in class number and stability a
 
 ------------------------------------------------------------------------
 
-### Extracting and Summarizing Model Fit
+## Extracting and Summarizing Model Fit
 
 ------------------------------------------------------------------------
 
-#### Time 1
+### Time 1
 
 ```{r}
 source(here("functions", "extract_mplus_info.R"))
@@ -397,7 +397,7 @@ ic_plot(output_enum_t1)
 
 ------------------------------------------------------------------------
 
-#### Time 2
+### Time 2
 
 ```{r}
 # Define the directory where all of the .out files are located.
@@ -427,7 +427,7 @@ ic_plot(output_enum_t2)
 
 ------------------------------------------------------------------------
 
-#### Time 3
+### Time 3
 
 ```{r}
 # Define the directory where all of the .out files are located.
@@ -458,7 +458,7 @@ ic_plot(output_enum_t3)
 
 ------------------------------------------------------------------------
 
-### 1.5 Plotting Class Probabilities
+## 1.5 Plotting Class Probabilities
 
 ------------------------------------------------------------------------
 
@@ -486,7 +486,7 @@ These diagnostics indicate that the same four-class structure is empirically rec
 
 ------------------------------------------------------------------------
 
-### 1.6 Estimate LCAs Independently at Each Time Point to Reorder Classes
+## 1.6 Estimate LCAs Independently at Each Time Point to Reorder Classes
 
 In this step, the selected four-class solution is re-estimated independently at each wave with:
 
@@ -500,7 +500,7 @@ In this step, the selected four-class solution is re-estimated independently at 
 
 This step **does not change the class structure**. Its sole purpose is to ensure **stable class labeling across waves** prior to joint longitudinal modeling.
 
-#### Time 1 (Reorder)
+### Time 1 (Reorder)
 
 ```{r, eval = FALSE}
 lca_t1  <- mplusObject(                 
@@ -532,7 +532,7 @@ lca_t1_fit <- mplusModeler(lca_t1,
                  check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-#### Time 2 (Reorder)
+### Time 2 (Reorder)
 
 ```{r, eval = FALSE}
 lca_t2  <- mplusObject(                 
@@ -564,7 +564,7 @@ lca_t2_fit <- mplusModeler(lca_t2,
                  check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-#### Time 3 (Reorder)
+### Time 3 (Reorder)
 
 ```{r, eval = FALSE}
 lca_t3  <- mplusObject(                 
@@ -596,7 +596,7 @@ lca_t3_fit <- mplusModeler(lca_t3,
                  check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-#### Diagnostic Class Plots (Post-Reordering)
+### Diagnostic Class Plots (Post-Reordering)
 
 ------------------------------------------------------------------------
 
@@ -612,11 +612,11 @@ t3 <- readModels(here("three_lta", "phase_1","reordered","t3_lca_step1.out"))
 
 ------------------------------------------------------------------------
 
-### **Phase 2**: Testing for Measurement Invariance
+## **Phase 2**: Testing for Measurement Invariance
 
 ------------------------------------------------------------------------
 
-#### Estimate the Non-Invariant Joint Configural Model (No Transitions)
+### Estimate the Non-Invariant Joint Configural Model (No Transitions)
 
 ```{r, eval = FALSE}
 lta_non_inv <- mplusObject(
@@ -692,7 +692,7 @@ After estimation, this model is retained strictly as the reference model for nes
 
 ------------------------------------------------------------------------
 
-#### Estimate the Full Measurement-Invariance Model
+### Estimate the Full Measurement-Invariance Model
 
 ```{r, eval = FALSE}
 lta_inv <- mplusObject(
@@ -770,7 +770,7 @@ This model yields the measurement structure used for all downstream auxiliary-va
 
 ------------------------------------------------------------------------
 
-#### Plotting the Non-Invariant and Invariant Models
+### Plotting the Non-Invariant and Invariant Models
 
 ```{r, fig.width=18, fig.height= 7}
 source(here("functions","plot_lta.R"))
@@ -783,7 +783,7 @@ plot_lta(inv_mod$noninvariant_lta.out)
 
 ------------------------------------------------------------------------
 
-### Nested Model Testing: Satorra–Bentler Scaled χ² Difference Test
+## Nested Model Testing: Satorra–Bentler Scaled χ² Difference Test
 
 ```{r}
 # *0 = null or nested model & *1 = comparison  or parent model
@@ -818,7 +818,7 @@ df <- abs(p0 - p1)
 ```
 
 
-### Alternatively: Nested Model Testing Using `compareModels` in MplusAutomation
+## Alternatively: Nested Model Testing Using `compareModels` in MplusAutomation
 
 
 ```{r}
@@ -835,15 +835,15 @@ comparison$summaries
 
 ------------------------------------------------------------------------
 
-### **Phase 3**: Apply Multi-Step Estimation Methods
+## **Phase 3**: Apply Multi-Step Estimation Methods
 
 ------------------------------------------------------------------------
 
-### ML Three-Step Procedure
+## ML Three-Step Procedure
 
 ------------------------------------------------------------------------
 
-#### ML STEP 1: Re-Estimate 
+### ML STEP 1: Re-Estimate 
 
 ------------------------------------------------------------------------
 
@@ -1125,7 +1125,7 @@ inv_t3_fit <- mplusModeler(inv_t3,
                  check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-##### Plotting the Fixed-Threshold LCAs
+#### Plotting the Fixed-Threshold LCAs
 
 ```{r, fig.width=18, fig.height= 7}
 source(here("functions","plot_lca.R"))
@@ -1139,7 +1139,7 @@ t3 <- readModels(here("three_lta", "phase_3","step_1_ml","t3_inv_lca.out"))
 
 ------------------------------------------------------------------------
 
-#### ML STEP 2: Extract Logits and Merge Saved Posterior Data
+### ML STEP 2: Extract Logits and Merge Saved Posterior Data
 
 ------------------------------------------------------------------------
 
@@ -1176,7 +1176,7 @@ summary(savedata_t123)
 
 ------------------------------------------------------------------------
 
-#### ML STEP 3a: Estimate the Unconditional LTA Model With Fixed Logits
+### ML STEP 3a: Estimate the Unconditional LTA Model With Fixed Logits
 
 
 ------------------------------------------------------------------------
@@ -1271,7 +1271,7 @@ unc_LTA_fit <- mplusModeler(unc_LTA,
                  check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-##### Plotting Transition Probabilities (Unconditional Model)
+#### Plotting Transition Probabilities (Unconditional Model)
 
 
 ------------------------------------------------------------------------
@@ -1294,7 +1294,7 @@ ggsave(here("figures", "unconditional_lta_ml.jpeg"), dpi="retina", height = 6, w
 
 ------------------------------------------------------------------------
 
-#### ML STEP 3b: Estimate the Covariate-Adjusted LTA Model With Fixed Logits
+### ML STEP 3b: Estimate the Covariate-Adjusted LTA Model With Fixed Logits
 
 
 ```{r, eval = FALSE}
@@ -1389,7 +1389,7 @@ con_LTA_fit <- mplusModeler(con_LTA,
                  check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-##### Covariate Effects Table
+#### Covariate Effects Table
 
 ------------------------------------------------------------------------
 
@@ -1449,17 +1449,17 @@ cov_m1
 gtsave(cov_m1, here("figures", "cov_table_ml.png"))
 ```
 
-#### Completion of Phase 3 ML Three-Step
+### Completion of Phase 3 ML Three-Step
 
 ------------------------------------------------------------------------
 
-### BCH Method
+## BCH Method
 
 **Apply BCH Training Weights for Classification-Error Correction**
 
 ------------------------------------------------------------------------
 
-#### BCH Step 1: Estimate the Invariant LTA Model and Compute BCH Training Weights
+### BCH Step 1: Estimate the Invariant LTA Model and Compute BCH Training Weights
 
 ```{r, eval=FALSE}
 step1_bch  <- mplusObject(
@@ -1666,7 +1666,7 @@ step1_fit_bch <- mplusModeler(step1_bch,
                             check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-##### Diagnostic Plot of the Invariant BCH Model
+#### Diagnostic Plot of the Invariant BCH Model
 
 ```{r, fig.width=18, fig.height= 7}
 source(here("functions","plot_lta.R"))
@@ -1678,7 +1678,7 @@ plot_lta(inv_bch)
 
 ------------------------------------------------------------------------
 
-#### BCH Step 2: Extract BCH weights
+### BCH Step 2: Extract BCH weights
 
 ------------------------------------------------------------------------
 
@@ -1689,7 +1689,7 @@ bch_savedata <- as.data.frame(inv_bch$savedata)
 
 ------------------------------------------------------------------------
 
-#### BCH Step 3a: Estimate the Unconditional LTA Model Using BCH Weights
+### BCH Step 3a: Estimate the Unconditional LTA Model Using BCH Weights
 
 ```{r, eval = FALSE}
 step3_bch  <- mplusObject(
@@ -1721,7 +1721,7 @@ step3_fit_bch <- mplusModeler(step3_bch,
                check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-##### Plotting BCH Transition Probabilities
+#### Plotting BCH Transition Probabilities
 
 ------------------------------------------------------------------------
 
@@ -1743,7 +1743,7 @@ ggsave(here("figures", "unconditional_lta_bch.jpeg"), dpi="retina", height = 6, 
 
 ------------------------------------------------------------------------
 
-#### BCH Step 3b: Estimate the Covariate-Adjusted LTA Model Using BCH Weights
+### BCH Step 3b: Estimate the Covariate-Adjusted LTA Model Using BCH Weights
 
 ```{r, eval = FALSE}
 step3_bch  <- mplusObject(
@@ -1778,7 +1778,7 @@ step3_fit_bch <- mplusModeler(step3_bch,
                check=TRUE, run = TRUE, hashfilename = FALSE)
 ```
 
-##### Covariate Table: BCH Method
+#### Covariate Table: BCH Method
 
 ------------------------------------------------------------------------
 
