@@ -313,8 +313,6 @@ examine-transition-probability-plot-for-non-underrepresented-females
 examine-table-of-covariate-results-for-the-step-3-lta
 examine-outcome-variables
 gender-differences-in-transition-probabilities
-lta-with-measurement-invariance
-introduction
 data-setup-and-preparation
 load-required-packages
 set-working-directory
@@ -323,8 +321,6 @@ descriptive-statistics-17
 indicators
 covariates
 phase-1-latent-class-enumeration-at-each-timepoint-exploratory-stage
-purpose
-what-this-phase-produces
 time-1-enumeration-grade-7
 time-2-enumeration-grade-10
 time-3-enumeration-grade-12
@@ -338,18 +334,14 @@ time-1-reorder
 time-2-reorder
 time-3-reorder
 diagnostic-class-plots-post-reordering
-completion-of-phase-1
 phase-2-testing-for-measurement-invariance
-workflow-overview
 estimate-the-non-invariant-joint-configural-model-no-transitions
 estimate-the-full-measurement-invariance-model
 plotting-the-non-invariant-and-invariant-models
 nested-model-testing-satorrabentler-scaled-χ²-difference-test
 alternatively-nested-model-testing-using-comparemodels-in-mplusautomation
-completion-of-phase-2
 phase-3-apply-multi-step-estimation-methods
 ml-three-step-procedure
-workflow-overview-1
 ml-step-1-re-estimate
 plotting-the-fixed-threshold-lcas
 ml-step-2-extract-logits-and-merge-saved-posterior-data
