@@ -1,0 +1,1343 @@
+---
+title-block-banner: true
+title: "MMDBER_Physics Education"
+format:
+  html:
+    toc: true
+    toc-depth: 4 
+    theme: Flatly
+    page-layout: full
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(haven)
+library(glue)
+library(MplusAutomation)
+library(rhdf5)
+library(here)
+library(janitor)
+library(gt)
+library(semPlot)
+library(reshape2)
+library(cowplot)
+library(filesstrings)
+library(hrbrthemes)
+library(poLCA)
+library(naniar)
+library(psych)
+library(flextable)
+library(officer)
+conflicted::conflicts_prefer(flextable::compose)
+```
+
+```{r}
+options(scipen=999, digits=4)
+```
+
+```{r}
+support_data <- read.csv(here("k-means", "SocialSupport.csv"))
+```
+
+```{r}
+vis_miss(support_data)
+```
+
+```{r}
+describe(support_data)
+```
+
+```{r}
+cor(support_data$Woman, support_data$Transgender)
+cor(support_data$Woman, support_data$NonBinary)
+cor(support_data$Transgender, support_data$NonBinary)
+```
+
+```{r}
+conflicted::conflicts_prefer(dplyr::filter)
+```
+
+```{r}
+nonbinary_subset <- support_data %>% filter(NonBinary == 1) #94 people
+trans_subset <- support_data %>% filter(Transgender == 1)
+nowoman_subset <- support_data %>% filter(Woman == 0) #66 people
+nowoman_nonbinary <- nowoman_subset %>% filter(NonBinary == 1) #58 people
+filtered_data <- support_data %>%
+  filter(Woman == 1 | NonBinary == 1 | Transgender == 1)
+```
+
+## LCA
+
+### Enumeration
+
+```{r eval = FALSE}
+lca_7  <- lapply(1:7, function(k) {
+  lca_enum  <- mplusObject(
+      
+    TITLE = glue("{k}-Class"), 
+  
+    VARIABLE = glue(
+    "categorical = Family-MentalHlth; 
+     usevar = Family-MentalHlth;
+     classes = c({k}); "),
+  
+  ANALYSIS = 
+   "estimator = mlr; 
+    type = mixture;
+    starts = 200 100; 
+    processors = 10;",
+  
+  OUTPUT = "sampstat residual tech11 tech14 svalues;",
+  
+  PLOT = 
+    "type = plot3; 
+    series = Family-MentalHlth(*);",
+  
+  usevariables = colnames(support_data),
+  rdata = support_data)
+
+lca_enum_fit <- mplusModeler(lca_enum, 
+                            dataout=glue("support.dat"),
+                            modelout=glue("c{k}_support.inp") ,
+                            check=TRUE, run = TRUE, hashfilename = FALSE)
+})
+```
+
+### Table of Fit
+
+```{r}
+source(here("k-means", "function/extract_mplus_info.R"))
+
+output_dir <- here("k-means", "enum_mplus")
+
+output_files <- list.files(output_dir, pattern = "\\.out$", full.names = TRUE)
+
+final_data <- map_dfr(output_files, extract_mplus_info_extended)
+
+sample_size <- unique(final_data$Sample_Size)
+```
+
+```{r warning=FALSE}
+output <- readModels("k-means", "enum_mplus", filefilter = "support", quiet = TRUE)
+
+enum_extract <- LatexSummaryTable(output,
+    keepCols = c("Title","Parameters","LL","BIC","aBIC",
+    "BLRT_PValue","T11_VLMR_PValue","Observations"),
+    sortBy = "Title") 
+
+allFit <- enum_extract %>%
+  mutate(CAIC = -2 * LL + Parameters * (log(Observations) + 1)) %>%
+  mutate(AWE = -2 * LL + 2 * Parameters * (log(Observations) + 1.5)) %>%
+  mutate(SIC = -.5 * BIC) %>%
+  mutate(expSIC = exp(SIC - max(SIC))) %>%
+  mutate(BF = exp(SIC - lead(SIC))) %>%
+  mutate(cmPk = expSIC / sum(expSIC)) %>%
+  dplyr::select(1:5, 9:10, 6:7, 13, 14) %>%
+  arrange(Parameters)
+
+allFit <- allFit %>%
+  mutate(Title = str_trim(Title)) %>%
+  left_join(
+    final_data %>%
+      dplyr::select(Class_Model, Perc_Convergence, Replicated_LL_Perc, 
+             Smallest_Class, Smallest_Class_Perc),
+    by = c("Title" = "Class_Model")
+  ) %>%
+  mutate(Smallest_Class = coalesce(Smallest_Class, 
+                                   final_data$Smallest_Class[match(Title, final_data$Class_Model)])) %>%
+  relocate(Perc_Convergence, Replicated_LL_Perc, .after = LL) %>%
+  mutate(Smallest_Class_Combined = paste0(Smallest_Class, "\u00A0(", Smallest_Class_Perc, "%)")) %>%  # ✅ Use Non-Breaking Space
+  dplyr::select(-Smallest_Class, -Smallest_Class_Perc)  # ✅ Remove old columns to avoid duplication
+
+allFit <- allFit %>%
+  dplyr::select(
+    Title, Parameters, LL,  # Core model fit stats
+    Perc_Convergence, Replicated_LL_Perc,  # ✅ Move these next to LL
+    BIC, aBIC, CAIC, AWE,  # Other fit indices
+    T11_VLMR_PValue, BLRT_PValue,  # Fit test p-values
+    Smallest_Class_Combined,  # ✅ Merged column in correct position
+    BF, cmPk  # ✅ Comment these out in Flextable, but keep them in the data
+  )
+```
+
+```{r}
+fit_table1 <- allFit %>%
+  dplyr::select(Title, Parameters, LL, Perc_Convergence, Replicated_LL_Perc, 
+         BIC, aBIC, CAIC, AWE, 
+         T11_VLMR_PValue, BLRT_PValue, 
+         Smallest_Class_Combined  
+         # BF,  # 🔹 Commented Out
+         # cmPk  # 🔹 Commented Out
+  ) %>%
+  gt() %>%
+  tab_header(title = md("**Model Fit Summary Table**")) %>%
+  
+  # ✅ Superheaders for groups of columns
+  tab_spanner(label = "Model Fit Indices", columns = c(BIC, aBIC, CAIC, AWE)) %>%
+  tab_spanner(label = "LRTs", columns = c(T11_VLMR_PValue, BLRT_PValue)) %>%
+  tab_spanner(label = md("Smallest\u00A0Class"), columns = c(Smallest_Class_Combined)) %>%  # ✅ Non-Breaking Space
+  
+  cols_label(
+    Title = "Classes",
+    Parameters = md("npar"),
+    LL = md("*LL*"),
+    Perc_Convergence = "% Converged",
+    Replicated_LL_Perc = "% Replicated",
+    BIC = "BIC",
+    aBIC = "aBIC",
+    CAIC = "CAIC",
+    AWE = "AWE",
+    T11_VLMR_PValue = "VLMR",
+    BLRT_PValue = "BLRT",
+    Smallest_Class_Combined = "n (%)"
+  ) %>%
+  tab_footnote(
+    footnote = md(
+      "*Note.* Par = Parameters; *LL* = model log likelihood;
+      BIC = Bayesian information criterion;
+      aBIC = sample size adjusted BIC; CAIC = consistent Akaike information criterion;
+      AWE = approximate weight of evidence criterion;
+      BLRT = bootstrapped likelihood ratio test p-value;
+      VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
+      *cmPk* = approximate correct model probability;
+      Smallest K = Number of cases in the smallest class (n (%));
+      LL Replicated = Whether the best log-likelihood was replicated."
+    ),
+    locations = cells_title()
+  ) %>%
+  tab_options(column_labels.font.weight = "bold") %>%
+  
+  # ✅ Format numerical values
+  fmt_number(
+    columns = c(3, 6:9),  # Keep decimal formatting for model fit statistics
+    decimals = 2
+  ) %>%
+  fmt(
+    columns = c(T11_VLMR_PValue, BLRT_PValue),  # ✅ Handle NA replacement & formatting
+    fns = function(x) ifelse(is.na(x), "—", ifelse(x < 0.001, "<.001", scales::number(x, accuracy = .01)))
+  ) %>%
+  
+  # ✅ Format as percentages (keeps 0-100 format)
+  fmt_percent(
+    columns = c(Perc_Convergence, Replicated_LL_Perc),
+    decimals = 0,
+    scale_values = FALSE  # ⚠️ IMPORTANT: Keeps numbers in 0-100 range
+  ) %>%
+  
+  cols_align(align = "center", columns = everything()) %>%  # ✅ Center ALL columns
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = list(
+      cells_body(columns = BIC, row = BIC == min(BIC)),
+      cells_body(columns = aBIC, row = aBIC == min(aBIC)),
+      cells_body(columns = CAIC, row = CAIC == min(CAIC)),
+      cells_body(columns = AWE, row = AWE == min(AWE)),
+      cells_body(columns = T11_VLMR_PValue, 
+                 row = ifelse(T11_VLMR_PValue < .05 & lead(T11_VLMR_PValue) > .05, T11_VLMR_PValue < .05, NA)),
+      cells_body(columns = BLRT_PValue, 
+                 row = ifelse(BLRT_PValue < .05 & lead(BLRT_PValue) > .05, BLRT_PValue < .05, NA))
+    )
+  )
+
+fit_table1
+```
+
+### Examine Convergence and Loglikelihood Replications
+
+```{r}
+source("function/extract_mplus_info.R")
+output_dir <- here("enum_mplus")
+output_files <- list.files(output_dir, pattern = "\\.out$", full.names = TRUE)
+final_data <- map_dfr(output_files, extract_mplus_info_extended)
+sample_size <- unique(final_data$Sample_Size)
+```
+
+```{r}
+source("function/summary_table.R")
+source("function/error_visualization.R")
+
+summary_table <- create_flextable(final_data, sample_size)
+summary_table
+
+```
+
+### Check for Loglikelihood Replication
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+source("function/ll_replication_plots.R")
+
+ll_replication_tables <- generate_ll_replication_plots(final_data)
+
+walk(names(ll_replication_tables), function(name) {
+  table <- ll_replication_tables[[name]]
+  
+  if (knitr::is_latex_output()) {
+    img_path <- here("figures", paste0("ll_replication_table_", name, ".png"))
+    gtsave(table, img_path, expand = 0, vwidth = 1200, vheight = 80 * nrow(table))
+    cat(sprintf("\\includegraphics[width=5in]{%s}\n\n", img_path))
+  } else {
+    print(table) # Works fine in HTML
+  }
+})
+```
+
+```{r}
+ll_replication_table_all <- source("function/ll_replication_processing.R", local = TRUE)$value
+ll_replication_table_all
+```
+
+### Plot
+
+#### Comparison plot 1-7 Class
+
+```{r}
+model_results <- data.frame()
+
+for (i in 1:length(output)) {
+  
+  temp <- output[[i]]$parameters$probability.scale %>%                                       
+    mutate(model = paste(i,"-Class Model"))                                                  
+  
+  model_results <- rbind(model_results, temp)
+}
+
+rm(temp)
+
+compare_plot <-
+  model_results %>%
+  filter(category == 2) %>%
+  dplyr::select(est, model, LatentClass, param) %>%
+  mutate(param = as.factor(str_to_lower(param))) 
+
+compare_plot$param <- fct_inorder(compare_plot$param)
+
+ggplot(
+  compare_plot,
+  aes(
+    x = param,
+    y = est,
+    color = LatentClass,
+    shape = LatentClass,
+    group = LatentClass,
+    lty = LatentClass
+  )
+) +
+  geom_point() + 
+  geom_line() +
+  scale_colour_viridis_d() +
+  facet_wrap( ~ model, ncol = 2) +
+  labs(title = "Support",
+       x = " ", y = "Probability") +
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank(),
+                          axis.text.x = element_text(angle = -45, hjust = -.1))    
+```
+
+#### 3-Class Plot
+
+```{r}
+model_results_3 <- output[[3]]$parameters$probability.scale %>%
+  mutate(model = "3 -Class Model")
+
+plot_3 <-
+  model_results_3 %>%
+  filter(category == 2) %>%
+  dplyr::select(est, model, LatentClass, param) %>%
+  mutate(param = as.factor(str_to_lower(param))) 
+
+plot_3$param <- fct_inorder(plot_3$param)
+
+plot_3$param <- fct_recode(plot_3$param,
+  "Family members" = "family",
+  "Physics classmates/peers" = "physpeers",
+  "Friends/Peers not in Physics" = "nonphyspee",
+  "High school physics teacher(s)" = "hsphysteac",
+  "Faculty (not physics) at your institution" = "nonphysfac",
+  "Physics faculty at your institution" = "physfacult",
+  "Research group/research mentors" = "researchgr",
+  "Women in physics or STEM groups" = "wipgroup",
+  "Gender inclusive physics/STEM groups" = "gipgroup",
+  "Religious /faith based organizations" = "religorg",
+  "Other identity-based affinity groups" = "otherident",
+  "Social communities (e.g., book clubs, fitness group)" = "socialcomm",
+  "Mental health professionals" = "mentalhlth"
+)
+
+plot_3$LatentClass <- recode(plot_3$LatentClass,
+  `1` = "Class 1 (27.34%)",
+  `2` = "Class 2 (49.73%)",
+  `3` = "Class 3 (22.93%)"
+)
+
+ggplot(
+  plot_3,
+  aes(
+    x = param,
+    y = est,
+    color = LatentClass,
+    shape = LatentClass,
+    group = LatentClass,
+    lty = LatentClass
+  )
+) +
+  geom_point() + 
+  geom_line() +
+  scale_colour_viridis_d() +
+  facet_wrap( ~ model, ncol = 2) +
+  labs(x = " ", y = "Probability of Item Endorsement") +
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank(),
+                          axis.text.x = element_text(angle = -30, hjust = -.1)) +
+  labs(color = "Latent class", shape = "Latent class", lty = "Latent class")
+
+
+```
+
+#### 2-Class Plot
+
+```{r}
+model_results_2 <- output[[2]]$parameters$probability.scale %>%
+  mutate(model = "2 -Class Model")
+
+plot_2 <-
+  model_results_2 %>%
+  filter(category == 2) %>%
+  dplyr::select(est, model, LatentClass, param) %>%
+  mutate(param = as.factor(str_to_lower(param))) 
+
+plot_2$param <- fct_inorder(plot_2$param)
+
+plot_2$param <- fct_recode(plot_2$param,
+  "Family members" = "family",
+  "Physics classmates/peers" = "physpeers",
+  "Friends/Peers not in Physics" = "nonphyspee",
+  "High school physics teacher(s)" = "hsphysteac",
+  "Faculty (not physics) at your institution" = "nonphysfac",
+  "Physics faculty at your institution" = "physfacult",
+  "Research group/research mentors" = "researchgr",
+  "Women in physics or STEM groups" = "wipgroup",
+  "Gender inclusive physics/STEM groups" = "gipgroup",
+  "Religious /faith based organizations" = "religorg",
+  "Other identity-based affinity groups" = "otherident",
+  "Social communities (e.g., book clubs, fitness group)" = "socialcomm",
+  "Mental health professionals" = "mentalhlth"
+)
+
+plot_2$LatentClass <- recode(plot_2$LatentClass,
+  `1` = "Class 1 (73.90%)",
+  `2` = "Class 2 (26.10%)"
+)
+
+ggplot(
+  plot_2,
+  aes(
+    x = param,
+    y = est,
+    color = LatentClass,
+    shape = LatentClass,
+    group = LatentClass,
+    lty = LatentClass
+  )
+) +
+  geom_point() + 
+  geom_line() +
+  scale_colour_viridis_d() +
+  facet_wrap( ~ model, ncol = 2) +
+  labs(x = " ", y = "Probability of Item Endorsement") +
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank(),
+                          axis.text.x = element_text(angle = -30, hjust = -.1)) +
+  labs(color = "Latent class", shape = "Latent class", lty = "Latent class")
+
+
+```
+
+### Observed Response Patterns
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+patterns  <- mplusObject(
+  
+  TITLE = "LCA - Save response patterns", 
+  
+  VARIABLE = 
+  "categorical = Family-MentalHlth; 
+   usevar =  Family-MentalHlth;
+   classes = c(3);",
+  
+  ANALYSIS = 
+   "estimator = mlr; 
+    type = mixture;    
+    starts = 0; 
+    processors = 10;
+    optseed = 794236;",
+  
+  SAVEDATA = 
+   "File=savedata.dat;
+    Save=cprob;
+    
+    ! Code to save response frequency data 
+    
+    response is resp_patterns.dat;",
+  
+  OUTPUT = "patterns tech10 tech11 tech14",
+  
+  usevariables = colnames(support_data),
+  rdata = support_data)
+
+patterns_fit <- mplusModeler(patterns,
+                dataout=("patterns.dat"),
+                modelout=("patterns.inp") ,
+                check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+```{r warning=FALSE, message=FALSE}
+# Read in response frequency data that we just created:
+patterns <- read_table("resp_patterns.dat",
+                        col_names=FALSE, na = "*") 
+
+# Extract the column names
+names <- names(readModels("patterns.out")[['savedata']])
+
+# Add the names back to the dataset
+colnames(patterns) <- c("Frequency", names)  
+```
+
+```{r}
+# Order responses by highest frequency
+order_highest <- patterns %>% 
+  arrange(desc(Frequency)) 
+
+# Loop `patterns` data to list top 5 conditional response patterns for each class
+loop_cond  <- lapply(1:max(patterns$C), function(k) {       
+order_cond <- patterns %>%                    
+  filter(C == k) %>%                    
+  arrange(desc(Frequency)) %>%                
+  head(5)                                     
+  })                                          
+
+# Convert loop into data frame
+table_data <- as.data.frame(bind_rows(loop_cond))
+
+# Combine unconditional and conditional responses patterns
+response_patterns <-  rbind(order_highest[1:5,], table_data) 
+```
+
+```{r}
+resp_table <- response_patterns %>% 
+  gt() %>%
+    tab_header(
+    title = "Observed Response Patterns",
+    subtitle = html("Response patterns, estimated frequencies, estimated posterior class probabilities and modal assignments")) %>% 
+    tab_source_note(
+    source_note = md("Data Source: **Physics Education Data**")) %>%
+    cols_label(
+      Frequency = html("<i>f</i><sub>r</sub>"),
+    CPROB1 = html("P<sub><i>k</i></sub>=1"),
+    CPROB2 = html("P<sub><i>k</i></sub>=2"), 
+    CPROB3 = html("P<sub><i>k</i></sub>=3"),# Change based on number of classes
+    C = md("*k*")) %>% 
+  tab_row_group(
+    label = "Unconditional response patterns",
+    rows = 1:5) %>%
+  tab_row_group(
+    label = md("*k* = 1 Conditional response patterns"),
+    rows = 6:10) %>% #EDIT THESE VALUES BASED ON THE LAST COLUMN
+  tab_row_group(
+    label = md("*k* = 2 Conditional response patterns"),
+    rows = 11:15)  %>% #EDIT THESE VALUES BASED ON THE LAST COLUMN
+  tab_row_group(
+    label = md("*k* = 3 Conditional response patterns"),
+    rows = 16:20)  %>% #EDIT THESE VALUES BASED ON THE LAST COLUMN
+    row_group_order(
+      groups = c("Unconditional response patterns",
+                 md("*k* = 1 Conditional response patterns"),
+                 md("*k* = 2 Conditional response patterns"),
+                 md("*k* = 3 Conditional response patterns"))) %>% 
+    tab_footnote(
+    footnote = html(
+      "<i>Note.</i> <i>f</i><sub>r</sub> = response pattern frequency; P<sub><i>k</i></sub> = posterior class probabilities"
+    )
+  ) %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "Times New Roman") 
+
+resp_table
+```
+
+### Classification Diagnostic Table
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+classification  <- mplusObject(
+  
+  TITLE = "LCA - Calculated k-Class 95% CI",
+  
+  VARIABLE = 
+  "categorical = Family-MentalHlth; 
+   usevar =  Family-MentalHlth;
+   classes = c(3);",
+  
+  ANALYSIS = 
+   "estimator = ml; 
+    type = mixture;    
+    starts = 0; 
+    processors = 10;
+    optseed = 794236;
+    bootstrap = 1000;",
+  
+  MODEL =
+    "
+  !CHANGE THIS SECTION TO YOUR CHOSEN k-CLASS MODEL
+    
+  %OVERALL%
+  [C#1](c1);
+  [C#2](c2);
+
+  Model Constraint:
+  New(p1 p2 p3);
+  
+  p1 = exp(c1)/(1+exp(c1)+exp(c2));
+  p2 = exp(c2)/(1+exp(c1)+exp(c2));
+  p3 = 1/(1+exp(c1)+exp(c2));",
+
+  
+  OUTPUT = "cinterval(bcbootstrap)",
+  
+  usevariables = colnames(support_data),
+  rdata = support_data)
+
+classification_fit <- mplusModeler(classification,
+                dataout=("class.dat"),
+                modelout=("class.inp") ,
+                check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+```{r warning=FALSE}
+class_output <- readModels("class.out")
+
+entropy <- c(class_output$summaries$Entropy, rep(NA, class_output$summaries$NLatentClasses-1))
+entropy
+
+k_ci <- class_output$parameters$ci.unstandardized %>% 
+  filter(paramHeader == "New.Additional.Parameters") %>% 
+  unite(CI, c(low2.5,up2.5), sep=", ", remove = TRUE) %>% 
+  mutate(CI = paste0("[", CI, "]")) %>% 
+  rename(kclass=est) %>% 
+  dplyr::select(kclass, CI)
+
+avePPk <- tibble(avePPk = diag(class_output$class_counts$avgProbs.mostLikely))
+
+mcaPk <- round(class_output$class_counts$mostLikely,3) %>% 
+  mutate(model = paste0("Class ", class)) %>% 
+  add_column(avePPk, k_ci) %>% 
+  rename(mcaPk = proportion) %>% 
+  dplyr::select(model, kclass, CI, mcaPk, avePPk)
+
+OCCk <- mcaPk %>% 
+  mutate(OCCk = round((avePPk/(1-avePPk))/(kclass/(1-kclass)),3))
+
+class_df <- data.frame(OCCk)
+
+class_table <- class_df %>% 
+  gt() %>%
+    tab_header(
+    title = "Model Classification Diagnostics for the 3-Class Solution") %>%
+    cols_label(
+      model = md("*k*-Class"),
+      kclass = md("*k*-Class Proportions"),
+      CI = "95% CI",
+      mcaPk = md("*mcaPk*"),
+      avePPk = md("*AvePPk*"),
+      OCCk = md("*OCCk*")) %>% 
+    sub_missing(6,
+              missing_text = "") %>%
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "Times New Roman")
+
+class_table
+```
+
+### Step 1 - Class Enumeration w/ Auxiliary Specification
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+step1  <- mplusObject(
+  TITLE = "Step 1", 
+  VARIABLE = 
+  "categorical = Family-MentalHlth; 
+   usevar = Family-MentalHlth;
+    
+   classes = c(3); 
+    
+   auxiliary =   ! list all potential covariates and distals here
+   Woman NonBinary Transgender     ! covariate
+   Identity;      ! distal outcome ",
+  
+  ANALYSIS = 
+   "estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    optseed = 794236;",
+  
+  SAVEDATA = 
+   "File=3step_savedata.dat;
+    Save=cprob;",
+  
+  OUTPUT = "residual tech11 tech14",
+  
+  PLOT = 
+    "type = plot3; 
+    series = Family-MentalHlth(*);",
+  
+  usevariables = colnames(support_data),
+  rdata = support_data)
+
+step1_fit <- mplusModeler(step1,
+                            dataout=("Step1.dat"),
+                            modelout=("Step1.inp") ,
+                            check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, results='hide'}
+#for 2 class modal assignment only
+step1_2class  <- mplusObject(
+  TITLE = "Step 1_2class", 
+  VARIABLE = 
+  "categorical = Family-MentalHlth; 
+   usevar = Family-MentalHlth;
+    
+   classes = c(2); 
+    
+   auxiliary =   ! list all potential covariates and distals here
+   Woman NonBinary Transgender     ! covariate
+   Identity;      ! distal outcome ",
+  
+  ANALYSIS = 
+   "estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    optseed = 987090;",
+  
+  SAVEDATA = 
+   "File=3step_savedata.dat;
+    Save=cprob;",
+  
+  OUTPUT = "residual tech11 tech14",
+  
+  PLOT = 
+    "type = plot3; 
+    series = Family-MentalHlth(*);",
+  
+  usevariables = colnames(support_data),
+  rdata = support_data)
+
+step1_fit_2class <- mplusModeler(step1_2class,
+                            dataout=("Step1_2class.dat"),
+                            modelout=("Step1_2class.inp") ,
+                            check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+```{r}
+source("function/plot_lca.txt")
+output_lca <- readModels("Step1.out")
+
+plot_lca(model_name = output_lca)
+```
+
+### Step 2 - Determine Measurement Error
+
+```{r}
+logit_cprobs <- as.data.frame(output_lca[["class_counts"]]
+                                       [["logitProbs.mostLikely"]])
+
+savedata <- as.data.frame(output_lca[["savedata"]])
+
+colnames(savedata)[colnames(savedata)=="C"] <- "N"
+```
+
+### Step 3 - Add Auxiliary Variables (Non-binary status and physics identity)
+
+```{r message=FALSE, warning=FALSE}
+step3  <- mplusObject(
+  TITLE = "Step3;", 
+  
+  VARIABLE = 
+ "nominal = N;
+  usevar = n;
+  
+  classes = c(3);
+  
+  usevar = NonBinar Identity;" ,
+  
+  ANALYSIS = 
+ "estimator = mlr; 
+  type = mixture; 
+  starts = 0;",
+ 
+  DEFINE = 
+   "center NonBinar (grandmean);",
+  
+  MODEL =
+  glue(
+ " %OVERALL%
+ 
+  Identity on NonBinar; 
+  C on NonBinar;  
+
+  %C#1%
+  [n#1@{logit_cprobs[1,1]}];
+  [n#2@{logit_cprobs[1,2]}];
+  
+  [Identity](m1);   
+  Identity;    
+
+  %C#2%
+  [n#1@{logit_cprobs[2,1]}];
+  [n#2@{logit_cprobs[2,2]}];
+  
+  [Identity](m2);
+  Identity;
+  
+  %C#3%
+  [n#1@{logit_cprobs[3,1]}];
+  [n#2@{logit_cprobs[3,2]}];
+  
+  [Identity](m3);
+  Identity;"),
+  
+  MODELCONSTRAINT = 
+   "New (diff12 diff13 diff23);
+  
+    diff12 = m1-m2; 
+    diff13 = m1-m3;
+    diff23 = m2-m3;",
+  
+  MODELTEST = "   
+    m1=m2;
+    m2=m3;",
+ 
+  usevariables = colnames(savedata), 
+  rdata = savedata)
+
+step3_fit <- mplusModeler(step3,
+               dataout=("Step3.dat"), 
+               modelout=("Step3.inp"), 
+               check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+```{r}
+modelParams <- readModels("Step3.out")
+
+wald <- as.data.frame(modelParams[["summaries"]]) %>%
+  dplyr::select(WaldChiSq_Value:WaldChiSq_PValue) %>% 
+  mutate(WaldChiSq_DF = paste0("(", WaldChiSq_DF, ")")) %>% 
+  unite(wald_test, WaldChiSq_Value, WaldChiSq_DF, sep = " ") %>% 
+  rename(pval = WaldChiSq_PValue) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+
+wald_table <- wald %>% 
+  gt() %>%
+    tab_header(
+    title = "Wald Test of Paramter Constraints (Math)") %>%
+    cols_label(
+      wald_test = md("Wald Test (*df*)"),
+      pval = md("*p*-value")) %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+
+wald_table
+```
+
+```{r}
+# Extract information as data frame
+diff <- as.data.frame(modelParams[["parameters"]][["unstandardized"]]) %>%
+  filter(grepl("DIFF", param)) %>% 
+  dplyr::select(param:pval) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+  unite(estimate, est, se, sep = " ") %>% 
+  mutate(param = str_remove(param, "DIFF"),
+         param = as.numeric(param)) %>% 
+  separate(param, into = paste0("Group", 1:2), sep = 1) %>% 
+  mutate(class = paste0("Class ", Group1, " vs ", Group2)) %>% 
+  dplyr::select(class, estimate, pval)
+
+# Create table
+
+diff %>% 
+  gt() %>%
+    tab_header(
+    title = "Distal Outcome Differences") %>%
+    cols_label(
+      class = "Class",
+      estimate = md("Mean (*se*)"),
+      pval = md("*p*-value")) %>% 
+    sub_missing(1:3,
+              missing_text = "") %>%
+  fmt(3,
+    fns = function(x)
+      ifelse(x<0.05, paste0(scales::number(x, accuracy = .001), "*"),
+             scales::number(x, accuracy = .001))
+  ) %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+```
+
+## K-modes clustering
+
+```{r message=FALSE, warning=FALSE}
+library(tidymodels)
+library(tidyverse)
+library(modeldata)
+library(kernlab)
+library(tidyclust)
+library(corrplot)
+library(klaR)
+library(cluster)
+library(clValid)
+library(caret)
+library(lattice)
+library(mclust)
+library(Rtsne)
+library(gmodels)
+library(ggplot2)
+library(klaR)
+library(cluster) 
+library(car)
+tidymodels_prefer()
+```
+
+### Choose the optimal number of cluster
+
+```{r eval=FALSE}
+max_k <- 10
+
+costs <- numeric(max_k)
+
+df_selected <- savedata[, c("FAMILY", "PHYSPEER", "NONPHYSP", "HSPHYSTE", "NONPHYSF",
+                            "PHYSFACU", "RESEARCH", "WIPGROUP", "GIPGROUP", "RELIGORG",
+                            "OTHERIDE", "SOCIALCO", "MENTALHL")]  
+```
+
+#### Elbow plot
+
+```{r eval=FALSE}
+for(k in 1:max_k) {
+  set.seed(123)  
+  km <- kmodes(df_selected, modes = k, iter.max = 300)
+  costs[k] <- sum(km$withindiff)
+}
+
+plot(1:max_k, costs, type="b", pch=19,
+     xlab="Number of Clusters (k)",
+     ylab="Total Within-Cluster Dissimilarity",
+     main="Elbow Plot for K-Modes Clustering")
+```
+
+#### Silhouette plot
+
+```{r eval=FALSE}
+#specify silhouette width
+diss_matrix <- daisy(df_selected, metric = "gower", type = list(symm = 1:ncol(df_selected)))
+dist_matrix <- as.dist(diss_matrix)
+
+avg_sil_width <- numeric(max_k) 
+avg_sil_width[1] <- NA   
+
+for(k in 2:max_k) {
+  set.seed(123)
+  km <- kmodes(df_selected, modes = k, iter.max = 300)
+  cluster_labels <- km$cluster  
+  costs[k] <- sum(km$withindiff)
+  sil <- cluster::silhouette(cluster_labels, dist_matrix)
+  avg_sil_width[k] <- mean(sil[, "sil_width"])  # average silhouette width
+}
+
+plot(2:max_k, avg_sil_width[2:max_k], type="b", pch=19,
+     xlab="Number of Clusters (k)",
+     ylab="Average Silhouette Width",
+     main="Silhouette Analysis for k-modes")
+
+avg_sil_width[2]
+avg_sil_width[3]
+
+optimal_k_sil <- which.max(avg_sil_width[2:max_k]) + 1 
+optimal_k_sil
+```
+
+### 2-Cluster Solution
+
+```{r}
+num_clusters <- 2
+
+df_2cluster <- savedata[, c("FAMILY", "PHYSPEER", "NONPHYSP", "HSPHYSTE", "NONPHYSF",
+                            "PHYSFACU", "RESEARCH", "WIPGROUP", "GIPGROUP", "RELIGORG",
+                            "OTHERIDE", "SOCIALCO", "MENTALHL")]  
+
+set.seed(123) 
+kmodes_result_2 <- kmodes(df_2cluster, num_clusters, iter.max = 300, weighted = FALSE)
+
+df_2cluster$Cluster <- as.factor(kmodes_result_2$cluster)
+```
+
+#### Response patterns - mode
+
+```{r}
+print(kmodes_result_2$modes)
+```
+
+#### Response patterns plot
+
+```{r}
+cluster_totals <- df_2cluster %>%
+  group_by(Cluster) %>%
+  summarise(Total = n())
+
+
+df_long <- df_2cluster %>%
+  pivot_longer(
+    cols = -Cluster,
+    names_to = "Item",
+    values_to = "Endorsed"
+  )
+
+endorsed_counts <- df_long %>%
+  filter(Endorsed == 1) %>%
+  group_by(Cluster, Item) %>%
+  summarise(Count = n(), .groups = "drop") %>%
+  left_join(cluster_totals, by = "Cluster") %>%
+  mutate(Percentage = (Count / Total) * 100)
+
+endorsed_counts$Item <- factor(endorsed_counts$Item)
+
+endorsed_counts$Cluster <- dplyr::recode(endorsed_counts$Cluster,
+  `1` = "Cluster 1",
+  `2` = "Cluster 2"
+)
+
+endorsed_counts$Item <- dplyr::recode(tolower(endorsed_counts$Item),
+  "family"       = "Family members",
+  "physpeer"     = "Physics classmates/peers",
+  "nonphysp"     = "Friends/Peers not in Physics",
+  "hsphyste"     = "High school physics teacher(s)",
+  "nonphysf"     = "Faculty (not physics) at your institution",
+  "physfacu"     = "Physics faculty at your institution",
+  "research"     = "Research group/research mentors",
+  "wipgroup"     = "Women in physics or STEM groups",
+  "gipgroup"     = "Gender inclusive physics/STEM groups",
+  "religorg"     = "Religious /faith based organizations",
+  "otheride"     = "Other identity-based affinity groups",
+  "socialco"     = "Social communities (e.g., book clubs, fitness group)",
+  "mentalhl"     = "Mental health professionals"
+)
+
+item_order <- c("Family members", "Physics classmates/peers", 
+                "Friends/Peers not in Physics", "High school physics teacher(s)", 
+                "Faculty (not physics) at your institution",
+                "Physics faculty at your institution", "Research group/research mentors",
+                "Women in physics or STEM groups", "Gender inclusive physics/STEM groups",
+                "Religious /faith based organizations",
+                "Other identity-based affinity groups", 
+                "Social communities (e.g., book clubs, fitness group)", 
+                "Mental health professionals")
+```
+
+```{r}
+plot_2cluster <- ggplot(endorsed_counts, aes(x = Percentage, y = Item, fill = Cluster)) +
+  geom_col(position = position_dodge(width = 0.7), width = 0.6) +
+  geom_text(aes(label = paste0(round(Percentage, 1), "%")),
+            position = position_dodge(width = 0.7),
+            hjust = ifelse(endorsed_counts$Percentage < 10, -0.1, -0.2), 
+            size = 2.5) +
+  scale_y_discrete(limits = rev(item_order)) +
+  theme_minimal() +
+  labs(
+    title = "Item Endorsements by Cluster",
+    x = "Percentage of Individuals",
+    y = "Item Endorsement"
+  ) +
+  theme(
+    axis.text.y = element_text(size = 10),
+    strip.text = element_text(face = "bold"),
+    plot.margin = margin(10, 10, 10, 10),
+    legend.position = "right",
+    clip = "off"
+  )
+
+plot_2cluster
+```
+
+#### Cross comparison of K-modes clustering and LCA results - 2 clusters
+
+```{r}
+savedata$Cluster_2 <- as.factor(kmodes_result_2$cluster)
+
+CrossTable(savedata$N, savedata$Cluster_2, prop.chisq = FALSE, prop.t = FALSE, 
+           prop.r = TRUE, prop.c = TRUE, dnn = c("LCA Enumeration", "K-Modes Clustering"))
+```
+
+#### Comparison bar plot - 2 cluster/3 class
+
+```{r}
+cross_tab <- table(savedata$N, savedata$Cluster_2)
+cross_tab
+
+cross_tab_df <- as.data.frame(cross_tab)
+colnames(cross_tab_df) <- c("LCA_Class", "KModes_Cluster", "Count")
+
+cross_tab_df$LCA_Class <- as.factor(cross_tab_df$LCA_Class)
+cross_tab_df$KModes_Cluster <- as.factor(cross_tab_df$KModes_Cluster)
+
+cross_tab_df <- cross_tab_df %>%
+  group_by(LCA_Class) %>%
+  mutate(Percentage = (Count / sum(Count)) * 100)
+
+ggplot(cross_tab_df, aes(x = KModes_Cluster, y = Percentage, fill = KModes_Cluster)) +
+  geom_bar(stat = "identity") +  
+  geom_text(aes(label = paste0(round(Percentage, 1), "%")), vjust = -0.5, size = 3) + 
+  facet_wrap(~ LCA_Class, ncol = 3,  
+             labeller = labeller(LCA_Class = c("1" = "LCA Class 1",
+                                               "2" = "LCA Class 2",
+                                               "3" = "LCA Class 3"))) +
+  theme_minimal() +
+  labs(y = "Proportion (%)",
+       x = "K-Modes Cluster",
+       fill = "K-Modes Cluster") +
+  theme(legend.position = "bottom", 
+        plot.title = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 10),
+        strip.text = element_text(size = 10))
+```
+
+#### Comparison bar plot - 2 cluster/2 class
+
+```{r}
+output_2class <- readModels("Step1_2class.out")
+
+logit_cprobs2 <- as.data.frame(output_2class[["class_counts"]]
+                                       [["logitProbs.mostLikely"]])
+
+savedata2 <- as.data.frame(output_2class[["savedata"]])
+
+colnames(savedata2)[colnames(savedata2)=="C"] <- "N"
+```
+
+```{r}
+cross_tab <- table(savedata2$N, savedata$Cluster_2)
+cross_tab
+
+cross_tab_df <- as.data.frame(cross_tab)
+colnames(cross_tab_df) <- c("LCA_Class", "KModes_Cluster", "Count")
+
+cross_tab_df$LCA_Class <- as.factor(cross_tab_df$LCA_Class)
+cross_tab_df$KModes_Cluster <- as.factor(cross_tab_df$KModes_Cluster)
+
+cross_tab_df <- cross_tab_df %>%
+  group_by(LCA_Class) %>%
+  mutate(Percentage = (Count / sum(Count)) * 100)
+
+ggplot(cross_tab_df, aes(x = KModes_Cluster, y = Percentage, fill = KModes_Cluster)) +
+  geom_bar(stat = "identity") +  
+  geom_text(aes(label = paste0(round(Percentage, 1), "%")), vjust = -0.5, size = 3) + 
+  facet_wrap(~ LCA_Class, ncol = 3,  
+             labeller = labeller(LCA_Class = c("1" = "LCA Class 1",
+                                               "2" = "LCA Class 2",
+                                               "3" = "LCA Class 3"))) +
+  theme_minimal() +
+  labs(y = "Proportion (%)",
+       x = "K-Modes Cluster",
+       fill = "K-Modes Cluster") +
+  theme(legend.position = "bottom", 
+        plot.title = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 10),
+        strip.text = element_text(size = 10))
+```
+
+#### Identity by K-modes cluster - 2 clusters
+
+```{r}
+summary_table <- savedata %>%
+  group_by(Cluster_2) %>%
+  summarise(Mean_Identity = mean(IDENTITY, na.rm = TRUE),  
+            SD_Identity = sd(IDENTITY, na.rm = TRUE),     
+            Count = n()) 
+
+print(summary_table) 
+```
+
+#### ANCOVA - Relating cluster membership to physics identity
+
+```{r}
+model_ancova <- lm(IDENTITY ~ Cluster_2 + NONBINAR, data = savedata)
+summary(model_ancova)
+
+Anova(model_ancova, type = "III")
+
+interaction_model <- lm(IDENTITY ~ Cluster_2 * NONBINAR, data = savedata)
+summary(interaction_model)
+```
+
+#### Logistic regression & Chi-square - Relating cluster membership to non-binary status
+
+```{r}
+log_model <- glm(Cluster_2 ~ NONBINAR, data = savedata, family = "binomial")
+
+summary(log_model)
+```
+
+```{r}
+table_data <- table(savedata$Cluster_2, savedata$NONBINAR)
+stats::chisq.test(table_data)
+```
+
+### 3-Cluster Solution
+
+```{r}
+num_clusters <- 3
+
+df_3cluster <- savedata[, c("FAMILY", "PHYSPEER", "NONPHYSP", "HSPHYSTE", "NONPHYSF",
+                            "PHYSFACU", "RESEARCH", "WIPGROUP", "GIPGROUP", "RELIGORG",
+                            "OTHERIDE", "SOCIALCO", "MENTALHL")]  
+
+set.seed(57) 
+kmodes_result_3 <- kmodes(df_3cluster, num_clusters, iter.max = 200, weighted = FALSE)
+
+df_3cluster$Cluster <- as.factor(kmodes_result_3$cluster)
+```
+
+#### Response patterns
+
+```{r}
+print(kmodes_result_3$modes)
+```
+
+#### Response patterns plot
+
+```{r}
+cluster_totals <- df_3cluster %>%
+  group_by(Cluster) %>%
+  summarise(Total = n())
+
+
+df_long <- df_3cluster %>%
+  pivot_longer(
+    cols = -Cluster,
+    names_to = "Item",
+    values_to = "Endorsed"
+  )
+
+endorsed_counts <- df_long %>%
+  filter(Endorsed == 1) %>%
+  group_by(Cluster, Item) %>%
+  summarise(Count = n(), .groups = "drop") %>%
+  left_join(cluster_totals, by = "Cluster") %>%
+  mutate(Percentage = (Count / Total) * 100)
+
+endorsed_counts$Item <- factor(endorsed_counts$Item)
+
+endorsed_counts$Cluster <- dplyr::recode(endorsed_counts$Cluster,
+  `1` = "Cluster 1",
+  `2` = "Cluster 2",
+  `3` = "Cluster 3"
+)
+
+endorsed_counts$Item <- dplyr::recode(tolower(endorsed_counts$Item),
+  "family"       = "Family members",
+  "physpeer"     = "Physics classmates/peers",
+  "nonphysp"     = "Friends/Peers not in Physics",
+  "hsphyste"     = "High school physics teacher(s)",
+  "nonphysf"     = "Faculty (not physics) at your institution",
+  "physfacu"     = "Physics faculty at your institution",
+  "research"     = "Research group/research mentors",
+  "wipgroup"     = "Women in physics or STEM groups",
+  "gipgroup"     = "Gender inclusive physics/STEM groups",
+  "religorg"     = "Religious /faith based organizations",
+  "otheride"     = "Other identity-based affinity groups",
+  "socialco"     = "Social communities (e.g., book clubs, fitness group)",
+  "mentalhl"     = "Mental health professionals"
+)
+
+item_order <- c("Family members", "Physics classmates/peers", 
+                "Friends/Peers not in Physics", "High school physics teacher(s)", 
+                "Faculty (not physics) at your institution",
+                "Physics faculty at your institution", "Research group/research mentors",
+                "Women in physics or STEM groups", "Gender inclusive physics/STEM groups",
+                "Religious /faith based organizations",
+                "Other identity-based affinity groups", 
+                "Social communities (e.g., book clubs, fitness group)", 
+                "Mental health professionals")
+
+plot_3cluster <- ggplot(endorsed_counts, aes(x = Percentage, y = Item, fill = Cluster)) +
+  geom_col(position = position_dodge(width = 0.7), width = 0.6) +
+  geom_text(aes(label = paste0(round(Percentage, 1), "%")),
+            position = position_dodge(width = 0.7),
+            hjust = ifelse(endorsed_counts$Percentage < 10, -0.1, -0.2), 
+            size = 2.5) +
+  scale_y_discrete(limits = rev(item_order)) +
+  theme_minimal() +
+  labs(
+    title = "Item Endorsements by Cluster",
+    x = "Percentage of Individuals",
+    y = "Item Endorsement"
+  ) +
+  theme(
+    axis.text.y = element_text(size = 10),
+    strip.text = element_text(face = "bold"),
+    plot.margin = margin(10, 10, 10, 10),
+    legend.position = "right",
+    clip = "off"
+  )
+
+plot_3cluster
+```
+
+#### Cross comparison of K-modes clustering and LCA results - 3 clusters
+
+```{r}
+savedata$Cluster_3 <- as.factor(kmodes_result_3$cluster)
+
+CrossTable(savedata$N, savedata$Cluster_3, prop.chisq = FALSE, prop.t = FALSE, 
+           prop.r = TRUE, prop.c = TRUE, dnn = c("LCA Enumeration", "K-Modes Clustering"))
+```
+
+#### Comparison bar plot
+
+```{r}
+cross_tab <- table(savedata$N, savedata$Cluster_3)
+cross_tab
+
+cross_tab_df <- as.data.frame(cross_tab)
+colnames(cross_tab_df) <- c("LCA_Class", "KModes_Cluster", "Count")
+
+cross_tab_df$LCA_Class <- as.factor(cross_tab_df$LCA_Class)
+cross_tab_df$KModes_Cluster <- as.factor(cross_tab_df$KModes_Cluster)
+
+cross_tab_df <- cross_tab_df %>%
+  group_by(LCA_Class) %>%
+  mutate(Percentage = (Count / sum(Count)) * 100)
+
+ggplot(cross_tab_df, aes(x = KModes_Cluster, y = Percentage, fill = KModes_Cluster)) +
+  geom_bar(stat = "identity") +  
+  geom_text(aes(label = paste0(round(Percentage, 1), "%")), vjust = -0.5, size = 3) + 
+  facet_wrap(~ LCA_Class, ncol = 3,  
+             labeller = labeller(LCA_Class = c("1" = "LCA Class 1",
+                                               "2" = "LCA Class 2",
+                                               "3" = "LCA Class 3"))) +
+  theme_minimal() +
+  labs(y = "Proportion (%)",
+       x = "K-Modes Cluster",
+       fill = "K-Modes Cluster") +
+  theme(legend.position = "bottom", 
+        plot.title = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 10),
+        strip.text = element_text(size = 10))
+```

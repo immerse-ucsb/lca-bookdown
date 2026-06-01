@@ -1,0 +1,24 @@
+TITLE:
+7-Class
+DATA:
+FILE = "support.dat";
+ 
+VARIABLE:
+NAMES = ResponseId Family PhysPeers NonPhysPeers HSPhysTeach NonPhysFaculty
+     PhysFaculty ResearchGrp WiPGroup GIPGroup ReligOrg OtherIdent SocialComm
+     MentalHlth Woman Transgender NonBinary White Asian Hispanic Black MidEastern
+     NatAmerican PacificIslander InstitutionType AcademicYear Identity; 
+ MISSING=.;
+ categorical = Family-MentalHlth; 
+usevar = Family-MentalHlth;
+classes = c(7); 
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 2000 500; 
+    processors = 10;
+OUTPUT:
+sampstat residual tech11 tech14 svalues;
+PLOT:
+type = plot3; 
+    series = Family-MentalHlth(*);

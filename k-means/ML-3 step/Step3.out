@@ -1,0 +1,493 @@
+Mplus VERSION 8.11 (Mac)
+MUTHEN & MUTHEN
+05/21/2025  10:15 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Step3;
+  DATA:
+  FILE = "Step3.dat";
+
+  VARIABLE:
+  NAMES = FAMILY PHYSPEER NONPHYSP HSPHYSTE NONPHYSF PHYSFACU RESEARCH WIPGROUP
+       GIPGROUP RELIGORG OTHERIDE SOCIALCO MENTALHL WOMAN NONBINAR TRANSGEN IDENTITY
+       CPROB1 CPROB2 CPROB3 N;
+   MISSING=.;
+   nominal = N;
+    usevar = n;
+
+    classes = c(3);
+
+    usevar = NonBinar Identity;
+  DEFINE:
+  center NonBinar (grandmean);
+  ANALYSIS:
+  estimator = mlr;
+    type = mixture;
+    starts = 0;
+  MODEL:
+  %OVERALL%
+
+  Identity on NonBinar;
+  C on NonBinar;
+
+  %C#1%
+  [n#1@13.816];
+  [n#2@0];
+
+  [Identity](m1);
+  Identity;
+
+  %C#2%
+  [n#1@-10.932];
+  [n#2@2.826];
+
+  [Identity](m2);
+  Identity;
+
+  %C#3%
+  [n#1@-13.686];
+  [n#2@-1.979];
+
+  [Identity](m3);
+  Identity;
+  MODEL CONSTRAINT:
+  New (diff12 diff13 diff23);
+
+      diff12 = m1-m2;
+      diff13 = m1-m3;
+      diff23 = m2-m3;
+  MODEL TEST:
+
+      m1=m2;
+      m2=m3;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+Step3;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         567
+
+Number of dependent variables                                    2
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   IDENTITY
+
+  Unordered categorical (nominal)
+   N
+
+Observed independent variables
+   NONBINAR
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  Centering (GRANDMEAN)
+   NONBINAR
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  Step3.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+     Number of y missing data patterns           2
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              IDENTITY      NONBINAR
+              ________      ________
+ IDENTITY       0.993
+ NONBINAR       0.993         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    N
+      Category 1    0.273          155.000
+      Category 2    0.497          282.000
+      Category 3    0.229          130.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     IDENTITY              2.538      -0.538       0.000    0.89%       2.000      2.500      2.500
+             563.000       0.711       0.076       4.000    5.33%       3.000      3.500
+     NONBINAR              0.000       1.797      -0.166   83.42%      -0.166     -0.166     -0.166
+             567.000       0.138       1.231       0.834   16.58%      -0.166     -0.166
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       11
+
+Loglikelihood
+
+          H0 Value                       -1279.659
+          H0 Scaling Correction Factor      1.0119
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    2581.317
+          Bayesian (BIC)                  2629.061
+          Sample-Size Adjusted BIC        2594.141
+            (n* = (n + 2) / 24)
+
+Wald Test of Parameter Constraints
+
+          Value                              6.088
+          Degrees of Freedom                     2
+          P-Value                           0.0476
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        154.99990          0.27337
+       2        281.98855          0.49733
+       3        130.01156          0.22930
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        154.99990          0.27337
+       2        281.98855          0.49733
+       3        130.01156          0.22930
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              155          0.27337
+       2              282          0.49735
+       3              130          0.22928
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.827
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3
+
+    1   1.000    0.000    0.000
+    2   0.000    0.943    0.057
+    3   0.000    0.123    0.877
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3
+
+    1   1.000    0.000    0.000
+    2   0.000    0.943    0.057
+    3   0.000    0.123    0.877
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3
+
+    1     13.816    0.000    0.000
+    2    -10.946    2.811    0.000
+    3    -13.684   -1.963    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ IDENTITY   ON
+    NONBINAR          -0.130      0.099     -1.321      0.187
+
+ Means
+    N#1               13.816      0.000    999.000    999.000
+    N#2                0.000      0.000    999.000    999.000
+
+ Intercepts
+    IDENTITY           2.600      0.073     35.438      0.000
+
+ Residual Variances
+    IDENTITY           0.811      0.100      8.080      0.000
+
+Latent Class 2
+
+ IDENTITY   ON
+    NONBINAR          -0.130      0.099     -1.321      0.187
+
+ Means
+    N#1              -10.932      0.000    999.000    999.000
+    N#2                2.826      0.000    999.000    999.000
+
+ Intercepts
+    IDENTITY           2.596      0.053     49.151      0.000
+
+ Residual Variances
+    IDENTITY           0.609      0.056     10.950      0.000
+
+Latent Class 3
+
+ IDENTITY   ON
+    NONBINAR          -0.130      0.099     -1.321      0.187
+
+ Means
+    N#1              -13.686      0.000    999.000    999.000
+    N#2               -1.979      0.000    999.000    999.000
+
+ Intercepts
+    IDENTITY           2.338      0.089     26.144      0.000
+
+ Residual Variances
+    IDENTITY           0.752      0.100      7.487      0.000
+
+Categorical Latent Variables
+
+ C#1        ON
+    NONBINAR           0.537      0.323      1.662      0.097
+
+ C#2        ON
+    NONBINAR          -0.462      0.364     -1.267      0.205
+
+ Intercepts
+    C#1                0.151      0.130      1.161      0.246
+    C#2                0.762      0.130      5.866      0.000
+
+New/Additional Parameters
+    DIFF12             0.004      0.091      0.041      0.967
+    DIFF13             0.262      0.116      2.260      0.024
+    DIFF23             0.258      0.114      2.269      0.023
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.137E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ N
+    Category 1         1.000      0.000  *********      0.000
+    Category 2         0.000      0.000  *********      0.000
+    Category 3         0.000      0.000      2.744      0.006
+
+Latent Class 2
+
+ N
+    Category 1         0.000      0.000     49.049      0.000
+    Category 2         0.944      0.019     49.049      0.000
+    Category 3         0.056      0.019      2.906      0.004
+
+Latent Class 3
+
+ N
+    Category 1         0.000      0.000      3.123      0.002
+    Category 2         0.121      0.039      3.123      0.002
+    Category 3         0.879      0.039     22.595      0.000
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ N
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.000      0.000      0.000      0.000
+    Category = 3       0.000      0.000      0.000      0.000
+
+Latent Class 1 Compared to Latent Class 3
+
+ N
+    Category = 1   *********  *********  *********  *********
+    Category = 2       0.000      0.000      0.000      0.000
+    Category = 3       0.000      0.000      0.000      0.000
+
+Latent Class 2 Compared to Latent Class 3
+
+ N
+    Category = 1       1.000      0.300      0.556      1.800
+    Category = 2     122.117      0.001    122.116    122.119
+    Category = 3       0.008      0.000      0.008      0.008
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Categorical Latent Variables
+
+ C#1      ON
+    NONBINAR           1.710      0.552      0.908      3.221
+
+ C#2      ON
+    NONBINAR           0.630      0.230      0.308      1.287
+
+
+ALTERNATIVE PARAMETERIZATIONS FOR THE CATEGORICAL LATENT VARIABLE REGRESSION
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Parameterization using Reference Class 1
+
+ C#2      ON
+    NONBINAR          -0.999      0.275     -3.632      0.000
+
+ C#3      ON
+    NONBINAR          -0.537      0.323     -1.662      0.097
+
+ Intercepts
+    C#2                0.611      0.105      5.834      0.000
+    C#3               -0.151      0.130     -1.161      0.246
+
+Parameterization using Reference Class 2
+
+ C#1      ON
+    NONBINAR           0.999      0.275      3.632      0.000
+
+ C#3      ON
+    NONBINAR           0.462      0.364      1.267      0.205
+
+ Intercepts
+    C#1               -0.611      0.105     -5.834      0.000
+    C#3               -0.762      0.130     -5.866      0.000
+
+
+ODDS RATIO FOR THE ALTERNATIVE PARAMETERIZATIONS FOR THE CATEGORICAL LATENT VARIABLE REGRESSION
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Parameterization using Reference Class 1
+
+ C#2      ON
+    NONBINAR           0.368      0.101      0.215      0.631
+
+ C#3      ON
+    NONBINAR           0.585      0.189      0.310      1.101
+
+Parameterization using Reference Class 2
+
+ C#1      ON
+    NONBINAR           2.714      0.746      1.584      4.653
+
+ C#3      ON
+    NONBINAR           1.587      0.578      0.777      3.242
+
+
+     Beginning Time:  22:15:29
+        Ending Time:  22:15:30
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

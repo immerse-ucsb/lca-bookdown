@@ -1,0 +1,58 @@
+TITLE:
+Step3;
+DATA:
+FILE = "Step3.dat";
+ 
+VARIABLE:
+NAMES = FAMILY PHYSPEER NONPHYSP HSPHYSTE NONPHYSF PHYSFACU RESEARCH WIPGROUP
+     GIPGROUP RELIGORG OTHERIDE SOCIALCO MENTALHL WOMAN NONBINAR TRANSGEN IDENTITY
+     CPROB1 CPROB2 CPROB3 N; 
+ MISSING=.;
+ nominal = N;
+  usevar = n;
+  
+  classes = c(3);
+  
+  usevar = NonBinar Identity;
+DEFINE:
+center NonBinar (grandmean);
+ANALYSIS:
+estimator = mlr; 
+  type = mixture; 
+  starts = 0;
+MODEL:
+%OVERALL%
+ 
+Identity on NonBinar; 
+C on NonBinar;  
+
+%C#1%
+[n#1@13.816];
+[n#2@0];
+
+[Identity](m1);   
+Identity;    
+
+%C#2%
+[n#1@-10.932];
+[n#2@2.826];
+
+[Identity](m2);
+Identity;
+
+%C#3%
+[n#1@-13.686];
+[n#2@-1.979];
+
+[Identity](m3);
+Identity;
+MODEL CONSTRAINT:
+New (diff12 diff13 diff23);
+  
+    diff12 = m1-m2; 
+    diff13 = m1-m3;
+    diff23 = m2-m3;
+MODEL TEST:
+   
+    m1=m2;
+    m2=m3;
