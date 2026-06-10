@@ -4,20 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>15 Manual 3-Step Covariate and Distal | Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach</title>
+<title>15 Manual 3-Step Covariate and Distal | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="Data source: This example utilizes the public-use dataset, The Longitudinal Survey of American Youth (LSAY): See documentation here  15.1 Load packages library(MplusAutomation) library(tidyverse)...">
 <meta name="generator" content="bookdown 0.46 with bs4_book()">
-<meta property="og:title" content="15 Manual 3-Step Covariate and Distal | Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach">
+<meta property="og:title" content="15 Manual 3-Step Covariate and Distal | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/manual-3-step-covariate-and-distal.html">
 <meta property="og:description" content="Data source: This example utilizes the public-use dataset, The Longitudinal Survey of American Youth (LSAY): See documentation here  15.1 Load packages library(MplusAutomation) library(tidyverse)...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="15 Manual 3-Step Covariate and Distal | Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach">
+<meta name="twitter:title" content="15 Manual 3-Step Covariate and Distal | Mixture Modeling with MplusAutomation">
 <meta name="twitter:description" content="Data source: This example utilizes the public-use dataset, The Longitudinal Survey of American Youth (LSAY): See documentation here  15.1 Load packages library(MplusAutomation) library(tidyverse)...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.12/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
@@ -59,7 +59,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach</a>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -108,10 +108,9 @@
 <li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">25</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
 <li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">26</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
 <li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">27</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
-<li><a class="" href="education-longitudinal-study.html"><span class="header-section-number">28</span> Education Longitudinal Study</a></li>
+<li><a class="" href="math-attitudes-with-stem-career-attainment-dang-m.-nylund-gibson-k.-2017.html"><span class="header-section-number">28</span> Math Attitudes with STEM Career Attainment (Dang, M., &amp; Nylund-Gibson, K., 2017)</a></li>
 <li><a class="" href="comparing-cluster-analysis-and-latent-profile-analysis-b.-j.-yik-y.-zhang-k.-nylund-gibson-m.-ing-l.-krawiec-j.-d.-houck-e.-d.-nacsa-2026.html"><span class="header-section-number">29</span> Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, &amp; E. D. Nacsa, 2026)</a></li>
 <li><a class="" href="moderation-with-a-latent-class-variable-arch-nylund-gibson-ing-2026.html"><span class="header-section-number">30</span> Moderation with a Latent Class Variable (Arch, Nylund-Gibson, Ing, 2026)</a></li>
-<li><a class="" href="r-code-for-the-manual-ml-three-step-in-mplus.html"><span class="header-section-number">31</span> R Code for the Manual ML Three-Step in Mplus</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
 
@@ -146,26 +145,26 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p>This example uses Gender and Mother’s Education as predictors of latent class membership and Math IRT scores as a distal outcome in a single model.</p>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-9db8be03e88a388e31ac" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-9db8be03e88a388e31ac">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female[label = \"Female\nMothEd\"] MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female  -> science [minlen = 4];\n    Female  -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-5661d2363ec1d595528a" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-5661d2363ec1d595528a">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult Female[label = \"Female\nMothEd\"] MathScore;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    science [label=<Science <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    science -> {Enjoy Useful Logical Job Adult}\n    science -> MathScore [minlen = 4];\n    Female  -> science [minlen = 4];\n    Female  -> MathScore [minlen = 4];\n    \n {rank = same; science; Female; MathScore}\n}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <p>Application: Longitudinal Study of American Youth, <strong>Science Attitudes</strong></p>
-<div id="anedxtgisv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#anedxtgisv table {
+<div id="weipbeypdu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#weipbeypdu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#anedxtgisv thead, #anedxtgisv tbody, #anedxtgisv tfoot, #anedxtgisv tr, #anedxtgisv td, #anedxtgisv th {
+#weipbeypdu thead, #weipbeypdu tbody, #weipbeypdu tfoot, #weipbeypdu tr, #weipbeypdu td, #weipbeypdu th {
   border-style: none;
 }
 
-#anedxtgisv p {
+#weipbeypdu p {
   margin: 0;
   padding: 0;
 }
 
-#anedxtgisv .gt_table {
+#weipbeypdu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -191,12 +190,12 @@
   border-left-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_caption {
+#weipbeypdu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#anedxtgisv .gt_title {
+#weipbeypdu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -208,7 +207,7 @@
   border-bottom-width: 0;
 }
 
-#anedxtgisv .gt_subtitle {
+#weipbeypdu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -220,7 +219,7 @@
   border-top-width: 0;
 }
 
-#anedxtgisv .gt_heading {
+#weipbeypdu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -232,13 +231,13 @@
   border-right-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_bottom_border {
+#weipbeypdu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_col_headings {
+#weipbeypdu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -253,7 +252,7 @@
   border-right-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_col_heading {
+#weipbeypdu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -273,7 +272,7 @@
   overflow-x: hidden;
 }
 
-#anedxtgisv .gt_column_spanner_outer {
+#weipbeypdu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -285,15 +284,15 @@
   padding-right: 4px;
 }
 
-#anedxtgisv .gt_column_spanner_outer:first-child {
+#weipbeypdu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#anedxtgisv .gt_column_spanner_outer:last-child {
+#weipbeypdu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#anedxtgisv .gt_column_spanner {
+#weipbeypdu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -305,11 +304,11 @@
   width: 100%;
 }
 
-#anedxtgisv .gt_spanner_row {
+#weipbeypdu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#anedxtgisv .gt_group_heading {
+#weipbeypdu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -335,7 +334,7 @@
   text-align: left;
 }
 
-#anedxtgisv .gt_empty_group_heading {
+#weipbeypdu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -350,15 +349,15 @@
   vertical-align: middle;
 }
 
-#anedxtgisv .gt_from_md > :first-child {
+#weipbeypdu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#anedxtgisv .gt_from_md > :last-child {
+#weipbeypdu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#anedxtgisv .gt_row {
+#weipbeypdu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -377,7 +376,7 @@
   overflow-x: hidden;
 }
 
-#anedxtgisv .gt_stub {
+#weipbeypdu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -390,7 +389,7 @@
   padding-right: 5px;
 }
 
-#anedxtgisv .gt_stub_row_group {
+#weipbeypdu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -404,15 +403,15 @@
   vertical-align: top;
 }
 
-#anedxtgisv .gt_row_group_first td {
+#weipbeypdu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#anedxtgisv .gt_row_group_first th {
+#weipbeypdu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#anedxtgisv .gt_summary_row {
+#weipbeypdu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -422,16 +421,16 @@
   padding-right: 5px;
 }
 
-#anedxtgisv .gt_first_summary_row {
+#weipbeypdu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_first_summary_row.thick {
+#weipbeypdu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#anedxtgisv .gt_last_summary_row {
+#weipbeypdu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -441,7 +440,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_grand_summary_row {
+#weipbeypdu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -451,7 +450,7 @@
   padding-right: 5px;
 }
 
-#anedxtgisv .gt_first_grand_summary_row {
+#weipbeypdu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -461,7 +460,7 @@
   border-top-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_last_grand_summary_row_top {
+#weipbeypdu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -471,11 +470,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_striped {
+#weipbeypdu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#anedxtgisv .gt_table_body {
+#weipbeypdu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -484,7 +483,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_footnotes {
+#weipbeypdu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -498,7 +497,7 @@
   border-right-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_footnote {
+#weipbeypdu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -507,7 +506,7 @@
   padding-right: 5px;
 }
 
-#anedxtgisv .gt_sourcenotes {
+#weipbeypdu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -521,7 +520,7 @@
   border-right-color: #D3D3D3;
 }
 
-#anedxtgisv .gt_sourcenote {
+#weipbeypdu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -529,72 +528,72 @@
   padding-right: 5px;
 }
 
-#anedxtgisv .gt_left {
+#weipbeypdu .gt_left {
   text-align: left;
 }
 
-#anedxtgisv .gt_center {
+#weipbeypdu .gt_center {
   text-align: center;
 }
 
-#anedxtgisv .gt_right {
+#weipbeypdu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#anedxtgisv .gt_font_normal {
+#weipbeypdu .gt_font_normal {
   font-weight: normal;
 }
 
-#anedxtgisv .gt_font_bold {
+#weipbeypdu .gt_font_bold {
   font-weight: bold;
 }
 
-#anedxtgisv .gt_font_italic {
+#weipbeypdu .gt_font_italic {
   font-style: italic;
 }
 
-#anedxtgisv .gt_super {
+#weipbeypdu .gt_super {
   font-size: 65%;
 }
 
-#anedxtgisv .gt_footnote_marks {
+#weipbeypdu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#anedxtgisv .gt_asterisk {
+#weipbeypdu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#anedxtgisv .gt_indent_1 {
+#weipbeypdu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#anedxtgisv .gt_indent_2 {
+#weipbeypdu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#anedxtgisv .gt_indent_3 {
+#weipbeypdu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#anedxtgisv .gt_indent_4 {
+#weipbeypdu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#anedxtgisv .gt_indent_5 {
+#weipbeypdu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#anedxtgisv .katex-display {
+#weipbeypdu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#anedxtgisv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#weipbeypdu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -689,23 +688,23 @@
 <span>    column_labels.font.weight <span class="op">=</span> <span class="st">"bold"</span>,</span>
 <span>    row_group.font.weight <span class="op">=</span> <span class="st">"bold"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<div id="nfebxgldwx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nfebxgldwx table {
+<div id="tvtuzfylbn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tvtuzfylbn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nfebxgldwx thead, #nfebxgldwx tbody, #nfebxgldwx tfoot, #nfebxgldwx tr, #nfebxgldwx td, #nfebxgldwx th {
+#tvtuzfylbn thead, #tvtuzfylbn tbody, #tvtuzfylbn tfoot, #tvtuzfylbn tr, #tvtuzfylbn td, #tvtuzfylbn th {
   border-style: none;
 }
 
-#nfebxgldwx p {
+#tvtuzfylbn p {
   margin: 0;
   padding: 0;
 }
 
-#nfebxgldwx .gt_table {
+#tvtuzfylbn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -731,12 +730,12 @@
   border-left-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_caption {
+#tvtuzfylbn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nfebxgldwx .gt_title {
+#tvtuzfylbn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -748,7 +747,7 @@
   border-bottom-width: 0;
 }
 
-#nfebxgldwx .gt_subtitle {
+#tvtuzfylbn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -760,7 +759,7 @@
   border-top-width: 0;
 }
 
-#nfebxgldwx .gt_heading {
+#tvtuzfylbn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -772,13 +771,13 @@
   border-right-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_bottom_border {
+#tvtuzfylbn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_col_headings {
+#tvtuzfylbn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -793,7 +792,7 @@
   border-right-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_col_heading {
+#tvtuzfylbn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -813,7 +812,7 @@
   overflow-x: hidden;
 }
 
-#nfebxgldwx .gt_column_spanner_outer {
+#tvtuzfylbn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -825,15 +824,15 @@
   padding-right: 4px;
 }
 
-#nfebxgldwx .gt_column_spanner_outer:first-child {
+#tvtuzfylbn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nfebxgldwx .gt_column_spanner_outer:last-child {
+#tvtuzfylbn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nfebxgldwx .gt_column_spanner {
+#tvtuzfylbn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -845,11 +844,11 @@
   width: 100%;
 }
 
-#nfebxgldwx .gt_spanner_row {
+#tvtuzfylbn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nfebxgldwx .gt_group_heading {
+#tvtuzfylbn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -875,7 +874,7 @@
   text-align: left;
 }
 
-#nfebxgldwx .gt_empty_group_heading {
+#tvtuzfylbn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -890,15 +889,15 @@
   vertical-align: middle;
 }
 
-#nfebxgldwx .gt_from_md > :first-child {
+#tvtuzfylbn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nfebxgldwx .gt_from_md > :last-child {
+#tvtuzfylbn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nfebxgldwx .gt_row {
+#tvtuzfylbn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -917,7 +916,7 @@
   overflow-x: hidden;
 }
 
-#nfebxgldwx .gt_stub {
+#tvtuzfylbn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -930,7 +929,7 @@
   padding-right: 5px;
 }
 
-#nfebxgldwx .gt_stub_row_group {
+#tvtuzfylbn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -944,15 +943,15 @@
   vertical-align: top;
 }
 
-#nfebxgldwx .gt_row_group_first td {
+#tvtuzfylbn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nfebxgldwx .gt_row_group_first th {
+#tvtuzfylbn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nfebxgldwx .gt_summary_row {
+#tvtuzfylbn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -962,16 +961,16 @@
   padding-right: 5px;
 }
 
-#nfebxgldwx .gt_first_summary_row {
+#tvtuzfylbn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_first_summary_row.thick {
+#tvtuzfylbn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nfebxgldwx .gt_last_summary_row {
+#tvtuzfylbn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -981,7 +980,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_grand_summary_row {
+#tvtuzfylbn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -991,7 +990,7 @@
   padding-right: 5px;
 }
 
-#nfebxgldwx .gt_first_grand_summary_row {
+#tvtuzfylbn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1001,7 +1000,7 @@
   border-top-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_last_grand_summary_row_top {
+#tvtuzfylbn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1011,11 +1010,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_striped {
+#tvtuzfylbn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nfebxgldwx .gt_table_body {
+#tvtuzfylbn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1024,7 +1023,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_footnotes {
+#tvtuzfylbn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1038,7 +1037,7 @@
   border-right-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_footnote {
+#tvtuzfylbn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1047,7 +1046,7 @@
   padding-right: 5px;
 }
 
-#nfebxgldwx .gt_sourcenotes {
+#tvtuzfylbn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1061,7 +1060,7 @@
   border-right-color: #D3D3D3;
 }
 
-#nfebxgldwx .gt_sourcenote {
+#tvtuzfylbn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1069,72 +1068,72 @@
   padding-right: 5px;
 }
 
-#nfebxgldwx .gt_left {
+#tvtuzfylbn .gt_left {
   text-align: left;
 }
 
-#nfebxgldwx .gt_center {
+#tvtuzfylbn .gt_center {
   text-align: center;
 }
 
-#nfebxgldwx .gt_right {
+#tvtuzfylbn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nfebxgldwx .gt_font_normal {
+#tvtuzfylbn .gt_font_normal {
   font-weight: normal;
 }
 
-#nfebxgldwx .gt_font_bold {
+#tvtuzfylbn .gt_font_bold {
   font-weight: bold;
 }
 
-#nfebxgldwx .gt_font_italic {
+#tvtuzfylbn .gt_font_italic {
   font-style: italic;
 }
 
-#nfebxgldwx .gt_super {
+#tvtuzfylbn .gt_super {
   font-size: 65%;
 }
 
-#nfebxgldwx .gt_footnote_marks {
+#tvtuzfylbn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nfebxgldwx .gt_asterisk {
+#tvtuzfylbn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nfebxgldwx .gt_indent_1 {
+#tvtuzfylbn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nfebxgldwx .gt_indent_2 {
+#tvtuzfylbn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nfebxgldwx .gt_indent_3 {
+#tvtuzfylbn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nfebxgldwx .gt_indent_4 {
+#tvtuzfylbn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nfebxgldwx .gt_indent_5 {
+#tvtuzfylbn .gt_indent_5 {
   text-indent: 25px;
 }
 
-#nfebxgldwx .katex-display {
+#tvtuzfylbn .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#nfebxgldwx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tvtuzfylbn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1184,7 +1183,7 @@
 <p>Gender</p>
 <div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">lsay_data</span><span class="op">$</span><span class="va">mothed</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    1    2    3    4    5 NA's </span></span>
+<span><span class="co">#&gt;    1    2    3    4    5  NAs </span></span>
 <span><span class="co">#&gt;  452 1732  304  368  158  102</span></span></code></pre></div>
 <p>Mother’s Education</p>
 <div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
@@ -1194,7 +1193,7 @@
 <p>Math IRT Score</p>
 <div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lsay_data</span><span class="op">$</span><span class="va">math_irt</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's </span></span>
+<span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs </span></span>
 <span><span class="co">#&gt;   26.57   50.00   59.30   58.81   68.21   94.19     875</span></span></code></pre></div>
 <hr>
 </div>
@@ -3093,7 +3092,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach</strong>" was written by Dina Arch. It was last built on 2026-06-09.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-06-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

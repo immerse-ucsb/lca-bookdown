@@ -4,20 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>11 Class Homogeneity | Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach</title>
+<title>11 Class Homogeneity | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="11.1 Load packages library(naniar) library(tidyverse) library(haven) library(glue) library(MplusAutomation) library(here) library(janitor) library(gt) library(tidyLPA) library(pisaUSA15)...">
 <meta name="generator" content="bookdown 0.46 with bs4_book()">
-<meta property="og:title" content="11 Class Homogeneity | Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach">
+<meta property="og:title" content="11 Class Homogeneity | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/class-homogeneity.html">
 <meta property="og:description" content="11.1 Load packages library(naniar) library(tidyverse) library(haven) library(glue) library(MplusAutomation) library(here) library(janitor) library(gt) library(tidyLPA) library(pisaUSA15)...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="11 Class Homogeneity | Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach">
+<meta name="twitter:title" content="11 Class Homogeneity | Mixture Modeling with MplusAutomation">
 <meta name="twitter:description" content="11.1 Load packages library(naniar) library(tidyverse) library(haven) library(glue) library(MplusAutomation) library(here) library(janitor) library(gt) library(tidyLPA) library(pisaUSA15)...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.12/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
@@ -59,7 +59,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach</a>
+        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -108,10 +108,9 @@
 <li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">25</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
 <li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">26</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
 <li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">27</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
-<li><a class="" href="education-longitudinal-study.html"><span class="header-section-number">28</span> Education Longitudinal Study</a></li>
+<li><a class="" href="math-attitudes-with-stem-career-attainment-dang-m.-nylund-gibson-k.-2017.html"><span class="header-section-number">28</span> Math Attitudes with STEM Career Attainment (Dang, M., &amp; Nylund-Gibson, K., 2017)</a></li>
 <li><a class="" href="comparing-cluster-analysis-and-latent-profile-analysis-b.-j.-yik-y.-zhang-k.-nylund-gibson-m.-ing-l.-krawiec-j.-d.-houck-e.-d.-nacsa-2026.html"><span class="header-section-number">29</span> Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, &amp; E. D. Nacsa, 2026)</a></li>
 <li><a class="" href="moderation-with-a-latent-class-variable-arch-nylund-gibson-ing-2026.html"><span class="header-section-number">30</span> Moderation with a Latent Class Variable (Arch, Nylund-Gibson, Ing, 2026)</a></li>
-<li><a class="" href="r-code-for-the-manual-ml-three-step-in-mplus.html"><span class="header-section-number">31</span> R Code for the Manual ML Three-Step in Mplus</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
 
@@ -213,23 +212,23 @@
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html">tab_footnote</a></span><span class="op">(</span></span>
 <span>    footnote <span class="op">=</span> <span class="st">"Cells in bold indicate probabilities &gt; 0.7 or &lt; 0.3"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<div id="jrgkpwxvaq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jrgkpwxvaq table {
+<div id="opvvnukoec" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#opvvnukoec table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jrgkpwxvaq thead, #jrgkpwxvaq tbody, #jrgkpwxvaq tfoot, #jrgkpwxvaq tr, #jrgkpwxvaq td, #jrgkpwxvaq th {
+#opvvnukoec thead, #opvvnukoec tbody, #opvvnukoec tfoot, #opvvnukoec tr, #opvvnukoec td, #opvvnukoec th {
   border-style: none;
 }
 
-#jrgkpwxvaq p {
+#opvvnukoec p {
   margin: 0;
   padding: 0;
 }
 
-#jrgkpwxvaq .gt_table {
+#opvvnukoec .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -255,12 +254,12 @@
   border-left-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_caption {
+#opvvnukoec .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jrgkpwxvaq .gt_title {
+#opvvnukoec .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -272,7 +271,7 @@
   border-bottom-width: 0;
 }
 
-#jrgkpwxvaq .gt_subtitle {
+#opvvnukoec .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -284,7 +283,7 @@
   border-top-width: 0;
 }
 
-#jrgkpwxvaq .gt_heading {
+#opvvnukoec .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -296,13 +295,13 @@
   border-right-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_bottom_border {
+#opvvnukoec .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_col_headings {
+#opvvnukoec .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -317,7 +316,7 @@
   border-right-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_col_heading {
+#opvvnukoec .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -337,7 +336,7 @@
   overflow-x: hidden;
 }
 
-#jrgkpwxvaq .gt_column_spanner_outer {
+#opvvnukoec .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -349,15 +348,15 @@
   padding-right: 4px;
 }
 
-#jrgkpwxvaq .gt_column_spanner_outer:first-child {
+#opvvnukoec .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jrgkpwxvaq .gt_column_spanner_outer:last-child {
+#opvvnukoec .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jrgkpwxvaq .gt_column_spanner {
+#opvvnukoec .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -369,11 +368,11 @@
   width: 100%;
 }
 
-#jrgkpwxvaq .gt_spanner_row {
+#opvvnukoec .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jrgkpwxvaq .gt_group_heading {
+#opvvnukoec .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -399,7 +398,7 @@
   text-align: left;
 }
 
-#jrgkpwxvaq .gt_empty_group_heading {
+#opvvnukoec .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -414,15 +413,15 @@
   vertical-align: middle;
 }
 
-#jrgkpwxvaq .gt_from_md > :first-child {
+#opvvnukoec .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jrgkpwxvaq .gt_from_md > :last-child {
+#opvvnukoec .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jrgkpwxvaq .gt_row {
+#opvvnukoec .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -441,7 +440,7 @@
   overflow-x: hidden;
 }
 
-#jrgkpwxvaq .gt_stub {
+#opvvnukoec .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -454,7 +453,7 @@
   padding-right: 5px;
 }
 
-#jrgkpwxvaq .gt_stub_row_group {
+#opvvnukoec .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -468,15 +467,15 @@
   vertical-align: top;
 }
 
-#jrgkpwxvaq .gt_row_group_first td {
+#opvvnukoec .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jrgkpwxvaq .gt_row_group_first th {
+#opvvnukoec .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jrgkpwxvaq .gt_summary_row {
+#opvvnukoec .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -486,16 +485,16 @@
   padding-right: 5px;
 }
 
-#jrgkpwxvaq .gt_first_summary_row {
+#opvvnukoec .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_first_summary_row.thick {
+#opvvnukoec .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jrgkpwxvaq .gt_last_summary_row {
+#opvvnukoec .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -505,7 +504,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_grand_summary_row {
+#opvvnukoec .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -515,7 +514,7 @@
   padding-right: 5px;
 }
 
-#jrgkpwxvaq .gt_first_grand_summary_row {
+#opvvnukoec .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -525,7 +524,7 @@
   border-top-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_last_grand_summary_row_top {
+#opvvnukoec .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -535,11 +534,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_striped {
+#opvvnukoec .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jrgkpwxvaq .gt_table_body {
+#opvvnukoec .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -548,7 +547,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_footnotes {
+#opvvnukoec .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -562,7 +561,7 @@
   border-right-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_footnote {
+#opvvnukoec .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -571,7 +570,7 @@
   padding-right: 5px;
 }
 
-#jrgkpwxvaq .gt_sourcenotes {
+#opvvnukoec .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -585,7 +584,7 @@
   border-right-color: #D3D3D3;
 }
 
-#jrgkpwxvaq .gt_sourcenote {
+#opvvnukoec .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -593,72 +592,72 @@
   padding-right: 5px;
 }
 
-#jrgkpwxvaq .gt_left {
+#opvvnukoec .gt_left {
   text-align: left;
 }
 
-#jrgkpwxvaq .gt_center {
+#opvvnukoec .gt_center {
   text-align: center;
 }
 
-#jrgkpwxvaq .gt_right {
+#opvvnukoec .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jrgkpwxvaq .gt_font_normal {
+#opvvnukoec .gt_font_normal {
   font-weight: normal;
 }
 
-#jrgkpwxvaq .gt_font_bold {
+#opvvnukoec .gt_font_bold {
   font-weight: bold;
 }
 
-#jrgkpwxvaq .gt_font_italic {
+#opvvnukoec .gt_font_italic {
   font-style: italic;
 }
 
-#jrgkpwxvaq .gt_super {
+#opvvnukoec .gt_super {
   font-size: 65%;
 }
 
-#jrgkpwxvaq .gt_footnote_marks {
+#opvvnukoec .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jrgkpwxvaq .gt_asterisk {
+#opvvnukoec .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jrgkpwxvaq .gt_indent_1 {
+#opvvnukoec .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jrgkpwxvaq .gt_indent_2 {
+#opvvnukoec .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jrgkpwxvaq .gt_indent_3 {
+#opvvnukoec .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jrgkpwxvaq .gt_indent_4 {
+#opvvnukoec .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jrgkpwxvaq .gt_indent_5 {
+#opvvnukoec .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jrgkpwxvaq .katex-display {
+#opvvnukoec .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jrgkpwxvaq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#opvvnukoec div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -802,23 +801,23 @@
 <span>    footnote <span class="op">=</span> <span class="st">"Cells in bold indicate proportions &gt; 0.90 and cells in italics indicate proportions &lt; 0.60. </span></span>
 <span><span class="st">    Note: In this example, the class variances are set to be equal."</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_markdown.html">fmt_markdown</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="hsgihcqmro" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hsgihcqmro table {
+<div id="stostkmgwf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#stostkmgwf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hsgihcqmro thead, #hsgihcqmro tbody, #hsgihcqmro tfoot, #hsgihcqmro tr, #hsgihcqmro td, #hsgihcqmro th {
+#stostkmgwf thead, #stostkmgwf tbody, #stostkmgwf tfoot, #stostkmgwf tr, #stostkmgwf td, #stostkmgwf th {
   border-style: none;
 }
 
-#hsgihcqmro p {
+#stostkmgwf p {
   margin: 0;
   padding: 0;
 }
 
-#hsgihcqmro .gt_table {
+#stostkmgwf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -844,12 +843,12 @@
   border-left-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_caption {
+#stostkmgwf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hsgihcqmro .gt_title {
+#stostkmgwf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -861,7 +860,7 @@
   border-bottom-width: 0;
 }
 
-#hsgihcqmro .gt_subtitle {
+#stostkmgwf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -873,7 +872,7 @@
   border-top-width: 0;
 }
 
-#hsgihcqmro .gt_heading {
+#stostkmgwf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -885,13 +884,13 @@
   border-right-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_bottom_border {
+#stostkmgwf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_col_headings {
+#stostkmgwf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -906,7 +905,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_col_heading {
+#stostkmgwf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -926,7 +925,7 @@
   overflow-x: hidden;
 }
 
-#hsgihcqmro .gt_column_spanner_outer {
+#stostkmgwf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -938,15 +937,15 @@
   padding-right: 4px;
 }
 
-#hsgihcqmro .gt_column_spanner_outer:first-child {
+#stostkmgwf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hsgihcqmro .gt_column_spanner_outer:last-child {
+#stostkmgwf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hsgihcqmro .gt_column_spanner {
+#stostkmgwf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -958,11 +957,11 @@
   width: 100%;
 }
 
-#hsgihcqmro .gt_spanner_row {
+#stostkmgwf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hsgihcqmro .gt_group_heading {
+#stostkmgwf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -988,7 +987,7 @@
   text-align: left;
 }
 
-#hsgihcqmro .gt_empty_group_heading {
+#stostkmgwf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1003,15 +1002,15 @@
   vertical-align: middle;
 }
 
-#hsgihcqmro .gt_from_md > :first-child {
+#stostkmgwf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hsgihcqmro .gt_from_md > :last-child {
+#stostkmgwf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hsgihcqmro .gt_row {
+#stostkmgwf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1030,7 +1029,7 @@
   overflow-x: hidden;
 }
 
-#hsgihcqmro .gt_stub {
+#stostkmgwf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1043,7 +1042,7 @@
   padding-right: 5px;
 }
 
-#hsgihcqmro .gt_stub_row_group {
+#stostkmgwf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1057,15 +1056,15 @@
   vertical-align: top;
 }
 
-#hsgihcqmro .gt_row_group_first td {
+#stostkmgwf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hsgihcqmro .gt_row_group_first th {
+#stostkmgwf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hsgihcqmro .gt_summary_row {
+#stostkmgwf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1075,16 +1074,16 @@
   padding-right: 5px;
 }
 
-#hsgihcqmro .gt_first_summary_row {
+#stostkmgwf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_first_summary_row.thick {
+#stostkmgwf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hsgihcqmro .gt_last_summary_row {
+#stostkmgwf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1094,7 +1093,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_grand_summary_row {
+#stostkmgwf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1104,7 +1103,7 @@
   padding-right: 5px;
 }
 
-#hsgihcqmro .gt_first_grand_summary_row {
+#stostkmgwf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1114,7 +1113,7 @@
   border-top-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_last_grand_summary_row_top {
+#stostkmgwf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1124,11 +1123,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_striped {
+#stostkmgwf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hsgihcqmro .gt_table_body {
+#stostkmgwf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1137,7 +1136,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_footnotes {
+#stostkmgwf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1151,7 +1150,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_footnote {
+#stostkmgwf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1160,7 +1159,7 @@
   padding-right: 5px;
 }
 
-#hsgihcqmro .gt_sourcenotes {
+#stostkmgwf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1174,7 +1173,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hsgihcqmro .gt_sourcenote {
+#stostkmgwf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1182,72 +1181,72 @@
   padding-right: 5px;
 }
 
-#hsgihcqmro .gt_left {
+#stostkmgwf .gt_left {
   text-align: left;
 }
 
-#hsgihcqmro .gt_center {
+#stostkmgwf .gt_center {
   text-align: center;
 }
 
-#hsgihcqmro .gt_right {
+#stostkmgwf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hsgihcqmro .gt_font_normal {
+#stostkmgwf .gt_font_normal {
   font-weight: normal;
 }
 
-#hsgihcqmro .gt_font_bold {
+#stostkmgwf .gt_font_bold {
   font-weight: bold;
 }
 
-#hsgihcqmro .gt_font_italic {
+#stostkmgwf .gt_font_italic {
   font-style: italic;
 }
 
-#hsgihcqmro .gt_super {
+#stostkmgwf .gt_super {
   font-size: 65%;
 }
 
-#hsgihcqmro .gt_footnote_marks {
+#stostkmgwf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hsgihcqmro .gt_asterisk {
+#stostkmgwf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hsgihcqmro .gt_indent_1 {
+#stostkmgwf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hsgihcqmro .gt_indent_2 {
+#stostkmgwf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hsgihcqmro .gt_indent_3 {
+#stostkmgwf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hsgihcqmro .gt_indent_4 {
+#stostkmgwf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hsgihcqmro .gt_indent_5 {
+#stostkmgwf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hsgihcqmro .katex-display {
+#stostkmgwf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hsgihcqmro div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#stostkmgwf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1341,7 +1340,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach</strong>" was written by Dina Arch. It was last built on 2026-06-09.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-06-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

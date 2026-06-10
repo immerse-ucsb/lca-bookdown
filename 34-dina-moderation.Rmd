@@ -10,12 +10,10 @@ knitr::opts_chunk$set(echo = TRUE,
 
 # Moderation with a Latent Class Variable (Arch, Nylund-Gibson, Ing, 2026)
 
-Arch, Dina Ali Naji, Karen Nylund-Gibson, and Marsha Ing. “Moderation with a Latent Class Variable: A Tutorial and Example.” Behavior Research Methods 58, no. 4 (2026): 108. https://doi.org/10.3758/s13428-025-02886-x.
+Citation: [Arch, Dina Ali Naji, Karen Nylund-Gibson, and Marsha Ing. “Moderation with a Latent Class Variable: A Tutorial and Example.” Behavior Research Methods 58, no. 4 (2026): 108. https://doi.org/10.3758/s13428-025-02886-x.](https://doi.org/10.3758/s13428-025-02886-x.)
 
 
 ------------------------------------------------------------------------
-
-# R Code for the Manual ML Three-Step in M*plus*
 
 This appendix walks through the R code to apply moderation with a latent class variable using the `MplusAutomation` package.
 

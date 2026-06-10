@@ -104,23 +104,23 @@ This data source also includes covariates on a variety of subjects and distal ou
 
 
 ```{=html}
-<div id="yafygkrdgj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yafygkrdgj table {
+<div id="ofjofogkxx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ofjofogkxx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yafygkrdgj thead, #yafygkrdgj tbody, #yafygkrdgj tfoot, #yafygkrdgj tr, #yafygkrdgj td, #yafygkrdgj th {
+#ofjofogkxx thead, #ofjofogkxx tbody, #ofjofogkxx tfoot, #ofjofogkxx tr, #ofjofogkxx td, #ofjofogkxx th {
   border-style: none;
 }
 
-#yafygkrdgj p {
+#ofjofogkxx p {
   margin: 0;
   padding: 0;
 }
 
-#yafygkrdgj .gt_table {
+#ofjofogkxx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -146,12 +146,12 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-left-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_caption {
+#ofjofogkxx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yafygkrdgj .gt_title {
+#ofjofogkxx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -163,7 +163,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-bottom-width: 0;
 }
 
-#yafygkrdgj .gt_subtitle {
+#ofjofogkxx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -175,7 +175,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-top-width: 0;
 }
 
-#yafygkrdgj .gt_heading {
+#ofjofogkxx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -187,13 +187,13 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-right-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_bottom_border {
+#ofjofogkxx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_col_headings {
+#ofjofogkxx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -208,7 +208,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-right-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_col_heading {
+#ofjofogkxx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -228,7 +228,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   overflow-x: hidden;
 }
 
-#yafygkrdgj .gt_column_spanner_outer {
+#ofjofogkxx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -240,15 +240,15 @@ This data source also includes covariates on a variety of subjects and distal ou
   padding-right: 4px;
 }
 
-#yafygkrdgj .gt_column_spanner_outer:first-child {
+#ofjofogkxx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yafygkrdgj .gt_column_spanner_outer:last-child {
+#ofjofogkxx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yafygkrdgj .gt_column_spanner {
+#ofjofogkxx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -260,11 +260,11 @@ This data source also includes covariates on a variety of subjects and distal ou
   width: 100%;
 }
 
-#yafygkrdgj .gt_spanner_row {
+#ofjofogkxx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yafygkrdgj .gt_group_heading {
+#ofjofogkxx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -290,7 +290,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   text-align: left;
 }
 
-#yafygkrdgj .gt_empty_group_heading {
+#ofjofogkxx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -305,15 +305,15 @@ This data source also includes covariates on a variety of subjects and distal ou
   vertical-align: middle;
 }
 
-#yafygkrdgj .gt_from_md > :first-child {
+#ofjofogkxx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yafygkrdgj .gt_from_md > :last-child {
+#ofjofogkxx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yafygkrdgj .gt_row {
+#ofjofogkxx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -332,7 +332,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   overflow-x: hidden;
 }
 
-#yafygkrdgj .gt_stub {
+#ofjofogkxx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -345,7 +345,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   padding-right: 5px;
 }
 
-#yafygkrdgj .gt_stub_row_group {
+#ofjofogkxx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -359,15 +359,15 @@ This data source also includes covariates on a variety of subjects and distal ou
   vertical-align: top;
 }
 
-#yafygkrdgj .gt_row_group_first td {
+#ofjofogkxx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yafygkrdgj .gt_row_group_first th {
+#ofjofogkxx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yafygkrdgj .gt_summary_row {
+#ofjofogkxx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -377,16 +377,16 @@ This data source also includes covariates on a variety of subjects and distal ou
   padding-right: 5px;
 }
 
-#yafygkrdgj .gt_first_summary_row {
+#ofjofogkxx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_first_summary_row.thick {
+#ofjofogkxx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yafygkrdgj .gt_last_summary_row {
+#ofjofogkxx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -396,7 +396,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-bottom-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_grand_summary_row {
+#ofjofogkxx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -406,7 +406,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   padding-right: 5px;
 }
 
-#yafygkrdgj .gt_first_grand_summary_row {
+#ofjofogkxx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -416,7 +416,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-top-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_last_grand_summary_row_top {
+#ofjofogkxx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -426,11 +426,11 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-bottom-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_striped {
+#ofjofogkxx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yafygkrdgj .gt_table_body {
+#ofjofogkxx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -439,7 +439,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-bottom-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_footnotes {
+#ofjofogkxx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -453,7 +453,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-right-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_footnote {
+#ofjofogkxx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -462,7 +462,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   padding-right: 5px;
 }
 
-#yafygkrdgj .gt_sourcenotes {
+#ofjofogkxx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -476,7 +476,7 @@ This data source also includes covariates on a variety of subjects and distal ou
   border-right-color: #D3D3D3;
 }
 
-#yafygkrdgj .gt_sourcenote {
+#ofjofogkxx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -484,72 +484,72 @@ This data source also includes covariates on a variety of subjects and distal ou
   padding-right: 5px;
 }
 
-#yafygkrdgj .gt_left {
+#ofjofogkxx .gt_left {
   text-align: left;
 }
 
-#yafygkrdgj .gt_center {
+#ofjofogkxx .gt_center {
   text-align: center;
 }
 
-#yafygkrdgj .gt_right {
+#ofjofogkxx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yafygkrdgj .gt_font_normal {
+#ofjofogkxx .gt_font_normal {
   font-weight: normal;
 }
 
-#yafygkrdgj .gt_font_bold {
+#ofjofogkxx .gt_font_bold {
   font-weight: bold;
 }
 
-#yafygkrdgj .gt_font_italic {
+#ofjofogkxx .gt_font_italic {
   font-style: italic;
 }
 
-#yafygkrdgj .gt_super {
+#ofjofogkxx .gt_super {
   font-size: 65%;
 }
 
-#yafygkrdgj .gt_footnote_marks {
+#ofjofogkxx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yafygkrdgj .gt_asterisk {
+#ofjofogkxx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yafygkrdgj .gt_indent_1 {
+#ofjofogkxx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yafygkrdgj .gt_indent_2 {
+#ofjofogkxx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yafygkrdgj .gt_indent_3 {
+#ofjofogkxx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yafygkrdgj .gt_indent_4 {
+#ofjofogkxx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yafygkrdgj .gt_indent_5 {
+#ofjofogkxx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yafygkrdgj .katex-display {
+#ofjofogkxx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yafygkrdgj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ofjofogkxx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -622,14 +622,14 @@ View(data)
 
 ``` r
 summary(data)
-#>     leaid             ncessch            report_dis    
-#>  Length:2027        Length:2027        Min.   :0.0000  
-#>  Class :character   Class :character   1st Qu.:0.0000  
-#>  Mode  :character   Mode  :character   Median :0.0000  
-#>                                        Mean   :0.0425  
-#>                                        3rd Qu.:0.0000  
-#>                                        Max.   :1.0000  
-#>                                        NA's   :27      
+#>        leaid           ncessch       report_dis    
+#>  Length   :2027   Length   :2027   Min.   :0.0000  
+#>  N.unique : 638   N.unique :1979   1st Qu.:0.0000  
+#>  N.blank  :   0   N.blank  :   0   Median :0.0000  
+#>  Min.nchar:   7   Min.nchar:  12   Mean   :0.0425  
+#>  Max.nchar:   7   Max.nchar:  12   3rd Qu.:0.0000  
+#>  NAs      :  20   NAs      :  40   Max.   :1.0000  
+#>                                    NAs    :27      
 #>   report_race      report_sex   counselors_fte  
 #>  Min.   :0.000   Min.   :0.00   Min.   :0.0000  
 #>  1st Qu.:0.000   1st Qu.:0.00   1st Qu.:0.0000  
@@ -637,7 +637,7 @@ summary(data)
 #>  Mean   :0.103   Mean   :0.17   Mean   :0.4595  
 #>  3rd Qu.:0.000   3rd Qu.:0.00   3rd Qu.:1.0000  
 #>  Max.   :1.000   Max.   :1.00   Max.   :1.0000  
-#>  NA's   :27      NA's   :27     NA's   :27      
+#>  NAs    :27      NAs    :27     NAs    :27      
 #>    psych_fte         law_fte      
 #>  Min.   :0.0000   Min.   :0.0000  
 #>  1st Qu.:0.0000   1st Qu.:0.0000  
@@ -645,7 +645,7 @@ summary(data)
 #>  Mean   :0.4742   Mean   :0.1255  
 #>  3rd Qu.:1.0000   3rd Qu.:0.0000  
 #>  Max.   :1.0000   Max.   :1.0000  
-#>  NA's   :30       NA's   :27
+#>  NAs    :30       NAs    :27
 ```
 
 3. `names()` provides a list of column names. Very useful if you don't have them memorized!
@@ -694,7 +694,7 @@ data %>%
 #>  Mean   :0.0425   Mean   :0.103   Mean   :0.17  
 #>  3rd Qu.:0.0000   3rd Qu.:0.000   3rd Qu.:0.00  
 #>  Max.   :1.0000   Max.   :1.000   Max.   :1.00  
-#>  NA's   :27       NA's   :27      NA's   :27    
+#>  NAs    :27       NAs    :27      NAs    :27    
 #>  counselors_fte     psych_fte         law_fte      
 #>  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
 #>  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
@@ -702,7 +702,7 @@ data %>%
 #>  Mean   :0.4595   Mean   :0.4742   Mean   :0.1255  
 #>  3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.0000  
 #>  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
-#>  NA's   :27       NA's   :30       NA's   :27
+#>  NAs    :27       NAs    :30       NAs    :27
 ```
 
 Alternatively, we can use the `psych::describe()` function to give more information:

@@ -1,9 +1,3 @@
----
-title: "Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach" 
-author: "Dina Arch"
-date: "`r Sys.Date()`"
-output: html_document
----
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
@@ -28,7 +22,9 @@ library(naniar)
 here::i_am("30-dang_analysis.Rmd")
 ```
 
-# Education Longitudinal Study
+# Math Attitudes with STEM Career Attainment (Dang, M., & Nylund-Gibson, K., 2017)
+
+Citation: [Dang, M., & Nylund-Gibson, K. (2017). Connecting Math Attitudes with STEM Career Attainment: A Latent Class Analysis Approach. Teachers College Record: The Voice of Scholarship in Education, 119(6), 1–38.](https://doi.org/10.1177/016146811711900602)
 
 -   BY = Base Year (2002) - 10th grade
 

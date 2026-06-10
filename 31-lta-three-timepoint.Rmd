@@ -67,11 +67,7 @@ library(patchwork)
 ### Set Working Directory
 
 ```{r}
-<<<<<<<< HEAD:31-lta-three-timepoint.Rmd
 here::i_am("31-lta-three-timepoint.Rmd")
-========
-here::i_am("30-lta-three-timepoint.Rmd")
->>>>>>>> b52a7ad760959260c2954fae4fe7f361c4713df2:30-lta-three-timepoint.Rmd
 ```
 
 Using `here()` finds your project's files, based on the current working directory at the time when the package is loaded.

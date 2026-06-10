@@ -317,7 +317,7 @@ examine-transition-probability-plot-for-non-underrepresented-females
 examine-table-of-covariate-results-for-the-step-3-lta
 examine-outcome-variables
 gender-differences-in-transition-probabilities
-education-longitudinal-study
+math-attitudes-with-stem-career-attainment-dang-m.-nylund-gibson-k.-2017
 item-descriptions
 base-year-covariates
 base-year-indicators
@@ -387,7 +387,6 @@ bch-step-3b-estimate-the-covariate-adjusted-lta-model-using-bch-weights
 covariate-table-bch-method
 comparing-cluster-analysis-and-latent-profile-analysis-b.-j.-yik-y.-zhang-k.-nylund-gibson-m.-ing-l.-krawiec-j.-d.-houck-e.-d.-nacsa-2026
 moderation-with-a-latent-class-variable-arch-nylund-gibson-ing-2026
-r-code-for-the-manual-ml-three-step-in-mplus
 descriptive-statistics-19
 descriptive-statistics-using-r-2
 descriptive-statistics-using-mplusautomation-2
