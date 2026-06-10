@@ -39,23 +39,23 @@ library(DiagrammeR)
 
 
 ```{=html}
-<div id="aoaeluksjy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#aoaeluksjy table {
+<div id="zkfofbxapc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zkfofbxapc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#aoaeluksjy thead, #aoaeluksjy tbody, #aoaeluksjy tfoot, #aoaeluksjy tr, #aoaeluksjy td, #aoaeluksjy th {
+#zkfofbxapc thead, #zkfofbxapc tbody, #zkfofbxapc tfoot, #zkfofbxapc tr, #zkfofbxapc td, #zkfofbxapc th {
   border-style: none;
 }
 
-#aoaeluksjy p {
+#zkfofbxapc p {
   margin: 0;
   padding: 0;
 }
 
-#aoaeluksjy .gt_table {
+#zkfofbxapc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -81,12 +81,12 @@ library(DiagrammeR)
   border-left-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_caption {
+#zkfofbxapc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#aoaeluksjy .gt_title {
+#zkfofbxapc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -98,7 +98,7 @@ library(DiagrammeR)
   border-bottom-width: 0;
 }
 
-#aoaeluksjy .gt_subtitle {
+#zkfofbxapc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -110,7 +110,7 @@ library(DiagrammeR)
   border-top-width: 0;
 }
 
-#aoaeluksjy .gt_heading {
+#zkfofbxapc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -122,13 +122,13 @@ library(DiagrammeR)
   border-right-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_bottom_border {
+#zkfofbxapc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_col_headings {
+#zkfofbxapc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -143,7 +143,7 @@ library(DiagrammeR)
   border-right-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_col_heading {
+#zkfofbxapc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -163,7 +163,7 @@ library(DiagrammeR)
   overflow-x: hidden;
 }
 
-#aoaeluksjy .gt_column_spanner_outer {
+#zkfofbxapc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -175,15 +175,15 @@ library(DiagrammeR)
   padding-right: 4px;
 }
 
-#aoaeluksjy .gt_column_spanner_outer:first-child {
+#zkfofbxapc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#aoaeluksjy .gt_column_spanner_outer:last-child {
+#zkfofbxapc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#aoaeluksjy .gt_column_spanner {
+#zkfofbxapc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -195,11 +195,11 @@ library(DiagrammeR)
   width: 100%;
 }
 
-#aoaeluksjy .gt_spanner_row {
+#zkfofbxapc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#aoaeluksjy .gt_group_heading {
+#zkfofbxapc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -225,7 +225,7 @@ library(DiagrammeR)
   text-align: left;
 }
 
-#aoaeluksjy .gt_empty_group_heading {
+#zkfofbxapc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -240,15 +240,15 @@ library(DiagrammeR)
   vertical-align: middle;
 }
 
-#aoaeluksjy .gt_from_md > :first-child {
+#zkfofbxapc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#aoaeluksjy .gt_from_md > :last-child {
+#zkfofbxapc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#aoaeluksjy .gt_row {
+#zkfofbxapc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -267,7 +267,7 @@ library(DiagrammeR)
   overflow-x: hidden;
 }
 
-#aoaeluksjy .gt_stub {
+#zkfofbxapc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -280,7 +280,7 @@ library(DiagrammeR)
   padding-right: 5px;
 }
 
-#aoaeluksjy .gt_stub_row_group {
+#zkfofbxapc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -294,15 +294,15 @@ library(DiagrammeR)
   vertical-align: top;
 }
 
-#aoaeluksjy .gt_row_group_first td {
+#zkfofbxapc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#aoaeluksjy .gt_row_group_first th {
+#zkfofbxapc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#aoaeluksjy .gt_summary_row {
+#zkfofbxapc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -312,16 +312,16 @@ library(DiagrammeR)
   padding-right: 5px;
 }
 
-#aoaeluksjy .gt_first_summary_row {
+#zkfofbxapc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_first_summary_row.thick {
+#zkfofbxapc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#aoaeluksjy .gt_last_summary_row {
+#zkfofbxapc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -331,7 +331,7 @@ library(DiagrammeR)
   border-bottom-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_grand_summary_row {
+#zkfofbxapc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -341,7 +341,7 @@ library(DiagrammeR)
   padding-right: 5px;
 }
 
-#aoaeluksjy .gt_first_grand_summary_row {
+#zkfofbxapc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -351,7 +351,7 @@ library(DiagrammeR)
   border-top-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_last_grand_summary_row_top {
+#zkfofbxapc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -361,11 +361,11 @@ library(DiagrammeR)
   border-bottom-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_striped {
+#zkfofbxapc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#aoaeluksjy .gt_table_body {
+#zkfofbxapc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -374,7 +374,7 @@ library(DiagrammeR)
   border-bottom-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_footnotes {
+#zkfofbxapc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -388,7 +388,7 @@ library(DiagrammeR)
   border-right-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_footnote {
+#zkfofbxapc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -397,7 +397,7 @@ library(DiagrammeR)
   padding-right: 5px;
 }
 
-#aoaeluksjy .gt_sourcenotes {
+#zkfofbxapc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -411,7 +411,7 @@ library(DiagrammeR)
   border-right-color: #D3D3D3;
 }
 
-#aoaeluksjy .gt_sourcenote {
+#zkfofbxapc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -419,72 +419,72 @@ library(DiagrammeR)
   padding-right: 5px;
 }
 
-#aoaeluksjy .gt_left {
+#zkfofbxapc .gt_left {
   text-align: left;
 }
 
-#aoaeluksjy .gt_center {
+#zkfofbxapc .gt_center {
   text-align: center;
 }
 
-#aoaeluksjy .gt_right {
+#zkfofbxapc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#aoaeluksjy .gt_font_normal {
+#zkfofbxapc .gt_font_normal {
   font-weight: normal;
 }
 
-#aoaeluksjy .gt_font_bold {
+#zkfofbxapc .gt_font_bold {
   font-weight: bold;
 }
 
-#aoaeluksjy .gt_font_italic {
+#zkfofbxapc .gt_font_italic {
   font-style: italic;
 }
 
-#aoaeluksjy .gt_super {
+#zkfofbxapc .gt_super {
   font-size: 65%;
 }
 
-#aoaeluksjy .gt_footnote_marks {
+#zkfofbxapc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#aoaeluksjy .gt_asterisk {
+#zkfofbxapc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#aoaeluksjy .gt_indent_1 {
+#zkfofbxapc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#aoaeluksjy .gt_indent_2 {
+#zkfofbxapc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#aoaeluksjy .gt_indent_3 {
+#zkfofbxapc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#aoaeluksjy .gt_indent_4 {
+#zkfofbxapc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#aoaeluksjy .gt_indent_5 {
+#zkfofbxapc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#aoaeluksjy .katex-display {
+#zkfofbxapc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#aoaeluksjy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#zkfofbxapc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -551,8 +551,8 @@ Schools with no staff of the designated type are indicated as `0` for the dichot
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-c7227dd0b3aaaf6cae73" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-c7227dd0b3aaaf6cae73">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    report_dis report_race report_sex counselors_fte psych_fte law_fte;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Bullying <br/>C<sub>k<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {report_dis report_race report_sex counselors_fte psych_fte law_fte}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-237d99ddceaae0d77b53" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-237d99ddceaae0d77b53">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    report_dis report_race report_sex counselors_fte psych_fte law_fte;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Bullying <br/>C<sub>k<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {report_dis report_race report_sex counselors_fte psych_fte law_fte}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -600,23 +600,23 @@ gt(dframe) %>%
 
 
 ```{=html}
-<div id="hcqtkpmotv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hcqtkpmotv table {
+<div id="dzokaxtwre" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dzokaxtwre table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hcqtkpmotv thead, #hcqtkpmotv tbody, #hcqtkpmotv tfoot, #hcqtkpmotv tr, #hcqtkpmotv td, #hcqtkpmotv th {
+#dzokaxtwre thead, #dzokaxtwre tbody, #dzokaxtwre tfoot, #dzokaxtwre tr, #dzokaxtwre td, #dzokaxtwre th {
   border-style: none;
 }
 
-#hcqtkpmotv p {
+#dzokaxtwre p {
   margin: 0;
   padding: 0;
 }
 
-#hcqtkpmotv .gt_table {
+#dzokaxtwre .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -642,12 +642,12 @@ gt(dframe) %>%
   border-left-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_caption {
+#dzokaxtwre .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hcqtkpmotv .gt_title {
+#dzokaxtwre .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -659,7 +659,7 @@ gt(dframe) %>%
   border-bottom-width: 0;
 }
 
-#hcqtkpmotv .gt_subtitle {
+#dzokaxtwre .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -671,7 +671,7 @@ gt(dframe) %>%
   border-top-width: 0;
 }
 
-#hcqtkpmotv .gt_heading {
+#dzokaxtwre .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -683,13 +683,13 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_bottom_border {
+#dzokaxtwre .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_col_headings {
+#dzokaxtwre .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -704,7 +704,7 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_col_heading {
+#dzokaxtwre .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -724,7 +724,7 @@ gt(dframe) %>%
   overflow-x: hidden;
 }
 
-#hcqtkpmotv .gt_column_spanner_outer {
+#dzokaxtwre .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -736,15 +736,15 @@ gt(dframe) %>%
   padding-right: 4px;
 }
 
-#hcqtkpmotv .gt_column_spanner_outer:first-child {
+#dzokaxtwre .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hcqtkpmotv .gt_column_spanner_outer:last-child {
+#dzokaxtwre .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hcqtkpmotv .gt_column_spanner {
+#dzokaxtwre .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -756,11 +756,11 @@ gt(dframe) %>%
   width: 100%;
 }
 
-#hcqtkpmotv .gt_spanner_row {
+#dzokaxtwre .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hcqtkpmotv .gt_group_heading {
+#dzokaxtwre .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -786,7 +786,7 @@ gt(dframe) %>%
   text-align: left;
 }
 
-#hcqtkpmotv .gt_empty_group_heading {
+#dzokaxtwre .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -801,15 +801,15 @@ gt(dframe) %>%
   vertical-align: middle;
 }
 
-#hcqtkpmotv .gt_from_md > :first-child {
+#dzokaxtwre .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hcqtkpmotv .gt_from_md > :last-child {
+#dzokaxtwre .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hcqtkpmotv .gt_row {
+#dzokaxtwre .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -828,7 +828,7 @@ gt(dframe) %>%
   overflow-x: hidden;
 }
 
-#hcqtkpmotv .gt_stub {
+#dzokaxtwre .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -841,7 +841,7 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#hcqtkpmotv .gt_stub_row_group {
+#dzokaxtwre .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -855,15 +855,15 @@ gt(dframe) %>%
   vertical-align: top;
 }
 
-#hcqtkpmotv .gt_row_group_first td {
+#dzokaxtwre .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hcqtkpmotv .gt_row_group_first th {
+#dzokaxtwre .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hcqtkpmotv .gt_summary_row {
+#dzokaxtwre .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -873,16 +873,16 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#hcqtkpmotv .gt_first_summary_row {
+#dzokaxtwre .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_first_summary_row.thick {
+#dzokaxtwre .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hcqtkpmotv .gt_last_summary_row {
+#dzokaxtwre .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -892,7 +892,7 @@ gt(dframe) %>%
   border-bottom-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_grand_summary_row {
+#dzokaxtwre .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -902,7 +902,7 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#hcqtkpmotv .gt_first_grand_summary_row {
+#dzokaxtwre .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -912,7 +912,7 @@ gt(dframe) %>%
   border-top-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_last_grand_summary_row_top {
+#dzokaxtwre .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -922,11 +922,11 @@ gt(dframe) %>%
   border-bottom-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_striped {
+#dzokaxtwre .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hcqtkpmotv .gt_table_body {
+#dzokaxtwre .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -935,7 +935,7 @@ gt(dframe) %>%
   border-bottom-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_footnotes {
+#dzokaxtwre .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -949,7 +949,7 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_footnote {
+#dzokaxtwre .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -958,7 +958,7 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#hcqtkpmotv .gt_sourcenotes {
+#dzokaxtwre .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -972,7 +972,7 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#hcqtkpmotv .gt_sourcenote {
+#dzokaxtwre .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -980,72 +980,72 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#hcqtkpmotv .gt_left {
+#dzokaxtwre .gt_left {
   text-align: left;
 }
 
-#hcqtkpmotv .gt_center {
+#dzokaxtwre .gt_center {
   text-align: center;
 }
 
-#hcqtkpmotv .gt_right {
+#dzokaxtwre .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hcqtkpmotv .gt_font_normal {
+#dzokaxtwre .gt_font_normal {
   font-weight: normal;
 }
 
-#hcqtkpmotv .gt_font_bold {
+#dzokaxtwre .gt_font_bold {
   font-weight: bold;
 }
 
-#hcqtkpmotv .gt_font_italic {
+#dzokaxtwre .gt_font_italic {
   font-style: italic;
 }
 
-#hcqtkpmotv .gt_super {
+#dzokaxtwre .gt_super {
   font-size: 65%;
 }
 
-#hcqtkpmotv .gt_footnote_marks {
+#dzokaxtwre .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hcqtkpmotv .gt_asterisk {
+#dzokaxtwre .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hcqtkpmotv .gt_indent_1 {
+#dzokaxtwre .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hcqtkpmotv .gt_indent_2 {
+#dzokaxtwre .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hcqtkpmotv .gt_indent_3 {
+#dzokaxtwre .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hcqtkpmotv .gt_indent_4 {
+#dzokaxtwre .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hcqtkpmotv .gt_indent_5 {
+#dzokaxtwre .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hcqtkpmotv .katex-display {
+#dzokaxtwre .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hcqtkpmotv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#dzokaxtwre div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2274,7 +2274,7 @@ summary_table
 
 
 ```{=html}
-<div class="tabwid"><style>.cl-49e84228{}.cl-49d9644c{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-49d96456{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-49d96460{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-49deb4e2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-49deb4f6{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-49deb500{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-49df1c66{width:0.7in;background-color:rgba(240, 240, 240, 1.00);vertical-align: bottom;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c7a{width:0.8in;background-color:rgba(240, 240, 240, 1.00);vertical-align: bottom;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c7b{width:0.4in;background-color:rgba(240, 240, 240, 1.00);vertical-align: bottom;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c84{width:0.5in;background-color:rgba(240, 240, 240, 1.00);vertical-align: bottom;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c85{width:0.7in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c86{width:0.8in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c8e{width:0.4in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c8f{width:0.5in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c90{width:0.7in;background-color:rgba(240, 240, 240, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c98{width:0.8in;background-color:rgba(240, 240, 240, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1c99{width:0.4in;background-color:rgba(240, 240, 240, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1ca2{width:0.5in;background-color:rgba(240, 240, 240, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1ca3{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cac{width:0.8in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cad{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cb6{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cb7{width:0.5in;background-color:rgba(249, 202, 189, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cc0{width:0.5in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cc1{width:0.5in;background-color:rgba(252, 221, 212, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cc2{width:0.5in;background-color:rgba(235, 121, 92, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cca{width:0.5in;background-color:rgba(234, 113, 82, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1ccb{width:0.5in;background-color:rgba(228, 81, 43, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cd4{width:0.5in;background-color:rgba(228, 77, 38, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cd5{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cde{width:0.8in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1ce8{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1ce9{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cf2{width:0.5in;background-color:rgba(228, 77, 38, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-49df1cf3{width:0.5in;background-color:rgba(228, 78, 39, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-49e84228'><thead><tr style="overflow-wrap:break-word;"><th  colspan="3"class="cl-49df1c66"><p class="cl-49deb4e2"><span class="cl-49d9644c">N</span><span class="cl-49d96456"> = </span><span class="cl-49d96456">2027</span></p></th><th  colspan="2"class="cl-49df1c84"><p class="cl-49deb4f6"><span class="cl-49d96456">Random Starts</span></p></th><th  colspan="2"class="cl-49df1c84"><p class="cl-49deb4f6"><span class="cl-49d96456">Final starting value sets converging</span></p></th><th  colspan="2"class="cl-49df1c84"><p class="cl-49deb4f6"><span class="cl-49d96456">LL Replication</span></p></th><th  colspan="2"class="cl-49df1c84"><p class="cl-49deb4f6"><span class="cl-49d96456">Smallest Class</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-49df1c85"><p class="cl-49deb4e2"><span class="cl-49d96456">Model</span></p></th><th class="cl-49df1c86"><p class="cl-49deb4f6"><span class="cl-49d96456">Best LL</span></p></th><th class="cl-49df1c8e"><p class="cl-49deb4f6"><span class="cl-49d96456">npar</span></p></th><th class="cl-49df1c8f"><p class="cl-49deb4f6"><span class="cl-49d96456">Initial</span></p></th><th class="cl-49df1c8f"><p class="cl-49deb4f6"><span class="cl-49d96456">Final</span></p></th><th class="cl-49df1c8f"><p class="cl-49deb4f6"><span class="cl-49d9644c">f</span></p></th><th class="cl-49df1c8f"><p class="cl-49deb4f6"><span class="cl-49d96456">%</span></p></th><th class="cl-49df1c8f"><p class="cl-49deb4f6"><span class="cl-49d9644c">f</span></p></th><th class="cl-49df1c8f"><p class="cl-49deb4f6"><span class="cl-49d96456">%</span></p></th><th class="cl-49df1c8f"><p class="cl-49deb4f6"><span class="cl-49d9644c">f</span></p></th><th class="cl-49df1c8f"><p class="cl-49deb4f6"><span class="cl-49d96456">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-49df1c90"><p class="cl-49deb500"><span class="cl-49d96456">1-Class</span></p></td><td class="cl-49df1c98"><p class="cl-49deb500"><span class="cl-49d96456">-5,443.409</span></p></td><td class="cl-49df1c99"><p class="cl-49deb500"><span class="cl-49d96456">6</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">500</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">100</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">100</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">100%</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">100</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">100.0%</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">2,027</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">100.0%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-49df1ca3"><p class="cl-49deb500"><span class="cl-49d96456">2-Class</span></p></td><td class="cl-49df1cac"><p class="cl-49deb500"><span class="cl-49d96456">-5,194.136</span></p></td><td class="cl-49df1cad"><p class="cl-49deb500"><span class="cl-49d96456">13</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">500</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">100</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">86</span></p></td><td class="cl-49df1cb7"><p class="cl-49deb500"><span class="cl-49d96456">86%</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">86</span></p></td><td class="cl-49df1cc0"><p class="cl-49deb500"><span class="cl-49d96456">100.0%</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">444</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">21.9%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-49df1c90"><p class="cl-49deb500"><span class="cl-49d96456">3-Class</span></p></td><td class="cl-49df1c98"><p class="cl-49deb500"><span class="cl-49d96456">-5,122.478</span></p></td><td class="cl-49df1c99"><p class="cl-49deb500"><span class="cl-49d96456">20</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">500</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">100</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">94</span></p></td><td class="cl-49df1cc1"><p class="cl-49deb500"><span class="cl-49d96456">94%</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">94</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">100.0%</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">216</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">10.6%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-49df1ca3"><p class="cl-49deb500"><span class="cl-49d96456">4-Class</span></p></td><td class="cl-49df1cac"><p class="cl-49deb500"><span class="cl-49d96456">-5,111.757</span></p></td><td class="cl-49df1cad"><p class="cl-49deb500"><span class="cl-49d96456">27</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">500</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">100</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">54</span></p></td><td class="cl-49df1cc2"><p class="cl-49deb500"><span class="cl-49d96460">54%</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">19</span></p></td><td class="cl-49df1cca"><p class="cl-49deb500"><span class="cl-49d96456">35.2%</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">212</span></p></td><td class="cl-49df1cb6"><p class="cl-49deb500"><span class="cl-49d96456">10.5%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-49df1c90"><p class="cl-49deb500"><span class="cl-49d96456">5-Class</span></p></td><td class="cl-49df1c98"><p class="cl-49deb500"><span class="cl-49d96456">-5,105.589</span></p></td><td class="cl-49df1c99"><p class="cl-49deb500"><span class="cl-49d96456">34</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">500</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">100</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">38</span></p></td><td class="cl-49df1ccb"><p class="cl-49deb500"><span class="cl-49d96460">38%</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">6</span></p></td><td class="cl-49df1cd4"><p class="cl-49deb500"><span class="cl-49d96460">15.8%</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">43</span></p></td><td class="cl-49df1ca2"><p class="cl-49deb500"><span class="cl-49d96456">2.1%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-49df1cd5"><p class="cl-49deb500"><span class="cl-49d96456">6-Class</span></p></td><td class="cl-49df1cde"><p class="cl-49deb500"><span class="cl-49d96456">-5,099.881</span></p></td><td class="cl-49df1ce8"><p class="cl-49deb500"><span class="cl-49d96456">41</span></p></td><td class="cl-49df1ce9"><p class="cl-49deb500"><span class="cl-49d96456">500</span></p></td><td class="cl-49df1ce9"><p class="cl-49deb500"><span class="cl-49d96456">100</span></p></td><td class="cl-49df1ce9"><p class="cl-49deb500"><span class="cl-49d96456">36</span></p></td><td class="cl-49df1cf2"><p class="cl-49deb500"><span class="cl-49d96460">36%</span></p></td><td class="cl-49df1ce9"><p class="cl-49deb500"><span class="cl-49d96456">6</span></p></td><td class="cl-49df1cf3"><p class="cl-49deb500"><span class="cl-49d96460">16.7%</span></p></td><td class="cl-49df1ce9"><p class="cl-49deb500"><span class="cl-49d96456">36</span></p></td><td class="cl-49df1ce9"><p class="cl-49deb500"><span class="cl-49d96456">1.8%</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-c584a224{}.cl-c57c408e{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c57c4098{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c57c40a2{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-c57fb322{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c57fb32c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c57fb32d{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c57fed2e{width:0.7in;background-color:rgba(240, 240, 240, 1.00);vertical-align: bottom;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed38{width:0.8in;background-color:rgba(240, 240, 240, 1.00);vertical-align: bottom;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed39{width:0.4in;background-color:rgba(240, 240, 240, 1.00);vertical-align: bottom;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed42{width:0.5in;background-color:rgba(240, 240, 240, 1.00);vertical-align: bottom;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed43{width:0.7in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed44{width:0.8in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed4c{width:0.4in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed56{width:0.5in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed57{width:0.7in;background-color:rgba(240, 240, 240, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed58{width:0.8in;background-color:rgba(240, 240, 240, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed60{width:0.4in;background-color:rgba(240, 240, 240, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed61{width:0.5in;background-color:rgba(240, 240, 240, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed6a{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed74{width:0.8in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed75{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed7e{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed7f{width:0.5in;background-color:rgba(249, 202, 189, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed88{width:0.5in;background-color:rgba(255, 255, 255, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed89{width:0.5in;background-color:rgba(252, 221, 212, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed8a{width:0.5in;background-color:rgba(235, 121, 92, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed92{width:0.5in;background-color:rgba(234, 113, 82, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed93{width:0.5in;background-color:rgba(228, 81, 43, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed94{width:0.5in;background-color:rgba(228, 77, 38, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed9c{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed9d{width:0.8in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fed9e{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57feda6{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57feda7{width:0.5in;background-color:rgba(228, 77, 38, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c57fedb0{width:0.5in;background-color:rgba(228, 78, 39, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-c584a224'><thead><tr style="overflow-wrap:break-word;"><th  colspan="3"class="cl-c57fed2e"><p class="cl-c57fb322"><span class="cl-c57c408e">N</span><span class="cl-c57c4098"> = </span><span class="cl-c57c4098">2027</span></p></th><th  colspan="2"class="cl-c57fed42"><p class="cl-c57fb32c"><span class="cl-c57c4098">Random Starts</span></p></th><th  colspan="2"class="cl-c57fed42"><p class="cl-c57fb32c"><span class="cl-c57c4098">Final starting value sets converging</span></p></th><th  colspan="2"class="cl-c57fed42"><p class="cl-c57fb32c"><span class="cl-c57c4098">LL Replication</span></p></th><th  colspan="2"class="cl-c57fed42"><p class="cl-c57fb32c"><span class="cl-c57c4098">Smallest Class</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-c57fed43"><p class="cl-c57fb322"><span class="cl-c57c4098">Model</span></p></th><th class="cl-c57fed44"><p class="cl-c57fb32c"><span class="cl-c57c4098">Best LL</span></p></th><th class="cl-c57fed4c"><p class="cl-c57fb32c"><span class="cl-c57c4098">npar</span></p></th><th class="cl-c57fed56"><p class="cl-c57fb32c"><span class="cl-c57c4098">Initial</span></p></th><th class="cl-c57fed56"><p class="cl-c57fb32c"><span class="cl-c57c4098">Final</span></p></th><th class="cl-c57fed56"><p class="cl-c57fb32c"><span class="cl-c57c408e">f</span></p></th><th class="cl-c57fed56"><p class="cl-c57fb32c"><span class="cl-c57c4098">%</span></p></th><th class="cl-c57fed56"><p class="cl-c57fb32c"><span class="cl-c57c408e">f</span></p></th><th class="cl-c57fed56"><p class="cl-c57fb32c"><span class="cl-c57c4098">%</span></p></th><th class="cl-c57fed56"><p class="cl-c57fb32c"><span class="cl-c57c408e">f</span></p></th><th class="cl-c57fed56"><p class="cl-c57fb32c"><span class="cl-c57c4098">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c57fed57"><p class="cl-c57fb32d"><span class="cl-c57c4098">1-Class</span></p></td><td class="cl-c57fed58"><p class="cl-c57fb32d"><span class="cl-c57c4098">-5,443.409</span></p></td><td class="cl-c57fed60"><p class="cl-c57fb32d"><span class="cl-c57c4098">6</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">500</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">100</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">100</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">100%</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">100</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">100.0%</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">2,027</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">100.0%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c57fed6a"><p class="cl-c57fb32d"><span class="cl-c57c4098">2-Class</span></p></td><td class="cl-c57fed74"><p class="cl-c57fb32d"><span class="cl-c57c4098">-5,194.136</span></p></td><td class="cl-c57fed75"><p class="cl-c57fb32d"><span class="cl-c57c4098">13</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">500</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">100</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">86</span></p></td><td class="cl-c57fed7f"><p class="cl-c57fb32d"><span class="cl-c57c4098">86%</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">86</span></p></td><td class="cl-c57fed88"><p class="cl-c57fb32d"><span class="cl-c57c4098">100.0%</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">444</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">21.9%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c57fed57"><p class="cl-c57fb32d"><span class="cl-c57c4098">3-Class</span></p></td><td class="cl-c57fed58"><p class="cl-c57fb32d"><span class="cl-c57c4098">-5,122.478</span></p></td><td class="cl-c57fed60"><p class="cl-c57fb32d"><span class="cl-c57c4098">20</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">500</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">100</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">94</span></p></td><td class="cl-c57fed89"><p class="cl-c57fb32d"><span class="cl-c57c4098">94%</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">94</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">100.0%</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">216</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">10.6%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c57fed6a"><p class="cl-c57fb32d"><span class="cl-c57c4098">4-Class</span></p></td><td class="cl-c57fed74"><p class="cl-c57fb32d"><span class="cl-c57c4098">-5,111.757</span></p></td><td class="cl-c57fed75"><p class="cl-c57fb32d"><span class="cl-c57c4098">27</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">500</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">100</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">54</span></p></td><td class="cl-c57fed8a"><p class="cl-c57fb32d"><span class="cl-c57c40a2">54%</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">19</span></p></td><td class="cl-c57fed92"><p class="cl-c57fb32d"><span class="cl-c57c4098">35.2%</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">212</span></p></td><td class="cl-c57fed7e"><p class="cl-c57fb32d"><span class="cl-c57c4098">10.5%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c57fed57"><p class="cl-c57fb32d"><span class="cl-c57c4098">5-Class</span></p></td><td class="cl-c57fed58"><p class="cl-c57fb32d"><span class="cl-c57c4098">-5,105.589</span></p></td><td class="cl-c57fed60"><p class="cl-c57fb32d"><span class="cl-c57c4098">34</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">500</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">100</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">38</span></p></td><td class="cl-c57fed93"><p class="cl-c57fb32d"><span class="cl-c57c40a2">38%</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">6</span></p></td><td class="cl-c57fed94"><p class="cl-c57fb32d"><span class="cl-c57c40a2">15.8%</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">43</span></p></td><td class="cl-c57fed61"><p class="cl-c57fb32d"><span class="cl-c57c4098">2.1%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c57fed9c"><p class="cl-c57fb32d"><span class="cl-c57c4098">6-Class</span></p></td><td class="cl-c57fed9d"><p class="cl-c57fb32d"><span class="cl-c57c4098">-5,099.881</span></p></td><td class="cl-c57fed9e"><p class="cl-c57fb32d"><span class="cl-c57c4098">41</span></p></td><td class="cl-c57feda6"><p class="cl-c57fb32d"><span class="cl-c57c4098">500</span></p></td><td class="cl-c57feda6"><p class="cl-c57fb32d"><span class="cl-c57c4098">100</span></p></td><td class="cl-c57feda6"><p class="cl-c57fb32d"><span class="cl-c57c4098">36</span></p></td><td class="cl-c57feda7"><p class="cl-c57fb32d"><span class="cl-c57c40a2">36%</span></p></td><td class="cl-c57feda6"><p class="cl-c57fb32d"><span class="cl-c57c4098">6</span></p></td><td class="cl-c57fedb0"><p class="cl-c57fb32d"><span class="cl-c57c40a2">16.7%</span></p></td><td class="cl-c57feda6"><p class="cl-c57fb32d"><span class="cl-c57c4098">36</span></p></td><td class="cl-c57feda6"><p class="cl-c57fb32d"><span class="cl-c57c4098">1.8%</span></p></td></tr></tbody></table></div>
 ```
 
 
@@ -5313,7 +5313,7 @@ ll_replication_table_all
 
 
 ```{=html}
-<div class="tabwid"><style>.cl-4aaa857c{}.cl-4a9700ce{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4a9700e2{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4a9700e3{font-family:'Arial';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4a9cfac4{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-4a9cfad8{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-4a9d7a12{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4a9d7a1c{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4a9d7a8a{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4a9d7a94{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4a9d7ada{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4a9d7adb{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4a9d7ae4{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4a9d7ae5{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-4aaa857c'><thead><tr style="overflow-wrap:break-word;"><th  colspan="3"class="cl-4a9d7a12"><p class="cl-4a9cfac4"><span class="cl-4a9700ce">1-Class</span></p></th><th  colspan="3"class="cl-4a9d7a12"><p class="cl-4a9cfac4"><span class="cl-4a9700ce">2-Class</span></p></th><th  colspan="3"class="cl-4a9d7a12"><p class="cl-4a9cfac4"><span class="cl-4a9700ce">3-Class</span></p></th><th  colspan="3"class="cl-4a9d7a12"><p class="cl-4a9cfac4"><span class="cl-4a9700ce">4-Class</span></p></th><th  colspan="3"class="cl-4a9d7a12"><p class="cl-4a9cfac4"><span class="cl-4a9700ce">5-Class</span></p></th><th  colspan="3"class="cl-4a9d7a12"><p class="cl-4a9cfac4"><span class="cl-4a9700ce">6-Class</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-4a9d7a8a"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">LL</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">N</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">%</span></p></th><th class="cl-4a9d7a8a"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">LL</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">N</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">%</span></p></th><th class="cl-4a9d7a8a"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">LL</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">N</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">%</span></p></th><th class="cl-4a9d7a8a"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">LL</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">N</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">%</span></p></th><th class="cl-4a9d7a8a"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">LL</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">N</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">%</span></p></th><th class="cl-4a9d7a8a"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">LL</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">N</span></p></th><th class="cl-4a9d7a94"><p class="cl-4a9cfac4"><span class="cl-4a9700e2">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5443.409</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">100</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">100</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5194.136</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">86</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">100</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5122.478</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">94</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">100</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5111.757</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">19</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">35.2</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5105.589</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">6</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">15.8</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,099.881</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">6</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">16.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5111.759</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">4</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">7.4</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5105.661</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,100.272</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5112.253</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">5</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">9.3</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5105.791</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">3</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">7.9</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,100.780</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5113.91</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1.9</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5105.799</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">3</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">7.9</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,100.874</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5115.532</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">17</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">31.5</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5106.628</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,100.928</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">5.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5115.538</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1.9</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5106.748</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.017</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5116.981</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">3</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">5.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5106.864</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.071</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">3</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">8.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5117.829</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">3.7</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5106.975</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.089</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5117.837</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">3.7</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5106.983</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.332</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5107.172</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">4</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">10.5</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.448</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5107.449</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.494</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5107.45</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">5.3</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.502</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">5.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5107.458</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.512</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5107.728</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.579</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">5.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5107.958</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.859</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5108.003</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.923</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5108.058</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,101.964</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5108.86</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">3</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">7.9</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,102.075</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5109.002</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,102.275</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5110.373</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,102.613</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5110.474</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,102.616</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5111.532</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,103.084</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5112.695</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.6</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,104.611</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,106.123</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ada"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,106.486</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7adb"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4a9d7ae4"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae4"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae4"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae4"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae4"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">—</span></p></td><td class="cl-4a9d7ae4"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">-5,107.624</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">1</span></p></td><td class="cl-4a9d7ae5"><p class="cl-4a9cfad8"><span class="cl-4a9700e3">2.8</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-c5d6d92c{}.cl-c5ce73c2{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c5ce73cc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c5ce73d6{font-family:'Arial';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c5d179be{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-c5d179bf{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-c5d1ac90{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5d1ac91{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 255, 255, 0.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5d1ac9a{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5d1aca4{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5d1aca5{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5d1aca6{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5d1acae{width:0.7in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5d1acaf{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-c5d6d92c'><thead><tr style="overflow-wrap:break-word;"><th  colspan="3"class="cl-c5d1ac90"><p class="cl-c5d179be"><span class="cl-c5ce73c2">1-Class</span></p></th><th  colspan="3"class="cl-c5d1ac90"><p class="cl-c5d179be"><span class="cl-c5ce73c2">2-Class</span></p></th><th  colspan="3"class="cl-c5d1ac90"><p class="cl-c5d179be"><span class="cl-c5ce73c2">3-Class</span></p></th><th  colspan="3"class="cl-c5d1ac90"><p class="cl-c5d179be"><span class="cl-c5ce73c2">4-Class</span></p></th><th  colspan="3"class="cl-c5d1ac90"><p class="cl-c5d179be"><span class="cl-c5ce73c2">5-Class</span></p></th><th  colspan="3"class="cl-c5d1ac90"><p class="cl-c5d179be"><span class="cl-c5ce73c2">6-Class</span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-c5d1ac9a"><p class="cl-c5d179be"><span class="cl-c5ce73cc">LL</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">N</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">%</span></p></th><th class="cl-c5d1ac9a"><p class="cl-c5d179be"><span class="cl-c5ce73cc">LL</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">N</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">%</span></p></th><th class="cl-c5d1ac9a"><p class="cl-c5d179be"><span class="cl-c5ce73cc">LL</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">N</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">%</span></p></th><th class="cl-c5d1ac9a"><p class="cl-c5d179be"><span class="cl-c5ce73cc">LL</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">N</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">%</span></p></th><th class="cl-c5d1ac9a"><p class="cl-c5d179be"><span class="cl-c5ce73cc">LL</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">N</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">%</span></p></th><th class="cl-c5d1ac9a"><p class="cl-c5d179be"><span class="cl-c5ce73cc">LL</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">N</span></p></th><th class="cl-c5d1aca4"><p class="cl-c5d179be"><span class="cl-c5ce73cc">%</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5443.409</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">100</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">100</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5194.136</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">86</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">100</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5122.478</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">94</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">100</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5111.757</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">19</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">35.2</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5105.589</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">6</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">15.8</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,099.881</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">6</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">16.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5111.759</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">4</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">7.4</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5105.661</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,100.272</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5112.253</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">5</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">9.3</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5105.791</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">3</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">7.9</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,100.780</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5113.91</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1.9</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5105.799</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">3</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">7.9</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,100.874</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5115.532</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">17</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">31.5</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5106.628</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,100.928</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">5.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5115.538</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1.9</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5106.748</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.017</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5116.981</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">3</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">5.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5106.864</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.071</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">3</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">8.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5117.829</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">3.7</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5106.975</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.089</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5117.837</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">3.7</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5106.983</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.332</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5107.172</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">4</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">10.5</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.448</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5107.449</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.494</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5107.45</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">5.3</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.502</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">5.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5107.458</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.512</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5107.728</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.579</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">5.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5107.958</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.859</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5108.003</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.923</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5108.058</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,101.964</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5108.86</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">3</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">7.9</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,102.075</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5109.002</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,102.275</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5110.373</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,102.613</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5110.474</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,102.616</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5111.532</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,103.084</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5112.695</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.6</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,104.611</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,106.123</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1aca5"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,106.486</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1aca6"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5d1acae"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acae"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acae"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acae"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acae"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">—</span></p></td><td class="cl-c5d1acae"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">-5,107.624</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">1</span></p></td><td class="cl-c5d1acaf"><p class="cl-c5d179bf"><span class="cl-c5ce73d6">2.8</span></p></td></tr></tbody></table></div>
 ```
 
 

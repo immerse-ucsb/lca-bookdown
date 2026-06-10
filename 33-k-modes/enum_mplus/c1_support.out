@@ -1,0 +1,507 @@
+Mplus VERSION 8.11 (Mac)
+MUTHEN & MUTHEN
+02/26/2025   4:06 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  1-Class
+  DATA:
+  FILE = "support.dat";
+
+  VARIABLE:
+  NAMES = ResponseId Family PhysPeers NonPhysPeers HSPhysTeach NonPhysFaculty
+       PhysFaculty ResearchGrp WiPGroup GIPGroup ReligOrg OtherIdent SocialComm
+       MentalHlth Woman Transgender NonBinary White Asian Hispanic Black MidEastern
+       NatAmerican PacificIslander InstitutionType AcademicYear Identity;
+   MISSING=.;
+   categorical = Family-MentalHlth;
+  usevar = Family-MentalHlth;
+  classes = c(1);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 200 100;
+      processors = 10;
+  OUTPUT:
+  sampstat residual tech11 tech14 svalues;
+  PLOT:
+  type = plot3;
+      series = Family-MentalHlth(*);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in PLOT command
+  Note that only the first 8 characters of variable names are used in plots.
+  If variable names are not unique within the first 8 characters, problems
+  may occur.
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH14 is ignored.
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+1-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         567
+
+Number of dependent variables                                   13
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   FAMILY      PHYSPEER    NONPHYSP    HSPHYSTE    NONPHYSF    PHYSFACU
+   RESEARCH    WIPGROUP    GIPGROUP    RELIGORG    OTHERIDE    SOCIALCO
+   MENTALHL
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        200
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  support.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           0
+     Number of u missing data patterns           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    FAMILY
+      Category 1    0.351          199.000
+      Category 2    0.649          368.000
+    PHYSPEER
+      Category 1    0.146           83.000
+      Category 2    0.854          484.000
+    NONPHYSP
+      Category 1    0.266          151.000
+      Category 2    0.734          416.000
+    HSPHYSTE
+      Category 1    0.755          428.000
+      Category 2    0.245          139.000
+    NONPHYSF
+      Category 1    0.764          433.000
+      Category 2    0.236          134.000
+    PHYSFACU
+      Category 1    0.259          147.000
+      Category 2    0.741          420.000
+    RESEARCH
+      Category 1    0.462          262.000
+      Category 2    0.538          305.000
+    WIPGROUP
+      Category 1    0.492          279.000
+      Category 2    0.508          288.000
+    GIPGROUP
+      Category 1    0.727          412.000
+      Category 2    0.273          155.000
+    RELIGORG
+      Category 1    0.922          523.000
+      Category 2    0.078           44.000
+    OTHERIDE
+      Category 1    0.961          545.000
+      Category 2    0.039           22.000
+    SOCIALCO
+      Category 1    0.778          441.000
+      Category 2    0.222          126.000
+    MENTALHL
+      Category 1    0.788          447.000
+      Category 2    0.212          120.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -3840.128  931874           141
+           -3840.128  821011           161
+           -3840.128  314084           81
+           -3840.128  370466           41
+           -3840.128  902278           21
+           -3840.128  609185           181
+           -3840.128  371246           101
+           -3840.128  635245           121
+           -3840.128  603842           61
+           -3840.128  285380           1
+           -3840.128  93468            3
+           -3840.128  27071            15
+           -3840.128  462953           7
+           -3840.128  76974            16
+           -3840.128  939021           8
+           -3840.128  68985            17
+           -3840.128  851945           18
+           -3840.128  608496           4
+           -3840.128  unperturbed      0
+           -3840.128  991329           182
+           -3840.128  131856           90
+           -3840.128  264081           186
+           -3840.128  164305           128
+           -3840.128  311214           64
+           -3840.128  814975           129
+           -3840.128  509733           130
+           -3840.128  626891           32
+           -3840.128  565819           65
+           -3840.128  468036           131
+           -3840.128  313407           132
+           -3840.128  467339           66
+           -3840.128  783165           170
+           -3840.128  303634           169
+           -3840.128  321390           133
+           -3840.128  903369           134
+           -3840.128  297518           166
+           -3840.128  263268           165
+           -3840.128  749453           33
+           -3840.128  789985           67
+           -3840.128  437181           135
+           -3840.128  232559           136
+           -3840.128  405079           68
+           -3840.128  685657           69
+           -3840.128  341041           34
+           -3840.128  987090           70
+           -3840.128  192071           142
+           -3840.128  830392           35
+           -3840.128  475420           71
+           -3840.128  22089            143
+           -3840.128  856536           144
+           -3840.128  783110           72
+           -3840.128  695155           150
+           -3840.128  788796           145
+           -3840.128  369602           146
+           -3840.128  260601           36
+           -3840.128  863094           147
+           -3840.128  51375            148
+           -3840.128  417035           149
+           -3840.128  40340            188
+           -3840.128  966014           37
+           -3840.128  246261           38
+           -3840.128  645664           39
+           -3840.128  913639           162
+           -3840.128  915642           40
+           -3840.128  484501           163
+           -3840.128  215353           164
+           -3840.128  284109           82
+           -3840.128  268217           83
+           -3840.128  654136           167
+           -3840.128  636396           168
+           -3840.128  782200           84
+           -3840.128  352277           42
+           -3840.128  569833           85
+           -3840.128  170954           86
+           -3840.128  963053           43
+           -3840.128  544048           87
+           -3840.128  373505           88
+           -3840.128  436460           89
+           -3840.128  407168           44
+           -3840.128  120506           45
+           -3840.128  579995           183
+           -3840.128  281558           184
+           -3840.128  329127           185
+           -3840.128  318230           46
+           -3840.128  793035           187
+           -3840.128  458181           189
+           -3840.128  848163           47
+           -3840.128  967237           48
+           -3840.128  202790           198
+           -3840.128  568859           49
+           -3840.128  761633           50
+           -3840.128  751153           110
+           -3840.128  190339           102
+           -3840.128  292884           103
+           -3840.128  70118            104
+           -3840.128  165853           105
+           -3840.128  464179           106
+           -3840.128  25127            107
+           -3840.128  100874           108
+           -3840.128  466971           109
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       13
+
+Loglikelihood
+
+          H0 Value                       -3840.128
+          H0 Scaling Correction Factor      1.0000
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    7706.255
+          Bayesian (BIC)                  7762.680
+          Sample-Size Adjusted BIC        7721.411
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           4568.449
+          Degrees of Freedom                  8168
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                           1466.043
+          Degrees of Freedom                  8168
+          P-Value                           1.0000
+
+** Of the 8192 cells in the latent class indicator table, 10
+   were deleted in the calculation of chi-square due to extreme values.
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        567.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        567.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              567          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    FAMILY$1          -0.615      0.088     -6.987      0.000
+    PHYSPEER$1        -1.763      0.119    -14.842      0.000
+    NONPHYSP$1        -1.013      0.095    -10.667      0.000
+    HSPHYSTE$1         1.125      0.098     11.520      0.000
+    NONPHYSF$1         1.173      0.099     11.865      0.000
+    PHYSFACU$1        -1.050      0.096    -10.955      0.000
+    RESEARCH$1        -0.152      0.084     -1.804      0.071
+    WIPGROUP$1        -0.032      0.084     -0.378      0.705
+    GIPGROUP$1         0.978      0.094     10.375      0.000
+    RELIGORG$1         2.475      0.157     15.770      0.000
+    OTHERIDE$1         3.210      0.217     14.760      0.000
+    SOCIALCO$1         1.253      0.101     12.402      0.000
+    MENTALHL$1         1.315      0.103     12.791      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.758E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ FAMILY
+    Category 1         0.351      0.020     17.510      0.000
+    Category 2         0.649      0.020     32.381      0.000
+ PHYSPEERS
+    Category 1         0.146      0.015      9.861      0.000
+    Category 2         0.854      0.015     57.501      0.000
+ NONPHYSPEE
+    Category 1         0.266      0.019     14.346      0.000
+    Category 2         0.734      0.019     39.523      0.000
+ HSPHYSTEAC
+    Category 1         0.755      0.018     41.784      0.000
+    Category 2         0.245      0.018     13.570      0.000
+ NONPHYSFAC
+    Category 1         0.764      0.018     42.804      0.000
+    Category 2         0.236      0.018     13.246      0.000
+ PHYSFACULT
+    Category 1         0.259      0.018     14.087      0.000
+    Category 2         0.741      0.018     40.249      0.000
+ RESEARCHGR
+    Category 1         0.462      0.021     22.069      0.000
+    Category 2         0.538      0.021     25.692      0.000
+ WIPGROUP
+    Category 1         0.492      0.021     23.437      0.000
+    Category 2         0.508      0.021     24.193      0.000
+ GIPGROUP
+    Category 1         0.727      0.019     38.822      0.000
+    Category 2         0.273      0.019     14.605      0.000
+ RELIGORG
+    Category 1         0.922      0.011     82.095      0.000
+    Category 2         0.078      0.011      6.907      0.000
+ OTHERIDENT
+    Category 1         0.961      0.008    118.516      0.000
+    Category 2         0.039      0.008      4.784      0.000
+ SOCIALCOMM
+    Category 1         0.778      0.017     44.548      0.000
+    Category 2         0.222      0.017     12.728      0.000
+ MENTALHLTH
+    Category 1         0.788      0.017     45.957      0.000
+    Category 2         0.212      0.017     12.338      0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     %C#1%
+
+     [ family$1*-0.61478 ];
+     [ physpeers$1*-1.76324 ];
+     [ nonphyspeers$1*-1.01341 ];
+     [ hsphysteach$1*1.12465 ];
+     [ nonphysfaculty$1*1.17290 ];
+     [ physfaculty$1*-1.04982 ];
+     [ researchgrp$1*-0.15197 ];
+     [ wipgroup$1*-0.03175 ];
+     [ gipgroup$1*0.97760 ];
+     [ religorg$1*2.47539 ];
+     [ otherident$1*3.20974 ];
+     [ socialcomm$1*1.25276 ];
+     [ mentalhlth$1*1.31507 ];
+
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+     Beginning Time:  16:06:49
+        Ending Time:  16:06:50
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

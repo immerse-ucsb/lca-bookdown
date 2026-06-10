@@ -1,0 +1,73 @@
+TITLE:
+Step 3 - Three-Step
+DATA:
+FILE = "C:/Users/dnajiarch/Box/LTA/10faq_aux/dang_2017/three_step/
+Step3.dat"; 
+VARIABLE:
+NAMES = BYS87A BYS87C BYS87F BYS89A BYS89B BYS89L BYS89R BYS89U FEMALE SES_DICH
+     F3ONET2C CPROB1 CPROB2 CPROB3 CPROB4 N F3BYTSCW; 
+ MISSING=.;
+ nominal=N;
+  classes = c(4);
+  usevar = N FEMALE SES_DICH F3ONET2C;
+  categorical = F3ONET2C;
+DEFINE:
+center FEMALE SES_DICH (grandmean);
+ANALYSIS:
+estimator = mlr; 
+  type = mixture; 
+  starts = 0;
+MODEL:
+%OVERALL%
+
+ F3ONET2C on FEMALE SES_DICH; ! covariate as a related to the distal outcome
+ C on female (f1-f3);
+ C on SES_DICH (s1-s3);
+
+    %C#1%
+ [n#1@2.691]; ! MUST EDIT if you do not have a 5-class model. 
+ [n#2@-0.448];
+ [n#3@-0.013];
+ 
+ [F3ONET2C$1](m1);    ! conditional distal logit
+
+ %C#2%
+ [n#1@-0.893];
+ [n#2@1.664];
+ [n#3@-1.308];
+ 
+ [F3ONET2C$1](m2);
+ 
+ %C#3%
+ [n#1@3.261];
+ [n#2@2.159];
+ [n#3@5.684];
+ 
+ [F3ONET2C$1](m3);
+
+ %C#4%
+ [n#1@-3.825];
+ [n#2@-3.826];
+ [n#3@-5.953];
+ 
+ [F3ONET2C$1](m4);
+
+MODEL CONSTRAINT:
+New (
+    ! Distal mean differences (6 total for 4 classes)
+    diff12 diff13 diff14 
+    diff23 diff24 diff34
+  );
+  
+  ! Distal mean comparisons
+  diff12 = m1-m2;
+  diff13 = m1-m3;
+  diff14 = m1-m4;
+  diff23 = m2-m3;
+  diff24 = m2-m4;
+  diff34 = m3-m4;
+ 
+MODEL TEST:
+f1=0; f2=0; f3=0;
+OUTPUT:
+sampstat

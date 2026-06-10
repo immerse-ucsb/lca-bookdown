@@ -4,24 +4,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>23 Growth Mixture Models | Mixture Modeling with MplusAutomation</title>
+<title>24 Growth Mixture Models | Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="Example: Longitudinal Study of American Youth Data source: : This example looks at science IRT scores over time (Grades 7-12). See documentation here. Covariates include gender and interest in...">
 <meta name="generator" content="bookdown 0.46 with bs4_book()">
-<meta property="og:title" content="23 Growth Mixture Models | Mixture Modeling with MplusAutomation">
+<meta property="og:title" content="24 Growth Mixture Models | Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/growth-mixture-models.html">
 <meta property="og:description" content="Example: Longitudinal Study of American Youth Data source: : This example looks at science IRT scores over time (Grades 7-12). See documentation here. Covariates include gender and interest in...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="23 Growth Mixture Models | Mixture Modeling with MplusAutomation">
+<meta name="twitter:title" content="24 Growth Mixture Models | Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach">
 <meta name="twitter:description" content="Example: Longitudinal Study of American Youth Data source: : This example looks at science IRT scores over time (Grades 7-12). See documentation here. Covariates include gender and interest in...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.12/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
-<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -58,7 +59,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Mixture Modeling with <code>MplusAutomation</code></a>
+        <a href="index.html" title="">Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -98,15 +99,19 @@
 <li><a class="" href="lta.html"><span class="header-section-number">18</span> Enumeration</a></li>
 <li><a class="" href="measurement-invariance.html"><span class="header-section-number">19</span> Measurement Invariance</a></li>
 <li><a class="" href="adding-covariates.html"><span class="header-section-number">20</span> Adding Covariates</a></li>
+<li><a class="" href="conditional-transition-probabilities.html"><span class="header-section-number">21</span> Conditional Transition Probabilities</a></li>
 <li class="book-part">Extensions of Latent Class Models</li>
-<li><a class="" href="moderation.html"><span class="header-section-number">21</span> Moderation</a></li>
-<li><a class="" href="joint-occurrence.html"><span class="header-section-number">22</span> Joint Occurrence</a></li>
-<li><a class="active" href="growth-mixture-models.html"><span class="header-section-number">23</span> Growth Mixture Models</a></li>
+<li><a class="" href="moderation.html"><span class="header-section-number">22</span> Moderation</a></li>
+<li><a class="" href="joint-occurrence.html"><span class="header-section-number">23</span> Joint Occurrence</a></li>
+<li><a class="active" href="growth-mixture-models.html"><span class="header-section-number">24</span> Growth Mixture Models</a></li>
 <li class="book-part">Workflow for Published Manuscripts</li>
-<li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">24</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
-<li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">25</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
-<li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">26</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
-<li><a class="" href="lta-with-measurement-invariance.html"><span class="header-section-number">27</span> LTA with Measurement Invariance</a></li>
+<li><a class="" href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">25</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></li>
+<li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">26</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
+<li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">27</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
+<li><a class="" href="education-longitudinal-study.html"><span class="header-section-number">28</span> Education Longitudinal Study</a></li>
+<li><a class="" href="comparing-cluster-analysis-and-latent-profile-analysis-b.-j.-yik-y.-zhang-k.-nylund-gibson-m.-ing-l.-krawiec-j.-d.-houck-e.-d.-nacsa-2026.html"><span class="header-section-number">29</span> Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, &amp; E. D. Nacsa, 2026)</a></li>
+<li><a class="" href="moderation-with-a-latent-class-variable-arch-nylund-gibson-ing-2026.html"><span class="header-section-number">30</span> Moderation with a Latent Class Variable (Arch, Nylund-Gibson, Ing, 2026)</a></li>
+<li><a class="" href="r-code-for-the-manual-ml-three-step-in-mplus.html"><span class="header-section-number">31</span> R Code for the Manual ML Three-Step in Mplus</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
 
@@ -115,19 +120,19 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="growth-mixture-models" class="section level1" number="23">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="growth-mixture-models" class="section level1" number="24">
 <h1>
-<span class="header-section-number">23</span> Growth Mixture Models<a class="anchor" aria-label="anchor" href="#growth-mixture-models"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24</span> Growth Mixture Models<a class="anchor" aria-label="anchor" href="#growth-mixture-models"><i class="fas fa-link"></i></a>
 </h1>
 <hr>
 <p><em>Example: Longitudinal Study of American Youth</em></p>
 <p><strong>Data source:</strong> : This example looks at science IRT scores over time (Grades 7-12). <a href="https://www.lsay.org/">See documentation here</a>. Covariates include gender and interest in science issues in 7th grade.</p>
 <hr>
-<div id="load-packages-13" class="section level2" number="23.1">
+<div id="load-packages-13" class="section level2" number="24.1">
 <h2>
-<span class="header-section-number">23.1</span> Load Packages<a class="anchor" aria-label="anchor" href="#load-packages-13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.1</span> Load Packages<a class="anchor" aria-label="anchor" href="#load-packages-13"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
@@ -138,14 +143,14 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hbiostat.org/R/Hmisc/">Hmisc</a></span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
-<div id="path-diagram-1" class="section level2" number="23.2">
+<div id="path-diagram-1" class="section level2" number="24.2">
 <h2>
-<span class="header-section-number">23.2</span> Path Diagram<a class="anchor" aria-label="anchor" href="#path-diagram-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2</span> Path Diagram<a class="anchor" aria-label="anchor" href="#path-diagram-1"><i class="fas fa-link"></i></a>
 </h2>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-e8757db44f64f3e8d19f" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-e8757db44f64f3e8d19f">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-ba4ed63c7b468394bd98" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-ba4ed63c7b468394bd98">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <p>Read in LSAY dataset</p>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lsay_sci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>,<span class="st">"lsay_sci_gmm.csv"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span></span>
 <span>    id <span class="op">=</span> <span class="va">CASENUM</span>,</span>
@@ -160,11 +165,11 @@
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>female <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">female</span> <span class="op">==</span> <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
-<div id="descriptive-statistics-13" class="section level3" number="23.2.1">
+<div id="descriptive-statistics-13" class="section level3" number="24.2.1">
 <h3>
-<span class="header-section-number">23.2.1</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2.1</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-13"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lsay_sci</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -187,11 +192,11 @@
 <span><span class="co">#&gt; sci11     93.13 68.69 -0.34    -0.17 0.19</span></span>
 <span><span class="co">#&gt; sci12     95.56 69.18 -0.35     0.02 0.22</span></span></code></pre></div>
 <hr>
-<div id="correlation-table-1" class="section level4" number="23.2.1.1">
+<div id="correlation-table-1" class="section level4" number="24.2.1.1">
 <h4>
-<span class="header-section-number">23.2.1.1</span> Correlation Table<a class="anchor" aria-label="anchor" href="#correlation-table-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2.1.1</span> Correlation Table<a class="anchor" aria-label="anchor" href="#correlation-table-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cor_data</span> <span class="op">&lt;-</span> <span class="va">lsay_sci</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span><span class="op">)</span></span>
 <span></span>
@@ -247,11 +252,11 @@
 <span><span class="co">#&gt; sci12     0.0000</span></span></code></pre></div>
 <hr>
 </div>
-<div id="spaghetti-plot" class="section level4" number="23.2.1.2">
+<div id="spaghetti-plot" class="section level4" number="24.2.1.2">
 <h4>
-<span class="header-section-number">23.2.1.2</span> Spaghetti Plot<a class="anchor" aria-label="anchor" href="#spaghetti-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2.1.2</span> Spaghetti Plot<a class="anchor" aria-label="anchor" href="#spaghetti-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot_data</span> <span class="op">&lt;-</span> <span class="va">lsay_sci</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">500</span>,<span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"sci"</span><span class="op">)</span>,  </span>
@@ -279,16 +284,16 @@
 <span>       x<span class="op">=</span><span class="st">"Grade"</span>, </span>
 <span>       y<span class="op">=</span><span class="st">"Science Score"</span><span class="op">)</span> <span class="op">+</span>                                                           </span>
 <span>  <span class="fu"><a href="https://wilkelab.org/cowplot/reference/theme_cowplot.html">theme_cowplot</a></span><span class="op">(</span><span class="op">)</span>                                                                              </span></code></pre></div>
-<div class="inline-figure"><img src="25-gmm_files/figure-html/unnamed-chunk-6-1.png" alt="" width="672"></div>
+<div class="inline-figure"><img src="26-gmm_files/figure-html/unnamed-chunk-6-1.png" alt="" width="672"></div>
 <hr>
 </div>
 </div>
-<div id="unconditional-growth-mixture-model" class="section level3" number="23.2.2">
+<div id="unconditional-growth-mixture-model" class="section level3" number="24.2.2">
 <h3>
-<span class="header-section-number">23.2.2</span> Unconditional Growth Mixture Model<a class="anchor" aria-label="anchor" href="#unconditional-growth-mixture-model"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2.2</span> Unconditional Growth Mixture Model<a class="anchor" aria-label="anchor" href="#unconditional-growth-mixture-model"><i class="fas fa-link"></i></a>
 </h3>
 <p>This MplusAutomation code loops through the class-specific statements to include freeing variances and covariances.</p>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gmm_6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span><span class="op">{</span> </span>
 <span>  </span>
 <span>  <span class="co"># This MODEL section changes the model specification</span></span>
@@ -336,12 +341,12 @@
 <span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
 <hr>
-<div id="table-of-fit-4" class="section level4" number="23.2.2.1">
+<div id="table-of-fit-4" class="section level4" number="24.2.2.1">
 <h4>
-<span class="header-section-number">23.2.2.1</span> Table of Fit<a class="anchor" aria-label="anchor" href="#table-of-fit-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2.2.1</span> Table of Fit<a class="anchor" aria-label="anchor" href="#table-of-fit-4"><i class="fas fa-link"></i></a>
 </h4>
 <p>First, extract data:</p>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">output_gmm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"gmm"</span>,<span class="st">"gmm_enum"</span><span class="op">)</span>, filefilter <span class="op">=</span> <span class="st">"gmm"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -382,7 +387,7 @@
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Title</span>, <span class="va">Parameters</span>, <span class="va">min_cs</span>, <span class="va">LL</span>, <span class="va">BIC</span>, <span class="va">aBIC</span>, <span class="va">CAIC</span>, <span class="va">AWE</span>, <span class="va">BLRT_PValue</span>, <span class="va">T11_VLMR_PValue</span>, <span class="va">BF</span>, <span class="va">cmPk</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">Parameters</span><span class="op">)</span></span></code></pre></div>
 <p>Then, create table:</p>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fit_table1</span> <span class="op">&lt;-</span> <span class="va">allFit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span>title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**Model Fit Summary Table**"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -462,23 +467,23 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">fit_table1</span></span></code></pre></div>
-<div id="ynmgvjhocx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ynmgvjhocx table {
+<div id="bxwxgtbgmk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bxwxgtbgmk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ynmgvjhocx thead, #ynmgvjhocx tbody, #ynmgvjhocx tfoot, #ynmgvjhocx tr, #ynmgvjhocx td, #ynmgvjhocx th {
+#bxwxgtbgmk thead, #bxwxgtbgmk tbody, #bxwxgtbgmk tfoot, #bxwxgtbgmk tr, #bxwxgtbgmk td, #bxwxgtbgmk th {
   border-style: none;
 }
 
-#ynmgvjhocx p {
+#bxwxgtbgmk p {
   margin: 0;
   padding: 0;
 }
 
-#ynmgvjhocx .gt_table {
+#bxwxgtbgmk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -504,12 +509,12 @@
   border-left-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_caption {
+#bxwxgtbgmk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ynmgvjhocx .gt_title {
+#bxwxgtbgmk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -521,7 +526,7 @@
   border-bottom-width: 0;
 }
 
-#ynmgvjhocx .gt_subtitle {
+#bxwxgtbgmk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -533,7 +538,7 @@
   border-top-width: 0;
 }
 
-#ynmgvjhocx .gt_heading {
+#bxwxgtbgmk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -545,13 +550,13 @@
   border-right-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_bottom_border {
+#bxwxgtbgmk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_col_headings {
+#bxwxgtbgmk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -566,7 +571,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_col_heading {
+#bxwxgtbgmk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -586,7 +591,7 @@
   overflow-x: hidden;
 }
 
-#ynmgvjhocx .gt_column_spanner_outer {
+#bxwxgtbgmk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -598,15 +603,15 @@
   padding-right: 4px;
 }
 
-#ynmgvjhocx .gt_column_spanner_outer:first-child {
+#bxwxgtbgmk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ynmgvjhocx .gt_column_spanner_outer:last-child {
+#bxwxgtbgmk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ynmgvjhocx .gt_column_spanner {
+#bxwxgtbgmk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -618,11 +623,11 @@
   width: 100%;
 }
 
-#ynmgvjhocx .gt_spanner_row {
+#bxwxgtbgmk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ynmgvjhocx .gt_group_heading {
+#bxwxgtbgmk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -648,7 +653,7 @@
   text-align: left;
 }
 
-#ynmgvjhocx .gt_empty_group_heading {
+#bxwxgtbgmk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -663,15 +668,15 @@
   vertical-align: middle;
 }
 
-#ynmgvjhocx .gt_from_md > :first-child {
+#bxwxgtbgmk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ynmgvjhocx .gt_from_md > :last-child {
+#bxwxgtbgmk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ynmgvjhocx .gt_row {
+#bxwxgtbgmk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -690,7 +695,7 @@
   overflow-x: hidden;
 }
 
-#ynmgvjhocx .gt_stub {
+#bxwxgtbgmk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -703,7 +708,7 @@
   padding-right: 5px;
 }
 
-#ynmgvjhocx .gt_stub_row_group {
+#bxwxgtbgmk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -717,15 +722,15 @@
   vertical-align: top;
 }
 
-#ynmgvjhocx .gt_row_group_first td {
+#bxwxgtbgmk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ynmgvjhocx .gt_row_group_first th {
+#bxwxgtbgmk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ynmgvjhocx .gt_summary_row {
+#bxwxgtbgmk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -735,16 +740,16 @@
   padding-right: 5px;
 }
 
-#ynmgvjhocx .gt_first_summary_row {
+#bxwxgtbgmk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_first_summary_row.thick {
+#bxwxgtbgmk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ynmgvjhocx .gt_last_summary_row {
+#bxwxgtbgmk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -754,7 +759,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_grand_summary_row {
+#bxwxgtbgmk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -764,7 +769,7 @@
   padding-right: 5px;
 }
 
-#ynmgvjhocx .gt_first_grand_summary_row {
+#bxwxgtbgmk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -774,7 +779,7 @@
   border-top-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_last_grand_summary_row_top {
+#bxwxgtbgmk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -784,11 +789,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_striped {
+#bxwxgtbgmk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ynmgvjhocx .gt_table_body {
+#bxwxgtbgmk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -797,7 +802,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_footnotes {
+#bxwxgtbgmk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -811,7 +816,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_footnote {
+#bxwxgtbgmk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -820,7 +825,7 @@
   padding-right: 5px;
 }
 
-#ynmgvjhocx .gt_sourcenotes {
+#bxwxgtbgmk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -834,7 +839,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ynmgvjhocx .gt_sourcenote {
+#bxwxgtbgmk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -842,72 +847,72 @@
   padding-right: 5px;
 }
 
-#ynmgvjhocx .gt_left {
+#bxwxgtbgmk .gt_left {
   text-align: left;
 }
 
-#ynmgvjhocx .gt_center {
+#bxwxgtbgmk .gt_center {
   text-align: center;
 }
 
-#ynmgvjhocx .gt_right {
+#bxwxgtbgmk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ynmgvjhocx .gt_font_normal {
+#bxwxgtbgmk .gt_font_normal {
   font-weight: normal;
 }
 
-#ynmgvjhocx .gt_font_bold {
+#bxwxgtbgmk .gt_font_bold {
   font-weight: bold;
 }
 
-#ynmgvjhocx .gt_font_italic {
+#bxwxgtbgmk .gt_font_italic {
   font-style: italic;
 }
 
-#ynmgvjhocx .gt_super {
+#bxwxgtbgmk .gt_super {
   font-size: 65%;
 }
 
-#ynmgvjhocx .gt_footnote_marks {
+#bxwxgtbgmk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ynmgvjhocx .gt_asterisk {
+#bxwxgtbgmk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ynmgvjhocx .gt_indent_1 {
+#bxwxgtbgmk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ynmgvjhocx .gt_indent_2 {
+#bxwxgtbgmk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ynmgvjhocx .gt_indent_3 {
+#bxwxgtbgmk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ynmgvjhocx .gt_indent_4 {
+#bxwxgtbgmk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ynmgvjhocx .gt_indent_5 {
+#bxwxgtbgmk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ynmgvjhocx .katex-display {
+#bxwxgtbgmk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ynmgvjhocx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bxwxgtbgmk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1034,11 +1039,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </div>
 <hr>
 </div>
-<div id="information-criteria-plot-5" class="section level4" number="23.2.2.2">
+<div id="information-criteria-plot-5" class="section level4" number="24.2.2.2">
 <h4>
-<span class="header-section-number">23.2.2.2</span> Information Criteria Plot<a class="anchor" aria-label="anchor" href="#information-criteria-plot-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2.2.2</span> Information Criteria Plot<a class="anchor" aria-label="anchor" href="#information-criteria-plot-5"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">allFit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">LL</span><span class="op">:</span><span class="va">AWE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rowid_to_column</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1067,26 +1072,26 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>    legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    legend.position <span class="op">=</span> <span class="st">"top"</span>  </span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="25-gmm_files/figure-html/unnamed-chunk-10-1.png" alt="" width="672"></div>
+<div class="inline-figure"><img src="26-gmm_files/figure-html/unnamed-chunk-10-1.png" alt="" width="672"></div>
 <hr>
 </div>
-<div id="plot-gmm" class="section level4" number="23.2.2.3">
+<div id="plot-gmm" class="section level4" number="24.2.2.3">
 <h4>
-<span class="header-section-number">23.2.2.3</span> Plot GMM<a class="anchor" aria-label="anchor" href="#plot-gmm"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2.2.3</span> Plot GMM<a class="anchor" aria-label="anchor" href="#plot-gmm"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/plotGrowthMixtures.html">plotGrowthMixtures</a></span><span class="op">(</span><span class="va">output_gmm</span>, estimated <span class="op">=</span> <span class="cn">TRUE</span>, rawdata <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>                   time_scale <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>, alpha_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="25-gmm_files/figure-html/unnamed-chunk-11-1.png" alt="" width="672"></div>
+<div class="inline-figure"><img src="26-gmm_files/figure-html/unnamed-chunk-11-1.png" alt="" width="672"></div>
 <hr>
 </div>
 </div>
-<div id="covariates-growth-mixture-model" class="section level3" number="23.2.3">
+<div id="covariates-growth-mixture-model" class="section level3" number="24.2.3">
 <h3>
-<span class="header-section-number">23.2.3</span> Covariates Growth Mixture Model<a class="anchor" aria-label="anchor" href="#covariates-growth-mixture-model"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2.3</span> Covariates Growth Mixture Model<a class="anchor" aria-label="anchor" href="#covariates-growth-mixture-model"><i class="fas fa-link"></i></a>
 </h3>
 <p>Two covariates were used in the GMM analysis and were related to the latent class variable: gender and interest in science issues in 7th grade.</p>
-<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"GMM with Covariates"</span>, </span>
@@ -1145,16 +1150,16 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>                            dataout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"gmm"</span>, <span class="st">"gmm_cov"</span>, <span class="st">"gmm_cov.dat"</span><span class="op">)</span>,</span>
 <span>                            modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"gmm"</span>, <span class="st">"gmm_cov"</span>, <span class="st">"gmm_cov.inp"</span><span class="op">)</span> ,</span>
 <span>                            check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<div id="plot-gmm-1" class="section level4" number="23.2.3.1">
+<div id="plot-gmm-1" class="section level4" number="24.2.3.1">
 <h4>
-<span class="header-section-number">23.2.3.1</span> Plot GMM<a class="anchor" aria-label="anchor" href="#plot-gmm-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">24.2.3.1</span> Plot GMM<a class="anchor" aria-label="anchor" href="#plot-gmm-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gmm_cov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"gmm"</span>, <span class="st">"gmm_cov"</span>, <span class="st">"gmm_cov.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/plotGrowthMixtures.html">plotGrowthMixtures</a></span><span class="op">(</span><span class="va">gmm_cov</span>, estimated <span class="op">=</span> <span class="cn">TRUE</span>, rawdata <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>                   time_scale <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>, alpha_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.01</span><span class="op">)</span>, bw <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="25-gmm_files/figure-html/unnamed-chunk-13-1.png" alt="" width="672"></div>
+<div class="inline-figure"><img src="26-gmm_files/figure-html/unnamed-chunk-13-1.png" alt="" width="672"></div>
 <div style="text-align: center;">
 <img src="images/ucsb_logo.png" width="75%">
 </div>
@@ -1167,26 +1172,26 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="joint-occurrence.html"><span class="header-section-number">22</span> Joint Occurrence</a></div>
-<div class="next"><a href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">24</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></div>
+<div class="prev"><a href="joint-occurrence.html"><span class="header-section-number">23</span> Joint Occurrence</a></div>
+<div class="next"><a href="distal-outcomes-nylund-gibson-grimm-masyn-2019.html"><span class="header-section-number">25</span> Distal Outcomes (Nylund-Gibson, Grimm, &amp; Masyn, 2019)</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#growth-mixture-models"><span class="header-section-number">23</span> Growth Mixture Models</a></li>
-<li><a class="nav-link" href="#load-packages-13"><span class="header-section-number">23.1</span> Load Packages</a></li>
+<li><a class="nav-link" href="#growth-mixture-models"><span class="header-section-number">24</span> Growth Mixture Models</a></li>
+<li><a class="nav-link" href="#load-packages-13"><span class="header-section-number">24.1</span> Load Packages</a></li>
 <li>
-<a class="nav-link" href="#path-diagram-1"><span class="header-section-number">23.2</span> Path Diagram</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#descriptive-statistics-13"><span class="header-section-number">23.2.1</span> Descriptive Statistics</a></li>
-<li><a class="nav-link" href="#unconditional-growth-mixture-model"><span class="header-section-number">23.2.2</span> Unconditional Growth Mixture Model</a></li>
-<li><a class="nav-link" href="#covariates-growth-mixture-model"><span class="header-section-number">23.2.3</span> Covariates Growth Mixture Model</a></li>
+<a class="nav-link" href="#path-diagram-1"><span class="header-section-number">24.2</span> Path Diagram</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#descriptive-statistics-13"><span class="header-section-number">24.2.1</span> Descriptive Statistics</a></li>
+<li><a class="nav-link" href="#unconditional-growth-mixture-model"><span class="header-section-number">24.2.2</span> Unconditional Growth Mixture Model</a></li>
+<li><a class="nav-link" href="#covariates-growth-mixture-model"><span class="header-section-number">24.2.3</span> Covariates Growth Mixture Model</a></li>
 </ul>
 </li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/25-gmm.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/25-gmm.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/immerse-ucsb/lca-bookdown/blob/master/26-gmm.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/immerse-ucsb/lca-bookdown/edit/master/26-gmm.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1198,7 +1203,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-05-26.</p>
+    <p>"<strong>Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach</strong>" was written by Dina Arch. It was last built on 2026-06-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,0 +1,1014 @@
+Mplus VERSION 8.11 (Mac)
+MUTHEN & MUTHEN
+04/06/2025   9:08 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  4-Class
+  DATA:
+  FILE = "support.dat";
+
+  VARIABLE:
+  NAMES = ResponseId Family PhysPeers NonPhysPeers HSPhysTeach NonPhysFaculty
+       PhysFaculty ResearchGrp WiPGroup GIPGroup ReligOrg OtherIdent SocialComm
+       MentalHlth Woman Transgender NonBinary White Asian Hispanic Black MidEastern
+       NatAmerican PacificIslander InstitutionType AcademicYear Identity;
+   MISSING=.;
+   categorical = Family-MentalHlth;
+  usevar = Family-MentalHlth;
+  classes = c(4);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 2000 500;
+      processors = 10;
+  OUTPUT:
+  sampstat residual tech11 tech14 svalues;
+  PLOT:
+  type = plot3;
+      series = Family-MentalHlth(*);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in PLOT command
+  Note that only the first 8 characters of variable names are used in plots.
+  If variable names are not unique within the first 8 characters, problems
+  may occur.
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+4-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         567
+
+Number of dependent variables                                   13
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   FAMILY      PHYSPEER    NONPHYSP    HSPHYSTE    NONPHYSF    PHYSFACU
+   RESEARCH    WIPGROUP    GIPGROUP    RELIGORG    OTHERIDE    SOCIALCO
+   MENTALHL
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                       2000
+  Number of final stage optimizations                          500
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  support.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           0
+     Number of u missing data patterns           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    FAMILY
+      Category 1    0.351          199.000
+      Category 2    0.649          368.000
+    PHYSPEER
+      Category 1    0.146           83.000
+      Category 2    0.854          484.000
+    NONPHYSP
+      Category 1    0.266          151.000
+      Category 2    0.734          416.000
+    HSPHYSTE
+      Category 1    0.755          428.000
+      Category 2    0.245          139.000
+    NONPHYSF
+      Category 1    0.764          433.000
+      Category 2    0.236          134.000
+    PHYSFACU
+      Category 1    0.259          147.000
+      Category 2    0.741          420.000
+    RESEARCH
+      Category 1    0.462          262.000
+      Category 2    0.538          305.000
+    WIPGROUP
+      Category 1    0.492          279.000
+      Category 2    0.508          288.000
+    GIPGROUP
+      Category 1    0.727          412.000
+      Category 2    0.273          155.000
+    RELIGORG
+      Category 1    0.922          523.000
+      Category 2    0.078           44.000
+    OTHERIDE
+      Category 1    0.961          545.000
+      Category 2    0.039           22.000
+    SOCIALCO
+      Category 1    0.778          441.000
+      Category 2    0.222          126.000
+    MENTALHL
+      Category 1    0.788          447.000
+      Category 2    0.212          120.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -3576.713  564016           1646
+           -3576.713  442672           1799
+           -3576.713  695961           1668
+           -3576.713  694303           282
+           -3576.713  848590           694
+           -3576.713  573035           1273
+           -3576.713  76337            76
+           -3576.713  794236           127
+           -3576.713  276071           1551
+           -3576.713  81954            1823
+           -3576.713  606078           1296
+           -3576.713  3607             873
+           -3576.713  833196           715
+           -3576.713  765589           1140
+           -3576.713  548245           818
+           -3576.713  898058           1586
+           -3576.713  538669           1334
+           -3576.713  423661           875
+           -3576.713  431271           943
+           -3576.713  929361           1971
+           -3576.713  930501           1819
+           -3576.713  95219            1871
+           -3576.713  240994           1598
+           -3576.713  352269           1497
+           -3576.713  754100           56
+           -3576.713  726035           191
+           -3576.713  69413            472
+           -3576.713  667170           1379
+           -3576.713  373815           618
+           -3576.713  440841           118
+           -3576.713  42523            730
+           -3576.713  773195           849
+           -3576.713  636396           168
+           -3576.713  173191           422
+           -3576.713  96452            1783
+           -3576.713  343926           624
+           -3576.713  216565           474
+           -3576.713  182461           1346
+           -3576.713  697923           1431
+           -3576.731  847341           1398
+           -3576.738  288620           1171
+           -3576.738  113138           585
+           -3576.738  812578           1865
+           -3576.738  455617           242
+           -3576.749  835162           1038
+           -3576.749  402224           91
+           -3577.235  61710            1327
+           -3577.235  371737           532
+           -3577.914  612578           1512
+           -3577.914  402699           604
+           -3577.914  142946           1612
+           -3577.914  370466           41
+           -3577.914  308582           752
+           -3577.919  321112           1103
+           -3577.954  178341           1592
+           -3578.071  392751           480
+           -3578.083  213189           605
+           -3578.083  278692           342
+           -3578.083  583281           1907
+           -3578.083  392766           331
+           -3578.087  319993           1480
+           -3578.087  645052           910
+           -3578.200  995875           547
+           -3578.285  448829           938
+           -3578.285  324517           1297
+           -3578.285  150531           154
+           -3578.286  553953           1595
+           -3578.286  394609           1366
+           -3578.318  874698           1027
+           -3578.318  220454           288
+           -3578.840  84013            598
+           -3578.840  906196           1758
+           -3578.840  684993           1148
+           -3578.840  318177           748
+           -3578.976  93468            3
+           -3578.976  241197           747
+           -3579.059  376289           1798
+           -3579.117  848969           173
+           -3579.117  75168            1160
+           -3579.591  217759           1711
+           -3579.591  552272           654
+           -3579.591  510491           1275
+           -3579.591  432513           803
+           -3579.591  321574           1185
+           -3579.591  452792           1726
+           -3579.591  291149           536
+           -3579.591  68291            1565
+           -3579.591  539423           1517
+           -3579.591  678813           1881
+           -3579.752  434915           552
+           -3579.866  512403           719
+           -3580.474  922042           492
+           -3580.474  670998           1876
+           -3581.250  572342           1848
+           -3581.250  605358           321
+           -3581.250  377584           630
+           -3581.250  313278           1887
+           -3581.295  484687           306
+           -3581.493  840031           276
+           -3581.500  719490           1780
+           -3581.500  72344            897
+           -3581.500  87586            871
+           -3581.500  165382           1816
+           -3581.500  473942           574
+           -3581.500  407108           366
+           -3581.500  545140           278
+           -3581.500  823410           1578
+           -3581.716  202790           198
+           -3581.716  354208           196
+           -3583.421  868600           1707
+           -3583.928  765372           1123
+           -3584.709  379823           905
+           -3586.547  851200           1479
+
+387 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+     IN THE OPTIMIZATION, ONE OR MORE LOGIT THRESHOLDS APPROACHED EXTREME VALUES
+     OF -15.000 AND 15.000 AND WERE FIXED TO STABILIZE MODEL ESTIMATION.  THESE
+     VALUES IMPLY PROBABILITIES OF 0 AND 1.  IN THE MODEL RESULTS SECTION, THESE
+     PARAMETERS HAVE 0 STANDARD ERRORS AND 999 IN THE Z-SCORE AND P-VALUE COLUMNS.
+
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       55
+
+Loglikelihood
+
+          H0 Value                       -3576.713
+          H0 Scaling Correction Factor      1.1915
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    7263.426
+          Bayesian (BIC)                  7502.146
+          Sample-Size Adjusted BIC        7327.547
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           2013.408
+          Degrees of Freedom                  8124
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            905.163
+          Degrees of Freedom                  8124
+          P-Value                           1.0000
+
+** Of the 8192 cells in the latent class indicator table, 12
+   were deleted in the calculation of chi-square due to extreme values.
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        178.92290          0.31556
+       2        101.17150          0.17843
+       3        161.69641          0.28518
+       4        125.20918          0.22083
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        178.92290          0.31556
+       2        101.17150          0.17843
+       3        161.69641          0.28518
+       4        125.20918          0.22083
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              198          0.34921
+       2               90          0.15873
+       3              155          0.27337
+       4              124          0.21869
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.737
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.768    0.146    0.027    0.060
+    2   0.194    0.764    0.023    0.019
+    3   0.000    0.000    0.994    0.006
+    4   0.076    0.028    0.002    0.894
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.850    0.098    0.000    0.053
+    2   0.286    0.680    0.000    0.035
+    3   0.033    0.013    0.953    0.001
+    4   0.094    0.014    0.007    0.885
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      2.776    0.612  -10.876    0.000
+    2      2.112    2.978  -10.451    0.000
+    3      3.114    2.188    6.490    0.000
+    4     -2.238   -4.178   -4.826    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    FAMILY$1          -0.659      0.347     -1.898      0.058
+    PHYSPEER$1        -2.777      0.601     -4.622      0.000
+    NONPHYSP$1        -0.995      0.423     -2.352      0.019
+    HSPHYSTE$1         1.447      0.309      4.689      0.000
+    NONPHYSF$1         1.401      0.450      3.116      0.002
+    PHYSFACU$1        -2.567      0.766     -3.350      0.001
+    RESEARCH$1        -1.188      0.595     -1.997      0.046
+    WIPGROUP$1         0.410      0.512      0.801      0.423
+    GIPGROUP$1        15.000      0.000    999.000    999.000
+    RELIGORG$1         2.135      0.403      5.294      0.000
+    OTHERIDE$1         3.317      0.699      4.747      0.000
+    SOCIALCO$1         1.880      0.467      4.022      0.000
+    MENTALHL$1         1.231      0.295      4.174      0.000
+
+Latent Class 2
+
+ Thresholds
+    FAMILY$1          -2.473      0.939     -2.634      0.008
+    PHYSPEER$1        -3.106      2.153     -1.443      0.149
+    NONPHYSP$1       -15.000      0.000    999.000    999.000
+    HSPHYSTE$1        -0.046      0.681     -0.068      0.946
+    NONPHYSF$1         0.108      0.566      0.190      0.849
+    PHYSFACU$1        -1.567      0.651     -2.407      0.016
+    RESEARCH$1         0.312      0.593      0.526      0.599
+    WIPGROUP$1         0.072      0.467      0.155      0.877
+    GIPGROUP$1        15.000      0.000    999.000    999.000
+    RELIGORG$1         1.946      0.546      3.563      0.000
+    OTHERIDE$1         2.978      0.847      3.514      0.000
+    SOCIALCO$1         0.228      0.440      0.517      0.605
+    MENTALHL$1         1.276      0.432      2.955      0.003
+
+Latent Class 3
+
+ Thresholds
+    FAMILY$1          -0.683      0.173     -3.948      0.000
+    PHYSPEER$1        -3.179      1.544     -2.059      0.040
+    NONPHYSP$1        -1.939      0.389     -4.990      0.000
+    HSPHYSTE$1         1.425      0.221      6.460      0.000
+    NONPHYSF$1         1.020      0.188      5.417      0.000
+    PHYSFACU$1        -1.993      0.587     -3.398      0.001
+    RESEARCH$1        -0.623      0.279     -2.233      0.026
+    WIPGROUP$1        -1.904      0.247     -7.713      0.000
+    GIPGROUP$1        -3.012      6.607     -0.456      0.649
+    RELIGORG$1         3.060      0.479      6.391      0.000
+    OTHERIDE$1         2.737      0.514      5.321      0.000
+    SOCIALCO$1         0.738      0.174      4.238      0.000
+    MENTALHL$1         1.002      0.251      3.986      0.000
+
+Latent Class 4
+
+ Thresholds
+    FAMILY$1           0.431      0.304      1.419      0.156
+    PHYSPEER$1        -0.028      0.331     -0.085      0.932
+    NONPHYSP$1         0.653      0.354      1.846      0.065
+    HSPHYSTE$1         1.557      0.313      4.970      0.000
+    NONPHYSF$1         2.694      0.989      2.725      0.006
+    PHYSFACU$1         1.253      0.439      2.856      0.004
+    RESEARCH$1         1.667      0.379      4.403      0.000
+    WIPGROUP$1         1.285      0.615      2.089      0.037
+    GIPGROUP$1         4.941     11.414      0.433      0.665
+    RELIGORG$1         3.139      0.635      4.942      0.000
+    OTHERIDE$1         4.823      1.120      4.307      0.000
+    SOCIALCO$1         3.150      1.403      2.246      0.025
+    MENTALHL$1         2.067      0.348      5.939      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1                0.357      0.411      0.869      0.385
+    C#2               -0.213      0.500     -0.427      0.670
+    C#3                0.256      0.335      0.763      0.446
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.276E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ FAMILY
+    Category 1         0.341      0.078      4.367      0.000
+    Category 2         0.659      0.078      8.444      0.000
+ PHYSPEERS
+    Category 1         0.059      0.033      1.767      0.077
+    Category 2         0.941      0.033     28.419      0.000
+ NONPHYSPEE
+    Category 1         0.270      0.083      3.239      0.001
+    Category 2         0.730      0.083      8.759      0.000
+ HSPHYSTEAC
+    Category 1         0.809      0.048     17.012      0.000
+    Category 2         0.191      0.048      4.004      0.000
+ NONPHYSFAC
+    Category 1         0.802      0.071     11.251      0.000
+    Category 2         0.198      0.071      2.771      0.006
+ PHYSFACULT
+    Category 1         0.071      0.051      1.405      0.160
+    Category 2         0.929      0.051     18.304      0.000
+ RESEARCHGR
+    Category 1         0.234      0.107      2.193      0.028
+    Category 2         0.766      0.107      7.194      0.000
+ WIPGROUP
+    Category 1         0.601      0.123      4.897      0.000
+    Category 2         0.399      0.123      3.249      0.001
+ GIPGROUP
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ RELIGORG
+    Category 1         0.894      0.038     23.456      0.000
+    Category 2         0.106      0.038      2.772      0.006
+ OTHERIDENT
+    Category 1         0.965      0.024     40.901      0.000
+    Category 2         0.035      0.024      1.483      0.138
+ SOCIALCOMM
+    Category 1         0.868      0.054     16.158      0.000
+    Category 2         0.132      0.054      2.466      0.014
+ MENTALHLTH
+    Category 1         0.774      0.052     15.002      0.000
+    Category 2         0.226      0.052      4.379      0.000
+
+Latent Class 2
+
+ FAMILY
+    Category 1         0.078      0.067      1.155      0.248
+    Category 2         0.922      0.067     13.695      0.000
+ PHYSPEERS
+    Category 1         0.043      0.088      0.485      0.627
+    Category 2         0.957      0.088     10.837      0.000
+ NONPHYSPEE
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         1.000      0.000      0.000      1.000
+ HSPHYSTEAC
+    Category 1         0.488      0.170      2.869      0.004
+    Category 2         0.512      0.170      3.004      0.003
+ NONPHYSFAC
+    Category 1         0.527      0.141      3.733      0.000
+    Category 2         0.473      0.141      3.352      0.001
+ PHYSFACULT
+    Category 1         0.173      0.093      1.857      0.063
+    Category 2         0.827      0.093      8.897      0.000
+ RESEARCHGR
+    Category 1         0.577      0.145      3.991      0.000
+    Category 2         0.423      0.145      2.921      0.003
+ WIPGROUP
+    Category 1         0.518      0.117      4.445      0.000
+    Category 2         0.482      0.117      4.135      0.000
+ GIPGROUP
+    Category 1         1.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+ RELIGORG
+    Category 1         0.875      0.060     14.648      0.000
+    Category 2         0.125      0.060      2.093      0.036
+ OTHERIDENT
+    Category 1         0.952      0.039     24.364      0.000
+    Category 2         0.048      0.039      1.240      0.215
+ SOCIALCOMM
+    Category 1         0.557      0.109      5.122      0.000
+    Category 2         0.443      0.109      4.079      0.000
+ MENTALHLTH
+    Category 1         0.782      0.074     10.613      0.000
+    Category 2         0.218      0.074      2.962      0.003
+
+Latent Class 3
+
+ FAMILY
+    Category 1         0.335      0.039      8.692      0.000
+    Category 2         0.665      0.039     17.217      0.000
+ PHYSPEERS
+    Category 1         0.040      0.059      0.675      0.500
+    Category 2         0.960      0.059     16.200      0.000
+ NONPHYSPEE
+    Category 1         0.126      0.043      2.944      0.003
+    Category 2         0.874      0.043     20.462      0.000
+ HSPHYSTEAC
+    Category 1         0.806      0.034     23.380      0.000
+    Category 2         0.194      0.034      5.626      0.000
+ NONPHYSFAC
+    Category 1         0.735      0.037     20.040      0.000
+    Category 2         0.265      0.037      7.226      0.000
+ PHYSFACULT
+    Category 1         0.120      0.062      1.937      0.053
+    Category 2         0.880      0.062     14.217      0.000
+ RESEARCHGR
+    Category 1         0.349      0.063      5.511      0.000
+    Category 2         0.651      0.063     10.271      0.000
+ WIPGROUP
+    Category 1         0.130      0.028      4.653      0.000
+    Category 2         0.870      0.028     31.249      0.000
+ GIPGROUP
+    Category 1         0.047      0.295      0.159      0.874
+    Category 2         0.953      0.295      3.227      0.001
+ RELIGORG
+    Category 1         0.955      0.020     46.636      0.000
+    Category 2         0.045      0.020      2.186      0.029
+ OTHERIDENT
+    Category 1         0.939      0.029     31.953      0.000
+    Category 2         0.061      0.029      2.070      0.038
+ SOCIALCOMM
+    Category 1         0.676      0.038     17.758      0.000
+    Category 2         0.324      0.038      8.492      0.000
+ MENTALHLTH
+    Category 1         0.731      0.049     14.816      0.000
+    Category 2         0.269      0.049      5.442      0.000
+
+Latent Class 4
+
+ FAMILY
+    Category 1         0.606      0.073      8.358      0.000
+    Category 2         0.394      0.073      5.431      0.000
+ PHYSPEERS
+    Category 1         0.493      0.083      5.962      0.000
+    Category 2         0.507      0.083      6.132      0.000
+ NONPHYSPEE
+    Category 1         0.658      0.080      8.255      0.000
+    Category 2         0.342      0.080      4.296      0.000
+ HSPHYSTEAC
+    Category 1         0.826      0.045     18.336      0.000
+    Category 2         0.174      0.045      3.866      0.000
+ NONPHYSFAC
+    Category 1         0.937      0.059     15.977      0.000
+    Category 2         0.063      0.059      1.080      0.280
+ PHYSFACULT
+    Category 1         0.778      0.076     10.257      0.000
+    Category 2         0.222      0.076      2.931      0.003
+ RESEARCHGR
+    Category 1         0.841      0.051     16.632      0.000
+    Category 2         0.159      0.051      3.139      0.002
+ WIPGROUP
+    Category 1         0.783      0.104      7.503      0.000
+    Category 2         0.217      0.104      2.075      0.038
+ GIPGROUP
+    Category 1         0.993      0.080     12.347      0.000
+    Category 2         0.007      0.080      0.088      0.930
+ RELIGORG
+    Category 1         0.958      0.025     37.910      0.000
+    Category 2         0.042      0.025      1.643      0.100
+ OTHERIDENT
+    Category 1         0.992      0.009    111.882      0.000
+    Category 2         0.008      0.009      0.900      0.368
+ SOCIALCOMM
+    Category 1         0.959      0.055     17.348      0.000
+    Category 2         0.041      0.055      0.744      0.457
+ MENTALHLTH
+    Category 1         0.888      0.035     25.577      0.000
+    Category 2         0.112      0.035      3.236      0.001
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ FAMILY
+    Category > 1       0.163      0.167      0.022      1.219
+ PHYSPEER
+    Category > 1       0.720      1.836      0.005    106.747
+ NONPHYSP
+    Category > 1       0.000      0.000      0.000      0.000
+ HSPHYSTE
+    Category > 1       0.225      0.183      0.045      1.112
+ NONPHYSF
+    Category > 1       0.274      0.239      0.050      1.510
+ PHYSFACU
+    Category > 1       2.718      2.810      0.358     20.624
+ RESEARCH
+    Category > 1       4.482      4.320      0.678     29.643
+ WIPGROUP
+    Category > 1       0.713      0.504      0.179      2.846
+ GIPGROUP
+    Category > 1       1.000      0.000      1.000      1.000
+ RELIGORG
+    Category > 1       0.827      0.680      0.165      4.144
+ OTHERIDE
+    Category > 1       0.712      0.859      0.067      7.568
+ SOCIALCO
+    Category > 1       0.192      0.107      0.064      0.571
+ MENTALHL
+    Category > 1       1.046      0.632      0.320      3.420
+
+Latent Class 1 Compared to Latent Class 3
+
+ FAMILY
+    Category > 1       0.976      0.384      0.452      2.109
+ PHYSPEER
+    Category > 1       0.670      1.219      0.019     23.711
+ NONPHYSP
+    Category > 1       0.389      0.251      0.110      1.378
+ HSPHYSTE
+    Category > 1       0.978      0.386      0.451      2.119
+ NONPHYSF
+    Category > 1       0.683      0.341      0.257      1.815
+ PHYSFACU
+    Category > 1       1.774      1.574      0.312     10.091
+ RESEARCH
+    Category > 1       1.760      1.276      0.425      7.284
+ WIPGROUP
+    Category > 1       0.099      0.053      0.034      0.284
+ GIPGROUP
+    Category > 1       0.000      0.000      0.000      0.000
+ RELIGORG
+    Category > 1       2.521      1.585      0.735      8.648
+ OTHERIDE
+    Category > 1       0.560      0.570      0.076      4.115
+ SOCIALCO
+    Category > 1       0.319      0.164      0.117      0.871
+ MENTALHL
+    Category > 1       0.795      0.358      0.328      1.924
+
+Latent Class 1 Compared to Latent Class 4
+
+ FAMILY
+    Category > 1       2.976      1.543      1.077      8.222
+ PHYSPEER
+    Category > 1      15.631      9.177      4.946     49.400
+ NONPHYSP
+    Category > 1       5.196      3.319      1.486     18.175
+ HSPHYSTE
+    Category > 1       1.116      0.555      0.421      2.956
+ NONPHYSF
+    Category > 1       3.643      4.731      0.286     46.428
+ PHYSFACU
+    Category > 1      45.581     44.215      6.809    305.136
+ RESEARCH
+    Category > 1      17.381     12.710      4.146     72.869
+ WIPGROUP
+    Category > 1       2.399      2.331      0.357     16.114
+ GIPGROUP
+    Category > 1       0.000      0.000      0.000      0.000
+ RELIGORG
+    Category > 1       2.728      2.156      0.579     12.844
+ OTHERIDE
+    Category > 1       4.506      5.807      0.361     56.319
+ SOCIALCO
+    Category > 1       3.561      5.952      0.135     94.257
+ MENTALHL
+    Category > 1       2.306      1.153      0.866      6.142
+
+Latent Class 2 Compared to Latent Class 3
+
+ FAMILY
+    Category > 1       5.987      5.723      0.919     38.986
+ PHYSPEER
+    Category > 1       0.930      1.523      0.038     23.050
+ NONPHYSP
+    Category > 1   *********      0.000  *********  *********
+ HSPHYSTE
+    Category > 1       4.352      3.143      1.056     17.928
+ NONPHYSF
+    Category > 1       2.490      1.466      0.785      7.896
+ PHYSFACU
+    Category > 1       0.653      0.451      0.169      2.527
+ RESEARCH
+    Category > 1       0.393      0.224      0.128      1.203
+ WIPGROUP
+    Category > 1       0.139      0.074      0.049      0.393
+ GIPGROUP
+    Category > 1       0.000      0.000      0.000      0.000
+ RELIGORG
+    Category > 1       3.047      2.295      0.697     13.331
+ OTHERIDE
+    Category > 1       0.786      0.889      0.086      7.217
+ SOCIALCO
+    Category > 1       1.665      0.795      0.653      4.245
+ MENTALHL
+    Category > 1       0.760      0.396      0.274      2.108
+
+Latent Class 2 Compared to Latent Class 4
+
+ FAMILY
+    Category > 1      18.250     17.231      2.868    116.133
+ PHYSPEER
+    Category > 1      21.708     51.570      0.206   2284.283
+ NONPHYSP
+    Category > 1   *********      0.000  *********  *********
+ HSPHYSTE
+    Category > 1       4.967      3.705      1.151     21.430
+ NONPHYSF
+    Category > 1      13.285     12.946      1.967     89.711
+ PHYSFACU
+    Category > 1      16.771     14.801      2.974     94.578
+ RESEARCH
+    Category > 1       3.878      2.990      0.855     17.577
+ WIPGROUP
+    Category > 1       3.364      2.482      0.792     14.287
+ GIPGROUP
+    Category > 1       0.000      0.000      0.000      0.000
+ RELIGORG
+    Category > 1       3.297      2.544      0.727     14.959
+ OTHERIDE
+    Category > 1       6.327      8.837      0.410     97.740
+ SOCIALCO
+    Category > 1      18.582     28.432      0.926    372.852
+ MENTALHL
+    Category > 1       2.206      1.199      0.760      6.403
+
+Latent Class 3 Compared to Latent Class 4
+
+ FAMILY
+    Category > 1       3.049      1.027      1.575      5.900
+ PHYSPEER
+    Category > 1      23.344     41.975      0.688    792.064
+ NONPHYSP
+    Category > 1      13.356      5.098      6.321     28.222
+ HSPHYSTE
+    Category > 1       1.141      0.426      0.550      2.370
+ NONPHYSF
+    Category > 1       5.335      5.360      0.745     38.220
+ PHYSFACU
+    Category > 1      25.688     22.360      4.664    141.470
+ RESEARCH
+    Category > 1       9.874      4.696      3.888     25.082
+ WIPGROUP
+    Category > 1      24.282     17.206      6.055     97.378
+ GIPGROUP
+    Category > 1    2843.052  42937.762      0.000  *********
+ RELIGORG
+    Category > 1       1.082      0.988      0.181      6.481
+ OTHERIDE
+    Category > 1       8.053     10.283      0.659     98.388
+ SOCIALCO
+    Category > 1      11.158     15.547      0.727    171.236
+ MENTALHL
+    Category > 1       2.903      1.208      1.284      6.563
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     [ c#1*0.35697 ];
+     [ c#2*-0.21317 ];
+     [ c#3*0.25573 ];
+
+     %C#1%
+
+     [ family$1*-0.65943 ];
+     [ physpeers$1*-2.77748 ];
+     [ nonphyspeers$1*-0.99470 ];
+     [ hsphysteach$1*1.44672 ];
+     [ nonphysfaculty$1*1.40142 ];
+     [ physfaculty$1*-2.56676 ];
+     [ researchgrp$1*-1.18810 ];
+     [ wipgroup$1*0.41008 ];
+     [ gipgroup$1*15 ];
+     [ religorg$1*2.13545 ];
+     [ otherident$1*3.31711 ];
+     [ socialcomm$1*1.87982 ];
+     [ mentalhlth$1*1.23149 ];
+
+     %C#2%
+
+     [ family$1*-2.47300 ];
+     [ physpeers$1*-3.10590 ];
+     [ nonphyspeers$1*-15 ];
+     [ hsphysteach$1*-0.04608 ];
+     [ nonphysfaculty$1*0.10764 ];
+     [ physfaculty$1*-1.56693 ];
+     [ researchgrp$1*0.31206 ];
+     [ wipgroup$1*0.07214 ];
+     [ gipgroup$1*15 ];
+     [ religorg$1*1.94584 ];
+     [ otherident$1*2.97771 ];
+     [ socialcomm$1*0.22766 ];
+     [ mentalhlth$1*1.27617 ];
+
+     %C#3%
+
+     [ family$1*-0.68349 ];
+     [ physpeers$1*-3.17854 ];
+     [ nonphyspeers$1*-1.93874 ];
+     [ hsphysteach$1*1.42454 ];
+     [ nonphysfaculty$1*1.02002 ];
+     [ physfaculty$1*-1.99328 ];
+     [ researchgrp$1*-0.62266 ];
+     [ wipgroup$1*-1.90447 ];
+     [ gipgroup$1*-3.01151 ];
+     [ religorg$1*3.06015 ];
+     [ otherident$1*2.73657 ];
+     [ socialcomm$1*0.73767 ];
+     [ mentalhlth$1*1.00156 ];
+
+     %C#4%
+
+     [ family$1*0.43117 ];
+     [ physpeers$1*-0.02820 ];
+     [ nonphyspeers$1*0.65322 ];
+     [ hsphysteach$1*1.55669 ];
+     [ nonphysfaculty$1*2.69426 ];
+     [ physfaculty$1*1.25274 ];
+     [ researchgrp$1*1.66730 ];
+     [ wipgroup$1*1.28528 ];
+     [ gipgroup$1*4.94112 ];
+     [ religorg$1*3.13892 ];
+     [ otherident$1*4.82257 ];
+     [ socialcomm$1*3.14984 ];
+     [ mentalhlth$1*2.06720 ];
+
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                2000
+        Number of final stage optimizations                   500
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -3596.927
+          2 Times the Loglikelihood Difference             40.427
+          Difference in the Number of Parameters               14
+          Mean                                             81.503
+          Standard Deviation                               73.207
+          P-Value                                          0.6838
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                            39.977
+          P-Value                                          0.6887
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                2000
+        Number of final stage optimizations                   500
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -3596.927
+          2 Times the Loglikelihood Difference             40.427
+          Difference in the Number of Parameters               14
+          Approximate P-Value                              0.0400
+          Successful Bootstrap Draws                          100
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample proportions and estimated probabilities
+
+     Beginning Time:  21:08:08
+        Ending Time:  21:08:57
+       Elapsed Time:  00:00:49
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen

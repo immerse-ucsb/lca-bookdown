@@ -1,0 +1,86 @@
+TITLE:
+Step 3 - LCA Moderation
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca_moderation/three_step/Step3.dat"; 
+VARIABLE:
+NAMES = KA47A KA47H KA47I KA47K KA47L FEMALE MOTHED ISCIIRT KA9B KA9D KA9G KA9K URM
+     CPROB1 CPROB2 CPROB3 CPROB4 N; 
+ MISSING=.;
+ USEVAR = FEMALE MOTHED ISCIIRT URM KA9B KA9D KA9G KA9K N;
+  classes = c(4);
+  nominal = N;
+DEFINE:
+ISCIIRT = ISCIIRT/10;
+   Center ISCIIRT (GRANDMEAN);
+ANALYSIS:
+estimator = mlr; 
+  type = mixture; 
+  starts = 500 100;
+MODEL:
+!Covariates: URM FEMALE MOTHED ISCIIRT
+!Distal: ISSUES
+
+  %OVERALL%
+  ISSUES by KA9B KA9D KA9G KA9K;
+  ISSUES on FEMALE MOTHED URM;
+  ISSUES on ISCIIRT;
+
+         %C#1%
+[N#1@8.959];
+[N#2@6.319];
+[N#3@5.092];
+      [ISSUES] (B01);        ! conditional distal mean
+      ISSUES;                ! conditional distal variance (freely estimated)
+      ISSUES on ISCIIRT(B11);! conditional slope (class 1)
+
+
+
+        %C#2%
+[N#1@-0.61];
+[N#2@2.237];
+[N#3@-0.819];
+      [ISSUES@0] (B02);
+      ISSUES;
+      ISSUES on ISCIIRT(B12);
+
+
+        %C#3%
+[N#1@4.497];
+[N#2@4.352];
+[N#3@6.199];
+      [ISSUES] (B03);
+      ISSUES;
+      ISSUES on ISCIIRT(B13);
+
+
+        %C#4%
+[N#1@-8.219];
+[N#2@-2.15];
+[N#3@-13.705];
+      [ISSUES] (B04);
+      ISSUES;
+      ISSUES on ISCIIRT(B14);
+MODEL CONSTRAINT:
+NEW (slope12, slope13, slope14, slope23, slope24, slope34,
+           int13, int14, int34);
+           
+      slope12=B11-B12; ! Test slope differences
+      slope13=B11-B13;
+      slope14=B11-B14;
+      slope23=B12-B13;
+      slope24=B12-B14;
+      slope34=B13-B14;
+      
+      int13=B01-B03; ! Test intercept differences
+      int14=B01-B04;
+      int34=B03-B04;
+MODEL TEST:
+
+! can run only a single Omnibus test per model 
+    ! Omnibus test 1 (Slope)
+       B11=B12;
+       B12=B13;
+       B13=B14;
+    ! Omnibus test 2 (Intercept)
+       !B01=B03;
+       !B03=B04;

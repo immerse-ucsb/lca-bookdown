@@ -1,0 +1,74 @@
+TITLE:
+model 3 with 3 classes
+DATA:
+FILE = "data_49fcf53fbfe2cbd403ca0d1914083a06.dat"; 
+VARIABLE:
+NAMES = z_ASCI_IA z_AMSC z_EB z_MSLQ z_CSC; 
+ MISSING=.;
+ CLASSES = c1(3);
+
+ANALYSIS:
+TYPE = mixture;
+starts = 500 100;
+MODEL:
+%c1#1%
+z_ASCI_IA (vz_ASCI_IA);
+z_AMSC (vz_AMSC);
+z_EB (vz_EB);
+z_MSLQ (vz_MSLQ);
+z_CSC (vz_CSC);
+
+z_ASCI_IA WITH z_AMSC (z_ASCI_IAWz_AMSC);
+z_ASCI_IA WITH z_EB (z_ASCI_IAWz_EB);
+z_ASCI_IA WITH z_MSLQ (z_ASCI_IAWz_MSLQ);
+z_ASCI_IA WITH z_CSC (z_ASCI_IAWz_CSC);
+z_AMSC WITH z_EB (z_AMSCWz_EB);
+z_AMSC WITH z_MSLQ (z_AMSCWz_MSLQ);
+z_AMSC WITH z_CSC (z_AMSCWz_CSC);
+z_EB WITH z_MSLQ (z_EBWz_MSLQ);
+z_EB WITH z_CSC (z_EBWz_CSC);
+z_MSLQ WITH z_CSC (z_MSLQWz_CSC);
+
+%c1#2%
+z_ASCI_IA (vz_ASCI_IA);
+z_AMSC (vz_AMSC);
+z_EB (vz_EB);
+z_MSLQ (vz_MSLQ);
+z_CSC (vz_CSC);
+
+z_ASCI_IA WITH z_AMSC (z_ASCI_IAWz_AMSC);
+z_ASCI_IA WITH z_EB (z_ASCI_IAWz_EB);
+z_ASCI_IA WITH z_MSLQ (z_ASCI_IAWz_MSLQ);
+z_ASCI_IA WITH z_CSC (z_ASCI_IAWz_CSC);
+z_AMSC WITH z_EB (z_AMSCWz_EB);
+z_AMSC WITH z_MSLQ (z_AMSCWz_MSLQ);
+z_AMSC WITH z_CSC (z_AMSCWz_CSC);
+z_EB WITH z_MSLQ (z_EBWz_MSLQ);
+z_EB WITH z_CSC (z_EBWz_CSC);
+z_MSLQ WITH z_CSC (z_MSLQWz_CSC);
+
+%c1#3%
+z_ASCI_IA (vz_ASCI_IA);
+z_AMSC (vz_AMSC);
+z_EB (vz_EB);
+z_MSLQ (vz_MSLQ);
+z_CSC (vz_CSC);
+
+z_ASCI_IA WITH z_AMSC (z_ASCI_IAWz_AMSC);
+z_ASCI_IA WITH z_EB (z_ASCI_IAWz_EB);
+z_ASCI_IA WITH z_MSLQ (z_ASCI_IAWz_MSLQ);
+z_ASCI_IA WITH z_CSC (z_ASCI_IAWz_CSC);
+z_AMSC WITH z_EB (z_AMSCWz_EB);
+z_AMSC WITH z_MSLQ (z_AMSCWz_MSLQ);
+z_AMSC WITH z_CSC (z_AMSCWz_CSC);
+z_EB WITH z_MSLQ (z_EBWz_MSLQ);
+z_EB WITH z_CSC (z_EBWz_CSC);
+z_MSLQ WITH z_CSC (z_MSLQWz_CSC);
+
+
+OUTPUT:
+TECH14;
+sampstat residual tech11 tech14
+SAVEDATA:
+FILE IS model_3_class_3.dat;
+SAVE = cprobabilities;

@@ -1,0 +1,31 @@
+TITLE:
+Step 1
+DATA:
+FILE = "Step1.dat"; 
+VARIABLE:
+NAMES = ResponseId Family PhysPeers NonPhysPeers HSPhysTeach NonPhysFaculty
+     PhysFaculty ResearchGrp WiPGroup GIPGroup ReligOrg OtherIdent SocialComm
+     MentalHlth Woman Transgender NonBinary White Asian Hispanic Black MidEastern
+     NatAmerican PacificIslander InstitutionType AcademicYear Identity; 
+ MISSING=.;
+ categorical = Family-MentalHlth; 
+   usevar = Family-MentalHlth;
+    
+   classes = c(3); 
+    
+   auxiliary =   ! list all potential covariates and distals here
+   Woman NonBinary Transgender     ! covariate
+   Identity;      ! distal outcome 
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    optseed = 794236;
+OUTPUT:
+residual tech11 tech14
+SAVEDATA:
+File=3step_savedata.dat;
+    Save=cprob;
+PLOT:
+type = plot3; 
+    series = Family-MentalHlth(*);

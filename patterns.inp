@@ -1,0 +1,28 @@
+TITLE:
+LCA - Save response patterns
+DATA:
+FILE = "patterns.dat"; 
+VARIABLE:
+NAMES = ResponseId Family PhysPeers NonPhysPeers HSPhysTeach NonPhysFaculty
+     PhysFaculty ResearchGrp WiPGroup GIPGroup ReligOrg OtherIdent SocialComm
+     MentalHlth Woman Transgender NonBinary White Asian Hispanic Black MidEastern
+     NatAmerican PacificIslander InstitutionType AcademicYear Identity; 
+ MISSING=.;
+ categorical = Family-MentalHlth; 
+   usevar =  Family-MentalHlth;
+   classes = c(3);
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;    
+    starts = 0; 
+    processors = 10;
+    optseed = 794236;
+OUTPUT:
+patterns tech10 tech11 tech14
+SAVEDATA:
+File=savedata.dat;
+    Save=cprob;
+    
+    ! Code to save response frequency data 
+    
+    response is resp_patterns.dat;

@@ -1,0 +1,432 @@
+Mplus VERSION 9
+MUTHEN & MUTHEN
+05/27/2026   3:46 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  1-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/lca_moderation/mplus_enum/LSAL_data.dat";
+  VARIABLE:
+  NAMES = CASENUM COHORT SCHOOLID GENDER RACETH MOTHED ISCIIRT KA47A KA47H KA47I KA47K
+       KA47L KA9A KA9B KA9C KA9D KA9E KA9F KA9G KA9I KA9J KA9K KB9H FEMALE URM;
+   MISSING=.;
+   categorical = KA47A KA47H KA47I KA47K KA47L;
+  usevar = KA47A KA47H KA47I KA47K KA47L;
+  classes = c(1);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 500 100;
+  OUTPUT:
+  sampstat residual tech11 tech14;
+
+
+
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2581
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+1-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3364
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   KA47A       KA47H       KA47I       KA47K       KA47L
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent Variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/lca_moderation/mplus_enum/LSAL_data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            14
+     Number of y missing data patterns           0
+     Number of u missing data patterns          14
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              KA47A         KA47H         KA47I         KA47K         KA47L
+              ________      ________      ________      ________      ________
+ KA47A          0.998
+ KA47H          0.991         0.993
+ KA47I          0.989         0.985         0.990
+ KA47K          0.991         0.987         0.986         0.993
+ KA47L          0.996         0.991         0.989         0.992         0.997
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    KA47A
+      Category 1    0.466         1564.000
+      Category 2    0.534         1793.000
+    KA47H
+      Category 1    0.550         1837.000
+      Category 2    0.450         1502.000
+    KA47I
+      Category 1    0.452         1507.000
+      Category 2    0.548         1825.000
+    KA47K
+      Category 1    0.659         2200.000
+      Category 2    0.341         1139.000
+    KA47L
+      Category 1    0.597         2003.000
+      Category 2    0.403         1352.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -11315.867  unperturbed      0
+          -11315.867  971853           402
+          -11315.867  471040           403
+          -11315.867  605565           404
+          -11315.867  596257           405
+          -11315.867  926797           406
+          -11315.867  772131           407
+          -11315.867  112586           494
+          -11315.867  55115            408
+          -11315.867  605161           409
+          -11315.867  746978           410
+          -11315.867  652266           490
+          -11315.867  85734            411
+          -11315.867  918558           412
+          -11315.867  275475           413
+          -11315.867  354395           486
+          -11315.867  736574           414
+          -11315.867  399508           415
+          -11315.867  791285           416
+          -11315.867  665121           417
+          -11315.867  298275           418
+          -11315.867  802682           419
+          -11315.867  749635           420
+          -11315.867  226322           478
+          -11315.867  484406           421
+          -11315.867  173191           422
+          -11315.867  798821           423
+          -11315.867  216565           474
+          -11315.867  505879           424
+          -11315.867  762461           425
+          -11315.867  937885           426
+          -11315.867  971693           470
+          -11315.867  699554           427
+          -11315.867  584397           428
+          -11315.867  153394           429
+          -11315.867  238906           430
+          -11315.867  853195           431
+          -11315.867  518828           432
+          -11315.867  783102           433
+          -11315.867  68850            462
+          -11315.867  640833           434
+          -11315.867  283492           435
+          -11315.867  399380           436
+          -11315.867  359578           458
+          -11315.867  317640           437
+          -11315.867  375590           438
+          -11315.867  631413           439
+          -11315.867  263049           454
+          -11315.867  193569           440
+          -11315.867  741484           441
+          -11315.867  404510           442
+          -11315.867  217130           443
+          -11315.867  888905           444
+          -11315.867  502532           445
+          -11315.867  508482           446
+          -11315.867  263221           447
+          -11315.867  354624           448
+          -11315.867  614535           449
+          -11315.867  408713           450
+          -11315.867  188640           451
+          -11315.867  582296           452
+          -11315.867  879211           453
+          -11315.867  224950           455
+          -11315.867  922596           456
+          -11315.867  769907           457
+          -11315.867  539751           459
+          -11315.867  662718           460
+          -11315.867  345726           461
+          -11315.867  965639           463
+          -11315.867  349360           464
+          -11315.867  320494           465
+          -11315.867  898745           466
+          -11315.867  416463           467
+          -11315.867  862607           468
+          -11315.867  790059           469
+          -11315.867  315029           471
+          -11315.867  69413            472
+          -11315.867  376411           473
+          -11315.867  988761           475
+          -11315.867  714455           476
+          -11315.867  802256           477
+          -11315.867  823392           479
+          -11315.867  392751           480
+          -11315.867  863691           481
+          -11315.867  787985           482
+          -11315.867  53621            483
+          -11315.867  366533           484
+          -11315.867  425982           485
+          -11315.867  252949           487
+          -11315.867  978061           488
+          -11315.867  618760           489
+          -11315.867  972430           491
+          -11315.867  922042           492
+          -11315.867  887580           493
+          -11315.867  860102           495
+          -11315.867  335485           496
+          -11315.867  978781           497
+          -11315.867  485483           498
+          -11315.867  319575           499
+          -11315.867  140442           500
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        5
+
+Loglikelihood
+
+          H0 Value                      -11315.867
+          H0 Scaling Correction Factor      1.0000
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   22641.735
+          Bayesian (BIC)                 22672.339
+          Sample-Size Adjusted BIC       22656.452
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                           1267.040
+          Degrees of Freedom                    26
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          The chi-square is negative for this model part.  This is most likely
+          due to deleted cells in the H0 log-likelihood calculation.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            107.174
+          Degrees of Freedom                   109
+          P-Value                           0.5315
+
+          Likelihood Ratio Chi-Square
+
+          Value                             80.001
+          Degrees of Freedom                   109
+          P-Value                           0.9832
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       3364.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       3364.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             3364          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    KA47A$1           -0.137      0.035     -3.949      0.000
+    KA47H$1            0.201      0.035      5.788      0.000
+    KA47I$1           -0.191      0.035     -5.501      0.000
+    KA47K$1            0.658      0.037     18.034      0.000
+    KA47L$1            0.393      0.035     11.167      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.118E+00
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ KA47A
+    Category 1         0.466      0.009     54.113      0.000
+    Category 2         0.534      0.009     62.037      0.000
+ KA47H
+    Category 1         0.550      0.009     63.904      0.000
+    Category 2         0.450      0.009     52.250      0.000
+ KA47I
+    Category 1         0.452      0.009     52.454      0.000
+    Category 2         0.548      0.009     63.522      0.000
+ KA47K
+    Category 1         0.659      0.008     80.308      0.000
+    Category 2         0.341      0.008     41.578      0.000
+ KA47L
+    Category 1         0.597      0.008     70.502      0.000
+    Category 2         0.403      0.008     47.588      0.000
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+     Beginning Time:  15:46:02
+        Ending Time:  15:46:03
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2025 Muthen & Muthen

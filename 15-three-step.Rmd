@@ -170,6 +170,7 @@ summary(lsay_data$math_irt)
 
 This step is done after class enumeration (or after you have selected the best latent class model). In this example, the four class model was the best. Now, we re-estimate the four-class model using `optseed` for efficiency. The difference here is the `SAVEDATA` command, where I can save the posterior probabilities and the modal class assignment that will be used in steps two and three. 
 
+The `optseed` is associated with each loglikelihood replication found in the Mplus output created during the enumeration process. You can copy-past `optseed` to replicate that specific model (associated with the LL replications) for step 1. This will reproduce the same parameter estimates from the enumeration process.
 
 ```{r, eval = FALSE}
 

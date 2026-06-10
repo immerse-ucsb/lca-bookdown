@@ -1,0 +1,367 @@
+---
+title: "Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach" 
+author: "Dina Arch"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(haven)
+library(tidyverse)
+library(sjPlot)
+library(gt)
+library(janitor)
+library(modelsummary)
+library(here)
+library(glue)
+library(MplusAutomation)
+library(patchwork)
+library(reshape2)
+library(cowplot)
+library(naniar)
+
+#install.packages("devtools")
+#library(devtools)
+
+#install_github("michaelhallquist/MplusAutomation")
+here::i_am("dang_analysis.Rmd")
+```
+
+# Education Longitudinal Study
+
+-   BY = Base Year (2002) - 10th grade
+
+    -   Completed the baseline survey of high school sophomores in spring term 2002.
+
+-   F1 = First follow up (2004) - 12th grade
+
+    -   Most sample members were seniors, but some were dropouts or in other grades (early graduates or retained in an earlier grade).
+
+-   F2 = Second follow up (2006) - Post-high-school follow-up
+
+-   F3 = Third follow up (2012) - Kids are ~26yo
+
+## Item Descriptions
+
+### Base Year Covariates
+
+*English Proficiency*
+BYS70A: How well student understands English (1 = Very well, 4 = Not at all) 
+BYS70B: How well student speaks English (1 = Very well, 4 = Not at all) 
+BYS70C: How well student reads English (1 = Very well, 4 = Not at all)
+BYS70D: How well 10th-grader writes English (1 = Very well, 4 = Not at all) 
+BYTM12B: Student behind on schoolwork due to limited proficiency in English
+BYSTLANG: English if student's native language
+
+*Demographics*
+BYSEX: 1 = Male, 2 = Female
+BYRACE_R: All -5 since restricted
+BYSES2QU: SES Quartile
+
+### Base Year Indicators
+
+BYS87A: When I do mathematics, I sometimes get totally absorbed
+BYS87C: Because doing mathematics is fun, I wouldn't want to give it up
+BYS87F: Mathematics is important to me personally
+
+BYS89A: I'm confident that I can do an excellent job on my math tests
+BYS89B: I'm certain I can understand the most difficult material presented in math texts
+BYS89L: I'm confident I can understand the most complex material presented by my math teacher
+BYS89R: I'm confident I can do an excellent job on my math assignments
+BYS89U: I'm certain I can master the skills being taught in my math class
+
+*Math Attitude BYS87 Items*
+
+[Description]{.underline}: How much do you agree or disagree with the following
+statements?
+
+[Response options]{.underline}:
+
+1 - Strongly agree
+
+2 - Agree
+
+3 - Disagree
+
+4-  Strongly disagree
+
+
+*Math Self-Efficacy BYS89/F1S18 Items*
+
+[Description]{.underline}: How much do you agree or disagree with the following
+statements?
+
+[Response options]{.underline}:
+
+1 - Almost never
+
+2 - Sometimes
+
+3 - Often
+
+4-  Almost always
+
+### F1 Indicators
+
+F1S18A: I'm confident that I can do an excellent job on my math tests
+F1S18B: I'm certain I can understand the most difficult material presented in my math textbooks
+F1S18C: I'm confident I can understand the most complex material presented by my math teacher
+F1S18D: I'm confident I can do an excellent job on my math assignments
+F1S18E: I'm certain I can master the skills being taught in my math class
+
+### Outcomes
+
+F3ONET2CURR: 2 digit code for most recent job
+F3ONET6CURR: 6 digit code for most recent job
+F3BYTSCWT: Panel weight
+
+## Read in data
+
+Read in ELS `.sav` file:
+
+```{r, eval = FALSE}
+els_sav <- read_sav(here("els_data", "els_02_12_byf3pststu_v1_0.sav")) 
+```
+
+View codebook:
+
+```{r, eval = FALSE}
+#view_df(els_sav)
+```
+
+Save subset:
+
+```{r, eval = FALSE}
+els_subset <- els_sav %>% 
+  clean_names() %>%
+  dplyr::select(
+    stu_id, strat_id, psu,
+    bys87a,bys87c,bys87f,bys89a,bys89b,bys89l,bys89r,bys89u,
+    f1s18a,f1s18b,f1s18c,f1s18d,f1s18e,
+    bys70a,bys70b,bys70c,bys70d,bystlang,bytm12b,bysex,byrace_r,
+    byses2qu,f3onet2curr,f3onet6curr, f3bystemoc30, f3bytscwt
+         ) %>%
+  mutate(school = paste0(strat_id,psu))
+
+view_df(els_subset)
+
+#write_csv(els_subset, here("els_data", "els_dang_analysis.csv"))
+```
+
+Read in ELS data file, `els_dang_analysis.csv`.
+
+```{r, eval=TRUE}
+bys87_items <- c("bys87a","bys87c","bys87f")
+
+f1s18_items <- c("f1s18a","f1s18b","f1s18c","f1s18d","f1s18e")
+
+bys89_items <- c("bys89a","bys89b","bys89l","bys89r","bys89u")
+
+els_data <- read_csv(
+  here("els_data", "els_dang_analysis.csv"),
+  na = c("-9", "-8", "-6", "-5", "-4", "-7", "-1", "-3", "-2", "-99")
+) %>%
+  # Dichotomize English proficiency
+  mutate(across(
+    c(bys70a, bys70b, bys70c, bys70d),
+    ~ case_when(. %in% c(1, 2) ~ 1, 
+                . %in% c(3, 4) ~ 0, 
+                TRUE ~ NA_real_)
+  )) %>%
+  mutate(across(
+    c(f3onet2curr),
+    ~ case_when(is.na(.) ~ NA_real_,
+                . %in% c(11, 15, 17, 19, 25, 45, 51) ~ 1, 
+                TRUE ~ 0)
+  )) %>%
+  mutate(female = case_match(bysex, 
+                             2 ~ 1, 
+                             1 ~ 0, 
+                             .default = NA_real_)) %>%
+  mutate(ses_dichotomized = case_match(
+    byses2qu,
+    1 ~ 1,
+    NA ~ NA,
+    .default = 0   
+  )) %>%
+  mutate(across(
+    all_of(bys87_items),
+    ~ case_when(. %in% c(1, 2) ~ 1,
+                . %in% c(3, 4) ~ 0,
+                TRUE ~ NA_real_)
+  )) %>%
+  mutate(across(all_of(c(
+    bys89_items, f1s18_items
+  )), ~ case_when(
+    . %in% c(1, 2) ~ 0,
+    . %in% c(3, 4) ~ 1, 
+    TRUE ~ NA_real_
+  )))
+
+summary(els_data)
+
+summary(factor(els_data$bys70a))
+summary(factor(els_data$bys70b))
+summary(factor(els_data$bys70c))
+summary(factor(els_data$bys70d))
+summary(factor(els_data$bystlang))
+summary(factor(els_data$f3onet2curr))
+summary(factor(els_data$female))
+summary(factor(els_data$bysex))
+summary(factor(els_data$byses2qu))
+summary(factor(els_data$ses_dichotomized))
+```
+
+---
+
+# Class Enumeration Using PSEM
+
+Experiment with different penalty hyperparameters
+
+```{r, eval=FALSE}
+if (!dir.exists(here("psem","penalty_enum"))) {
+  dir.create(here("psem","penalty_enum"), recursive = TRUE)
+}
+
+penalty_enum <- lapply(seq(from=0.1,to=1.5,length.out=8),function(k) {
+  m_psem_enum <- mplusObject(
+        
+      TITLE = glue("PSEM ALF({k})"), 
+    
+      VARIABLE =
+      "usev = bys87a-bys89u bys70a-bystlang;
+      categorical = bys87a-bys89u;
+      classes = c(4);
+      
+      WEIGHT = f3bytscwt;",
+    
+    ANALYSIS = 
+      "type = mixture;
+      estimator = mlr;
+      Starts = 800 200;
+      proc = 12;",
+    
+    MODEL = 
+    "%OVERALL% 
+    c ON bys70a-bystlang;
+    ! Direct effects:
+    bys87a-bys89u ON bys70a-bystlang (d1-d64);",
+    
+    MODELPRIORS = 
+    glue("d1-d64~ALF(0,{k});"),
+    
+    OUTPUT = "sampstat residual tech11 tech14;",
+  
+    usevariables = colnames(data_binary),
+    rdata = data_binary)
+  
+    step1_fit <- mplusModeler(m_psem_enum, 
+                              dataout=glue(here("psem","penalty_enum","penalty_enum.dat")),
+                              modelout=glue(here("psem","penalty_enum","penalty_enum_{k}.inp")) ,
+                              check=TRUE, run = TRUE, hashfilename = FALSE)
+})
+```
+
+* Since we used MLR there is a correction that needs to be done to the likelihood, at least for Chi-Square tests. Not sure if this also applies to subjective comparison of log-likelihood as done below (https://www.statmodel.com/discussion/messages/11/8230.html?1590018965)
+
+* For some reason ALF(0, 0) gives all NaN instead of just 0 for all the direct effects
+
+```{r}
+psem_penalty <- readModels(here("psem","penalty_enum"), quiet = TRUE)
+
+ll_values <- sapply(psem_penalty, function(x) x$summaries$LL)
+sig_effects <- sapply(psem_penalty, function(x) sum(x$parameters$unstandardized$pval < 0.05))
+
+sig_dir_effects <- sapply(psem_penalty, function(x) {
+  params <- x$parameters$unstandardized
+  # Keep pvals that are NOT thresholds or intercepts AND do NOT contain "C#" (should just be the direct effects)
+  keep <- !(params$paramHeader %in% c("Thresholds", "Intercepts")) & 
+          !grepl("C#", params$paramHeader)
+  sum(params$pval[keep] < 0.05, na.rm = TRUE)
+})
+
+df <- data.frame(
+  model_name = names(ll_values),
+  log_likelihood = as.numeric(ll_values),
+  effects = sig_effects,
+  dir_effects = sig_dir_effects
+)
+
+df$penalty_value <- as.numeric(sub(".*_([0-9.]+)\\.out", "\\1", df$model_name))
+```
+
+```{r}
+ggplot(data=df, mapping=aes(x=ordered(penalty_value),y=dir_effects)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Penalty (Alignment Function Variance)",
+       y = "Significant Direct Effects")
+```
+
+Estimation is the same for all classes, so all these numbers are divided by 4 in terms of a path diagram.
+
+Interesting that a high penalty decreases the total amount of significant direct effects. I'm really not sure what this happens. 
+
+```{r}
+ggplot(data=df, mapping=aes(x=ordered(penalty_value),y=log_likelihood)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Penalty (Alignment Function Variance)",
+       y = "Significant Direct Effects")
+```
+
+I would say ALF(0,0.7) is ideal because it provides a simple model with very good log likelihood, but there's definitely an argument to keep all the direct effects in the model.
+
+Now Muthen hardcodes just the significant effects. I'm Not sure if this is the best approach because it ignores potential interactions with non-significant effects, but I'll continue with his procedure.
+
+```{r, eval=FALSE}
+m_psem_enum <- mplusObject(
+      
+    TITLE = "8 Us, Hardcoded Dir Effects", 
+  
+    VARIABLE =
+    "usev = bys87a-bys89u bys70a-bystlang;
+    categorical = bys87a-bys89u;
+    classes = c(4);
+    
+    WEIGHT = f3bytscwt;",
+  
+  ANALYSIS = 
+    "type = mixture;
+    estimator = mlr;
+    Starts = 800 200;
+    proc = 12;",
+  
+  MODEL = 
+  "%OVERALL% 
+  c ON bys70a-bystlang;
+  ! Direct effects:
+  BYS87A on BYS70B BYS70D;
+  BYS89R on BYS70B BYSEX;",
+  
+  OUTPUT = "sampstat residual tech11 tech14;",
+
+  usevariables = colnames(data_binary),
+  rdata = data_binary)
+
+psem_enum_fit <- mplusModeler(m_psem_enum, 
+ dataout=here("psem", "dir_effects.dat"),
+ modelout=here("psem", "dir_effects.inp"),
+ check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+```{r}
+psem <- readModels(here("psem"), quiet = TRUE)
+plot_lca(psem)
+```
+
+There are major difference in class enumeration once direct effects are modelled
+
+* Class 4 is basically the same
+
+* Class 3 has similar but has much higher rates of endorsing the last 3 items
+
+* Classes 1 is similar but much lower rate of endorsing BYS87C
+
+* Class 2 is completely different

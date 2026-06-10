@@ -1,0 +1,34 @@
+TITLE:
+Step 1 - Three-Step
+DATA:
+FILE = "C:/Users/dnajiarch/Box/LTA/10faq_aux/dang_2017/three_step/
+Step1.dat"; 
+VARIABLE:
+NAMES = stu_id strat_id psu bys87a bys87c bys87f bys89a bys89b bys89l bys89r bys89u
+     f1s18a f1s18b f1s18c f1s18d f1s18e bys70a bys70b bys70c bys70d bystlang bytm12b
+     bysex byrace_r byses2qu f3onet2curr f3onet6curr f3bytscwt school female
+     ses_dichotomized; 
+ MISSING=.;
+ categorical = bys87a,bys87c,bys87f,bys89a,
+    bys89b,bys89l,bys89r,bys89u; 
+   usevar = bys87a,bys87c,bys87f,bys89a,
+    bys89b,bys89l,bys89r,bys89u;
+    
+   classes = c(4); 
+    
+   auxiliary = 
+   female     
+   ses_dichotomized
+   f3onet2curr;
+  
+  WEIGHT = f3bytscwt;
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    optseed = 399671;
+OUTPUT:
+residual tech11 tech14
+SAVEDATA:
+File=savedata.dat;
+    Save=cprob;

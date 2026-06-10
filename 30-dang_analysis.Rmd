@@ -1,0 +1,1325 @@
+---
+title: "Connecting Math Attitudes With STEM Career Attainment: A Latent Class Analysis Approach" 
+author: "Dina Arch"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(haven)
+library(tidyverse)
+library(sjPlot)
+library(gt)
+library(janitor)
+library(modelsummary)
+library(here)
+library(glue)
+library(MplusAutomation)
+library(patchwork)
+library(reshape2)
+library(cowplot)
+library(naniar)
+
+#install.packages("devtools")
+#library(devtools)
+
+#install_github("michaelhallquist/MplusAutomation")
+here::i_am("30-dang_analysis.Rmd")
+```
+
+# Education Longitudinal Study
+
+-   BY = Base Year (2002) - 10th grade
+
+    -   Completed the baseline survey of high school sophomores in spring term 2002.
+
+-   F1 = First follow up (2004) - 12th grade
+
+    -   Most sample members were seniors, but some were dropouts or in other grades (early graduates or retained in an earlier grade).
+
+-   F2 = Second follow up (2006) - Post-high-school follow-up
+
+-   F3 = Third follow up (2012) - Kids are ~26yo
+
+## Item Descriptions
+
+### Base Year Covariates
+
+*English Proficiency*
+BYS70A: How well student understands English (1 = Very well, 4 = Not at all) 
+BYS70B: How well student speaks English (1 = Very well, 4 = Not at all) 
+BYS70C: How well student reads English (1 = Very well, 4 = Not at all)
+BYS70D: How well 10th-grader writes English (1 = Very well, 4 = Not at all) 
+BYTM12B: Student behind on schoolwork due to limited proficiency in English
+BYSTLANG: English if student's native language
+
+*Demographics*
+BYSEX: 1 = Male, 2 = Female
+BYRACE_R: All -5 since restricted
+BYSES2QU: SES Quartile
+
+### Base Year Indicators
+
+BYS87A: When I do mathematics, I sometimes get totally absorbed
+BYS87C: Because doing mathematics is fun, I wouldn't want to give it up
+BYS87F: Mathematics is important to me personally
+
+BYS89A: I'm confident that I can do an excellent job on my math tests
+BYS89B: I'm certain I can understand the most difficult material presented in math texts
+BYS89L: I'm confident I can understand the most complex material presented by my math teacher
+BYS89R: I'm confident I can do an excellent job on my math assignments
+BYS89U: I'm certain I can master the skills being taught in my math class
+
+*Math Attitude BYS87 Items*
+
+[Description]{.underline}: How much do you agree or disagree with the following
+statements?
+
+[Response options]{.underline}:
+
+1 - Strongly agree
+
+2 - Agree
+
+3 - Disagree
+
+4-  Strongly disagree
+
+
+*Math Self-Efficacy BYS89/F1S18 Items*
+
+[Description]{.underline}: How much do you agree or disagree with the following
+statements?
+
+[Response options]{.underline}:
+
+1 - Almost never
+
+2 - Sometimes
+
+3 - Often
+
+4-  Almost always
+
+### F1 Indicators
+
+F1S18A: I'm confident that I can do an excellent job on my math tests
+F1S18B: I'm certain I can understand the most difficult material presented in my math textbooks
+F1S18C: I'm confident I can understand the most complex material presented by my math teacher
+F1S18D: I'm confident I can do an excellent job on my math assignments
+F1S18E: I'm certain I can master the skills being taught in my math class
+
+### Outcomes
+
+F3ONET2CURR: 2 digit code for most recent job
+F3ONET6CURR: 6 digit code for most recent job
+F3BYTSCWT: Panel weight
+
+## Read in data
+
+Read in ELS `.sav` file:
+
+```{r}
+els_sav <- read_csv(here("29-dang-lca-example", "els_data", "els_dang_analysis.csv"))
+```
+
+
+View codebook:
+
+```{r, eval = FALSE}
+#view_df(els_sav)
+```
+
+Save subset:
+
+```{r, eval = FALSE}
+els_subset <- els_sav %>% 
+  clean_names() %>%
+  dplyr::select(
+    stu_id, strat_id, psu,
+    bys87a,bys87c,bys87f,bys89a,bys89b,bys89l,bys89r,bys89u,
+    f1s18a,f1s18b,f1s18c,f1s18d,f1s18e,
+    bys70a,bys70b,bys70c,bys70d,bystlang,bytm12b,bysex,byrace_r,
+    byses2qu,f3onet2curr,f3onet6curr, f3bystemoc30, f3bytscwt
+         ) %>%
+  mutate(school = paste0(strat_id,psu))
+
+view_df(els_subset)
+
+#write_csv(els_subset, here("29-dang-lca-example", "els_data", "els_dang_analysis.csv"))
+```
+
+Read in ELS data file, `els_dang_analysis.csv`.
+
+```{r, eval=TRUE}
+bys87_items <- c("bys87a","bys87c","bys87f")
+
+f1s18_items <- c("f1s18a","f1s18b","f1s18c","f1s18d","f1s18e")
+
+bys89_items <- c("bys89a","bys89b","bys89l","bys89r","bys89u")
+
+els_data <- read_csv(
+  here("29-dang-lca-example", "els_data", "els_dang_analysis.csv"),
+  na = c("-9", "-8", "-6", "-5", "-4", "-7", "-1", "-3", "-2", "-99")
+) %>%
+  # Dichotomize English proficiency
+  mutate(across(
+    c(bys70a, bys70b, bys70c, bys70d),
+    ~ case_when(. %in% c(1, 2) ~ 1, 
+                . %in% c(3, 4) ~ 0, 
+                TRUE ~ NA_real_)
+  )) %>%
+  mutate(across(
+    c(f3onet2curr),
+    ~ case_when(is.na(.) ~ NA_real_,
+                . %in% c(11, 15, 17, 19, 25, 45, 51) ~ 1, 
+                TRUE ~ 0)
+  )) %>%
+  mutate(female = case_match(bysex, 
+                             2 ~ 1, 
+                             1 ~ 0, 
+                             .default = NA_real_)) %>%
+  mutate(ses_dichotomized = case_match(
+    byses2qu,
+    1 ~ 1,
+    NA ~ NA,
+    .default = 0   
+  )) %>%
+  mutate(across(
+    all_of(bys87_items),
+    ~ case_when(. %in% c(1, 2) ~ 1,
+                . %in% c(3, 4) ~ 0,
+                TRUE ~ NA_real_)
+  )) %>%
+  mutate(across(all_of(c(
+    bys89_items, f1s18_items
+  )), ~ case_when(
+    . %in% c(1, 2) ~ 0,
+    . %in% c(3, 4) ~ 1, 
+    TRUE ~ NA_real_
+  )))
+
+summary(els_data)
+
+summary(factor(els_data$bys70a))
+summary(factor(els_data$bys70b))
+summary(factor(els_data$bys70c))
+summary(factor(els_data$bys70d))
+summary(factor(els_data$bystlang))
+summary(factor(els_data$f3onet2curr))
+summary(factor(els_data$female))
+summary(factor(els_data$bysex))
+summary(factor(els_data$byses2qu))
+summary(factor(els_data$ses_dichotomized))
+```
+
+## Descriptive Statistics
+
+
+*Linguistic Minority*
+
+"Respondents were classified as linguistic minority if they reported that English was not their first language and they responded that they read,speak, write, and/or understand English well. Respondents were classified as native English speakers if they indicated they speak English as a first language and they read, speak, write, and understand English well. Using these criteria, among the total 8,790 students, 7,490 (85.2%) were classified as native English speakers, 1,040 (11.8%) were classified as linguistic minority students, and 260 (3.0%) were classified as ELLs." (page 8)
+
+BYS70A: How well student understands English (1 = Very well, 4 = Not at all) but already dichotomized
+BYS70B: How well student speaks English (1 = Very well, 4 = Not at all) but already dichotomized
+BYS70C: How well student reads English (1 = Very well, 4 = Not at all) but already dichotomized
+BYS70D: How well 10th-grader writes English (1 = Very well, 4 = Not at all) but already dichotomized
+BYTM12B: Student behind on schoolwork due to limited proficiency in English
+
+```{r, eval = FALSE}
+ling_min <- els_subset %>% 
+  mutate(across(where(is.labelled), zap_labels)) %>%
+  replace_with_na_all(condition = ~.x %in% c(-9,-8,-6,-5,-4,-7,-1,-3,-2,-99)) %>% 
+  select(bys70a,bys70b,bys70c,bys70d,bytm12b)   
+
+f <- All(ling_min) ~ Mean + SD + Min + Median + Max + Histogram
+
+datasummary(f, els_subset, output="markdown")
+
+summary(factor(ling_min$bys70a))
+summary(factor(ling_min$bys70b))
+summary(factor(ling_min$bys70c))
+summary(factor(ling_min$bys70d))
+summary(factor(ling_min$bytm12b))
+
+
+# Trying to create the linguistic minority variable:
+ling_minority_var <- els_data %>% 
+  mutate(
+    lang_status = case_when(
+      # Condition A: Native English Speaker
+      # Native language is English AND proficient in all 4 domains
+      bystlang == 1 & bys70a == 1 & bys70b == 1 & bys70c == 1 & bys70d == 1 
+        ~ "Native English Speaker",
+      
+      # Condition B: Linguistic Minority
+      # Not native English speaker, BUT reads, speaks, writes, and/or understands well
+      bystlang == 0 & (bys70a == 1 | bys70b == 1 | bys70c == 1 | bys70d == 1) 
+        ~ "Linguistic Minority",
+      
+      # Condition C: ELL (English Language Learner)
+      # Not native English speaker AND has limited proficiency / behind in schoolwork
+      bystlang == 0 & (bytm12b == 1 | (bys70a != 1 & bys70b != 1 & bys70c != 1 & bys70d != 1)) 
+        ~ "ELL",
+      
+      # If data is missing for vital logic pieces, preserve it as NA
+      TRUE ~ NA_character_
+    ),
+    # Convert to a factor for clean modeling/summaries later
+    lang_status = factor(lang_status, levels = c("Native English Speaker", "Linguistic Minority", "ELL"))
+  )
+  
+
+summary(factor(ling_minority_var$lang_status))
+```
+
+---
+
+```{r}
+math_subset <- els_data %>% 
+  select(bys87a,bys87c,bys87f,bys89a,bys89b,bys89l,bys89r,bys89u,f1s18a,f1s18b,f1s18c,f1s18d,f1s18e)                 
+```
+
+Descriptive
+
+```{r}
+f <- All(math_subset) ~ Mean + SD + Min + Median + Max + Histogram
+
+datasummary(f, els_data, output="markdown")
+```
+
+Weighted average
+
+```{r}
+bys87_items <- c("bys87a","bys87c","bys87f")
+
+f1s18_items <- c("f1s18a","f1s18b","f1s18c","f1s18d","f1s18e")
+
+bys89_items <- c("bys89a","bys89b","bys89l","bys89r","bys89u")
+
+math_binary_weighted <- els_data %>%
+  summarise(across(c(all_of(bys87_items), all_of(c(bys89_items, f1s18_items))),
+                   list(
+                     w_mean = ~ weighted.mean(.x, f3bytscwt, na.rm = TRUE),
+                     w_sd = ~ {
+                       keep <- !is.na(.x) & !is.na(f3bytscwt)
+                       x <- .x[keep]
+                       w_raw <- f3bytscwt[keep]
+                       w <- w_raw / sum(w_raw)
+                       mu <- sum(w * x)
+                       sqrt(sum(w * (x - mu)^2))
+                     }
+                   ),
+                   .names = "{.col}_{.fn}"
+  )) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = c("item", ".value"),
+    names_pattern = "(.*)_(w_mean|w_sd)"
+  )
+
+math_binary_weighted
+```
+
+```{r}
+library(tidyverse)
+library(gt)
+
+item_labels <- tibble(
+  item = c(
+    "bys87a", "bys87c", "bys87f",
+    "f1s18a", "f1s18b", "f1s18c", "f1s18d", "f1s18e",
+    "bys89a", "bys89b", "bys89l", "bys89r", "bys89u"
+  ),
+  scale = c(
+    rep("Math attitudes", 3),
+    rep("Math self-efficacy", 5),
+    rep("Math experiences", 5)
+  ),
+  item_label = c(
+    "I enjoy math",
+    "Math is one of my best subjects",
+    "Math is useful for my future",
+    "Certain I can understand math",
+    "Certain I can do well in math",
+    "Certain I can learn math",
+    "Certain I can master math skills",
+    "Certain I can complete math assignments",
+    "Took advanced math",
+    "Participated in math club",
+    "Worked hard in math",
+    "Talked with teacher about math",
+    "Planned to take more math"
+  )
+)
+
+math_binary_weighted_table <- math_binary_weighted %>%
+  left_join(item_labels, by = "item") %>%
+  mutate(
+    percent_endorsed = w_mean * 100,
+    sd = w_sd
+  ) %>%
+  select(scale, item, item_label, percent_endorsed, sd)
+
+math_binary_weighted_table %>%
+  gt(groupname_col = "scale") %>%
+  cols_label(
+    item = "Item",
+    item_label = "Item wording",
+    percent_endorsed = "% endorsed",
+    sd = "SD"
+  ) %>%
+  fmt_number(
+    columns = c(percent_endorsed, sd),
+    decimals = 2
+  ) %>%
+  tab_header(
+    title = "Weighted Descriptive Statistics for Binary Math Indicators",
+    subtitle = "Weighted means represent the percentage endorsing the focal response category"
+  ) %>%
+  tab_options(
+    table.font.size = 13,
+    heading.title.font.size = 16,
+    heading.subtitle.font.size = 12,
+    row_group.font.weight = "bold",
+    column_labels.font.weight = "bold"
+  )
+```
+
+
+Proportions
+
+```{r}
+# Dichotomize
+math_binary <- els_data %>% 
+  select(bys87_items,bys89_items,f1s18_items, f3bytscwt, f3onet2curr, bystlang, stu_id)
+
+# Set up data to find proportions of binary indicators
+ds <- math_binary %>%
+  select(-f3bytscwt, -bystlang, -stu_id, -f3onet2curr) %>% 
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable",
+    values_to = "value"
+  )
+
+# Create table of variables and counts, then find proportions and round to 3 decimal places
+prop_df <- ds %>%
+  count(variable, value) %>%
+  group_by(variable) %>%
+  mutate(prop = n / sum(n)) %>%
+  ungroup() %>%
+  mutate(prop = round(prop, 3))
+
+
+# Make it a gt() table
+prop_table <- prop_df %>% 
+  gt(groupname_col = "variable", rowname_col = "value") %>%
+  tab_stubhead(label = md("*Values*")) %>%
+  tab_header(
+    md(
+      "Variable Proportions"
+    )
+  ) %>%
+  cols_label(
+    variable = md("*Variable*"),
+    value = md("*Value*"),
+    n = md("*N*"),
+    prop = md("*Proportion*")
+  ) 
+  
+prop_table
+psych::describe(math_binary)
+```
+
+
+```{r}
+
+# Item labels
+item_labels <- tibble(
+  variable = c(
+    "bys87a", "bys87c", "bys87f",
+    "bys89a", "bys89b", "bys89l", "bys89r", "bys89u",
+    "f1s18a", "f1s18b", "f1s18c", "f1s18d", "f1s18e"
+  ),
+  scale = c(
+    rep("Math attitudes", 3),
+    rep("Math experiences", 5),
+    rep("Math self-efficacy", 5)
+  ),
+  item_label = c(
+    "I enjoy math",
+    "Math is one of my best subjects",
+    "Math is useful for my future",
+    "Took advanced math",
+    "Participated in math club",
+    "Worked hard in math",
+    "Talked with teacher about math",
+    "Planned to take more math",
+    "Certain I can understand math",
+    "Certain I can do well in math",
+    "Certain I can learn math",
+    "Certain I can master math skills",
+    "Certain I can complete math assignments"
+  )
+)
+
+prop_table_data <- math_binary %>%
+  select(all_of(c(bys87_items, bys89_items, f1s18_items))) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable",
+    values_to = "value"
+  ) %>%
+  filter(!is.na(value)) %>%
+  count(variable, value, name = "n") %>%
+  group_by(variable) %>%
+  mutate(
+    total_n = sum(n),
+    prop = n / total_n
+  ) %>%
+  ungroup() %>%
+  left_join(item_labels, by = "variable") %>%
+  mutate(
+    value_label = case_when(
+      value == 1 ~ "1 = endorsed",
+      value == 0 ~ "0 = not endorsed"
+    )
+  ) %>%
+  select(scale, variable, item_label, value_label, n, total_n, prop)
+```
+
+```{r}
+prop_endorsed_table <- prop_table_data %>%
+  filter(value_label == "1 = endorsed") %>%
+  select(scale, variable, item_label, n, total_n, prop) %>%
+  gt(groupname_col = "scale") %>%
+  cols_label(
+    variable = "Item",
+    item_label = "Item wording",
+    n = "Endorsed N",
+    total_n = "Valid N",
+    prop = "% endorsed"
+  ) %>%
+  fmt_percent(
+    columns = prop,
+    decimals = 1
+  ) %>%
+  tab_header(
+    title = "Unweighted Endorsement Rates for Binary Math Indicators",
+    subtitle = "Endorsement refers to the response category recoded as 1"
+  ) %>%
+  tab_options(
+    table.font.size = 13,
+    heading.title.font.size = 16,
+    heading.subtitle.font.size = 12,
+    row_group.font.weight = "bold",
+    column_labels.font.weight = "bold"
+  )
+
+prop_endorsed_table
+```
+
+
+## Math Attitudes & Self-Efficacy
+
+### Full Sample
+
+Basic analysis
+
+```{r, eval = FALSE}
+basic_t1  <- mplusObject(                 
+    
+   TITLE = glue("Basic - T1"), 
+  
+   VARIABLE = 
+    "categorical = bys87a,bys87c,bys87f,bys89a,
+    bys89b,bys89l,bys89r,bys89u;
+     usevar = bys87a,bys87c,bys87f,bys89a,
+    bys89b,bys89l,bys89r,bys89u;
+    
+    WEIGHT = f3bytscwt;",
+  
+  ANALYSIS = 
+   "type = basic;",
+  
+  OUTPUT = "sampstat;",
+  
+  usevariables = colnames(math_binary),
+  rdata = math_binary)
+
+basic_t1_fit <- mplusModeler(basic_t1,
+                 dataout=here("basic.dat"), 
+                 modelout=here("basic.inp"),
+                 check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+Enumeration
+
+```{r, eval = FALSE}
+if (!dir.exists("enumeration")) {
+  dir.create("enumeration", recursive = TRUE)
+}
+
+t1_enum <- lapply(1:6, function(k) { 
+  enum_t1  <- mplusObject(                 
+    
+   TITLE = glue("Class {k} Math Attitudes & Efficacy - T1"), 
+  
+   VARIABLE = glue( 
+    "categorical = bys87a,bys87c,bys87f,bys89a,
+    bys89b,bys89l,bys89r,bys89u;
+     usevar = bys87a,bys87c,bys87f,bys89a,
+    bys89b,bys89l,bys89r,bys89u;
+    
+    WEIGHT = f3bytscwt;
+     
+     classes = c({k});"),
+  
+  ANALYSIS = 
+   "estimator = mlr; 
+    type = mixture;
+    starts = 500 100;           
+    processors = 12;",
+  
+  OUTPUT = "sampstat residual tech11 tech14;",
+  
+  usevariables = colnames(math_binary),
+  rdata = math_binary)
+
+enum_t1_fit <- mplusModeler(enum_t1,
+                 dataout=here("enumeration","enum.dat"), 
+                 modelout=glue(here("enumeration","c{k}_math_weighted.inp")),
+                 check=TRUE, run = TRUE, hashfilename = FALSE)
+})
+```
+
+Model Fit Summary
+
+```{r}
+source(here("29-dang-lca-example","functions", "extract_mplus_info.R"))
+source(here("29-dang-lca-example","functions","enum_table.R"))
+
+# Define the directory where all of the .out files are located.
+output_dir <- here("29-dang-lca-example","enumeration")
+
+# Get all .out files
+output_files <- list.files(output_dir, pattern = "\\.out$", full.names = TRUE)
+
+# Process all .out files into one dataframe
+final_data <- map_dfr(output_files, extract_mplus_info_extended)
+
+# Extract Sample_Size from final_data
+sample_size <- unique(final_data$Sample_Size)
+
+output_enum <- readModels(here("29-dang-lca-example","enumeration"), quiet = TRUE)
+
+enum_table_weights(output_enum)
+```
+
+IC Plot
+
+```{r}
+source(here("29-dang-lca-example", "functions","ic_plot_lca.R"))
+ic_plot2(output_enum)
+```
+
+Plot LCA:
+
+```{r, fig.width=10}
+source(here("29-dang-lca-example", "functions","plot_lca.R"))
+
+plot_lca(output_enum$c4_math_weighted.out)
+```
+
+
+------------------------------------------------------------------------
+
+## Manual ML Three-step
+
+------------------------------------------------------------------------
+
+### Step 1 - Class Enumeration w/ Auxiliary Specification
+
+------------------------------------------------------------------------
+
+This step is done after class enumeration (or after you have selected the best latent class model). In this example, the four class model was the best. Now, we re-estimate the five-class model using `optseed` for efficiency. The difference here is the `SAVEDATA` command, where I can save the posterior probabilities and the modal class assignment that will be used in steps two and three. 
+
+
+```{r, eval = FALSE}
+step1  <- mplusObject(
+  
+  TITLE = "Step 1 - Three-Step", 
+  
+  VARIABLE = 
+  "categorical = bys87a,bys87c,bys87f,bys89a,
+    bys89b,bys89l,bys89r,bys89u; 
+   usevar = bys87a,bys87c,bys87f,bys89a,
+    bys89b,bys89l,bys89r,bys89u;
+    
+   classes = c(4); 
+    
+   auxiliary = 
+   female     
+   ses_dichotomized
+   f3onet2curr;
+  
+  WEIGHT = f3bytscwt;",
+  
+  ANALYSIS = 
+   "estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    optseed = 399671;",
+  
+  SAVEDATA = 
+   "File=savedata.dat;
+    Save=cprob;",
+  
+  OUTPUT = "residual tech11 tech14",
+  
+  usevariables = colnames(els_data),
+  rdata = els_data)
+
+step1_fit <- mplusModeler(step1,
+                            dataout=here("29-dang-lca-example", "three_step", "Step1.dat"),
+                            modelout=here("29-dang-lca-example", "three_step", "one.inp") ,
+                            check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+------------------------------------------------------------------------
+
+Plot LCA
+
+Class 1 = Low Math Attitudes, High Self-Efficacy  (20.33%)
+Class 2 = High Math Attitudes, Low Self-Efficacy  (18.546%)
+Class 3 = High Math Attitudes, High Self-Efficacy  (24.93%)
+Class 4 = Low Math Attitudes, Low Self-Efficacy (36.2%)
+
+```{r, out.width="90%"}
+source(here("29-dang-lca-example", "functions", "plot_lca.R"))
+output_one <- readModels(here("29-dang-lca-example", "three_step", "one.out"))
+
+plot_lca(model_name = output_one)
+```
+
+Check that log-likelihood values are the same
+
+```{r}
+output_one <- readModels(here("29-dang-lca-example", "three_step", "one.out"))
+output_one$summaries$LL
+
+enumeration_c5 <- readModels(here("29-dang-lca-example", "enumeration", "c4_math_weighted.out"))
+enumeration_c5$summaries$LL
+```
+
+------------------------------------------------------------------------
+
+### Step 2 - Determine Measurement Error
+
+------------------------------------------------------------------------
+
+Extract logits for the classification probabilities for the most likely latent class
+
+```{r}
+logit_cprobs <- as.data.frame(output_one$class_counts$logitProbs.mostLikely)
+logit_cprobs
+```
+
+Extract saved dataset from step one
+
+```{r}
+savedata <- as.data.frame(output_one$savedata) %>% 
+  rename(N = MLCC) #Rename the column in savedata named "MLCC" and change to "N"
+```
+
+Check variable names in savedata (Mplus will cut off variable names that are longer than 8 characters)
+
+```{r}
+names(savedata)
+```
+
+------------------------------------------------------------------------
+
+### Step 3 - LCA Auxiliary Variable Model with 2 covariates and 1 distal outcome
+
+------------------------------------------------------------------------
+
+Model with 1 covariate (FEMALE) and 1 distal outcome (Math IRT scores)
+
+```{r, eval = FALSE}
+step3  <- mplusObject(
+  TITLE = "Step 3 - Three-Step", 
+  
+  VARIABLE = 
+ "nominal=N;
+  classes = c(4);
+  usevar = N FEMALE SES_DICH F3ONET2C;
+  categorical = F3ONET2C;" , # Add covariates and distal outcomes in addition to `N` here
+  
+  ANALYSIS = 
+ "estimator = mlr; 
+  type = mixture; 
+  starts = 0;",
+ 
+  DEFINE = 
+   "center FEMALE SES_DICH (grandmean);",
+  
+  MODEL =
+  glue(
+ " %OVERALL%
+ 
+  F3ONET2C on FEMALE SES_DICH; ! covariate as a related to the distal outcome
+  C on female (f1-f3);
+  C on SES_DICH (s1-s3);
+
+     %C#1%
+  [n#1@{logit_cprobs[1,1]}]; ! MUST EDIT if you do not have a 5-class model. 
+  [n#2@{logit_cprobs[1,2]}];
+  [n#3@{logit_cprobs[1,3]}];
+  
+  [F3ONET2C$1](m1);    ! conditional distal logit
+
+  %C#2%
+  [n#1@{logit_cprobs[2,1]}];
+  [n#2@{logit_cprobs[2,2]}];
+  [n#3@{logit_cprobs[2,3]}];
+  
+  [F3ONET2C$1](m2);
+  
+  %C#3%
+  [n#1@{logit_cprobs[3,1]}];
+  [n#2@{logit_cprobs[3,2]}];
+  [n#3@{logit_cprobs[3,3]}];
+  
+  [F3ONET2C$1](m3);
+
+  %C#4%
+  [n#1@{logit_cprobs[4,1]}];
+  [n#2@{logit_cprobs[4,2]}];
+  [n#3@{logit_cprobs[4,3]}];
+  
+  [F3ONET2C$1](m4);
+ 
+ "),
+  
+ MODELCONSTRAINT = 
+ "New (
+    ! Distal mean differences (6 total for 4 classes)
+    diff12 diff13 diff14 
+    diff23 diff24 diff34
+  );
+  
+  ! Distal mean comparisons
+  diff12 = m1-m2;
+  diff13 = m1-m3;
+  diff14 = m1-m4;
+  diff23 = m2-m3;
+  diff24 = m2-m4;
+  diff34 = m3-m4;
+ ",
+  
+  MODELTEST = "     ! omnibus test of distal means 
+    m1=m2;
+    m2=m3;
+    m3=m4;
+ 
+    !f1=0;       ! omnibus test of covariate logits (female)  
+    !f2=0;
+    !f3=0;
+    
+    !s1=0;       ! omnibus test of covariate logits (ses)  
+    !s2=0;
+    !s3=0;
+   ",
+ 
+ OUTPUT = "sampstat",
+ 
+  usevariables = colnames(savedata), 
+  rdata = savedata)
+
+step3_fit <- mplusModeler(step3,
+               dataout=here("29-dang-lca-example", "three_step", "Step3.dat"), 
+               modelout=here("29-dang-lca-example", "three_step", "three_distal.inp"), 
+               check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+Rerun model with different model test:
+
+```{r, eval = FALSE}
+# Update the model test by overwriting string
+step3$MODELTEST <- "f1=0; f2=0; f3=0;"
+
+# Then run it again
+mplusModeler(step3,
+               dataout=here("29-dang-lca-example", "three_step", "Step3.dat"), 
+               modelout=here("29-dang-lca-example", "three_step", "three_female.inp"), 
+               check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+
+Rerun model with different model test:
+
+```{r, eval = FALSE}
+# Update the model test by overwriting string
+step3$MODELTEST <- "s1=0; s2=0; s3=0;"
+
+# Then run it again
+mplusModeler(step3,
+               dataout=here("29-dang-lca-example", "three_step", "Step3.dat"), 
+               modelout=here("29-dang-lca-example", "three_step", "three_ses.inp"), 
+               check=TRUE, run = TRUE, hashfilename = FALSE)
+```
+
+------------------------------------------------------------------------
+
+Compare Step 1 classes and Step 3 classes
+ 
+```{r}
+output_one <- readModels(here("29-dang-lca-example", "three_step", "one.out"))
+output_one$class_counts$modelEstimated
+
+
+output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
+output_three$class_counts$modelEstimated
+```
+ 
+NOTE:  If there are notable differences between class formation in the Step 1 and the Step 3 models, it means there are one of more covariates included in the Step 3 model that may be sources of unaccounted-for DIF  
+ 
+------------------------------------------------------------------------
+
+## Visualizations
+
+------------------------------------------------------------------------
+
+#### Wald Test Table
+
+This is testing if there is a relation between the latent class variable and the distal outcome.
+
+Note: There are two outputs, each containing separate Wald tests (one for Math IRT scores and the other for self-reported gender). However, other than the Wald test, the outputs are identical. Either can be used for subsequent code.
+
+```{r}
+# Make a Wald table function
+wald_table <- function(mplus_model, table_title) {
+  
+  # Read the model
+  model_output <- mplus_model
+  
+  # Extract information as data frame
+  wald <- as.data.frame(model_output[["summaries"]]) %>%
+    dplyr::select(WaldChiSq_Value:WaldChiSq_PValue) %>% 
+    mutate(WaldChiSq_DF = paste0("(", WaldChiSq_DF, ")")) %>% 
+    unite(wald_test, WaldChiSq_Value, WaldChiSq_DF, sep = " ") %>% 
+    rename(pval = WaldChiSq_PValue) %>% 
+    mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+  
+  # Create the gt table
+  wald %>% 
+  gt() %>%
+    tab_header(
+    title = table_title) %>%
+    cols_label(
+      wald_test = md("Wald Test (*df*)"), 
+      pval = md("*p*-value")) %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+}
+```
+
+Use `wald_table` funtion
+
+```{r}
+output_three_distal <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
+output_three_female <- readModels(here("29-dang-lca-example", "three_step", "three_female.out"))
+output_three_ses <- readModels(here("29-dang-lca-example", "three_step", "three_ses.out"))
+
+wald_table(output_three_distal, "Wald Test Distal Means (Math IRT Scores)")
+wald_table(output_three_female, "Wald Test Distal Means (Female)")
+wald_table(output_three_ses, "Wald Test Distal Means (SES)")
+```
+
+Note: There are two outputs, each containing separate Wald tests (one for Math IRT scores and the other for self-reported gender). However, other than the Wald test, the outputs are identical. Either can be used for subsequent code.
+
+------------------------------------------------------------------------
+
+#### Table of Covariates Relations
+
+Make `predictor_table` function
+
+```{r}
+# Make a predictor table function
+predictor_table <- function(mplus_output,  
+                            var_labels = NULL, 
+                            table_title = "Predictors of Class Membership") {
+  
+  # Extract Unstandardized Logits
+cov_data <- as.data.frame(mplus_output[["parameters"]][["unstandardized"]]) %>% 
+  filter(str_detect(paramHeader, "\\.ON$")) %>% 
+  filter(!str_detect(LatentClass, "Categorical\\.Latent\\.Variables")) %>%
+  mutate(
+    param_label = if (!is.null(var_labels)) {
+      str_replace_all(param, var_labels)
+    } else {
+      str_to_title(param)
+    },
+    latent_class = paste("Class", LatentClass)
+  ) %>% 
+  mutate(
+    logit = paste0(format(round(est, 3), nsmall = 3), " (", format(round(se, 2), nsmall = 2), ")"),
+    pval_label = case_when(
+      pval < 0.001 ~ "<.001*",
+      pval < 0.05  ~ paste0(scales::number(pval, accuracy = .001), "*"),
+      TRUE         ~ scales::number(pval, accuracy = .001)
+    )
+  ) %>% 
+  dplyr::select(param_label, latent_class, logit, pval_label)
+  
+  # Extract Odds Ratios
+  or_data <- as.data.frame(mplus_output[["parameters"]][["odds"]]) %>%
+    filter(str_detect(paramHeader, "\\.ON$")) %>% 
+    mutate(
+      param_label = if (!is.null(var_labels)) {
+        str_replace_all(param, var_labels)
+      } else {
+        str_to_title(param)
+      },
+      
+      latent_class = paste("Class", LatentClass),
+      
+      CI = paste0("[", format(round(lower_2.5ci, 3), nsmall = 3), ", ", 
+                  format(round(upper_2.5ci, 3), nsmall = 3), "]")
+    ) %>% 
+    dplyr::select(param_label, latent_class, or = est, CI)
+  
+  # Combine and Format Table
+  or_data %>% 
+    full_join(cov_data, by = c("param_label", "latent_class")) %>% 
+    dplyr::select(param_label, latent_class, logit, pval_label, or, CI) %>% 
+    gt(groupname_col = "latent_class", rowname_col = "param_label") %>%
+    tab_header(title = table_title) %>%
+    cols_label(
+      logit = md("Logit (*se*)"),
+      or = md("Odds Ratio"),
+      CI = md("95% CI"),
+      pval_label = md("*p*-value")
+    ) %>% 
+    sub_missing(missing_text = "-") %>% 
+    cols_align(align = "center") %>% 
+    opt_align_table_header(align = "left") %>% 
+    gt::tab_options(table.font.names = "serif")
+}
+```
+
+Use `predictor_table` function
+
+```{r, eval = FALSE}
+output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
+
+predictor_table(output_three, var_labels = c("FEMALE" = "Female", "SES_DICH" = "SES"))
+```
+
+------------------------------------------------------------------------
+
+#### Plot of Gender Differences
+
+
+Class 1 = Low Math Attitudes, High Self-Efficacy  (20.33%)
+Class 2 = High Math Attitudes, Low Self-Efficacy  (18.546%)
+Class 3 = High Math Attitudes, High Self-Efficacy  (24.93%)
+Class 4 = Low Math Attitudes, Low Self-Efficacy (36.2%)
+
+```{r}
+output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
+
+# Extract Centering Values from Univariate Stats
+# These are the values Mplus used for the 'Female' variable after centering
+female_x   <- savedata %>% summarize(max_val = max(FEMALE, na.rm = TRUE)) %>% pull(max_val)
+male_x <- savedata %>% summarize(min_val = min(FEMALE, na.rm = TRUE)) %>% pull(min_val)
+
+# Extract Intercepts and Slopes from Parameters
+params <- as.data.frame(output_three$parameters$unstandardized)
+
+# Get Intercepts (C#1 to C#4)
+intercepts <- params %>%
+  filter(paramHeader == "Intercepts" & str_detect(param, "C#")) %>%
+  mutate(Class = as.numeric(str_extract(param, "\\d+"))) %>%
+  select(Class, intercept = est)
+
+# Get Slopes (C#1.ON to C#4.ON) 
+slopes <- params %>%
+  filter(str_detect(paramHeader, "C#\\d+\\.ON") & param == "FEMALE") %>%
+  mutate(Class = as.numeric(str_extract(paramHeader, "\\d+"))) %>%
+  select(Class, slope = est)
+
+# Merge and add the Reference Class (Class 4), which is fixed to 0 in your model
+logits_df <- full_join(intercepts, slopes, by = "Class") %>%
+  add_row(Class = 4, intercept = 0, slope = 0) %>%
+  arrange(Class)
+
+# Class labels
+class_labels <- c("1" = "Low Math Attitudes, High Self-Efficacy (20.33%)",
+                  "2" = "High Math Attitudes, Low Self-Efficacy (18.546%)",
+                  "3" = "High Math Attitudes, High Self-Efficacy (24.93%)",
+                  "4" = "Low Math Attitudes, Low Self-Efficacy (36.2%)")
+
+# Calculate Predicted Probabilities
+plot_data <- logits_df %>%
+  # Create a row for each gender within each class
+  crossing(Gender = c("Male", "Female")) %>%
+  mutate(
+    # Use centered values: Male (-0.485) and Female (0.515)
+    x_val = ifelse(Gender == "Male", male_x, female_x),
+    logit = intercept + (slope * x_val)
+  ) %>%
+  group_by(Gender) %>%
+  mutate(
+    # Apply Softmax: P = exp(logit) / sum(exp(logits))
+    prob = exp(logit) / sum(exp(logit)),
+    Class_Name = str_wrap(class_labels[as.character(Class)], width = 20)
+  )
+
+# Generate the Plot
+ggplot(plot_data, aes(x = fct_inorder(Class_Name), y = prob, fill = Gender)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9), color = "black") +
+  geom_text(aes(label = sprintf("%.2f", prob)), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5, size = 3.5, family = "serif") +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(
+    title = "Model-Estimated Class Proportions by Gender",
+    subtitle = "Based on Grand-Mean Centered Multinomial Logistic Regression",
+    x = "",
+    y = "Probability",
+    fill = "Gender"
+  ) +
+  theme_cowplot() +
+  theme(
+    text = element_text(family = "serif"),
+    panel.grid.major.x = element_blank(),
+    legend.position = "top"
+  )
+```
+
+
+
+------------------------------------------------------------------------
+
+#### Plot of SES Differences
+
+```{r}
+output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
+
+# Extract Centering Values from Univariate Stats
+# These are the values Mplus used for the 'Female' variable after centering
+low_ses_x   <- savedata %>% summarize(max_val = max(SES_DICH, na.rm = TRUE)) %>% pull(max_val)
+other_ses_x <- savedata %>% summarize(min_val = min(SES_DICH, na.rm = TRUE)) %>% pull(min_val)
+
+# Extract Intercepts and Slopes from Parameters
+params <- as.data.frame(output_three$parameters$unstandardized)
+
+# Get Intercepts (C#1 to C#4)
+intercepts <- params %>%
+  filter(paramHeader == "Intercepts" & str_detect(param, "C#")) %>%
+  mutate(Class = as.numeric(str_extract(param, "\\d+"))) %>%
+  select(Class, intercept = est)
+
+# Get Slopes (C#1.ON to C#4.ON) 
+slopes <- params %>%
+  filter(str_detect(paramHeader, "C#\\d+\\.ON") & param == "SES_DICH") %>%
+  mutate(Class = as.numeric(str_extract(paramHeader, "\\d+"))) %>%
+  select(Class, slope = est)
+
+# Merge and add the Reference Class (Class 5), which is fixed to 0 in your model
+logits_df <- full_join(intercepts, slopes, by = "Class") %>%
+  add_row(Class = 4, intercept = 0, slope = 0) %>%
+  arrange(Class)
+
+# Class labels
+class_labels <- c("1" = "Low Math Attitudes, High Self-Efficacy (20.33%)",
+                  "2" = "High Math Attitudes, Low Self-Efficacy (18.546%)",
+                  "3" = "High Math Attitudes, High Self-Efficacy (24.93%)",
+                  "4" = "Low Math Attitudes, Low Self-Efficacy (36.2%)")
+
+# Calculate Predicted Probabilities
+plot_data <- logits_df %>%
+  # Create a row for each gender within each class
+  crossing(SES = c("Other SES", "Low SES")) %>%
+  mutate(
+    # Use centered values: Male (-0.485) and Female (0.515)
+    x_val = ifelse(SES == "Other SES", other_ses_x, low_ses_x),
+    logit = intercept + (slope * x_val)
+  ) %>%
+  group_by(SES) %>%
+  mutate(
+    # Apply Softmax: P = exp(logit) / sum(exp(logits))
+    prob = exp(logit) / sum(exp(logit)),
+    Class_Name = str_wrap(class_labels[as.character(Class)], width = 20)
+  )
+
+# Generate the Plot
+ggplot(plot_data, aes(x = fct_inorder(Class_Name), y = prob, fill = SES)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9), color = "black") +
+  geom_text(aes(label = sprintf("%.2f", prob)), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5, size = 3.5, family = "serif") +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(
+    title = "Model-Estimated Class Proportions by SES",
+    subtitle = "Based on Grand-Mean Centered Multinomial Logistic Regression",
+    x = "",
+    y = "Probability",
+    fill = "SES"
+  ) +
+  theme_cowplot() +
+  theme(
+    text = element_text(family = "serif"),
+    panel.grid.major.x = element_blank(),
+    legend.position = "top"
+  )
+```
+
+------------------------------------------------------------------------
+
+#### Table of Pairwise Distal Outcome Differences
+
+Make `diff_table` function
+
+```{r}
+diff_table <- function(mplus_output, 
+                       prefix = "DIFF", 
+                       table_title = "Pairwise Comparisons") {
+  
+  # Extract and Clean
+  diff_data <- as.data.frame(mplus_output[["parameters"]][["unstandardized"]]) %>%
+    # Dynamically filter by the prefix provided (e.g., DIFF or FEM)
+    filter(str_detect(param, paste0("^", prefix))) %>% 
+    dplyr::select(param, est, se, pval) %>% 
+    # Format Estimate and SE
+    mutate(
+      estimate = paste0(format(round(est, 3), nsmall = 3), 
+                        " (", format(round(se, 2), nsmall = 2), ")")
+    ) %>% 
+    # Logic to split "DIFF12" into "1" and "2"
+    mutate(
+      digits = str_remove(param, prefix),
+      Group1 = substr(digits, 1, 1),
+      Group2 = substr(digits, 2, 2),
+      comparison = paste0("Class ", Group1, " vs. Class ", Group2)
+    ) %>% 
+    # Format p-values
+    mutate(pval_label = case_when(
+      pval < 0.001 ~ "<.001*",
+      pval < 0.05  ~ paste0(scales::number(pval, accuracy = .001), "*"),
+      TRUE         ~ scales::number(pval, accuracy = .001)
+    )) %>% 
+    dplyr::select(comparison, estimate, pval_label)
+  
+  # Create Table
+  diff_data %>% 
+    gt() %>%
+    tab_header(title = table_title) %>%
+    cols_label(
+      comparison = "Comparison",
+      estimate = md("Difference (*se*)"),
+      pval_label = md("*p*-value")
+    ) %>% 
+    cols_align(align = "center") %>% 
+    opt_align_table_header(align = "left") %>% 
+    gt::tab_options(table.font.names = "serif")
+}
+```
+
+Use `diff_table` function
+
+```{r}
+output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
+
+diff_table(
+  mplus_output = output_three, 
+  prefix = "DIFF", 
+  table_title = "Pairwise Comparisons of Distal Outcome (STEM Occupation)"
+)
+```
+
+------------------------------------------------------------------------
+
+#### Plot Distal Outcome Means
+
+```{r}
+output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
+
+plot_data <- data.frame(
+  class_w_label = c(
+    "Low Math Attitudes,\nHigh Self-Efficacy (20.33%)",
+    "High Math Attitudes,\nLow Self-Efficacy (18.55%)",
+    "High Math Attitudes,\nHigh Self-Efficacy (24.93%)",
+    "Low Math Attitudes,\nLow Self-Efficacy (36.2%)"
+  ),
+  est = c(24.6, 24.0, 30.5, 23.1)
+)
+
+# Plot bar graphs
+plot_data %>%
+  ggplot(aes(x=class_w_label, y = est, fill = class_w_label)) +
+  geom_col(position = "dodge", stat = "identity", color = "black") +
+  geom_text(aes(label = paste0(est, "%")), 
+            family = "serif", size = 4,
+            position=position_dodge(.9),
+            vjust = 8) +  
+ # scale_fill_grey(start = .4, end = .7) + # Remove for colorful bars
+  labs(y="STEM Occupation", x="",
+           title = "Distal Mean Comparision for STEM Occupation") +
+  theme_cowplot() +
+  theme(text = element_text(family = "serif"),
+        legend.position="none")
+```
+
+------------------------------------------------------------------------
+
+#### Distal outcome regressed on the covariate
+
+Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
+
+```{r}
+output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
+
+# Extract information as data frame
+donx <- as.data.frame(output_three[["parameters"]][["unstandardized"]]) %>%
+  filter(!str_detect(LatentClass, "Categorical\\.Latent\\.Variables")) %>%
+  filter(param %in% c("FEMALE", "SES_DICH")) %>% 
+  mutate(param = str_replace(param, "FEMALE", "Female"),
+         param = str_replace(param, "SES_DICH", "SES")) %>% 
+  mutate(LatentClass = sub("^","Class ", LatentClass)) %>%  
+  dplyr::select(!paramHeader) %>% 
+  mutate(se = paste0("(", format(round(se,2), nsmall =2), ")")) %>% 
+    unite(estimate, est, se, sep = " ") %>% 
+  dplyr::select(param, estimate, pval) %>% 
+  distinct(param, .keep_all=TRUE) %>% 
+  mutate(pval = ifelse(pval<0.001, paste0("<.001*"),
+                       ifelse(pval<0.05, paste0(scales::number(pval, accuracy = .001), "*"),
+                              scales::number(pval, accuracy = .001))))
+
+# Create table
+donx %>% 
+  gt(groupname_col = "LatentClass", rowname_col = "param") %>%
+  tab_header(
+    title = "Covariates Predicting STEM Occupation") %>%
+  cols_label(
+    estimate = md("Estimate (*se*)"),
+    pval = md("*p*-value")) %>% 
+  sub_missing(1:3,
+              missing_text = "") %>%
+  sub_values(values = c("999.000"), replacement = "-") %>% 
+  cols_align(align = "center") %>% 
+  opt_align_table_header(align = "left") %>% 
+  gt::tab_options(table.font.names = "serif")
+```
+
+
+------------------------------------------------------------------------
+
+![](figures/UCSB_Navy_mark.png)

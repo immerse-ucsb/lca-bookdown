@@ -1,0 +1,56 @@
+TITLE:
+model 6 with 2 classes
+DATA:
+FILE = "data_49fcf53fbfe2cbd403ca0d1914083a06.dat"; 
+VARIABLE:
+NAMES = z_ASCI_IA z_AMSC z_EB z_MSLQ z_CSC; 
+ MISSING=.;
+ CLASSES = c1(2);
+
+ANALYSIS:
+TYPE = mixture;
+starts = 500 100;
+MODEL:
+%c1#1%
+z_ASCI_IA (vz_ASCI_IA1);
+z_AMSC (vz_AMSC1);
+z_EB (vz_EB1);
+z_MSLQ (vz_MSLQ1);
+z_CSC (vz_CSC1);
+
+z_ASCI_IA WITH z_AMSC (z_ASCI_IAWz_AMSC1);
+z_ASCI_IA WITH z_EB (z_ASCI_IAWz_EB1);
+z_ASCI_IA WITH z_MSLQ (z_ASCI_IAWz_MSLQ1);
+z_ASCI_IA WITH z_CSC (z_ASCI_IAWz_CSC1);
+z_AMSC WITH z_EB (z_AMSCWz_EB1);
+z_AMSC WITH z_MSLQ (z_AMSCWz_MSLQ1);
+z_AMSC WITH z_CSC (z_AMSCWz_CSC1);
+z_EB WITH z_MSLQ (z_EBWz_MSLQ1);
+z_EB WITH z_CSC (z_EBWz_CSC1);
+z_MSLQ WITH z_CSC (z_MSLQWz_CSC1);
+
+%c1#2%
+z_ASCI_IA (vz_ASCI_IA2);
+z_AMSC (vz_AMSC2);
+z_EB (vz_EB2);
+z_MSLQ (vz_MSLQ2);
+z_CSC (vz_CSC2);
+
+z_ASCI_IA WITH z_AMSC (z_ASCI_IAWz_AMSC2);
+z_ASCI_IA WITH z_EB (z_ASCI_IAWz_EB2);
+z_ASCI_IA WITH z_MSLQ (z_ASCI_IAWz_MSLQ2);
+z_ASCI_IA WITH z_CSC (z_ASCI_IAWz_CSC2);
+z_AMSC WITH z_EB (z_AMSCWz_EB2);
+z_AMSC WITH z_MSLQ (z_AMSCWz_MSLQ2);
+z_AMSC WITH z_CSC (z_AMSCWz_CSC2);
+z_EB WITH z_MSLQ (z_EBWz_MSLQ2);
+z_EB WITH z_CSC (z_EBWz_CSC2);
+z_MSLQ WITH z_CSC (z_MSLQWz_CSC2);
+
+
+OUTPUT:
+TECH14;
+sampstat residual tech11 tech14
+SAVEDATA:
+FILE IS model_6_class_2.dat;
+SAVE = cprobabilities;

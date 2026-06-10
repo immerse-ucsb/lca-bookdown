@@ -1,0 +1,24 @@
+TITLE:
+Class 2 Math Attitudes & Efficacy - T1
+DATA:
+FILE = "C:/Users/dnajiarch/Box/LTA/10faq_aux/dang_2017/enumeration/
+enum.dat"; 
+VARIABLE:
+NAMES = bys87a bys87c bys87f bys89a bys89b bys89l bys89r bys89u f1s18a f1s18b f1s18c
+     f1s18d f1s18e f3bytscwt f3onet2curr bystlang stu_id; 
+ MISSING=.;
+ categorical = bys87a,bys87c,bys87f,bys89a,
+bys89b,bys89l,bys89r,bys89u;
+ usevar = bys87a,bys87c,bys87f,bys89a,
+bys89b,bys89l,bys89r,bys89u;
+
+WEIGHT = f3bytscwt;
+ 
+ classes = c(2);
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 500 100;           
+    processors = 12;
+OUTPUT:
+sampstat residual tech11 tech14;

@@ -1,13 +1,13 @@
 Mplus VERSION 9
 MUTHEN & MUTHEN
-05/26/2026   6:07 PM
+06/09/2026   6:33 PM
 
 INPUT INSTRUCTIONS
 
   TITLE:
   Step 2 LTA with Fixed Logits — No Covariates
   DATA:
-  FILE = "C:/Users/dnajiarch/Box/lca-bookdown/tc_lta/lta_enum/step2_lta.dat";
+  FILE = "C:/Users/trcan/Box/lca-bookdown/tc_lta/lta_enum/step2_lta.dat";
   VARIABLE:
   NAMES = N1 N2 N3;
    MISSING=.;
@@ -143,7 +143,7 @@ Optimization algorithm                                         EMA
 Parameterization                                             LOGIT
 
 Input data file(s)
-  C:/Users/dnajiarch/Box/lca-bookdown/tc_lta/lta_enum/step2_lta.dat
+  C:/Users/trcan/Box/lca-bookdown/tc_lta/lta_enum/step2_lta.dat
 Input data format  FREE
 
 
@@ -1896,8 +1896,8 @@ MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
 
 
 
-     Beginning Time:  18:07:22
-        Ending Time:  18:07:23
+     Beginning Time:  18:33:04
+        Ending Time:  18:33:05
        Elapsed Time:  00:00:01
 
 

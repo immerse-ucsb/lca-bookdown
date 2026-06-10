@@ -1,0 +1,22 @@
+TITLE:
+Step 1 - Unconditional Model w/ Auxiliary Specification
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca_moderation/three_step/new.dat"; 
+VARIABLE:
+NAMES = CASENUM COHORT SCHOOLID GENDER RACETH MOTHED ISCIIRT KA47A KA47H KA47I KA47K
+     KA47L KA9A KA9B KA9C KA9D KA9E KA9F KA9G KA9I KA9J KA9K KB9H FEMALE URM; 
+ MISSING=.;
+ categorical = KA47A KA47H KA47I KA47K KA47L;
+  usevar =  KA47A KA47H KA47I KA47K KA47L;
+  classes = c(4);
+  AUXILIARY = FEMALE MOTHED ISCIIRT KA9B KA9D KA9G KA9K URM;
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 0;
+    OPTSEED = 375590;
+OUTPUT:
+sampstat residual tech11 tech14 svalues(1 3 4 2)
+SAVEDATA:
+File=savedata.dat;
+    Save=cprob;

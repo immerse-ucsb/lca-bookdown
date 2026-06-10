@@ -1,0 +1,36 @@
+TITLE:
+LCA - Calculated k-Class 95% CI
+DATA:
+FILE = "class.dat"; 
+VARIABLE:
+NAMES = ResponseId Family PhysPeers NonPhysPeers HSPhysTeach NonPhysFaculty
+     PhysFaculty ResearchGrp WiPGroup GIPGroup ReligOrg OtherIdent SocialComm
+     MentalHlth Woman Transgender NonBinary White Asian Hispanic Black MidEastern
+     NatAmerican PacificIslander InstitutionType AcademicYear Identity; 
+ MISSING=.;
+ categorical = Family-MentalHlth; 
+   usevar =  Family-MentalHlth;
+   classes = c(3);
+ANALYSIS:
+estimator = ml; 
+    type = mixture;    
+    starts = 0; 
+    processors = 10;
+    optseed = 794236;
+    bootstrap = 1000;
+MODEL:
+
+  !CHANGE THIS SECTION TO YOUR CHOSEN k-CLASS MODEL
+    
+  %OVERALL%
+  [C#1](c1);
+  [C#2](c2);
+
+  Model Constraint:
+  New(p1 p2 p3);
+  
+  p1 = exp(c1)/(1+exp(c1)+exp(c2));
+  p2 = exp(c2)/(1+exp(c1)+exp(c2));
+  p3 = 1/(1+exp(c1)+exp(c2));
+OUTPUT:
+cinterval(bcbootstrap)

@@ -1,0 +1,110 @@
+TITLE:
+model 1 with 5 classes
+DATA:
+FILE = "data_49fcf53fbfe2cbd403ca0d1914083a06.dat"; 
+VARIABLE:
+NAMES = z_ASCI_IA z_AMSC z_EB z_MSLQ z_CSC; 
+ MISSING=.;
+ CLASSES = c1(5);
+
+ANALYSIS:
+TYPE = mixture;
+starts = 500 100;
+MODEL:
+%c1#1%
+z_ASCI_IA (vz_ASCI_IA);
+z_AMSC (vz_AMSC);
+z_EB (vz_EB);
+z_MSLQ (vz_MSLQ);
+z_CSC (vz_CSC);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+%c1#2%
+z_ASCI_IA (vz_ASCI_IA);
+z_AMSC (vz_AMSC);
+z_EB (vz_EB);
+z_MSLQ (vz_MSLQ);
+z_CSC (vz_CSC);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+%c1#3%
+z_ASCI_IA (vz_ASCI_IA);
+z_AMSC (vz_AMSC);
+z_EB (vz_EB);
+z_MSLQ (vz_MSLQ);
+z_CSC (vz_CSC);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+%c1#4%
+z_ASCI_IA (vz_ASCI_IA);
+z_AMSC (vz_AMSC);
+z_EB (vz_EB);
+z_MSLQ (vz_MSLQ);
+z_CSC (vz_CSC);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+%c1#5%
+z_ASCI_IA (vz_ASCI_IA);
+z_AMSC (vz_AMSC);
+z_EB (vz_EB);
+z_MSLQ (vz_MSLQ);
+z_CSC (vz_CSC);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+
+OUTPUT:
+TECH14;
+sampstat residual tech11 tech14
+SAVEDATA:
+FILE IS model_1_class_5.dat;
+SAVE = cprobabilities;

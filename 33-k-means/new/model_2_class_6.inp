@@ -1,0 +1,128 @@
+TITLE:
+model 2 with 6 classes
+DATA:
+FILE = "data_49fcf53fbfe2cbd403ca0d1914083a06.dat"; 
+VARIABLE:
+NAMES = z_ASCI_IA z_AMSC z_EB z_MSLQ z_CSC; 
+ MISSING=.;
+ CLASSES = c1(6);
+
+ANALYSIS:
+TYPE = mixture;
+starts = 500 100;
+MODEL:
+%c1#1%
+z_ASCI_IA (vz_ASCI_IA1);
+z_AMSC (vz_AMSC1);
+z_EB (vz_EB1);
+z_MSLQ (vz_MSLQ1);
+z_CSC (vz_CSC1);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+%c1#2%
+z_ASCI_IA (vz_ASCI_IA2);
+z_AMSC (vz_AMSC2);
+z_EB (vz_EB2);
+z_MSLQ (vz_MSLQ2);
+z_CSC (vz_CSC2);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+%c1#3%
+z_ASCI_IA (vz_ASCI_IA3);
+z_AMSC (vz_AMSC3);
+z_EB (vz_EB3);
+z_MSLQ (vz_MSLQ3);
+z_CSC (vz_CSC3);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+%c1#4%
+z_ASCI_IA (vz_ASCI_IA4);
+z_AMSC (vz_AMSC4);
+z_EB (vz_EB4);
+z_MSLQ (vz_MSLQ4);
+z_CSC (vz_CSC4);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+%c1#5%
+z_ASCI_IA (vz_ASCI_IA5);
+z_AMSC (vz_AMSC5);
+z_EB (vz_EB5);
+z_MSLQ (vz_MSLQ5);
+z_CSC (vz_CSC5);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+%c1#6%
+z_ASCI_IA (vz_ASCI_IA6);
+z_AMSC (vz_AMSC6);
+z_EB (vz_EB6);
+z_MSLQ (vz_MSLQ6);
+z_CSC (vz_CSC6);
+
+z_ASCI_IA WITH z_AMSC@0;
+z_ASCI_IA WITH z_EB@0;
+z_ASCI_IA WITH z_MSLQ@0;
+z_ASCI_IA WITH z_CSC@0;
+z_AMSC WITH z_EB@0;
+z_AMSC WITH z_MSLQ@0;
+z_AMSC WITH z_CSC@0;
+z_EB WITH z_MSLQ@0;
+z_EB WITH z_CSC@0;
+z_MSLQ WITH z_CSC@0;
+
+
+OUTPUT:
+TECH14;
+sampstat residual tech11 tech14
+SAVEDATA:
+FILE IS model_2_class_6.dat;
+SAVE = cprobabilities;

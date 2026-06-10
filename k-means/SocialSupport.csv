@@ -1,0 +1,568 @@
+"ResponseId","Family","PhysPeers","NonPhysPeers","HSPhysTeach","NonPhysFaculty","PhysFaculty","ResearchGrp","WiPGroup","GIPGroup","ReligOrg","OtherIdent","SocialComm","MentalHlth","Woman","Transgender","NonBinary","White","Asian","Hispanic","Black","MidEastern","NatAmerican","PacificIslander","InstitutionType","AcademicYear","Identity"
+"R_5PRbbGyfT0YW0um",1,1,1,0,1,1,1,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_5ent9jMfVIHoxbb",0,1,0,1,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","First year",2.5
+"R_3MrSmqvuXzc1kBP",1,1,1,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,"Primarily Undergraduate	","Fifth year",1.5
+"R_69jqil2blOTJFoi",1,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",1.5
+"R_1f4YJHcX36DRccN",0,1,1,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"Masters Granting	","Fourth year",1.5
+"R_3IvdD7YXeGhRO2C",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_3zdaYrPH5gzVFgg",0,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_6v1BkwEyqK0y3CT",1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",4
+"R_1hiSdTr63kidWaK",0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_6bsjileEc1MQkcp",1,0,1,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_14kLDSSKsqGhOdn",1,1,1,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3.5
+"R_7mwv26sd7DlhOmt",0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_6LAVjXfoY19d7ga",0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",3
+"R_6HTC5uECBFBn2BL",0,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_1jlf3ZUMvFb9CSV",1,0,1,0,0,1,0,0,1,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_6IckmMhi9s4u9i1",0,1,0,0,1,0,1,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,0,"PhD Granting","Third year",1.5
+"R_7iBSbuIyS7c7LpA",1,1,0,0,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_6E65KF5NYDRiZzM",1,1,1,0,0,1,1,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_3XfKxmYUogjItyh",1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_1ekoX6BIdl2i3eZ",1,1,1,0,0,1,1,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_5YYCgw2iRvgsN3F",0,1,0,1,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",3
+"R_5vk3KFniBYCKQsF",1,1,1,1,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_787IUDdiNQhVr0t",0,1,1,0,0,1,0,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_5X6VQj4VsYt9zmG",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","Fourth year",2.5
+"R_5r3f9k0iyLYCD4g",0,1,0,1,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_5XPYaMjAl4tQbPr",1,1,1,0,0,1,0,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",1.5
+"R_6043YqD5hAD5FGV",1,1,1,0,0,1,0,1,0,0,0,1,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_3rpH3jgCBqpF3Gh",0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",1.5
+"R_1cuN1EFhrUmmQNK",0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_33ykqlewb2URIrh",0,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_5doRiqRWyfLdQVv",1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_1iiNParIEgRCInL",1,1,1,0,1,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_3cSRH0KEvlIFDFC",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_7v69u99cdSpDYpE",0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",1
+"R_51N51M9tAiNN8R6",0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_1MwhlMCr50BNqM1",1,1,1,0,1,1,0,0,0,0,0,1,0,0,1,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_1SIBYt8J9pMmhEG",0,0,1,0,0,0,1,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Fourth year",4
+"R_1a97JkGXnGu2Lyt",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_30oghjQ3uC6qAWB",1,1,1,0,1,1,0,0,0,0,1,0,1,0,0,1,0,0,1,0,0,0,0,"Masters Granting	","Fifth year",1
+"R_6IZ6wPX4l0bn3G1",0,1,0,1,0,1,1,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_1Utcl1pCel6L62R",0,1,1,0,0,1,1,1,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Other",3.5
+"R_5QF0UCCkG4w5SYV",0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","First year",3
+"R_3iDpv9XVtnxcJgs",1,1,1,0,1,1,0,1,1,1,1,1,0,1,0,0,0,0,1,0,0,0,0,"PhD Granting","Fourth year",3.5
+"R_5HCe2KaPzzSsfZL",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Community College/Junior College	","Third year",2
+"R_1Dda5fpfz2UmHjO",0,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_7rZM3lvurjIDHcv",1,1,0,0,0,1,1,1,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_3CCwDE8eXS6SaqZ",1,1,1,1,1,1,1,1,0,0,0,1,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_1fCFo3YLyJoFFgj",0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,"PhD Granting","Second year",2
+"R_6f8xQmXU3cURNPi",1,1,1,0,1,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_3VlTlstGjWp5y1C",1,1,1,0,0,1,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_7A0DQWkhebvkzuc",0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,"PhD Granting","Second year",1.5
+"R_69hmyRvAb0SH39c",0,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_1hQ3L5i7SeukS1t",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_1v0Jr1VWNgcyQF5",1,0,1,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",3
+"R_125XeBLmFJzQvYk",1,0,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",0.5
+"R_7O6voE82147cQ9f",1,1,1,1,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_3WXzoQ9R6kPunyV",1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_6YbByLCCnT95Xqh",1,1,0,0,1,1,1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",3.5
+"R_1OlZexuzZ0tEE2B",1,1,1,1,0,0,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",4
+"R_1YRD02VLSF7yaxk",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","Fourth year",4
+"R_1NUGgeCJwxb6PAd",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_6wIJoRx2yU3cW5z",1,1,1,0,0,1,0,0,0,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_3kpIRLmYEhtfhVM",0,0,1,0,1,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_6eXOTdGutOFCTS0",1,0,1,0,1,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_3njk7HuDOqEhZsD",1,1,0,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3.5
+"R_7b3K0MiseWKh19Y",1,1,1,0,1,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",1
+"R_6d9RyhJGZMRPtBw",1,1,1,0,0,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",1
+"R_3THksW6tyPbR4KG",1,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,"PhD Granting","Third year",1.5
+"R_3mmaXlhQ3mysXma",0,1,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_7dS16lUITLyDM4h",1,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,"Community College/Junior College	","Other",1
+"R_7jTZuU3EA9hA4zT",0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,"PhD Granting","First year",2.5
+"R_3dGf36tXySLlWso",1,0,1,0,0,1,1,1,1,1,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_7FLpfGz7lNi8xSU",0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_51cEUqsXsEPwclo",1,1,1,0,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_1oMz4cdSQiFPbvH",1,1,1,0,0,1,0,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_1JF33hjhlxwPKSh",0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_37xjcT01np5Em5D",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0,"Primarily Undergraduate	","Third year",1.5
+"R_3LMtdJoVjQLypyF",1,1,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_7nwhgeMG6ooA6vn",1,1,1,0,0,1,1,1,0,0,1,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",3
+"R_3NvXVCdufcpVrcd",1,1,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_1HTCe5uogS6Zqla",1,1,1,0,1,1,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_5woRc3zSc3vFJwg",1,1,0,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_5f2AelluUbNnnac",1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_6kObUNCZHISDs4W",1,1,0,0,1,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_8dGp38lMfX6JsSW",1,0,1,1,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,0,0,0,0,"Masters Granting	","First year",1.5
+"R_5QtWvFzsLek9H4f",0,1,1,0,0,1,1,1,1,0,0,1,1,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",1
+"R_1uqwatUgQwSL7cP",0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_19FSTN4Se5Se56V",0,1,1,0,1,0,1,1,1,0,0,0,0,1,0,0,1,1,0,0,0,0,1,"Community College/Junior College	","Second year",2
+"R_3B2TELdeDWFgwBW",0,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_3cjdYGVkOIv8CSR",1,1,1,0,0,1,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3.5
+"R_6oBW7RlQ8TQHOXl",0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"PhD Granting","Second year",3.5
+"R_34kfxkgEX24Exoh",1,1,1,1,0,1,1,0,0,0,0,1,0,0,0,1,1,0,1,0,0,0,0,"Primarily Undergraduate	","First year",3
+"R_7SGxdlVaQS2UdnH",1,1,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2
+"R_6IY4vM30OwRVfZB",1,1,1,0,0,1,1,1,1,0,0,1,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_3tnZKiondZu9Awe",1,1,1,0,0,1,1,0,0,0,0,1,0,1,0,0,1,1,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_314IXnccJU9RccW",0,0,1,1,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,"Primarily Undergraduate	","First year",1.5
+"R_1bVq19YFqt4zdIu",0,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Second year",1.5
+"R_1piuhdeSe2WYMjT",0,1,1,0,0,1,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_5w7aD2ETx1Q1Ht7",1,1,1,0,1,0,0,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2
+"R_5KJkkErRP0fRDRB",1,1,1,0,0,1,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_1QzNsflZLXMVsOo",0,1,1,1,1,1,1,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3.5
+"R_15XKnrHtRGJ1joJ",1,1,1,1,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",1.5
+"R_3ugZ23AP8eDna81",1,1,1,0,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_308J8kItr9z5mCV",1,1,0,0,0,1,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,"PhD Granting","Second year",3.5
+"R_6dI3u0sqWPd1TIB",1,1,1,0,0,1,1,0,0,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_3ZJqsdrnqeUe5BT",1,1,1,0,0,1,0,1,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_6BQ819PhFp3kFEL",1,1,1,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2
+"R_7GFUuyIhzPeM7lv",0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_1IWC6Ww7vR6wGaI",1,1,1,0,0,1,1,1,0,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_5IREbcDZT6IeTvq",1,1,1,0,1,1,0,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",1
+"R_6mryQ7dn4fcakdJ",1,1,1,0,1,0,1,1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,"Masters Granting	","Third year",1.5
+"R_5ORyGKN75H1Kw4p",0,1,1,0,0,0,0,0,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_5SlfvTnzkFbcLK2",1,1,1,0,0,1,1,1,1,0,0,0,1,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3.5
+"R_7wtpJg1VhwtO8hH",1,1,1,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_3n7ZgAR6AbTv0hz",1,1,1,1,0,0,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_57lEhdU0B236MEq",1,1,1,1,1,1,1,1,0,0,1,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_6spueIz8bgk9JmR",0,1,1,1,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,1,0,0,"PhD Granting","Second year",0
+"R_1t0IY2tI1l1DVKh",1,1,1,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Community College/Junior College	","Third year",3
+"R_1Cg5y5Wr8zi0BRi",1,1,1,1,0,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",4
+"R_6jSP4Tc3nelRu37",0,1,0,0,1,1,0,0,1,0,1,0,1,0,1,1,1,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_7awpwQQJZsHzVqn",1,1,1,0,0,1,1,1,1,1,0,1,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_35GaxbBLD9dmipK",1,1,1,0,1,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",1
+"R_5l8JL7yPOkf7Q2d",1,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",1.5
+"R_3CT0e8LexblXdFo",1,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",3.5
+"R_3PiELoBXCMIMNLH",0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_7vjNK7d7v1XHXss",1,0,0,0,1,0,0,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"PhD Granting","Fourth year",2.5
+"R_6jE5kCZlaPJyR2R",1,1,1,1,0,1,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_635nE3kBOUXmZDH",0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_5fdE11061wJ6qA6",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_3DXWqafEI7OUmIh",1,1,1,1,1,0,0,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_1WwZhYsGwxtRvU2",1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","Fifth year",0
+"R_7CkzRlKwVr1sLhA",1,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,"PhD Granting","First year",2
+"R_3YWXCHKKBjUfgkm",1,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"PhD Granting","Second year",2
+"R_6exj4fRCISXIgwQ",1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"PhD Granting","Fourth year",2
+"R_3P6VrwYwrOGlW41",1,1,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Other",3.5
+"R_59V0oGmRnQQ1tcZ",0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",3.5
+"R_1FR1xdGtc1yR7KU",0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",3
+"R_7OHaL7QNGxjSvBY",1,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_5J49fiYJIVpmeXi",0,1,1,1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",3.5
+"R_2I50PJylHfuchqH",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fifth year",3.5
+"R_1hH0m47iCnjDGm7",1,1,1,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_3rrUiS1NJTZBuaB",1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",3.5
+"R_3gBvQZiLNmXwGxX",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",3.5
+"R_1RpCfxcgobMFYye",0,1,1,0,0,1,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_1V6NpSHxt7Jvjax",1,1,1,0,0,1,1,0,0,1,0,0,1,1,1,1,1,0,0,0,0,0,1,"PhD Granting","Other",3
+"R_15Kc0ldWZt0dAIx",1,1,1,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fifth year",3.5
+"R_3MzXfy2i3ww6QW5",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fifth year",4
+"R_5llZGAamHiZrhlY",1,1,0,0,0,1,0,0,1,0,0,1,1,1,0,1,1,0,0,0,0,0,0,"PhD Granting","Fourth year",0.5
+"R_32HTw1vrZ52bupz",1,1,1,0,0,1,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",1
+"R_7KBfMafDNcgHDGk",1,1,1,0,0,0,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_1E8PzctC8xu1TRD",0,1,0,0,0,1,0,1,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_5nTRs6YBjbZOijc",1,1,1,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_1zHGyDVANISniij",0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",0.5
+"R_3TF2zbYlnL9rY5z",0,1,1,1,1,1,0,0,0,0,0,1,0,1,0,0,1,0,0,1,0,0,0,"PhD Granting","First year",2
+"R_5SsW4BRa79iRkWt",1,1,0,0,0,1,1,0,0,0,1,1,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_3Q84EF7V9V4u5vb",0,1,1,0,0,0,0,1,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",4
+"R_1e2bxMJngtT5hwZ",1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"Community College/Junior College	","Second year",2
+"R_51hIr6wqtG4spOd",0,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_5DG1XBiV3vGM8LS",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","Fourth year",1.5
+"R_3M5EKL08pZqT2x3",1,0,1,0,1,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Second year",1
+"R_3wtAMoH8BmJQLuZ",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",2
+"R_6JIg4axvwCOiKsl",1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",1.5
+"R_7y1P6YfsWGBWW1E",1,1,1,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Masters Granting	","Third year",1
+"R_1IboRuo6v7Y1t8P",1,1,1,0,0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_11R91uw8C9RTxf1",0,1,1,0,1,1,1,1,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,"Primarily Undergraduate	","Third year",4
+"R_3kzX30ek9scuGOl",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_1Gkao8FHtjHSVx6",0,1,1,1,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_5RkvuDF5QdOHPJT",1,1,1,0,0,1,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2
+"R_7W9ONtlFH5poT17",1,1,1,1,1,1,0,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_3D1RW3Cv7V0ndZo",1,1,1,1,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_7Bhcol4xHXjP61v",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_3qsLO42eJjQMmOY",1,1,1,0,1,1,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,0,"PhD Granting","Fourth year",1
+"R_5YR2W9kjhVF6U70",1,1,1,1,1,1,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","First year",2.5
+"R_14pgKGwOTfi3QG9",1,1,1,0,1,0,0,1,0,0,0,0,1,1,0,0,1,0,1,1,0,0,0,"PhD Granting","First year",4
+"R_32AcW1ptApI3nXe",1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,"PhD Granting","Third year",2
+"R_323yWNPPow3DKyC",0,1,1,0,0,1,1,1,0,1,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_41ZUsRy0Abwp0fN",1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,"Community College/Junior College	","Second year",4
+"R_5DCrD9iUr0mp9OA",1,1,1,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fifth year",1.5
+"R_148xCj8NmATzhgq",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","Fourth year",4
+"R_6CeiFdP3X4ewHhD",1,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Second year",2
+"R_3JIuWGEtpPQrKgN",1,1,1,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_6d6ts1TiFPBzYjG",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_7suIDaTKAnYahAv",0,1,1,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,"PhD Granting","First year",1
+"R_7TuXyA8P081T2sk",0,1,1,1,0,1,1,0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_5zzPSxQtCOOFCfb",0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",1.5
+"R_39hIdXaH93ofoQN",1,1,1,0,1,1,0,1,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,"PhD Granting","Second year",3.5
+"R_73i36gaTucGZDUJ",0,1,1,0,1,0,1,1,1,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_5lMS0igupWHINah",1,1,1,1,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_1dFaPF9pHrjS5WP",1,1,1,0,0,1,1,1,0,1,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_4rUFKC3apFVuJQD",0,1,1,0,1,1,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_3mfAKKMbvcC1jRX",0,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",4
+"R_39uI4hox7RTDQg9",0,1,1,0,1,1,1,1,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,"Masters Granting	","Third year",1.5
+"R_7ML631FSrT4oyps",1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,"Primarily Undergraduate	","First year",3.5
+"R_1uLfsrIZ03Hff45",0,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3.5
+"R_7qK9g6d0CWUD2ie",1,1,1,1,1,1,1,1,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_5mzpaPp40eFYnjZ",1,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,"Primarily Undergraduate	","Fourth year",2
+"R_3cy3DhbzrdfdsNr",1,1,1,1,1,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_5dbaPQal0dVun2V",1,1,0,0,1,1,1,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_7RVox2dpyAbDTAz",1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_5gX9M6Gfq7cLJ1Y",1,1,1,0,0,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"PhD Granting","Other",3.5
+"R_1e2bH6pduHhuQou",0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",1.5
+"R_7M69QVj9dcT5W1y",1,1,1,0,0,1,1,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","First year",1
+"R_3rvMZfl6HtzqgEx",1,1,1,1,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_60ku3y0q4xhhBFg",0,1,1,0,0,1,1,0,0,1,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_6PRWSRoqHhRqbzH",1,1,1,0,0,1,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,"PhD Granting","First year",3
+"R_14CSGqv3ADnMYp3",1,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Other",3
+"R_10Z0qfZrmhugEw7",1,1,0,0,0,1,1,0,0,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_7rGK8BVFUWmCguT",1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,"PhD Granting","Third year",1
+"R_7rxrwWnxasWac6y",0,1,1,1,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_3IQwE8pTqN8JejY",0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_1tLot5Iz2WUzia1",1,1,1,1,0,1,1,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_73jTS7hCwdRYBxb",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Second year",2
+"R_31tOHyu0iKjrDUW",0,0,1,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,"PhD Granting","Fourth year",2.5
+"R_3ZuRlWvPtrK7KQV",0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",1
+"R_7Xh2iG6Q40yQ7VD",1,1,1,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",1.5
+"R_3DgCuXwZgsdCH17",1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Other",2
+"R_50bEl3v8wru2yNr",1,1,1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_6CEstv1pTrKPNYD",1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_6NGkTox43lhU0tr",1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"PhD Granting","Third year",2.5
+"R_78YZa0zhF4FFSv7",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_1CQDdoLf6v6tSpj",1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Second year",1.5
+"R_1qr4Yg96LIZE5Er",1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,"Masters Granting	","Fourth year",3
+"R_5fT3aLzkd13KK2M",1,0,1,1,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",3.5
+"R_3lKzaXjIa5pQ1jz",1,1,1,0,0,1,0,1,1,0,0,0,1,1,0,0,1,0,1,0,0,0,0,"PhD Granting","Third year",3
+"R_1MSEK9DKSVe3qKZ",1,1,1,1,0,1,1,1,0,1,0,1,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","First year",3
+"R_7Qt5taIAJdxjkpr",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Other",3
+"R_5hFHXQzlElZBhyj",0,0,1,1,1,1,1,1,1,0,0,1,0,1,0,1,1,1,0,0,0,0,1,"PhD Granting","Second year",2.5
+"R_1LRPaosdEPLuhOh",1,0,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"PhD Granting","Third year",4
+"R_6EfPfhOsUnu5BIv",1,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,"PhD Granting","Second year",2.5
+"R_1mCvPCgmBCYropr",1,1,0,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_348a5VMVApxSODF",1,1,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",3.5
+"R_7FhuIjMjmgDG76g",1,1,1,0,0,0,0,1,0,0,0,1,0,1,0,1,1,0,1,0,0,0,0,"PhD Granting","Second year",1
+"R_5gYKzPdy4QlbtR6",1,1,1,0,0,1,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_1Qmod9tUhSVBA8K",0,1,1,0,0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_57EfOleROELSjvd",1,1,1,1,1,1,0,1,0,0,0,0,1,1,0,0,1,0,1,0,0,0,0,"PhD Granting","First year",3.5
+"R_3Hnv9AzifuSSqA9",1,1,1,0,0,1,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_7DyOFpliuWD31Nn",1,1,1,1,0,0,1,1,1,0,0,0,0,1,0,0,1,0,1,0,0,0,1,"Primarily Undergraduate	","First year",2
+"R_3YLGjX9Pr3WaDa4",1,1,1,0,1,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_7I9ucyO50WPeWiN",1,1,1,0,0,1,1,1,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,"PhD Granting","Third year",1
+"R_12AjtksUhD4YIQz",0,1,1,0,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_7dRf7rLPfIYD6Ma",0,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_8llqJKQBpajJrbw",1,1,1,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,"PhD Granting","Second year",2.5
+"R_78ZDE9lyZXIlY2J",1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_1z0dhH9uF5qcWIx",1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_7lbngrErKcve62A",1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",3.5
+"R_7e2wiRsEDDTx3FH",1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fifth year",3.5
+"R_5AehmIH3P8Wyle9",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Other",2.5
+"R_3uCcQjIjKaEIDaG",1,1,0,1,0,1,1,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_7yviTpdsUibu8Vz",0,0,0,0,0,0,1,1,0,1,0,0,1,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_5Pzk6jPAwE8OWHP",0,1,1,1,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_3JFq0dNFEm72eQq",1,1,1,0,1,1,1,1,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_42EB2amyaDXUvqV",1,1,1,1,0,1,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,"Primarily Undergraduate	","First year",3
+"R_5QM7svNTBDKtnGl",0,1,0,1,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",1
+"R_3qqIRn7wvP76p8e",1,1,1,1,1,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_3FCpBh33asgnQwV",0,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,1,"PhD Granting","Third year",2.5
+"R_3wilgbiRtdsXbKV",0,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_6BQ60uE6vkXG1ZD",0,0,1,0,1,0,1,0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0,"PhD Granting","Third year",1
+"R_51MpeoeVpyb666j",1,1,1,1,0,1,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",1.5
+"R_3cXGdOGyUCev6ue",0,1,1,0,0,1,0,1,1,0,0,0,0,1,1,1,1,1,0,0,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_6hxYDnSXoe9zdQz",0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_3oFlmNx6H4DfBf7",1,1,1,0,1,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_3ZWfmmrEKbbG6gp",1,1,1,0,0,1,1,1,0,0,0,1,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_3oz19YiIaFiLsfG",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_3y3j6o4aP745A4L",1,1,0,1,1,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",3.5
+"R_1Oe5B5WckZdqv78",1,1,1,0,0,1,1,1,1,0,0,1,1,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",3
+"R_7J9gGm1m4m8dhoB",1,1,1,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_5rvDegkZvHf0V2c",0,1,1,1,0,1,1,0,0,1,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_1YbrFYvj1NOPqie",0,0,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",1.5
+"R_3YBtTJjO8LqcpMJ",0,1,0,0,1,1,1,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Second year",4
+"R_59aE9asYE0jLJm0",1,1,1,0,0,1,1,0,1,0,0,1,1,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_3oAu02kFSzmsbY5",1,1,1,1,1,1,1,0,0,1,0,0,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_12euRTcmk1CqDLz",0,1,1,1,0,1,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_3Rezuv4mOxCbus7",1,1,1,1,0,1,0,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_1vUchnlSq0Ulm7L",1,1,1,1,0,1,0,1,0,0,0,1,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_6L4NBPdtHLwOX1F",1,1,1,1,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_1Qs4QK9QNv9FFFP",1,0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_7KbkeqhwCN4yOhr",1,1,1,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"PhD Granting","Fourth year",3.5
+"R_3u9vv3NNuRdf8Mp",1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",1.5
+"R_7PTvQibZ778G2Qc",0,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",3
+"R_6dDIa3H81arT0vn",1,1,1,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_1V1tzSQI3WshOE3",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_6fJ7ND1AAYbisIV",1,1,1,0,0,1,1,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_3D1Dz1dKf3JxPqk",1,1,1,0,0,1,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Masters Granting	","First year",2.5
+"R_1Pic3oYRnvo7pku",1,1,1,0,0,1,1,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_6WNICD2XFmdf50q",1,1,1,1,0,1,1,1,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_1ohjnPZ6QzwWCzs",0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,1,0,0,0,0,0,"Primarily Undergraduate	","Fifth year",3.5
+"R_5et9yn0cmvqg2VO",1,1,1,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",4
+"R_7rAYQHzY484DWHT",0,1,1,0,0,0,0,1,1,0,0,1,0,1,1,1,1,1,0,0,0,0,0,"Primarily Undergraduate	","Fifth year",3
+"R_5UqRbJHGxjuoZnb",0,1,0,0,0,1,1,1,1,0,0,1,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_3lrTFZYGzxDCp1f",0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Fifth year",0.5
+"R_16aeYY7hGgwJZFn",1,1,1,1,1,1,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",3
+"R_7LZMmvkXCL78VW4",0,1,1,0,0,0,0,1,0,0,1,1,1,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_11mjtQFCSbkhbae",0,1,1,0,1,1,1,1,1,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_3X8WJfLxuYOrvKF",0,0,0,1,1,0,1,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",3
+"R_1wbHlPomFymr3A8",0,1,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_5Mg9idEL1TAZOBN",0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_7vCKyHna1YwIQql",0,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_6Lci07RyJwbJes9",1,1,1,1,1,1,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","First year",3.5
+"R_6dhlX2jLc0U59PX",1,1,1,1,0,1,0,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_3HN7AHvuYxvs5Mk",1,1,1,0,0,1,1,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_6upv2tLCz0mFTk5",0,1,1,0,0,1,1,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",1.5
+"R_6lgTzjPGB10Xcxr",1,1,1,1,0,1,1,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_1UWLBf4e7AAzOQW",1,1,1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,"PhD Granting","Second year",2
+"R_70Ggc4dHkTYiiel",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Second year",3.5
+"R_7dXZ0MTDjzZM6Yp",1,1,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",1.5
+"R_2PYrxg7DDIuubZ5",1,1,1,1,0,1,0,1,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_5IFTeZeWxEkRwZS",0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2
+"R_6GvJ5GE2vjOZq2i",1,1,1,0,0,1,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_7L9PVsdeyUFsuAN",0,1,1,1,1,1,1,0,0,0,0,1,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_70Xq533Cku33EeR",1,1,1,0,1,1,0,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2
+"R_5X4zF4EA1Mgohob",1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,0,1,0,1,1,0,0,0,"Community College/Junior College	","Third year",2
+"R_3ZR12mRhy6RI30N",0,1,1,0,0,1,0,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","First year",2
+"R_6KqZAsrtR0Ovs70",1,1,1,0,0,1,1,1,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_6pnV46rC6kcsqsz",1,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_3sM4ss5WZvTvZ7j",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Masters Granting	","Fourth year",3
+"R_3STH6HvC39k35nz",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2
+"R_7fruUGOPoZj1aNK",1,1,1,1,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_6000grxSqPqCcE5",1,1,1,1,0,1,0,1,1,0,0,0,0,0,1,1,1,0,1,0,0,0,0,"PhD Granting","First year",0.5
+"R_1ieR1S2wRuV9cGM",1,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_5Hi8M6uMEriH4kS",1,1,1,0,0,1,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Community College/Junior College	","Third year",3
+"R_7PLB6m0aLjm0g9C",0,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"PhD Granting","Second year",2
+"R_7TTayuQBdTTpvpp",1,1,1,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_6gBHZavNIcw2t4R",0,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_6trQ8i2c1l2s1Rv",1,1,1,1,1,1,0,0,0,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_6vidpr6uxHNPznF",1,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",4
+"R_1osRSU6LdhcJVms",1,1,1,0,1,1,1,1,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_6QJQyD7g9ahYxuX",0,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",1
+"R_7rCv3BwR8dj8PAp",1,1,1,0,0,1,1,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_5mI2lB4qtGHambM",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_5hNAsn7CQsTJSBX",1,1,1,0,0,1,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3.5
+"R_3HRSK3857kQmxEd",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_7diXms77bXfql1C",1,0,1,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_61XXMOd2XF2qENw",0,0,1,0,0,0,0,1,1,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","First year",0
+"R_5Cm5NSGYAffdK9x",1,1,1,1,0,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","Second year",4
+"R_3dSbN0PR4N8FesM",1,1,1,0,1,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_5lqqIBZbi1jCztv",1,1,1,0,0,1,0,1,1,0,0,1,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_5BvhlSxiZLuaAJH",1,1,1,0,0,1,0,1,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_5nHHwMdOYNG6XOS",1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_1ONM4b24MqXwSUG",0,1,1,0,1,1,1,1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2
+"R_31hfVdow6eCJhLP",0,1,0,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_1g8AnEyynb1FXWb",0,1,1,0,1,1,1,1,0,0,0,1,1,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",2
+"R_3kUM0s5U7bLbtrR",1,1,0,1,0,1,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,"Masters Granting	","Fifth year",2
+"R_6E0SYRowfHnbRDi",1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_6HpQ6LfPRRtlN0n",1,1,1,1,0,1,0,1,1,0,1,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_6Fg3Av6tDnjvkOv",0,1,1,1,0,1,0,1,1,0,0,1,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",3
+"R_78ThyACC0CqilGp",1,1,1,0,1,1,0,1,1,0,0,0,1,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_72JbRJMcCUFA1by",0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_2siDGH6kI9ZBgwU",0,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_5sAf4Ezl9HQGMiq",1,1,0,0,0,0,1,1,0,0,0,1,0,1,0,0,1,1,0,0,0,0,0,"Primarily Undergraduate	","Third year",NA
+"R_1PA0pZ6VUEUoauc",1,0,1,0,0,1,0,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_6gSCw7JFVuTYTmx",1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,"PhD Granting","Third year",2.5
+"R_2I4OhowXtnoFP79",1,1,0,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","Second year",2.5
+"R_3BxM0Q1rjmCCdd0",1,1,1,1,0,1,0,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_6kLIfcMPNSuiYA2",1,1,1,0,1,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",4
+"R_5PyS1ZZwJRhscu8",1,1,1,0,0,0,0,1,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_6lu8iF5VXXTcM1R",1,1,1,0,0,1,0,0,1,0,0,1,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Second year",4
+"R_6wpj2C1w2hqlbcy",1,1,1,1,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_7paNeCCq5j81C5C",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_55NlRefNbKnN86m",1,1,1,1,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,"Primarily Undergraduate	","Fourth year",3.5
+"R_6rYvduf7hpmT7RP",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,1,1,0,1,0,"Primarily Undergraduate	","Third year",2.5
+"R_1y0DWTHgyjoIGaZ",1,1,1,0,0,1,0,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_7opAQhnLXbLyR4z",1,0,1,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","First year",3
+"R_3GsaxkEQxqgJmzI",1,1,0,1,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_6uqUxhbYnFv8jcY",0,1,1,0,0,1,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_5z7RsKbXz84MSVP",1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_5ZPvbptXZGQ1nlG",0,1,1,0,1,1,1,1,1,0,0,0,1,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Other",3.5
+"R_78NfC7DYN79DPEg",0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_7eDJ7B7i28ULDZw",1,1,1,1,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",1.5
+"R_545HumdI8Yes9l6",0,1,0,1,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_3qmbIwjGjfVMhqh",1,1,1,1,1,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Third year",4
+"R_1fNV6giOe2fidn7",0,1,1,0,0,1,1,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_1EtnvKlq8gu8u5M",0,1,0,0,0,1,1,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_5kbuWuegBfH6nyT",1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_3eluX3PVPB8zWM1",1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_7Jnm8CFfacX8SvH",1,1,1,0,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",4
+"R_1NfPEUaeYeFeBlO",1,1,1,0,0,1,1,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_7N5jaybnjfDVOdo",1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Other",3
+"R_5lfrYqjN3UZExPq",1,1,1,1,1,1,1,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",1
+"R_75uRy1sPtAYYdq7",1,0,1,0,0,1,1,0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_51HfLRNbuvvPmqM",1,1,0,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_3dn10J5E17z9VTj",0,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_5MDS2NZ4Rhmk4kW",0,1,1,0,0,1,0,1,1,0,0,0,1,0,1,1,1,0,0,0,0,0,0,"Masters Granting	","Fourth year",3.5
+"R_34VCEF8YxtoSBr3",0,1,1,1,0,1,0,1,1,0,0,1,0,1,1,0,1,1,0,0,0,0,0,"PhD Granting","Second year",3
+"R_3BRVSwaX7LNpJJi",0,1,0,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",0.5
+"R_7RwjS888WBMYS5t",0,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",3.5
+"R_3FIJLA1F4CWcWy7",0,1,0,1,0,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_3njy9BLbgOhO5gc",1,1,1,0,0,1,0,1,1,0,0,0,0,1,0,1,1,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_6CJB3PpqCKaMaQM",1,1,1,0,0,1,1,1,0,1,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_61YKJ2JWKBxJOL6",1,1,1,0,0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_3D9BUJBoPXSsXYZ",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_7OzQeaYQDaNxx6h",0,1,1,0,0,1,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_5OSwUvphX1kXH9s",0,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2
+"R_7d47Tf9gHJWpXbW",0,1,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"PhD Granting","Third year",3
+"R_6t07gFlPxStn29f",0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",0.5
+"R_3R4T5awyxcjIvth",1,1,1,0,1,1,1,0,1,0,0,0,1,1,0,1,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_1wBOLLwK7v4AV2N",0,0,1,1,0,1,0,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_3RjSx0fopmvtx0n",1,1,1,0,0,1,1,1,0,1,0,0,1,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Fifth year",3
+"R_3rpoRHQK5s7TUtP",1,1,1,1,0,1,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",3.5
+"R_6rqdjEE6UDciTqp",1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_57jqNobwG3StPrZ",0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_7rNXVwJHsFCoJTJ",1,1,1,0,0,0,1,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2
+"R_1Cmxgo2PiiaG07v",0,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_7t97neBYiyuOzD3",0,1,1,0,0,1,0,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_5pVSE96kBD7NlIx",1,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,"Community College/Junior College	","Second year",2.5
+"R_1EZu6oMm0MvjpmQ",0,1,1,1,0,1,0,1,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_5JLxkKdfPbE7zXN",0,1,1,0,1,1,1,1,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",3
+"R_6BxiEcMSL6zPPLz",1,1,1,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_5OkmDn3TexaYd8g",1,1,1,1,1,1,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_7G2mndQ7Bj6U95T",0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_6LdvkthARzxHuTb",1,1,1,1,1,1,1,1,0,0,0,1,0,1,0,1,1,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_7DJ4DDbSsJYaIOA",0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",3
+"R_6V4lOeqJoi4NaBp",0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"PhD Granting","Fourth year",0.5
+"R_3IgWB7P7HnO4YtX",0,1,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Other",1
+"R_3IGmjQ6Ae38HGd5",1,1,1,0,1,1,1,0,1,0,0,1,1,0,1,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_52Gelvog2WoikMA",0,1,1,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_5tfAokjNa397VSX",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_1tarov1dXXKZjI4",1,1,1,0,0,1,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_5SHaXetik1oLGf1",0,1,1,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",1
+"R_1r7gdst3IBo7eXL",1,1,1,0,0,1,0,1,1,0,1,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",1
+"R_3dQSuqMIgHrys9A",0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fifth year",0
+"R_5L46T3eaEUMedbz",1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_1iJajMXRa7OoS0S",0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_7mbPuVzCkB7O3y9",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_1KpBp52LdtfeCO9",1,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"PhD Granting","Second year",3
+"R_5odmcKMP396zQC9",1,1,1,0,0,1,1,1,1,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_1F2u9ISLrUEdhf6",1,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_7E028mUIBPbPNcI",1,1,1,0,0,0,1,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",3
+"R_2J89jwn7QhdBSQp",0,1,1,0,0,1,1,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"PhD Granting","Second year",3.5
+"R_7lPl78XqoMWiCs5",1,1,1,1,1,1,1,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",NA
+"R_3XFrh8eWnLywcql",0,1,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_6ihFZCuVtgVugAV",1,1,1,0,1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,"PhD Granting","Third year",4
+"R_1Nt4obES8wO39hH",1,1,1,0,0,0,1,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_3EPTvFZVTkKoDAN",1,1,1,0,1,1,0,1,0,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",0.5
+"R_3jeO9uDfO1WPh1Z",1,1,1,0,1,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_5wzAHDRPchZkcIF",0,1,1,1,1,1,1,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",3.5
+"R_1JmImNrq0FJX1b0",1,1,1,0,0,1,1,1,1,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_1g8cJ7rJD7C2Ssd",1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,"PhD Granting","Second year",1
+"R_6GnXcpKoERBBCa5",1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",1.5
+"R_701bKTrSSlkozUY",1,1,0,0,1,1,0,1,1,0,0,1,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_75q0BSJWnBSztzX",1,1,1,0,0,1,0,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",3.5
+"R_3knvttLHnL6c7uN",0,1,1,0,1,1,0,1,1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_3ly5mw3llL9mFmN",1,1,1,0,1,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",0.5
+"R_7vUwICxLtUgKB6V",1,1,1,0,1,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_3MJRPeuUIOwuWbb",1,1,1,0,0,1,1,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",1.5
+"R_64BFWsx3ZioBWsj",1,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"Primarily Undergraduate	","First year",1
+"R_1QN7PdA9c90ssZa",1,1,1,0,0,0,1,1,1,0,0,1,1,1,0,0,1,0,1,0,0,0,0,"PhD Granting","Third year",1.5
+"R_7HTgSXuzTmOKCQN",1,1,1,1,1,1,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,"Primarily Undergraduate	","Third year",3.5
+"R_3j9QE6sSHB0VrUp",1,0,1,1,0,0,0,0,0,0,0,1,0,1,1,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_71QIOqYGZ8IlV2J",0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_3VEKo0UTo39Ehx6",1,1,1,1,0,1,0,1,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2
+"R_3QmnKlIf5xxLA7k",0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Masters Granting	","Fourth year",2.5
+"R_15QSiISVOmVIwIw",1,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",3
+"R_1hLICdieVyfqxsu",1,1,1,1,0,1,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_10DhTmcM9PCHAoc",1,1,1,1,1,1,1,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_6ZhJiLCE0BH8MVP",0,1,1,0,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,"PhD Granting","Third year",2
+"R_5EhbMhi3CgOMkEw",1,1,1,0,1,1,1,1,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_7IWBHOTcdkCwz0E",1,0,0,0,0,0,0,1,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",2
+"R_73jVvKsAVd4PC5K",1,1,1,0,1,1,1,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_6ymHpywyRk59BbB",0,1,0,1,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_70HGpqhk6VkNtLs",1,1,1,1,1,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","First year",3
+"R_5K3U45g9vHmUD13",1,1,0,1,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_5rTuQMIPSh8mKhx",1,1,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_31WTtMYt8GODHEd",1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Third year",1
+"R_6wvQiQ5BJJ20RCl",1,1,1,0,0,1,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_5I4a7EibitD4LrZ",0,1,1,1,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_31gOikGP1KOLAaR",0,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_6LchHB6Aa3ztoUd",0,1,0,0,1,1,1,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_6fuFkOWA5NPWPko",1,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",4
+"R_5qA7rJeg9jOc9IB",1,1,1,1,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_5ergr4ALiTqtMv9",1,1,1,0,1,1,1,0,1,0,0,0,0,0,1,1,1,0,1,0,0,0,0,"PhD Granting","Second year",3.5
+"R_6dGl12FIwnd75U9",1,1,1,1,0,1,1,1,1,0,0,1,1,0,0,1,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_5ezPtYFZCkIp8TE",1,1,1,1,1,0,1,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"PhD Granting","First year",3
+"R_3OOKcIMrV7CKyND",1,1,1,1,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3.5
+"R_5itFONYfbvBtMGB",0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",3
+"R_13BG4zrnlewawgb",0,1,0,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Other",3
+"R_5D5umIt2Y95rm6Z",0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Community College/Junior College	","Second year",2.5
+"R_3c2frro4Ix3Wy1t",1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",4
+"R_5qaaLFk8NrZZDwV",0,1,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"PhD Granting","Third year",3.5
+"R_7dHXVu9QQABQxAB",0,1,1,0,0,1,0,1,1,0,0,0,1,1,0,0,1,1,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2
+"R_3n1JoMZHkwbfMWd",0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",4
+"R_5wTeA7stW4FlS8Z",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_3yTIlFm7J2cVSy5",0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",1
+"R_6DAsX0HAJupaeHQ",1,1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Fourth year",1.5
+"R_3HjY8NUFFere7iN",1,1,0,0,0,1,1,1,0,1,0,0,0,1,0,0,1,1,0,0,1,0,0,"Primarily Undergraduate	","First year",3
+"R_5Ej3QXSGXxv7Cz3",1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","First year",1
+"R_5gIwSlOcf1FIt9v",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_2wyROas6e9k2zbz",1,1,1,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_6aQO3S0TeRsS2Wd",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Other",2
+"R_7e8p2Hm5iGso8CU",1,1,1,0,0,1,1,1,1,0,0,0,1,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_8rO2AeWzSisGCMF",0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3.5
+"R_72PbbXnF6djoTui",1,1,1,0,0,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","Second year",3.5
+"R_6P1PbYUj6vEESte",1,1,1,0,0,0,0,1,1,0,1,1,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",0
+"R_1ng0tCLYUCeKAhP",1,1,0,1,0,1,0,1,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,"PhD Granting","Second year",0.5
+"R_6Rr4vXSVg5cN08z",1,1,1,1,0,1,1,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",2
+"R_1g4iziJqaLtvR9n",1,1,1,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,"PhD Granting","Fourth year",1.5
+"R_1j65oWHZiHJv7B7",0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Masters Granting	","Other",2
+"R_1kfYm6YLMsxDTfX",1,1,1,0,1,1,1,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_3JPwtNiAGH28tl7",0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",1
+"R_1HiwhMdFk0nsflL",1,1,1,1,1,0,1,1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_6A4CVcuH4AFjTrP",1,1,1,0,1,1,1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",2
+"R_7BK1GcnMveQOPFD",1,1,1,1,0,1,1,1,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_3G56nNRcbH9Bcvn",1,1,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_5HTtpcjFx6IAebf",1,1,1,0,1,1,0,1,1,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fifth year",3.5
+"R_5rlcQ0AfYTSROQ0",0,1,1,0,1,1,1,1,0,0,0,1,0,0,1,1,1,0,0,0,0,0,0,"Masters Granting	","Second year",2
+"R_5Ipw5HRY4LHbiZb",1,1,1,0,0,1,0,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3.5
+"R_3R9lttIOxZjAond",1,1,1,0,0,1,1,1,1,0,1,0,1,1,0,1,1,0,1,0,0,0,0,"Primarily Undergraduate	","Fourth year",2.5
+"R_5mCSmkUSxFFUmlP",1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","First year",3
+"R_6EcAMABPLmov0iy",0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_3uZdtYXRdZZvwxr",1,1,1,0,0,1,1,1,1,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3.5
+"R_1lEAdDLdpRJc3oB",0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","First year",2.5
+"R_3EtW856IVUUpcKp",0,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,"Primarily Undergraduate	","First year",3
+"R_12UEZPll0X8xt6h",1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",1.5
+"R_1lzvi6ag8CIzHnT",0,1,1,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Primarily Undergraduate	","Fifth year",2
+"R_5NQI5NqeeIUR836",0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",2
+"R_4Gwh6XqJj0WvmtD",1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",2
+"R_1Ljwwt3AcbbcZJ6",1,1,1,0,0,1,1,1,1,0,0,0,1,1,1,0,0,1,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_5DBZTvRS5aTQgfL",0,1,1,0,1,1,1,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Second year",3
+"R_7usUQacUcn1YtHC",1,1,0,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_7xEuM77RsOAjeBC",1,1,1,1,1,1,1,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,"Community College/Junior College	","Second year",2.5
+"R_5PG1hBijmuvWqfD",1,0,1,1,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_3zHApNAf5HeuUOO",1,1,0,1,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2.5
+"R_3V3nMpWhUBvdOSp",1,1,1,0,0,1,1,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",NA
+"R_3EmKoWoCOtYMGuU",1,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_3QM0dgNGcKsF14B",0,1,1,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2
+"R_5nqGPpwzc2i5To5",0,1,0,1,0,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_6KqhSiciG7BAY08",0,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",0.5
+"R_18Yro4wyhX3lBHH",1,1,0,0,0,0,0,1,1,0,1,1,1,0,1,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",1.5
+"R_1IgQ2vCMBCxclSb",0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2
+"R_72FvmftR94BCeSE",1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Fourth year",1.5
+"R_6CIKvMSo0PNocUs",0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",3
+"R_6fK7rEdPoTKPVT5",1,1,1,1,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","First year",2
+"R_7HncQJIGqvCSi3E",1,1,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,"PhD Granting","Fourth year",4
+"R_5Blf94myAj91JpN",0,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_7ezwKc2IQCMpNQK",0,1,0,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",4
+"R_7ESuUt4JAOlsEkI",0,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,0,0,0,0,0,"PhD Granting","Fifth year",0.5
+"R_3wo7ar9ODdSjT9c",1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Third year",3
+"R_3mwxqb6w2kdEu4r",0,1,1,0,0,1,1,0,1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",3
+"R_738kd14gnT2T2gg",1,1,1,1,1,1,1,1,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,"PhD Granting","Fourth year",3
+"R_62hbw8tYMPSyPEG",1,1,1,1,1,1,0,0,0,1,0,1,0,1,0,0,1,1,0,0,1,0,0,"Primarily Undergraduate	","Second year",3
+"R_6Cf0f88Q3z4uQ1r",0,1,1,0,0,1,1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3
+"R_1LZraFSkwo9tynr",0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,"PhD Granting","First year",3
+"R_6zD9eGNEzrREFJc",0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Second year",2.5
+"R_3Mzp3FXFcsodOuw",0,1,1,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_5EmVRv9f8R7jiN3",0,1,0,0,1,1,1,0,0,0,0,1,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",4
+"R_7OrHsO2coi1zujr",1,1,1,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,"Primarily Undergraduate	","Second year",3
+"R_7pQi3WkmaCIlIwF",0,1,1,0,0,1,1,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,"PhD Granting","Third year",2.5
+"R_5dgT5hdlvL3r77S",0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,"PhD Granting","Third year",NA
+"R_4plnLbNRP1oRKwm",0,1,1,1,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","Second year",2.5
+"R_3EsYRiwfHpi58xX",1,1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",2.5
+"R_1kyMe6eVTrYROpj",1,1,1,0,0,1,0,1,1,0,1,0,0,0,1,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",2
+"R_6qlPnhQUoivZ6BU",1,1,0,1,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",3
+"R_3EgKcZt5Xi7GAMl",0,1,1,0,1,1,1,0,0,0,0,0,1,0,0,1,1,0,0,1,0,0,0,"PhD Granting","Fourth year",2
+"R_16XwvYJGDraVD7b",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,"Primarily Undergraduate	","Second year",3
+"R_750E1xIJGjUbhmN",1,1,1,1,0,1,1,1,0,0,1,0,1,1,0,0,1,0,0,0,1,0,0,"Primarily Undergraduate	","Second year",3
+"R_7OvLECHH2AzxP7T",0,1,1,1,1,1,1,1,1,0,0,1,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",1.5
+"R_7CkYBx0KZVoB6Ro",1,1,1,1,0,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Fourth year",4
+"R_5UZOjHCrSICEUJH",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,"Primarily Undergraduate	","Second year",2
+"R_7iro6LfossNzUDQ",1,1,0,0,1,0,0,1,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",1.5
+"R_5ou7SRp0zJ3gpYR",1,1,1,1,0,1,1,1,1,0,1,1,1,1,1,1,1,0,1,0,0,0,0,"PhD Granting","First year",2.5
+"R_5OGW4RCKFUVnh2S",1,1,1,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,"Primarily Undergraduate	","Third year",3
+"R_5Lrul7HyICAe61H",1,1,1,0,0,0,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"PhD Granting","Second year",4
+"R_3nvX3PMpevzQGaB",1,1,1,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","Fourth year",3.5
+"R_6kKUgbkxKRcYb2y",1,1,1,0,1,1,1,0,0,0,0,0,0,1,0,0,1,1,0,0,0,1,0,"","Fourth year",2.5
+"R_3inkxhnsEM6JbuP",0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,"Primarily Undergraduate	","First year",2.5
+"R_6ONRUyRID1EPAPv",1,1,1,0,1,1,1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"PhD Granting","Third year",1.5
+"R_3FLYQteyVlrXSnb",1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,"Community College/Junior College	","Fourth year",3
+"R_3VMJjwnQreaxVJL",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,"Primarily Undergraduate	","First year",2

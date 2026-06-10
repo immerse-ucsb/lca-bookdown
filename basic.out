@@ -1,0 +1,321 @@
+Mplus VERSION 9
+MUTHEN & MUTHEN
+06/03/2026  10:17 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Basic - T1
+  DATA:
+  FILE = "C:/Users/trcan/Box/lca-bookdown/basic.dat";
+  VARIABLE:
+  NAMES = bys87a bys87c bys87f bys89a bys89b bys89l bys89r bys89u f1s18a f1s18b f1s18c
+       f1s18d f1s18e f3bytscwt f3onet2curr bystlang stu_id;
+   MISSING=.;
+   categorical = bys87a,bys87c,bys87f,bys89a,
+      bys89b,bys89l,bys89r,bys89u;
+       usevar = bys87a,bys87c,bys87f,bys89a,
+      bys89b,bys89l,bys89r,bys89u;
+
+      WEIGHT = f3bytscwt;
+  ANALYSIS:
+  type = basic;
+  OUTPUT:
+  sampstat;
+
+
+
+*** WARNING
+  One or more observations has a value of 0 for the WEIGHT variable.  Consider using the
+  SUBPOPULATION option to restrict the analysis to observations with a positive weight.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  4051
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Basic - T1
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                       12146
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   BYS87A      BYS87C      BYS87F      BYS89A      BYS89B      BYS89L
+   BYS89R      BYS89U
+
+Variables with special functions
+
+  Weight variable       F3BYTSCW
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  C:/Users/trcan/Box/lca-bookdown/basic.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            91
+
+
+SUMMARY OF MISSING DATA PATTERNS
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+ BYS87A    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ BYS87C    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ BYS87F    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ BYS89A    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ BYS89B    x  x  x  x  x  x  x  x                       x  x  x  x  x
+ BYS89L    x  x  x  x              x  x  x  x           x  x  x  x
+ BYS89R    x  x        x  x        x  x        x        x  x        x
+ BYS89U    x     x     x     x     x     x     x  x     x     x
+
+          21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
+ BYS87A    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ BYS87C    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ BYS87F    x  x  x  x  x  x  x                                   x  x
+ BYS89A                         x  x  x  x  x  x  x              x  x
+ BYS89B    x                    x  x  x  x  x        x  x        x  x
+ BYS89L       x  x  x           x  x           x     x           x  x
+ BYS89R       x  x     x        x     x        x     x     x     x
+ BYS89U       x           x     x  x  x  x     x  x  x           x  x
+
+          41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+ BYS87A    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ BYS87C                                                 x  x  x  x  x
+ BYS87F    x  x  x  x  x  x  x                          x  x  x  x  x
+ BYS89A    x  x  x  x  x        x  x  x  x              x  x  x  x  x
+ BYS89B    x  x  x              x           x           x  x  x  x
+ BYS89L    x        x           x  x  x        x        x  x        x
+ BYS89R             x           x                 x     x     x     x
+ BYS89U       x     x     x     x  x                    x     x     x
+
+          61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80
+ BYS87A
+ BYS87C    x  x  x  x
+ BYS87F    x  x  x     x  x  x  x  x  x  x  x  x  x  x
+ BYS89A    x        x  x  x  x                          x  x  x  x  x
+ BYS89B       x     x  x  x     x  x  x  x              x  x  x  x  x
+ BYS89L       x     x  x        x  x        x  x        x  x  x
+ BYS89R       x     x  x  x     x     x     x     x     x        x  x
+ BYS89U       x     x  x  x                             x  x     x
+
+          81 82 83 84 85 86 87 88 89 90 91
+ BYS87A
+ BYS87C
+ BYS87F
+ BYS89A    x  x  x
+ BYS89B    x  x     x  x  x  x
+ BYS89L             x  x        x  x
+ BYS89R             x     x     x     x
+ BYS89U    x                             x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency     Pattern   Frequency     Pattern   Frequency
+          1       10250          32           2          63           6
+          2         142          33           2          64           3
+          3          70          34           1          65           9
+          4         206          35           1          66           1
+          5          48          36           1          67           2
+          6          13          37           3          68           4
+          7           9          38          34          69           1
+          8         318          39          44          70           1
+          9          27          40           1          71           4
+         10           1          41           1          72           4
+         11           1          42           1          73           9
+         12           2          43           1          74           8
+         13           2          44           2          75          85
+         14           4          45           1          76          25
+         15          50          46           1          77           1
+         16          25          47           6          78           1
+         17           3          48          12          79           1
+         18           3          49           1          80           1
+         19           3          50           1          81           1
+         20           2          51           1          82          11
+         21           8          52           2          83           4
+         22           4          53           1          84          11
+         23           6          54           2          85          14
+         24           6          55          60          86          13
+         25           7          56          50          87          48
+         26           1          57           2          88          11
+         27         292          58           2          89          34
+         28          50          59           6          90          29
+         29           1          60           1          91           1
+         30           2          61           1
+         31           2          62           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              BYS87A        BYS87C        BYS87F        BYS89A        BYS89B
+              ________      ________      ________      ________      ________
+ BYS87A         0.967
+ BYS87C         0.955         0.961
+ BYS87F         0.952         0.953         0.968
+ BYS89A         0.928         0.928         0.928         0.938
+ BYS89B         0.924         0.924         0.925         0.929         0.941
+ BYS89L         0.895         0.894         0.896         0.898         0.900
+ BYS89R         0.877         0.876         0.877         0.880         0.882
+ BYS89U         0.870         0.869         0.869         0.875         0.874
+
+
+           Covariance Coverage
+              BYS89L        BYS89R        BYS89U
+              ________      ________      ________
+ BYS89L         0.910
+ BYS89R         0.880         0.891
+ BYS89U         0.871         0.870         0.878
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    BYS87A
+      Category 1    0.492         5798.557
+      Category 2    0.508         5984.521
+    BYS87C
+      Category 1    0.667         7830.675
+      Category 2    0.333         3905.000
+    BYS87F
+      Category 1    0.496         5851.616
+      Category 2    0.504         5943.889
+    BYS89A
+      Category 1    0.550         6326.217
+      Category 2    0.450         5170.051
+    BYS89B
+      Category 1    0.599         6910.879
+      Category 2    0.401         4627.208
+    BYS89L
+      Category 1    0.548         6111.953
+      Category 2    0.452         5041.534
+    BYS89R
+      Category 1    0.480         5265.050
+      Category 2    0.520         5695.871
+    BYS89U
+      Category 1    0.462         4989.969
+      Category 2    0.538         5802.608
+
+
+
+
+
+RESULTS FOR BASIC ANALYSIS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              BYS87A$1      BYS87C$1      BYS87F$1      BYS89A$1      BYS89B$1
+              ________      ________      ________      ________      ________
+               -0.020         0.432        -0.010         0.126         0.251
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              BYS89L$1      BYS89R$1      BYS89U$1
+              ________      ________      ________
+                0.121        -0.049        -0.095
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BYS87A        BYS87C        BYS87F        BYS89A        BYS89B
+              ________      ________      ________      ________      ________
+ BYS87A
+ BYS87C         0.610
+ BYS87F         0.515         0.792
+ BYS89A         0.323         0.484         0.424
+ BYS89B         0.338         0.478         0.425         0.887
+ BYS89L         0.378         0.513         0.477         0.799         0.863
+ BYS89R         0.357         0.480         0.452         0.823         0.804
+ BYS89U         0.354         0.478         0.470         0.807         0.818
+
+
+           CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BYS89L        BYS89R        BYS89U
+              ________      ________      ________
+ BYS89R         0.879
+ BYS89U         0.879         0.912
+
+
+     STANDARD ERRORS FOR ESTIMATED SAMPLE STATISTICS
+
+
+           S.E. FOR MEANS/INTERCEPTS/THRESHOLDS
+              BYS87A$1      BYS87C$1      BYS87F$1      BYS89A$1      BYS89B$1
+              ________      ________      ________      ________      ________
+                0.012         0.012         0.012         0.012         0.012
+
+
+           S.E. FOR MEANS/INTERCEPTS/THRESHOLDS
+              BYS89L$1      BYS89R$1      BYS89U$1
+              ________      ________      ________
+                0.012         0.012         0.012
+
+
+           S.E. FOR CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BYS87A        BYS87C        BYS87F        BYS89A        BYS89B
+              ________      ________      ________      ________      ________
+ BYS87A
+ BYS87C         0.011
+ BYS87F         0.012         0.008
+ BYS89A         0.014         0.013         0.013
+ BYS89B         0.014         0.013         0.013         0.005
+ BYS89L         0.013         0.013         0.013         0.007         0.006
+ BYS89R         0.014         0.013         0.013         0.007         0.007
+ BYS89U         0.014         0.013         0.013         0.007         0.007
+
+
+           S.E. FOR CORRELATION MATRIX (WITH VARIANCES ON THE DIAGONAL)
+              BYS89L        BYS89R        BYS89U
+              ________      ________      ________
+ BYS89R         0.005
+ BYS89U         0.005         0.004
+
+
+     Beginning Time:  10:17:05
+        Ending Time:  10:17:05
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2025 Muthen & Muthen

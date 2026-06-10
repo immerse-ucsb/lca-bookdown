@@ -1,0 +1,695 @@
+Mplus VERSION 9
+MUTHEN & MUTHEN
+06/04/2026   7:43 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  model 6 with 2 classes
+  DATA:
+  FILE = "data_49fcf53fbfe2cbd403ca0d1914083a06.dat";
+  VARIABLE:
+  NAMES = z_ASCI_IA z_AMSC z_EB z_MSLQ z_CSC;
+   MISSING=.;
+   CLASSES = c1(2);
+
+  ANALYSIS:
+  TYPE = mixture;
+  starts = 500 100;
+  MODEL:
+  %c1#1%
+  z_ASCI_IA (vz_ASCI_IA1);
+  z_AMSC (vz_AMSC1);
+  z_EB (vz_EB1);
+  z_MSLQ (vz_MSLQ1);
+  z_CSC (vz_CSC1);
+
+  z_ASCI_IA WITH z_AMSC (z_ASCI_IAWz_AMSC1);
+  z_ASCI_IA WITH z_EB (z_ASCI_IAWz_EB1);
+  z_ASCI_IA WITH z_MSLQ (z_ASCI_IAWz_MSLQ1);
+  z_ASCI_IA WITH z_CSC (z_ASCI_IAWz_CSC1);
+  z_AMSC WITH z_EB (z_AMSCWz_EB1);
+  z_AMSC WITH z_MSLQ (z_AMSCWz_MSLQ1);
+  z_AMSC WITH z_CSC (z_AMSCWz_CSC1);
+  z_EB WITH z_MSLQ (z_EBWz_MSLQ1);
+  z_EB WITH z_CSC (z_EBWz_CSC1);
+  z_MSLQ WITH z_CSC (z_MSLQWz_CSC1);
+
+  %c1#2%
+  z_ASCI_IA (vz_ASCI_IA2);
+  z_AMSC (vz_AMSC2);
+  z_EB (vz_EB2);
+  z_MSLQ (vz_MSLQ2);
+  z_CSC (vz_CSC2);
+
+  z_ASCI_IA WITH z_AMSC (z_ASCI_IAWz_AMSC2);
+  z_ASCI_IA WITH z_EB (z_ASCI_IAWz_EB2);
+  z_ASCI_IA WITH z_MSLQ (z_ASCI_IAWz_MSLQ2);
+  z_ASCI_IA WITH z_CSC (z_ASCI_IAWz_CSC2);
+  z_AMSC WITH z_EB (z_AMSCWz_EB2);
+  z_AMSC WITH z_MSLQ (z_AMSCWz_MSLQ2);
+  z_AMSC WITH z_CSC (z_AMSCWz_CSC2);
+  z_EB WITH z_MSLQ (z_EBWz_MSLQ2);
+  z_EB WITH z_CSC (z_EBWz_CSC2);
+  z_MSLQ WITH z_CSC (z_MSLQWz_CSC2);
+
+
+  OUTPUT:
+  TECH14;
+  sampstat residual tech11 tech14
+  SAVEDATA:
+  FILE IS model_6_class_2.dat;
+  SAVE = cprobabilities;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+model 6 with 2 classes
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         269
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   Z_ASCI_IA   Z_AMSC      Z_EB        Z_MSLQ      Z_CSC
+
+Categorical latent variables
+   C1
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent Variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  data_49fcf53fbfe2cbd403ca0d1914083a06.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           1
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+ Z_ASCI_I       1.000
+ Z_AMSC         1.000         1.000
+ Z_EB           1.000         1.000         1.000
+ Z_MSLQ         1.000         1.000         1.000         1.000
+ Z_CSC          1.000         1.000         1.000         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+ Z_ASCI_I       0.996
+ Z_AMSC        -0.271         0.996
+ Z_EB           0.143         0.019         0.996
+ Z_MSLQ        -0.152         0.215        -0.370         0.996
+ Z_CSC          0.100         0.161         0.337        -0.115         0.996
+
+
+           Correlations
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+ Z_ASCI_I       1.000
+ Z_AMSC        -0.272         1.000
+ Z_EB           0.144         0.019         1.000
+ Z_MSLQ        -0.153         0.216        -0.371         1.000
+ Z_CSC          0.101         0.161         0.339        -0.116         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -1842.405
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     Z_ASCI_IA             0.000       0.511      -2.728    0.37%      -0.756     -0.318     -0.099
+             269.000       0.996       1.105       3.624    0.37%       0.120      0.777
+     Z_AMSC                0.000      -0.270      -2.810    0.37%      -0.934     -0.197      0.004
+             269.000       0.996      -0.213       2.283    0.37%       0.272      0.875
+     Z_EB                  0.000      -0.128      -4.510    0.37%      -0.806     -0.277     -0.013
+             269.000       0.996       1.787       3.426    0.37%       0.252      0.781
+     Z_MSLQ                0.000      -0.305      -3.046    1.12%      -0.820     -0.227      0.070
+             269.000       0.996      -0.212       1.702    6.32%       0.367      0.812
+     Z_CSC                 0.000       0.712      -2.933    0.37%      -0.936     -0.365     -0.080
+             269.000       0.996       3.726       5.627    0.37%       0.206      0.776
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+48 perturbed starting value run(s) did not converge in the initial stage
+optimizations.
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -1794.208  360419           356
+           -1794.208  694303           282
+           -1799.597  520177           262
+           -1799.597  216565           474
+           -1799.597  789985           67
+           -1799.597  621542           375
+           -1799.597  499150           216
+           -1799.597  714455           476
+           -1799.597  898745           466
+           -1799.597  438144           271
+           -1801.363  85462            51
+           -1801.363  49221            254
+           -1801.363  484501           163
+           -1801.363  824126           287
+           -1801.363  36714            201
+           -1801.363  595153           230
+           -1801.363  92689            304
+           -1801.363  416463           467
+           -1801.363  268217           83
+           -1801.363  402224           91
+           -1801.363  836066           372
+           -1801.363  644297           340
+           -1801.363  349263           263
+           -1801.363  278692           342
+           -1801.363  801717           364
+           -1801.363  211281           292
+           -1801.363  862607           468
+           -1801.363  70118            104
+           -1801.363  751153           110
+           -1801.363  848163           47
+           -1801.363  902278           21
+           -1801.363  748692           204
+           -1801.363  749635           420
+           -1801.363  292884           103
+           -1802.110  939709           112
+           -1802.407  285380           1
+           -1802.931  315029           471
+           -1802.931  68985            17
+           -1802.931  364676           27
+           -1802.931  618000           190
+           -1802.931  562716           300
+           -1802.993  263268           165
+           -1803.141  605565           404
+           -1803.141  783102           433
+           -1803.141  626087           314
+           -1803.141  606576           151
+           -1803.141  89970            223
+           -1803.141  802779           122
+           -1803.141  804660           260
+           -1803.141  263221           447
+           -1803.141  79945            395
+           -1803.141  848890           95
+           -1803.141  937885           426
+           -1803.406  579995           183
+           -1803.406  726035           191
+           -1803.406  341041           34
+           -1803.406  80438            246
+           -1803.406  967237           48
+           -1803.406  790059           469
+           -1804.724  781190           219
+           -1804.724  370466           41
+           -1804.724  605161           409
+           -1804.724  354624           448
+           -1804.724  297518           166
+           -1804.724  471398           74
+           -1804.724  232226           235
+           -1804.724  301180           236
+           -1804.724  752769           253
+           -1804.724  662718           460
+           -1809.304  178475           231
+           -1809.357  193042           316
+           -1809.508  915642           40
+
+28 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES MAY NOT BE
+     TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE
+     FIRST-ORDER DERIVATIVE PRODUCT MATRIX.  THIS MAY BE DUE TO THE STARTING
+     VALUES BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE
+     CONDITION NUMBER IS      -0.411D-17.  PROBLEM INVOLVING THE FOLLOWING PARAMETER:
+     Parameter 27, %C1#2%: Z_AMSC WITH Z_ASCI_IA (equality/label)
+
+     THE FOLLOWING SET OF PARAMETERS IS INVOLVED IN THE NON-IDENTIFICATION
+     Parameter 21, %C1#2%: [ Z_ASCI_IA ]
+     Parameter 22, %C1#2%: [ Z_AMSC ]
+     Parameter 23, %C1#2%: [ Z_EB ]
+     Parameter 24, %C1#2%: [ Z_MSLQ ]
+     Parameter 25, %C1#2%: [ Z_CSC ]
+     Parameter 26, %C1#2%: Z_ASCI_IA (equality/label)
+     Parameter 27, %C1#2%: Z_AMSC WITH Z_ASCI_IA (equality/label)
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       41
+
+Loglikelihood
+
+          H0 Value                       -1794.208
+          H0 Scaling Correction Factor      0.9338
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    3670.417
+          Bayesian (BIC)                  3817.800
+          Sample-Size Adjusted BIC        3687.803
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        262.04235          0.97414
+       2          6.95765          0.02586
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        262.04235          0.97414
+       2          6.95765          0.02586
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              262          0.97398
+       2                7          0.02602
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.999
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2
+
+    1   1.000    0.000
+    2   0.006    0.994
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2
+
+    1   1.000    0.000
+    2   0.000    1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2
+
+    1      8.730    0.000
+    2    -13.816    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Z_ASCI_I WITH
+    Z_AMSC            -0.326      0.059     -5.549      0.000
+    Z_EB               0.110      0.063      1.758      0.079
+    Z_MSLQ            -0.162      0.054     -2.979      0.003
+    Z_CSC              0.009      0.051      0.178      0.859
+
+ Z_AMSC   WITH
+    Z_EB               0.008      0.061      0.125      0.900
+    Z_MSLQ             0.230      0.062      3.690      0.000
+    Z_CSC              0.153      0.060      2.544      0.011
+
+ Z_EB     WITH
+    Z_MSLQ            -0.374      0.058     -6.474      0.000
+    Z_CSC              0.292      0.066      4.401      0.000
+
+ Z_MSLQ   WITH
+    Z_CSC             -0.137      0.053     -2.583      0.010
+
+ Means
+    Z_ASCI_IA         -0.059      0.058     -1.020      0.308
+    Z_AMSC            -0.016      0.062     -0.266      0.790
+    Z_EB              -0.020      0.062     -0.319      0.749
+    Z_MSLQ            -0.002      0.062     -0.040      0.968
+    Z_CSC             -0.058      0.056     -1.035      0.301
+
+ Variances
+    Z_ASCI_IA          0.870      0.092      9.410      0.000
+    Z_AMSC             0.995      0.083     12.047      0.000
+    Z_EB               0.998      0.121      8.250      0.000
+    Z_MSLQ             1.004      0.083     12.113      0.000
+    Z_CSC              0.810      0.071     11.335      0.000
+
+Latent Class 2
+
+ Z_ASCI_I WITH
+    Z_AMSC             0.408      0.314      1.296      0.195
+    Z_EB              -0.319      0.152     -2.098      0.036
+    Z_MSLQ             0.007      0.328      0.021      0.984
+    Z_CSC             -1.394      0.533     -2.614      0.009
+
+ Z_AMSC   WITH
+    Z_EB              -0.040      0.135     -0.300      0.764
+    Z_MSLQ            -0.386      0.328     -1.174      0.240
+    Z_CSC             -0.919      0.755     -1.218      0.223
+
+ Z_EB     WITH
+    Z_MSLQ            -0.291      0.077     -3.803      0.000
+    Z_CSC              0.399      0.255      1.564      0.118
+
+ Z_MSLQ   WITH
+    Z_CSC              0.498      0.781      0.638      0.524
+
+ Means
+    Z_ASCI_IA          2.215      0.324      6.828      0.000
+    Z_AMSC             0.617      0.309      1.996      0.046
+    Z_EB               0.743      0.228      3.262      0.001
+    Z_MSLQ             0.093      0.314      0.296      0.767
+    Z_CSC              2.168      0.681      3.184      0.001
+
+ Variances
+    Z_ASCI_IA          0.728      0.275      2.651      0.008
+    Z_AMSC             0.663      0.290      2.283      0.022
+    Z_EB               0.348      0.130      2.685      0.007
+    Z_MSLQ             0.678      0.244      2.784      0.005
+    Z_CSC              3.185      1.417      2.248      0.025
+
+Categorical Latent Variables
+
+ Means
+    C1#1               3.629      0.385      9.416      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix             -0.411E-17
+       (ratio of smallest to largest eigenvalue)
+
+
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C1
+                   Latent class
+                     1      2
+     Z_ASCI_I     -0.059  2.215
+     Z_AMSC       -0.016  0.617
+     Z_EB         -0.020  0.743
+     Z_MSLQ       -0.002  0.093
+     Z_CSC        -0.058  2.168
+
+
+EQUALITY TESTS OF MEANS ACROSS THE LATENT CLASSES
+
+                    Chi-Square     P-Value   Degrees of Freedom
+
+
+Z_ASCI_I
+  Overall test         47.572      0.000        1
+
+Z_AMSC
+  Overall test          4.037      0.045        1
+
+Z_EB
+  Overall test         10.435      0.001        1
+
+Z_MSLQ
+  Overall test          0.089      0.766        1
+
+Z_CSC
+  Overall test         10.616      0.001        1
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR CLASS 1
+
+
+           Model Estimated Means
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+               -0.059        -0.016        -0.020        -0.002        -0.058
+
+
+           Residuals for Means
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           Model Estimated Covariances
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+ Z_ASCI_I       0.870
+ Z_AMSC        -0.326         0.995
+ Z_EB           0.110         0.008         0.998
+ Z_MSLQ        -0.162         0.230        -0.374         1.004
+ Z_CSC          0.009         0.153         0.292        -0.137         0.810
+
+
+           Residuals for Covariances
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+ Z_ASCI_I       0.000
+ Z_AMSC         0.000         0.000
+ Z_EB           0.000         0.000         0.000
+ Z_MSLQ         0.000         0.000         0.000         0.000
+ Z_CSC          0.000         0.000         0.000         0.000         0.000
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR CLASS 2
+
+
+           Model Estimated Means
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+                2.215         0.617         0.743         0.093         2.168
+
+
+           Residuals for Means
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           Model Estimated Covariances
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+ Z_ASCI_I       0.728
+ Z_AMSC         0.408         0.663
+ Z_EB          -0.319        -0.040         0.348
+ Z_MSLQ         0.007        -0.386        -0.291         0.678
+ Z_CSC         -1.394        -0.919         0.399         0.498         3.185
+
+
+           Residuals for Covariances
+              Z_ASCI_I      Z_AMSC        Z_EB          Z_MSLQ        Z_CSC
+              ________      ________      ________      ________      ________
+ Z_ASCI_I       0.000
+ Z_AMSC         0.000         0.000
+ Z_EB           0.000         0.000         0.000
+ Z_MSLQ         0.000         0.000         0.000         0.000
+ Z_CSC          0.000         0.000         0.000         0.000         0.000
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 1 (H0) VERSUS 2 CLASSES
+
+          H0 Loglikelihood Value                        -1842.405
+          2 Times the Loglikelihood Difference             96.393
+          Difference in the Number of Parameters               21
+          Mean                                             30.487
+          Standard Deviation                               33.260
+          P-Value                                          0.0354
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                            95.580
+          P-Value                                          0.0366
+
+
+TECHNICAL 14 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+     Random Starts Specification for the k-1 Class Model for Generated Data
+        Number of initial stage random starts                   0
+        Number of final stage optimizations for the
+           initial stage random starts                          0
+     Random Starts Specification for the k Class Model for Generated Data
+        Number of initial stage random starts                  40
+        Number of final stage optimizations                     8
+     Number of bootstrap draws requested                   Varies
+
+
+     PARAMETRIC BOOTSTRAPPED LIKELIHOOD RATIO TEST FOR 1 (H0) VERSUS 2 CLASSES
+
+          H0 Loglikelihood Value                        -1842.405
+          2 Times the Loglikelihood Difference             96.393
+          Difference in the Number of Parameters               21
+          Approximate P-Value                              0.0000
+          Successful Bootstrap Draws                           49
+
+     WARNING:  OF THE 49 BOOTSTRAP DRAWS, 47 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE
+     OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 2-CLASS MODEL.
+     THIS MEANS THAT THE P-VALUE MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.
+     INCREASE THE NUMBER OF RANDOM STARTS USING THE LRTSTARTS OPTION.
+
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    model_6_class_2.dat
+
+  Order and format of variables
+
+    Z_ASCI_I       F10.3
+    Z_AMSC         F10.3
+    Z_EB           F10.3
+    Z_MSLQ         F10.3
+    Z_CSC          F10.3
+    CPROB1         F10.3
+    CPROB2         F10.3
+    MLCC1          F10.3
+
+  Save file format
+    8F10.3
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+     Beginning Time:  19:43:09
+        Ending Time:  19:43:24
+       Elapsed Time:  00:00:15
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2025 Muthen & Muthen

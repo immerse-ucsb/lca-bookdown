@@ -1,0 +1,766 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE,
+                      message = FALSE) 
+```
+
+
+# Comparing Cluster Analysis and  Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, & E. D. Nacsa, 2026)
+
+Exploring Heterogeneity in Chemistry Education Research: Comparing Cluster Analysis and  Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, & E. D. Nacsa (2026)
+
+```{r}
+library(tidyverse)
+library(haven)
+library(glue)
+library(MplusAutomation)
+library(rhdf5)
+library(here)
+library(janitor)
+library(semPlot)
+library(reshape2)
+library(cowplot)
+library(filesstrings)
+library(hrbrthemes)
+library(sjPlot)
+library(dplyr)
+library(naniar)
+library(gt)
+library(tidyLPA)
+#library(pisaUSA15)
+library(patchwork)
+library(RcppAlgos)
+library(DiagrammeR)
+library(data.table)
+library(poLCA)
+library(cluster)
+library(factoextra)
+library(datasets)
+library(Hmisc)
+library(car)
+```
+
+Proposed model applied in current study
+```{r}
+grViz(" digraph lca_model {
+
+# The `graph` statement - No editing needed
+
+    graph [layout = dot, overlap = true]
+ 
+# Two `node` statements
+ 
+# One for measured variables (box) 
+
+    node [shape=box]
+    Attitudes [label = <Attitudes toward <br/>chemistry>]
+    Motivation
+    Effort [label = <Effort Beliefs>]
+    Efficacy [label = <Self-efficacy>] 
+    Concept [label = <Self-concept>]
+    Grading [label = <Grading Scheme>]
+    Exam [label = <ACS Exam Score>];
+ 
+# One for latent variables (circle) 
+ 
+    node [shape=circle]
+    dispositions [label=<Student <br/>Affects <br/>C<sub>k=3</sub>>];
+    
+# `edge` statements
+ 
+    edge [minlen = 2]
+    dispositions -> {Attitudes Motivation Effort Efficacy Concept}
+    dispositions -> Exam [minlen = 4];
+    Grading -> dispositions [minlen = 4];
+    Grading -> Exam;
+    
+ {rank = same; Grading; dispositions; Exam}
+ #{rank = source; Attitudes; Motivation; Effort; Efficacy; Concept}
+ }") 
+```
+
+load the dataset
+```{r}
+#load data
+pre <- read.csv(here("33-k-means", "grading-pre-v2.csv"))
+```
+
+handling missing data
+```{r}
+#any(is.na(pre))
+pre_clean <- pre %>% drop_na()
+any(is.na(pre_clean))
+
+#we also cleaned out this few datapoint, since we previously included race as an auxiliary variable, but deleted after; but we did not change the sample for LPA. only 6 sample was deleted due to this step 
+pre_clean <- pre_clean %>%
+  filter(!Gender %in% c("I am gender nonconforming,I am genderqueer or genderfluid", "My gender or gender identity is best described as:", "I am gender nonconforming", "I prefer not to disclose my gender or gender identity", "I am genderqueer or genderfluid", "I am nonbinary" ))
+```
+
+view data
+```{r, include = FALSE}
+sjPlot::view_df(pre_clean)
+```
+
+recode
+```{r}
+pre_clean <- pre_clean %>%
+  mutate(grading = ifelse(grading == "specs", 1, 0))  # specs = 1, trad = 0
+```
+
+calculate means for each scale
+```{r}
+pre_clean <- pre_clean %>%
+  mutate(ASCI_IA = rowMeans(across(c(ASCI1:ASCI8)), na.rm = TRUE)) %>%
+  mutate(AMSC = rowMeans(across(c(AMSC01:AMSC28)), na.rm = TRUE)) %>%
+  mutate(EB = rowMeans(across(c(EBN1:EBP4)), na.rm = TRUE)) %>%
+  mutate(MSLQ = rowMeans(across(c(MSLQ05:MSLQ31)), na.rm = TRUE)) %>%
+  mutate(CSC = rowMeans(across(c(CSC24:CSC08)), na.rm = TRUE))
+
+#update the data preview
+sjPlot::view_df(pre_clean)
+```
+
+standardize the variables (z-score)
+```{r}
+pre_clean <- pre_clean %>%
+  mutate(across(all_of(c("ASCI_IA", "AMSC", "EB", "MSLQ", "CSC")), ~ scale(.)[,1], .names = "z_{.col}"))
+```
+
+double check all indicators are standardized
+```{r}
+ds <- pre_clean %>%
+    pivot_longer(z_ASCI_IA:z_CSC, names_to = "variable") %>%
+    group_by(variable) %>%
+    summarise(mean = mean(value, na.rm = TRUE), sd = sd(value, na.rm = TRUE))
+
+ds %>%
+    gt() %>%
+    tab_header(title = md("**Descriptive Summary**")) %>%
+    cols_label(variable = "Variable", mean = md("M"), sd = md("SD")) %>%
+    fmt_number(c(2:3), decimals = 2) %>%
+    cols_align(align = "center", columns = mean)
+
+data_long <- pre_clean %>%
+    pivot_longer(z_ASCI_IA:z_CSC, names_to = "variable")
+
+ggplot(data_long, aes(x = value)) + geom_histogram(binwidth = 0.3, fill = "#69b3a2",
+    color = "black") + facet_wrap(~variable, scales = "free_x") + labs(title = "Histograms of Variables",
+    x = "Value", y = "Frequency") + theme_cowplot()
+```
+correlations
+```{r}
+df_cor <- pre_clean %>%
+  dplyr::select(z_ASCI_IA, z_AMSC, z_EB, z_MSLQ, z_CSC, grading, exam)
+
+cor_matrix <- cor(df_cor, use = "pairwise.complete.obs")
+
+print(cor_matrix)
+
+cor_result <- rcorr(as.matrix(df_cor))
+
+formatted_p <- formatC(cor_result$P, format = "f", digits = 2)
+
+dim(formatted_p) <- dim(cor_result$P)
+rownames(formatted_p) <- colnames(formatted_p) <- colnames(df_cor)
+
+print(formatted_p, quote = FALSE)
+```
+
+
+run LPA model
+```{r, eval = FALSE}
+# Run LPA models (no need to run it everytime)
+lpa_fit <- pre_clean %>%
+    dplyr::select(z_ASCI_IA, z_AMSC, z_EB, z_MSLQ, z_CSC) %>%
+    estimate_profiles(1:6, package = "MplusAutomation", ANALYSIS = "starts = 500 100;",
+        OUTPUT = "sampstat residual tech11 tech14", variances = c("equal", "varying",
+            "equal", "varying"), covariances = c("zero", "zero",
+            "equal", "varying"), keepfiles = TRUE)
+
+#compare fit statistics
+get_fit(lpa_fit)
+
+# Move files to folder
+files <- list.files(here(), pattern = "^model")
+move_files(files, here("33-k-means", "new"), overwrite = TRUE)
+```
+
+```{r}
+source(here("33-k-means", "functions", "enum_table_lpa.r")) #file in the folder
+
+# Read in model
+output_pisa <- readModels(here("33-k-means", "new"), quiet = TRUE)
+```
+
+```{r, eval = FALSE}
+# Preview with numbered rows
+enum_fit(output_pisa)
+```
+
+model fit summary table (this is the old version table, still working on the new one; the new one will include smallest profile)
+```{r}
+select_models <-LatexSummaryTable(output_pisa,                                 
+                keepCols=c("Title", "Parameters", "LL", "BIC", "aBIC",
+                           "BLRT_PValue", "T11_VLMR_PValue","Observations"))
+```
+
+```{r, eval = FALSE}
+enum_table(select_models, 1:6, 7:12, 13:18, 19:23)
+```
+
+```{r, eval = FALSE}
+source(here("33-k-means", "functions","ic_plot_lpa.R")) 
+#file in the folder
+ic_plot(output_pisa)
+```
+
+second round comparison among different profiles
+```{r}
+# CmpK recalculation:
+enum_fit1 <- select_models
+
+stage2_cmpk <- enum_fit1 %>% 
+  slice(2, 3, 6, 8, 12, 16, 20, 22) %>% # Change this to select the rows of the candidate models
+  mutate(CAIC = -2 * LL + Parameters * (log(Observations) + 1)) %>%
+  mutate(AWE = -2 * LL + 2 * Parameters * (log(Observations) + 1.5)) %>%
+  mutate(SIC = -.5 * BIC,
+         expSIC = exp(SIC - max(SIC)),
+         cmPk = expSIC / sum(expSIC),
+         BF = exp(SIC - lead(SIC)))  %>%
+  dplyr::select(Title, Parameters, BIC, aBIC, CAIC, AWE, cmPk, BF) %>%
+  mutate(Title = str_to_title(Title)) 
+
+# Format Fit Table
+stage2_cmpk %>%
+  gt() %>% 
+  tab_options(column_labels.font.weight = "bold") %>%
+  fmt_number(
+    7,
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    suffixing = TRUE
+  ) %>%
+  fmt_number(c(3:6),
+             decimals = 2) %>% 
+    fmt_number(8,decimals = 2,
+             drop_trailing_zeros=TRUE,
+             suffixing = TRUE) %>% 
+  fmt(8, fns = function(x) 
+    ifelse(x>100, ">100",
+           scales::number(x, accuracy = .1))) %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+      ),
+    locations = list(cells_body(
+     columns = BIC,
+     row = BIC == min(BIC[1:nrow(stage2_cmpk)]) 
+    ),
+    cells_body(
+     columns = aBIC,
+     row = aBIC == min(aBIC[1:nrow(stage2_cmpk)])
+    ),
+    cells_body(
+     columns = CAIC,
+     row = CAIC == min(CAIC[1:nrow(stage2_cmpk)])
+    ),
+    cells_body(
+     columns = AWE,
+     row = AWE == min(AWE[1:nrow(stage2_cmpk)])
+    ),
+    cells_body(
+     columns = cmPk,
+     row =  cmPk == max(cmPk[1:nrow(stage2_cmpk)])
+     ),
+    cells_body(
+     columns = BF, 
+     row =  BF > 10)
+  )
+)
+```
+
+Comparing two profiles
+```{r}
+a <- plotMixtures(output_pisa$model_2_class_2.out, ci = 0.95, bw = FALSE)
+
+b <- plotMixtures(output_pisa$model_6_class_2.out, ci = 0.95, bw = FALSE)
+
+a + labs(title = "Model 2 two-profile") + theme(plot.title = element_text(size = 12)) + b + labs(title = "Model 4 two-profile") +
+    theme(plot.title = element_text(size = 12))
+```
+
+a initial look, not the final figure
+```{r}
+source(here("33-k-means", "functions", "plot_lpa.R"))  #file in the folder
+
+plot_lpa(model_name = output_pisa$model_2_class_2.out)
+```
+another version: this one changed the color of two profiles and the variable names (all labels)
+```{r}
+plot_lpa <- function(model_name) {
+
+  # Extract and reshape mean estimates by class
+  pp_plots <- data.frame(model_name$parameters$unstandardized) %>%
+    mutate(LatentClass = sub("^", "Class ", LatentClass)) %>%
+    filter(paramHeader == "Means") %>%
+    filter(LatentClass != "Class Categorical.Latent.Variables") %>%
+    dplyr::select(est, LatentClass, param) %>%
+    pivot_wider(names_from = LatentClass, values_from = est) %>%
+    relocate(param, .after = last_col())
+  
+  # Extract class proportions
+  c_size <- as.data.frame(model_name$class_counts$modelEstimated$proportion) %>%
+    dplyr::rename("cs" = 1) %>%
+    mutate(cs = round(cs * 100, 2))
+  
+  # Rename class labels with proportions
+# Keep class labels without proportions
+  colnames(pp_plots) <- c("Motivated but Unconfident", "Confident but Disengaged", "param")
+
+  
+  # Melt data into long format
+  plot_data <- pp_plots %>%
+    dplyr::rename("param" = ncol(pp_plots)) %>%
+    reshape2::melt(id.vars = "param") %>%
+    mutate(
+     param = factor(param,
+                   levels = c("Z_AMSC", "Z_ASCI_IA", "Z_CSC", "Z_EB", "Z_MSLQ"),
+                   labels = c("Motivation", "Attitudes", "Self-concept", "Effort beliefs", "Self-efficacy")),
+     variable = factor(variable)
+    )
+  
+  # Title
+  name <- str_to_title(model_name$input$title)
+  
+  # Define color palette (can customize further)
+  #class_colors <- c("#1b1b1b", "#595959", "#a6a6a6", "#d9d9d9")  # Extend if >2 classes
+  class_colors <- c("#F8766D", "#00BFC4")
+  
+  # Plot
+  p <- plot_data %>%
+    ggplot(
+      aes(
+        x = param,
+        y = value,
+        shape = variable,
+        colour = variable,
+        lty = variable,
+        group = variable
+      )
+    ) +
+    geom_point(size = 4) + 
+    geom_line() +
+    scale_x_discrete("") +
+    scale_color_manual(values = class_colors[1:nlevels(plot_data$variable)]) +  # custom colors
+    labs(title = glue("{name} Profile Plot"), y = "Means") +
+    theme_cowplot() +
+    theme(
+      text = element_text(family = "serif", size = 12),
+      legend.key.width = unit(.5, "line"),
+      legend.text = element_text(family = "serif", size = 12),
+      legend.title = element_blank(),
+      legend.position = "top"
+    )
+  
+  return(p)
+}
+
+plot_lpa(model_name = output_pisa$model_2_class_2.out)
+```
+
+Final figure
+
+```{r}
+plot_lpa <- function(model_name) {
+
+  # Extract and reshape mean estimates by class
+  pp_plots <- data.frame(model_name$parameters$unstandardized) %>%
+    mutate(LatentClass = sub("^", "Class ", LatentClass)) %>%
+    filter(paramHeader == "Means") %>%
+    filter(LatentClass != "Class Categorical.Latent.Variables") %>%
+    dplyr::select(est, LatentClass, param) %>%
+    pivot_wider(names_from = LatentClass, values_from = est) %>%
+    relocate(param, .after = last_col())
+  
+  # Extract class proportions
+  c_size <- as.data.frame(model_name$class_counts$modelEstimated$proportion) %>%
+    dplyr::rename("cs" = 1) %>%
+    mutate(cs = round(cs * 100, 2))
+  
+  # Rename class labels with proportions
+# Keep class labels without proportions
+  colnames(pp_plots) <- c("Motivated but Unconfident", "Confident but Disengaged", "param")
+
+  
+  # Melt data into long format
+  plot_data <- pp_plots %>%
+    dplyr::rename("param" = ncol(pp_plots)) %>%
+    reshape2::melt(id.vars = "param") %>%
+    mutate(
+     param = factor(param,
+                   levels = c("Z_AMSC", "Z_ASCI_IA", "Z_CSC", "Z_EB", "Z_MSLQ"),
+                   labels = c("Chemistry\nmotivation", "Chemistry\nattitudes", "Chemistry\nself-concept", "Effort beliefs", "Self-efficacy")),
+     variable = factor(variable)
+    )
+  
+  # Title
+  name <- str_to_title(model_name$input$title)
+  
+  # Define color palette (can customize further)
+  #class_colors <- c("#1b1b1b", "#595959", "#a6a6a6", "#d9d9d9")  # Extend if >2 classes
+  class_colors <- c("#F8766D", "#005B96")  # red and dark blue
+  
+  # Plot
+  p <- plot_data %>%
+    ggplot(
+      aes(
+        x = param,
+        y = value,
+        shape = variable,
+        colour = variable,
+        lty = variable,
+        group = variable
+      )
+    ) +
+    geom_line(linewidth = 1) +
+    geom_point(size = 4) +
+    scale_x_discrete("") +
+    scale_y_continuous(
+    limits = c(-0.8, 0.8),
+    breaks = c(-0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75)
+    ) +
+    scale_color_manual(values = class_colors[1:nlevels(plot_data$variable)]) +  # custom colors
+    #labs(title = glue("{name} Profile Plot"), y = "Standardized indicator means") +
+    labs(title = NULL, y = "Standardized indicator means") +
+    theme_cowplot() +
+    theme(
+      text = element_text(family = "sans", size = 12),         # serif font
+      axis.text = element_text(family = "sans", size = 12),    # axis labels
+      axis.title = element_text(family = "sans", size = 14),    # axis labels
+      legend.text = element_text(family = "sans", size = 12),  # legend text
+      legend.title = element_text(family = "sans", size = 14),
+      #legend.position = "top",
+      legend.position = "none",
+      panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),
+      axis.line = element_line(colour = "black", linewidth = 0.3)
+    )
+  
+  return(p)
+}
+
+plot_lpa(model_name = output_pisa$model_2_class_2.out)
+
+p <- plot_lpa(model_name = output_pisa$model_2_class_2.out)
+ggsave("profile_plot.png", plot = p, width = 9, height = 5.6, units = "in", dpi = 600, bg = "white")
+
+```
+
+
+Three step ML 
+```{r}
+lpa_result <- pre_clean %>%
+  dplyr::select(z_ASCI_IA, z_AMSC, z_EB, z_MSLQ, z_CSC) %>%
+  estimate_profiles(n_profiles = 2, model = 2)  # Adjust the number of profiles as needed
+```
+
+```{r}
+classified_data <- bind_cols(pre_clean, get_data(lpa_result))
+```
+
+```{r}
+t.test(exam ~ Class, data = classified_data, var.equal = TRUE)
+```
+```{r}
+classified_data %>%
+  group_by(Class) %>%
+  summarise(
+    n = n(),
+    mean = mean(exam, na.rm = TRUE),
+    sd = sd(exam, na.rm = TRUE)
+  )
+```
+
+wald test
+
+```{r}
+lm_model <- lm(exam ~ Class, data = classified_data)
+summary(lm_model)
+```
+
+```{r}
+Anova(lm_model, type = 3)  
+```
+Kmeans
+```{r}
+pre_clean <- pre_clean %>%
+  mutate(across(all_of(c("ASCI_IA", "AMSC", "EB", "MSLQ", "CSC")), ~ scale(.)[,1], .names = "z_{.col}"))
+
+dfk <- pre_clean %>%
+  dplyr::select(z_ASCI_IA, z_AMSC, z_EB, z_MSLQ, z_CSC, exam, grading)
+```
+
+```{r}
+# Step 1: Select specific variables for clustering
+dfk_selected <- dfk %>%
+  dplyr::select(z_AMSC, z_ASCI_IA, z_CSC, z_EB, z_MSLQ) 
+
+# Step 2: Scale the selected data
+dfk_scaled <- scale(dfk_selected)
+
+# Step 3: Set random seed for reproducibility
+set.seed(123)
+
+# Step 4: Run K-means for k = 2 to 10 and store total within-cluster sum of squares
+wss <- numeric(9)
+kmeans_results <- list()
+
+for (k in 2:10) {
+  km <- kmeans(dfk_scaled, centers = k, nstart = 10, iter.max = 25)
+  wss[k - 1] <- km$tot.withinss
+  kmeans_results[[as.character(k)]] <- km
+}
+
+# Step 5: Plot Elbow Method to choose optimal k
+plot(2:10, wss, type = "b", pch = 19,
+     xlab = "Number of Clusters (k)",
+     ylab = "Total Within-Cluster Sum of Squares",
+     main = "Elbow Method for Optimal k")
+
+# Step 6: Assign cluster labels to the original selected data for chosen k
+chosen_k <- 2
+dfk_clustered <- dfk_selected %>%
+  mutate(Cluster = factor(kmeans_results[[as.character(chosen_k)]]$cluster))
+
+# Step 7: Visualize the clusters using PCA
+fviz_cluster(kmeans_results[[as.character(chosen_k)]], data = dfk_scaled,
+             geom = "point", ellipse.type = "convex",
+             main = paste("K-means Clustering (k =", chosen_k, ")"))
+```
+```{r}
+kmeans_results[["2"]]$size
+```
+
+```{r}
+fviz_nbclust(dfk_clustered, kmeans, method = "wss") #choose 3
+```
+
+elbow plot
+```{r}
+# Step 1: Add WSS for k = 1
+# (Only if it wasn’t previously computed)
+set.seed(123)
+km1 <- kmeans(dfk_scaled, centers = 1, nstart = 10, iter.max = 25)
+wss_full <- c(km1$tot.withinss, wss)  # Add k=1 to the front
+
+# Step 2: Recreate full dataframe
+elbow_df <- data.frame(
+  k = 1:10,
+  wss = wss_full
+)
+
+# Step 3: Create the updated plot
+plot.wss <- ggplot(elbow_df, aes(x = k, y = wss)) +
+  geom_line(color = "steelblue", linewidth = 1) +
+  geom_point(color = "steelblue", size = 3) +
+  scale_x_continuous(breaks = 1:10) +
+  scale_y_continuous(limits = c(400, 1400)) +  # << Set y-axis range
+  labs(
+    x = expression("Number of clusters (" * italic(k) * ")"),
+    y = "Total Within Sum of Squares (WSS)"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1),
+    axis.text = element_text(size = 12, color = "black"),
+    axis.title = element_text(size = 14, color = "black"),
+    axis.ticks.y = element_line(color = "black")
+  )
+
+plot.wss
+
+ggsave("cluster-wss.png", plot = plot.wss, width = 9, height = 5.6, units = "in", dpi = 600, bg = "white")
+```
+
+
+```{r}
+fviz_nbclust(dfk_clustered, kmeans, method = "silhouette") #choose 2
+
+# Generate silhouette plot and customize it
+plot.silhouette <- fviz_nbclust(dfk_clustered, kmeans, method = "silhouette") +
+  geom_line(color = "steelblue", linewidth = 3) +
+  geom_point(color = "steelblue", size = 3) +
+  labs(
+    x = expression("Number of clusters (" * italic(k) * ")"),
+    y = "Average silhouette width",
+    title = NULL
+  ) +
+  scale_x_discrete() +  # ← key fix here
+  scale_y_continuous(limits = c(0, 0.3)) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1),
+    axis.text = element_text(size = 12, color = "black"),
+    axis.title = element_text(size = 14, color = "black"),
+    axis.ticks.y = element_line(color = "black")
+  )
+
+plot.silhouette
+
+ggsave("silhouette.png", plot = plot.silhouette, width = 9, height = 5.6, units = "in", dpi = 600, bg = "white")
+```
+```{r}
+# Reshape the cluster centers data for plotting
+long_data <- kmeans_results[["2"]]$centers %>%
+  as.data.frame() %>%
+  mutate(Cluster = factor(rownames(.))) %>%
+  pivot_longer(-Cluster, names_to = "Variable", values_to = "Mean")
+
+long_data$Cluster <- dplyr::recode(long_data$Cluster,
+                            "1" = "Motivated but Unconfident",
+                            "2" = "Confident but Disengaged")
+
+# Define readable labels for each variable
+variable_labels <- c("z_AMSC" = "Motivation",
+                     "z_ASCI_IA" = "Attitudes",
+                     "z_CSC" = "Self-concept",
+                     "z_EB" = "Effort beliefs",
+                     "z_MSLQ" = "Self-efficacy")
+
+# Plot the cluster profiles
+ggplot(long_data, aes(x = Variable, y = Mean, group = Cluster, color = Cluster)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "Cluster Profiles on Key Academic Variables",
+       y = "Cluster Mean (Z-score)",
+       x = NULL) +
+  scale_x_discrete(labels = variable_labels) +
+  theme(
+    axis.text.x = element_text(angle = 0, hjust = 0.5),  # Horizontal text
+    plot.title = element_text(hjust = 0.5),
+    legend.position = "top",
+    legend.direction = "horizontal",
+    panel.grid.major = element_blank(),  # remove major grid lines
+    panel.grid.minor = element_blank(),   # remove minor grid lines
+    axis.line.x = element_line(color = "black"),
+    axis.line.y = element_line(color = "black")
+  )
+```
+
+final cluster plot
+```{r}
+# Define consistent color palette
+cluster_colors <- c("Motivated but Unconfident" = "#F8766D",
+                    "Confident but Disengaged" = "#005B96")
+
+# Updated variable labels with line breaks
+variable_labels <- c(
+  "z_AMSC"    = "Chemistry\nmotivation",
+  "z_ASCI_IA" = "Chemistry\nattitudes",
+  "z_CSC"     = "Chemistry\nself-concept",
+  "z_EB"      = "Effort beliefs",
+  "z_MSLQ"    = "Self-efficacy"
+)
+
+# Generate the plot
+plot.cluster <- ggplot(long_data, aes(x = Variable, y = Mean, group = Cluster, color = Cluster, linetype = Cluster, shape = Cluster)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 4) +
+  scale_color_manual(values = cluster_colors) +
+  scale_x_discrete(labels = variable_labels) +
+  scale_y_continuous(
+    limits = c(-0.9, 0.9),
+    breaks = c(-0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75)
+  ) +
+  labs(
+    #title = "Cluster Profiles on Key Academic Variables",
+    y = "Standardized indicator means",
+    x = NULL
+  ) +
+  theme_classic(base_family = "sans") +
+  theme(
+    text = element_text(size = 12),
+    axis.text = element_text(size = 12, colour = "black"),
+    axis.title = element_text(size = 14),
+    legend.text = element_text(size = 12),
+    legend.title = element_blank(),
+    legend.position = "none",  # or "top" if you want to keep it
+    panel.border = element_rect(colour = "black", fill = NA, linewidth = 0.8),
+    axis.line = element_line(colour = "black", linewidth = 0.3)
+  )
+
+plot.cluster
+
+ggsave("cluster.png", plot = plot.cluster, width = 9, height = 5.6, units = "in", dpi = 600, bg = "white")
+
+```
+
+
+
+auxiliary
+```{r}
+dfk_clustered <- dfk %>%
+  dplyr::select(z_ASCI_IA, z_AMSC, z_EB, z_MSLQ, z_CSC, exam, grading) %>%  # include your two auxiliary variables
+  drop_na() %>%  # drop rows with missing values
+  mutate(Cluster = factor(kmeans_results[["2"]]$cluster))
+```
+
+```{r}
+# t-test for exam by Cluster (equal variances)
+t.test(exam ~ Cluster, data = dfk_clustered, var.equal = TRUE)
+```
+
+```{r}
+# t-test for grading by Cluster (equal variances)
+t.test(grading ~ Cluster, data = dfk_clustered, var.equal = TRUE)
+```
+
+```{r}
+dfk_clustered %>%
+  group_by(Cluster) %>%
+  summarise(
+    Mean = mean(exam, na.rm = TRUE),
+    SD = sd(exam, na.rm = TRUE),
+    N = n()
+  )
+```
+
+```{r}
+df_combined <- cbind(dfk_clustered, classified_data %>% rename(exam_2 = exam, grading_2 = grading))
+```
+
+```{r}
+tab <- df_combined %>%
+  count(Cluster, Class) %>%
+  group_by(Class) %>%
+  mutate(percent = round(100 * n / sum(n), 1)) %>%
+  ungroup()
+
+tab <- tab %>%
+  group_by(Class) %>%
+  mutate(percent = round(100 * n / sum(n), 1)) %>%
+  ungroup()
+
+print(names(tab))
+```
+```{r}
+tab %>%
+  gt() %>%
+  tab_header(
+    title = "Contingency Table: K-means Cluster × LPA Class"
+  ) %>%
+  cols_label(
+    Cluster = "K-means Cluster",
+    Class = "LPA Class",
+    n = "Count",
+    percent = "Percent (%)"
+  ) %>%
+  fmt_number(columns = percent, decimals = 1)
+```
+

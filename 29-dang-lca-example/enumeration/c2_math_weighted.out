@@ -1,0 +1,647 @@
+Mplus VERSION 9
+MUTHEN & MUTHEN
+05/26/2026  11:44 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Class 2 Math Attitudes & Efficacy - T1
+  DATA:
+  FILE = "C:/Users/dnajiarch/Box/LTA/10faq_aux/dang_2017/enumeration/
+  enum.dat";
+  VARIABLE:
+  NAMES = bys87a bys87c bys87f bys89a bys89b bys89l bys89r bys89u f1s18a f1s18b f1s18c
+       f1s18d f1s18e f3bytscwt f3onet2curr bystlang stu_id;
+   MISSING=.;
+   categorical = bys87a,bys87c,bys87f,bys89a,
+  bys89b,bys89l,bys89r,bys89u;
+   usevar = bys87a,bys87c,bys87f,bys89a,
+  bys89b,bys89l,bys89r,bys89u;
+
+  WEIGHT = f3bytscwt;
+
+   classes = c(2);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      starts = 500 100;
+      processors = 12;
+  OUTPUT:
+  sampstat residual tech11 tech14;
+
+
+
+*** WARNING
+  One or more observations has a value of 0 for the WEIGHT variable.  Consider using the
+  SUBPOPULATION option to restrict the analysis to observations with a positive weight.
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with weights.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  4051
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Class 2 Math Attitudes & Efficacy - T1
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                       12146
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   BYS87A      BYS87C      BYS87F      BYS89A      BYS89B      BYS89L
+   BYS89R      BYS89U
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  Weight variable       F3BYTSCW
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent Variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Box/LTA/10faq_aux/dang_2017/enumeration/enum.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            91
+     Number of y missing data patterns           0
+     Number of u missing data patterns          91
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              BYS87A        BYS87C        BYS87F        BYS89A        BYS89B
+              ________      ________      ________      ________      ________
+ BYS87A         0.967
+ BYS87C         0.955         0.961
+ BYS87F         0.952         0.953         0.968
+ BYS89A         0.928         0.928         0.928         0.938
+ BYS89B         0.924         0.924         0.925         0.929         0.941
+ BYS89L         0.895         0.894         0.896         0.898         0.900
+ BYS89R         0.877         0.876         0.877         0.880         0.882
+ BYS89U         0.870         0.869         0.869         0.875         0.874
+
+
+           Covariance Coverage
+              BYS89L        BYS89R        BYS89U
+              ________      ________      ________
+ BYS89L         0.910
+ BYS89R         0.880         0.891
+ BYS89U         0.871         0.870         0.878
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    BYS87A
+      Category 1    0.492         5798.557
+      Category 2    0.508         5984.521
+    BYS87C
+      Category 1    0.667         7830.675
+      Category 2    0.333         3905.000
+    BYS87F
+      Category 1    0.496         5851.616
+      Category 2    0.504         5943.889
+    BYS89A
+      Category 1    0.550         6326.217
+      Category 2    0.450         5170.051
+    BYS89B
+      Category 1    0.599         6910.879
+      Category 2    0.401         4627.208
+    BYS89L
+      Category 1    0.548         6111.953
+      Category 2    0.452         5041.534
+    BYS89R
+      Category 1    0.480         5265.050
+      Category 2    0.520         5695.871
+    BYS89U
+      Category 1    0.462         4989.969
+      Category 2    0.538         5802.608
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+          -48467.315  195763           358
+          -48467.315  850545           357
+          -48467.315  685657           69
+          -48467.315  66276            217
+          -48467.315  53621            483
+          -48467.315  259507           53
+          -48467.315  575700           100
+          -48467.315  836515           341
+          -48467.315  694303           282
+          -48467.315  321390           133
+          -48467.315  85114            385
+          -48467.315  569131           26
+          -48467.315  140442           500
+          -48467.315  533738           11
+          -48467.315  965994           396
+          -48467.315  466971           109
+          -48467.315  898745           466
+          -48467.315  170954           86
+          -48467.315  605565           404
+          -48467.315  926797           406
+          -48467.315  972873           157
+          -48467.315  1548             384
+          -48467.315  856536           144
+          -48467.315  422103           62
+          -48467.315  782200           84
+          -48467.315  224950           455
+          -48467.315  669634           335
+          -48467.315  39136            226
+          -48467.315  404426           344
+          -48467.315  645664           39
+          -48467.315  614535           449
+          -48467.315  570782           193
+          -48467.315  696773           80
+          -48467.315  960438           116
+          -48467.315  797594           234
+          -48467.315  173191           422
+          -48467.315  830529           279
+          -48467.315  793035           187
+          -48467.315  751153           110
+          -48467.315  573096           20
+          -48467.315  232559           136
+          -48467.315  181293           212
+          -48467.315  930872           277
+          -48467.315  891531           206
+          -48467.315  246575           291
+          -48467.315  207896           25
+          -48467.315  580405           286
+          -48467.315  15715            274
+          -48467.315  568859           49
+          -48467.315  849670           347
+          -48467.315  736574           414
+          -48467.315  153942           31
+          -48467.315  232226           235
+          -48467.315  345726           461
+          -48467.315  673496           218
+          -48467.315  922596           456
+          -48467.315  354395           486
+          -48467.315  383986           159
+          -48467.315  455617           242
+          -48467.315  970689           266
+          -48467.315  359578           458
+          -48467.315  354208           196
+          -48467.315  485483           498
+          -48467.315  579995           183
+          -48467.315  318230           46
+          -48467.315  863094           147
+          -48467.315  840078           203
+          -48467.315  576220           115
+          -48467.315  728038           177
+          -48467.315  278692           342
+          -48467.315  700349           401
+          -48467.315  193042           316
+          -48467.315  275475           413
+          -48467.315  192071           142
+          -48467.315  393232           152
+          -48467.315  467339           66
+          -48467.315  853195           431
+          -48467.315  939709           112
+          -48467.315  637345           19
+          -48467.315  887676           22
+          -48467.315  315029           471
+          -48467.315  648555           113
+          -48467.315  411615           171
+          -48467.315  621542           375
+          -48467.315  996231           310
+          -48467.315  605358           321
+          -48467.315  965639           463
+          -48467.315  283492           435
+          -48467.315  485256           371
+          -48467.315  188498           258
+          -48467.315  535063           329
+          -48467.315  173440           328
+          -48467.315  370466           41
+          -48467.315  437181           135
+          -48467.315  514326           325
+          -48467.315  136842           58
+          -48467.315  217744           326
+          -48467.315  915107           54
+          -48467.315  217130           443
+          -48467.315  608849           224
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       17
+
+Loglikelihood
+
+          H0 Value                      -48467.315
+          H0 Scaling Correction Factor      2.2254
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   96968.630
+          Bayesian (BIC)                 97094.511
+          Sample-Size Adjusted BIC       97040.487
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           3227.683
+          Degrees of Freedom                   233
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            921.496
+          Degrees of Freedom                   233
+          P-Value                           0.0000
+
+** Of the 3402 cells in the latent class indicator table, 5
+   were deleted in the calculation of chi-square due to extreme values.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                           2680.911
+          Degrees of Freedom                  3056
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                           1512.928
+          Degrees of Freedom                  3056
+          P-Value                           1.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       6539.18451          0.53838
+       2       5606.81549          0.46162
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       6539.18451          0.53838
+       2       5606.81549          0.46162
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             6549          0.53918
+       2             5597          0.46082
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.869
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2
+
+    1   0.963    0.037
+    2   0.042    0.958
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2
+
+    1   0.964    0.036
+    2   0.043    0.957
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2
+
+    1      3.294    0.000
+    2     -3.091    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    BYS87A$1           0.499      0.040     12.346      0.000
+    BYS87C$1           1.615      0.057     28.321      0.000
+    BYS87F$1           0.707      0.043     16.579      0.000
+    BYS89A$1           2.007      0.069     29.205      0.000
+    BYS89B$1           2.574      0.083     31.087      0.000
+    BYS89L$1           2.447      0.099     24.663      0.000
+    BYS89R$1           1.730      0.075     23.088      0.000
+    BYS89U$1           1.562      0.071     22.063      0.000
+
+Latent Class 2
+
+ Thresholds
+    BYS87A$1          -0.653      0.044    -14.855      0.000
+    BYS87C$1          -0.103      0.043     -2.416      0.016
+    BYS87F$1          -0.865      0.047    -18.376      0.000
+    BYS89A$1          -1.614      0.073    -22.118      0.000
+    BYS89B$1          -1.287      0.068    -18.867      0.000
+    BYS89L$1          -2.038      0.090    -22.755      0.000
+    BYS89R$1          -2.915      0.126    -23.101      0.000
+    BYS89U$1          -3.181      0.140    -22.659      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1                0.154      0.035      4.425      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.376E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C
+                   Latent class
+                     1      2
+     BYS87A
+       Category 1  0.622  0.342
+       Category 2  0.378  0.658
+     BYS87C
+       Category 1  0.834  0.474
+       Category 2  0.166  0.526
+     BYS87F
+       Category 1  0.670  0.296
+       Category 2  0.330  0.704
+     BYS89A
+       Category 1  0.882  0.166
+       Category 2  0.118  0.834
+     BYS89B
+       Category 1  0.929  0.216
+       Category 2  0.071  0.784
+     BYS89L
+       Category 1  0.920  0.115
+       Category 2  0.080  0.885
+     BYS89R
+       Category 1  0.849  0.051
+       Category 2  0.151  0.949
+     BYS89U
+       Category 1  0.827  0.040
+       Category 2  0.173  0.960
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ BYS87A
+    Category 1         0.622      0.010     65.468      0.000
+    Category 2         0.378      0.010     39.736      0.000
+ BYS87C
+    Category 1         0.834      0.008    105.719      0.000
+    Category 2         0.166      0.008     21.017      0.000
+ BYS87F
+    Category 1         0.670      0.009     71.013      0.000
+    Category 2         0.330      0.009     35.024      0.000
+ BYS89A
+    Category 1         0.882      0.007    122.832      0.000
+    Category 2         0.118      0.007     16.507      0.000
+ BYS89B
+    Category 1         0.929      0.005    170.486      0.000
+    Category 2         0.071      0.005     12.999      0.000
+ BYS89L
+    Category 1         0.920      0.007    126.503      0.000
+    Category 2         0.080      0.007     10.953      0.000
+ BYS89R
+    Category 1         0.849      0.010     88.632      0.000
+    Category 2         0.151      0.010     15.709      0.000
+ BYS89U
+    Category 1         0.827      0.010     81.478      0.000
+    Category 2         0.173      0.010     17.087      0.000
+
+Latent Class 2
+
+ BYS87A
+    Category 1         0.342      0.010     34.617      0.000
+    Category 2         0.658      0.010     66.481      0.000
+ BYS87C
+    Category 1         0.474      0.011     44.426      0.000
+    Category 2         0.526      0.011     49.266      0.000
+ BYS87F
+    Category 1         0.296      0.010     30.177      0.000
+    Category 2         0.704      0.010     71.690      0.000
+ BYS89A
+    Category 1         0.166      0.010     16.437      0.000
+    Category 2         0.834      0.010     82.529      0.000
+ BYS89B
+    Category 1         0.216      0.012     18.712      0.000
+    Category 2         0.784      0.012     67.756      0.000
+ BYS89L
+    Category 1         0.115      0.009     12.620      0.000
+    Category 2         0.885      0.009     96.864      0.000
+ BYS89R
+    Category 1         0.051      0.006      8.354      0.000
+    Category 2         0.949      0.006    154.154      0.000
+ BYS89U
+    Category 1         0.040      0.005      7.421      0.000
+    Category 2         0.960      0.005    178.532      0.000
+
+
+EQUALITY TESTS OF PROBABILITIES ACROSS THE LATENT CLASSES
+
+                    Chi-Square     P-Value   Degrees of Freedom
+
+
+BYS87A
+  Overall test        365.093      0.000        1
+
+BYS87C
+  Overall test        584.090      0.000        1
+
+BYS87F
+  Overall test        608.673      0.000        1
+
+BYS89A
+  Overall test       1733.026      0.000        1
+
+BYS89B
+  Overall test       1639.055      0.000        1
+
+BYS89L
+  Overall test       1674.895      0.000        1
+
+BYS89R
+  Overall test       1346.311      0.000        1
+
+BYS89U
+  Overall test       1197.495      0.000        1
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ BYS87A
+    Category > 1       0.316      0.019      0.281      0.356
+ BYS87C
+    Category > 1       0.179      0.013      0.156      0.206
+ BYS87F
+    Category > 1       0.208      0.013      0.183      0.235
+ BYS89A
+    Category > 1       0.027      0.002      0.023      0.032
+ BYS89B
+    Category > 1       0.021      0.002      0.017      0.025
+ BYS89L
+    Category > 1       0.011      0.001      0.009      0.014
+ BYS89R
+    Category > 1       0.010      0.001      0.007      0.012
+ BYS89U
+    Category > 1       0.009      0.001      0.007      0.011
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 1 (H0) VERSUS 2 CLASSES
+
+          H0 Loglikelihood Value                       -62206.050
+          2 Times the Loglikelihood Difference          27477.469
+          Difference in the Number of Parameters                9
+          Mean                                             32.043
+          Standard Deviation                              106.201
+          P-Value                                          0.0000
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                         27156.631
+          P-Value                                          0.0000
+
+
+     Beginning Time:  11:44:03
+        Ending Time:  11:44:10
+       Elapsed Time:  00:00:07
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2025 Muthen & Muthen

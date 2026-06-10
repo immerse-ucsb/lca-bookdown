@@ -1,0 +1,17 @@
+TITLE:
+5-Class
+DATA:
+FILE = "C:/Users/dnajiarch/Box/lca_moderation/mplus_enum/LSAL_data.dat"; 
+VARIABLE:
+NAMES = CASENUM COHORT SCHOOLID GENDER RACETH MOTHED ISCIIRT KA47A KA47H KA47I KA47K
+     KA47L KA9A KA9B KA9C KA9D KA9E KA9F KA9G KA9I KA9J KA9K KB9H FEMALE URM; 
+ MISSING=.;
+ categorical = KA47A KA47H KA47I KA47K KA47L; 
+usevar = KA47A KA47H KA47I KA47K KA47L;
+classes = c(5);
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    starts = 500 100;
+OUTPUT:
+sampstat residual tech11 tech14;

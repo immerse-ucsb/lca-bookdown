@@ -1,0 +1,2142 @@
+Mplus VERSION 9
+MUTHEN & MUTHEN
+05/18/2026   5:57 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  PSEM ALF(0.9)
+  DATA:
+  FILE = "C:/Users/Karen Nylund Gibson/Box/LTA/10faq_aux/dang_2017/psem/
+  penalty_enum/penalty_enum.dat";
+  VARIABLE:
+  NAMES = bys87a bys87c bys87f bys89a bys89b bys89l bys89r bys89u bys70a bys70b bys70c
+       bys70d bytm12b bysex byses2qu bystlang f3bytscwt f3onet2curr stu_id;
+   MISSING=.;
+   usev = bys87a-bys89u bys70a-bystlang;
+        categorical = bys87a-bys89u;
+        classes = c(4);
+
+        WEIGHT = f3bytscwt;
+  ANALYSIS:
+  type = mixture;
+        estimator = mlr;
+        Starts = 800 200;
+        proc = 12;
+  MODEL:
+  %OVERALL%
+      c ON bys70a-bystlang;
+      ! Direct effects:
+      bys87a-bys89u ON bys70a-bystlang (d1-d64);
+  MODEL PRIORS:
+  d1-d64~ALF(0,0.9);
+  OUTPUT:
+  sampstat residual tech11 tech14;
+
+
+
+*** WARNING
+  One or more observations has a value of 0 for the WEIGHT variable.  Consider using the
+  SUBPOPULATION option to restrict the analysis to observations with a positive weight.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with weights.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  827
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  14792
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  95
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+PSEM ALF(0.9)
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         483
+
+Number of dependent variables                                    8
+Number of independent variables                                  8
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   BYS87A      BYS87C      BYS87F      BYS89A      BYS89B      BYS89L
+   BYS89R      BYS89U
+
+Observed independent variables
+   BYS70A      BYS70B      BYS70C      BYS70D      BYTM12B     BYSEX
+   BYSES2QU    BYSTLANG
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  Weight variable       F3BYTSCW
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent Variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        800
+  Number of final stage optimizations                          200
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/Karen Nylund Gibson/Box/LTA/10faq_aux/dang_2017/psem/penalty_enum/pen
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            27
+     Number of y missing data patterns           0
+     Number of u missing data patterns          27
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              BYS87A        BYS87C        BYS87F        BYS89A        BYS89B
+              ________      ________      ________      ________      ________
+ BYS87A         0.950
+ BYS87C         0.944         0.959
+ BYS87F         0.942         0.948         0.965
+ BYS89A         0.917         0.925         0.923         0.940
+ BYS89B         0.905         0.915         0.913         0.928         0.934
+ BYS89L         0.872         0.882         0.882         0.890         0.888
+ BYS89R         0.857         0.867         0.870         0.876         0.874
+ BYS89U         0.853         0.863         0.861         0.874         0.870
+
+
+           Covariance Coverage
+              BYS89L        BYS89R        BYS89U
+              ________      ________      ________
+ BYS89L         0.899
+ BYS89R         0.872         0.894
+ BYS89U         0.863         0.861         0.876
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    BYS87A
+      Category 1    0.339          151.830
+      Category 2    0.661          296.271
+    BYS87C
+      Category 1    0.604          275.204
+      Category 2    0.396          180.442
+    BYS87F
+      Category 1    0.369          167.694
+      Category 2    0.631          286.955
+    BYS89A
+      Category 1    0.675          301.900
+      Category 2    0.325          145.350
+    BYS89B
+      Category 1    0.706          317.905
+      Category 2    0.294          132.203
+    BYS89L
+      Category 1    0.623          270.922
+      Category 2    0.377          163.864
+    BYS89R
+      Category 1    0.557          243.970
+      Category 2    0.443          194.192
+    BYS89U
+      Category 1    0.550          234.357
+      Category 2    0.450          191.367
+
+
+SAMPLE STATISTICS
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+                0.951         0.936         0.925         0.883         0.144
+
+
+           Means
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+                1.434         0.463         0.008
+
+
+           Covariances
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         0.047
+ BYS70B         0.038         0.060
+ BYS70C         0.034         0.033         0.069
+ BYS70D         0.030         0.041         0.055         0.104
+ BYTM12B       -0.019        -0.024        -0.023        -0.033         0.123
+ BYSEX         -0.007        -0.019        -0.002        -0.021         0.030
+ BYSES2QU      -0.007        -0.015        -0.008        -0.014         0.008
+ BYSTLANG       0.000         0.001         0.001         0.001        -0.001
+
+
+           Covariances
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          0.246
+ BYSES2QU       0.018         0.249
+ BYSTLANG      -0.004         0.001         0.008
+
+
+           Correlations
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         1.000
+ BYS70B         0.719         1.000
+ BYS70C         0.606         0.518         1.000
+ BYS70D         0.435         0.517         0.644         1.000
+ BYTM12B       -0.244        -0.285        -0.246        -0.296         1.000
+ BYSEX         -0.061        -0.154        -0.018        -0.134         0.173
+ BYSES2QU      -0.063        -0.120        -0.058        -0.087         0.047
+ BYSTLANG       0.021         0.024         0.026         0.033        -0.038
+
+
+           Correlations
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          1.000
+ BYSES2QU       0.071         1.000
+ BYSTLANG      -0.080         0.018         1.000
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     BYS70A                0.951      -4.170       0.000    5.38%       1.000      1.000      1.000
+             483.000       0.047      15.390       1.000   94.62%       1.000      1.000
+     BYS70B                0.936      -3.577       0.000    6.42%       1.000      1.000      1.000
+             483.000       0.060      10.793       1.000   93.58%       1.000      1.000
+     BYS70C                0.925      -3.233       0.000    7.45%       1.000      1.000      1.000
+             483.000       0.069       8.450       1.000   92.55%       1.000      1.000
+     BYS70D                0.883      -2.378       0.000    9.94%       1.000      1.000      1.000
+             483.000       0.104       3.653       1.000   90.06%       1.000      1.000
+     BYTM12B               0.144       2.034       0.000   85.71%       0.000      0.000      0.000
+             483.000       0.123       2.136       1.000   14.29%       0.000      0.000
+     BYSEX                 1.434       0.265       1.000   55.49%       1.000      1.000      1.000
+             483.000       0.246      -1.930       2.000   44.51%       2.000      2.000
+     BYSES2QU              0.463       0.150       0.000   50.72%       0.000      0.000      0.000
+             483.000       0.249      -1.978       1.000   49.28%       1.000      1.000
+     BYSTLANG              0.008      10.820       0.000   99.17%       0.000      0.000      0.000
+             483.000       0.008     115.063       1.000    0.83%       0.000      0.000
+
+
+     VIF (VARIANCE INFLATION FACTOR) FOR EXPLORING MULTICOLLINEARITY OF INDEPENDENT VARIABLES
+
+     Variable        VIF       Variable        VIF       Variable        VIF
+
+     BYS70A         2.043      BYS70B         2.173      BYS70C         2.154
+     BYS70D         1.917      BYTM12B        1.132      BYSEX          1.022
+     BYSES2QU       1.018      BYSTLANG       1.008
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST FIT FUNCTION (LL+PENALTY) VALUES
+
+Final stage fit function values at local maxima, seeds, and initial stage start numbers:
+
+           -1735.174  563584           657
+           -1736.840  105435           265
+           -1741.635  846194           93
+           -1742.590  17359            227
+           -1742.777  534193           689
+           -1746.011  645664           39
+           -1746.552  520865           763
+           -1746.758  505244           582
+           -1746.908  120506           45
+           -1748.016  712531           631
+           -1749.036  625191           350
+           -1749.044  416463           467
+           -1750.219  567165           319
+           -1750.512  699834           723
+           -1750.704  944186           541
+           -1750.855  unperturbed      0
+           -1751.530  551639           55
+           -1752.459  374219           353
+           -1752.859  178181           753
+           -1753.259  568859           49
+           -1753.281  140849           515
+           -1755.243  539751           459
+           -1757.289  856536           144
+           -1757.600  246575           291
+           -1760.047  118421           139
+           -1760.194  761633           50
+           -1760.711  352277           42
+           -1761.045  42523            730
+           -1765.318  263049           454
+           -1767.558  244349           736
+           -1768.690  404042           675
+           -1769.051  408713           450
+           -1770.028  941525           609
+           -1771.930  326091           759
+           -1771.943  195873           6
+           -1772.656  514326           325
+           -1775.052  341041           34
+           -1776.625  40340            188
+           -1777.236  762461           425
+           -1778.568  496703           758
+           -1784.537  830570           369
+           -1796.112  792389           746
+           -1796.508  212934           568
+
+157 perturbed starting value run(s) did not converge or were rejected in the third stage.
+
+
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE WAS NOT REPLICATED.  THE
+     SOLUTION MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.  INCREASE THE
+     NUMBER OF RANDOM STARTS.
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES MAY NOT BE
+     TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE
+     FIRST-ORDER DERIVATIVE PRODUCT MATRIX.  THIS MAY BE DUE TO THE STARTING
+     VALUES BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE
+     CONDITION NUMBER IS       0.239D-18.  PROBLEM INVOLVING THE FOLLOWING PARAMETER:
+     Parameter 32, %C#1%: BYS87F ON BYSTLANG (equality/label)
+
+     THE CORRELATIONS IN TECH3 BETWEEN THE FOLLOWING PARAMETERS ARE ABOVE 0.99 BY ABSOLUTE VALUE.
+     MORE LARGE CORRELATIONS CAN BE FOUND USING THE MLF ESTIMATOR AND CONDITION=0.
+     Parameter 123, C#3 ON BYSTLANG AND Parameter 115, C#2 ON BYSTLANG
+     PARAMETER NUMBERS USED IN TECH3 ARE FOUND IN TECH1.
+
+     ONE OR MORE PARAMETERS WERE FIXED TO AVOID SINGULARITY OF THE
+     INFORMATION MATRIX. THE SINGULARITY IS MOST LIKELY BECAUSE THE
+     MODEL IS NOT IDENTIFIED, OR BECAUSE OF EMPTY CELLS IN THE JOINT
+     DISTRIBUTION OF THE CATEGORICAL VARIABLES IN THE MODEL.
+     THE FOLLOWING PARAMETERS WERE FIXED:
+     Parameter 2, %C#1%: [ BYS87C$1 ]
+     Parameter 87, %C#3%: [ BYS89R$1 ]
+     Parameter 107, C#1 ON BYSTLANG
+     Parameter 109, C#2 ON BYS70B
+     Parameter 115, C#2 ON BYSTLANG
+     Parameter 123, C#3 ON BYSTLANG
+     Parameter 85, %C#3%: [ BYS89B$1 ]
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      106
+
+Loglikelihood
+
+          H0 Value                       -1689.847
+          H0 Scaling Correction Factor      1.7419
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    3591.694
+          Bayesian (BIC)                  4034.776
+          Sample-Size Adjusted BIC        3698.340
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        164.48840          0.34056
+       2        105.20838          0.21782
+       3         78.24343          0.16199
+       4        135.05979          0.27963
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        164.48842          0.34056
+       2        105.20842          0.21782
+       3         78.24303          0.16199
+       4        135.06014          0.27963
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              169          0.34946
+       2              101          0.20960
+       3               83          0.17238
+       4              130          0.26856
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.835
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.919    0.043    0.001    0.036
+    2   0.059    0.922    0.001    0.019
+    3   0.001    0.018    0.886    0.095
+    4   0.025    0.024    0.032    0.918
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.943    0.036    0.000    0.020
+    2   0.069    0.887    0.014    0.030
+    3   0.003    0.001    0.943    0.054
+    4   0.046    0.014    0.059    0.882
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      3.859    0.599   -3.719    0.000
+    2      0.834    3.391   -0.744    0.000
+    3     -2.923   -4.186    2.868    0.000
+    4     -2.964   -4.149   -2.711    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ BYS87A     ON
+    BYS70A             0.008      0.011      0.709      0.478
+    BYS70B             3.282      1.275      2.573      0.010
+    BYS70C            -0.016      0.034     -0.479      0.632
+    BYS70D            -2.297      0.867     -2.649      0.008
+    BYTM12B            0.744      0.623      1.195      0.232
+    BYSEX             -0.447      0.414     -1.078      0.281
+    BYSES2QU           0.252      0.399      0.630      0.528
+    BYSTLANG          -3.198      2.019     -1.584      0.113
+
+ BYS87C     ON
+    BYS70A            -1.866      1.457     -1.281      0.200
+    BYS70B            -2.680      1.339     -2.002      0.045
+    BYS70C            -0.038      0.316     -0.119      0.905
+    BYS70D            -0.010      0.039     -0.255      0.798
+    BYTM12B            0.576      0.808      0.712      0.476
+    BYSEX             -0.173      0.671     -0.258      0.797
+    BYSES2QU          -0.706      0.414     -1.706      0.088
+    BYSTLANG          -0.009      0.020     -0.475      0.635
+
+ BYS87F     ON
+    BYS70A            -2.553      2.387     -1.069      0.285
+    BYS70B             2.215      2.402      0.922      0.356
+    BYS70C             0.000      0.018      0.000      1.000
+    BYS70D            -0.726      0.867     -0.838      0.402
+    BYTM12B            1.194      0.631      1.894      0.058
+    BYSEX              0.016      0.065      0.247      0.805
+    BYSES2QU           0.024      0.105      0.225      0.822
+    BYSTLANG           0.003      0.004      0.751      0.453
+
+ BYS89A     ON
+    BYS70A             0.004      0.023      0.193      0.847
+    BYS70B            -1.343      1.324     -1.014      0.310
+    BYS70C             0.388      1.445      0.269      0.788
+    BYS70D            -0.004      0.041     -0.109      0.913
+    BYTM12B           -0.603      0.729     -0.828      0.408
+    BYSEX              0.033      0.229      0.146      0.884
+    BYSES2QU           0.872      0.552      1.580      0.114
+    BYSTLANG          -0.004      0.005     -0.682      0.495
+
+ BYS89B     ON
+    BYS70A            -2.043      2.212     -0.924      0.356
+    BYS70B            -1.815      1.758     -1.032      0.302
+    BYS70C             5.720      2.621      2.183      0.029
+    BYS70D            -0.003      0.032     -0.090      0.928
+    BYTM12B            0.018      0.054      0.341      0.733
+    BYSEX             -0.241      0.995     -0.242      0.809
+    BYSES2QU           0.166      1.339      0.124      0.902
+    BYSTLANG          -0.003      0.004     -0.622      0.534
+
+ BYS89L     ON
+    BYS70A             0.002      0.022      0.079      0.937
+    BYS70B            -0.973      2.189     -0.444      0.657
+    BYS70C            -0.577      2.255     -0.256      0.798
+    BYS70D            -0.570      1.127     -0.506      0.613
+    BYTM12B           -0.010      0.036     -0.278      0.781
+    BYSEX              0.015      0.064      0.229      0.819
+    BYSES2QU           1.509      0.665      2.271      0.023
+    BYSTLANG          -0.002      0.003     -0.585      0.558
+
+ BYS89R     ON
+    BYS70A            -0.004      0.017     -0.230      0.818
+    BYS70B            -1.878      0.806     -2.329      0.020
+    BYS70C            -0.009      0.019     -0.481      0.630
+    BYS70D            -0.006      0.023     -0.246      0.805
+    BYTM12B           -0.008      0.033     -0.249      0.804
+    BYSEX              1.614      0.740      2.181      0.029
+    BYSES2QU           0.810      0.914      0.886      0.376
+    BYSTLANG          -0.001      0.001     -0.707      0.480
+
+ BYS89U     ON
+    BYS70A             0.006      0.010      0.568      0.570
+    BYS70B            -0.013      0.026     -0.492      0.623
+    BYS70C            -0.002      0.015     -0.142      0.887
+    BYS70D            -0.010      0.030     -0.335      0.737
+    BYTM12B            0.032      0.163      0.197      0.844
+    BYSEX              0.018      0.072      0.246      0.806
+    BYSES2QU           0.683      0.783      0.873      0.383
+    BYSTLANG          -0.001      0.001     -0.630      0.529
+
+ Thresholds
+    BYS87A$1           0.842      1.158      0.727      0.467
+    BYS87C$1          25.215      0.000    999.000    999.000
+    BYS87F$1           0.932      0.986      0.945      0.344
+    BYS89A$1           1.703      1.072      1.589      0.112
+    BYS89B$1           4.768      1.756      2.716      0.007
+    BYS89L$1           1.931      1.747      1.105      0.269
+    BYS89R$1           4.199      1.834      2.289      0.022
+    BYS89U$1           2.140      0.843      2.539      0.011
+
+Latent Class 2
+
+ BYS87A     ON
+    BYS70A             0.008      0.011      0.709      0.478
+    BYS70B             3.282      1.275      2.573      0.010
+    BYS70C            -0.016      0.034     -0.479      0.632
+    BYS70D            -2.297      0.867     -2.649      0.008
+    BYTM12B            0.744      0.623      1.195      0.232
+    BYSEX             -0.447      0.414     -1.078      0.281
+    BYSES2QU           0.252      0.399      0.630      0.528
+    BYSTLANG          -3.198      2.019     -1.584      0.113
+
+ BYS87C     ON
+    BYS70A            -1.866      1.457     -1.281      0.200
+    BYS70B            -2.680      1.339     -2.002      0.045
+    BYS70C            -0.038      0.316     -0.119      0.905
+    BYS70D            -0.010      0.039     -0.255      0.798
+    BYTM12B            0.576      0.808      0.712      0.476
+    BYSEX             -0.173      0.671     -0.258      0.797
+    BYSES2QU          -0.706      0.414     -1.706      0.088
+    BYSTLANG          -0.009      0.020     -0.475      0.635
+
+ BYS87F     ON
+    BYS70A            -2.553      2.387     -1.069      0.285
+    BYS70B             2.215      2.402      0.922      0.356
+    BYS70C             0.000      0.018      0.000      1.000
+    BYS70D            -0.726      0.867     -0.838      0.402
+    BYTM12B            1.194      0.631      1.894      0.058
+    BYSEX              0.016      0.065      0.247      0.805
+    BYSES2QU           0.024      0.105      0.225      0.822
+    BYSTLANG           0.003      0.004      0.751      0.453
+
+ BYS89A     ON
+    BYS70A             0.004      0.023      0.193      0.847
+    BYS70B            -1.343      1.324     -1.014      0.310
+    BYS70C             0.388      1.445      0.269      0.788
+    BYS70D            -0.004      0.041     -0.109      0.913
+    BYTM12B           -0.603      0.729     -0.828      0.408
+    BYSEX              0.033      0.229      0.146      0.884
+    BYSES2QU           0.872      0.552      1.580      0.114
+    BYSTLANG          -0.004      0.005     -0.682      0.495
+
+ BYS89B     ON
+    BYS70A            -2.043      2.212     -0.924      0.356
+    BYS70B            -1.815      1.758     -1.032      0.302
+    BYS70C             5.720      2.621      2.183      0.029
+    BYS70D            -0.003      0.032     -0.090      0.928
+    BYTM12B            0.018      0.054      0.341      0.733
+    BYSEX             -0.241      0.995     -0.242      0.809
+    BYSES2QU           0.166      1.339      0.124      0.902
+    BYSTLANG          -0.003      0.004     -0.622      0.534
+
+ BYS89L     ON
+    BYS70A             0.002      0.022      0.079      0.937
+    BYS70B            -0.973      2.189     -0.444      0.657
+    BYS70C            -0.577      2.255     -0.256      0.798
+    BYS70D            -0.570      1.127     -0.506      0.613
+    BYTM12B           -0.010      0.036     -0.278      0.781
+    BYSEX              0.015      0.064      0.229      0.819
+    BYSES2QU           1.509      0.665      2.271      0.023
+    BYSTLANG          -0.002      0.003     -0.585      0.558
+
+ BYS89R     ON
+    BYS70A            -0.004      0.017     -0.230      0.818
+    BYS70B            -1.878      0.806     -2.329      0.020
+    BYS70C            -0.009      0.019     -0.481      0.630
+    BYS70D            -0.006      0.023     -0.246      0.805
+    BYTM12B           -0.008      0.033     -0.249      0.804
+    BYSEX              1.614      0.740      2.181      0.029
+    BYSES2QU           0.810      0.914      0.886      0.376
+    BYSTLANG          -0.001      0.001     -0.707      0.480
+
+ BYS89U     ON
+    BYS70A             0.006      0.010      0.568      0.570
+    BYS70B            -0.013      0.026     -0.492      0.623
+    BYS70C            -0.002      0.015     -0.142      0.887
+    BYS70D            -0.010      0.030     -0.335      0.737
+    BYTM12B            0.032      0.163      0.197      0.844
+    BYSEX              0.018      0.072      0.246      0.806
+    BYSES2QU           0.683      0.783      0.873      0.383
+    BYSTLANG          -0.001      0.001     -0.630      0.529
+
+ Thresholds
+    BYS87A$1          -2.583      1.016     -2.542      0.011
+    BYS87C$1          -5.816      2.556     -2.276      0.023
+    BYS87F$1          -3.564      1.191     -2.991      0.003
+    BYS89A$1           1.602      1.007      1.592      0.111
+    BYS89B$1           3.868      1.793      2.157      0.031
+    BYS89L$1           1.881      1.267      1.485      0.138
+    BYS89R$1           3.909      1.681      2.325      0.020
+    BYS89U$1           4.440      1.084      4.097      0.000
+
+Latent Class 3
+
+ BYS87A     ON
+    BYS70A             0.008      0.011      0.709      0.478
+    BYS70B             3.282      1.275      2.573      0.010
+    BYS70C            -0.016      0.034     -0.479      0.632
+    BYS70D            -2.297      0.867     -2.649      0.008
+    BYTM12B            0.744      0.623      1.195      0.232
+    BYSEX             -0.447      0.414     -1.078      0.281
+    BYSES2QU           0.252      0.399      0.630      0.528
+    BYSTLANG          -3.198      2.019     -1.584      0.113
+
+ BYS87C     ON
+    BYS70A            -1.866      1.457     -1.281      0.200
+    BYS70B            -2.680      1.339     -2.002      0.045
+    BYS70C            -0.038      0.316     -0.119      0.905
+    BYS70D            -0.010      0.039     -0.255      0.798
+    BYTM12B            0.576      0.808      0.712      0.476
+    BYSEX             -0.173      0.671     -0.258      0.797
+    BYSES2QU          -0.706      0.414     -1.706      0.088
+    BYSTLANG          -0.009      0.020     -0.475      0.635
+
+ BYS87F     ON
+    BYS70A            -2.553      2.387     -1.069      0.285
+    BYS70B             2.215      2.402      0.922      0.356
+    BYS70C             0.000      0.018      0.000      1.000
+    BYS70D            -0.726      0.867     -0.838      0.402
+    BYTM12B            1.194      0.631      1.894      0.058
+    BYSEX              0.016      0.065      0.247      0.805
+    BYSES2QU           0.024      0.105      0.225      0.822
+    BYSTLANG           0.003      0.004      0.751      0.453
+
+ BYS89A     ON
+    BYS70A             0.004      0.023      0.193      0.847
+    BYS70B            -1.343      1.324     -1.014      0.310
+    BYS70C             0.388      1.445      0.269      0.788
+    BYS70D            -0.004      0.041     -0.109      0.913
+    BYTM12B           -0.603      0.729     -0.828      0.408
+    BYSEX              0.033      0.229      0.146      0.884
+    BYSES2QU           0.872      0.552      1.580      0.114
+    BYSTLANG          -0.004      0.005     -0.682      0.495
+
+ BYS89B     ON
+    BYS70A            -2.043      2.212     -0.924      0.356
+    BYS70B            -1.815      1.758     -1.032      0.302
+    BYS70C             5.720      2.621      2.183      0.029
+    BYS70D            -0.003      0.032     -0.090      0.928
+    BYTM12B            0.018      0.054      0.341      0.733
+    BYSEX             -0.241      0.995     -0.242      0.809
+    BYSES2QU           0.166      1.339      0.124      0.902
+    BYSTLANG          -0.003      0.004     -0.622      0.534
+
+ BYS89L     ON
+    BYS70A             0.002      0.022      0.079      0.937
+    BYS70B            -0.973      2.189     -0.444      0.657
+    BYS70C            -0.577      2.255     -0.256      0.798
+    BYS70D            -0.570      1.127     -0.506      0.613
+    BYTM12B           -0.010      0.036     -0.278      0.781
+    BYSEX              0.015      0.064      0.229      0.819
+    BYSES2QU           1.509      0.665      2.271      0.023
+    BYSTLANG          -0.002      0.003     -0.585      0.558
+
+ BYS89R     ON
+    BYS70A            -0.004      0.017     -0.230      0.818
+    BYS70B            -1.878      0.806     -2.329      0.020
+    BYS70C            -0.009      0.019     -0.481      0.630
+    BYS70D            -0.006      0.023     -0.246      0.805
+    BYTM12B           -0.008      0.033     -0.249      0.804
+    BYSEX              1.614      0.740      2.181      0.029
+    BYSES2QU           0.810      0.914      0.886      0.376
+    BYSTLANG          -0.001      0.001     -0.707      0.480
+
+ BYS89U     ON
+    BYS70A             0.006      0.010      0.568      0.570
+    BYS70B            -0.013      0.026     -0.492      0.623
+    BYS70C            -0.002      0.015     -0.142      0.887
+    BYS70D            -0.010      0.030     -0.335      0.737
+    BYTM12B            0.032      0.163      0.197      0.844
+    BYSEX              0.018      0.072      0.246      0.806
+    BYSES2QU           0.683      0.783      0.873      0.383
+    BYSTLANG          -0.001      0.001     -0.630      0.529
+
+ Thresholds
+    BYS87A$1          -0.560      1.079     -0.519      0.604
+    BYS87C$1          -5.239      2.454     -2.134      0.033
+    BYS87F$1          -2.624      1.093     -2.401      0.016
+    BYS89A$1          -4.146      2.419     -1.714      0.087
+    BYS89B$1         -19.609      0.000    999.000    999.000
+    BYS89L$1          -5.428      2.136     -2.542      0.011
+    BYS89R$1         -27.648      0.000    999.000    999.000
+    BYS89U$1          -2.960      1.114     -2.656      0.008
+
+Latent Class 4
+
+ BYS87A     ON
+    BYS70A             0.008      0.011      0.709      0.478
+    BYS70B             3.282      1.275      2.573      0.010
+    BYS70C            -0.016      0.034     -0.479      0.632
+    BYS70D            -2.297      0.867     -2.649      0.008
+    BYTM12B            0.744      0.623      1.195      0.232
+    BYSEX             -0.447      0.414     -1.078      0.281
+    BYSES2QU           0.252      0.399      0.630      0.528
+    BYSTLANG          -3.198      2.019     -1.584      0.113
+
+ BYS87C     ON
+    BYS70A            -1.866      1.457     -1.281      0.200
+    BYS70B            -2.680      1.339     -2.002      0.045
+    BYS70C            -0.038      0.316     -0.119      0.905
+    BYS70D            -0.010      0.039     -0.255      0.798
+    BYTM12B            0.576      0.808      0.712      0.476
+    BYSEX             -0.173      0.671     -0.258      0.797
+    BYSES2QU          -0.706      0.414     -1.706      0.088
+    BYSTLANG          -0.009      0.020     -0.475      0.635
+
+ BYS87F     ON
+    BYS70A            -2.553      2.387     -1.069      0.285
+    BYS70B             2.215      2.402      0.922      0.356
+    BYS70C             0.000      0.018      0.000      1.000
+    BYS70D            -0.726      0.867     -0.838      0.402
+    BYTM12B            1.194      0.631      1.894      0.058
+    BYSEX              0.016      0.065      0.247      0.805
+    BYSES2QU           0.024      0.105      0.225      0.822
+    BYSTLANG           0.003      0.004      0.751      0.453
+
+ BYS89A     ON
+    BYS70A             0.004      0.023      0.193      0.847
+    BYS70B            -1.343      1.324     -1.014      0.310
+    BYS70C             0.388      1.445      0.269      0.788
+    BYS70D            -0.004      0.041     -0.109      0.913
+    BYTM12B           -0.603      0.729     -0.828      0.408
+    BYSEX              0.033      0.229      0.146      0.884
+    BYSES2QU           0.872      0.552      1.580      0.114
+    BYSTLANG          -0.004      0.005     -0.682      0.495
+
+ BYS89B     ON
+    BYS70A            -2.043      2.212     -0.924      0.356
+    BYS70B            -1.815      1.758     -1.032      0.302
+    BYS70C             5.720      2.621      2.183      0.029
+    BYS70D            -0.003      0.032     -0.090      0.928
+    BYTM12B            0.018      0.054      0.341      0.733
+    BYSEX             -0.241      0.995     -0.242      0.809
+    BYSES2QU           0.166      1.339      0.124      0.902
+    BYSTLANG          -0.003      0.004     -0.622      0.534
+
+ BYS89L     ON
+    BYS70A             0.002      0.022      0.079      0.937
+    BYS70B            -0.973      2.189     -0.444      0.657
+    BYS70C            -0.577      2.255     -0.256      0.798
+    BYS70D            -0.570      1.127     -0.506      0.613
+    BYTM12B           -0.010      0.036     -0.278      0.781
+    BYSEX              0.015      0.064      0.229      0.819
+    BYSES2QU           1.509      0.665      2.271      0.023
+    BYSTLANG          -0.002      0.003     -0.585      0.558
+
+ BYS89R     ON
+    BYS70A            -0.004      0.017     -0.230      0.818
+    BYS70B            -1.878      0.806     -2.329      0.020
+    BYS70C            -0.009      0.019     -0.481      0.630
+    BYS70D            -0.006      0.023     -0.246      0.805
+    BYTM12B           -0.008      0.033     -0.249      0.804
+    BYSEX              1.614      0.740      2.181      0.029
+    BYSES2QU           0.810      0.914      0.886      0.376
+    BYSTLANG          -0.001      0.001     -0.707      0.480
+
+ BYS89U     ON
+    BYS70A             0.006      0.010      0.568      0.570
+    BYS70B            -0.013      0.026     -0.492      0.623
+    BYS70C            -0.002      0.015     -0.142      0.887
+    BYS70D            -0.010      0.030     -0.335      0.737
+    BYTM12B            0.032      0.163      0.197      0.844
+    BYSEX              0.018      0.072      0.246      0.806
+    BYSES2QU           0.683      0.783      0.873      0.383
+    BYSTLANG          -0.001      0.001     -0.630      0.529
+
+ Thresholds
+    BYS87A$1          -0.133      1.189     -0.112      0.911
+    BYS87C$1          -5.138      2.724     -1.886      0.059
+    BYS87F$1          -2.394      1.086     -2.204      0.028
+    BYS89A$1           0.061      1.130      0.054      0.957
+    BYS89B$1           2.340      1.815      1.289      0.197
+    BYS89L$1          -1.882      1.659     -1.135      0.256
+    BYS89R$1          -0.988      1.304     -0.758      0.449
+    BYS89U$1          -1.497      0.506     -2.958      0.003
+
+Categorical Latent Variables
+
+ C#1        ON
+    BYS70A            27.013      2.311     11.688      0.000
+    BYS70B           -30.536      1.232    -24.781      0.000
+    BYS70C            -4.421      2.643     -1.672      0.094
+    BYS70D             4.571      2.317      1.973      0.049
+    BYTM12B            0.373      0.647      0.576      0.564
+    BYSEX              0.100      0.475      0.212      0.832
+    BYSES2QU          -0.133      0.483     -0.276      0.783
+    BYSTLANG          -3.803      0.000    999.000    999.000
+
+ C#2        ON
+    BYS70A            25.519      2.115     12.065      0.000
+    BYS70B           -32.003      0.000    999.000    999.000
+    BYS70C            -1.199      1.985     -0.604      0.546
+    BYS70D             2.086      0.800      2.607      0.009
+    BYTM12B           -0.437      0.725     -0.603      0.546
+    BYSEX             -0.791      0.601     -1.317      0.188
+    BYSES2QU           1.319      0.580      2.275      0.023
+    BYSTLANG          25.047      0.000    999.000    999.000
+
+ C#3        ON
+    BYS70A             0.006      2.651      0.002      0.998
+    BYS70B            -5.055      3.336     -1.515      0.130
+    BYS70C            -0.946      8.138     -0.116      0.907
+    BYS70D             3.319      8.759      0.379      0.705
+    BYTM12B            0.333      0.890      0.374      0.709
+    BYSEX             -1.791      0.927     -1.931      0.053
+    BYSES2QU          -0.377      0.870     -0.434      0.665
+    BYSTLANG          -2.153      0.000    999.000    999.000
+
+ Intercepts
+    C#1                3.540      1.692      2.092      0.036
+    C#2                5.628      1.641      3.429      0.001
+    C#3                4.724      2.254      2.096      0.036
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.187E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+EVALUATED AT THE COVARIATE SAMPLE MEANS
+
+     MEAN/PROBABILITY PROFILES FOR C
+                       Latent class
+                     1      2      3      4
+     BYS87A
+       Category 1  0.557  0.039  0.236  0.322
+       Category 2  0.443  0.961  0.764  0.678
+     BYS87C
+       Category 1  1.000  0.244  0.366  0.389
+       Category 2  0.000  0.756  0.634  0.611
+     BYS87F
+       Category 1  0.833  0.053  0.125  0.152
+       Category 2  0.167  0.947  0.875  0.848
+     BYS89A
+       Category 1  0.898  0.888  0.025  0.629
+       Category 2  0.102  0.112  0.975  0.371
+     BYS89B
+       Category 1  0.970  0.929  0.000  0.740
+       Category 2  0.030  0.071  1.000  0.260
+     BYS89L
+       Category 1  0.951  0.948  0.012  0.299
+       Category 2  0.049  0.052  0.988  0.701
+     BYS89R
+       Category 1  0.958  0.944  0.000  0.112
+       Category 2  0.042  0.056  1.000  0.888
+     BYS89U
+       Category 1  0.852  0.983  0.034  0.132
+       Category 2  0.148  0.017  0.966  0.868
+
+
+RESULTS IN PROBABILITY SCALE
+
+                    Estimate
+
+Latent Class 1
+
+ BYS87A
+    Category 1         0.579
+    Category 2         0.421
+ BYS87C
+    Category 1         1.000
+    Category 2         0.000
+ BYS87F
+    Category 1         0.838
+    Category 2         0.162
+ BYS89A
+    Category 1         0.902
+    Category 2         0.098
+ BYS89B
+    Category 1         0.962
+    Category 2         0.038
+ BYS89L
+    Category 1         0.951
+    Category 2         0.049
+ BYS89R
+    Category 1         0.938
+    Category 2         0.062
+ BYS89U
+    Category 1         0.860
+    Category 2         0.140
+
+Latent Class 2
+
+ BYS87A
+    Category 1         0.087
+    Category 2         0.913
+ BYS87C
+    Category 1         0.297
+    Category 2         0.703
+ BYS87F
+    Category 1         0.071
+    Category 2         0.929
+ BYS89A
+    Category 1         0.837
+    Category 2         0.163
+ BYS89B
+    Category 1         0.864
+    Category 2         0.136
+ BYS89L
+    Category 1         0.887
+    Category 2         0.113
+ BYS89R
+    Category 1         0.873
+    Category 2         0.127
+ BYS89U
+    Category 1         0.980
+    Category 2         0.020
+
+Latent Class 3
+
+ BYS87A
+    Category 1         0.241
+    Category 2         0.759
+ BYS87C
+    Category 1         0.422
+    Category 2         0.578
+ BYS87F
+    Category 1         0.157
+    Category 2         0.843
+ BYS89A
+    Category 1         0.034
+    Category 2         0.966
+ BYS89B
+    Category 1         0.000
+    Category 2         1.000
+ BYS89L
+    Category 1         0.026
+    Category 2         0.974
+ BYS89R
+    Category 1         0.000
+    Category 2         1.000
+ BYS89U
+    Category 1         0.042
+    Category 2         0.958
+
+Latent Class 4
+
+ BYS87A
+    Category 1         0.300
+    Category 2         0.700
+ BYS87C
+    Category 1         0.480
+    Category 2         0.520
+ BYS87F
+    Category 1         0.170
+    Category 2         0.830
+ BYS89A
+    Category 1         0.657
+    Category 2         0.343
+ BYS89B
+    Category 1         0.698
+    Category 2         0.302
+ BYS89L
+    Category 1         0.382
+    Category 2         0.618
+ BYS89R
+    Category 1         0.166
+    Category 2         0.834
+ BYS89U
+    Category 1         0.146
+    Category 2         0.854
+
+
+EQUALITY TESTS OF THRESHOLDS ACROSS THE LATENT CLASSES
+
+                    Chi-Square     P-Value   Degrees of Freedom
+
+
+BYS87A
+  Overall test         16.955      0.001        3
+  Class 1 vs. 2        11.548      0.001        1
+  Class 1 vs. 3         5.233      0.022        1
+  Class 1 vs. 4         4.166      0.041        1
+  Class 2 vs. 3         3.591      0.058        1
+  Class 2 vs. 4         4.857      0.028        1
+  Class 3 vs. 4         0.396      0.529        1
+
+BYS87C
+  Overall test        173.280      0.000        3
+  Class 1 vs. 2       147.437      0.000        1
+  Class 1 vs. 3       153.952      0.000        1
+  Class 1 vs. 4       124.186      0.000        1
+  Class 2 vs. 3         0.676      0.411        1
+  Class 2 vs. 4         1.199      0.274        1
+  Class 3 vs. 4         0.016      0.898        1
+
+BYS87F
+  Overall test         42.084      0.000        3
+  Class 1 vs. 2        19.229      0.000        1
+  Class 1 vs. 3        28.382      0.000        1
+  Class 1 vs. 4        25.471      0.000        1
+  Class 2 vs. 3         0.943      0.331        1
+  Class 2 vs. 4         1.181      0.277        1
+  Class 3 vs. 4         0.110      0.740        1
+
+BYS89A
+  Overall test         13.463      0.004        3
+  Class 1 vs. 2         0.021      0.885        1
+  Class 1 vs. 3         6.041      0.014        1
+  Class 1 vs. 4         7.713      0.005        1
+  Class 2 vs. 3         5.380      0.020        1
+  Class 2 vs. 4         4.692      0.030        1
+  Class 3 vs. 4         3.089      0.079        1
+
+BYS89B
+  Overall test        213.104      0.000        3
+  Class 1 vs. 2         0.595      0.440        1
+  Class 1 vs. 3       192.804      0.000        1
+  Class 1 vs. 4        11.204      0.001        1
+  Class 2 vs. 3       171.469      0.000        1
+  Class 2 vs. 4         1.695      0.193        1
+  Class 3 vs. 4       146.187      0.000        1
+
+BYS89L
+  Overall test         35.515      0.000        3
+  Class 1 vs. 2         0.001      0.972        1
+  Class 1 vs. 3        19.616      0.000        1
+  Class 1 vs. 4        22.239      0.000        1
+  Class 2 vs. 3        13.610      0.000        1
+  Class 2 vs. 4         7.887      0.005        1
+  Class 3 vs. 4         4.904      0.027        1
+
+BYS89R
+  Overall test        444.746      0.000        3
+  Class 1 vs. 2         0.124      0.725        1
+  Class 1 vs. 3       301.439      0.000        1
+  Class 1 vs. 4        18.023      0.000        1
+  Class 2 vs. 3       352.276      0.000        1
+  Class 2 vs. 4        19.717      0.000        1
+  Class 3 vs. 4       417.726      0.000        1
+
+BYS89U
+  Overall test         46.846      0.000        3
+  Class 1 vs. 2         5.662      0.017        1
+  Class 1 vs. 3        16.209      0.000        1
+  Class 1 vs. 4        21.781      0.000        1
+  Class 2 vs. 3        27.023      0.000        1
+  Class 2 vs. 4        31.749      0.000        1
+  Class 3 vs. 4         1.368      0.242        1
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1 Compared to Latent Class 2
+
+ BYS87A
+    Category > 1       0.033      0.033      0.005      0.235
+ BYS87C
+    Category > 1       0.000      0.000      0.000      0.000
+ BYS87F
+    Category > 1       0.011      0.011      0.001      0.083
+ BYS89A
+    Category > 1       0.904      0.633      0.229      3.567
+ BYS89B
+    Category > 1       0.406      0.474      0.041      4.005
+ BYS89L
+    Category > 1       0.952      1.322      0.062     14.496
+ BYS89R
+    Category > 1       0.748      0.617      0.149      3.765
+ BYS89U
+    Category > 1       9.975      9.642      1.500     66.331
+
+Latent Class 1 Compared to Latent Class 3
+
+ BYS87A
+    Category > 1       0.246      0.151      0.074      0.818
+ BYS87C
+    Category > 1       0.000      0.000      0.000      0.000
+ BYS87F
+    Category > 1       0.029      0.019      0.008      0.106
+ BYS89A
+    Category > 1       0.003      0.007      0.000      0.306
+ BYS89B
+    Category > 1       0.000      0.000      0.000      0.000
+ BYS89L
+    Category > 1       0.001      0.001      0.000      0.017
+ BYS89R
+    Category > 1       0.000      0.000      0.000      0.000
+ BYS89U
+    Category > 1       0.006      0.008      0.001      0.073
+
+Latent Class 1 Compared to Latent Class 4
+
+ BYS87A
+    Category > 1       0.377      0.180      0.148      0.962
+ BYS87C
+    Category > 1       0.000      0.000      0.000      0.000
+ BYS87F
+    Category > 1       0.036      0.024      0.010      0.131
+ BYS89A
+    Category > 1       0.194      0.114      0.061      0.617
+ BYS89B
+    Category > 1       0.088      0.064      0.021      0.365
+ BYS89L
+    Category > 1       0.022      0.018      0.005      0.108
+ BYS89R
+    Category > 1       0.006      0.007      0.001      0.061
+ BYS89U
+    Category > 1       0.026      0.021      0.006      0.121
+
+Latent Class 2 Compared to Latent Class 3
+
+ BYS87A
+    Category > 1       7.567      8.081      0.933     61.375
+ BYS87C
+    Category > 1       1.782      1.251      0.450      7.057
+ BYS87F
+    Category > 1       2.558      2.474      0.384     17.029
+ BYS89A
+    Category > 1       0.003      0.008      0.000      0.410
+ BYS89B
+    Category > 1       0.000      0.000      0.000      0.000
+ BYS89L
+    Category > 1       0.001      0.001      0.000      0.033
+ BYS89R
+    Category > 1       0.000      0.000      0.000      0.000
+ BYS89U
+    Category > 1       0.001      0.001      0.000      0.010
+
+Latent Class 2 Compared to Latent Class 4
+
+ BYS87A
+    Category > 1      11.594     12.891      1.312    102.490
+ BYS87C
+    Category > 1       1.970      1.220      0.585      6.631
+ BYS87F
+    Category > 1       3.222      3.471      0.390     26.603
+ BYS89A
+    Category > 1       0.214      0.152      0.053      0.864
+ BYS89B
+    Category > 1       0.217      0.255      0.022      2.165
+ BYS89L
+    Category > 1       0.023      0.031      0.002      0.321
+ BYS89R
+    Category > 1       0.007      0.008      0.001      0.065
+ BYS89U
+    Category > 1       0.003      0.003      0.000      0.021
+
+Latent Class 3 Compared to Latent Class 4
+
+ BYS87A
+    Category > 1       1.532      1.038      0.406      5.784
+ BYS87C
+    Category > 1       1.106      0.868      0.237      5.153
+ BYS87F
+    Category > 1       1.260      0.877      0.322      4.927
+ BYS89A
+    Category > 1      67.132    160.679      0.616   7316.450
+ BYS89B
+    Category > 1   *********  *********  93152.008  *********
+ BYS89L
+    Category > 1      34.664     55.500      1.503    799.356
+ BYS89R
+    Category > 1   *********  *********  *********  *********
+ BYS89U
+    Category > 1       4.321      5.407      0.372     50.202
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS FOR OBSERVED VARIABLES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Latent Class 1
+
+ BYS87A     ON
+    BYS70A             1.008      0.011      0.986      1.030
+    BYS70B            26.622     33.953      2.186    324.238
+    BYS70C             0.984      0.034      0.920      1.052
+    BYS70D             0.101      0.087      0.018      0.550
+    BYTM12B            2.105      1.311      0.621      7.137
+    BYSEX              0.640      0.265      0.284      1.441
+    BYSES2QU           1.286      0.514      0.588      2.814
+    BYSTLANG           0.041      0.082      0.001      2.137
+
+ BYS87C     ON
+    BYS70A             0.155      0.225      0.009      2.692
+    BYS70B             0.069      0.092      0.005      0.945
+    BYS70C             0.963      0.305      0.518      1.790
+    BYS70D             0.990      0.039      0.917      1.069
+    BYTM12B            1.779      1.437      0.365      8.669
+    BYSEX              0.841      0.565      0.226      3.136
+    BYSES2QU           0.494      0.204      0.220      1.111
+    BYSTLANG           0.991      0.019      0.954      1.029
+
+ BYS87F     ON
+    BYS70A             0.078      0.186      0.001      8.383
+    BYS70B             9.160     21.999      0.083   1014.322
+    BYS70C             1.000      0.018      0.965      1.036
+    BYS70D             0.484      0.419      0.088      2.647
+    BYTM12B            3.301      2.082      0.959     11.365
+    BYSEX              1.016      0.066      0.895      1.153
+    BYSES2QU           1.024      0.107      0.834      1.257
+    BYSTLANG           1.003      0.004      0.995      1.011
+
+ BYS89A     ON
+    BYS70A             1.004      0.023      0.961      1.050
+    BYS70B             0.261      0.346      0.020      3.497
+    BYS70C             1.474      2.130      0.087     25.039
+    BYS70D             0.996      0.040      0.919      1.078
+    BYTM12B            0.547      0.398      0.131      2.281
+    BYSEX              1.034      0.237      0.660      1.620
+    BYSES2QU           2.391      1.319      0.811      7.050
+    BYSTLANG           0.996      0.005      0.986      1.007
+
+ BYS89B     ON
+    BYS70A             0.130      0.287      0.002      9.894
+    BYS70B             0.163      0.286      0.005      5.112
+    BYS70C           304.868    798.946      1.792  51860.207
+    BYS70D             0.997      0.032      0.936      1.062
+    BYTM12B            1.018      0.055      0.917      1.131
+    BYSEX              0.786      0.782      0.112      5.529
+    BYSES2QU           1.180      1.581      0.085     16.297
+    BYSTLANG           0.997      0.004      0.989      1.005
+
+ BYS89L     ON
+    BYS70A             1.002      0.022      0.960      1.045
+    BYS70B             0.378      0.828      0.005     27.622
+    BYS70C             0.561      1.266      0.007     46.642
+    BYS70D             0.565      0.637      0.062      5.145
+    BYTM12B            0.990      0.036      0.923      1.062
+    BYSEX              1.015      0.065      0.896      1.149
+    BYSES2QU           4.523      3.006      1.230     16.638
+    BYSTLANG           0.998      0.003      0.992      1.004
+
+ BYS89R     ON
+    BYS70A             0.996      0.017      0.963      1.030
+    BYS70B             0.153      0.123      0.031      0.742
+    BYS70C             0.991      0.019      0.955      1.028
+    BYS70D             0.994      0.023      0.950      1.041
+    BYTM12B            0.992      0.033      0.930      1.058
+    BYSEX              5.022      3.716      1.178     21.413
+    BYSES2QU           2.247      2.053      0.375     13.464
+    BYSTLANG           0.999      0.001      0.997      1.001
+
+ BYS89U     ON
+    BYS70A             1.006      0.010      0.986      1.026
+    BYS70B             0.987      0.026      0.938      1.039
+    BYS70C             0.998      0.015      0.969      1.028
+    BYS70D             0.990      0.030      0.933      1.050
+    BYTM12B            1.032      0.168      0.751      1.420
+    BYSEX              1.018      0.073      0.885      1.171
+    BYSES2QU           1.980      1.550      0.427      9.180
+    BYSTLANG           0.999      0.001      0.998      1.001
+
+Latent Class 2
+
+ BYS87A     ON
+    BYS70A             1.008      0.011      0.986      1.030
+    BYS70B            26.622     33.953      2.186    324.238
+    BYS70C             0.984      0.034      0.920      1.052
+    BYS70D             0.101      0.087      0.018      0.550
+    BYTM12B            2.105      1.311      0.621      7.137
+    BYSEX              0.640      0.265      0.284      1.441
+    BYSES2QU           1.286      0.514      0.588      2.814
+    BYSTLANG           0.041      0.082      0.001      2.137
+
+ BYS87C     ON
+    BYS70A             0.155      0.225      0.009      2.692
+    BYS70B             0.069      0.092      0.005      0.945
+    BYS70C             0.963      0.305      0.518      1.790
+    BYS70D             0.990      0.039      0.917      1.069
+    BYTM12B            1.779      1.437      0.365      8.669
+    BYSEX              0.841      0.565      0.226      3.136
+    BYSES2QU           0.494      0.204      0.220      1.111
+    BYSTLANG           0.991      0.019      0.954      1.029
+
+ BYS87F     ON
+    BYS70A             0.078      0.186      0.001      8.383
+    BYS70B             9.160     21.999      0.083   1014.322
+    BYS70C             1.000      0.018      0.965      1.036
+    BYS70D             0.484      0.419      0.088      2.647
+    BYTM12B            3.301      2.082      0.959     11.365
+    BYSEX              1.016      0.066      0.895      1.153
+    BYSES2QU           1.024      0.107      0.834      1.257
+    BYSTLANG           1.003      0.004      0.995      1.011
+
+ BYS89A     ON
+    BYS70A             1.004      0.023      0.961      1.050
+    BYS70B             0.261      0.346      0.020      3.497
+    BYS70C             1.474      2.130      0.087     25.039
+    BYS70D             0.996      0.040      0.919      1.078
+    BYTM12B            0.547      0.398      0.131      2.281
+    BYSEX              1.034      0.237      0.660      1.620
+    BYSES2QU           2.391      1.319      0.811      7.050
+    BYSTLANG           0.996      0.005      0.986      1.007
+
+ BYS89B     ON
+    BYS70A             0.130      0.287      0.002      9.894
+    BYS70B             0.163      0.286      0.005      5.112
+    BYS70C           304.868    798.946      1.792  51860.207
+    BYS70D             0.997      0.032      0.936      1.062
+    BYTM12B            1.018      0.055      0.917      1.131
+    BYSEX              0.786      0.782      0.112      5.529
+    BYSES2QU           1.180      1.581      0.085     16.297
+    BYSTLANG           0.997      0.004      0.989      1.005
+
+ BYS89L     ON
+    BYS70A             1.002      0.022      0.960      1.045
+    BYS70B             0.378      0.828      0.005     27.622
+    BYS70C             0.561      1.266      0.007     46.642
+    BYS70D             0.565      0.637      0.062      5.145
+    BYTM12B            0.990      0.036      0.923      1.062
+    BYSEX              1.015      0.065      0.896      1.149
+    BYSES2QU           4.523      3.006      1.230     16.638
+    BYSTLANG           0.998      0.003      0.992      1.004
+
+ BYS89R     ON
+    BYS70A             0.996      0.017      0.963      1.030
+    BYS70B             0.153      0.123      0.031      0.742
+    BYS70C             0.991      0.019      0.955      1.028
+    BYS70D             0.994      0.023      0.950      1.041
+    BYTM12B            0.992      0.033      0.930      1.058
+    BYSEX              5.022      3.716      1.178     21.413
+    BYSES2QU           2.247      2.053      0.375     13.464
+    BYSTLANG           0.999      0.001      0.997      1.001
+
+ BYS89U     ON
+    BYS70A             1.006      0.010      0.986      1.026
+    BYS70B             0.987      0.026      0.938      1.039
+    BYS70C             0.998      0.015      0.969      1.028
+    BYS70D             0.990      0.030      0.933      1.050
+    BYTM12B            1.032      0.168      0.751      1.420
+    BYSEX              1.018      0.073      0.885      1.171
+    BYSES2QU           1.980      1.550      0.427      9.180
+    BYSTLANG           0.999      0.001      0.998      1.001
+
+Latent Class 3
+
+ BYS87A     ON
+    BYS70A             1.008      0.011      0.986      1.030
+    BYS70B            26.622     33.953      2.186    324.238
+    BYS70C             0.984      0.034      0.920      1.052
+    BYS70D             0.101      0.087      0.018      0.550
+    BYTM12B            2.105      1.311      0.621      7.137
+    BYSEX              0.640      0.265      0.284      1.441
+    BYSES2QU           1.286      0.514      0.588      2.814
+    BYSTLANG           0.041      0.082      0.001      2.137
+
+ BYS87C     ON
+    BYS70A             0.155      0.225      0.009      2.692
+    BYS70B             0.069      0.092      0.005      0.945
+    BYS70C             0.963      0.305      0.518      1.790
+    BYS70D             0.990      0.039      0.917      1.069
+    BYTM12B            1.779      1.437      0.365      8.669
+    BYSEX              0.841      0.565      0.226      3.136
+    BYSES2QU           0.494      0.204      0.220      1.111
+    BYSTLANG           0.991      0.019      0.954      1.029
+
+ BYS87F     ON
+    BYS70A             0.078      0.186      0.001      8.383
+    BYS70B             9.160     21.999      0.083   1014.322
+    BYS70C             1.000      0.018      0.965      1.036
+    BYS70D             0.484      0.419      0.088      2.647
+    BYTM12B            3.301      2.082      0.959     11.365
+    BYSEX              1.016      0.066      0.895      1.153
+    BYSES2QU           1.024      0.107      0.834      1.257
+    BYSTLANG           1.003      0.004      0.995      1.011
+
+ BYS89A     ON
+    BYS70A             1.004      0.023      0.961      1.050
+    BYS70B             0.261      0.346      0.020      3.497
+    BYS70C             1.474      2.130      0.087     25.039
+    BYS70D             0.996      0.040      0.919      1.078
+    BYTM12B            0.547      0.398      0.131      2.281
+    BYSEX              1.034      0.237      0.660      1.620
+    BYSES2QU           2.391      1.319      0.811      7.050
+    BYSTLANG           0.996      0.005      0.986      1.007
+
+ BYS89B     ON
+    BYS70A             0.130      0.287      0.002      9.894
+    BYS70B             0.163      0.286      0.005      5.112
+    BYS70C           304.868    798.946      1.792  51860.207
+    BYS70D             0.997      0.032      0.936      1.062
+    BYTM12B            1.018      0.055      0.917      1.131
+    BYSEX              0.786      0.782      0.112      5.529
+    BYSES2QU           1.180      1.581      0.085     16.297
+    BYSTLANG           0.997      0.004      0.989      1.005
+
+ BYS89L     ON
+    BYS70A             1.002      0.022      0.960      1.045
+    BYS70B             0.378      0.828      0.005     27.622
+    BYS70C             0.561      1.266      0.007     46.642
+    BYS70D             0.565      0.637      0.062      5.145
+    BYTM12B            0.990      0.036      0.923      1.062
+    BYSEX              1.015      0.065      0.896      1.149
+    BYSES2QU           4.523      3.006      1.230     16.638
+    BYSTLANG           0.998      0.003      0.992      1.004
+
+ BYS89R     ON
+    BYS70A             0.996      0.017      0.963      1.030
+    BYS70B             0.153      0.123      0.031      0.742
+    BYS70C             0.991      0.019      0.955      1.028
+    BYS70D             0.994      0.023      0.950      1.041
+    BYTM12B            0.992      0.033      0.930      1.058
+    BYSEX              5.022      3.716      1.178     21.413
+    BYSES2QU           2.247      2.053      0.375     13.464
+    BYSTLANG           0.999      0.001      0.997      1.001
+
+ BYS89U     ON
+    BYS70A             1.006      0.010      0.986      1.026
+    BYS70B             0.987      0.026      0.938      1.039
+    BYS70C             0.998      0.015      0.969      1.028
+    BYS70D             0.990      0.030      0.933      1.050
+    BYTM12B            1.032      0.168      0.751      1.420
+    BYSEX              1.018      0.073      0.885      1.171
+    BYSES2QU           1.980      1.550      0.427      9.180
+    BYSTLANG           0.999      0.001      0.998      1.001
+
+Latent Class 4
+
+ BYS87A     ON
+    BYS70A             1.008      0.011      0.986      1.030
+    BYS70B            26.622     33.953      2.186    324.238
+    BYS70C             0.984      0.034      0.920      1.052
+    BYS70D             0.101      0.087      0.018      0.550
+    BYTM12B            2.105      1.311      0.621      7.137
+    BYSEX              0.640      0.265      0.284      1.441
+    BYSES2QU           1.286      0.514      0.588      2.814
+    BYSTLANG           0.041      0.082      0.001      2.137
+
+ BYS87C     ON
+    BYS70A             0.155      0.225      0.009      2.692
+    BYS70B             0.069      0.092      0.005      0.945
+    BYS70C             0.963      0.305      0.518      1.790
+    BYS70D             0.990      0.039      0.917      1.069
+    BYTM12B            1.779      1.437      0.365      8.669
+    BYSEX              0.841      0.565      0.226      3.136
+    BYSES2QU           0.494      0.204      0.220      1.111
+    BYSTLANG           0.991      0.019      0.954      1.029
+
+ BYS87F     ON
+    BYS70A             0.078      0.186      0.001      8.383
+    BYS70B             9.160     21.999      0.083   1014.322
+    BYS70C             1.000      0.018      0.965      1.036
+    BYS70D             0.484      0.419      0.088      2.647
+    BYTM12B            3.301      2.082      0.959     11.365
+    BYSEX              1.016      0.066      0.895      1.153
+    BYSES2QU           1.024      0.107      0.834      1.257
+    BYSTLANG           1.003      0.004      0.995      1.011
+
+ BYS89A     ON
+    BYS70A             1.004      0.023      0.961      1.050
+    BYS70B             0.261      0.346      0.020      3.497
+    BYS70C             1.474      2.130      0.087     25.039
+    BYS70D             0.996      0.040      0.919      1.078
+    BYTM12B            0.547      0.398      0.131      2.281
+    BYSEX              1.034      0.237      0.660      1.620
+    BYSES2QU           2.391      1.319      0.811      7.050
+    BYSTLANG           0.996      0.005      0.986      1.007
+
+ BYS89B     ON
+    BYS70A             0.130      0.287      0.002      9.894
+    BYS70B             0.163      0.286      0.005      5.112
+    BYS70C           304.868    798.946      1.792  51860.207
+    BYS70D             0.997      0.032      0.936      1.062
+    BYTM12B            1.018      0.055      0.917      1.131
+    BYSEX              0.786      0.782      0.112      5.529
+    BYSES2QU           1.180      1.581      0.085     16.297
+    BYSTLANG           0.997      0.004      0.989      1.005
+
+ BYS89L     ON
+    BYS70A             1.002      0.022      0.960      1.045
+    BYS70B             0.378      0.828      0.005     27.622
+    BYS70C             0.561      1.266      0.007     46.642
+    BYS70D             0.565      0.637      0.062      5.145
+    BYTM12B            0.990      0.036      0.923      1.062
+    BYSEX              1.015      0.065      0.896      1.149
+    BYSES2QU           4.523      3.006      1.230     16.638
+    BYSTLANG           0.998      0.003      0.992      1.004
+
+ BYS89R     ON
+    BYS70A             0.996      0.017      0.963      1.030
+    BYS70B             0.153      0.123      0.031      0.742
+    BYS70C             0.991      0.019      0.955      1.028
+    BYS70D             0.994      0.023      0.950      1.041
+    BYTM12B            0.992      0.033      0.930      1.058
+    BYSEX              5.022      3.716      1.178     21.413
+    BYSES2QU           2.247      2.053      0.375     13.464
+    BYSTLANG           0.999      0.001      0.997      1.001
+
+ BYS89U     ON
+    BYS70A             1.006      0.010      0.986      1.026
+    BYS70B             0.987      0.026      0.938      1.039
+    BYS70C             0.998      0.015      0.969      1.028
+    BYS70D             0.990      0.030      0.933      1.050
+    BYTM12B            1.032      0.168      0.751      1.420
+    BYSEX              1.018      0.073      0.885      1.171
+    BYSES2QU           1.980      1.550      0.427      9.180
+    BYSTLANG           0.999      0.001      0.998      1.001
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS FOR LATENT CLASS VARIABLES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+ C#1      ON
+    BYS70A           999.000    999.000    999.000    999.000
+    BYS70B             0.000      0.000      0.000      0.000
+    BYS70C             0.012      0.032      0.000      2.139
+    BYS70D            96.609    223.858      1.029   9066.079
+    BYTM12B            1.452      0.940      0.408      5.164
+    BYSEX              1.106      0.525      0.436      2.804
+    BYSES2QU           0.875      0.423      0.340      2.255
+    BYSTLANG           0.022      0.000      0.022      0.022
+
+ C#2      ON
+    BYS70A           999.000    999.000    999.000    999.000
+    BYS70B             0.000      0.000      0.000      0.000
+    BYS70C             0.302      0.599      0.006     14.761
+    BYS70D             8.054      6.445      1.678     38.654
+    BYTM12B            0.646      0.468      0.156      2.674
+    BYSEX              0.453      0.272      0.140      1.471
+    BYSES2QU           3.740      2.169      1.200     11.655
+    BYSTLANG         999.000    999.000    999.000    999.000
+
+ C#3      ON
+    BYS70A             1.006      2.667      0.006    181.665
+    BYS70B             0.006      0.021      0.000      4.409
+    BYS70C             0.388      3.160      0.000  *********
+    BYS70D            27.619    241.925      0.000  *********
+    BYTM12B            1.395      1.242      0.244      7.990
+    BYSEX              0.167      0.155      0.027      1.027
+    BYSES2QU           0.686      0.596      0.125      3.771
+    BYSTLANG           0.116      0.000      0.116      0.116
+
+
+ALTERNATIVE PARAMETERIZATIONS FOR THE CATEGORICAL LATENT VARIABLE REGRESSION
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Parameterization using Reference Class 1
+
+ C#2      ON
+    BYS70A            -1.493      1.395     -1.071      0.284
+    BYS70B            -1.467      1.232     -1.191      0.234
+    BYS70C             3.222      2.219      1.452      0.147
+    BYS70D            -2.485      2.181     -1.139      0.255
+    BYTM12B           -0.810      0.664     -1.221      0.222
+    BYSEX             -0.892      0.528     -1.689      0.091
+    BYSES2QU           1.453      0.513      2.831      0.005
+    BYSTLANG          28.850      0.000      0.000      1.000
+
+ C#3      ON
+    BYS70A           -27.007      2.631    -10.265      0.000
+    BYS70B            25.480      3.317      7.683      0.000
+    BYS70C             3.475      6.866      0.506      0.613
+    BYS70D            -1.252      7.737     -0.162      0.871
+    BYTM12B           -0.040      0.758     -0.053      0.958
+    BYSEX             -1.892      0.770     -2.458      0.014
+    BYSES2QU          -0.244      0.706     -0.345      0.730
+    BYSTLANG           1.650      0.000      0.000      1.000
+
+ C#4      ON
+    BYS70A           -27.013      2.311    -11.688      0.000
+    BYS70B            30.536      1.232     24.781      0.000
+    BYS70C             4.421      2.643      1.672      0.094
+    BYS70D            -4.571      2.317     -1.973      0.049
+    BYTM12B           -0.373      0.647     -0.576      0.564
+    BYSEX             -0.100      0.475     -0.212      0.832
+    BYSES2QU           0.133      0.483      0.276      0.783
+    BYSTLANG           3.803      0.000      0.000      1.000
+
+ Intercepts
+    C#2                2.088      1.191      1.754      0.079
+    C#3                1.184      1.872      0.633      0.527
+    C#4               -3.540      1.692     -2.092      0.036
+
+Parameterization using Reference Class 2
+
+ C#1      ON
+    BYS70A             1.493      1.395      1.071      0.284
+    BYS70B             1.467      1.232      1.191      0.234
+    BYS70C            -3.222      2.219     -1.452      0.147
+    BYS70D             2.485      2.181      1.139      0.255
+    BYTM12B            0.810      0.664      1.221      0.222
+    BYSEX              0.892      0.528      1.689      0.091
+    BYSES2QU          -1.453      0.513     -2.831      0.005
+    BYSTLANG         -28.850      0.000      0.000      1.000
+
+ C#3      ON
+    BYS70A           -25.513      2.869     -8.892      0.000
+    BYS70B            26.948      3.336      8.077      0.000
+    BYS70C             0.253      7.886      0.032      0.974
+    BYS70D             1.232      8.654      0.142      0.887
+    BYTM12B            0.770      0.823      0.936      0.349
+    BYSEX             -1.000      0.775     -1.291      0.197
+    BYSES2QU          -1.696      0.769     -2.207      0.027
+    BYSTLANG         -27.200      0.000      0.000      1.000
+
+ C#4      ON
+    BYS70A           -25.519      2.115    -12.065      0.000
+    BYS70B            32.003      0.000      0.000      1.000
+    BYS70C             1.199      1.985      0.604      0.546
+    BYS70D            -2.086      0.800     -2.607      0.009
+    BYTM12B            0.437      0.725      0.603      0.546
+    BYSEX              0.791      0.601      1.317      0.188
+    BYSES2QU          -1.319      0.580     -2.275      0.023
+    BYSTLANG         -25.047      0.000      0.000      1.000
+
+ Intercepts
+    C#1               -2.088      1.191     -1.754      0.079
+    C#3               -0.904      1.830     -0.494      0.621
+    C#4               -5.628      1.641     -3.429      0.001
+
+Parameterization using Reference Class 3
+
+ C#1      ON
+    BYS70A            27.007      2.631     10.265      0.000
+    BYS70B           -25.480      3.317     -7.683      0.000
+    BYS70C            -3.475      6.866     -0.506      0.613
+    BYS70D             1.252      7.737      0.162      0.871
+    BYTM12B            0.040      0.758      0.053      0.958
+    BYSEX              1.892      0.770      2.458      0.014
+    BYSES2QU           0.244      0.706      0.345      0.730
+    BYSTLANG          -1.650      0.000      0.000      1.000
+
+ C#2      ON
+    BYS70A            25.513      2.869      8.892      0.000
+    BYS70B           -26.948      3.336     -8.077      0.000
+    BYS70C            -0.253      7.886     -0.032      0.974
+    BYS70D            -1.232      8.654     -0.142      0.887
+    BYTM12B           -0.770      0.823     -0.936      0.349
+    BYSEX              1.000      0.775      1.291      0.197
+    BYSES2QU           1.696      0.769      2.207      0.027
+    BYSTLANG          27.200      0.000      0.000      1.000
+
+ C#4      ON
+    BYS70A            -0.006      2.651     -0.002      0.998
+    BYS70B             5.055      3.336      1.515      0.130
+    BYS70C             0.946      8.138      0.116      0.907
+    BYS70D            -3.319      8.759     -0.379      0.705
+    BYTM12B           -0.333      0.890     -0.374      0.709
+    BYSEX              1.791      0.927      1.931      0.053
+    BYSES2QU           0.377      0.870      0.434      0.665
+    BYSTLANG           2.153      0.000      0.000      1.000
+
+ Intercepts
+    C#1               -1.184      1.872     -0.633      0.527
+    C#2                0.904      1.830      0.494      0.621
+    C#4               -4.724      2.254     -2.096      0.036
+
+
+ODDS RATIOS FOR THE ALTERNATIVE PARAMETERIZATIONS FOR THE CATEGORICAL LATENT VARIABLE REGRESSION
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Parameterization using Reference Class 1
+
+ C#2      ON
+    BYS70A             0.225      0.313      0.015      3.456
+    BYS70B             0.231      0.284      0.021      2.580
+    BYS70C            25.067     55.617      0.324   1939.770
+    BYS70D             0.083      0.182      0.001      5.985
+    BYTM12B            0.445      0.295      0.121      1.633
+    BYSEX              0.410      0.216      0.146      1.154
+    BYSES2QU           4.274      2.193      1.564     11.682
+    BYSTLANG         999.000    999.000    999.000    999.000
+
+ C#3      ON
+    BYS70A             0.000      0.000      0.000      0.000
+    BYS70B           999.000    999.000    999.000    999.000
+    BYS70C            32.284    221.647      0.000  *********
+    BYS70D             0.286      2.212      0.000  *********
+    BYTM12B            0.961      0.728      0.217      4.245
+    BYSEX              0.151      0.116      0.033      0.682
+    BYSES2QU           0.784      0.553      0.196      3.126
+    BYSTLANG           5.206      0.000      5.206      5.206
+
+ C#4      ON
+    BYS70A             0.000      0.000      0.000      0.000
+    BYS70B           999.000    999.000    999.000    999.000
+    BYS70C            83.138    219.764      0.467  14786.600
+    BYS70D             0.010      0.024      0.000      0.971
+    BYTM12B            0.689      0.446      0.194      2.449
+    BYSEX              0.904      0.429      0.357      2.294
+    BYSES2QU           1.143      0.552      0.443      2.945
+    BYSTLANG          44.846      0.000     44.846     44.846
+
+Parameterization using Reference Class 2
+
+ C#1      ON
+    BYS70A             4.452      6.209      0.289     68.501
+    BYS70B             4.338      5.346      0.388     48.550
+    BYS70C             0.040      0.089      0.001      3.087
+    BYS70D            11.995     26.156      0.167    861.174
+    BYTM12B            2.249      1.492      0.612      8.255
+    BYSEX              2.439      1.287      0.867      6.862
+    BYSES2QU           0.234      0.120      0.086      0.640
+    BYSTLANG           0.000      0.000      0.000      0.000
+
+ C#3      ON
+    BYS70A             0.000      0.000      0.000      0.000
+    BYS70B           999.000    999.000    999.000    999.000
+    BYS70C             1.288     10.157      0.000  *********
+    BYS70D             3.429     29.677      0.000  *********
+    BYTM12B            2.160      1.778      0.430     10.840
+    BYSEX              0.368      0.285      0.081      1.680
+    BYSES2QU           0.183      0.141      0.041      0.827
+    BYSTLANG           0.000      0.000      0.000      0.000
+
+ C#4      ON
+    BYS70A             0.000      0.000      0.000      0.000
+    BYS70B           999.000    999.000    999.000    999.000
+    BYS70C             3.317      6.584      0.068    162.380
+    BYS70D             0.124      0.099      0.026      0.596
+    BYTM12B            1.548      1.123      0.374      6.412
+    BYSEX              2.206      1.325      0.680      7.157
+    BYSES2QU           0.267      0.155      0.086      0.833
+    BYSTLANG           0.000      0.000      0.000      0.000
+
+Parameterization using Reference Class 3
+
+ C#1      ON
+    BYS70A           999.000    999.000    999.000    999.000
+    BYS70B             0.000      0.000      0.000      0.000
+    BYS70C             0.031      0.213      0.000  21632.887
+    BYS70D             3.498     27.062      0.000  *********
+    BYTM12B            1.041      0.789      0.236      4.601
+    BYSEX              6.630      5.103      1.467     29.969
+    BYSES2QU           1.276      0.901      0.320      5.090
+    BYSTLANG           0.192      0.000      0.192      0.192
+
+ C#2      ON
+    BYS70A           999.000    999.000    999.000    999.000
+    BYS70B             0.000      0.000      0.000      0.000
+    BYS70C             0.776      6.123      0.000  *********
+    BYS70D             0.292      2.523      0.000  *********
+    BYTM12B            0.463      0.381      0.092      2.324
+    BYSEX              2.719      2.106      0.595     12.413
+    BYSES2QU           5.453      4.192      1.209     24.603
+    BYSTLANG         999.000    999.000    999.000    999.000
+
+ C#4      ON
+    BYS70A             0.994      2.636      0.006    179.528
+    BYS70B           156.863    523.331      0.227  *********
+    BYS70C             2.575     20.957      0.000  *********
+    BYS70D             0.036      0.317      0.000  *********
+    BYTM12B            0.717      0.638      0.125      4.106
+    BYSEX              5.996      5.561      0.974     36.924
+    BYSES2QU           1.458      1.268      0.265      8.015
+    BYSTLANG           8.614      0.000      8.614      8.614
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR CLASS 1
+
+
+           Model Estimated Means
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+                0.973         0.954         0.916         0.937         0.159
+
+
+           Model Estimated Means
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+                1.531         0.399         0.000
+
+
+           Residuals for Means
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Means
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           Model Estimated Covariances
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         0.027
+ BYS70B         0.026         0.044
+ BYS70C         0.025         0.033         0.077
+ BYS70D         0.026         0.034         0.051         0.059
+ BYTM12B        0.000         0.000         0.000         0.000         0.134
+ BYSEX          0.000         0.000         0.000         0.000         0.055
+ BYSES2QU       0.011         0.009         0.009         0.008         0.005
+ BYSTLANG       0.000         0.000         0.000         0.000         0.000
+
+
+           Model Estimated Covariances
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          0.249
+ BYSES2QU       0.035         0.240
+ BYSTLANG       0.000         0.000         0.000
+
+
+           Residuals for Covariances
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         0.000
+ BYS70B         0.000         0.000
+ BYS70C         0.000         0.000         0.000
+ BYS70D         0.000         0.000         0.000         0.000
+ BYTM12B        0.000         0.000         0.000         0.000         0.000
+ BYSEX          0.000         0.000         0.000         0.000         0.000
+ BYSES2QU       0.000         0.000         0.000         0.000         0.000
+ BYSTLANG       0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Covariances
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          0.000
+ BYSES2QU       0.000         0.000
+ BYSTLANG       0.000         0.000         0.000
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR CLASS 2
+
+
+           Model Estimated Means
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+                0.864         0.790         0.865         0.812         0.160
+
+
+           Model Estimated Means
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+                1.397         0.720         0.038
+
+
+           Residuals for Means
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Means
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           Model Estimated Covariances
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         0.117
+ BYS70B         0.107         0.166
+ BYS70C         0.070         0.079         0.117
+ BYS70D         0.063         0.114         0.109         0.153
+ BYTM12B        0.000         0.000         0.000         0.000         0.135
+ BYSEX          0.000         0.000         0.003         0.000         0.030
+ BYSES2QU       0.000         0.000         0.000         0.000         0.010
+ BYSTLANG       0.005         0.008         0.005         0.007         0.000
+
+
+           Model Estimated Covariances
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          0.239
+ BYSES2QU       0.000         0.202
+ BYSTLANG       0.000         0.000         0.037
+
+
+           Residuals for Covariances
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         0.000
+ BYS70B         0.000         0.000
+ BYS70C         0.000         0.000         0.000
+ BYS70D         0.000         0.000         0.000         0.000
+ BYTM12B        0.000         0.000         0.000         0.000         0.000
+ BYSEX          0.000         0.000         0.000         0.000         0.000
+ BYSES2QU       0.000         0.000         0.000         0.000         0.000
+ BYSTLANG       0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Covariances
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          0.000
+ BYSES2QU       0.000         0.000
+ BYSTLANG       0.000         0.000         0.000
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR CLASS 3
+
+
+           Model Estimated Means
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+                0.971         0.987         0.975         0.982         0.102
+
+
+           Model Estimated Means
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+                1.140         0.303         0.000
+
+
+           Residuals for Means
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Means
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           Model Estimated Covariances
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         0.028
+ BYS70B         0.012         0.012
+ BYS70C         0.024         0.012         0.025
+ BYS70D         0.012         0.012         0.012         0.017
+ BYTM12B        0.000         0.000         0.000         0.000         0.091
+ BYSEX          0.004         0.002         0.004         0.002         0.000
+ BYSES2QU       0.009         0.004         0.008         0.000         0.009
+ BYSTLANG       0.000         0.000         0.000         0.000         0.000
+
+
+           Model Estimated Covariances
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          0.120
+ BYSES2QU       0.000         0.211
+ BYSTLANG       0.000         0.000         0.000
+
+
+           Residuals for Covariances
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         0.000
+ BYS70B         0.000         0.000
+ BYS70C         0.000         0.000         0.000
+ BYS70D         0.000         0.000         0.000         0.000
+ BYTM12B        0.000         0.000         0.000         0.000         0.000
+ BYSEX          0.000         0.000         0.000         0.000         0.000
+ BYSES2QU       0.000         0.000         0.000         0.000         0.000
+ BYSTLANG       0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Covariances
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          0.000
+ BYSES2QU       0.000         0.000
+ BYSTLANG       0.000         0.000         0.000
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED) FOR CLASS 4
+
+
+           Model Estimated Means
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+                0.980         0.999         0.955         0.814         0.135
+
+
+           Model Estimated Means
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+                1.516         0.432         0.000
+
+
+           Residuals for Means
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Means
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           Model Estimated Covariances
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         0.020
+ BYS70B         0.001         0.001
+ BYS70C         0.019         0.001         0.043
+ BYS70D         0.016         0.001         0.037         0.151
+ BYTM12B        0.003         0.000         0.002         0.000         0.117
+ BYSEX          0.010         0.000         0.019         0.000         0.017
+ BYSES2QU       0.009         0.000         0.003         0.000         0.005
+ BYSTLANG       0.000         0.000         0.000         0.000         0.000
+
+
+           Model Estimated Covariances
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          0.250
+ BYSES2QU       0.017         0.245
+ BYSTLANG       0.000         0.000         0.000
+
+
+           Residuals for Covariances
+              BYS70A        BYS70B        BYS70C        BYS70D        BYTM12B
+              ________      ________      ________      ________      ________
+ BYS70A         0.000
+ BYS70B         0.000         0.000
+ BYS70C         0.000         0.000         0.000
+ BYS70D         0.000         0.000         0.000         0.000
+ BYTM12B        0.000         0.000         0.000         0.000         0.000
+ BYSEX          0.000         0.000         0.000         0.000         0.000
+ BYSES2QU       0.000         0.000         0.000         0.000         0.000
+ BYSTLANG       0.000         0.000         0.000         0.000         0.000
+
+
+           Residuals for Covariances
+              BYSEX         BYSES2QU      BYSTLANG
+              ________      ________      ________
+ BYSEX          0.000
+ BYSES2QU       0.000         0.000
+ BYSTLANG       0.000         0.000         0.000
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 800
+        Number of final stage optimizations                   200
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -1733.037
+          2 Times the Loglikelihood Difference             86.380
+          Difference in the Number of Parameters               20
+          Mean                                      582331412.524
+          Standard Deviation                       2280733158.682
+          P-Value                                          0.6008
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                            85.686
+          P-Value                                          0.6008
+
+Available post-processing tools
+
+  Conditional probabilities for the latent class indicators
+  Conditional probabilities for the latent class variable
+
+     Beginning Time:  17:57:03
+        Ending Time:  17:59:25
+       Elapsed Time:  00:02:22
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2025 Muthen & Muthen
