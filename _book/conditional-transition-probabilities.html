@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="This chapter is a continuation of the LTA chapters. Data Source: The data used to illustrate these analyses include elementary school student Science Attitude survey items collected during 7th and...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.12/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
@@ -136,7 +136,7 @@
 <p><em>Load packages</em></p>
 <div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://huber-group-embl.github.io/rhdf5/">rhdf5</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Huber-group-EMBL/rhdf5">rhdf5</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>       </span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span>            </span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/">glue</a></span><span class="op">)</span>            </span>
@@ -414,23 +414,23 @@
 <span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
 <span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="ltgzqxdnfk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ltgzqxdnfk table {
+<div id="bdcxuxarkh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bdcxuxarkh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ltgzqxdnfk thead, #ltgzqxdnfk tbody, #ltgzqxdnfk tfoot, #ltgzqxdnfk tr, #ltgzqxdnfk td, #ltgzqxdnfk th {
+#bdcxuxarkh thead, #bdcxuxarkh tbody, #bdcxuxarkh tfoot, #bdcxuxarkh tr, #bdcxuxarkh td, #bdcxuxarkh th {
   border-style: none;
 }
 
-#ltgzqxdnfk p {
+#bdcxuxarkh p {
   margin: 0;
   padding: 0;
 }
 
-#ltgzqxdnfk .gt_table {
+#bdcxuxarkh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -456,12 +456,12 @@
   border-left-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_caption {
+#bdcxuxarkh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ltgzqxdnfk .gt_title {
+#bdcxuxarkh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -473,7 +473,7 @@
   border-bottom-width: 0;
 }
 
-#ltgzqxdnfk .gt_subtitle {
+#bdcxuxarkh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -485,7 +485,7 @@
   border-top-width: 0;
 }
 
-#ltgzqxdnfk .gt_heading {
+#bdcxuxarkh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -497,13 +497,13 @@
   border-right-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_bottom_border {
+#bdcxuxarkh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_col_headings {
+#bdcxuxarkh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -518,7 +518,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_col_heading {
+#bdcxuxarkh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -538,7 +538,7 @@
   overflow-x: hidden;
 }
 
-#ltgzqxdnfk .gt_column_spanner_outer {
+#bdcxuxarkh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -550,15 +550,15 @@
   padding-right: 4px;
 }
 
-#ltgzqxdnfk .gt_column_spanner_outer:first-child {
+#bdcxuxarkh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ltgzqxdnfk .gt_column_spanner_outer:last-child {
+#bdcxuxarkh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ltgzqxdnfk .gt_column_spanner {
+#bdcxuxarkh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -570,11 +570,11 @@
   width: 100%;
 }
 
-#ltgzqxdnfk .gt_spanner_row {
+#bdcxuxarkh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ltgzqxdnfk .gt_group_heading {
+#bdcxuxarkh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -600,7 +600,7 @@
   text-align: left;
 }
 
-#ltgzqxdnfk .gt_empty_group_heading {
+#bdcxuxarkh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -615,15 +615,15 @@
   vertical-align: middle;
 }
 
-#ltgzqxdnfk .gt_from_md > :first-child {
+#bdcxuxarkh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ltgzqxdnfk .gt_from_md > :last-child {
+#bdcxuxarkh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ltgzqxdnfk .gt_row {
+#bdcxuxarkh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -642,7 +642,7 @@
   overflow-x: hidden;
 }
 
-#ltgzqxdnfk .gt_stub {
+#bdcxuxarkh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -655,7 +655,7 @@
   padding-right: 5px;
 }
 
-#ltgzqxdnfk .gt_stub_row_group {
+#bdcxuxarkh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -669,15 +669,15 @@
   vertical-align: top;
 }
 
-#ltgzqxdnfk .gt_row_group_first td {
+#bdcxuxarkh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ltgzqxdnfk .gt_row_group_first th {
+#bdcxuxarkh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ltgzqxdnfk .gt_summary_row {
+#bdcxuxarkh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -687,16 +687,16 @@
   padding-right: 5px;
 }
 
-#ltgzqxdnfk .gt_first_summary_row {
+#bdcxuxarkh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_first_summary_row.thick {
+#bdcxuxarkh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ltgzqxdnfk .gt_last_summary_row {
+#bdcxuxarkh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -706,7 +706,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_grand_summary_row {
+#bdcxuxarkh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -716,7 +716,7 @@
   padding-right: 5px;
 }
 
-#ltgzqxdnfk .gt_first_grand_summary_row {
+#bdcxuxarkh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -726,7 +726,7 @@
   border-top-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_last_grand_summary_row_top {
+#bdcxuxarkh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -736,11 +736,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_striped {
+#bdcxuxarkh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ltgzqxdnfk .gt_table_body {
+#bdcxuxarkh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -749,7 +749,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_footnotes {
+#bdcxuxarkh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -763,7 +763,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_footnote {
+#bdcxuxarkh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -772,7 +772,7 @@
   padding-right: 5px;
 }
 
-#ltgzqxdnfk .gt_sourcenotes {
+#bdcxuxarkh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -786,7 +786,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ltgzqxdnfk .gt_sourcenote {
+#bdcxuxarkh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -794,72 +794,72 @@
   padding-right: 5px;
 }
 
-#ltgzqxdnfk .gt_left {
+#bdcxuxarkh .gt_left {
   text-align: left;
 }
 
-#ltgzqxdnfk .gt_center {
+#bdcxuxarkh .gt_center {
   text-align: center;
 }
 
-#ltgzqxdnfk .gt_right {
+#bdcxuxarkh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ltgzqxdnfk .gt_font_normal {
+#bdcxuxarkh .gt_font_normal {
   font-weight: normal;
 }
 
-#ltgzqxdnfk .gt_font_bold {
+#bdcxuxarkh .gt_font_bold {
   font-weight: bold;
 }
 
-#ltgzqxdnfk .gt_font_italic {
+#bdcxuxarkh .gt_font_italic {
   font-style: italic;
 }
 
-#ltgzqxdnfk .gt_super {
+#bdcxuxarkh .gt_super {
   font-size: 65%;
 }
 
-#ltgzqxdnfk .gt_footnote_marks {
+#bdcxuxarkh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ltgzqxdnfk .gt_asterisk {
+#bdcxuxarkh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ltgzqxdnfk .gt_indent_1 {
+#bdcxuxarkh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ltgzqxdnfk .gt_indent_2 {
+#bdcxuxarkh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ltgzqxdnfk .gt_indent_3 {
+#bdcxuxarkh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ltgzqxdnfk .gt_indent_4 {
+#bdcxuxarkh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ltgzqxdnfk .gt_indent_5 {
+#bdcxuxarkh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ltgzqxdnfk .katex-display {
+#bdcxuxarkh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ltgzqxdnfk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bdcxuxarkh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -946,23 +946,23 @@ directly through Mplus syntax using start values.</span>
 <span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
 <span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="hikflpaiqu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hikflpaiqu table {
+<div id="sshbnsowdv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sshbnsowdv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hikflpaiqu thead, #hikflpaiqu tbody, #hikflpaiqu tfoot, #hikflpaiqu tr, #hikflpaiqu td, #hikflpaiqu th {
+#sshbnsowdv thead, #sshbnsowdv tbody, #sshbnsowdv tfoot, #sshbnsowdv tr, #sshbnsowdv td, #sshbnsowdv th {
   border-style: none;
 }
 
-#hikflpaiqu p {
+#sshbnsowdv p {
   margin: 0;
   padding: 0;
 }
 
-#hikflpaiqu .gt_table {
+#sshbnsowdv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -988,12 +988,12 @@ directly through Mplus syntax using start values.</span>
   border-left-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_caption {
+#sshbnsowdv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hikflpaiqu .gt_title {
+#sshbnsowdv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1005,7 +1005,7 @@ directly through Mplus syntax using start values.</span>
   border-bottom-width: 0;
 }
 
-#hikflpaiqu .gt_subtitle {
+#sshbnsowdv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1017,7 +1017,7 @@ directly through Mplus syntax using start values.</span>
   border-top-width: 0;
 }
 
-#hikflpaiqu .gt_heading {
+#sshbnsowdv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1029,13 +1029,13 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_bottom_border {
+#sshbnsowdv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_col_headings {
+#sshbnsowdv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1050,7 +1050,7 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_col_heading {
+#sshbnsowdv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1070,7 +1070,7 @@ directly through Mplus syntax using start values.</span>
   overflow-x: hidden;
 }
 
-#hikflpaiqu .gt_column_spanner_outer {
+#sshbnsowdv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1082,15 +1082,15 @@ directly through Mplus syntax using start values.</span>
   padding-right: 4px;
 }
 
-#hikflpaiqu .gt_column_spanner_outer:first-child {
+#sshbnsowdv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hikflpaiqu .gt_column_spanner_outer:last-child {
+#sshbnsowdv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hikflpaiqu .gt_column_spanner {
+#sshbnsowdv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1102,11 +1102,11 @@ directly through Mplus syntax using start values.</span>
   width: 100%;
 }
 
-#hikflpaiqu .gt_spanner_row {
+#sshbnsowdv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hikflpaiqu .gt_group_heading {
+#sshbnsowdv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1132,7 +1132,7 @@ directly through Mplus syntax using start values.</span>
   text-align: left;
 }
 
-#hikflpaiqu .gt_empty_group_heading {
+#sshbnsowdv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1147,15 +1147,15 @@ directly through Mplus syntax using start values.</span>
   vertical-align: middle;
 }
 
-#hikflpaiqu .gt_from_md > :first-child {
+#sshbnsowdv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hikflpaiqu .gt_from_md > :last-child {
+#sshbnsowdv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hikflpaiqu .gt_row {
+#sshbnsowdv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1174,7 +1174,7 @@ directly through Mplus syntax using start values.</span>
   overflow-x: hidden;
 }
 
-#hikflpaiqu .gt_stub {
+#sshbnsowdv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1187,7 +1187,7 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#hikflpaiqu .gt_stub_row_group {
+#sshbnsowdv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1201,15 +1201,15 @@ directly through Mplus syntax using start values.</span>
   vertical-align: top;
 }
 
-#hikflpaiqu .gt_row_group_first td {
+#sshbnsowdv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hikflpaiqu .gt_row_group_first th {
+#sshbnsowdv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hikflpaiqu .gt_summary_row {
+#sshbnsowdv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1219,16 +1219,16 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#hikflpaiqu .gt_first_summary_row {
+#sshbnsowdv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_first_summary_row.thick {
+#sshbnsowdv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hikflpaiqu .gt_last_summary_row {
+#sshbnsowdv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1238,7 +1238,7 @@ directly through Mplus syntax using start values.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_grand_summary_row {
+#sshbnsowdv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1248,7 +1248,7 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#hikflpaiqu .gt_first_grand_summary_row {
+#sshbnsowdv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1258,7 +1258,7 @@ directly through Mplus syntax using start values.</span>
   border-top-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_last_grand_summary_row_top {
+#sshbnsowdv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1268,11 +1268,11 @@ directly through Mplus syntax using start values.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_striped {
+#sshbnsowdv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hikflpaiqu .gt_table_body {
+#sshbnsowdv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1281,7 +1281,7 @@ directly through Mplus syntax using start values.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_footnotes {
+#sshbnsowdv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1295,7 +1295,7 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_footnote {
+#sshbnsowdv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1304,7 +1304,7 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#hikflpaiqu .gt_sourcenotes {
+#sshbnsowdv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1318,7 +1318,7 @@ directly through Mplus syntax using start values.</span>
   border-right-color: #D3D3D3;
 }
 
-#hikflpaiqu .gt_sourcenote {
+#sshbnsowdv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1326,72 +1326,72 @@ directly through Mplus syntax using start values.</span>
   padding-right: 5px;
 }
 
-#hikflpaiqu .gt_left {
+#sshbnsowdv .gt_left {
   text-align: left;
 }
 
-#hikflpaiqu .gt_center {
+#sshbnsowdv .gt_center {
   text-align: center;
 }
 
-#hikflpaiqu .gt_right {
+#sshbnsowdv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hikflpaiqu .gt_font_normal {
+#sshbnsowdv .gt_font_normal {
   font-weight: normal;
 }
 
-#hikflpaiqu .gt_font_bold {
+#sshbnsowdv .gt_font_bold {
   font-weight: bold;
 }
 
-#hikflpaiqu .gt_font_italic {
+#sshbnsowdv .gt_font_italic {
   font-style: italic;
 }
 
-#hikflpaiqu .gt_super {
+#sshbnsowdv .gt_super {
   font-size: 65%;
 }
 
-#hikflpaiqu .gt_footnote_marks {
+#sshbnsowdv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hikflpaiqu .gt_asterisk {
+#sshbnsowdv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hikflpaiqu .gt_indent_1 {
+#sshbnsowdv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hikflpaiqu .gt_indent_2 {
+#sshbnsowdv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hikflpaiqu .gt_indent_3 {
+#sshbnsowdv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hikflpaiqu .gt_indent_4 {
+#sshbnsowdv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hikflpaiqu .gt_indent_5 {
+#sshbnsowdv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hikflpaiqu .katex-display {
+#sshbnsowdv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hikflpaiqu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sshbnsowdv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1487,7 +1487,7 @@ directly through Mplus syntax using start values.</span>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-06-10.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-06-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

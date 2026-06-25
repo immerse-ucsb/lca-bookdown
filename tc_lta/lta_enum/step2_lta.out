@@ -1,14 +1,13 @@
-Mplus VERSION 9 (Mac)
+Mplus VERSION 9
 MUTHEN & MUTHEN
-06/10/2026   3:17 PM
+06/25/2026  12:04 PM
 
 INPUT INSTRUCTIONS
 
   TITLE:
   Step 2 LTA with Fixed Logits — No Covariates
   DATA:
-  FILE = "/Users/traviscandieas/Library/CloudStorage/Box-Box/lca-bookdown/
-  tc_lta/lta_enum/step2_lta.dat";
+  FILE = "C:/Users/trcan/Box/lca-bookdown/tc_lta/lta_enum/step2_lta.dat";
   VARIABLE:
   NAMES = N1 N2 N3;
    MISSING=.;
@@ -144,7 +143,7 @@ Optimization algorithm                                         EMA
 Parameterization                                             LOGIT
 
 Input data file(s)
-  /Users/traviscandieas/Library/CloudStorage/Box-Box/lca-bookdown/tc_lta/lta_enu
+  C:/Users/trcan/Box/lca-bookdown/tc_lta/lta_enum/step2_lta.dat
 Input data format  FREE
 
 
@@ -1657,7 +1656,7 @@ Results for Class-specific Model Parts of C1
 Latent Class C1#1 Compared to Latent Class C1#2
 
  N1
-    Category = 1   22257.771      0.000  22257.771  22257.771
+    Category = 1   22257.771      0.000  22257.773  22257.773
     Category = 2       0.000      0.000      0.000      0.000
     Category = 3       0.727      0.000      0.727      0.727
     Category = 4       0.161      0.000      0.161      0.161
@@ -1897,9 +1896,9 @@ MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
 
 
 
-     Beginning Time:  15:17:38
-        Ending Time:  15:17:38
-       Elapsed Time:  00:00:00
+     Beginning Time:  12:04:59
+        Ending Time:  12:05:00
+       Elapsed Time:  00:00:01
 
 
 

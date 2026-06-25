@@ -7,13 +7,12 @@ loadfonts()
 
 <<<<<<<< HEAD:31-lta-three-timepoint.Rmd
 <<<<<<<< HEAD:31-lta-three-timepoint.Rmd
-# A demonstration of
-the ML 3-step and BCH in Mplus (Nylund-Gibson, K., Arch, D. N., & Carter, D., 2026)
+# ML 3-step and BCH in Mplus (Nylund-Gibson, K., Arch, D. N., & Carter, D., 2026)
 ========
-# Nylund-Gibson, K., Arch, D. N., & Carter, D. (2026)
+Nylund-Gibson, K., Arch, D. N., & Carter, D. (2026)
 >>>>>>>> b52a7ad760959260c2954fae4fe7f361c4713df2:30-lta-three-timepoint.Rmd
 ========
-# Nylund-Gibson, K., Arch, D. N., & Carter, D. (2026)
+Nylund-Gibson, K., Arch, D. N., & Carter, D. (2026)
 >>>>>>>> b52a7ad760959260c2954fae4fe7f361c4713df2:30-lta-three-timepoint.Rmd
 
 Nylund-Gibson, K., Arch, D. N., & Carter, D. (2026). Latent transition analysis with auxiliary variables: A demonstration of

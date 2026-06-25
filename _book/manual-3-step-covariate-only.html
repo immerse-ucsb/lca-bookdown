@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Data source: The first examples utilizes the public-use dataset, The Longitudinal Survey of American Youth (LSAY): See documentation here The second example utilizes a dataset on undergraduate...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.12/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
@@ -148,26 +148,26 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p>Our example is Mother’s Education as a predictor of latent class membership of Math Attitudes</p>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-6a0b9c5c548d6993e811" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-6a0b9c5c548d6993e811">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult MothEd;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    math [label=<Math <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    math -> {Enjoy Useful Logical Job Adult}\n    MothEd -> math [minlen = 4];\n    \n {rank = same; math; MothEd;}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-a3879a49057aa5420e78" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-a3879a49057aa5420e78">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult MothEd;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    math [label=<Math <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    math -> {Enjoy Useful Logical Job Adult}\n    MothEd -> math [minlen = 4];\n    \n {rank = same; math; MothEd;}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <p>Application: Longitudinal Study of American Youth, <strong>Science Attitudes</strong></p>
-<div id="rhhnmibfvg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rhhnmibfvg table {
+<div id="hdsnsjonwc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hdsnsjonwc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rhhnmibfvg thead, #rhhnmibfvg tbody, #rhhnmibfvg tfoot, #rhhnmibfvg tr, #rhhnmibfvg td, #rhhnmibfvg th {
+#hdsnsjonwc thead, #hdsnsjonwc tbody, #hdsnsjonwc tfoot, #hdsnsjonwc tr, #hdsnsjonwc td, #hdsnsjonwc th {
   border-style: none;
 }
 
-#rhhnmibfvg p {
+#hdsnsjonwc p {
   margin: 0;
   padding: 0;
 }
 
-#rhhnmibfvg .gt_table {
+#hdsnsjonwc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -193,12 +193,12 @@
   border-left-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_caption {
+#hdsnsjonwc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rhhnmibfvg .gt_title {
+#hdsnsjonwc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -210,7 +210,7 @@
   border-bottom-width: 0;
 }
 
-#rhhnmibfvg .gt_subtitle {
+#hdsnsjonwc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -222,7 +222,7 @@
   border-top-width: 0;
 }
 
-#rhhnmibfvg .gt_heading {
+#hdsnsjonwc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -234,13 +234,13 @@
   border-right-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_bottom_border {
+#hdsnsjonwc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_col_headings {
+#hdsnsjonwc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -255,7 +255,7 @@
   border-right-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_col_heading {
+#hdsnsjonwc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -275,7 +275,7 @@
   overflow-x: hidden;
 }
 
-#rhhnmibfvg .gt_column_spanner_outer {
+#hdsnsjonwc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -287,15 +287,15 @@
   padding-right: 4px;
 }
 
-#rhhnmibfvg .gt_column_spanner_outer:first-child {
+#hdsnsjonwc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rhhnmibfvg .gt_column_spanner_outer:last-child {
+#hdsnsjonwc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rhhnmibfvg .gt_column_spanner {
+#hdsnsjonwc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -307,11 +307,11 @@
   width: 100%;
 }
 
-#rhhnmibfvg .gt_spanner_row {
+#hdsnsjonwc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rhhnmibfvg .gt_group_heading {
+#hdsnsjonwc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -337,7 +337,7 @@
   text-align: left;
 }
 
-#rhhnmibfvg .gt_empty_group_heading {
+#hdsnsjonwc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -352,15 +352,15 @@
   vertical-align: middle;
 }
 
-#rhhnmibfvg .gt_from_md > :first-child {
+#hdsnsjonwc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rhhnmibfvg .gt_from_md > :last-child {
+#hdsnsjonwc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rhhnmibfvg .gt_row {
+#hdsnsjonwc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -379,7 +379,7 @@
   overflow-x: hidden;
 }
 
-#rhhnmibfvg .gt_stub {
+#hdsnsjonwc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -392,7 +392,7 @@
   padding-right: 5px;
 }
 
-#rhhnmibfvg .gt_stub_row_group {
+#hdsnsjonwc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -406,15 +406,15 @@
   vertical-align: top;
 }
 
-#rhhnmibfvg .gt_row_group_first td {
+#hdsnsjonwc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rhhnmibfvg .gt_row_group_first th {
+#hdsnsjonwc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rhhnmibfvg .gt_summary_row {
+#hdsnsjonwc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -424,16 +424,16 @@
   padding-right: 5px;
 }
 
-#rhhnmibfvg .gt_first_summary_row {
+#hdsnsjonwc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_first_summary_row.thick {
+#hdsnsjonwc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rhhnmibfvg .gt_last_summary_row {
+#hdsnsjonwc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -443,7 +443,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_grand_summary_row {
+#hdsnsjonwc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -453,7 +453,7 @@
   padding-right: 5px;
 }
 
-#rhhnmibfvg .gt_first_grand_summary_row {
+#hdsnsjonwc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -463,7 +463,7 @@
   border-top-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_last_grand_summary_row_top {
+#hdsnsjonwc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -473,11 +473,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_striped {
+#hdsnsjonwc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rhhnmibfvg .gt_table_body {
+#hdsnsjonwc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -486,7 +486,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_footnotes {
+#hdsnsjonwc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -500,7 +500,7 @@
   border-right-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_footnote {
+#hdsnsjonwc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -509,7 +509,7 @@
   padding-right: 5px;
 }
 
-#rhhnmibfvg .gt_sourcenotes {
+#hdsnsjonwc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -523,7 +523,7 @@
   border-right-color: #D3D3D3;
 }
 
-#rhhnmibfvg .gt_sourcenote {
+#hdsnsjonwc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -531,72 +531,72 @@
   padding-right: 5px;
 }
 
-#rhhnmibfvg .gt_left {
+#hdsnsjonwc .gt_left {
   text-align: left;
 }
 
-#rhhnmibfvg .gt_center {
+#hdsnsjonwc .gt_center {
   text-align: center;
 }
 
-#rhhnmibfvg .gt_right {
+#hdsnsjonwc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rhhnmibfvg .gt_font_normal {
+#hdsnsjonwc .gt_font_normal {
   font-weight: normal;
 }
 
-#rhhnmibfvg .gt_font_bold {
+#hdsnsjonwc .gt_font_bold {
   font-weight: bold;
 }
 
-#rhhnmibfvg .gt_font_italic {
+#hdsnsjonwc .gt_font_italic {
   font-style: italic;
 }
 
-#rhhnmibfvg .gt_super {
+#hdsnsjonwc .gt_super {
   font-size: 65%;
 }
 
-#rhhnmibfvg .gt_footnote_marks {
+#hdsnsjonwc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rhhnmibfvg .gt_asterisk {
+#hdsnsjonwc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rhhnmibfvg .gt_indent_1 {
+#hdsnsjonwc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rhhnmibfvg .gt_indent_2 {
+#hdsnsjonwc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rhhnmibfvg .gt_indent_3 {
+#hdsnsjonwc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rhhnmibfvg .gt_indent_4 {
+#hdsnsjonwc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rhhnmibfvg .gt_indent_5 {
+#hdsnsjonwc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rhhnmibfvg .katex-display {
+#hdsnsjonwc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rhhnmibfvg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hdsnsjonwc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -683,23 +683,23 @@
 <span>    column_labels.font.weight <span class="op">=</span> <span class="st">"bold"</span>,</span>
 <span>    row_group.font.weight <span class="op">=</span> <span class="st">"bold"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<div id="ycykhsptys" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ycykhsptys table {
+<div id="dbezmzgvxn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dbezmzgvxn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ycykhsptys thead, #ycykhsptys tbody, #ycykhsptys tfoot, #ycykhsptys tr, #ycykhsptys td, #ycykhsptys th {
+#dbezmzgvxn thead, #dbezmzgvxn tbody, #dbezmzgvxn tfoot, #dbezmzgvxn tr, #dbezmzgvxn td, #dbezmzgvxn th {
   border-style: none;
 }
 
-#ycykhsptys p {
+#dbezmzgvxn p {
   margin: 0;
   padding: 0;
 }
 
-#ycykhsptys .gt_table {
+#dbezmzgvxn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -725,12 +725,12 @@
   border-left-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_caption {
+#dbezmzgvxn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ycykhsptys .gt_title {
+#dbezmzgvxn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -742,7 +742,7 @@
   border-bottom-width: 0;
 }
 
-#ycykhsptys .gt_subtitle {
+#dbezmzgvxn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -754,7 +754,7 @@
   border-top-width: 0;
 }
 
-#ycykhsptys .gt_heading {
+#dbezmzgvxn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -766,13 +766,13 @@
   border-right-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_bottom_border {
+#dbezmzgvxn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_col_headings {
+#dbezmzgvxn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -787,7 +787,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_col_heading {
+#dbezmzgvxn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -807,7 +807,7 @@
   overflow-x: hidden;
 }
 
-#ycykhsptys .gt_column_spanner_outer {
+#dbezmzgvxn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -819,15 +819,15 @@
   padding-right: 4px;
 }
 
-#ycykhsptys .gt_column_spanner_outer:first-child {
+#dbezmzgvxn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ycykhsptys .gt_column_spanner_outer:last-child {
+#dbezmzgvxn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ycykhsptys .gt_column_spanner {
+#dbezmzgvxn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -839,11 +839,11 @@
   width: 100%;
 }
 
-#ycykhsptys .gt_spanner_row {
+#dbezmzgvxn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ycykhsptys .gt_group_heading {
+#dbezmzgvxn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -869,7 +869,7 @@
   text-align: left;
 }
 
-#ycykhsptys .gt_empty_group_heading {
+#dbezmzgvxn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -884,15 +884,15 @@
   vertical-align: middle;
 }
 
-#ycykhsptys .gt_from_md > :first-child {
+#dbezmzgvxn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ycykhsptys .gt_from_md > :last-child {
+#dbezmzgvxn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ycykhsptys .gt_row {
+#dbezmzgvxn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -911,7 +911,7 @@
   overflow-x: hidden;
 }
 
-#ycykhsptys .gt_stub {
+#dbezmzgvxn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -924,7 +924,7 @@
   padding-right: 5px;
 }
 
-#ycykhsptys .gt_stub_row_group {
+#dbezmzgvxn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -938,15 +938,15 @@
   vertical-align: top;
 }
 
-#ycykhsptys .gt_row_group_first td {
+#dbezmzgvxn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ycykhsptys .gt_row_group_first th {
+#dbezmzgvxn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ycykhsptys .gt_summary_row {
+#dbezmzgvxn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -956,16 +956,16 @@
   padding-right: 5px;
 }
 
-#ycykhsptys .gt_first_summary_row {
+#dbezmzgvxn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_first_summary_row.thick {
+#dbezmzgvxn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ycykhsptys .gt_last_summary_row {
+#dbezmzgvxn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -975,7 +975,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_grand_summary_row {
+#dbezmzgvxn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -985,7 +985,7 @@
   padding-right: 5px;
 }
 
-#ycykhsptys .gt_first_grand_summary_row {
+#dbezmzgvxn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -995,7 +995,7 @@
   border-top-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_last_grand_summary_row_top {
+#dbezmzgvxn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1005,11 +1005,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_striped {
+#dbezmzgvxn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ycykhsptys .gt_table_body {
+#dbezmzgvxn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1018,7 +1018,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_footnotes {
+#dbezmzgvxn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1032,7 +1032,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_footnote {
+#dbezmzgvxn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1041,7 +1041,7 @@
   padding-right: 5px;
 }
 
-#ycykhsptys .gt_sourcenotes {
+#dbezmzgvxn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1055,7 +1055,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ycykhsptys .gt_sourcenote {
+#dbezmzgvxn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1063,72 +1063,72 @@
   padding-right: 5px;
 }
 
-#ycykhsptys .gt_left {
+#dbezmzgvxn .gt_left {
   text-align: left;
 }
 
-#ycykhsptys .gt_center {
+#dbezmzgvxn .gt_center {
   text-align: center;
 }
 
-#ycykhsptys .gt_right {
+#dbezmzgvxn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ycykhsptys .gt_font_normal {
+#dbezmzgvxn .gt_font_normal {
   font-weight: normal;
 }
 
-#ycykhsptys .gt_font_bold {
+#dbezmzgvxn .gt_font_bold {
   font-weight: bold;
 }
 
-#ycykhsptys .gt_font_italic {
+#dbezmzgvxn .gt_font_italic {
   font-style: italic;
 }
 
-#ycykhsptys .gt_super {
+#dbezmzgvxn .gt_super {
   font-size: 65%;
 }
 
-#ycykhsptys .gt_footnote_marks {
+#dbezmzgvxn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ycykhsptys .gt_asterisk {
+#dbezmzgvxn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ycykhsptys .gt_indent_1 {
+#dbezmzgvxn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ycykhsptys .gt_indent_2 {
+#dbezmzgvxn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ycykhsptys .gt_indent_3 {
+#dbezmzgvxn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ycykhsptys .gt_indent_4 {
+#dbezmzgvxn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ycykhsptys .gt_indent_5 {
+#dbezmzgvxn .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ycykhsptys .katex-display {
+#dbezmzgvxn .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ycykhsptys div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#dbezmzgvxn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1178,7 +1178,7 @@
 <p>Mother’s Education</p>
 <div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">lsay_data</span><span class="op">$</span><span class="va">mothed</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    1    2    3    4    5  NAs </span></span>
+<span><span class="co">#&gt;    1    2    3    4    5 NA's </span></span>
 <span><span class="co">#&gt;  452 1732  304  368  158  102</span></span></code></pre></div>
 <hr>
 </div>
@@ -1412,8 +1412,8 @@
 </h3>
 <p><strong>R3STEP</strong> incorporates latent class predictors with mixture models. However, it is recommended to use the manual three-step.</p>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-7b5dc30d7765b2f8df3c" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-7b5dc30d7765b2f8df3c">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-e6ccb95aede14df7a043" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e6ccb95aede14df7a043">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <div id="run-the-r3step-model-with-gpa-as-the-latent-class-predictor" class="section level4" number="13.4.1.1">
 <h4>
 <span class="header-section-number">13.4.1.1</span> Run the <strong>R3STEP</strong> model with <code>gpa</code> as the latent class predictor<a class="anchor" aria-label="anchor" href="#run-the-r3step-model-with-gpa-as-the-latent-class-predictor"><i class="fas fa-link"></i></a>
@@ -1538,7 +1538,7 @@ Parameterization using Reference Class 1
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-06-10.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-06-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

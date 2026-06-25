@@ -1,8 +1,7 @@
 TITLE:
 Step 2 LTA with Fixed Logits — No Covariates
 DATA:
-FILE = "/Users/traviscandieas/Library/CloudStorage/Box-Box/lca-bookdown/
-tc_lta/lta_enum/step2_lta.dat"; 
+FILE = "C:/Users/trcan/Box/lca-bookdown/tc_lta/lta_enum/step2_lta.dat"; 
 VARIABLE:
 NAMES = N1 N2 N3; 
  MISSING=.;
