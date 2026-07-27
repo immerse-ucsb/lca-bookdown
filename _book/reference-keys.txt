@@ -339,6 +339,7 @@ plot-of-ses-differences
 table-of-pairwise-distal-outcome-differences-2
 plot-distal-outcome-means-2
 distal-outcome-regressed-on-the-covariate-1
+ml-3-step-and-bch-in-mplus-nylund-gibson-k.-arch-d.-n.-carter-d.-2026
 introduction
 data-setup-and-preparation
 load-required-packages

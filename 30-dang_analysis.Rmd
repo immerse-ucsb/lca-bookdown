@@ -742,7 +742,7 @@ names(savedata)
 
 ------------------------------------------------------------------------
 
-Model with 1 covariate (FEMALE) and 1 distal outcome (Math IRT scores)
+Model with 2 covariates (FEMALE, SES_DICH) and 1 distal outcome (Math IRT scores)
 
 ```{r, eval = FALSE}
 step3  <- mplusObject(

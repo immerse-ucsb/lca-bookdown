@@ -109,8 +109,9 @@
 <li><a class="" href="ten-frequently-asked-questions-nylund-gibson-7-choi-2018.html"><span class="header-section-number">26</span> Ten Frequently Asked Questions (Nylund-Gibson 7 Choi, 2018)</a></li>
 <li><a class="" href="the-importance-of-early-attitudes-toward-mathematics-and-science-ing-nylund-gibson-2017.html"><span class="header-section-number">27</span> The Importance of Early Attitudes Toward Mathematics and Science (Ing &amp; Nylund-Gibson, 2017)</a></li>
 <li><a class="" href="math-attitudes-with-stem-career-attainment-dang-m.-nylund-gibson-k.-2017.html"><span class="header-section-number">28</span> Math Attitudes with STEM Career Attainment (Dang, M., &amp; Nylund-Gibson, K., 2017)</a></li>
-<li><a class="" href="comparing-cluster-analysis-and-latent-profile-analysis-b.-j.-yik-y.-zhang-k.-nylund-gibson-m.-ing-l.-krawiec-j.-d.-houck-e.-d.-nacsa-2026.html"><span class="header-section-number">29</span> Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, &amp; E. D. Nacsa, 2026)</a></li>
-<li><a class="" href="moderation-with-a-latent-class-variable-arch-nylund-gibson-ing-2026.html"><span class="header-section-number">30</span> Moderation with a Latent Class Variable (Arch, Nylund-Gibson, Ing, 2026)</a></li>
+<li><a class="" href="ml-3-step-and-bch-in-mplus-nylund-gibson-k.-arch-d.-n.-carter-d.-2026.html"><span class="header-section-number">29</span> ML 3-step and BCH in Mplus (Nylund-Gibson, K., Arch, D. N., &amp; Carter, D., 2026)</a></li>
+<li><a class="" href="comparing-cluster-analysis-and-latent-profile-analysis-b.-j.-yik-y.-zhang-k.-nylund-gibson-m.-ing-l.-krawiec-j.-d.-houck-e.-d.-nacsa-2026.html"><span class="header-section-number">30</span> Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, &amp; E. D. Nacsa, 2026)</a></li>
+<li><a class="" href="moderation-with-a-latent-class-variable-arch-nylund-gibson-ing-2026.html"><span class="header-section-number">31</span> Moderation with a Latent Class Variable (Arch, Nylund-Gibson, Ing, 2026)</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
 
@@ -146,8 +147,8 @@
 <h2>
 <span class="header-section-number">24.2</span> Path Diagram<a class="anchor" aria-label="anchor" href="#path-diagram-1"><i class="fas fa-link"></i></a>
 </h2>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-42f7cc04fca613ba99ac" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-42f7cc04fca613ba99ac">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-e318e4fa8a53b088b076" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e318e4fa8a53b088b076">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <p>Read in LSAY dataset</p>
 <div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lsay_sci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>,<span class="st">"lsay_sci_gmm.csv"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -466,23 +467,23 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">fit_table1</span></span></code></pre></div>
-<div id="jynsilvcmq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jynsilvcmq table {
+<div id="rxwgtwgabu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rxwgtwgabu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jynsilvcmq thead, #jynsilvcmq tbody, #jynsilvcmq tfoot, #jynsilvcmq tr, #jynsilvcmq td, #jynsilvcmq th {
+#rxwgtwgabu thead, #rxwgtwgabu tbody, #rxwgtwgabu tfoot, #rxwgtwgabu tr, #rxwgtwgabu td, #rxwgtwgabu th {
   border-style: none;
 }
 
-#jynsilvcmq p {
+#rxwgtwgabu p {
   margin: 0;
   padding: 0;
 }
 
-#jynsilvcmq .gt_table {
+#rxwgtwgabu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -508,12 +509,12 @@
   border-left-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_caption {
+#rxwgtwgabu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jynsilvcmq .gt_title {
+#rxwgtwgabu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -525,7 +526,7 @@
   border-bottom-width: 0;
 }
 
-#jynsilvcmq .gt_subtitle {
+#rxwgtwgabu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -537,7 +538,7 @@
   border-top-width: 0;
 }
 
-#jynsilvcmq .gt_heading {
+#rxwgtwgabu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -549,13 +550,13 @@
   border-right-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_bottom_border {
+#rxwgtwgabu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_col_headings {
+#rxwgtwgabu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -570,7 +571,7 @@
   border-right-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_col_heading {
+#rxwgtwgabu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -590,7 +591,7 @@
   overflow-x: hidden;
 }
 
-#jynsilvcmq .gt_column_spanner_outer {
+#rxwgtwgabu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -602,15 +603,15 @@
   padding-right: 4px;
 }
 
-#jynsilvcmq .gt_column_spanner_outer:first-child {
+#rxwgtwgabu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jynsilvcmq .gt_column_spanner_outer:last-child {
+#rxwgtwgabu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jynsilvcmq .gt_column_spanner {
+#rxwgtwgabu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -622,11 +623,11 @@
   width: 100%;
 }
 
-#jynsilvcmq .gt_spanner_row {
+#rxwgtwgabu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jynsilvcmq .gt_group_heading {
+#rxwgtwgabu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -652,7 +653,7 @@
   text-align: left;
 }
 
-#jynsilvcmq .gt_empty_group_heading {
+#rxwgtwgabu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -667,15 +668,15 @@
   vertical-align: middle;
 }
 
-#jynsilvcmq .gt_from_md > :first-child {
+#rxwgtwgabu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jynsilvcmq .gt_from_md > :last-child {
+#rxwgtwgabu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jynsilvcmq .gt_row {
+#rxwgtwgabu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -694,7 +695,7 @@
   overflow-x: hidden;
 }
 
-#jynsilvcmq .gt_stub {
+#rxwgtwgabu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -707,7 +708,7 @@
   padding-right: 5px;
 }
 
-#jynsilvcmq .gt_stub_row_group {
+#rxwgtwgabu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -721,15 +722,15 @@
   vertical-align: top;
 }
 
-#jynsilvcmq .gt_row_group_first td {
+#rxwgtwgabu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jynsilvcmq .gt_row_group_first th {
+#rxwgtwgabu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jynsilvcmq .gt_summary_row {
+#rxwgtwgabu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -739,16 +740,16 @@
   padding-right: 5px;
 }
 
-#jynsilvcmq .gt_first_summary_row {
+#rxwgtwgabu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_first_summary_row.thick {
+#rxwgtwgabu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jynsilvcmq .gt_last_summary_row {
+#rxwgtwgabu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -758,7 +759,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_grand_summary_row {
+#rxwgtwgabu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -768,7 +769,7 @@
   padding-right: 5px;
 }
 
-#jynsilvcmq .gt_first_grand_summary_row {
+#rxwgtwgabu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -778,7 +779,7 @@
   border-top-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_last_grand_summary_row_top {
+#rxwgtwgabu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -788,11 +789,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_striped {
+#rxwgtwgabu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jynsilvcmq .gt_table_body {
+#rxwgtwgabu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -801,7 +802,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_footnotes {
+#rxwgtwgabu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -815,7 +816,7 @@
   border-right-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_footnote {
+#rxwgtwgabu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -824,7 +825,7 @@
   padding-right: 5px;
 }
 
-#jynsilvcmq .gt_sourcenotes {
+#rxwgtwgabu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -838,7 +839,7 @@
   border-right-color: #D3D3D3;
 }
 
-#jynsilvcmq .gt_sourcenote {
+#rxwgtwgabu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -846,72 +847,72 @@
   padding-right: 5px;
 }
 
-#jynsilvcmq .gt_left {
+#rxwgtwgabu .gt_left {
   text-align: left;
 }
 
-#jynsilvcmq .gt_center {
+#rxwgtwgabu .gt_center {
   text-align: center;
 }
 
-#jynsilvcmq .gt_right {
+#rxwgtwgabu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jynsilvcmq .gt_font_normal {
+#rxwgtwgabu .gt_font_normal {
   font-weight: normal;
 }
 
-#jynsilvcmq .gt_font_bold {
+#rxwgtwgabu .gt_font_bold {
   font-weight: bold;
 }
 
-#jynsilvcmq .gt_font_italic {
+#rxwgtwgabu .gt_font_italic {
   font-style: italic;
 }
 
-#jynsilvcmq .gt_super {
+#rxwgtwgabu .gt_super {
   font-size: 65%;
 }
 
-#jynsilvcmq .gt_footnote_marks {
+#rxwgtwgabu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jynsilvcmq .gt_asterisk {
+#rxwgtwgabu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jynsilvcmq .gt_indent_1 {
+#rxwgtwgabu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jynsilvcmq .gt_indent_2 {
+#rxwgtwgabu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jynsilvcmq .gt_indent_3 {
+#rxwgtwgabu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jynsilvcmq .gt_indent_4 {
+#rxwgtwgabu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jynsilvcmq .gt_indent_5 {
+#rxwgtwgabu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jynsilvcmq .katex-display {
+#rxwgtwgabu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jynsilvcmq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rxwgtwgabu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1202,7 +1203,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-06-25.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-07-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
