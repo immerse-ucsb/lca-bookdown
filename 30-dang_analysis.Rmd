@@ -212,7 +212,6 @@ summary(factor(els_data$ses_dichotomized))
 
 ## Descriptive Statistics
 
-
 *Linguistic Minority*
 
 "Respondents were classified as linguistic minority if they reported that English was not their first language and they responded that they read,speak, write, and/or understand English well. Respondents were classified as native English speakers if they indicated they speak English as a first language and they read, speak, write, and understand English well. Using these criteria, among the total 8,790 students, 7,490 (85.2%) were classified as native English speakers, 1,040 (11.8%) were classified as linguistic minority students, and 260 (3.0%) were classified as ELLs." (page 8)
@@ -742,7 +741,7 @@ names(savedata)
 
 ------------------------------------------------------------------------
 
-Model with 2 covariates (FEMALE, SES_DICH) and 1 distal outcome (Math IRT scores)
+Model with 2 covariates (FEMALE, SES_DICH) and 1 distal outcome (STEM Occupation)
 
 ```{r, eval = FALSE}
 step3  <- mplusObject(
@@ -893,7 +892,7 @@ NOTE:  If there are notable differences between class formation in the Step 1 an
 
 This is testing if there is a relation between the latent class variable and the distal outcome.
 
-Note: There are two outputs, each containing separate Wald tests (one for Math IRT scores and the other for self-reported gender). However, other than the Wald test, the outputs are identical. Either can be used for subsequent code.
+Note: There are three outputs, each containing separate Wald tests (one for STEM Occupation, Gender, and SES). However, other than the Wald test, the outputs are identical. Either can be used for subsequent code.
 
 ```{r}
 # Make a Wald table function
@@ -926,7 +925,7 @@ wald_table <- function(mplus_model, table_title) {
 }
 ```
 
-Use `wald_table` funtion
+Use `wald_table` function
 
 ```{r}
 output_three_distal <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
@@ -950,72 +949,66 @@ Make `predictor_table` function
 # Make a predictor table function
 predictor_table <- function(mplus_output,  
                             var_labels = NULL, 
-                            table_title = "Predictors of Class Membership") {
+                            table_title = "Predictors of Class Membership",
+                            ref_class = 4) {
   
   # Extract Unstandardized Logits
-cov_data <- as.data.frame(mplus_output[["parameters"]][["unstandardized"]]) %>% 
-  filter(str_detect(paramHeader, "\\.ON$")) %>% 
-  filter(!str_detect(LatentClass, "Categorical\\.Latent\\.Variables")) %>%
-  mutate(
-    param_label = if (!is.null(var_labels)) {
-      str_replace_all(param, var_labels)
-    } else {
-      str_to_title(param)
-    },
-    latent_class = paste("Class", LatentClass)
-  ) %>% 
-  mutate(
-    logit = paste0(format(round(est, 3), nsmall = 3), " (", format(round(se, 2), nsmall = 2), ")"),
-    pval_label = case_when(
-      pval < 0.001 ~ "<.001*",
-      pval < 0.05  ~ paste0(scales::number(pval, accuracy = .001), "*"),
-      TRUE         ~ scales::number(pval, accuracy = .001)
-    )
-  ) %>% 
-  dplyr::select(param_label, latent_class, logit, pval_label)
-  
-  # Extract Odds Ratios
-  or_data <- as.data.frame(mplus_output[["parameters"]][["odds"]]) %>%
-    filter(str_detect(paramHeader, "\\.ON$")) %>% 
+  cov_data <- as.data.frame(mplus_output[["parameters"]][["unstandardized"]]) %>%
+    filter(str_detect(paramHeader, "^C#\\d+\\.ON$")) %>% 
     mutate(
+      # Use the provided labels, otherwise default to Title Case
       param_label = if (!is.null(var_labels)) {
         str_replace_all(param, var_labels)
       } else {
         str_to_title(param)
       },
-      
-      latent_class = paste("Class", LatentClass),
-      
-      CI = paste0("[", format(round(lower_2.5ci, 3), nsmall = 3), ", ", 
-                  format(round(upper_2.5ci, 3), nsmall = 3), "]")
+      latent_class = str_replace(paramHeader, "^C#(\\d+)\\.ON$", "Class \\1")
     ) %>% 
-    dplyr::select(param_label, latent_class, or = est, CI)
+    mutate(
+      logit = paste0(format(round(est, 3), nsmall = 3), " (", format(round(se, 2), nsmall = 2), ")"),
+      pval_label = case_when(
+        pval < 0.001 ~ "<.001*",
+        pval < 0.05  ~ paste0(scales::number(pval, accuracy = .001), "*"),
+        TRUE         ~ scales::number(pval, accuracy = .001)
+      ),
+        odds_ratio = exp(est),
+        lower_ci = exp(est - 1.96 * se),
+        upper_ci = exp(est + 1.96 * se),
+        CI = sprintf("[%.3f, %.3f]", lower_ci, upper_ci),
+      )  %>% 
+    dplyr::select(param_label, latent_class, logit, odds_ratio, CI, pval_label)
   
   # Combine and Format Table
-  or_data %>% 
-    full_join(cov_data, by = c("param_label", "latent_class")) %>% 
-    dplyr::select(param_label, latent_class, logit, pval_label, or, CI) %>% 
+  cov_data %>% 
     gt(groupname_col = "latent_class", rowname_col = "param_label") %>%
     tab_header(title = table_title) %>%
     cols_label(
       logit = md("Logit (*se*)"),
-      or = md("Odds Ratio"),
+      odds_ratio = md("Odds Ratio"),
       CI = md("95% CI"),
       pval_label = md("*p*-value")
     ) %>% 
     sub_missing(missing_text = "-") %>% 
     cols_align(align = "center") %>% 
     opt_align_table_header(align = "left") %>% 
-    gt::tab_options(table.font.names = "serif")
+    gt::tab_options(table.font.names = "serif") |> 
+    fmt_number(
+      columns = odds_ratio,
+      decimals = 3
+    ) %>%
+    tab_footnote(
+      footnote = paste("Reference class:", ref_class),
+      locations = cells_title(groups = "title")
+    )
 }
 ```
 
 Use `predictor_table` function
 
-```{r, eval = FALSE}
+```{r}
 output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
 
-predictor_table(output_three, var_labels = c("FEMALE" = "Female", "SES_DICH" = "SES"))
+predictor_table(output_three, var_labels = c("FEMALE" = "Female", "SES_DICH" = "SES"), ref_class = "4")
 ```
 
 ------------------------------------------------------------------------
@@ -1028,79 +1021,162 @@ Class 2 = High Math Attitudes, Low Self-Efficacy  (18.546%)
 Class 3 = High Math Attitudes, High Self-Efficacy  (24.93%)
 Class 4 = Low Math Attitudes, Low Self-Efficacy (36.2%)
 
+
+```{r}
+plot_class_probabilities <- function(mplus_output, 
+                                     covariate_values, 
+                                     class_labels, 
+                                     ref_class = 4) {
+  
+  # ---------------------------------------------------------------------------
+  # 1. EXTRACT PARAMETERS (INTERCEPTS & SLOPES)
+  # ---------------------------------------------------------------------------
+  params <- as.data.frame(mplus_output$parameters$unstandardized)
+  
+  # Get Intercepts
+  intercepts <- params %>%
+    filter(paramHeader == "Intercepts" & str_detect(param, "C#")) %>%
+    mutate(Class = as.numeric(str_extract(param, "\\d+"))) %>%
+    select(Class, intercept = est)
+  
+  # Get Slopes
+  slopes <- params %>%
+    filter(str_detect(paramHeader, "C#\\d+\\.ON")) %>%
+    mutate(Class = as.numeric(str_extract(paramHeader, "\\d+"))) %>%
+    select(Class, param, slope = est)
+  
+  all_covariates <- unique(slopes$param)
+  
+  # Add Reference Class parameters (fixed to 0)
+  ref_intercept <- tibble(Class = ref_class, intercept = 0)
+  ref_slopes    <- tibble(Class = ref_class, param = all_covariates, slope = 0)
+  
+  intercepts_full <- bind_rows(intercepts, ref_intercept)
+  slopes_full     <- bind_rows(slopes, ref_slopes)
+  
+  logits_df <- full_join(intercepts_full, slopes_full, by = "Class") %>%
+    arrange(Class)
+  
+  # ---------------------------------------------------------------------------
+  # 2. BUILD THE EVALUATION GRID & EXPLICIT LABELS
+  # ---------------------------------------------------------------------------
+  focal_covs   <- names(covariate_values)[sapply(covariate_values, length) > 1]
+  control_covs <- names(covariate_values)[sapply(covariate_values, length) == 1]
+  
+  # Convert covariate values into grid
+  cov_grid <- expand_grid(!!!covariate_values)
+  
+  # Check if user provided named elements in focal vector (e.g., c(Male = -0.523, Female = 0.477))
+  focal_vec <- covariate_values[[focal_covs[1]]]
+  focal_names <- names(focal_vec)
+  
+  # Construct group labels safely
+  if (!is.null(focal_names)) {
+    # Match values to vector names
+    cov_grid <- cov_grid %>%
+      mutate(
+        Group_Name = focal_names[match(get(focal_covs[1]), focal_vec)],
+        cov_label = paste0(Group_Name, " (", focal_covs[1], " = ", sprintf("%.3f", get(focal_covs[1])), ")")
+      ) %>%
+      select(-Group_Name)
+  } else {
+    cov_grid <- cov_grid %>%
+      mutate(
+        cov_label = paste0(focal_covs[1], " = ", sprintf("%.3f", get(focal_covs[1])))
+      )
+  }
+  
+  # Explicit Subtitle
+  if (length(control_covs) > 0) {
+    control_text <- paste(
+      map_chr(control_covs, ~ paste0(.x, " = ", sprintf("%.3f", covariate_values[[.x]]))),
+      collapse = ", "
+    )
+    subtitle_str <- paste0("Holding controlled covariates constant at: ", control_text)
+  } else {
+    subtitle_str <- "Evaluated across specified covariate grid"
+  }
+
+  # ---------------------------------------------------------------------------
+  # 3. CALCULATE LOGITS & SOFTMAX PROBABILITIES
+  # ---------------------------------------------------------------------------
+  plot_data <- cov_grid %>%
+    pivot_longer(
+      cols = all_of(all_covariates), 
+      names_to = "param", 
+      values_to = "x_val"
+    ) %>%
+    left_join(logits_df, by = "param") %>%
+    group_by(cov_label, Class, intercept) %>%
+    summarise(slope_contrib = sum(x_val * slope), .groups = "drop") %>%
+    mutate(
+      logit = intercept + slope_contrib,
+      class_name = str_wrap(class_labels[as.character(Class)], width = 18)
+    ) %>%
+    group_by(cov_label) %>%
+    mutate(
+      prob = exp(logit) / sum(exp(logit))
+    ) %>%
+    ungroup()
+
+  # ---------------------------------------------------------------------------
+  # 4. GENERATE THE PLOT
+  # ---------------------------------------------------------------------------
+  ggplot(plot_data, aes(x = class_name, y = prob, fill = cov_label)) +
+    geom_bar(stat = "identity", position = position_dodge(width = 0.85), color = "black", width = 0.75) +
+    geom_text(
+      aes(label = sprintf("%.1f%%", prob * 100)), 
+      position = position_dodge(width = 0.85), 
+      vjust = -0.5, 
+      size = 3.5, 
+      family = "serif"
+    ) +
+    scale_y_continuous(
+      labels = scales::percent_format(accuracy = 1),
+      limits = c(0, max(plot_data$prob) + 0.10),
+      expand = expansion(mult = c(0, 0))
+    ) +
+    labs(
+      title = "Model-Estimated Class Proportions",
+      subtitle = subtitle_str,
+      x = NULL,
+      y = "Predicted Probability",
+      fill = "Evaluated Profile"
+    ) +
+    theme_cowplot() +
+    theme(
+      text = element_text(family = "serif"),
+      panel.grid.major.x = element_blank(),
+      legend.position = "top",
+      legend.title = element_text(face = "bold")
+    )
+}
+```
+
+Female
+
 ```{r}
 output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
 
-# Extract Centering Values from Univariate Stats
-# These are the values Mplus used for the 'Female' variable after centering
-female_x   <- savedata %>% summarize(max_val = max(FEMALE, na.rm = TRUE)) %>% pull(max_val)
-male_x <- savedata %>% summarize(min_val = min(FEMALE, na.rm = TRUE)) %>% pull(min_val)
+# Define Class Labels
+class_labels <- c(
+  "1" = "Low Math Attitudes, High Self-Efficacy (20.33%)",
+  "2" = "High Math Attitudes, Low Self-Efficacy (18.54%)",
+  "3" = "High Math Attitudes, High Self-Efficacy (24.93%)",
+  "4" = "Low Math Attitudes, Low Self-Efficacy (36.20%)"
+)
 
-# Extract Intercepts and Slopes from Parameters
-params <- as.data.frame(output_three$parameters$unstandardized)
-
-# Get Intercepts (C#1 to C#4)
-intercepts <- params %>%
-  filter(paramHeader == "Intercepts" & str_detect(param, "C#")) %>%
-  mutate(Class = as.numeric(str_extract(param, "\\d+"))) %>%
-  select(Class, intercept = est)
-
-# Get Slopes (C#1.ON to C#4.ON) 
-slopes <- params %>%
-  filter(str_detect(paramHeader, "C#\\d+\\.ON") & param == "FEMALE") %>%
-  mutate(Class = as.numeric(str_extract(paramHeader, "\\d+"))) %>%
-  select(Class, slope = est)
-
-# Merge and add the Reference Class (Class 4), which is fixed to 0 in your model
-logits_df <- full_join(intercepts, slopes, by = "Class") %>%
-  add_row(Class = 4, intercept = 0, slope = 0) %>%
-  arrange(Class)
-
-# Class labels
-class_labels <- c("1" = "Low Math Attitudes, High Self-Efficacy (20.33%)",
-                  "2" = "High Math Attitudes, Low Self-Efficacy (18.546%)",
-                  "3" = "High Math Attitudes, High Self-Efficacy (24.93%)",
-                  "4" = "Low Math Attitudes, Low Self-Efficacy (36.2%)")
-
-# Calculate Predicted Probabilities
-plot_data <- logits_df %>%
-  # Create a row for each gender within each class
-  crossing(Gender = c("Male", "Female")) %>%
-  mutate(
-    # Use centered values: Male (-0.485) and Female (0.515)
-    x_val = ifelse(Gender == "Male", male_x, female_x),
-    logit = intercept + (slope * x_val)
-  ) %>%
-  group_by(Gender) %>%
-  mutate(
-    # Apply Softmax: P = exp(logit) / sum(exp(logits))
-    prob = exp(logit) / sum(exp(logit)),
-    Class_Name = str_wrap(class_labels[as.character(Class)], width = 20)
-  )
-
-# Generate the Plot
-ggplot(plot_data, aes(x = fct_inorder(Class_Name), y = prob, fill = Gender)) +
-  geom_bar(stat = "identity", position = position_dodge(width = 0.9), color = "black") +
-  geom_text(aes(label = sprintf("%.2f", prob)), 
-            position = position_dodge(width = 0.9), 
-            vjust = -0.5, size = 3.5, family = "serif") +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
-  labs(
-    title = "Model-Estimated Class Proportions by Gender",
-    subtitle = "Based on Grand-Mean Centered Multinomial Logistic Regression",
-    x = "",
-    y = "Probability",
-    fill = "Gender"
-  ) +
-  theme_cowplot() +
-  theme(
-    text = element_text(family = "serif"),
-    panel.grid.major.x = element_blank(),
-    legend.position = "top"
-  )
+# Call the function specifying exact covariate values
+plot_class_probabilities(
+  mplus_output = output_three,
+  covariate_values = list(
+    FEMALE   = c(Male = -0.523, Female = 0.477), # Focal variable (2 values)
+    SES_DICH = 0                                 # Controlled variable (held at 0)
+  ),
+  class_labels = class_labels,
+  ref_class    = 4
+)
 ```
-
-
 
 ------------------------------------------------------------------------
 
@@ -1109,73 +1185,33 @@ ggplot(plot_data, aes(x = fct_inorder(Class_Name), y = prob, fill = Gender)) +
 ```{r}
 output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
 
+# Define Class Labels
+class_labels <- c(
+  "1" = "Low Math Attitudes, High Self-Efficacy (20.33%)",
+  "2" = "High Math Attitudes, Low Self-Efficacy (18.54%)",
+  "3" = "High Math Attitudes, High Self-Efficacy (24.93%)",
+  "4" = "Low Math Attitudes, Low Self-Efficacy (36.20%)"
+)
+
 # Extract Centering Values from Univariate Stats
 # These are the values Mplus used for the 'Female' variable after centering
-low_ses_x   <- savedata %>% summarize(max_val = max(SES_DICH, na.rm = TRUE)) %>% pull(max_val)
-other_ses_x <- savedata %>% summarize(min_val = min(SES_DICH, na.rm = TRUE)) %>% pull(min_val)
+stats_df <- as.data.frame(output_three$sampstat$univariate.sample.statistics) %>%
+  tibble::rownames_to_column("Variable")
 
-# Extract Intercepts and Slopes from Parameters
-params <- as.data.frame(output_three$parameters$unstandardized)
+other_ses_x  <- stats_df %>% filter(Variable == "SES_DICH") %>% pull(Minimum)
+low_ses_x <- stats_df %>% filter(Variable == "SES_DICH") %>% pull(Maximum)
 
-# Get Intercepts (C#1 to C#4)
-intercepts <- params %>%
-  filter(paramHeader == "Intercepts" & str_detect(param, "C#")) %>%
-  mutate(Class = as.numeric(str_extract(param, "\\d+"))) %>%
-  select(Class, intercept = est)
 
-# Get Slopes (C#1.ON to C#4.ON) 
-slopes <- params %>%
-  filter(str_detect(paramHeader, "C#\\d+\\.ON") & param == "SES_DICH") %>%
-  mutate(Class = as.numeric(str_extract(paramHeader, "\\d+"))) %>%
-  select(Class, slope = est)
-
-# Merge and add the Reference Class (Class 5), which is fixed to 0 in your model
-logits_df <- full_join(intercepts, slopes, by = "Class") %>%
-  add_row(Class = 4, intercept = 0, slope = 0) %>%
-  arrange(Class)
-
-# Class labels
-class_labels <- c("1" = "Low Math Attitudes, High Self-Efficacy (20.33%)",
-                  "2" = "High Math Attitudes, Low Self-Efficacy (18.546%)",
-                  "3" = "High Math Attitudes, High Self-Efficacy (24.93%)",
-                  "4" = "Low Math Attitudes, Low Self-Efficacy (36.2%)")
-
-# Calculate Predicted Probabilities
-plot_data <- logits_df %>%
-  # Create a row for each gender within each class
-  crossing(SES = c("Other SES", "Low SES")) %>%
-  mutate(
-    # Use centered values: Male (-0.485) and Female (0.515)
-    x_val = ifelse(SES == "Other SES", other_ses_x, low_ses_x),
-    logit = intercept + (slope * x_val)
-  ) %>%
-  group_by(SES) %>%
-  mutate(
-    # Apply Softmax: P = exp(logit) / sum(exp(logits))
-    prob = exp(logit) / sum(exp(logit)),
-    Class_Name = str_wrap(class_labels[as.character(Class)], width = 20)
-  )
-
-# Generate the Plot
-ggplot(plot_data, aes(x = fct_inorder(Class_Name), y = prob, fill = SES)) +
-  geom_bar(stat = "identity", position = position_dodge(width = 0.9), color = "black") +
-  geom_text(aes(label = sprintf("%.2f", prob)), 
-            position = position_dodge(width = 0.9), 
-            vjust = -0.5, size = 3.5, family = "serif") +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
-  labs(
-    title = "Model-Estimated Class Proportions by SES",
-    subtitle = "Based on Grand-Mean Centered Multinomial Logistic Regression",
-    x = "",
-    y = "Probability",
-    fill = "SES"
-  ) +
-  theme_cowplot() +
-  theme(
-    text = element_text(family = "serif"),
-    panel.grid.major.x = element_blank(),
-    legend.position = "top"
-  )
+# Call the function specifying exact covariate values
+plot_class_probabilities(
+  mplus_output = output_three,
+  covariate_values = list(
+    SES_DICH   = c(Other = other_ses_x, Low = low_ses_x), # Focal variable (2 values)
+    FEMALE = 0                                 # Controlled variable (held at 0)
+  ),
+  class_labels = class_labels,
+  ref_class    = 4
+)
 ```
 
 ------------------------------------------------------------------------
@@ -1245,6 +1281,9 @@ diff_table(
 
 #### Plot Distal Outcome Means
 
+SES = 1 = LOW SES
+SES = 0 = OTHER SES (2, 3, and 4th Quartile)
+
 ```{r}
 output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
 
@@ -1268,7 +1307,7 @@ plot_data %>%
             vjust = 8) +  
  # scale_fill_grey(start = .4, end = .7) + # Remove for colorful bars
   labs(y="STEM Occupation", x="",
-           title = "Distal Mean Comparision for STEM Occupation") +
+           title = "Distal Mean Comparison for STEM Occupation \n at the Covariate Sample Means") +
   theme_cowplot() +
   theme(text = element_text(family = "serif"),
         legend.position="none")
@@ -1278,7 +1317,7 @@ plot_data %>%
 
 #### Distal outcome regressed on the covariate
 
-Is there a relation between the distal outcome (Math IRT Scores) and the covariate (Gender)?
+Is there a relation between the distal outcome (STEM Occupation) and the covariates (Gender and SES)?
 
 ```{r}
 output_three <- readModels(here("29-dang-lca-example", "three_step", "three_distal.out"))
@@ -1314,7 +1353,6 @@ donx %>%
   opt_align_table_header(align = "left") %>% 
   gt::tab_options(table.font.names = "serif")
 ```
-
 
 ------------------------------------------------------------------------
 

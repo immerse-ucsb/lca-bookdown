@@ -7,7 +7,7 @@
 <title>31 Moderation with a Latent Class Variable (Arch, Nylund-Gibson, Ing, 2026) | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="Citation: Arch, Dina Ali Naji, Karen Nylund-Gibson, and Marsha Ing. “Moderation with a Latent Class Variable: A Tutorial and Example.” Behavior Research Methods 58, no. 4 (2026): 108....">
-<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
 <meta property="og:title" content="31 Moderation with a Latent Class Variable (Arch, Nylund-Gibson, Ing, 2026) | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/moderation-with-a-latent-class-variable-arch-nylund-gibson-ing-2026.html">
@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Citation: Arch, Dina Ali Naji, Karen Nylund-Gibson, and Marsha Ing. “Moderation with a Latent Class Variable: A Tutorial and Example.” Behavior Research Methods 58, no. 4 (2026): 108....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.12/grViz.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
@@ -129,7 +129,7 @@
 <p>This appendix walks through the R code to apply moderation with a latent class variable using the <code>MplusAutomation</code> package.</p>
 <hr>
 <p>Packages</p>
-<div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
@@ -283,7 +283,7 @@ MOTHED
 </table></div>
 <hr>
 <p>Read in LSAL dataset</p>
-<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>, <span class="st">"data"</span>, <span class="st">"LSAL_data.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
 <div id="descriptive-statistics-19" class="section level2" number="31.1">
@@ -295,12 +295,12 @@ MOTHED
 <span class="header-section-number">31.1.1</span> Descriptive Statistics using R:<a class="anchor" aria-label="anchor" href="#descriptive-statistics-using-r-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Quick view of all the variables in the dataset (excluding <code>CASENUM</code>, <code>COHORT</code> and SCHOOLID`):</p>
-<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">CASENUM</span>, <span class="op">-</span><span class="va">COHORT</span>, <span class="op">-</span><span class="va">SCHOOLID</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Proportion of indicators using R:</p>
-<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb565"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set up data to find proportions of binary indicators</span></span>
 <span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">KA47A</span><span class="op">:</span><span class="va">KA47L</span>, names_to <span class="op">=</span> <span class="st">"Variable"</span><span class="op">)</span> </span>
@@ -316,33 +316,33 @@ MOTHED
 <span><span class="va">dframe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Variables<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">tab</span><span class="op">)</span>, Proportion<span class="op">=</span><span class="va">prop</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, Count<span class="op">=</span><span class="va">tab</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="co">#remove row names</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">dframe</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
-<div class="sourceCode" id="cb565"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb566"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Format table using `kable()`</span></span>
 <span><span class="va">dframe</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Descriptive Summary"</span>,booktabs <span class="op">=</span> <span class="cn">TRUE</span>, escape <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html">kable_styling</a></span><span class="op">(</span>latex_options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"HOLD_position"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
-<div class="sourceCode" id="cb566"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb567"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Format table using `markdown`</span></span>
 <span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="va">dframe</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span>title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**LCA Indicator Proportions**"</span><span class="op">)</span>, subtitle <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"&amp;nbsp;"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>column_labels.font.weight <span class="op">=</span> <span class="st">"bold"</span>, row_group.font.weight <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span> </span></code></pre></div>
-<div id="ykulyzlugn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ykulyzlugn table {
+<div id="ofaxnijxxd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ofaxnijxxd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ykulyzlugn thead, #ykulyzlugn tbody, #ykulyzlugn tfoot, #ykulyzlugn tr, #ykulyzlugn td, #ykulyzlugn th {
+#ofaxnijxxd thead, #ofaxnijxxd tbody, #ofaxnijxxd tfoot, #ofaxnijxxd tr, #ofaxnijxxd td, #ofaxnijxxd th {
   border-style: none;
 }
 
-#ykulyzlugn p {
+#ofaxnijxxd p {
   margin: 0;
   padding: 0;
 }
 
-#ykulyzlugn .gt_table {
+#ofaxnijxxd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -368,12 +368,12 @@ MOTHED
   border-left-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_caption {
+#ofaxnijxxd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ykulyzlugn .gt_title {
+#ofaxnijxxd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -385,7 +385,7 @@ MOTHED
   border-bottom-width: 0;
 }
 
-#ykulyzlugn .gt_subtitle {
+#ofaxnijxxd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -397,7 +397,7 @@ MOTHED
   border-top-width: 0;
 }
 
-#ykulyzlugn .gt_heading {
+#ofaxnijxxd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -409,13 +409,13 @@ MOTHED
   border-right-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_bottom_border {
+#ofaxnijxxd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_col_headings {
+#ofaxnijxxd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -430,7 +430,7 @@ MOTHED
   border-right-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_col_heading {
+#ofaxnijxxd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -450,7 +450,7 @@ MOTHED
   overflow-x: hidden;
 }
 
-#ykulyzlugn .gt_column_spanner_outer {
+#ofaxnijxxd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -462,15 +462,15 @@ MOTHED
   padding-right: 4px;
 }
 
-#ykulyzlugn .gt_column_spanner_outer:first-child {
+#ofaxnijxxd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ykulyzlugn .gt_column_spanner_outer:last-child {
+#ofaxnijxxd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ykulyzlugn .gt_column_spanner {
+#ofaxnijxxd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -482,11 +482,11 @@ MOTHED
   width: 100%;
 }
 
-#ykulyzlugn .gt_spanner_row {
+#ofaxnijxxd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ykulyzlugn .gt_group_heading {
+#ofaxnijxxd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -512,7 +512,7 @@ MOTHED
   text-align: left;
 }
 
-#ykulyzlugn .gt_empty_group_heading {
+#ofaxnijxxd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -527,15 +527,15 @@ MOTHED
   vertical-align: middle;
 }
 
-#ykulyzlugn .gt_from_md > :first-child {
+#ofaxnijxxd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ykulyzlugn .gt_from_md > :last-child {
+#ofaxnijxxd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ykulyzlugn .gt_row {
+#ofaxnijxxd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -554,7 +554,7 @@ MOTHED
   overflow-x: hidden;
 }
 
-#ykulyzlugn .gt_stub {
+#ofaxnijxxd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -567,7 +567,7 @@ MOTHED
   padding-right: 5px;
 }
 
-#ykulyzlugn .gt_stub_row_group {
+#ofaxnijxxd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -581,15 +581,15 @@ MOTHED
   vertical-align: top;
 }
 
-#ykulyzlugn .gt_row_group_first td {
+#ofaxnijxxd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ykulyzlugn .gt_row_group_first th {
+#ofaxnijxxd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ykulyzlugn .gt_summary_row {
+#ofaxnijxxd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -599,16 +599,16 @@ MOTHED
   padding-right: 5px;
 }
 
-#ykulyzlugn .gt_first_summary_row {
+#ofaxnijxxd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_first_summary_row.thick {
+#ofaxnijxxd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ykulyzlugn .gt_last_summary_row {
+#ofaxnijxxd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -618,7 +618,7 @@ MOTHED
   border-bottom-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_grand_summary_row {
+#ofaxnijxxd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -628,7 +628,7 @@ MOTHED
   padding-right: 5px;
 }
 
-#ykulyzlugn .gt_first_grand_summary_row {
+#ofaxnijxxd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -638,7 +638,7 @@ MOTHED
   border-top-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_last_grand_summary_row_top {
+#ofaxnijxxd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -648,11 +648,11 @@ MOTHED
   border-bottom-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_striped {
+#ofaxnijxxd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ykulyzlugn .gt_table_body {
+#ofaxnijxxd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -661,7 +661,7 @@ MOTHED
   border-bottom-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_footnotes {
+#ofaxnijxxd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -675,7 +675,7 @@ MOTHED
   border-right-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_footnote {
+#ofaxnijxxd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -684,7 +684,7 @@ MOTHED
   padding-right: 5px;
 }
 
-#ykulyzlugn .gt_sourcenotes {
+#ofaxnijxxd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -698,7 +698,7 @@ MOTHED
   border-right-color: #D3D3D3;
 }
 
-#ykulyzlugn .gt_sourcenote {
+#ofaxnijxxd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -706,72 +706,72 @@ MOTHED
   padding-right: 5px;
 }
 
-#ykulyzlugn .gt_left {
+#ofaxnijxxd .gt_left {
   text-align: left;
 }
 
-#ykulyzlugn .gt_center {
+#ofaxnijxxd .gt_center {
   text-align: center;
 }
 
-#ykulyzlugn .gt_right {
+#ofaxnijxxd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ykulyzlugn .gt_font_normal {
+#ofaxnijxxd .gt_font_normal {
   font-weight: normal;
 }
 
-#ykulyzlugn .gt_font_bold {
+#ofaxnijxxd .gt_font_bold {
   font-weight: bold;
 }
 
-#ykulyzlugn .gt_font_italic {
+#ofaxnijxxd .gt_font_italic {
   font-style: italic;
 }
 
-#ykulyzlugn .gt_super {
+#ofaxnijxxd .gt_super {
   font-size: 65%;
 }
 
-#ykulyzlugn .gt_footnote_marks {
+#ofaxnijxxd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ykulyzlugn .gt_asterisk {
+#ofaxnijxxd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ykulyzlugn .gt_indent_1 {
+#ofaxnijxxd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ykulyzlugn .gt_indent_2 {
+#ofaxnijxxd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ykulyzlugn .gt_indent_3 {
+#ofaxnijxxd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ykulyzlugn .gt_indent_4 {
+#ofaxnijxxd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ykulyzlugn .gt_indent_5 {
+#ofaxnijxxd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ykulyzlugn .katex-display {
+#ofaxnijxxd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ykulyzlugn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ofaxnijxxd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -823,7 +823,7 @@ MOTHED
 <h3>
 <span class="header-section-number">31.1.2</span> Descriptive Statistics using <code>MplusAutomation</code>:<a class="anchor" aria-label="anchor" href="#descriptive-statistics-using-mplusautomation-2"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb567"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb568"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">basic_mplus</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"LSAL Descriptive Statistics;"</span>,</span>
 <span>  </span>
@@ -844,7 +844,7 @@ MOTHED
 <span>                            modelout <span class="op">=</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>,<span class="st">"zero.inp"</span><span class="op">)</span>,</span>
 <span>                            check <span class="op">=</span> <span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>View of descriptive statistics using <code><a href="https://michaelhallquist.github.io/MplusAutomation/reference/get_results.html">get_sampstat()</a></code>:</p>
-<div class="sourceCode" id="cb568"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb569"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/get_results.html">get_sampstat</a></span><span class="op">(</span><span class="va">m.step0.fit</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
 <p>Or, view the <code>.out</code> file:</p>
@@ -857,7 +857,7 @@ MOTHED
 <span class="header-section-number">31.2</span> Enumeration<a class="anchor" aria-label="anchor" href="#enumeration-7"><i class="fas fa-link"></i></a>
 </h2>
 <p>This code uses the <code>mplusObject</code> function in the <code>MplusAutomation</code> package and saves all model runs in the <code>mplus_enum</code> folder.</p>
-<div class="sourceCode" id="cb569"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb570"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lca_6</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">lca_enum</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
@@ -893,7 +893,7 @@ MOTHED
 <span class="header-section-number">31.2.1</span> Table of Fit<a class="anchor" aria-label="anchor" href="#table-of-fit-7"><i class="fas fa-link"></i></a>
 </h3>
 <p>First, extract data:</p>
-<div class="sourceCode" id="cb570"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb571"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output_enum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"mplus_enum"</span><span class="op">)</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="va">enum_extract</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/LatexSummaryTable.html">LatexSummaryTable</a></span><span class="op">(</span></span>
@@ -922,7 +922,7 @@ MOTHED
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">9</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">6</span><span class="op">:</span><span class="fl">7</span>, <span class="fl">13</span>, <span class="fl">14</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">Parameters</span><span class="op">)</span></span></code></pre></div>
 <p>Then, create table using <code><a href="https://gt.rstudio.com/reference/gt.html">gt()</a></code> instead of <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code>:</p>
-<div class="sourceCode" id="cb571"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb572"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fit_table</span> <span class="op">&lt;-</span> <span class="va">allFit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span>title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"Model Fit Summary Table"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1000,23 +1000,23 @@ MOTHED
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">fit_table</span></span></code></pre></div>
-<div id="dhatrpoohw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dhatrpoohw table {
+<div id="ktxhgyouko" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ktxhgyouko table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dhatrpoohw thead, #dhatrpoohw tbody, #dhatrpoohw tfoot, #dhatrpoohw tr, #dhatrpoohw td, #dhatrpoohw th {
+#ktxhgyouko thead, #ktxhgyouko tbody, #ktxhgyouko tfoot, #ktxhgyouko tr, #ktxhgyouko td, #ktxhgyouko th {
   border-style: none;
 }
 
-#dhatrpoohw p {
+#ktxhgyouko p {
   margin: 0;
   padding: 0;
 }
 
-#dhatrpoohw .gt_table {
+#ktxhgyouko .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1042,12 +1042,12 @@ MOTHED
   border-left-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_caption {
+#ktxhgyouko .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dhatrpoohw .gt_title {
+#ktxhgyouko .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1059,7 +1059,7 @@ MOTHED
   border-bottom-width: 0;
 }
 
-#dhatrpoohw .gt_subtitle {
+#ktxhgyouko .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1071,7 +1071,7 @@ MOTHED
   border-top-width: 0;
 }
 
-#dhatrpoohw .gt_heading {
+#ktxhgyouko .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1083,13 +1083,13 @@ MOTHED
   border-right-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_bottom_border {
+#ktxhgyouko .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_col_headings {
+#ktxhgyouko .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1104,7 +1104,7 @@ MOTHED
   border-right-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_col_heading {
+#ktxhgyouko .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1124,7 +1124,7 @@ MOTHED
   overflow-x: hidden;
 }
 
-#dhatrpoohw .gt_column_spanner_outer {
+#ktxhgyouko .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1136,15 +1136,15 @@ MOTHED
   padding-right: 4px;
 }
 
-#dhatrpoohw .gt_column_spanner_outer:first-child {
+#ktxhgyouko .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dhatrpoohw .gt_column_spanner_outer:last-child {
+#ktxhgyouko .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dhatrpoohw .gt_column_spanner {
+#ktxhgyouko .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1156,11 +1156,11 @@ MOTHED
   width: 100%;
 }
 
-#dhatrpoohw .gt_spanner_row {
+#ktxhgyouko .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dhatrpoohw .gt_group_heading {
+#ktxhgyouko .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1186,7 +1186,7 @@ MOTHED
   text-align: left;
 }
 
-#dhatrpoohw .gt_empty_group_heading {
+#ktxhgyouko .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1201,15 +1201,15 @@ MOTHED
   vertical-align: middle;
 }
 
-#dhatrpoohw .gt_from_md > :first-child {
+#ktxhgyouko .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dhatrpoohw .gt_from_md > :last-child {
+#ktxhgyouko .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dhatrpoohw .gt_row {
+#ktxhgyouko .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1228,7 +1228,7 @@ MOTHED
   overflow-x: hidden;
 }
 
-#dhatrpoohw .gt_stub {
+#ktxhgyouko .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1241,7 +1241,7 @@ MOTHED
   padding-right: 5px;
 }
 
-#dhatrpoohw .gt_stub_row_group {
+#ktxhgyouko .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1255,15 +1255,15 @@ MOTHED
   vertical-align: top;
 }
 
-#dhatrpoohw .gt_row_group_first td {
+#ktxhgyouko .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dhatrpoohw .gt_row_group_first th {
+#ktxhgyouko .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dhatrpoohw .gt_summary_row {
+#ktxhgyouko .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1273,16 +1273,16 @@ MOTHED
   padding-right: 5px;
 }
 
-#dhatrpoohw .gt_first_summary_row {
+#ktxhgyouko .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_first_summary_row.thick {
+#ktxhgyouko .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dhatrpoohw .gt_last_summary_row {
+#ktxhgyouko .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1292,7 +1292,7 @@ MOTHED
   border-bottom-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_grand_summary_row {
+#ktxhgyouko .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1302,7 +1302,7 @@ MOTHED
   padding-right: 5px;
 }
 
-#dhatrpoohw .gt_first_grand_summary_row {
+#ktxhgyouko .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1312,7 +1312,7 @@ MOTHED
   border-top-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_last_grand_summary_row_top {
+#ktxhgyouko .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1322,11 +1322,11 @@ MOTHED
   border-bottom-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_striped {
+#ktxhgyouko .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dhatrpoohw .gt_table_body {
+#ktxhgyouko .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1335,7 +1335,7 @@ MOTHED
   border-bottom-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_footnotes {
+#ktxhgyouko .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1349,7 +1349,7 @@ MOTHED
   border-right-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_footnote {
+#ktxhgyouko .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1358,7 +1358,7 @@ MOTHED
   padding-right: 5px;
 }
 
-#dhatrpoohw .gt_sourcenotes {
+#ktxhgyouko .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1372,7 +1372,7 @@ MOTHED
   border-right-color: #D3D3D3;
 }
 
-#dhatrpoohw .gt_sourcenote {
+#ktxhgyouko .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1380,72 +1380,72 @@ MOTHED
   padding-right: 5px;
 }
 
-#dhatrpoohw .gt_left {
+#ktxhgyouko .gt_left {
   text-align: left;
 }
 
-#dhatrpoohw .gt_center {
+#ktxhgyouko .gt_center {
   text-align: center;
 }
 
-#dhatrpoohw .gt_right {
+#ktxhgyouko .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dhatrpoohw .gt_font_normal {
+#ktxhgyouko .gt_font_normal {
   font-weight: normal;
 }
 
-#dhatrpoohw .gt_font_bold {
+#ktxhgyouko .gt_font_bold {
   font-weight: bold;
 }
 
-#dhatrpoohw .gt_font_italic {
+#ktxhgyouko .gt_font_italic {
   font-style: italic;
 }
 
-#dhatrpoohw .gt_super {
+#ktxhgyouko .gt_super {
   font-size: 65%;
 }
 
-#dhatrpoohw .gt_footnote_marks {
+#ktxhgyouko .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dhatrpoohw .gt_asterisk {
+#ktxhgyouko .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dhatrpoohw .gt_indent_1 {
+#ktxhgyouko .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dhatrpoohw .gt_indent_2 {
+#ktxhgyouko .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dhatrpoohw .gt_indent_3 {
+#ktxhgyouko .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dhatrpoohw .gt_indent_4 {
+#ktxhgyouko .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dhatrpoohw .gt_indent_5 {
+#ktxhgyouko .gt_indent_5 {
   text-indent: 25px;
 }
 
-#dhatrpoohw .katex-display {
+#ktxhgyouko .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#dhatrpoohw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ktxhgyouko div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1565,7 +1565,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </div>
 <hr>
 <p>Save table:</p>
-<div class="sourceCode" id="cb572"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb573"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html">gtsave</a></span><span class="op">(</span><span class="va">fit_table</span>, <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"figures"</span>, <span class="st">"fit_table.png"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -1573,7 +1573,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">31.2.2</span> Information Criteria Plot<a class="anchor" aria-label="anchor" href="#information-criteria-plot-7"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb573"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb574"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">allFit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rowid_to_column</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1605,7 +1605,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <div class="inline-figure"><img src="34-dina-moderation_files/figure-html/unnamed-chunk-17-1.png" alt="" width="672"></div>
 <hr>
 <p>Save figure:</p>
-<div class="sourceCode" id="cb574"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb575"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"figures"</span>, <span class="st">"info_criteria.png"</span><span class="op">)</span>, dpi <span class="op">=</span> <span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>,  height<span class="op">=</span><span class="fl">5</span>, width<span class="op">=</span><span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -1614,7 +1614,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">31.2.3</span> Compare Class Solutions<a class="anchor" aria-label="anchor" href="#compare-class-solutions-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>Compare probability plots for <span class="math inline">\(K = 1:6\)</span> class solutions</p>
-<div class="sourceCode" id="cb575"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb576"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">output_enum</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
@@ -1656,7 +1656,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <div class="inline-figure"><img src="34-dina-moderation_files/figure-html/unnamed-chunk-19-1.png" alt="" width="672"></div>
 <hr>
 <p>Save figure:</p>
-<div class="sourceCode" id="cb576"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb577"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"figures"</span>, <span class="st">"compare_kclass_plot.png"</span><span class="op">)</span>, dpi <span class="op">=</span> <span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>, height<span class="op">=</span><span class="fl">5</span>, width<span class="op">=</span><span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -1666,14 +1666,14 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </h3>
 <p>Use the <code>plot_lca</code> function provided in the folder to plot the item probability plot. This function requires one argument:
 - <code>model_name</code>: The name of the Mplus <code>readModels</code> object (e.g., <code>output_enum$c4_lsal.out</code>)</p>
-<div class="sourceCode" id="cb577"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb578"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"functions"</span>, <span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">plot_lca</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_enum</span><span class="op">$</span><span class="va">c4_lsal.out</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="34-dina-moderation_files/figure-html/unnamed-chunk-21-1.png" alt="" width="960"></div>
 <hr>
 <p>Save figure:</p>
-<div class="sourceCode" id="cb578"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb579"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"figures"</span>, <span class="st">"probability_plot.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, height<span class="op">=</span><span class="fl">5</span>, width<span class="op">=</span><span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -1688,7 +1688,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">31.3.1</span> Step 1 - Estimate Unconditional Model w/ Auxiliary Specification<a class="anchor" aria-label="anchor" href="#step-1---estimate-unconditional-model-w-auxiliary-specification-2"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="sourceCode" id="cb579"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb580"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 1 - Unconditional Model w/ Auxiliary Specification"</span>, </span>
@@ -1742,14 +1742,14 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb580"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb581"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"functions"</span>, <span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">output_one</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"one.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">plot_lca</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_one</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="34-dina-moderation_files/figure-html/unnamed-chunk-24-1.png" alt="" width="960"></div>
 <p>Check that log-likelihood values are the same</p>
-<div class="sourceCode" id="cb581"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb582"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output_one</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"one.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">output_one</span><span class="op">$</span><span class="va">summaries</span><span class="op">$</span><span class="va">LL</span></span>
 <span><span class="co">#&gt; [1] -8742.238</span></span>
@@ -1768,7 +1768,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <code>class_labels</code>: The class labels (e.g., c(“Pro-Science w/ Elevated Utility Value”, “Ambivalent w/ Minimal Utility Value”, “Ambivalent w/ Elevated Utility Value”, “Anti-Science w/ Minimal Utility Value”))</li>
 </ul>
 <p>Note: Use <code>\n</code> to add a return if the label is lengthy.</p>
-<div class="sourceCode" id="cb582"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb583"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"functions"</span>,<span class="st">"plot_lca_labels.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Read in output from step 1.</span></span>
@@ -1797,7 +1797,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span><span class="co"># Plot LCA plot</span></span>
 <span><span class="fu">plot_lca_labels</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_one</span>, <span class="va">item_labels</span>, <span class="va">class_labels</span>, <span class="va">title</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="34-dina-moderation_files/figure-html/unnamed-chunk-26-1.png" alt="" width="960"></div>
-<div class="sourceCode" id="cb583"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb584"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Save</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"figures"</span>, <span class="st">"final_probability_plot_mod.png"</span><span class="op">)</span>, dpi <span class="op">=</span> <span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>, height<span class="op">=</span><span class="fl">7</span>, width<span class="op">=</span><span class="fl">10</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
@@ -1809,7 +1809,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </h3>
 <hr>
 <p>Extract logits for the classification probabilities for the most likely latent class</p>
-<div class="sourceCode" id="cb584"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb585"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">logit_cprobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_one</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">logitProbs.mostLikely</span><span class="op">)</span></span>
 <span><span class="va">logit_cprobs</span></span>
 <span><span class="co">#&gt;        1      2       3 4</span></span>
@@ -1818,11 +1818,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span><span class="co">#&gt; 3  4.497  4.352   6.199 0</span></span>
 <span><span class="co">#&gt; 4 -8.219 -2.150 -13.705 0</span></span></code></pre></div>
 <p>Extract saved dataset from step one</p>
-<div class="sourceCode" id="cb585"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb586"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">savedata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">output_one</span><span class="op">$</span><span class="va">savedata</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>N <span class="op">=</span> <span class="va">MLCC</span><span class="op">)</span> <span class="co">#Rename the column in savedata named "MLCC" and change to "N"</span></span></code></pre></div>
 <p>Check variable names in savedata (Mplus will cut off variable names that are longer than 8 characters)</p>
-<div class="sourceCode" id="cb586"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb587"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">savedata</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "KA47A"   "KA47H"   "KA47I"   "KA47K"   "KA47L"  </span></span>
 <span><span class="co">#&gt;  [6] "FEMALE"  "MOTHED"  "ISCIIRT" "KA9B"    "KA9D"   </span></span>
@@ -1836,7 +1836,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </h3>
 <hr>
 <p>To test for moderation, an overall test of equivalence of the regression of science issues on science ability across the latent classes was conducted using the omnibus Wald test. This is done in <code>MplusAutomation</code> using the <code>MODELTEST</code> command shown below. Mplus can run only one Wald test at a time. After evaluating the first Wald test (slopes), re-run step three for the second Wald test (intercepts). Pairwise comparisons can be tested simultaneously, but should be evaluated after significant Wald tests.</p>
-<div class="sourceCode" id="cb587"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb588"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step3mod</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 3 - LCA Moderation"</span>, </span>
 <span>  </span>
@@ -1929,7 +1929,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>               modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"three_slope.inp"</span><span class="op">)</span>, </span>
 <span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Rerun model with different model test:</p>
-<div class="sourceCode" id="cb588"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb589"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Update the model test by overwriting string</span></span>
 <span><span class="va">step3mod</span><span class="op">$</span><span class="va">MODELTEST</span> <span class="op">&lt;-</span> <span class="st">"B01=B03; B03=B04"</span></span>
 <span></span>
@@ -1940,7 +1940,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>               check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p>Compare Step 1 classes and Step 3 classes</p>
-<div class="sourceCode" id="cb589"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb590"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output_one</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"one.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">output_one</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">modelEstimated</span></span>
 <span><span class="co">#&gt;   class     count proportion</span></span>
@@ -1965,7 +1965,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </h4>
 <p>This is testing if there is a relation between the latent class variable and the distal outcome.</p>
 <p>Note: There are two outputs, each containing separate Wald tests (one for slope and one for intercept). However, other than the Wald test, the outputs are identical. Either can be used for subsequent code.</p>
-<div class="sourceCode" id="cb590"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb591"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Make a Wald table function</span></span>
 <span><span class="va">wald_table</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">mplus_model</span>, <span class="va">table_title</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  </span>
@@ -1995,7 +1995,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Use <code>wald_table</code> function</p>
-<div class="sourceCode" id="cb591"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb592"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output_three_slope</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"three_slope.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">output_three_intercept</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"three_intercept.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -2465,7 +2465,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </tr></tbody>
 </table></div>
 </div>
-<div class="sourceCode" id="cb592"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb593"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">wald_table</span><span class="op">(</span><span class="va">output_three_intercept</span>, <span class="st">"Wald Test Distal Means (Math IRT Scores)"</span><span class="op">)</span></span></code></pre></div>
 <div id="xhxapuyjfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#xhxapuyjfa table {
@@ -2938,7 +2938,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">31.3.3.2</span> Table of Slope and Intercept Values Across Classes<a class="anchor" aria-label="anchor" href="#table-of-slope-and-intercept-values-across-classes-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb593"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb594"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"three_intercept.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract information as data frame</span></span>
@@ -3496,7 +3496,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">31.3.3.3</span> Table of Distal Outcome Differences<a class="anchor" aria-label="anchor" href="#table-of-distal-outcome-differences-2"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb594"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb595"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"three_intercept.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract information as data frame</span></span>
@@ -4015,7 +4015,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">31.3.3.4</span> Table of Slope Differences<a class="anchor" aria-label="anchor" href="#table-of-slope-differences-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb595"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb596"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"three_intercept.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract information as data frame</span></span>
@@ -4549,7 +4549,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">31.3.3.5</span> Table of Covariates<a class="anchor" aria-label="anchor" href="#table-of-covariates-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb596"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb597"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"three_intercept.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract information as data frame</span></span>
@@ -5069,7 +5069,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">31.3.3.6</span> Plot Distal Outcome<a class="anchor" aria-label="anchor" href="#plot-distal-outcome-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb597"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb598"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"three_intercept.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract class size </span></span>
@@ -5132,7 +5132,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>    legend.position <span class="op">=</span> <span class="st">"none"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="34-dina-moderation_files/figure-html/unnamed-chunk-39-1.png" alt="" width="960"></div>
-<div class="sourceCode" id="cb598"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb599"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Save plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"figures"</span>,<span class="st">"distal_plot.jpg"</span><span class="op">)</span>, dpi <span class="op">=</span> <span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>,  width<span class="op">=</span><span class="fl">13</span>, height <span class="op">=</span> <span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span> </span></code></pre></div>
 <hr>
@@ -5141,7 +5141,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">31.3.3.7</span> Plot Slopes<a class="anchor" aria-label="anchor" href="#plot-slopes"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb599"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb600"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"three_step"</span>, <span class="st">"three_intercept.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Minimum and Maximum Values</span></span>
@@ -5220,7 +5220,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span>nrow <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="34-dina-moderation_files/figure-html/unnamed-chunk-41-1.png" alt="" width="960"></div>
-<div class="sourceCode" id="cb600"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb601"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Save</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"34-lca-moderation"</span>,<span class="st">"figures"</span>,<span class="st">"slope_plot.jpg"</span><span class="op">)</span>, dpi <span class="op">=</span> <span class="st">"retina"</span>, bg <span class="op">=</span> <span class="st">"white"</span>,  width<span class="op">=</span><span class="fl">11</span>, height <span class="op">=</span> <span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span>   </span></code></pre></div>
 <hr>
@@ -5273,7 +5273,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-07-27.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-07-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
