@@ -7,7 +7,7 @@
 <title>30 Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, &amp; E. D. Nacsa, 2026) | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="Citation: Exploring Heterogeneity in Chemistry Education Research: Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck,...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="30 Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, &amp; E. D. Nacsa, 2026) | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/comparing-cluster-analysis-and-latent-profile-analysis-b.-j.-yik-y.-zhang-k.-nylund-gibson-m.-ing-l.-krawiec-j.-d.-houck-e.-d.-nacsa-2026.html">
@@ -125,7 +125,7 @@
 <span class="header-section-number">30</span> Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, &amp; E. D. Nacsa, 2026)<a class="anchor" aria-label="anchor" href="#comparing-cluster-analysis-and-latent-profile-analysis-b.-j.-yik-y.-zhang-k.-nylund-gibson-m.-ing-l.-krawiec-j.-d.-houck-e.-d.-nacsa-2026"><i class="fas fa-link"></i></a>
 </h1>
 <p>Citation: <a href="https://doi.org/10.1039/D5RP00432B">Exploring Heterogeneity in Chemistry Education Research: Comparing Cluster Analysis and Latent Profile Analysis (B. J. Yik,* Y. Zhang, K. Nylund-Gibson, M. Ing, L. Krawiec, J. D. Houck, &amp; E. D. Nacsa (2026)</a></p>
-<div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb523"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/">glue</a></span><span class="op">)</span></span>
@@ -155,7 +155,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hbiostat.org/R/Hmisc/">Hmisc</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bprice2652/car_repo">car</a></span><span class="op">)</span></span></code></pre></div>
 <p>Proposed model applied in current study</p>
-<div class="sourceCode" id="cb515"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb524"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rich-iannone.github.io/DiagrammeR/reference/grViz.html">grViz</a></span><span class="op">(</span><span class="st">" digraph lca_model {</span></span>
 <span><span class="st"></span></span>
 <span><span class="st"># The `graph` statement - No editing needed</span></span>
@@ -191,13 +191,13 @@
 <span><span class="st"> {rank = same; Grading; dispositions; Exam}</span></span>
 <span><span class="st"> #{rank = source; Attitudes; Motivation; Effort; Efficacy; Concept}</span></span>
 <span><span class="st"> }"</span><span class="op">)</span> </span></code></pre></div>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-c4f3eea922e0e0de3bd6" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-c4f3eea922e0e0de3bd6">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Attitudes [label = <Attitudes toward <br/>chemistry>]\n    Motivation\n    Effort [label = <Effort Beliefs>]\n    Efficacy [label = <Self-efficacy>] \n    Concept [label = <Self-concept>]\n    Grading [label = <Grading Scheme>]\n    Exam [label = <ACS Exam Score>];\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    dispositions [label=<Student <br/>Affects <br/>C<sub>k=3<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    dispositions -> {Attitudes Motivation Effort Efficacy Concept}\n    dispositions -> Exam [minlen = 4];\n    Grading -> dispositions [minlen = 4];\n    Grading -> Exam;\n    \n {rank = same; Grading; dispositions; Exam}\n #{rank = source; Attitudes; Motivation; Effort; Efficacy; Concept}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>load the dataset</p>
-<div class="sourceCode" id="cb516"><pre class="downlit sourceCode r">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-3ff32f73056f332ebe78" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-3ff32f73056f332ebe78">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Attitudes [label = <Attitudes toward <br/>chemistry>]\n    Motivation\n    Effort [label = <Effort Beliefs>]\n    Efficacy [label = <Self-efficacy>] \n    Concept [label = <Self-concept>]\n    Grading [label = <Grading Scheme>]\n    Exam [label = <ACS Exam Score>];\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    dispositions [label=<Student <br/>Affects <br/>C<sub>k=3<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    dispositions -> {Attitudes Motivation Effort Efficacy Concept}\n    dispositions -> Exam [minlen = 4];\n    Grading -> dispositions [minlen = 4];\n    Grading -> Exam;\n    \n {rank = same; Grading; dispositions; Exam}\n #{rank = source; Attitudes; Motivation; Effort; Efficacy; Concept}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p>load the dataset</p>
+<div class="sourceCode" id="cb525"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#load data</span></span>
 <span><span class="va">pre</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"33-k-means"</span>, <span class="st">"grading-pre-v2.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>handling missing data</p>
-<div class="sourceCode" id="cb517"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb526"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#any(is.na(pre))</span></span>
 <span><span class="va">pre_clean</span> <span class="op">&lt;-</span> <span class="va">pre</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">pre_clean</span><span class="op">)</span><span class="op">)</span></span>
@@ -208,11 +208,11 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">Gender</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"I am gender nonconforming,I am genderqueer or genderfluid"</span>, <span class="st">"My gender or gender identity is best described as:"</span>, <span class="st">"I am gender nonconforming"</span>, <span class="st">"I prefer not to disclose my gender or gender identity"</span>, <span class="st">"I am genderqueer or genderfluid"</span>, <span class="st">"I am nonbinary"</span> <span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>view data</p>
 <p>recode</p>
-<div class="sourceCode" id="cb518"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb527"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pre_clean</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>grading <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">grading</span> <span class="op">==</span> <span class="st">"specs"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>  <span class="co"># specs = 1, trad = 0</span></span></code></pre></div>
 <p>calculate means for each scale</p>
-<div class="sourceCode" id="cb519"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb528"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pre_clean</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>ASCI_IA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowMeans</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">ASCI1</span><span class="op">:</span><span class="va">ASCI8</span><span class="op">)</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>AMSC <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowMeans</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">AMSC01</span><span class="op">:</span><span class="va">AMSC28</span><span class="op">)</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1346,11 +1346,11 @@ CSC
 </tr>
 </table></div>
 <p>standardize the variables (z-score)</p>
-<div class="sourceCode" id="cb520"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb529"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pre_clean</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">all_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ASCI_IA"</span>, <span class="st">"AMSC"</span>, <span class="st">"EB"</span>, <span class="st">"MSLQ"</span>, <span class="st">"CSC"</span><span class="op">)</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/pkg/float/man/scale.html">scale</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>, .names <span class="op">=</span> <span class="st">"z_{.col}"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>double check all indicators are standardized</p>
-<div class="sourceCode" id="cb521"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb530"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">z_ASCI_IA</span><span class="op">:</span><span class="va">z_CSC</span>, names_to <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1362,23 +1362,23 @@ CSC
 <span>    <span class="fu"><a href="https://gt.rstudio.com/reference/cols_label.html">cols_label</a></span><span class="op">(</span>variable <span class="op">=</span> <span class="st">"Variable"</span>, mean <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"M"</span><span class="op">)</span>, sd <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"SD"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_number.html">fmt_number</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, decimals <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://gt.rstudio.com/reference/cols_align.html">cols_align</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"center"</span>, columns <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
-<div id="erojrzmcur" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#erojrzmcur table {
+<div id="pyvpetvmmz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pyvpetvmmz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#erojrzmcur thead, #erojrzmcur tbody, #erojrzmcur tfoot, #erojrzmcur tr, #erojrzmcur td, #erojrzmcur th {
+#pyvpetvmmz thead, #pyvpetvmmz tbody, #pyvpetvmmz tfoot, #pyvpetvmmz tr, #pyvpetvmmz td, #pyvpetvmmz th {
   border-style: none;
 }
 
-#erojrzmcur p {
+#pyvpetvmmz p {
   margin: 0;
   padding: 0;
 }
 
-#erojrzmcur .gt_table {
+#pyvpetvmmz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1404,12 +1404,12 @@ CSC
   border-left-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_caption {
+#pyvpetvmmz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#erojrzmcur .gt_title {
+#pyvpetvmmz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1421,7 +1421,7 @@ CSC
   border-bottom-width: 0;
 }
 
-#erojrzmcur .gt_subtitle {
+#pyvpetvmmz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1433,7 +1433,7 @@ CSC
   border-top-width: 0;
 }
 
-#erojrzmcur .gt_heading {
+#pyvpetvmmz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1445,13 +1445,13 @@ CSC
   border-right-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_bottom_border {
+#pyvpetvmmz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_col_headings {
+#pyvpetvmmz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1466,7 +1466,7 @@ CSC
   border-right-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_col_heading {
+#pyvpetvmmz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1486,7 +1486,7 @@ CSC
   overflow-x: hidden;
 }
 
-#erojrzmcur .gt_column_spanner_outer {
+#pyvpetvmmz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1498,15 +1498,15 @@ CSC
   padding-right: 4px;
 }
 
-#erojrzmcur .gt_column_spanner_outer:first-child {
+#pyvpetvmmz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#erojrzmcur .gt_column_spanner_outer:last-child {
+#pyvpetvmmz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#erojrzmcur .gt_column_spanner {
+#pyvpetvmmz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1518,11 +1518,11 @@ CSC
   width: 100%;
 }
 
-#erojrzmcur .gt_spanner_row {
+#pyvpetvmmz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#erojrzmcur .gt_group_heading {
+#pyvpetvmmz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1548,7 +1548,7 @@ CSC
   text-align: left;
 }
 
-#erojrzmcur .gt_empty_group_heading {
+#pyvpetvmmz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1563,15 +1563,15 @@ CSC
   vertical-align: middle;
 }
 
-#erojrzmcur .gt_from_md > :first-child {
+#pyvpetvmmz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#erojrzmcur .gt_from_md > :last-child {
+#pyvpetvmmz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#erojrzmcur .gt_row {
+#pyvpetvmmz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1590,7 +1590,7 @@ CSC
   overflow-x: hidden;
 }
 
-#erojrzmcur .gt_stub {
+#pyvpetvmmz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1603,7 +1603,7 @@ CSC
   padding-right: 5px;
 }
 
-#erojrzmcur .gt_stub_row_group {
+#pyvpetvmmz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1617,15 +1617,15 @@ CSC
   vertical-align: top;
 }
 
-#erojrzmcur .gt_row_group_first td {
+#pyvpetvmmz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#erojrzmcur .gt_row_group_first th {
+#pyvpetvmmz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#erojrzmcur .gt_summary_row {
+#pyvpetvmmz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1635,16 +1635,16 @@ CSC
   padding-right: 5px;
 }
 
-#erojrzmcur .gt_first_summary_row {
+#pyvpetvmmz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_first_summary_row.thick {
+#pyvpetvmmz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#erojrzmcur .gt_last_summary_row {
+#pyvpetvmmz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1654,7 +1654,7 @@ CSC
   border-bottom-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_grand_summary_row {
+#pyvpetvmmz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1664,7 +1664,7 @@ CSC
   padding-right: 5px;
 }
 
-#erojrzmcur .gt_first_grand_summary_row {
+#pyvpetvmmz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1674,7 +1674,7 @@ CSC
   border-top-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_last_grand_summary_row_top {
+#pyvpetvmmz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1684,11 +1684,11 @@ CSC
   border-bottom-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_striped {
+#pyvpetvmmz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#erojrzmcur .gt_table_body {
+#pyvpetvmmz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1697,7 +1697,7 @@ CSC
   border-bottom-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_footnotes {
+#pyvpetvmmz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1711,7 +1711,7 @@ CSC
   border-right-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_footnote {
+#pyvpetvmmz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1720,7 +1720,7 @@ CSC
   padding-right: 5px;
 }
 
-#erojrzmcur .gt_sourcenotes {
+#pyvpetvmmz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1734,7 +1734,7 @@ CSC
   border-right-color: #D3D3D3;
 }
 
-#erojrzmcur .gt_sourcenote {
+#pyvpetvmmz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1742,72 +1742,72 @@ CSC
   padding-right: 5px;
 }
 
-#erojrzmcur .gt_left {
+#pyvpetvmmz .gt_left {
   text-align: left;
 }
 
-#erojrzmcur .gt_center {
+#pyvpetvmmz .gt_center {
   text-align: center;
 }
 
-#erojrzmcur .gt_right {
+#pyvpetvmmz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#erojrzmcur .gt_font_normal {
+#pyvpetvmmz .gt_font_normal {
   font-weight: normal;
 }
 
-#erojrzmcur .gt_font_bold {
+#pyvpetvmmz .gt_font_bold {
   font-weight: bold;
 }
 
-#erojrzmcur .gt_font_italic {
+#pyvpetvmmz .gt_font_italic {
   font-style: italic;
 }
 
-#erojrzmcur .gt_super {
+#pyvpetvmmz .gt_super {
   font-size: 65%;
 }
 
-#erojrzmcur .gt_footnote_marks {
+#pyvpetvmmz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#erojrzmcur .gt_asterisk {
+#pyvpetvmmz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#erojrzmcur .gt_indent_1 {
+#pyvpetvmmz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#erojrzmcur .gt_indent_2 {
+#pyvpetvmmz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#erojrzmcur .gt_indent_3 {
+#pyvpetvmmz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#erojrzmcur .gt_indent_4 {
+#pyvpetvmmz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#erojrzmcur .gt_indent_5 {
+#pyvpetvmmz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#erojrzmcur .katex-display {
+#pyvpetvmmz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#erojrzmcur div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pyvpetvmmz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1851,7 +1851,7 @@ CSC
 </tbody>
 </table></div>
 </div>
-<div class="sourceCode" id="cb522"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb531"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">data_long</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">z_ASCI_IA</span><span class="op">:</span><span class="va">z_CSC</span>, names_to <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span></span>
@@ -1862,7 +1862,7 @@ CSC
 <div class="inline-figure">
 <img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-9-1.png" alt="" width="672">
 correlations</div>
-<div class="sourceCode" id="cb523"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb532"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_cor</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">z_ASCI_IA</span>, <span class="va">z_AMSC</span>, <span class="va">z_EB</span>, <span class="va">z_MSLQ</span>, <span class="va">z_CSC</span>, <span class="va">grading</span>, <span class="va">exam</span><span class="op">)</span></span>
 <span></span>
@@ -1903,7 +1903,7 @@ correlations</div>
 <span><span class="co">#&gt; grading   0.37      0.15   0.25 0.08   0.05   NA     0.06</span></span>
 <span><span class="co">#&gt; exam      0.01      0.66   0.00 0.00   0.72  0.06     NA</span></span></code></pre></div>
 <p>run LPA model</p>
-<div class="sourceCode" id="cb524"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb533"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Run LPA models (no need to run it everytime)</span></span>
 <span><span class="va">lpa_fit</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">z_ASCI_IA</span>, <span class="va">z_AMSC</span>, <span class="va">z_EB</span>, <span class="va">z_MSLQ</span>, <span class="va">z_CSC</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1918,27 +1918,27 @@ correlations</div>
 <span><span class="co"># Move files to folder</span></span>
 <span><span class="va">files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span>, pattern <span class="op">=</span> <span class="st">"^model"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rorynolan.github.io/filesstrings/reference/move_files.html">move_files</a></span><span class="op">(</span><span class="va">files</span>, <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"33-k-means"</span>, <span class="st">"new"</span><span class="op">)</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb525"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb534"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"33-k-means"</span>, <span class="st">"functions"</span>, <span class="st">"enum_table_lpa.r"</span><span class="op">)</span><span class="op">)</span> <span class="co">#file in the folder</span></span>
 <span></span>
 <span><span class="co"># Read in model</span></span>
 <span><span class="va">output_pisa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"33-k-means"</span>, <span class="st">"new"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb526"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb535"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Preview with numbered rows</span></span>
 <span><span class="fu">enum_fit</span><span class="op">(</span><span class="va">output_pisa</span><span class="op">)</span></span></code></pre></div>
 <p>model fit summary table (this is the old version table, still working on the new one; the new one will include smallest profile)</p>
-<div class="sourceCode" id="cb527"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb536"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">select_models</span> <span class="op">&lt;-</span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/LatexSummaryTable.html">LatexSummaryTable</a></span><span class="op">(</span><span class="va">output_pisa</span>,                                 </span>
 <span>                keepCols<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Title"</span>, <span class="st">"Parameters"</span>, <span class="st">"LL"</span>, <span class="st">"BIC"</span>, <span class="st">"aBIC"</span>,</span>
 <span>                           <span class="st">"BLRT_PValue"</span>, <span class="st">"T11_VLMR_PValue"</span>,<span class="st">"Observations"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb528"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb537"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">enum_table</span><span class="op">(</span><span class="va">select_models</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="fl">7</span><span class="op">:</span><span class="fl">12</span>, <span class="fl">13</span><span class="op">:</span><span class="fl">18</span>, <span class="fl">19</span><span class="op">:</span><span class="fl">23</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb529"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb538"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"33-k-means"</span>, <span class="st">"functions"</span>,<span class="st">"ic_plot_lpa.R"</span><span class="op">)</span><span class="op">)</span> </span>
 <span><span class="co">#file in the folder</span></span>
 <span><span class="fu">ic_plot</span><span class="op">(</span><span class="va">output_pisa</span><span class="op">)</span></span></code></pre></div>
 <p>second round comparison among different profiles</p>
-<div class="sourceCode" id="cb530"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb539"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># CmpK recalculation:</span></span>
 <span><span class="va">enum_fit1</span> <span class="op">&lt;-</span> <span class="va">select_models</span></span>
 <span></span>
@@ -2000,23 +2000,23 @@ correlations</div>
 <span>     row <span class="op">=</span>  <span class="va">BF</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div id="cfyvbtcwma" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cfyvbtcwma table {
+<div id="kcttpxrbue" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kcttpxrbue table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cfyvbtcwma thead, #cfyvbtcwma tbody, #cfyvbtcwma tfoot, #cfyvbtcwma tr, #cfyvbtcwma td, #cfyvbtcwma th {
+#kcttpxrbue thead, #kcttpxrbue tbody, #kcttpxrbue tfoot, #kcttpxrbue tr, #kcttpxrbue td, #kcttpxrbue th {
   border-style: none;
 }
 
-#cfyvbtcwma p {
+#kcttpxrbue p {
   margin: 0;
   padding: 0;
 }
 
-#cfyvbtcwma .gt_table {
+#kcttpxrbue .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2042,12 +2042,12 @@ correlations</div>
   border-left-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_caption {
+#kcttpxrbue .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cfyvbtcwma .gt_title {
+#kcttpxrbue .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2059,7 +2059,7 @@ correlations</div>
   border-bottom-width: 0;
 }
 
-#cfyvbtcwma .gt_subtitle {
+#kcttpxrbue .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2071,7 +2071,7 @@ correlations</div>
   border-top-width: 0;
 }
 
-#cfyvbtcwma .gt_heading {
+#kcttpxrbue .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2083,13 +2083,13 @@ correlations</div>
   border-right-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_bottom_border {
+#kcttpxrbue .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_col_headings {
+#kcttpxrbue .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2104,7 +2104,7 @@ correlations</div>
   border-right-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_col_heading {
+#kcttpxrbue .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2124,7 +2124,7 @@ correlations</div>
   overflow-x: hidden;
 }
 
-#cfyvbtcwma .gt_column_spanner_outer {
+#kcttpxrbue .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2136,15 +2136,15 @@ correlations</div>
   padding-right: 4px;
 }
 
-#cfyvbtcwma .gt_column_spanner_outer:first-child {
+#kcttpxrbue .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cfyvbtcwma .gt_column_spanner_outer:last-child {
+#kcttpxrbue .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cfyvbtcwma .gt_column_spanner {
+#kcttpxrbue .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2156,11 +2156,11 @@ correlations</div>
   width: 100%;
 }
 
-#cfyvbtcwma .gt_spanner_row {
+#kcttpxrbue .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cfyvbtcwma .gt_group_heading {
+#kcttpxrbue .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2186,7 +2186,7 @@ correlations</div>
   text-align: left;
 }
 
-#cfyvbtcwma .gt_empty_group_heading {
+#kcttpxrbue .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2201,15 +2201,15 @@ correlations</div>
   vertical-align: middle;
 }
 
-#cfyvbtcwma .gt_from_md > :first-child {
+#kcttpxrbue .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cfyvbtcwma .gt_from_md > :last-child {
+#kcttpxrbue .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cfyvbtcwma .gt_row {
+#kcttpxrbue .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2228,7 +2228,7 @@ correlations</div>
   overflow-x: hidden;
 }
 
-#cfyvbtcwma .gt_stub {
+#kcttpxrbue .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2241,7 +2241,7 @@ correlations</div>
   padding-right: 5px;
 }
 
-#cfyvbtcwma .gt_stub_row_group {
+#kcttpxrbue .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2255,15 +2255,15 @@ correlations</div>
   vertical-align: top;
 }
 
-#cfyvbtcwma .gt_row_group_first td {
+#kcttpxrbue .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cfyvbtcwma .gt_row_group_first th {
+#kcttpxrbue .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cfyvbtcwma .gt_summary_row {
+#kcttpxrbue .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2273,16 +2273,16 @@ correlations</div>
   padding-right: 5px;
 }
 
-#cfyvbtcwma .gt_first_summary_row {
+#kcttpxrbue .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_first_summary_row.thick {
+#kcttpxrbue .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cfyvbtcwma .gt_last_summary_row {
+#kcttpxrbue .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2292,7 +2292,7 @@ correlations</div>
   border-bottom-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_grand_summary_row {
+#kcttpxrbue .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2302,7 +2302,7 @@ correlations</div>
   padding-right: 5px;
 }
 
-#cfyvbtcwma .gt_first_grand_summary_row {
+#kcttpxrbue .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2312,7 +2312,7 @@ correlations</div>
   border-top-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_last_grand_summary_row_top {
+#kcttpxrbue .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2322,11 +2322,11 @@ correlations</div>
   border-bottom-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_striped {
+#kcttpxrbue .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cfyvbtcwma .gt_table_body {
+#kcttpxrbue .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2335,7 +2335,7 @@ correlations</div>
   border-bottom-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_footnotes {
+#kcttpxrbue .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2349,7 +2349,7 @@ correlations</div>
   border-right-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_footnote {
+#kcttpxrbue .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2358,7 +2358,7 @@ correlations</div>
   padding-right: 5px;
 }
 
-#cfyvbtcwma .gt_sourcenotes {
+#kcttpxrbue .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2372,7 +2372,7 @@ correlations</div>
   border-right-color: #D3D3D3;
 }
 
-#cfyvbtcwma .gt_sourcenote {
+#kcttpxrbue .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2380,72 +2380,72 @@ correlations</div>
   padding-right: 5px;
 }
 
-#cfyvbtcwma .gt_left {
+#kcttpxrbue .gt_left {
   text-align: left;
 }
 
-#cfyvbtcwma .gt_center {
+#kcttpxrbue .gt_center {
   text-align: center;
 }
 
-#cfyvbtcwma .gt_right {
+#kcttpxrbue .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cfyvbtcwma .gt_font_normal {
+#kcttpxrbue .gt_font_normal {
   font-weight: normal;
 }
 
-#cfyvbtcwma .gt_font_bold {
+#kcttpxrbue .gt_font_bold {
   font-weight: bold;
 }
 
-#cfyvbtcwma .gt_font_italic {
+#kcttpxrbue .gt_font_italic {
   font-style: italic;
 }
 
-#cfyvbtcwma .gt_super {
+#kcttpxrbue .gt_super {
   font-size: 65%;
 }
 
-#cfyvbtcwma .gt_footnote_marks {
+#kcttpxrbue .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cfyvbtcwma .gt_asterisk {
+#kcttpxrbue .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cfyvbtcwma .gt_indent_1 {
+#kcttpxrbue .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cfyvbtcwma .gt_indent_2 {
+#kcttpxrbue .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cfyvbtcwma .gt_indent_3 {
+#kcttpxrbue .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cfyvbtcwma .gt_indent_4 {
+#kcttpxrbue .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cfyvbtcwma .gt_indent_5 {
+#kcttpxrbue .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cfyvbtcwma .katex-display {
+#kcttpxrbue .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cfyvbtcwma div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kcttpxrbue div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2545,7 +2545,7 @@ correlations</div>
 </table></div>
 </div>
 <p>Comparing two profiles</p>
-<div class="sourceCode" id="cb531"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb540"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/plotMixtures.html">plotMixtures</a></span><span class="op">(</span><span class="va">output_pisa</span><span class="op">$</span><span class="va">model_2_class_2.out</span>, ci <span class="op">=</span> <span class="fl">0.95</span>, bw <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/plotMixtures.html">plotMixtures</a></span><span class="op">(</span><span class="va">output_pisa</span><span class="op">$</span><span class="va">model_6_class_2.out</span>, ci <span class="op">=</span> <span class="fl">0.95</span>, bw <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -2554,14 +2554,14 @@ correlations</div>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-18-1.png" alt="" width="672"></div>
 <p>a initial look, not the final figure</p>
-<div class="sourceCode" id="cb532"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb541"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"33-k-means"</span>, <span class="st">"functions"</span>, <span class="st">"plot_lpa.R"</span><span class="op">)</span><span class="op">)</span>  <span class="co">#file in the folder</span></span>
 <span></span>
 <span><span class="fu">plot_lpa</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_pisa</span><span class="op">$</span><span class="va">model_2_class_2.out</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure">
 <img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-19-1.png" alt="" width="672">
 another version: this one changed the color of two profiles and the variable names (all labels)</div>
-<div class="sourceCode" id="cb533"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb542"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot_lpa</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model_name</span><span class="op">)</span> <span class="op">{</span></span>
 <span></span>
 <span>  <span class="co"># Extract and reshape mean estimates by class</span></span>
@@ -2633,7 +2633,7 @@ another version: this one changed the color of two profiles and the variable nam
 <span><span class="fu">plot_lpa</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_pisa</span><span class="op">$</span><span class="va">model_2_class_2.out</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-20-1.png" alt="" width="672"></div>
 <p>Final figure</p>
-<div class="sourceCode" id="cb534"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb543"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot_lpa</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model_name</span><span class="op">)</span> <span class="op">{</span></span>
 <span></span>
 <span>  <span class="co"># Extract and reshape mean estimates by class</span></span>
@@ -2713,18 +2713,18 @@ another version: this one changed the color of two profiles and the variable nam
 <span></span>
 <span><span class="fu">plot_lpa</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_pisa</span><span class="op">$</span><span class="va">model_2_class_2.out</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-21-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb535"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb544"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">plot_lpa</span><span class="op">(</span>model_name <span class="op">=</span> <span class="va">output_pisa</span><span class="op">$</span><span class="va">model_2_class_2.out</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"profile_plot.png"</span>, plot <span class="op">=</span> <span class="va">p</span>, width <span class="op">=</span> <span class="fl">9</span>, height <span class="op">=</span> <span class="fl">5.6</span>, units <span class="op">=</span> <span class="st">"in"</span>, dpi <span class="op">=</span> <span class="fl">600</span>, bg <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div>
 <p>Three step ML</p>
-<div class="sourceCode" id="cb536"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb545"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lpa_result</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">z_ASCI_IA</span>, <span class="va">z_AMSC</span>, <span class="va">z_EB</span>, <span class="va">z_MSLQ</span>, <span class="va">z_CSC</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://data-edu.github.io/tidyLPA/reference/estimate_profiles.html">estimate_profiles</a></span><span class="op">(</span>n_profiles <span class="op">=</span> <span class="fl">2</span>, model <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>  <span class="co"># Adjust the number of profiles as needed</span></span></code></pre></div>
-<div class="sourceCode" id="cb537"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb546"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">classified_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_cols.html">bind_cols</a></span><span class="op">(</span><span class="va">pre_clean</span>, <span class="fu"><a href="https://data-edu.github.io/tidyLPA/reference/get_data.html">get_data</a></span><span class="op">(</span><span class="va">lpa_result</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb538"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb547"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">exam</span> <span class="op">~</span> <span class="va">Class</span>, data <span class="op">=</span> <span class="va">classified_data</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Two Sample t-test</span></span>
@@ -2737,7 +2737,7 @@ another version: this one changed the color of two profiles and the variable nam
 <span><span class="co">#&gt; sample estimates:</span></span>
 <span><span class="co">#&gt; mean in group 1 mean in group 2 </span></span>
 <span><span class="co">#&gt;        70.82609        62.53435</span></span></code></pre></div>
-<div class="sourceCode" id="cb539"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb548"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">classified_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
@@ -2751,7 +2751,7 @@ another version: this one changed the color of two profiles and the variable nam
 <span><span class="co">#&gt; 1     1   138  70.8  13.3</span></span>
 <span><span class="co">#&gt; 2     2   131  62.5  13.6</span></span></code></pre></div>
 <p>wald test</p>
-<div class="sourceCode" id="cb540"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb549"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lm_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">exam</span> <span class="op">~</span> <span class="va">Class</span>, data <span class="op">=</span> <span class="va">classified_data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm_model</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -2773,7 +2773,7 @@ another version: this one changed the color of two profiles and the variable nam
 <span><span class="co">#&gt; Residual standard error: 13.44 on 267 degrees of freedom</span></span>
 <span><span class="co">#&gt; Multiple R-squared:  0.08748,    Adjusted R-squared:  0.08406 </span></span>
 <span><span class="co">#&gt; F-statistic:  25.6 on 1 and 267 DF,  p-value: 7.837e-07</span></span></code></pre></div>
-<div class="sourceCode" id="cb541"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb550"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/car/man/Anova.html">Anova</a></span><span class="op">(</span><span class="va">lm_model</span>, type <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>  </span>
 <span><span class="co">#&gt; Anova Table (Type III tests)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -2786,13 +2786,13 @@ another version: this one changed the color of two profiles and the variable nam
 <span><span class="co">#&gt; Signif. codes:  </span></span>
 <span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
 <p>Kmeans</p>
-<div class="sourceCode" id="cb542"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb551"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pre_clean</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">all_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ASCI_IA"</span>, <span class="st">"AMSC"</span>, <span class="st">"EB"</span>, <span class="st">"MSLQ"</span>, <span class="st">"CSC"</span><span class="op">)</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/pkg/float/man/scale.html">scale</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>, .names <span class="op">=</span> <span class="st">"z_{.col}"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">dfk</span> <span class="op">&lt;-</span> <span class="va">pre_clean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">z_ASCI_IA</span>, <span class="va">z_AMSC</span>, <span class="va">z_EB</span>, <span class="va">z_MSLQ</span>, <span class="va">z_CSC</span>, <span class="va">exam</span>, <span class="va">grading</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb543"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb552"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Step 1: Select specific variables for clustering</span></span>
 <span><span class="va">dfk_selected</span> <span class="op">&lt;-</span> <span class="va">dfk</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">z_AMSC</span>, <span class="va">z_ASCI_IA</span>, <span class="va">z_CSC</span>, <span class="va">z_EB</span>, <span class="va">z_MSLQ</span><span class="op">)</span> </span>
@@ -2819,7 +2819,7 @@ another version: this one changed the color of two profiles and the variable nam
 <span>     ylab <span class="op">=</span> <span class="st">"Total Within-Cluster Sum of Squares"</span>,</span>
 <span>     main <span class="op">=</span> <span class="st">"Elbow Method for Optimal k"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-29-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb544"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb553"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Step 6: Assign cluster labels to the original selected data for chosen k</span></span>
 <span><span class="va">chosen_k</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
@@ -2831,14 +2831,14 @@ another version: this one changed the color of two profiles and the variable nam
 <span>             geom <span class="op">=</span> <span class="st">"point"</span>, ellipse.type <span class="op">=</span> <span class="st">"convex"</span>,</span>
 <span>             main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"K-means Clustering (k ="</span>, <span class="va">chosen_k</span>, <span class="st">")"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-29-2.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb545"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb554"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">kmeans_results</span><span class="op">[[</span><span class="st">"2"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">size</span></span>
 <span><span class="co">#&gt; [1] 160 109</span></span></code></pre></div>
-<div class="sourceCode" id="cb546"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb555"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_nbclust.html">fviz_nbclust</a></span><span class="op">(</span><span class="va">dfk_clustered</span>, <span class="va">kmeans</span>, method <span class="op">=</span> <span class="st">"wss"</span><span class="op">)</span> <span class="co">#choose 3</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-31-1.png" alt="" width="672"></div>
 <p>elbow plot</p>
-<div class="sourceCode" id="cb547"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb556"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Step 1: Add WSS for k = 1</span></span>
 <span><span class="co"># (Only if it wasn’t previously computed)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
@@ -2874,13 +2874,13 @@ another version: this one changed the color of two profiles and the variable nam
 <span></span>
 <span><span class="va">plot.wss</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-32-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb548"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb557"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"cluster-wss.png"</span>, plot <span class="op">=</span> <span class="va">plot.wss</span>, width <span class="op">=</span> <span class="fl">9</span>, height <span class="op">=</span> <span class="fl">5.6</span>, units <span class="op">=</span> <span class="st">"in"</span>, dpi <span class="op">=</span> <span class="fl">600</span>, bg <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb549"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb558"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_nbclust.html">fviz_nbclust</a></span><span class="op">(</span><span class="va">dfk_clustered</span>, <span class="va">kmeans</span>, method <span class="op">=</span> <span class="st">"silhouette"</span><span class="op">)</span> <span class="co">#choose 2</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-33-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb550"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb559"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Generate silhouette plot and customize it</span></span>
 <span><span class="va">plot.silhouette</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_nbclust.html">fviz_nbclust</a></span><span class="op">(</span><span class="va">dfk_clustered</span>, <span class="va">kmeans</span>, method <span class="op">=</span> <span class="st">"silhouette"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -2905,10 +2905,10 @@ another version: this one changed the color of two profiles and the variable nam
 <span></span>
 <span><span class="va">plot.silhouette</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-33-2.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb551"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb560"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"silhouette.png"</span>, plot <span class="op">=</span> <span class="va">plot.silhouette</span>, width <span class="op">=</span> <span class="fl">9</span>, height <span class="op">=</span> <span class="fl">5.6</span>, units <span class="op">=</span> <span class="st">"in"</span>, dpi <span class="op">=</span> <span class="fl">600</span>, bg <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb552"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Reshape the cluster centers data for plotting</span></span>
 <span><span class="va">long_data</span> <span class="op">&lt;-</span> <span class="va">kmeans_results</span><span class="op">[[</span><span class="st">"2"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">centers</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -2947,7 +2947,7 @@ another version: this one changed the color of two profiles and the variable nam
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-34-1.png" alt="" width="672"></div>
 <p>final cluster plot</p>
-<div class="sourceCode" id="cb553"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define consistent color palette</span></span>
 <span><span class="va">cluster_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Motivated but Unconfident"</span> <span class="op">=</span> <span class="st">"#F8766D"</span>,</span>
 <span>                    <span class="st">"Confident but Disengaged"</span> <span class="op">=</span> <span class="st">"#005B96"</span><span class="op">)</span></span>
@@ -2990,16 +2990,16 @@ another version: this one changed the color of two profiles and the variable nam
 <span></span>
 <span><span class="va">plot.cluster</span></span></code></pre></div>
 <div class="inline-figure"><img src="32-k-means-LPA-comparsion_files/figure-html/unnamed-chunk-35-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb554"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"cluster.png"</span>, plot <span class="op">=</span> <span class="va">plot.cluster</span>, width <span class="op">=</span> <span class="fl">9</span>, height <span class="op">=</span> <span class="fl">5.6</span>, units <span class="op">=</span> <span class="st">"in"</span>, dpi <span class="op">=</span> <span class="fl">600</span>, bg <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div>
 <p>auxiliary</p>
-<div class="sourceCode" id="cb555"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dfk_clustered</span> <span class="op">&lt;-</span> <span class="va">dfk</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">z_ASCI_IA</span>, <span class="va">z_AMSC</span>, <span class="va">z_EB</span>, <span class="va">z_MSLQ</span>, <span class="va">z_CSC</span>, <span class="va">exam</span>, <span class="va">grading</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># include your two auxiliary variables</span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># drop rows with missing values</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Cluster <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">kmeans_results</span><span class="op">[[</span><span class="st">"2"</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">cluster</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb556"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb565"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># t-test for exam by Cluster (equal variances)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">exam</span> <span class="op">~</span> <span class="va">Cluster</span>, data <span class="op">=</span> <span class="va">dfk_clustered</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -3013,7 +3013,7 @@ another version: this one changed the color of two profiles and the variable nam
 <span><span class="co">#&gt; sample estimates:</span></span>
 <span><span class="co">#&gt; mean in group 1 mean in group 2 </span></span>
 <span><span class="co">#&gt;        69.96250        62.12844</span></span></code></pre></div>
-<div class="sourceCode" id="cb557"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb566"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># t-test for grading by Cluster (equal variances)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">grading</span> <span class="op">~</span> <span class="va">Cluster</span>, data <span class="op">=</span> <span class="va">dfk_clustered</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -3027,7 +3027,7 @@ another version: this one changed the color of two profiles and the variable nam
 <span><span class="co">#&gt; sample estimates:</span></span>
 <span><span class="co">#&gt; mean in group 1 mean in group 2 </span></span>
 <span><span class="co">#&gt;        0.543750        0.587156</span></span></code></pre></div>
-<div class="sourceCode" id="cb558"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb567"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dfk_clustered</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Cluster</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
@@ -3040,9 +3040,9 @@ another version: this one changed the color of two profiles and the variable nam
 <span><span class="co">#&gt;   &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;</span></span>
 <span><span class="co">#&gt; 1 1        70.0  13.4   160</span></span>
 <span><span class="co">#&gt; 2 2        62.1  13.7   109</span></span></code></pre></div>
-<div class="sourceCode" id="cb559"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb568"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_combined</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">dfk_clustered</span>, <span class="va">classified_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>exam_2 <span class="op">=</span> <span class="va">exam</span>, grading_2 <span class="op">=</span> <span class="va">grading</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb560"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb569"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">df_combined</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">Cluster</span>, <span class="va">Class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -3056,7 +3056,7 @@ another version: this one changed the color of two profiles and the variable nam
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">tab</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Cluster" "Class"   "n"       "percent"</span></span></code></pre></div>
-<div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb570"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span></span>
@@ -3582,7 +3582,7 @@ another version: this one changed the color of two profiles and the variable nam
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-07-30.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-08-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

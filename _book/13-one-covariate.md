@@ -39,8 +39,8 @@ Our example is Mother's Education as a predictor of latent class membership of M
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-35d06ee0baa901cd929b" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-35d06ee0baa901cd929b">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult MothEd;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    math [label=<Math <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    math -> {Enjoy Useful Logical Job Adult}\n    MothEd -> math [minlen = 4];\n    \n {rank = same; math; MothEd;}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-f588c8ccd7cc523f240b" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f588c8ccd7cc523f240b">{"x":{"diagram":" digraph lca_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    Enjoy Useful Logical Job Adult MothEd;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    math [label=<Math <br/>Attitudes <br/>C<sub>k=4<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    math -> {Enjoy Useful Logical Job Adult}\n    MothEd -> math [minlen = 4];\n    \n {rank = same; math; MothEd;}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -51,23 +51,23 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
 
 
 ```{=html}
-<div id="brkzufvhhj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#brkzufvhhj table {
+<div id="brwdudlpfr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#brwdudlpfr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#brkzufvhhj thead, #brkzufvhhj tbody, #brkzufvhhj tfoot, #brkzufvhhj tr, #brkzufvhhj td, #brkzufvhhj th {
+#brwdudlpfr thead, #brwdudlpfr tbody, #brwdudlpfr tfoot, #brwdudlpfr tr, #brwdudlpfr td, #brwdudlpfr th {
   border-style: none;
 }
 
-#brkzufvhhj p {
+#brwdudlpfr p {
   margin: 0;
   padding: 0;
 }
 
-#brkzufvhhj .gt_table {
+#brwdudlpfr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -93,12 +93,12 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-left-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_caption {
+#brwdudlpfr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#brkzufvhhj .gt_title {
+#brwdudlpfr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -110,7 +110,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-bottom-width: 0;
 }
 
-#brkzufvhhj .gt_subtitle {
+#brwdudlpfr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -122,7 +122,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-top-width: 0;
 }
 
-#brkzufvhhj .gt_heading {
+#brwdudlpfr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -134,13 +134,13 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-right-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_bottom_border {
+#brwdudlpfr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_col_headings {
+#brwdudlpfr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -155,7 +155,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-right-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_col_heading {
+#brwdudlpfr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -175,7 +175,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   overflow-x: hidden;
 }
 
-#brkzufvhhj .gt_column_spanner_outer {
+#brwdudlpfr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -187,15 +187,15 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   padding-right: 4px;
 }
 
-#brkzufvhhj .gt_column_spanner_outer:first-child {
+#brwdudlpfr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#brkzufvhhj .gt_column_spanner_outer:last-child {
+#brwdudlpfr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#brkzufvhhj .gt_column_spanner {
+#brwdudlpfr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -207,11 +207,11 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   width: 100%;
 }
 
-#brkzufvhhj .gt_spanner_row {
+#brwdudlpfr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#brkzufvhhj .gt_group_heading {
+#brwdudlpfr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -237,7 +237,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   text-align: left;
 }
 
-#brkzufvhhj .gt_empty_group_heading {
+#brwdudlpfr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -252,15 +252,15 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   vertical-align: middle;
 }
 
-#brkzufvhhj .gt_from_md > :first-child {
+#brwdudlpfr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#brkzufvhhj .gt_from_md > :last-child {
+#brwdudlpfr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#brkzufvhhj .gt_row {
+#brwdudlpfr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -279,7 +279,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   overflow-x: hidden;
 }
 
-#brkzufvhhj .gt_stub {
+#brwdudlpfr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -292,7 +292,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   padding-right: 5px;
 }
 
-#brkzufvhhj .gt_stub_row_group {
+#brwdudlpfr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -306,15 +306,15 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   vertical-align: top;
 }
 
-#brkzufvhhj .gt_row_group_first td {
+#brwdudlpfr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#brkzufvhhj .gt_row_group_first th {
+#brwdudlpfr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#brkzufvhhj .gt_summary_row {
+#brwdudlpfr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -324,16 +324,16 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   padding-right: 5px;
 }
 
-#brkzufvhhj .gt_first_summary_row {
+#brwdudlpfr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_first_summary_row.thick {
+#brwdudlpfr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#brkzufvhhj .gt_last_summary_row {
+#brwdudlpfr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -343,7 +343,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-bottom-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_grand_summary_row {
+#brwdudlpfr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -353,7 +353,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   padding-right: 5px;
 }
 
-#brkzufvhhj .gt_first_grand_summary_row {
+#brwdudlpfr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -363,7 +363,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-top-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_last_grand_summary_row_top {
+#brwdudlpfr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -373,11 +373,11 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-bottom-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_striped {
+#brwdudlpfr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#brkzufvhhj .gt_table_body {
+#brwdudlpfr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -386,7 +386,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-bottom-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_footnotes {
+#brwdudlpfr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -400,7 +400,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-right-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_footnote {
+#brwdudlpfr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -409,7 +409,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   padding-right: 5px;
 }
 
-#brkzufvhhj .gt_sourcenotes {
+#brwdudlpfr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -423,7 +423,7 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   border-right-color: #D3D3D3;
 }
 
-#brkzufvhhj .gt_sourcenote {
+#brwdudlpfr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -431,72 +431,72 @@ Application: Longitudinal Study of American Youth, **Science Attitudes**
   padding-right: 5px;
 }
 
-#brkzufvhhj .gt_left {
+#brwdudlpfr .gt_left {
   text-align: left;
 }
 
-#brkzufvhhj .gt_center {
+#brwdudlpfr .gt_center {
   text-align: center;
 }
 
-#brkzufvhhj .gt_right {
+#brwdudlpfr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#brkzufvhhj .gt_font_normal {
+#brwdudlpfr .gt_font_normal {
   font-weight: normal;
 }
 
-#brkzufvhhj .gt_font_bold {
+#brwdudlpfr .gt_font_bold {
   font-weight: bold;
 }
 
-#brkzufvhhj .gt_font_italic {
+#brwdudlpfr .gt_font_italic {
   font-style: italic;
 }
 
-#brkzufvhhj .gt_super {
+#brwdudlpfr .gt_super {
   font-size: 65%;
 }
 
-#brkzufvhhj .gt_footnote_marks {
+#brwdudlpfr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#brkzufvhhj .gt_asterisk {
+#brwdudlpfr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#brkzufvhhj .gt_indent_1 {
+#brwdudlpfr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#brkzufvhhj .gt_indent_2 {
+#brwdudlpfr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#brkzufvhhj .gt_indent_3 {
+#brwdudlpfr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#brkzufvhhj .gt_indent_4 {
+#brwdudlpfr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#brkzufvhhj .gt_indent_5 {
+#brwdudlpfr .gt_indent_5 {
   text-indent: 25px;
 }
 
-#brkzufvhhj .katex-display {
+#brwdudlpfr .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#brkzufvhhj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#brwdudlpfr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -583,23 +583,23 @@ gt(dframe) %>%
 
 
 ```{=html}
-<div id="xjwdlqtuwi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xjwdlqtuwi table {
+<div id="katvpmkvnw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#katvpmkvnw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xjwdlqtuwi thead, #xjwdlqtuwi tbody, #xjwdlqtuwi tfoot, #xjwdlqtuwi tr, #xjwdlqtuwi td, #xjwdlqtuwi th {
+#katvpmkvnw thead, #katvpmkvnw tbody, #katvpmkvnw tfoot, #katvpmkvnw tr, #katvpmkvnw td, #katvpmkvnw th {
   border-style: none;
 }
 
-#xjwdlqtuwi p {
+#katvpmkvnw p {
   margin: 0;
   padding: 0;
 }
 
-#xjwdlqtuwi .gt_table {
+#katvpmkvnw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -625,12 +625,12 @@ gt(dframe) %>%
   border-left-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_caption {
+#katvpmkvnw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xjwdlqtuwi .gt_title {
+#katvpmkvnw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -642,7 +642,7 @@ gt(dframe) %>%
   border-bottom-width: 0;
 }
 
-#xjwdlqtuwi .gt_subtitle {
+#katvpmkvnw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -654,7 +654,7 @@ gt(dframe) %>%
   border-top-width: 0;
 }
 
-#xjwdlqtuwi .gt_heading {
+#katvpmkvnw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -666,13 +666,13 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_bottom_border {
+#katvpmkvnw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_col_headings {
+#katvpmkvnw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -687,7 +687,7 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_col_heading {
+#katvpmkvnw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -707,7 +707,7 @@ gt(dframe) %>%
   overflow-x: hidden;
 }
 
-#xjwdlqtuwi .gt_column_spanner_outer {
+#katvpmkvnw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -719,15 +719,15 @@ gt(dframe) %>%
   padding-right: 4px;
 }
 
-#xjwdlqtuwi .gt_column_spanner_outer:first-child {
+#katvpmkvnw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xjwdlqtuwi .gt_column_spanner_outer:last-child {
+#katvpmkvnw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xjwdlqtuwi .gt_column_spanner {
+#katvpmkvnw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -739,11 +739,11 @@ gt(dframe) %>%
   width: 100%;
 }
 
-#xjwdlqtuwi .gt_spanner_row {
+#katvpmkvnw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xjwdlqtuwi .gt_group_heading {
+#katvpmkvnw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -769,7 +769,7 @@ gt(dframe) %>%
   text-align: left;
 }
 
-#xjwdlqtuwi .gt_empty_group_heading {
+#katvpmkvnw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -784,15 +784,15 @@ gt(dframe) %>%
   vertical-align: middle;
 }
 
-#xjwdlqtuwi .gt_from_md > :first-child {
+#katvpmkvnw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xjwdlqtuwi .gt_from_md > :last-child {
+#katvpmkvnw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xjwdlqtuwi .gt_row {
+#katvpmkvnw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -811,7 +811,7 @@ gt(dframe) %>%
   overflow-x: hidden;
 }
 
-#xjwdlqtuwi .gt_stub {
+#katvpmkvnw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -824,7 +824,7 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xjwdlqtuwi .gt_stub_row_group {
+#katvpmkvnw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -838,15 +838,15 @@ gt(dframe) %>%
   vertical-align: top;
 }
 
-#xjwdlqtuwi .gt_row_group_first td {
+#katvpmkvnw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xjwdlqtuwi .gt_row_group_first th {
+#katvpmkvnw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xjwdlqtuwi .gt_summary_row {
+#katvpmkvnw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -856,16 +856,16 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xjwdlqtuwi .gt_first_summary_row {
+#katvpmkvnw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_first_summary_row.thick {
+#katvpmkvnw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xjwdlqtuwi .gt_last_summary_row {
+#katvpmkvnw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -875,7 +875,7 @@ gt(dframe) %>%
   border-bottom-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_grand_summary_row {
+#katvpmkvnw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -885,7 +885,7 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xjwdlqtuwi .gt_first_grand_summary_row {
+#katvpmkvnw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -895,7 +895,7 @@ gt(dframe) %>%
   border-top-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_last_grand_summary_row_top {
+#katvpmkvnw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -905,11 +905,11 @@ gt(dframe) %>%
   border-bottom-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_striped {
+#katvpmkvnw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xjwdlqtuwi .gt_table_body {
+#katvpmkvnw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -918,7 +918,7 @@ gt(dframe) %>%
   border-bottom-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_footnotes {
+#katvpmkvnw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -932,7 +932,7 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_footnote {
+#katvpmkvnw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -941,7 +941,7 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xjwdlqtuwi .gt_sourcenotes {
+#katvpmkvnw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -955,7 +955,7 @@ gt(dframe) %>%
   border-right-color: #D3D3D3;
 }
 
-#xjwdlqtuwi .gt_sourcenote {
+#katvpmkvnw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -963,72 +963,72 @@ gt(dframe) %>%
   padding-right: 5px;
 }
 
-#xjwdlqtuwi .gt_left {
+#katvpmkvnw .gt_left {
   text-align: left;
 }
 
-#xjwdlqtuwi .gt_center {
+#katvpmkvnw .gt_center {
   text-align: center;
 }
 
-#xjwdlqtuwi .gt_right {
+#katvpmkvnw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xjwdlqtuwi .gt_font_normal {
+#katvpmkvnw .gt_font_normal {
   font-weight: normal;
 }
 
-#xjwdlqtuwi .gt_font_bold {
+#katvpmkvnw .gt_font_bold {
   font-weight: bold;
 }
 
-#xjwdlqtuwi .gt_font_italic {
+#katvpmkvnw .gt_font_italic {
   font-style: italic;
 }
 
-#xjwdlqtuwi .gt_super {
+#katvpmkvnw .gt_super {
   font-size: 65%;
 }
 
-#xjwdlqtuwi .gt_footnote_marks {
+#katvpmkvnw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xjwdlqtuwi .gt_asterisk {
+#katvpmkvnw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xjwdlqtuwi .gt_indent_1 {
+#katvpmkvnw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xjwdlqtuwi .gt_indent_2 {
+#katvpmkvnw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xjwdlqtuwi .gt_indent_3 {
+#katvpmkvnw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xjwdlqtuwi .gt_indent_4 {
+#katvpmkvnw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xjwdlqtuwi .gt_indent_5 {
+#katvpmkvnw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#xjwdlqtuwi .katex-display {
+#katvpmkvnw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#xjwdlqtuwi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#katvpmkvnw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1346,8 +1346,8 @@ detach(package:MASS, unload = TRUE)
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-e92b92b67138841e18aa" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-e92b92b67138841e18aa">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-ba0198ec32b0225a1d8c" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-ba0198ec32b0225a1d8c">{"x":{"diagram":" digraph cfa_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    GPA LieExam LiePaper Fraud CopyExam;\n \n# One for latent variables (circle) \n \n    node [shape=circle]\n    bully [label=<Cheating <br/>Behavior <br/>C<sub>k=2<\/sub>>];\n    \n# `edge` statements\n \n    edge [minlen = 2]\n    bully -> {LieExam LiePaper Fraud CopyExam}\n    GPA -> bully [minlen = 4];\n    \n {rank = same; bully; GPA}\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 

@@ -7,7 +7,7 @@
 <title>11 Class Homogeneity | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="11.1 Load packages library(naniar) library(tidyverse) library(haven) library(glue) library(MplusAutomation) library(here) library(janitor) library(gt) library(tidyLPA) library(pisaUSA15)...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="11 Class Homogeneity | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/class-homogeneity.html">
@@ -129,7 +129,7 @@
 <h2>
 <span class="header-section-number">11.1</span> Load packages<a class="anchor" aria-label="anchor" href="#load-packages-4"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
@@ -155,7 +155,7 @@
 <p>We want a high degree of homogeneity (small variance) within each class (i.e., people in each class are not identical but are more similar to each other than to people in different classes).</p>
 <p>Class-specific response probabilities above .70 or below .30 indicate high homogeneity in that particular class for that specific item. For a binary variable, <span class="math inline">\(X\)</span>, <span class="math inline">\(Var(X) = p(1-p)\)</span>. The largest variance possible for a binary variable is when <span class="math inline">\(p = .5\)</span>, the smallest variance (0) is when <span class="math inline">\(p = 0\)</span> or <span class="math inline">\(p = 1\)</span>.</p>
 <p>The easiest way is to visualize the item probability plot:</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Read in model</span></span>
@@ -168,7 +168,7 @@
 <span><span class="fu">plot_lca</span><span class="op">(</span><span class="va">chosen_model</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-homogeneity_files/figure-html/unnamed-chunk-2-1.png" alt="" width="90%"></div>
 <p>Or create a table:</p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Read in model</span></span>
 <span><span class="va">output_enum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"enum"</span><span class="op">)</span>, filefilter <span class="op">=</span> <span class="st">"bully"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -213,23 +213,23 @@
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html">tab_footnote</a></span><span class="op">(</span></span>
 <span>    footnote <span class="op">=</span> <span class="st">"Cells in bold indicate probabilities &gt; 0.7 or &lt; 0.3"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<div id="lvfugcrfdl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lvfugcrfdl table {
+<div id="qiqanktwsm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qiqanktwsm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lvfugcrfdl thead, #lvfugcrfdl tbody, #lvfugcrfdl tfoot, #lvfugcrfdl tr, #lvfugcrfdl td, #lvfugcrfdl th {
+#qiqanktwsm thead, #qiqanktwsm tbody, #qiqanktwsm tfoot, #qiqanktwsm tr, #qiqanktwsm td, #qiqanktwsm th {
   border-style: none;
 }
 
-#lvfugcrfdl p {
+#qiqanktwsm p {
   margin: 0;
   padding: 0;
 }
 
-#lvfugcrfdl .gt_table {
+#qiqanktwsm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -255,12 +255,12 @@
   border-left-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_caption {
+#qiqanktwsm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lvfugcrfdl .gt_title {
+#qiqanktwsm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -272,7 +272,7 @@
   border-bottom-width: 0;
 }
 
-#lvfugcrfdl .gt_subtitle {
+#qiqanktwsm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -284,7 +284,7 @@
   border-top-width: 0;
 }
 
-#lvfugcrfdl .gt_heading {
+#qiqanktwsm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -296,13 +296,13 @@
   border-right-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_bottom_border {
+#qiqanktwsm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_col_headings {
+#qiqanktwsm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -317,7 +317,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_col_heading {
+#qiqanktwsm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -337,7 +337,7 @@
   overflow-x: hidden;
 }
 
-#lvfugcrfdl .gt_column_spanner_outer {
+#qiqanktwsm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -349,15 +349,15 @@
   padding-right: 4px;
 }
 
-#lvfugcrfdl .gt_column_spanner_outer:first-child {
+#qiqanktwsm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lvfugcrfdl .gt_column_spanner_outer:last-child {
+#qiqanktwsm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lvfugcrfdl .gt_column_spanner {
+#qiqanktwsm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -369,11 +369,11 @@
   width: 100%;
 }
 
-#lvfugcrfdl .gt_spanner_row {
+#qiqanktwsm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lvfugcrfdl .gt_group_heading {
+#qiqanktwsm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -399,7 +399,7 @@
   text-align: left;
 }
 
-#lvfugcrfdl .gt_empty_group_heading {
+#qiqanktwsm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -414,15 +414,15 @@
   vertical-align: middle;
 }
 
-#lvfugcrfdl .gt_from_md > :first-child {
+#qiqanktwsm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lvfugcrfdl .gt_from_md > :last-child {
+#qiqanktwsm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lvfugcrfdl .gt_row {
+#qiqanktwsm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -441,7 +441,7 @@
   overflow-x: hidden;
 }
 
-#lvfugcrfdl .gt_stub {
+#qiqanktwsm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -454,7 +454,7 @@
   padding-right: 5px;
 }
 
-#lvfugcrfdl .gt_stub_row_group {
+#qiqanktwsm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -468,15 +468,15 @@
   vertical-align: top;
 }
 
-#lvfugcrfdl .gt_row_group_first td {
+#qiqanktwsm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lvfugcrfdl .gt_row_group_first th {
+#qiqanktwsm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lvfugcrfdl .gt_summary_row {
+#qiqanktwsm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -486,16 +486,16 @@
   padding-right: 5px;
 }
 
-#lvfugcrfdl .gt_first_summary_row {
+#qiqanktwsm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_first_summary_row.thick {
+#qiqanktwsm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lvfugcrfdl .gt_last_summary_row {
+#qiqanktwsm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -505,7 +505,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_grand_summary_row {
+#qiqanktwsm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -515,7 +515,7 @@
   padding-right: 5px;
 }
 
-#lvfugcrfdl .gt_first_grand_summary_row {
+#qiqanktwsm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -525,7 +525,7 @@
   border-top-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_last_grand_summary_row_top {
+#qiqanktwsm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -535,11 +535,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_striped {
+#qiqanktwsm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lvfugcrfdl .gt_table_body {
+#qiqanktwsm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -548,7 +548,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_footnotes {
+#qiqanktwsm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -562,7 +562,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_footnote {
+#qiqanktwsm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -571,7 +571,7 @@
   padding-right: 5px;
 }
 
-#lvfugcrfdl .gt_sourcenotes {
+#qiqanktwsm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -585,7 +585,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lvfugcrfdl .gt_sourcenote {
+#qiqanktwsm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -593,72 +593,72 @@
   padding-right: 5px;
 }
 
-#lvfugcrfdl .gt_left {
+#qiqanktwsm .gt_left {
   text-align: left;
 }
 
-#lvfugcrfdl .gt_center {
+#qiqanktwsm .gt_center {
   text-align: center;
 }
 
-#lvfugcrfdl .gt_right {
+#qiqanktwsm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lvfugcrfdl .gt_font_normal {
+#qiqanktwsm .gt_font_normal {
   font-weight: normal;
 }
 
-#lvfugcrfdl .gt_font_bold {
+#qiqanktwsm .gt_font_bold {
   font-weight: bold;
 }
 
-#lvfugcrfdl .gt_font_italic {
+#qiqanktwsm .gt_font_italic {
   font-style: italic;
 }
 
-#lvfugcrfdl .gt_super {
+#qiqanktwsm .gt_super {
   font-size: 65%;
 }
 
-#lvfugcrfdl .gt_footnote_marks {
+#qiqanktwsm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lvfugcrfdl .gt_asterisk {
+#qiqanktwsm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lvfugcrfdl .gt_indent_1 {
+#qiqanktwsm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lvfugcrfdl .gt_indent_2 {
+#qiqanktwsm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lvfugcrfdl .gt_indent_3 {
+#qiqanktwsm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lvfugcrfdl .gt_indent_4 {
+#qiqanktwsm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lvfugcrfdl .gt_indent_5 {
+#qiqanktwsm .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lvfugcrfdl .katex-display {
+#qiqanktwsm .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lvfugcrfdl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qiqanktwsm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -741,7 +741,7 @@
 <li><p>Values &lt; .60 corresponds to a low degree of homogeneity</p></li>
 </ul>
 <p>To calculate the values in a table:</p>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Read in model</span></span>
 <span><span class="va">output_enum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lpa"</span>, <span class="st">"tidyLPA"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -802,23 +802,23 @@
 <span>    footnote <span class="op">=</span> <span class="st">"Cells in bold indicate proportions &gt; 0.90 and cells in italics indicate proportions &lt; 0.60. </span></span>
 <span><span class="st">    Note: In this example, the class variances are set to be equal."</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/fmt_markdown.html">fmt_markdown</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="pisnjzdrdp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pisnjzdrdp table {
+<div id="joepgyzplm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#joepgyzplm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pisnjzdrdp thead, #pisnjzdrdp tbody, #pisnjzdrdp tfoot, #pisnjzdrdp tr, #pisnjzdrdp td, #pisnjzdrdp th {
+#joepgyzplm thead, #joepgyzplm tbody, #joepgyzplm tfoot, #joepgyzplm tr, #joepgyzplm td, #joepgyzplm th {
   border-style: none;
 }
 
-#pisnjzdrdp p {
+#joepgyzplm p {
   margin: 0;
   padding: 0;
 }
 
-#pisnjzdrdp .gt_table {
+#joepgyzplm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -844,12 +844,12 @@
   border-left-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_caption {
+#joepgyzplm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pisnjzdrdp .gt_title {
+#joepgyzplm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -861,7 +861,7 @@
   border-bottom-width: 0;
 }
 
-#pisnjzdrdp .gt_subtitle {
+#joepgyzplm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -873,7 +873,7 @@
   border-top-width: 0;
 }
 
-#pisnjzdrdp .gt_heading {
+#joepgyzplm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -885,13 +885,13 @@
   border-right-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_bottom_border {
+#joepgyzplm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_col_headings {
+#joepgyzplm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -906,7 +906,7 @@
   border-right-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_col_heading {
+#joepgyzplm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -926,7 +926,7 @@
   overflow-x: hidden;
 }
 
-#pisnjzdrdp .gt_column_spanner_outer {
+#joepgyzplm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -938,15 +938,15 @@
   padding-right: 4px;
 }
 
-#pisnjzdrdp .gt_column_spanner_outer:first-child {
+#joepgyzplm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pisnjzdrdp .gt_column_spanner_outer:last-child {
+#joepgyzplm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pisnjzdrdp .gt_column_spanner {
+#joepgyzplm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -958,11 +958,11 @@
   width: 100%;
 }
 
-#pisnjzdrdp .gt_spanner_row {
+#joepgyzplm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pisnjzdrdp .gt_group_heading {
+#joepgyzplm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -988,7 +988,7 @@
   text-align: left;
 }
 
-#pisnjzdrdp .gt_empty_group_heading {
+#joepgyzplm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1003,15 +1003,15 @@
   vertical-align: middle;
 }
 
-#pisnjzdrdp .gt_from_md > :first-child {
+#joepgyzplm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pisnjzdrdp .gt_from_md > :last-child {
+#joepgyzplm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pisnjzdrdp .gt_row {
+#joepgyzplm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1030,7 +1030,7 @@
   overflow-x: hidden;
 }
 
-#pisnjzdrdp .gt_stub {
+#joepgyzplm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1043,7 +1043,7 @@
   padding-right: 5px;
 }
 
-#pisnjzdrdp .gt_stub_row_group {
+#joepgyzplm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1057,15 +1057,15 @@
   vertical-align: top;
 }
 
-#pisnjzdrdp .gt_row_group_first td {
+#joepgyzplm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pisnjzdrdp .gt_row_group_first th {
+#joepgyzplm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pisnjzdrdp .gt_summary_row {
+#joepgyzplm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1075,16 +1075,16 @@
   padding-right: 5px;
 }
 
-#pisnjzdrdp .gt_first_summary_row {
+#joepgyzplm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_first_summary_row.thick {
+#joepgyzplm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pisnjzdrdp .gt_last_summary_row {
+#joepgyzplm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1094,7 +1094,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_grand_summary_row {
+#joepgyzplm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1104,7 +1104,7 @@
   padding-right: 5px;
 }
 
-#pisnjzdrdp .gt_first_grand_summary_row {
+#joepgyzplm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1114,7 +1114,7 @@
   border-top-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_last_grand_summary_row_top {
+#joepgyzplm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1124,11 +1124,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_striped {
+#joepgyzplm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pisnjzdrdp .gt_table_body {
+#joepgyzplm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1137,7 +1137,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_footnotes {
+#joepgyzplm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1151,7 +1151,7 @@
   border-right-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_footnote {
+#joepgyzplm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1160,7 +1160,7 @@
   padding-right: 5px;
 }
 
-#pisnjzdrdp .gt_sourcenotes {
+#joepgyzplm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1174,7 +1174,7 @@
   border-right-color: #D3D3D3;
 }
 
-#pisnjzdrdp .gt_sourcenote {
+#joepgyzplm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1182,72 +1182,72 @@
   padding-right: 5px;
 }
 
-#pisnjzdrdp .gt_left {
+#joepgyzplm .gt_left {
   text-align: left;
 }
 
-#pisnjzdrdp .gt_center {
+#joepgyzplm .gt_center {
   text-align: center;
 }
 
-#pisnjzdrdp .gt_right {
+#joepgyzplm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pisnjzdrdp .gt_font_normal {
+#joepgyzplm .gt_font_normal {
   font-weight: normal;
 }
 
-#pisnjzdrdp .gt_font_bold {
+#joepgyzplm .gt_font_bold {
   font-weight: bold;
 }
 
-#pisnjzdrdp .gt_font_italic {
+#joepgyzplm .gt_font_italic {
   font-style: italic;
 }
 
-#pisnjzdrdp .gt_super {
+#joepgyzplm .gt_super {
   font-size: 65%;
 }
 
-#pisnjzdrdp .gt_footnote_marks {
+#joepgyzplm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pisnjzdrdp .gt_asterisk {
+#joepgyzplm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pisnjzdrdp .gt_indent_1 {
+#joepgyzplm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pisnjzdrdp .gt_indent_2 {
+#joepgyzplm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pisnjzdrdp .gt_indent_3 {
+#joepgyzplm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pisnjzdrdp .gt_indent_4 {
+#joepgyzplm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pisnjzdrdp .gt_indent_5 {
+#joepgyzplm .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pisnjzdrdp .katex-display {
+#joepgyzplm .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pisnjzdrdp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#joepgyzplm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1301,7 +1301,7 @@
 </table></div>
 </div>
 <p>You can also visualize the plot:</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"plot_lpa.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">output_enum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lpa"</span>, <span class="st">"tidyLPA"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -1341,7 +1341,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-07-30.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-08-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

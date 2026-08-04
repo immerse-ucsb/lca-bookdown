@@ -7,7 +7,7 @@
 <title>18 Enumeration | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="Data Source: The data used to illustrate these analyses include elementary school student Science Attitude survey items collected during 7th and 10th grades from the Longitudinal Study of American...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="18 Enumeration | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/lta.html">
@@ -128,13 +128,13 @@
 <p><strong>Data Source</strong>: The data used to illustrate these analyses include elementary school student <em>Science Attitude</em> survey items collected during 7th and 10th grades from the <strong>Longitudinal Study of American Youth</strong> (LSAY; Miller, 2015).</p>
 <hr>
 <p>To install package {<code>rhdf5</code>}</p>
-<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#BiocManager::install("rhdf5")</span></span></code></pre></div>
 <p><em>Load packages</em></p>
-<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://huber-group-embl.github.io/rhdf5/">rhdf5</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>       </span>
@@ -153,13 +153,13 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jakelawlor/PNWColors">PNWColors</a></span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p>Read in LSAY data file, <code>lsay_new.csv</code>.</p>
-<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lsay_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>,<span class="st">"lsay_lta.csv"</span><span class="op">)</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"9999"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">as.numeric</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-6324f52f33203f83aa9e" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-6324f52f33203f83aa9e">{"x":{"diagram":" digraph model {\n\n    graph [layout = dot, overlap = true]\n\n    node [shape=box]\n    ab39m ab39t ab39u ab39w ab39x \n    ga33a ga33h ga33i ga33k ga33l;\n \n \n    node [shape=circle, fixedsize = true, width = 1.5, height = 0.5]\n    T1 [label = \"7th Grade \nScience Attitudes\n(T1)\"]\n    T2 [label = \"10th Grade \nScience Attitudes\n(T2)\"]\n    \n    edge []\n    T1 -> {ab39m ab39t ab39u ab39w ab39x}\n    T2 -> {ga33a ga33h ga33i ga33k ga33l}\n    T1 -> T2\n    {rank = same; T1; T2;}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-77f296a5df556bf779ec" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-77f296a5df556bf779ec">{"x":{"diagram":" digraph model {\n\n    graph [layout = dot, overlap = true]\n\n    node [shape=box]\n    ab39m ab39t ab39u ab39w ab39x \n    ga33a ga33h ga33i ga33k ga33l;\n \n \n    node [shape=circle, fixedsize = true, width = 1.5, height = 0.5]\n    T1 [label = \"7th Grade \nScience Attitudes\n(T1)\"]\n    T2 [label = \"10th Grade \nScience Attitudes\n(T2)\"]\n    \n    edge []\n    T1 -> {ab39m ab39t ab39u ab39w ab39x}\n    T2 -> {ga33a ga33h ga33i ga33k ga33l}\n    T1 -> T2\n    {rank = same; T1; T2;}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <div id="descriptive-statistics-9" class="section level2" number="18.1">
 <h2>
 <span class="header-section-number">18.1</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-9"><i class="fas fa-link"></i></a>
@@ -169,7 +169,7 @@
 <h3>
 <span class="header-section-number">18.1.1</span> Data Summary<a class="anchor" aria-label="anchor" href="#data-summary"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">lsay_data</span></span>
 <span></span>
 <span><span class="va">select_data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -313,7 +313,7 @@
 <h3>
 <span class="header-section-number">18.1.2</span> Correlation Table<a class="anchor" aria-label="anchor" href="#correlation-table"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">select_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://modelsummary.com/man/datasummary_correlation.html">datasummary_correlation</a></span><span class="op">(</span>output <span class="op">=</span> <span class="st">"markdown"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table style="width:91%;" class="table table-sm">
@@ -536,7 +536,7 @@
 <h3>
 <span class="header-section-number">18.1.3</span> Correlation Plot<a class="anchor" aria-label="anchor" href="#correlation-plot"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f_cor</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">female</span>, <span class="va">minority</span>, <span class="va">ab39m</span><span class="op">:</span><span class="va">ga33l</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span>use <span class="op">=</span> <span class="st">"pairwise.complete.obs"</span><span class="op">)</span></span>
@@ -559,7 +559,7 @@
 <h3>
 <span class="header-section-number">18.2.1</span> Enumerate Time Point 1 (7th grade)<a class="anchor" aria-label="anchor" href="#enumerate-time-point-1-7th-grade"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># NOTE CHANGE: '1:6' indicates the number of k-class models to estimate</span></span>
 <span><span class="co"># User can change this number to fit research context</span></span>
 <span><span class="co"># In this example, the code loops or iterates over values 1 through 6 ( '{k}' )</span></span>
@@ -608,7 +608,7 @@
 <h3>
 <span class="header-section-number">18.2.2</span> Enumerate Time Point 2 (10th grade)<a class="anchor" aria-label="anchor" href="#enumerate-time-point-2-10th-grade"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">t2_enum_k_16</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span> </span>
 <span>  <span class="va">enum_t2</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
@@ -651,11 +651,11 @@
 </h3>
 <hr>
 <p>Read all models for enumeration table</p>
-<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output_enum_t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"enum_t1"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">output_enum_t2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"enum_t2"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Extract model fit data</p>
-<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">enum_extract1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/LatexSummaryTable.html">LatexSummaryTable</a></span><span class="op">(</span><span class="va">output_enum_t1</span>,                                 </span>
 <span>                keepCols<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Title"</span>, <span class="st">"Parameters"</span>, <span class="st">"LL"</span>, <span class="st">"BIC"</span>, <span class="st">"aBIC"</span>,</span>
@@ -669,7 +669,7 @@
 <h3>
 <span class="header-section-number">18.2.4</span> Calculate Indices Derived from the Log Likelihood (LL)<a class="anchor" aria-label="anchor" href="#calculate-indices-derived-from-the-log-likelihood-ll"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>                           </span>
 <span><span class="va">allFit1</span> <span class="op">&lt;-</span> <span class="va">enum_extract1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>aBIC <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">LL</span><span class="op">+</span><span class="va">Parameters</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="op">(</span><span class="va">Observations</span><span class="op">+</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span><span class="fl">24</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -701,7 +701,7 @@
 <h2>
 <span class="header-section-number">18.3</span> Format Fit Table<a class="anchor" aria-label="anchor" href="#format-fit-table"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rows_m1</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span></span>
 <span><span class="va">rows_m2</span> <span class="op">&lt;-</span> <span class="fl">7</span><span class="op">:</span><span class="fl">12</span></span>
 <span></span>
@@ -808,23 +808,23 @@
 <span>     row <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">T11_VLMR_PValue</span> <span class="op">&lt;</span> <span class="fl">.05</span> <span class="op">&amp;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lead</a></span><span class="op">(</span><span class="va">T11_VLMR_PValue</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">.05</span>, <span class="va">T11_VLMR_PValue</span> <span class="op">&lt;</span> <span class="fl">.05</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div id="ozdadkfewi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ozdadkfewi table {
+<div id="jfpwsrbqzu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jfpwsrbqzu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ozdadkfewi thead, #ozdadkfewi tbody, #ozdadkfewi tfoot, #ozdadkfewi tr, #ozdadkfewi td, #ozdadkfewi th {
+#jfpwsrbqzu thead, #jfpwsrbqzu tbody, #jfpwsrbqzu tfoot, #jfpwsrbqzu tr, #jfpwsrbqzu td, #jfpwsrbqzu th {
   border-style: none;
 }
 
-#ozdadkfewi p {
+#jfpwsrbqzu p {
   margin: 0;
   padding: 0;
 }
 
-#ozdadkfewi .gt_table {
+#jfpwsrbqzu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -850,12 +850,12 @@
   border-left-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_caption {
+#jfpwsrbqzu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ozdadkfewi .gt_title {
+#jfpwsrbqzu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -867,7 +867,7 @@
   border-bottom-width: 0;
 }
 
-#ozdadkfewi .gt_subtitle {
+#jfpwsrbqzu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -879,7 +879,7 @@
   border-top-width: 0;
 }
 
-#ozdadkfewi .gt_heading {
+#jfpwsrbqzu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -891,13 +891,13 @@
   border-right-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_bottom_border {
+#jfpwsrbqzu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_col_headings {
+#jfpwsrbqzu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -912,7 +912,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_col_heading {
+#jfpwsrbqzu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -932,7 +932,7 @@
   overflow-x: hidden;
 }
 
-#ozdadkfewi .gt_column_spanner_outer {
+#jfpwsrbqzu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -944,15 +944,15 @@
   padding-right: 4px;
 }
 
-#ozdadkfewi .gt_column_spanner_outer:first-child {
+#jfpwsrbqzu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ozdadkfewi .gt_column_spanner_outer:last-child {
+#jfpwsrbqzu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ozdadkfewi .gt_column_spanner {
+#jfpwsrbqzu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -964,11 +964,11 @@
   width: 100%;
 }
 
-#ozdadkfewi .gt_spanner_row {
+#jfpwsrbqzu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ozdadkfewi .gt_group_heading {
+#jfpwsrbqzu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -994,7 +994,7 @@
   text-align: left;
 }
 
-#ozdadkfewi .gt_empty_group_heading {
+#jfpwsrbqzu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1009,15 +1009,15 @@
   vertical-align: middle;
 }
 
-#ozdadkfewi .gt_from_md > :first-child {
+#jfpwsrbqzu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ozdadkfewi .gt_from_md > :last-child {
+#jfpwsrbqzu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ozdadkfewi .gt_row {
+#jfpwsrbqzu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1036,7 +1036,7 @@
   overflow-x: hidden;
 }
 
-#ozdadkfewi .gt_stub {
+#jfpwsrbqzu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1049,7 +1049,7 @@
   padding-right: 5px;
 }
 
-#ozdadkfewi .gt_stub_row_group {
+#jfpwsrbqzu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1063,15 +1063,15 @@
   vertical-align: top;
 }
 
-#ozdadkfewi .gt_row_group_first td {
+#jfpwsrbqzu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ozdadkfewi .gt_row_group_first th {
+#jfpwsrbqzu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ozdadkfewi .gt_summary_row {
+#jfpwsrbqzu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1081,16 +1081,16 @@
   padding-right: 5px;
 }
 
-#ozdadkfewi .gt_first_summary_row {
+#jfpwsrbqzu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_first_summary_row.thick {
+#jfpwsrbqzu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ozdadkfewi .gt_last_summary_row {
+#jfpwsrbqzu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1100,7 +1100,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_grand_summary_row {
+#jfpwsrbqzu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1110,7 +1110,7 @@
   padding-right: 5px;
 }
 
-#ozdadkfewi .gt_first_grand_summary_row {
+#jfpwsrbqzu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1120,7 +1120,7 @@
   border-top-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_last_grand_summary_row_top {
+#jfpwsrbqzu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1130,11 +1130,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_striped {
+#jfpwsrbqzu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ozdadkfewi .gt_table_body {
+#jfpwsrbqzu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1143,7 +1143,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_footnotes {
+#jfpwsrbqzu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1157,7 +1157,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_footnote {
+#jfpwsrbqzu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1166,7 +1166,7 @@
   padding-right: 5px;
 }
 
-#ozdadkfewi .gt_sourcenotes {
+#jfpwsrbqzu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1180,7 +1180,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ozdadkfewi .gt_sourcenote {
+#jfpwsrbqzu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1188,72 +1188,72 @@
   padding-right: 5px;
 }
 
-#ozdadkfewi .gt_left {
+#jfpwsrbqzu .gt_left {
   text-align: left;
 }
 
-#ozdadkfewi .gt_center {
+#jfpwsrbqzu .gt_center {
   text-align: center;
 }
 
-#ozdadkfewi .gt_right {
+#jfpwsrbqzu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ozdadkfewi .gt_font_normal {
+#jfpwsrbqzu .gt_font_normal {
   font-weight: normal;
 }
 
-#ozdadkfewi .gt_font_bold {
+#jfpwsrbqzu .gt_font_bold {
   font-weight: bold;
 }
 
-#ozdadkfewi .gt_font_italic {
+#jfpwsrbqzu .gt_font_italic {
   font-style: italic;
 }
 
-#ozdadkfewi .gt_super {
+#jfpwsrbqzu .gt_super {
   font-size: 65%;
 }
 
-#ozdadkfewi .gt_footnote_marks {
+#jfpwsrbqzu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ozdadkfewi .gt_asterisk {
+#jfpwsrbqzu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ozdadkfewi .gt_indent_1 {
+#jfpwsrbqzu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ozdadkfewi .gt_indent_2 {
+#jfpwsrbqzu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ozdadkfewi .gt_indent_3 {
+#jfpwsrbqzu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ozdadkfewi .gt_indent_4 {
+#jfpwsrbqzu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ozdadkfewi .gt_indent_5 {
+#jfpwsrbqzu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ozdadkfewi .katex-display {
+#jfpwsrbqzu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ozdadkfewi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jfpwsrbqzu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1463,7 +1463,7 @@ cmPk = approximate correct model probability.</span>
 </h2>
 <hr>
 <p>Read models for plotting (4-class models)</p>
-<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model_t1_c4</span> <span class="op">&lt;-</span> <span class="va">output_enum_t1</span><span class="op">$</span><span class="va">c4_lca_enum_time1.out</span></span>
 <span><span class="va">model_t2_c4</span> <span class="op">&lt;-</span> <span class="va">output_enum_t2</span><span class="op">$</span><span class="va">c4_lca_enum_time2.out</span></span></code></pre></div>
 <div id="create-a-function-plot_lca_function-that-requires-5-arguments" class="section level3" number="18.4.1">
@@ -1482,7 +1482,7 @@ cmPk = approximate correct model probability.</span>
 <li>
 <code>plot_title</code>: include the title of the plot here (e.g., <code>"Time 1 LCA Conditional Item Probability Plot"</code>)</li>
 </ul>
-<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">plot_lca_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model_name</span>,<span class="va">item_num</span>,<span class="va">class_num</span>,<span class="va">item_labels</span>,<span class="va">plot_title</span><span class="op">)</span><span class="op">{</span></span>
 <span></span>
@@ -1519,7 +1519,7 @@ cmPk = approximate correct model probability.</span>
 <h3>
 <span class="header-section-number">18.4.2</span> Time 1 LCA - Conditional Item Probability Plot<a class="anchor" aria-label="anchor" href="#time-1-lca---conditional-item-probability-plot"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu">plot_lca_function</span><span class="op">(</span></span>
 <span>  model_name <span class="op">=</span> <span class="va">model_t1_c4</span>, </span>
@@ -1529,14 +1529,14 @@ cmPk = approximate correct model probability.</span>
 <span>  plot_title <span class="op">=</span> <span class="st">"Time 1 LCA Conditional Item Probability Plot"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="20-lta_files/figure-html/unnamed-chunk-16-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"t1_c4_lca_plot.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="fl">300</span>, height<span class="op">=</span><span class="fl">5</span>, width<span class="op">=</span><span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="time-2-lca---conditional-item-probability-plot" class="section level3" number="18.4.3">
 <h3>
 <span class="header-section-number">18.4.3</span> Time 2 LCA - Conditional Item Probability Plot<a class="anchor" aria-label="anchor" href="#time-2-lca---conditional-item-probability-plot"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">plot_lca_function</span><span class="op">(</span></span>
 <span>  model_name <span class="op">=</span> <span class="va">model_t2_c4</span>,</span>
 <span>  item_num <span class="op">=</span> <span class="fl">5</span>,         </span>
@@ -1545,7 +1545,7 @@ cmPk = approximate correct model probability.</span>
 <span>  plot_title <span class="op">=</span> <span class="st">"Time 2 LCA Conditional Item Probability Plot"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="20-lta_files/figure-html/unnamed-chunk-18-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"t2_c4_lca_plot.png"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="fl">300</span>, height<span class="op">=</span><span class="fl">5</span>, width<span class="op">=</span><span class="fl">7</span>, units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
@@ -1559,7 +1559,7 @@ cmPk = approximate correct model probability.</span>
 <h3>
 <span class="header-section-number">18.5.1</span> Estimate Invariant LTA Model<a class="anchor" aria-label="anchor" href="#estimate-invariant-lta-model"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lta_inv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  </span>
@@ -1624,7 +1624,7 @@ cmPk = approximate correct model probability.</span>
 <h3>
 <span class="header-section-number">18.5.2</span> Estimate Non-Invariant Estimated LTA Model<a class="anchor" aria-label="anchor" href="#estimate-non-invariant-estimated-lta-model"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lta_non_inv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  </span>
@@ -1694,7 +1694,7 @@ cmPk = approximate correct model probability.</span>
 <li><p>non-invariant (comparison): This model has <strong>more</strong> parameters.</p></li>
 <li><p>invariant (nested): This model has <strong>less</strong> parameters.</p></li>
 </ul>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># *0 = null or nested model &amp; *1 = comparison  or parent model</span></span>
 <span></span>
@@ -1732,7 +1732,7 @@ cmPk = approximate correct model probability.</span>
 <p><a href="https://stats.idre.ucla.edu/mplus/faq/how-can-i-compute-a-chi-square-test-for-nested-models-with-the-mlr-or-mlm-estimators/">Reference</a></p>
 <hr>
 <p>Read invariance model and extract parameters (intercepts and multinomial regression coefficients)</p>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">lta_inv1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"lta"</span>,<span class="st">"lta_model"</span>,<span class="st">"4-Class-Invariant.out"</span> <span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -1742,7 +1742,7 @@ cmPk = approximate correct model probability.</span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">est</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Manual method to calculate transition probabilities:</p>
 <p>Although possible to extract transition probabilities directly from the output the following code illustrates how the parameters are used to calculate each transition. This is useful for conducting advanced LTA model specifications such as making specific constraints within or between transition matrices, or testing the equivalence of specific transition probabilities.</p>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Name each parameter individually to make the subsequent calculations more readable</span></span>
 <span><span class="va">a1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">13</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">a2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">14</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">a3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">15</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b11</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>;</span>
 <span><span class="va">b21</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">4</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b31</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">7</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b12</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">b22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">par</span><span class="op">[</span><span class="fl">5</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span>;</span>
@@ -1773,7 +1773,7 @@ cmPk = approximate correct model probability.</span>
 <h3>
 <span class="header-section-number">18.5.4</span> Create Transition Table<a class="anchor" aria-label="anchor" href="#create-transition-table"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">t_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Time1"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C1=Anti-Science"</span>,<span class="st">"C1=Amb. w/ Elevated"</span>,<span class="st">"C1=Amb. w/ Minimal"</span>,<span class="st">"C1=Pro-Science"</span><span class="op">)</span>,</span>
@@ -1796,23 +1796,23 @@ cmPk = approximate correct model probability.</span>
 <span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
 <span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="wrrguedrha" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wrrguedrha table {
+<div id="pfkxsownru" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pfkxsownru table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wrrguedrha thead, #wrrguedrha tbody, #wrrguedrha tfoot, #wrrguedrha tr, #wrrguedrha td, #wrrguedrha th {
+#pfkxsownru thead, #pfkxsownru tbody, #pfkxsownru tfoot, #pfkxsownru tr, #pfkxsownru td, #pfkxsownru th {
   border-style: none;
 }
 
-#wrrguedrha p {
+#pfkxsownru p {
   margin: 0;
   padding: 0;
 }
 
-#wrrguedrha .gt_table {
+#pfkxsownru .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1838,12 +1838,12 @@ cmPk = approximate correct model probability.</span>
   border-left-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_caption {
+#pfkxsownru .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wrrguedrha .gt_title {
+#pfkxsownru .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1855,7 +1855,7 @@ cmPk = approximate correct model probability.</span>
   border-bottom-width: 0;
 }
 
-#wrrguedrha .gt_subtitle {
+#pfkxsownru .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1867,7 +1867,7 @@ cmPk = approximate correct model probability.</span>
   border-top-width: 0;
 }
 
-#wrrguedrha .gt_heading {
+#pfkxsownru .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1879,13 +1879,13 @@ cmPk = approximate correct model probability.</span>
   border-right-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_bottom_border {
+#pfkxsownru .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_col_headings {
+#pfkxsownru .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1900,7 +1900,7 @@ cmPk = approximate correct model probability.</span>
   border-right-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_col_heading {
+#pfkxsownru .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1920,7 +1920,7 @@ cmPk = approximate correct model probability.</span>
   overflow-x: hidden;
 }
 
-#wrrguedrha .gt_column_spanner_outer {
+#pfkxsownru .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1932,15 +1932,15 @@ cmPk = approximate correct model probability.</span>
   padding-right: 4px;
 }
 
-#wrrguedrha .gt_column_spanner_outer:first-child {
+#pfkxsownru .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wrrguedrha .gt_column_spanner_outer:last-child {
+#pfkxsownru .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wrrguedrha .gt_column_spanner {
+#pfkxsownru .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1952,11 +1952,11 @@ cmPk = approximate correct model probability.</span>
   width: 100%;
 }
 
-#wrrguedrha .gt_spanner_row {
+#pfkxsownru .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wrrguedrha .gt_group_heading {
+#pfkxsownru .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1982,7 +1982,7 @@ cmPk = approximate correct model probability.</span>
   text-align: left;
 }
 
-#wrrguedrha .gt_empty_group_heading {
+#pfkxsownru .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1997,15 +1997,15 @@ cmPk = approximate correct model probability.</span>
   vertical-align: middle;
 }
 
-#wrrguedrha .gt_from_md > :first-child {
+#pfkxsownru .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wrrguedrha .gt_from_md > :last-child {
+#pfkxsownru .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wrrguedrha .gt_row {
+#pfkxsownru .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2024,7 +2024,7 @@ cmPk = approximate correct model probability.</span>
   overflow-x: hidden;
 }
 
-#wrrguedrha .gt_stub {
+#pfkxsownru .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2037,7 +2037,7 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#wrrguedrha .gt_stub_row_group {
+#pfkxsownru .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2051,15 +2051,15 @@ cmPk = approximate correct model probability.</span>
   vertical-align: top;
 }
 
-#wrrguedrha .gt_row_group_first td {
+#pfkxsownru .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wrrguedrha .gt_row_group_first th {
+#pfkxsownru .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wrrguedrha .gt_summary_row {
+#pfkxsownru .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2069,16 +2069,16 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#wrrguedrha .gt_first_summary_row {
+#pfkxsownru .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_first_summary_row.thick {
+#pfkxsownru .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wrrguedrha .gt_last_summary_row {
+#pfkxsownru .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2088,7 +2088,7 @@ cmPk = approximate correct model probability.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_grand_summary_row {
+#pfkxsownru .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2098,7 +2098,7 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#wrrguedrha .gt_first_grand_summary_row {
+#pfkxsownru .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2108,7 +2108,7 @@ cmPk = approximate correct model probability.</span>
   border-top-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_last_grand_summary_row_top {
+#pfkxsownru .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2118,11 +2118,11 @@ cmPk = approximate correct model probability.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_striped {
+#pfkxsownru .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wrrguedrha .gt_table_body {
+#pfkxsownru .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2131,7 +2131,7 @@ cmPk = approximate correct model probability.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_footnotes {
+#pfkxsownru .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2145,7 +2145,7 @@ cmPk = approximate correct model probability.</span>
   border-right-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_footnote {
+#pfkxsownru .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2154,7 +2154,7 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#wrrguedrha .gt_sourcenotes {
+#pfkxsownru .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2168,7 +2168,7 @@ cmPk = approximate correct model probability.</span>
   border-right-color: #D3D3D3;
 }
 
-#wrrguedrha .gt_sourcenote {
+#pfkxsownru .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2176,72 +2176,72 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#wrrguedrha .gt_left {
+#pfkxsownru .gt_left {
   text-align: left;
 }
 
-#wrrguedrha .gt_center {
+#pfkxsownru .gt_center {
   text-align: center;
 }
 
-#wrrguedrha .gt_right {
+#pfkxsownru .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wrrguedrha .gt_font_normal {
+#pfkxsownru .gt_font_normal {
   font-weight: normal;
 }
 
-#wrrguedrha .gt_font_bold {
+#pfkxsownru .gt_font_bold {
   font-weight: bold;
 }
 
-#wrrguedrha .gt_font_italic {
+#pfkxsownru .gt_font_italic {
   font-style: italic;
 }
 
-#wrrguedrha .gt_super {
+#pfkxsownru .gt_super {
   font-size: 65%;
 }
 
-#wrrguedrha .gt_footnote_marks {
+#pfkxsownru .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wrrguedrha .gt_asterisk {
+#pfkxsownru .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wrrguedrha .gt_indent_1 {
+#pfkxsownru .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wrrguedrha .gt_indent_2 {
+#pfkxsownru .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wrrguedrha .gt_indent_3 {
+#pfkxsownru .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wrrguedrha .gt_indent_4 {
+#pfkxsownru .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wrrguedrha .gt_indent_5 {
+#pfkxsownru .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wrrguedrha .katex-display {
+#pfkxsownru .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wrrguedrha div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pfkxsownru div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2371,7 +2371,7 @@ directly through Mplus syntax using start values.</span>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-07-30.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-08-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

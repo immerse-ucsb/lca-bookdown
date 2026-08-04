@@ -7,7 +7,7 @@
 <title>9 Observed Response Patterns | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="9.1 Load Packages library(naniar) library(tidyverse) library(haven) library(glue) library(MplusAutomation) library(here) library(janitor) library(gt) library(tidyLPA) library(pisaUSA15)...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="9 Observed Response Patterns | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/observed-response-patterns.html">
@@ -129,7 +129,7 @@
 <h2>
 <span class="header-section-number">9.1</span> Load Packages<a class="anchor" aria-label="anchor" href="#load-packages-2"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
@@ -150,13 +150,13 @@
 <h2>
 <span class="header-section-number">9.2</span> Prepare Data<a class="anchor" aria-label="anchor" href="#prepare-data-6"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_bully</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"crdc_lca_data.csv"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">report_dis</span>, <span class="va">report_race</span>, <span class="va">report_sex</span>, <span class="va">counselors_fte</span>, <span class="va">psych_fte</span>, <span class="va">law_fte</span><span class="op">)</span> </span></code></pre></div>
 <hr>
 <p>Continuing the LCA example (<a href="lca-enum.html#lca-enum">3</a>) in this bookdown, save response frequencies for the 3-class model with <code>response is _____.dat</code> under <code>SAVEDATA.</code></p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">patterns</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  </span>
@@ -193,7 +193,7 @@
 <span>                check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <hr>
 <p>Read in observed response pattern data and relabel the columns</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Read in response frequency data that we just created:</span></span>
 <span><span class="va">patterns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_table.html">read_table</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"mplus"</span>, <span class="st">"resp_patterns.dat"</span><span class="op">)</span>,</span>
 <span>                        col_names<span class="op">=</span><span class="cn">FALSE</span>, na <span class="op">=</span> <span class="st">"*"</span><span class="op">)</span> </span>
@@ -208,7 +208,7 @@
 <span><span class="va">patterns</span> <span class="op">&lt;-</span> <span class="va">patterns</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>C <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"MLCC"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Create a table with the top 5 unconditional response pattern, then top of conditional response pattern for each modal class assignment</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Order responses by highest frequency</span></span>
 <span><span class="va">order_highest</span> <span class="op">&lt;-</span> <span class="va">patterns</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>C <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"MLCC"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -228,7 +228,7 @@
 <span><span class="co"># Combine unconditional and conditional responses patterns</span></span>
 <span><span class="va">response_patterns</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">order_highest</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>, <span class="va">table_data</span><span class="op">)</span> </span></code></pre></div>
 <p>Finally, use <a href="https://gt.rstudio.com">gt</a> to make a nicely formatted table</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">resp_table</span> <span class="op">&lt;-</span> <span class="va">response_patterns</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span></span>
@@ -275,23 +275,23 @@
 <span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"Times New Roman"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">resp_table</span></span></code></pre></div>
-<div id="gydwhafour" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gydwhafour table {
+<div id="ihthxmjjby" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ihthxmjjby table {
   font-family: 'Times New Roman';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gydwhafour thead, #gydwhafour tbody, #gydwhafour tfoot, #gydwhafour tr, #gydwhafour td, #gydwhafour th {
+#ihthxmjjby thead, #ihthxmjjby tbody, #ihthxmjjby tfoot, #ihthxmjjby tr, #ihthxmjjby td, #ihthxmjjby th {
   border-style: none;
 }
 
-#gydwhafour p {
+#ihthxmjjby p {
   margin: 0;
   padding: 0;
 }
 
-#gydwhafour .gt_table {
+#ihthxmjjby .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -317,12 +317,12 @@
   border-left-color: #D3D3D3;
 }
 
-#gydwhafour .gt_caption {
+#ihthxmjjby .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gydwhafour .gt_title {
+#ihthxmjjby .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -334,7 +334,7 @@
   border-bottom-width: 0;
 }
 
-#gydwhafour .gt_subtitle {
+#ihthxmjjby .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -346,7 +346,7 @@
   border-top-width: 0;
 }
 
-#gydwhafour .gt_heading {
+#ihthxmjjby .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -358,13 +358,13 @@
   border-right-color: #D3D3D3;
 }
 
-#gydwhafour .gt_bottom_border {
+#ihthxmjjby .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gydwhafour .gt_col_headings {
+#ihthxmjjby .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -379,7 +379,7 @@
   border-right-color: #D3D3D3;
 }
 
-#gydwhafour .gt_col_heading {
+#ihthxmjjby .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -399,7 +399,7 @@
   overflow-x: hidden;
 }
 
-#gydwhafour .gt_column_spanner_outer {
+#ihthxmjjby .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -411,15 +411,15 @@
   padding-right: 4px;
 }
 
-#gydwhafour .gt_column_spanner_outer:first-child {
+#ihthxmjjby .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gydwhafour .gt_column_spanner_outer:last-child {
+#ihthxmjjby .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gydwhafour .gt_column_spanner {
+#ihthxmjjby .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -431,11 +431,11 @@
   width: 100%;
 }
 
-#gydwhafour .gt_spanner_row {
+#ihthxmjjby .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gydwhafour .gt_group_heading {
+#ihthxmjjby .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -461,7 +461,7 @@
   text-align: left;
 }
 
-#gydwhafour .gt_empty_group_heading {
+#ihthxmjjby .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -476,15 +476,15 @@
   vertical-align: middle;
 }
 
-#gydwhafour .gt_from_md > :first-child {
+#ihthxmjjby .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gydwhafour .gt_from_md > :last-child {
+#ihthxmjjby .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gydwhafour .gt_row {
+#ihthxmjjby .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -503,7 +503,7 @@
   overflow-x: hidden;
 }
 
-#gydwhafour .gt_stub {
+#ihthxmjjby .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -516,7 +516,7 @@
   padding-right: 5px;
 }
 
-#gydwhafour .gt_stub_row_group {
+#ihthxmjjby .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -530,15 +530,15 @@
   vertical-align: top;
 }
 
-#gydwhafour .gt_row_group_first td {
+#ihthxmjjby .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gydwhafour .gt_row_group_first th {
+#ihthxmjjby .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gydwhafour .gt_summary_row {
+#ihthxmjjby .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -548,16 +548,16 @@
   padding-right: 5px;
 }
 
-#gydwhafour .gt_first_summary_row {
+#ihthxmjjby .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gydwhafour .gt_first_summary_row.thick {
+#ihthxmjjby .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gydwhafour .gt_last_summary_row {
+#ihthxmjjby .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -567,7 +567,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#gydwhafour .gt_grand_summary_row {
+#ihthxmjjby .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -577,7 +577,7 @@
   padding-right: 5px;
 }
 
-#gydwhafour .gt_first_grand_summary_row {
+#ihthxmjjby .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -587,7 +587,7 @@
   border-top-color: #D3D3D3;
 }
 
-#gydwhafour .gt_last_grand_summary_row_top {
+#ihthxmjjby .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -597,11 +597,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#gydwhafour .gt_striped {
+#ihthxmjjby .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gydwhafour .gt_table_body {
+#ihthxmjjby .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -610,7 +610,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#gydwhafour .gt_footnotes {
+#ihthxmjjby .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -624,7 +624,7 @@
   border-right-color: #D3D3D3;
 }
 
-#gydwhafour .gt_footnote {
+#ihthxmjjby .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -633,7 +633,7 @@
   padding-right: 5px;
 }
 
-#gydwhafour .gt_sourcenotes {
+#ihthxmjjby .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -647,7 +647,7 @@
   border-right-color: #D3D3D3;
 }
 
-#gydwhafour .gt_sourcenote {
+#ihthxmjjby .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -655,72 +655,72 @@
   padding-right: 5px;
 }
 
-#gydwhafour .gt_left {
+#ihthxmjjby .gt_left {
   text-align: left;
 }
 
-#gydwhafour .gt_center {
+#ihthxmjjby .gt_center {
   text-align: center;
 }
 
-#gydwhafour .gt_right {
+#ihthxmjjby .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gydwhafour .gt_font_normal {
+#ihthxmjjby .gt_font_normal {
   font-weight: normal;
 }
 
-#gydwhafour .gt_font_bold {
+#ihthxmjjby .gt_font_bold {
   font-weight: bold;
 }
 
-#gydwhafour .gt_font_italic {
+#ihthxmjjby .gt_font_italic {
   font-style: italic;
 }
 
-#gydwhafour .gt_super {
+#ihthxmjjby .gt_super {
   font-size: 65%;
 }
 
-#gydwhafour .gt_footnote_marks {
+#ihthxmjjby .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gydwhafour .gt_asterisk {
+#ihthxmjjby .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gydwhafour .gt_indent_1 {
+#ihthxmjjby .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gydwhafour .gt_indent_2 {
+#ihthxmjjby .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gydwhafour .gt_indent_3 {
+#ihthxmjjby .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gydwhafour .gt_indent_4 {
+#ihthxmjjby .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gydwhafour .gt_indent_5 {
+#ihthxmjjby .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gydwhafour .katex-display {
+#ihthxmjjby .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gydwhafour div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ihthxmjjby div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1034,7 +1034,7 @@
 </div>
 <hr>
 <p>Save table:</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html">gtsave</a></span><span class="op">(</span><span class="va">resp_table</span>, <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>,<span class="st">"resp_table.png"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div style="text-align: center;">
 <img src="images/ucsb_logo.png" width="75%">
@@ -1068,7 +1068,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-07-30.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-08-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -7,7 +7,7 @@
 <title>29 ML 3-step and BCH in Mplus (Nylund-Gibson, K., Arch, D. N., &amp; Carter, D., 2026) | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="Citation: [Nylund-Gibson, K., Arch, D. N., &amp; Carter, D. (2026). Latent transition analysis with auxiliary variables: A demonstration of the ML 3-step and BCH in Mplus. The Quantitative Methods for...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="29 ML 3-step and BCH in Mplus (Nylund-Gibson, K., Arch, D. N., &amp; Carter, D., 2026) | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/ml-3-step-and-bch-in-mplus-nylund-gibson-k.-arch-d.-n.-carter-d.-2026.html">
@@ -144,7 +144,7 @@
 <h3>
 <span class="header-section-number">29.2.1</span> Load Required Packages<a class="anchor" aria-label="anchor" href="#load-required-packages"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb468"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Installation required when using Mplus version 8.6</span></span>
 <span><span class="co"># devtools::install_github("michaelhallquist/MplusAutomation")</span></span>
@@ -171,7 +171,7 @@
 <h3>
 <span class="header-section-number">29.2.2</span> Set Working Directory<a class="anchor" aria-label="anchor" href="#set-working-directory"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org/reference/i_am.html">i_am</a></span><span class="op">(</span><span class="st">"31-lta-three-timepoint.Rmd"</span><span class="op">)</span></span></code></pre></div>
 <p>Using <code><a href="https://here.r-lib.org/reference/here.html">here()</a></code> finds your project’s files, based on the current working directory at the time when the package is loaded.</p>
 <hr>
@@ -180,7 +180,7 @@
 <h3>
 <span class="header-section-number">29.2.3</span> Import LSAY Data<a class="anchor" aria-label="anchor" href="#import-lsay-data"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb470"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb479"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lsay_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"lsay_data.csv"</span><span class="op">)</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"9999"</span>, <span class="st">"-99"</span>, <span class="st">"-98"</span>, <span class="st">"-96"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">as.numeric</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -198,7 +198,7 @@
 <h3>
 <span class="header-section-number">29.3.1</span> Indicators<a class="anchor" aria-label="anchor" href="#indicators"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb480"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define survey questions</span></span>
 <span><span class="va">all_questions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"AB39A"</span>, <span class="st">"AB39H"</span>, <span class="st">"AB39I"</span>, <span class="st">"AB39K"</span>, <span class="st">"AB39L"</span>, <span class="st">"AB39M"</span>, <span class="st">"AB39T"</span>, <span class="st">"AB39U"</span>, <span class="st">"AB39W"</span>, <span class="st">"AB39X"</span>, <span class="co"># 7th grade</span></span>
@@ -276,23 +276,23 @@
 <span></span>
 <span><span class="co"># Show table</span></span>
 <span><span class="va">table1_gt</span></span></code></pre></div>
-<div id="mbpahbxiuj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mbpahbxiuj table {
+<div id="mvekvhlqll" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mvekvhlqll table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mbpahbxiuj thead, #mbpahbxiuj tbody, #mbpahbxiuj tfoot, #mbpahbxiuj tr, #mbpahbxiuj td, #mbpahbxiuj th {
+#mvekvhlqll thead, #mvekvhlqll tbody, #mvekvhlqll tfoot, #mvekvhlqll tr, #mvekvhlqll td, #mvekvhlqll th {
   border-style: none;
 }
 
-#mbpahbxiuj p {
+#mvekvhlqll p {
   margin: 0;
   padding: 0;
 }
 
-#mbpahbxiuj .gt_table {
+#mvekvhlqll .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -318,12 +318,12 @@
   border-left-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_caption {
+#mvekvhlqll .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mbpahbxiuj .gt_title {
+#mvekvhlqll .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -335,7 +335,7 @@
   border-bottom-width: 0;
 }
 
-#mbpahbxiuj .gt_subtitle {
+#mvekvhlqll .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -347,7 +347,7 @@
   border-top-width: 0;
 }
 
-#mbpahbxiuj .gt_heading {
+#mvekvhlqll .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -359,13 +359,13 @@
   border-right-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_bottom_border {
+#mvekvhlqll .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_col_headings {
+#mvekvhlqll .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -380,7 +380,7 @@
   border-right-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_col_heading {
+#mvekvhlqll .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -400,7 +400,7 @@
   overflow-x: hidden;
 }
 
-#mbpahbxiuj .gt_column_spanner_outer {
+#mvekvhlqll .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -412,15 +412,15 @@
   padding-right: 4px;
 }
 
-#mbpahbxiuj .gt_column_spanner_outer:first-child {
+#mvekvhlqll .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mbpahbxiuj .gt_column_spanner_outer:last-child {
+#mvekvhlqll .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mbpahbxiuj .gt_column_spanner {
+#mvekvhlqll .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -432,11 +432,11 @@
   width: 100%;
 }
 
-#mbpahbxiuj .gt_spanner_row {
+#mvekvhlqll .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mbpahbxiuj .gt_group_heading {
+#mvekvhlqll .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -462,7 +462,7 @@
   text-align: left;
 }
 
-#mbpahbxiuj .gt_empty_group_heading {
+#mvekvhlqll .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -477,15 +477,15 @@
   vertical-align: middle;
 }
 
-#mbpahbxiuj .gt_from_md > :first-child {
+#mvekvhlqll .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mbpahbxiuj .gt_from_md > :last-child {
+#mvekvhlqll .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mbpahbxiuj .gt_row {
+#mvekvhlqll .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -504,7 +504,7 @@
   overflow-x: hidden;
 }
 
-#mbpahbxiuj .gt_stub {
+#mvekvhlqll .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -517,7 +517,7 @@
   padding-right: 5px;
 }
 
-#mbpahbxiuj .gt_stub_row_group {
+#mvekvhlqll .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -531,15 +531,15 @@
   vertical-align: top;
 }
 
-#mbpahbxiuj .gt_row_group_first td {
+#mvekvhlqll .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mbpahbxiuj .gt_row_group_first th {
+#mvekvhlqll .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mbpahbxiuj .gt_summary_row {
+#mvekvhlqll .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -549,16 +549,16 @@
   padding-right: 5px;
 }
 
-#mbpahbxiuj .gt_first_summary_row {
+#mvekvhlqll .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_first_summary_row.thick {
+#mvekvhlqll .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mbpahbxiuj .gt_last_summary_row {
+#mvekvhlqll .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -568,7 +568,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_grand_summary_row {
+#mvekvhlqll .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -578,7 +578,7 @@
   padding-right: 5px;
 }
 
-#mbpahbxiuj .gt_first_grand_summary_row {
+#mvekvhlqll .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -588,7 +588,7 @@
   border-top-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_last_grand_summary_row_top {
+#mvekvhlqll .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -598,11 +598,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_striped {
+#mvekvhlqll .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mbpahbxiuj .gt_table_body {
+#mvekvhlqll .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -611,7 +611,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_footnotes {
+#mvekvhlqll .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -625,7 +625,7 @@
   border-right-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_footnote {
+#mvekvhlqll .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -634,7 +634,7 @@
   padding-right: 5px;
 }
 
-#mbpahbxiuj .gt_sourcenotes {
+#mvekvhlqll .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -648,7 +648,7 @@
   border-right-color: #D3D3D3;
 }
 
-#mbpahbxiuj .gt_sourcenote {
+#mvekvhlqll .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -656,72 +656,72 @@
   padding-right: 5px;
 }
 
-#mbpahbxiuj .gt_left {
+#mvekvhlqll .gt_left {
   text-align: left;
 }
 
-#mbpahbxiuj .gt_center {
+#mvekvhlqll .gt_center {
   text-align: center;
 }
 
-#mbpahbxiuj .gt_right {
+#mvekvhlqll .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mbpahbxiuj .gt_font_normal {
+#mvekvhlqll .gt_font_normal {
   font-weight: normal;
 }
 
-#mbpahbxiuj .gt_font_bold {
+#mvekvhlqll .gt_font_bold {
   font-weight: bold;
 }
 
-#mbpahbxiuj .gt_font_italic {
+#mvekvhlqll .gt_font_italic {
   font-style: italic;
 }
 
-#mbpahbxiuj .gt_super {
+#mvekvhlqll .gt_super {
   font-size: 65%;
 }
 
-#mbpahbxiuj .gt_footnote_marks {
+#mvekvhlqll .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mbpahbxiuj .gt_asterisk {
+#mvekvhlqll .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mbpahbxiuj .gt_indent_1 {
+#mvekvhlqll .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mbpahbxiuj .gt_indent_2 {
+#mvekvhlqll .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mbpahbxiuj .gt_indent_3 {
+#mvekvhlqll .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mbpahbxiuj .gt_indent_4 {
+#mvekvhlqll .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mbpahbxiuj .gt_indent_5 {
+#mvekvhlqll .gt_indent_5 {
   text-indent: 25px;
 }
 
-#mbpahbxiuj .katex-display {
+#mvekvhlqll .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#mbpahbxiuj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mvekvhlqll div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1025,7 +1025,7 @@
 <h3>
 <span class="header-section-number">29.3.2</span> Covariates<a class="anchor" aria-label="anchor" href="#covariates"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb472"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb481"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define covariates</span></span>
 <span><span class="va">covariates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"MINORITY"</span>, <span class="st">"FEMALE"</span></span>
@@ -1094,23 +1094,23 @@
 <span></span>
 <span><span class="co"># Show table</span></span>
 <span><span class="va">table1_gt</span></span></code></pre></div>
-<div id="bunegakciz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bunegakciz table {
+<div id="rfrhirfhjr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rfrhirfhjr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bunegakciz thead, #bunegakciz tbody, #bunegakciz tfoot, #bunegakciz tr, #bunegakciz td, #bunegakciz th {
+#rfrhirfhjr thead, #rfrhirfhjr tbody, #rfrhirfhjr tfoot, #rfrhirfhjr tr, #rfrhirfhjr td, #rfrhirfhjr th {
   border-style: none;
 }
 
-#bunegakciz p {
+#rfrhirfhjr p {
   margin: 0;
   padding: 0;
 }
 
-#bunegakciz .gt_table {
+#rfrhirfhjr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1136,12 +1136,12 @@
   border-left-color: #D3D3D3;
 }
 
-#bunegakciz .gt_caption {
+#rfrhirfhjr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bunegakciz .gt_title {
+#rfrhirfhjr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1153,7 +1153,7 @@
   border-bottom-width: 0;
 }
 
-#bunegakciz .gt_subtitle {
+#rfrhirfhjr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1165,7 +1165,7 @@
   border-top-width: 0;
 }
 
-#bunegakciz .gt_heading {
+#rfrhirfhjr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1177,13 +1177,13 @@
   border-right-color: #D3D3D3;
 }
 
-#bunegakciz .gt_bottom_border {
+#rfrhirfhjr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bunegakciz .gt_col_headings {
+#rfrhirfhjr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1198,7 +1198,7 @@
   border-right-color: #D3D3D3;
 }
 
-#bunegakciz .gt_col_heading {
+#rfrhirfhjr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1218,7 +1218,7 @@
   overflow-x: hidden;
 }
 
-#bunegakciz .gt_column_spanner_outer {
+#rfrhirfhjr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1230,15 +1230,15 @@
   padding-right: 4px;
 }
 
-#bunegakciz .gt_column_spanner_outer:first-child {
+#rfrhirfhjr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bunegakciz .gt_column_spanner_outer:last-child {
+#rfrhirfhjr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bunegakciz .gt_column_spanner {
+#rfrhirfhjr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1250,11 +1250,11 @@
   width: 100%;
 }
 
-#bunegakciz .gt_spanner_row {
+#rfrhirfhjr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bunegakciz .gt_group_heading {
+#rfrhirfhjr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1280,7 +1280,7 @@
   text-align: left;
 }
 
-#bunegakciz .gt_empty_group_heading {
+#rfrhirfhjr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1295,15 +1295,15 @@
   vertical-align: middle;
 }
 
-#bunegakciz .gt_from_md > :first-child {
+#rfrhirfhjr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bunegakciz .gt_from_md > :last-child {
+#rfrhirfhjr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bunegakciz .gt_row {
+#rfrhirfhjr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1322,7 +1322,7 @@
   overflow-x: hidden;
 }
 
-#bunegakciz .gt_stub {
+#rfrhirfhjr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1335,7 +1335,7 @@
   padding-right: 5px;
 }
 
-#bunegakciz .gt_stub_row_group {
+#rfrhirfhjr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1349,15 +1349,15 @@
   vertical-align: top;
 }
 
-#bunegakciz .gt_row_group_first td {
+#rfrhirfhjr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bunegakciz .gt_row_group_first th {
+#rfrhirfhjr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bunegakciz .gt_summary_row {
+#rfrhirfhjr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1367,16 +1367,16 @@
   padding-right: 5px;
 }
 
-#bunegakciz .gt_first_summary_row {
+#rfrhirfhjr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bunegakciz .gt_first_summary_row.thick {
+#rfrhirfhjr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bunegakciz .gt_last_summary_row {
+#rfrhirfhjr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1386,7 +1386,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#bunegakciz .gt_grand_summary_row {
+#rfrhirfhjr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1396,7 +1396,7 @@
   padding-right: 5px;
 }
 
-#bunegakciz .gt_first_grand_summary_row {
+#rfrhirfhjr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1406,7 +1406,7 @@
   border-top-color: #D3D3D3;
 }
 
-#bunegakciz .gt_last_grand_summary_row_top {
+#rfrhirfhjr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1416,11 +1416,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#bunegakciz .gt_striped {
+#rfrhirfhjr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bunegakciz .gt_table_body {
+#rfrhirfhjr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1429,7 +1429,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#bunegakciz .gt_footnotes {
+#rfrhirfhjr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1443,7 +1443,7 @@
   border-right-color: #D3D3D3;
 }
 
-#bunegakciz .gt_footnote {
+#rfrhirfhjr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1452,7 +1452,7 @@
   padding-right: 5px;
 }
 
-#bunegakciz .gt_sourcenotes {
+#rfrhirfhjr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1466,7 +1466,7 @@
   border-right-color: #D3D3D3;
 }
 
-#bunegakciz .gt_sourcenote {
+#rfrhirfhjr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1474,72 +1474,72 @@
   padding-right: 5px;
 }
 
-#bunegakciz .gt_left {
+#rfrhirfhjr .gt_left {
   text-align: left;
 }
 
-#bunegakciz .gt_center {
+#rfrhirfhjr .gt_center {
   text-align: center;
 }
 
-#bunegakciz .gt_right {
+#rfrhirfhjr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bunegakciz .gt_font_normal {
+#rfrhirfhjr .gt_font_normal {
   font-weight: normal;
 }
 
-#bunegakciz .gt_font_bold {
+#rfrhirfhjr .gt_font_bold {
   font-weight: bold;
 }
 
-#bunegakciz .gt_font_italic {
+#rfrhirfhjr .gt_font_italic {
   font-style: italic;
 }
 
-#bunegakciz .gt_super {
+#rfrhirfhjr .gt_super {
   font-size: 65%;
 }
 
-#bunegakciz .gt_footnote_marks {
+#rfrhirfhjr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bunegakciz .gt_asterisk {
+#rfrhirfhjr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bunegakciz .gt_indent_1 {
+#rfrhirfhjr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bunegakciz .gt_indent_2 {
+#rfrhirfhjr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bunegakciz .gt_indent_3 {
+#rfrhirfhjr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bunegakciz .gt_indent_4 {
+#rfrhirfhjr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bunegakciz .gt_indent_5 {
+#rfrhirfhjr .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bunegakciz .katex-display {
+#rfrhirfhjr .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bunegakciz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rfrhirfhjr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1598,7 +1598,7 @@
 <h3>
 <span class="header-section-number">29.4.1</span> Time 1 Enumeration (Grade 7)<a class="anchor" aria-label="anchor" href="#time-1-enumeration-grade-7"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb482"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">t1_enum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span> </span>
 <span>  <span class="va">enum_t1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
 <span>    </span>
@@ -1631,7 +1631,7 @@
 <h3>
 <span class="header-section-number">29.4.2</span> Time 2 Enumeration (Grade 10)<a class="anchor" aria-label="anchor" href="#time-2-enumeration-grade-10"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb474"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb483"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">t2_enum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span> </span>
 <span>  <span class="va">enum_t2</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
 <span>    </span>
@@ -1664,7 +1664,7 @@
 <h3>
 <span class="header-section-number">29.4.3</span> Time 3 Enumeration (Grade 12)<a class="anchor" aria-label="anchor" href="#time-3-enumeration-grade-12"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb484"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">t3_enum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span> </span>
 <span>  <span class="va">enum_t3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
 <span>    </span>
@@ -1705,7 +1705,7 @@
 <h3>
 <span class="header-section-number">29.5.1</span> Time 1<a class="anchor" aria-label="anchor" href="#time-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb476"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>, <span class="st">"extract_mplus_info.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"enum_table_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -1724,23 +1724,23 @@
 <span><span class="va">output_enum_t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_1"</span>,<span class="st">"t1"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">fit_table_lca</span><span class="op">(</span><span class="va">output_enum_t1</span>, <span class="va">final_data</span><span class="op">)</span></span></code></pre></div>
-<div id="atubdrivsa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#atubdrivsa table {
+<div id="jdfigdgbgi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jdfigdgbgi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#atubdrivsa thead, #atubdrivsa tbody, #atubdrivsa tfoot, #atubdrivsa tr, #atubdrivsa td, #atubdrivsa th {
+#jdfigdgbgi thead, #jdfigdgbgi tbody, #jdfigdgbgi tfoot, #jdfigdgbgi tr, #jdfigdgbgi td, #jdfigdgbgi th {
   border-style: none;
 }
 
-#atubdrivsa p {
+#jdfigdgbgi p {
   margin: 0;
   padding: 0;
 }
 
-#atubdrivsa .gt_table {
+#jdfigdgbgi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1766,12 +1766,12 @@
   border-left-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_caption {
+#jdfigdgbgi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#atubdrivsa .gt_title {
+#jdfigdgbgi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1783,7 +1783,7 @@
   border-bottom-width: 0;
 }
 
-#atubdrivsa .gt_subtitle {
+#jdfigdgbgi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1795,7 +1795,7 @@
   border-top-width: 0;
 }
 
-#atubdrivsa .gt_heading {
+#jdfigdgbgi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1807,13 +1807,13 @@
   border-right-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_bottom_border {
+#jdfigdgbgi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_col_headings {
+#jdfigdgbgi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1828,7 +1828,7 @@
   border-right-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_col_heading {
+#jdfigdgbgi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1848,7 +1848,7 @@
   overflow-x: hidden;
 }
 
-#atubdrivsa .gt_column_spanner_outer {
+#jdfigdgbgi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1860,15 +1860,15 @@
   padding-right: 4px;
 }
 
-#atubdrivsa .gt_column_spanner_outer:first-child {
+#jdfigdgbgi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#atubdrivsa .gt_column_spanner_outer:last-child {
+#jdfigdgbgi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#atubdrivsa .gt_column_spanner {
+#jdfigdgbgi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1880,11 +1880,11 @@
   width: 100%;
 }
 
-#atubdrivsa .gt_spanner_row {
+#jdfigdgbgi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#atubdrivsa .gt_group_heading {
+#jdfigdgbgi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1910,7 +1910,7 @@
   text-align: left;
 }
 
-#atubdrivsa .gt_empty_group_heading {
+#jdfigdgbgi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1925,15 +1925,15 @@
   vertical-align: middle;
 }
 
-#atubdrivsa .gt_from_md > :first-child {
+#jdfigdgbgi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#atubdrivsa .gt_from_md > :last-child {
+#jdfigdgbgi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#atubdrivsa .gt_row {
+#jdfigdgbgi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1952,7 +1952,7 @@
   overflow-x: hidden;
 }
 
-#atubdrivsa .gt_stub {
+#jdfigdgbgi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1965,7 +1965,7 @@
   padding-right: 5px;
 }
 
-#atubdrivsa .gt_stub_row_group {
+#jdfigdgbgi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1979,15 +1979,15 @@
   vertical-align: top;
 }
 
-#atubdrivsa .gt_row_group_first td {
+#jdfigdgbgi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#atubdrivsa .gt_row_group_first th {
+#jdfigdgbgi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#atubdrivsa .gt_summary_row {
+#jdfigdgbgi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1997,16 +1997,16 @@
   padding-right: 5px;
 }
 
-#atubdrivsa .gt_first_summary_row {
+#jdfigdgbgi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_first_summary_row.thick {
+#jdfigdgbgi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#atubdrivsa .gt_last_summary_row {
+#jdfigdgbgi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2016,7 +2016,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_grand_summary_row {
+#jdfigdgbgi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2026,7 +2026,7 @@
   padding-right: 5px;
 }
 
-#atubdrivsa .gt_first_grand_summary_row {
+#jdfigdgbgi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2036,7 +2036,7 @@
   border-top-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_last_grand_summary_row_top {
+#jdfigdgbgi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2046,11 +2046,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_striped {
+#jdfigdgbgi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#atubdrivsa .gt_table_body {
+#jdfigdgbgi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2059,7 +2059,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_footnotes {
+#jdfigdgbgi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2073,7 +2073,7 @@
   border-right-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_footnote {
+#jdfigdgbgi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2082,7 +2082,7 @@
   padding-right: 5px;
 }
 
-#atubdrivsa .gt_sourcenotes {
+#jdfigdgbgi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2096,7 +2096,7 @@
   border-right-color: #D3D3D3;
 }
 
-#atubdrivsa .gt_sourcenote {
+#jdfigdgbgi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2104,72 +2104,72 @@
   padding-right: 5px;
 }
 
-#atubdrivsa .gt_left {
+#jdfigdgbgi .gt_left {
   text-align: left;
 }
 
-#atubdrivsa .gt_center {
+#jdfigdgbgi .gt_center {
   text-align: center;
 }
 
-#atubdrivsa .gt_right {
+#jdfigdgbgi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#atubdrivsa .gt_font_normal {
+#jdfigdgbgi .gt_font_normal {
   font-weight: normal;
 }
 
-#atubdrivsa .gt_font_bold {
+#jdfigdgbgi .gt_font_bold {
   font-weight: bold;
 }
 
-#atubdrivsa .gt_font_italic {
+#jdfigdgbgi .gt_font_italic {
   font-style: italic;
 }
 
-#atubdrivsa .gt_super {
+#jdfigdgbgi .gt_super {
   font-size: 65%;
 }
 
-#atubdrivsa .gt_footnote_marks {
+#jdfigdgbgi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#atubdrivsa .gt_asterisk {
+#jdfigdgbgi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#atubdrivsa .gt_indent_1 {
+#jdfigdgbgi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#atubdrivsa .gt_indent_2 {
+#jdfigdgbgi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#atubdrivsa .gt_indent_3 {
+#jdfigdgbgi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#atubdrivsa .gt_indent_4 {
+#jdfigdgbgi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#atubdrivsa .gt_indent_5 {
+#jdfigdgbgi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#atubdrivsa .katex-display {
+#jdfigdgbgi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#atubdrivsa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jdfigdgbgi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2307,7 +2307,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </div>
 <hr>
 <p>IC Plot</p>
-<div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"ic_plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">ic_plot</span><span class="op">(</span><span class="va">output_enum_t1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="31-lta-three-timepoint_files/figure-html/unnamed-chunk-10-1.png" alt="" width="672"></div>
@@ -2317,7 +2317,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.5.2</span> Time 2<a class="anchor" aria-label="anchor" href="#time-2"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define the directory where all of the .out files are located.</span></span>
 <span><span class="va">output_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_1"</span>,<span class="st">"t2"</span><span class="op">)</span></span>
 <span></span>
@@ -2332,23 +2332,23 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span></span>
 <span><span class="va">output_enum_t2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_1"</span>,<span class="st">"t2"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu">fit_table_lca</span><span class="op">(</span><span class="va">output_enum_t2</span>, <span class="va">final_data</span><span class="op">)</span></span></code></pre></div>
-<div id="hhcluqbvka" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hhcluqbvka table {
+<div id="yjrubtcjfp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yjrubtcjfp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hhcluqbvka thead, #hhcluqbvka tbody, #hhcluqbvka tfoot, #hhcluqbvka tr, #hhcluqbvka td, #hhcluqbvka th {
+#yjrubtcjfp thead, #yjrubtcjfp tbody, #yjrubtcjfp tfoot, #yjrubtcjfp tr, #yjrubtcjfp td, #yjrubtcjfp th {
   border-style: none;
 }
 
-#hhcluqbvka p {
+#yjrubtcjfp p {
   margin: 0;
   padding: 0;
 }
 
-#hhcluqbvka .gt_table {
+#yjrubtcjfp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2374,12 +2374,12 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-left-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_caption {
+#yjrubtcjfp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hhcluqbvka .gt_title {
+#yjrubtcjfp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2391,7 +2391,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-width: 0;
 }
 
-#hhcluqbvka .gt_subtitle {
+#yjrubtcjfp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2403,7 +2403,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-top-width: 0;
 }
 
-#hhcluqbvka .gt_heading {
+#yjrubtcjfp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2415,13 +2415,13 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_bottom_border {
+#yjrubtcjfp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_col_headings {
+#yjrubtcjfp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2436,7 +2436,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_col_heading {
+#yjrubtcjfp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2456,7 +2456,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   overflow-x: hidden;
 }
 
-#hhcluqbvka .gt_column_spanner_outer {
+#yjrubtcjfp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2468,15 +2468,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 4px;
 }
 
-#hhcluqbvka .gt_column_spanner_outer:first-child {
+#yjrubtcjfp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hhcluqbvka .gt_column_spanner_outer:last-child {
+#yjrubtcjfp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hhcluqbvka .gt_column_spanner {
+#yjrubtcjfp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2488,11 +2488,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   width: 100%;
 }
 
-#hhcluqbvka .gt_spanner_row {
+#yjrubtcjfp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hhcluqbvka .gt_group_heading {
+#yjrubtcjfp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2518,7 +2518,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   text-align: left;
 }
 
-#hhcluqbvka .gt_empty_group_heading {
+#yjrubtcjfp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2533,15 +2533,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   vertical-align: middle;
 }
 
-#hhcluqbvka .gt_from_md > :first-child {
+#yjrubtcjfp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hhcluqbvka .gt_from_md > :last-child {
+#yjrubtcjfp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hhcluqbvka .gt_row {
+#yjrubtcjfp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2560,7 +2560,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   overflow-x: hidden;
 }
 
-#hhcluqbvka .gt_stub {
+#yjrubtcjfp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2573,7 +2573,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#hhcluqbvka .gt_stub_row_group {
+#yjrubtcjfp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2587,15 +2587,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   vertical-align: top;
 }
 
-#hhcluqbvka .gt_row_group_first td {
+#yjrubtcjfp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hhcluqbvka .gt_row_group_first th {
+#yjrubtcjfp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hhcluqbvka .gt_summary_row {
+#yjrubtcjfp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2605,16 +2605,16 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#hhcluqbvka .gt_first_summary_row {
+#yjrubtcjfp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_first_summary_row.thick {
+#yjrubtcjfp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hhcluqbvka .gt_last_summary_row {
+#yjrubtcjfp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2624,7 +2624,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_grand_summary_row {
+#yjrubtcjfp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2634,7 +2634,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#hhcluqbvka .gt_first_grand_summary_row {
+#yjrubtcjfp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2644,7 +2644,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-top-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_last_grand_summary_row_top {
+#yjrubtcjfp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2654,11 +2654,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_striped {
+#yjrubtcjfp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hhcluqbvka .gt_table_body {
+#yjrubtcjfp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2667,7 +2667,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_footnotes {
+#yjrubtcjfp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2681,7 +2681,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_footnote {
+#yjrubtcjfp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2690,7 +2690,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#hhcluqbvka .gt_sourcenotes {
+#yjrubtcjfp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2704,7 +2704,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#hhcluqbvka .gt_sourcenote {
+#yjrubtcjfp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2712,72 +2712,72 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#hhcluqbvka .gt_left {
+#yjrubtcjfp .gt_left {
   text-align: left;
 }
 
-#hhcluqbvka .gt_center {
+#yjrubtcjfp .gt_center {
   text-align: center;
 }
 
-#hhcluqbvka .gt_right {
+#yjrubtcjfp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hhcluqbvka .gt_font_normal {
+#yjrubtcjfp .gt_font_normal {
   font-weight: normal;
 }
 
-#hhcluqbvka .gt_font_bold {
+#yjrubtcjfp .gt_font_bold {
   font-weight: bold;
 }
 
-#hhcluqbvka .gt_font_italic {
+#yjrubtcjfp .gt_font_italic {
   font-style: italic;
 }
 
-#hhcluqbvka .gt_super {
+#yjrubtcjfp .gt_super {
   font-size: 65%;
 }
 
-#hhcluqbvka .gt_footnote_marks {
+#yjrubtcjfp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hhcluqbvka .gt_asterisk {
+#yjrubtcjfp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hhcluqbvka .gt_indent_1 {
+#yjrubtcjfp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hhcluqbvka .gt_indent_2 {
+#yjrubtcjfp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hhcluqbvka .gt_indent_3 {
+#yjrubtcjfp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hhcluqbvka .gt_indent_4 {
+#yjrubtcjfp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hhcluqbvka .gt_indent_5 {
+#yjrubtcjfp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hhcluqbvka .katex-display {
+#yjrubtcjfp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hhcluqbvka div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#yjrubtcjfp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2915,7 +2915,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </div>
 <hr>
 <p>IC Plot</p>
-<div class="sourceCode" id="cb479"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"ic_plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">ic_plot</span><span class="op">(</span><span class="va">output_enum_t2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="31-lta-three-timepoint_files/figure-html/unnamed-chunk-12-1.png" alt="" width="672"></div>
@@ -2925,7 +2925,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.5.3</span> Time 3<a class="anchor" aria-label="anchor" href="#time-3"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb480"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define the directory where all of the .out files are located.</span></span>
 <span><span class="va">output_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_1"</span>,<span class="st">"t3"</span><span class="op">)</span></span>
 <span></span>
@@ -2940,23 +2940,23 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span></span>
 <span><span class="va">output_enum_t3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_1"</span>,<span class="st">"t3"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu">fit_table_lca</span><span class="op">(</span><span class="va">output_enum_t3</span>, <span class="va">final_data</span><span class="op">)</span></span></code></pre></div>
-<div id="daqojyjgqw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#daqojyjgqw table {
+<div id="unfxjkvtcj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#unfxjkvtcj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#daqojyjgqw thead, #daqojyjgqw tbody, #daqojyjgqw tfoot, #daqojyjgqw tr, #daqojyjgqw td, #daqojyjgqw th {
+#unfxjkvtcj thead, #unfxjkvtcj tbody, #unfxjkvtcj tfoot, #unfxjkvtcj tr, #unfxjkvtcj td, #unfxjkvtcj th {
   border-style: none;
 }
 
-#daqojyjgqw p {
+#unfxjkvtcj p {
   margin: 0;
   padding: 0;
 }
 
-#daqojyjgqw .gt_table {
+#unfxjkvtcj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2982,12 +2982,12 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-left-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_caption {
+#unfxjkvtcj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#daqojyjgqw .gt_title {
+#unfxjkvtcj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2999,7 +2999,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-width: 0;
 }
 
-#daqojyjgqw .gt_subtitle {
+#unfxjkvtcj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3011,7 +3011,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-top-width: 0;
 }
 
-#daqojyjgqw .gt_heading {
+#unfxjkvtcj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3023,13 +3023,13 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_bottom_border {
+#unfxjkvtcj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_col_headings {
+#unfxjkvtcj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3044,7 +3044,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_col_heading {
+#unfxjkvtcj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3064,7 +3064,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   overflow-x: hidden;
 }
 
-#daqojyjgqw .gt_column_spanner_outer {
+#unfxjkvtcj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3076,15 +3076,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 4px;
 }
 
-#daqojyjgqw .gt_column_spanner_outer:first-child {
+#unfxjkvtcj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#daqojyjgqw .gt_column_spanner_outer:last-child {
+#unfxjkvtcj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#daqojyjgqw .gt_column_spanner {
+#unfxjkvtcj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3096,11 +3096,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   width: 100%;
 }
 
-#daqojyjgqw .gt_spanner_row {
+#unfxjkvtcj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#daqojyjgqw .gt_group_heading {
+#unfxjkvtcj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3126,7 +3126,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   text-align: left;
 }
 
-#daqojyjgqw .gt_empty_group_heading {
+#unfxjkvtcj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3141,15 +3141,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   vertical-align: middle;
 }
 
-#daqojyjgqw .gt_from_md > :first-child {
+#unfxjkvtcj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#daqojyjgqw .gt_from_md > :last-child {
+#unfxjkvtcj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#daqojyjgqw .gt_row {
+#unfxjkvtcj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3168,7 +3168,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   overflow-x: hidden;
 }
 
-#daqojyjgqw .gt_stub {
+#unfxjkvtcj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3181,7 +3181,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#daqojyjgqw .gt_stub_row_group {
+#unfxjkvtcj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3195,15 +3195,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   vertical-align: top;
 }
 
-#daqojyjgqw .gt_row_group_first td {
+#unfxjkvtcj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#daqojyjgqw .gt_row_group_first th {
+#unfxjkvtcj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#daqojyjgqw .gt_summary_row {
+#unfxjkvtcj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3213,16 +3213,16 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#daqojyjgqw .gt_first_summary_row {
+#unfxjkvtcj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_first_summary_row.thick {
+#unfxjkvtcj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#daqojyjgqw .gt_last_summary_row {
+#unfxjkvtcj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3232,7 +3232,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_grand_summary_row {
+#unfxjkvtcj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3242,7 +3242,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#daqojyjgqw .gt_first_grand_summary_row {
+#unfxjkvtcj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3252,7 +3252,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-top-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_last_grand_summary_row_top {
+#unfxjkvtcj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3262,11 +3262,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_striped {
+#unfxjkvtcj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#daqojyjgqw .gt_table_body {
+#unfxjkvtcj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3275,7 +3275,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_footnotes {
+#unfxjkvtcj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3289,7 +3289,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_footnote {
+#unfxjkvtcj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3298,7 +3298,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#daqojyjgqw .gt_sourcenotes {
+#unfxjkvtcj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3312,7 +3312,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#daqojyjgqw .gt_sourcenote {
+#unfxjkvtcj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3320,72 +3320,72 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#daqojyjgqw .gt_left {
+#unfxjkvtcj .gt_left {
   text-align: left;
 }
 
-#daqojyjgqw .gt_center {
+#unfxjkvtcj .gt_center {
   text-align: center;
 }
 
-#daqojyjgqw .gt_right {
+#unfxjkvtcj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#daqojyjgqw .gt_font_normal {
+#unfxjkvtcj .gt_font_normal {
   font-weight: normal;
 }
 
-#daqojyjgqw .gt_font_bold {
+#unfxjkvtcj .gt_font_bold {
   font-weight: bold;
 }
 
-#daqojyjgqw .gt_font_italic {
+#unfxjkvtcj .gt_font_italic {
   font-style: italic;
 }
 
-#daqojyjgqw .gt_super {
+#unfxjkvtcj .gt_super {
   font-size: 65%;
 }
 
-#daqojyjgqw .gt_footnote_marks {
+#unfxjkvtcj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#daqojyjgqw .gt_asterisk {
+#unfxjkvtcj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#daqojyjgqw .gt_indent_1 {
+#unfxjkvtcj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#daqojyjgqw .gt_indent_2 {
+#unfxjkvtcj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#daqojyjgqw .gt_indent_3 {
+#unfxjkvtcj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#daqojyjgqw .gt_indent_4 {
+#unfxjkvtcj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#daqojyjgqw .gt_indent_5 {
+#unfxjkvtcj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#daqojyjgqw .katex-display {
+#unfxjkvtcj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#daqojyjgqw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#unfxjkvtcj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3523,7 +3523,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </div>
 <hr>
 <p>IC Plot</p>
-<div class="sourceCode" id="cb481"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"ic_plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">ic_plot</span><span class="op">(</span><span class="va">output_enum_t3</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="31-lta-three-timepoint_files/figure-html/unnamed-chunk-14-1.png" alt="" width="672"></div>
@@ -3536,7 +3536,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </h2>
 <hr>
 <p>Plot LCA:</p>
-<div class="sourceCode" id="cb482"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">step1_t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_1"</span>,<span class="st">"t1"</span><span class="op">)</span><span class="op">)</span></span>
@@ -3571,7 +3571,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.7.1</span> Time 1 (Reorder)<a class="anchor" aria-label="anchor" href="#time-1-reorder"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb483"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb492"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lca_t1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
 <span>    </span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Class-3_Time1"</span>, </span>
@@ -3604,7 +3604,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.7.2</span> Time 2 (Reorder)<a class="anchor" aria-label="anchor" href="#time-2-reorder"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb484"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb493"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lca_t2</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
 <span>    </span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Class-3_Time2"</span>, </span>
@@ -3637,7 +3637,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.7.3</span> Time 3 (Reorder)<a class="anchor" aria-label="anchor" href="#time-3-reorder"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb494"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lca_t3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
 <span>    </span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Class-3_Time3"</span>, </span>
@@ -3671,7 +3671,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">29.7.4</span> Diagnostic Class Plots (Post-Reordering)<a class="anchor" aria-label="anchor" href="#diagnostic-class-plots-post-reordering"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb495"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_1"</span>,<span class="st">"reordered"</span>,<span class="st">"t1_lca_step1.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">t2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_1"</span>,<span class="st">"reordered"</span>,<span class="st">"t2_lca_step1.out"</span><span class="op">)</span><span class="op">)</span></span>
@@ -3692,7 +3692,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.8.1</span> Estimate the Non-Invariant Joint Configural Model (No Transitions)<a class="anchor" aria-label="anchor" href="#estimate-the-non-invariant-joint-configural-model-no-transitions"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lta_non_inv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  </span>
 <span>  TITLE <span class="op">=</span> </span>
@@ -3767,7 +3767,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.8.2</span> Estimate the Full Measurement-Invariance Model<a class="anchor" aria-label="anchor" href="#estimate-the-full-measurement-invariance-model"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lta_inv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  </span>
 <span>  TITLE <span class="op">=</span> </span>
@@ -3844,14 +3844,14 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.8.3</span> Plotting the Non-Invariant and Invariant Models<a class="anchor" aria-label="anchor" href="#plotting-the-non-invariant-and-invariant-models"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"plot_lta.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">inv_mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_2"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">plot_lta</span><span class="op">(</span><span class="va">inv_mod</span><span class="op">$</span><span class="va">invariant_lta.out</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="31-lta-three-timepoint_files/figure-html/unnamed-chunk-22-1.png" alt="" width="1728"></div>
-<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">plot_lta</span><span class="op">(</span><span class="va">inv_mod</span><span class="op">$</span><span class="va">noninvariant_lta.out</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="31-lta-three-timepoint_files/figure-html/unnamed-chunk-22-2.png" alt="" width="1728"></div>
 <hr>
@@ -3861,7 +3861,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h2>
 <span class="header-section-number">29.9</span> Nested Model Testing: Satorra–Bentler Scaled χ² Difference Test<a class="anchor" aria-label="anchor" href="#nested-model-testing-satorrabentler-scaled-%CF%87%C2%B2-difference-test"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># *0 = null or nested model &amp; *1 = comparison  or parent model</span></span>
 <span><span class="va">lta_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_2"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -3897,7 +3897,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h2>
 <span class="header-section-number">29.10</span> Alternatively: Nested Model Testing Using <code>compareModels</code> in MplusAutomation<a class="anchor" aria-label="anchor" href="#alternatively-nested-model-testing-using-comparemodels-in-mplusautomation"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb492"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/capture.output.html">capture.output</a></span><span class="op">(</span></span>
 <span>  <span class="va">comparison</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/compareModels.html">compareModels</a></span><span class="op">(</span><span class="va">lta_models</span><span class="op">$</span><span class="va">invariant_lta.out</span>, <span class="va">lta_models</span><span class="op">$</span><span class="va">noninvariant_lta.out</span>, diffTest<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="op">)</span><span class="op">)</span></span>
@@ -3933,7 +3933,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </h3>
 <hr>
 <p><strong>Time 1: Fixed-Threshold LCA With Saved <code>CPROBS</code></strong></p>
-<div class="sourceCode" id="cb493"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inv_t1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
 <span>    </span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Time 1 - Invariant LCA"</span>, </span>
@@ -4022,7 +4022,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>                 modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_3"</span>,<span class="st">"step_1_ml"</span>, <span class="st">"t1_inv_lca.inp"</span><span class="op">)</span>,</span>
 <span>                 check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Time 2: Fixed-Threshold LCA With Saved <code>CPROBS</code></strong></p>
-<div class="sourceCode" id="cb494"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inv_t2</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
 <span>    </span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Time 2 - Invariant LCA"</span>, </span>
@@ -4112,7 +4112,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>                 modelout<span class="op">=</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_3"</span>,<span class="st">"step_1_ml"</span>, <span class="st">"t2_inv_lca.inp"</span><span class="op">)</span>,</span>
 <span>                 check<span class="op">=</span><span class="cn">TRUE</span>, run <span class="op">=</span> <span class="cn">TRUE</span>, hashfilename <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Time 3: Fixed-Threshold LCA With Saved <code>CPROBS</code></strong></p>
-<div class="sourceCode" id="cb495"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inv_t3</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span>                 </span>
 <span>    </span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Time 3 - Invariant LCA"</span>, </span>
@@ -4204,7 +4204,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">29.12.1.1</span> Plotting the Fixed-Threshold LCAs<a class="anchor" aria-label="anchor" href="#plotting-the-fixed-threshold-lcas"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"plot_lca.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_3"</span>,<span class="st">"step_1_ml"</span>,<span class="st">"t1_inv_lca.out"</span><span class="op">)</span><span class="op">)</span></span>
@@ -4222,14 +4222,14 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 </h3>
 <hr>
 <p><strong>Extract Classification-Error Logits</strong></p>
-<div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inv_step4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_3"</span>,<span class="st">"step_1_ml"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">logits_t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">inv_step4</span><span class="op">$</span><span class="va">t1_inv_lca.out</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">logitProbs.mostLikely</span><span class="op">)</span></span>
 <span><span class="va">logits_t2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">inv_step4</span><span class="op">$</span><span class="va">t2_inv_lca.out</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">logitProbs.mostLikely</span><span class="op">)</span></span>
 <span><span class="va">logits_t3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">inv_step4</span><span class="op">$</span><span class="va">t3_inv_lca.out</span><span class="op">$</span><span class="va">class_counts</span><span class="op">$</span><span class="va">logitProbs.mostLikely</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Extract and Merge Saved Posterior Probabilities</strong></p>
-<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">savedata_t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">inv_step4</span><span class="op">$</span><span class="va">t1_inv_lca.out</span><span class="op">$</span><span class="va">savedata</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>cprob11<span class="op">=</span><span class="va">CPROB1</span>,cprob12<span class="op">=</span><span class="va">CPROB2</span>,cprob13<span class="op">=</span><span class="va">CPROB3</span>,cprob14<span class="op">=</span><span class="va">CPROB4</span>,n1<span class="op">=</span><span class="va">MLCC1</span><span class="op">)</span></span>
 <span></span>
@@ -4421,7 +4421,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">29.12.3</span> ML STEP 3a: Estimate the Unconditional LTA Model With Fixed Logits<a class="anchor" aria-label="anchor" href="#ml-step-3a-estimate-the-unconditional-lta-model-with-fixed-logits"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unc_LTA</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step3a of 3-step"</span>, </span>
 <span>  </span>
@@ -4514,7 +4514,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">29.12.3.1</span> Plotting Transition Probabilities (Unconditional Model)<a class="anchor" aria-label="anchor" href="#plotting-transition-probabilities-unconditional-model"><i class="fas fa-link"></i></a>
 </h4>
 <hr>
-<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"plot_transition.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">lta_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_3"</span>,<span class="st">"step_3a_ml"</span>, <span class="st">"unconditional_LTA.out"</span><span class="op">)</span><span class="op">)</span></span>
@@ -4527,7 +4527,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Unconditional LTA (ML Three-Step Method)"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="31-lta-three-timepoint_files/figure-html/unnamed-chunk-32-1.png" alt="" width="960"></div>
-<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"unconditional_lta_ml.jpeg"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, height <span class="op">=</span> <span class="fl">6</span>, width <span class="op">=</span> <span class="fl">10</span>, bg <span class="op">=</span> <span class="st">"white"</span>,  units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <hr>
@@ -4537,7 +4537,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.12.4</span> ML STEP 3b: Estimate the Covariate-Adjusted LTA Model With Fixed Logits<a class="anchor" aria-label="anchor" href="#ml-step-3b-estimate-the-covariate-adjusted-lta-model-with-fixed-logits"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">con_LTA</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step4b of 3-step"</span>, </span>
 <span>  </span>
@@ -4632,7 +4632,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">29.12.4.1</span> Covariate Effects Table<a class="anchor" aria-label="anchor" href="#covariate-effects-table"><i class="fas fa-link"></i></a>
 </h4>
 <hr>
-<div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lta_cov_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_3"</span>,<span class="st">"step_3b_ml"</span>, <span class="st">"LTA_covariates.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># REFERENCE CLASS 4</span></span>
@@ -4684,23 +4684,23 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="va">cov_m1</span></span></code></pre></div>
-<div id="xcsjsfttxa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xcsjsfttxa table {
+<div id="nwkqmliljn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nwkqmliljn table {
   font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xcsjsfttxa thead, #xcsjsfttxa tbody, #xcsjsfttxa tfoot, #xcsjsfttxa tr, #xcsjsfttxa td, #xcsjsfttxa th {
+#nwkqmliljn thead, #nwkqmliljn tbody, #nwkqmliljn tfoot, #nwkqmliljn tr, #nwkqmliljn td, #nwkqmliljn th {
   border-style: none;
 }
 
-#xcsjsfttxa p {
+#nwkqmliljn p {
   margin: 0;
   padding: 0;
 }
 
-#xcsjsfttxa .gt_table {
+#nwkqmliljn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4726,12 +4726,12 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-left-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_caption {
+#nwkqmliljn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xcsjsfttxa .gt_title {
+#nwkqmliljn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4743,7 +4743,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-width: 0;
 }
 
-#xcsjsfttxa .gt_subtitle {
+#nwkqmliljn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4755,7 +4755,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-top-width: 0;
 }
 
-#xcsjsfttxa .gt_heading {
+#nwkqmliljn .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -4767,13 +4767,13 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_bottom_border {
+#nwkqmliljn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_col_headings {
+#nwkqmliljn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4788,7 +4788,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_col_heading {
+#nwkqmliljn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4808,7 +4808,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   overflow-x: hidden;
 }
 
-#xcsjsfttxa .gt_column_spanner_outer {
+#nwkqmliljn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4820,15 +4820,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 4px;
 }
 
-#xcsjsfttxa .gt_column_spanner_outer:first-child {
+#nwkqmliljn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xcsjsfttxa .gt_column_spanner_outer:last-child {
+#nwkqmliljn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xcsjsfttxa .gt_column_spanner {
+#nwkqmliljn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4840,11 +4840,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   width: 100%;
 }
 
-#xcsjsfttxa .gt_spanner_row {
+#nwkqmliljn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xcsjsfttxa .gt_group_heading {
+#nwkqmliljn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4870,7 +4870,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   text-align: left;
 }
 
-#xcsjsfttxa .gt_empty_group_heading {
+#nwkqmliljn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4885,15 +4885,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   vertical-align: middle;
 }
 
-#xcsjsfttxa .gt_from_md > :first-child {
+#nwkqmliljn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xcsjsfttxa .gt_from_md > :last-child {
+#nwkqmliljn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xcsjsfttxa .gt_row {
+#nwkqmliljn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4912,7 +4912,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   overflow-x: hidden;
 }
 
-#xcsjsfttxa .gt_stub {
+#nwkqmliljn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4925,7 +4925,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#xcsjsfttxa .gt_stub_row_group {
+#nwkqmliljn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4939,15 +4939,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   vertical-align: top;
 }
 
-#xcsjsfttxa .gt_row_group_first td {
+#nwkqmliljn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xcsjsfttxa .gt_row_group_first th {
+#nwkqmliljn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xcsjsfttxa .gt_summary_row {
+#nwkqmliljn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4957,16 +4957,16 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#xcsjsfttxa .gt_first_summary_row {
+#nwkqmliljn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_first_summary_row.thick {
+#nwkqmliljn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xcsjsfttxa .gt_last_summary_row {
+#nwkqmliljn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4976,7 +4976,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_grand_summary_row {
+#nwkqmliljn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4986,7 +4986,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#xcsjsfttxa .gt_first_grand_summary_row {
+#nwkqmliljn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4996,7 +4996,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-top-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_last_grand_summary_row_top {
+#nwkqmliljn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5006,11 +5006,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_striped {
+#nwkqmliljn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xcsjsfttxa .gt_table_body {
+#nwkqmliljn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5019,7 +5019,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_footnotes {
+#nwkqmliljn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5033,7 +5033,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_footnote {
+#nwkqmliljn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -5042,7 +5042,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#xcsjsfttxa .gt_sourcenotes {
+#nwkqmliljn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5056,7 +5056,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#xcsjsfttxa .gt_sourcenote {
+#nwkqmliljn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5064,72 +5064,72 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#xcsjsfttxa .gt_left {
+#nwkqmliljn .gt_left {
   text-align: left;
 }
 
-#xcsjsfttxa .gt_center {
+#nwkqmliljn .gt_center {
   text-align: center;
 }
 
-#xcsjsfttxa .gt_right {
+#nwkqmliljn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xcsjsfttxa .gt_font_normal {
+#nwkqmliljn .gt_font_normal {
   font-weight: normal;
 }
 
-#xcsjsfttxa .gt_font_bold {
+#nwkqmliljn .gt_font_bold {
   font-weight: bold;
 }
 
-#xcsjsfttxa .gt_font_italic {
+#nwkqmliljn .gt_font_italic {
   font-style: italic;
 }
 
-#xcsjsfttxa .gt_super {
+#nwkqmliljn .gt_super {
   font-size: 65%;
 }
 
-#xcsjsfttxa .gt_footnote_marks {
+#nwkqmliljn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xcsjsfttxa .gt_asterisk {
+#nwkqmliljn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xcsjsfttxa .gt_indent_1 {
+#nwkqmliljn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xcsjsfttxa .gt_indent_2 {
+#nwkqmliljn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xcsjsfttxa .gt_indent_3 {
+#nwkqmliljn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xcsjsfttxa .gt_indent_4 {
+#nwkqmliljn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xcsjsfttxa .gt_indent_5 {
+#nwkqmliljn .gt_indent_5 {
   text-indent: 25px;
 }
 
-#xcsjsfttxa .katex-display {
+#nwkqmliljn .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#xcsjsfttxa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#nwkqmliljn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -5262,7 +5262,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
     </tr></tfoot>
 </table></div>
 </div>
-<div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html">gtsave</a></span><span class="op">(</span><span class="va">cov_m1</span>, <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"cov_table_ml.png"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -5284,7 +5284,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.13.1</span> BCH Step 1: Estimate the Invariant LTA Model and Compute BCH Training Weights<a class="anchor" aria-label="anchor" href="#bch-step-1-estimate-the-invariant-lta-model-and-compute-bch-training-weights"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step1_bch</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 1 - BCH Method"</span>, </span>
 <span>  VARIABLE <span class="op">=</span> </span>
@@ -5491,7 +5491,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">29.13.1.1</span> Diagnostic Plot of the Invariant BCH Model<a class="anchor" aria-label="anchor" href="#diagnostic-plot-of-the-invariant-bch-model"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb515"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"plot_lta.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">inv_bch</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_3"</span>,<span class="st">"step_1_bch"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -5506,7 +5506,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">29.13.2</span> BCH Step 2: Extract BCH weights<a class="anchor" aria-label="anchor" href="#bch-step-2-extract-bch-weights"><i class="fas fa-link"></i></a>
 </h3>
 <hr>
-<div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb516"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bch_savedata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">inv_bch</span><span class="op">$</span><span class="va">savedata</span><span class="op">)</span></span>
 <span><span class="co">#summary(bch_savedata)</span></span></code></pre></div>
 <hr>
@@ -5515,7 +5515,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.13.3</span> BCH Step 3a: Estimate the Unconditional LTA Model Using BCH Weights<a class="anchor" aria-label="anchor" href="#bch-step-3a-estimate-the-unconditional-lta-model-using-bch-weights"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb517"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step3_bch</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 3 - BCH Method"</span>, </span>
 <span>  </span>
@@ -5548,7 +5548,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">29.13.3.1</span> Plotting BCH Transition Probabilities<a class="anchor" aria-label="anchor" href="#plotting-bch-transition-probabilities"><i class="fas fa-link"></i></a>
 </h4>
 <hr>
-<div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb518"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"functions"</span>,<span class="st">"plot_transition.R"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">lta_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_3"</span>, <span class="st">"step_3a_bch"</span>, <span class="st">"unconditional_bch.out"</span><span class="op">)</span><span class="op">)</span></span>
@@ -5561,7 +5561,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Unconditional LTA (BCH Method)"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="31-lta-three-timepoint_files/figure-html/unnamed-chunk-39-1.png" alt="" width="960"></div>
-<div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb519"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"unconditional_lta_bch.jpeg"</span><span class="op">)</span>, dpi<span class="op">=</span><span class="st">"retina"</span>, height <span class="op">=</span> <span class="fl">6</span>, width <span class="op">=</span> <span class="fl">10</span>, bg <span class="op">=</span> <span class="st">"white"</span>,  units<span class="op">=</span><span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <hr>
@@ -5571,7 +5571,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h3>
 <span class="header-section-number">29.13.4</span> BCH Step 3b: Estimate the Covariate-Adjusted LTA Model Using BCH Weights<a class="anchor" aria-label="anchor" href="#bch-step-3b-estimate-the-covariate-adjusted-lta-model-using-bch-weights"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb520"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">step3_bch</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"Step 3 - BCH Method"</span>, </span>
 <span>  </span>
@@ -5607,7 +5607,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">29.13.4.1</span> Covariate Table: BCH Method<a class="anchor" aria-label="anchor" href="#covariate-table-bch-method"><i class="fas fa-link"></i></a>
 </h4>
 <hr>
-<div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb521"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lta_cov_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"three_lta"</span>, <span class="st">"phase_3"</span>, <span class="st">"step_3b_bch"</span>, <span class="st">"bch_covariates.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># REFERENCE CLASS 4</span></span>
@@ -5660,23 +5660,23 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.names <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="va">cov_m1</span></span></code></pre></div>
-<div id="aorlijmtsp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#aorlijmtsp table {
+<div id="oyrdjtzwsy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#oyrdjtzwsy table {
   font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#aorlijmtsp thead, #aorlijmtsp tbody, #aorlijmtsp tfoot, #aorlijmtsp tr, #aorlijmtsp td, #aorlijmtsp th {
+#oyrdjtzwsy thead, #oyrdjtzwsy tbody, #oyrdjtzwsy tfoot, #oyrdjtzwsy tr, #oyrdjtzwsy td, #oyrdjtzwsy th {
   border-style: none;
 }
 
-#aorlijmtsp p {
+#oyrdjtzwsy p {
   margin: 0;
   padding: 0;
 }
 
-#aorlijmtsp .gt_table {
+#oyrdjtzwsy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -5702,12 +5702,12 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-left-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_caption {
+#oyrdjtzwsy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#aorlijmtsp .gt_title {
+#oyrdjtzwsy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -5719,7 +5719,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-width: 0;
 }
 
-#aorlijmtsp .gt_subtitle {
+#oyrdjtzwsy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -5731,7 +5731,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-top-width: 0;
 }
 
-#aorlijmtsp .gt_heading {
+#oyrdjtzwsy .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -5743,13 +5743,13 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_bottom_border {
+#oyrdjtzwsy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_col_headings {
+#oyrdjtzwsy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5764,7 +5764,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_col_heading {
+#oyrdjtzwsy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5784,7 +5784,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   overflow-x: hidden;
 }
 
-#aorlijmtsp .gt_column_spanner_outer {
+#oyrdjtzwsy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5796,15 +5796,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 4px;
 }
 
-#aorlijmtsp .gt_column_spanner_outer:first-child {
+#oyrdjtzwsy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#aorlijmtsp .gt_column_spanner_outer:last-child {
+#oyrdjtzwsy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#aorlijmtsp .gt_column_spanner {
+#oyrdjtzwsy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -5816,11 +5816,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   width: 100%;
 }
 
-#aorlijmtsp .gt_spanner_row {
+#oyrdjtzwsy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#aorlijmtsp .gt_group_heading {
+#oyrdjtzwsy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5846,7 +5846,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   text-align: left;
 }
 
-#aorlijmtsp .gt_empty_group_heading {
+#oyrdjtzwsy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5861,15 +5861,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   vertical-align: middle;
 }
 
-#aorlijmtsp .gt_from_md > :first-child {
+#oyrdjtzwsy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#aorlijmtsp .gt_from_md > :last-child {
+#oyrdjtzwsy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#aorlijmtsp .gt_row {
+#oyrdjtzwsy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5888,7 +5888,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   overflow-x: hidden;
 }
 
-#aorlijmtsp .gt_stub {
+#oyrdjtzwsy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5901,7 +5901,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#aorlijmtsp .gt_stub_row_group {
+#oyrdjtzwsy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5915,15 +5915,15 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   vertical-align: top;
 }
 
-#aorlijmtsp .gt_row_group_first td {
+#oyrdjtzwsy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#aorlijmtsp .gt_row_group_first th {
+#oyrdjtzwsy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#aorlijmtsp .gt_summary_row {
+#oyrdjtzwsy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5933,16 +5933,16 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#aorlijmtsp .gt_first_summary_row {
+#oyrdjtzwsy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_first_summary_row.thick {
+#oyrdjtzwsy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#aorlijmtsp .gt_last_summary_row {
+#oyrdjtzwsy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5952,7 +5952,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_grand_summary_row {
+#oyrdjtzwsy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5962,7 +5962,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#aorlijmtsp .gt_first_grand_summary_row {
+#oyrdjtzwsy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5972,7 +5972,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-top-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_last_grand_summary_row_top {
+#oyrdjtzwsy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5982,11 +5982,11 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_striped {
+#oyrdjtzwsy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#aorlijmtsp .gt_table_body {
+#oyrdjtzwsy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5995,7 +5995,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-bottom-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_footnotes {
+#oyrdjtzwsy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -6009,7 +6009,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_footnote {
+#oyrdjtzwsy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -6018,7 +6018,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#aorlijmtsp .gt_sourcenotes {
+#oyrdjtzwsy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -6032,7 +6032,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   border-right-color: #D3D3D3;
 }
 
-#aorlijmtsp .gt_sourcenote {
+#oyrdjtzwsy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -6040,72 +6040,72 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
   padding-right: 5px;
 }
 
-#aorlijmtsp .gt_left {
+#oyrdjtzwsy .gt_left {
   text-align: left;
 }
 
-#aorlijmtsp .gt_center {
+#oyrdjtzwsy .gt_center {
   text-align: center;
 }
 
-#aorlijmtsp .gt_right {
+#oyrdjtzwsy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#aorlijmtsp .gt_font_normal {
+#oyrdjtzwsy .gt_font_normal {
   font-weight: normal;
 }
 
-#aorlijmtsp .gt_font_bold {
+#oyrdjtzwsy .gt_font_bold {
   font-weight: bold;
 }
 
-#aorlijmtsp .gt_font_italic {
+#oyrdjtzwsy .gt_font_italic {
   font-style: italic;
 }
 
-#aorlijmtsp .gt_super {
+#oyrdjtzwsy .gt_super {
   font-size: 65%;
 }
 
-#aorlijmtsp .gt_footnote_marks {
+#oyrdjtzwsy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#aorlijmtsp .gt_asterisk {
+#oyrdjtzwsy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#aorlijmtsp .gt_indent_1 {
+#oyrdjtzwsy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#aorlijmtsp .gt_indent_2 {
+#oyrdjtzwsy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#aorlijmtsp .gt_indent_3 {
+#oyrdjtzwsy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#aorlijmtsp .gt_indent_4 {
+#oyrdjtzwsy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#aorlijmtsp .gt_indent_5 {
+#oyrdjtzwsy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#aorlijmtsp .katex-display {
+#oyrdjtzwsy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#aorlijmtsp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#oyrdjtzwsy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -6238,7 +6238,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
     </tr></tfoot>
 </table></div>
 </div>
-<div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb522"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html">gtsave</a></span><span class="op">(</span><span class="va">cov_m1</span>, <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"figures"</span>, <span class="st">"cov_table_bch.png"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div style="text-align: center;">
@@ -6337,7 +6337,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-07-30.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-08-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

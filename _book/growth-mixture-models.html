@@ -7,7 +7,7 @@
 <title>24 Growth Mixture Models | Mixture Modeling with MplusAutomation</title>
 <meta name="author" content="Dina Arch">
 <meta name="description" content="Example: Longitudinal Study of American Youth Data source: : This example looks at science IRT scores over time (Grades 7-12). See documentation here. Covariates include gender and interest in...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="24 Growth Mixture Models | Mixture Modeling with MplusAutomation">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/dina_arch/lca-bookdown/growth-mixture-models.html">
@@ -132,7 +132,7 @@
 <h2>
 <span class="header-section-number">24.1</span> Load Packages<a class="anchor" aria-label="anchor" href="#load-packages-13"><i class="fas fa-link"></i></a>
 </h2>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://michaelhallquist.github.io/MplusAutomation/">MplusAutomation</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
@@ -147,10 +147,10 @@
 <h2>
 <span class="header-section-number">24.2</span> Path Diagram<a class="anchor" aria-label="anchor" href="#path-diagram-1"><i class="fas fa-link"></i></a>
 </h2>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-90a08dbd292d1ad33363" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-90a08dbd292d1ad33363">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-6287a68ddf39c14c0863" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-6287a68ddf39c14c0863">{"x":{"diagram":" digraph gmm_model {\n\n# The `graph` statement - No editing needed\n\n    graph [layout = dot, overlap = true]\n \n# Two `node` statements\n \n# One for measured variables (box) \n\n    node [shape=box]\n    sci7 sci8 sci9 sci10 sci11 sci12;\n \n# Three for latent variables (circle) \n \n    node [shape=circle, width=1.2, height=1.2, fixedsize=true]\n    sci [label=<Science <br/>C<sub>k<\/sub>>];\n    int [label=Intercept];\n    slope [label=Slope];    \n\n# `edge` statements\n \n    edge [minlen = 2]\n    sci -> int\n    sci -> slope\n    int -> {sci7 sci8 sci9 sci10 sci11 sci12}[headport = n]\n    slope -> {sci7 sci8 sci9 sci10 sci11 sci12} [headport = n]\n \n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <p>Read in LSAY dataset</p>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lsay_sci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>,<span class="st">"lsay_sci_gmm.csv"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span></span>
 <span>    id <span class="op">=</span> <span class="va">CASENUM</span>,</span>
@@ -169,7 +169,7 @@
 <h3>
 <span class="header-section-number">24.2.1</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-13"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lsay_sci</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -196,7 +196,7 @@
 <h4>
 <span class="header-section-number">24.2.1.1</span> Correlation Table<a class="anchor" aria-label="anchor" href="#correlation-table-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cor_data</span> <span class="op">&lt;-</span> <span class="va">lsay_sci</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span><span class="op">)</span></span>
 <span></span>
@@ -256,7 +256,7 @@
 <h4>
 <span class="header-section-number">24.2.1.2</span> Spaghetti Plot<a class="anchor" aria-label="anchor" href="#spaghetti-plot"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot_data</span> <span class="op">&lt;-</span> <span class="va">lsay_sci</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">500</span>,<span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"sci"</span><span class="op">)</span>,  </span>
@@ -293,7 +293,7 @@
 <span class="header-section-number">24.2.2</span> Unconditional Growth Mixture Model<a class="anchor" aria-label="anchor" href="#unconditional-growth-mixture-model"><i class="fas fa-link"></i></a>
 </h3>
 <p>This MplusAutomation code loops through the class-specific statements to include freeing variances and covariances.</p>
-<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gmm_6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span><span class="op">{</span> </span>
 <span>  </span>
 <span>  <span class="co"># This MODEL section changes the model specification</span></span>
@@ -346,7 +346,7 @@
 <span class="header-section-number">24.2.2.1</span> Table of Fit<a class="anchor" aria-label="anchor" href="#table-of-fit-4"><i class="fas fa-link"></i></a>
 </h4>
 <p>First, extract data:</p>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">output_gmm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"gmm"</span>,<span class="st">"gmm_enum"</span><span class="op">)</span>, filefilter <span class="op">=</span> <span class="st">"gmm"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -387,7 +387,7 @@
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Title</span>, <span class="va">Parameters</span>, <span class="va">min_cs</span>, <span class="va">LL</span>, <span class="va">BIC</span>, <span class="va">aBIC</span>, <span class="va">CAIC</span>, <span class="va">AWE</span>, <span class="va">BLRT_PValue</span>, <span class="va">T11_VLMR_PValue</span>, <span class="va">BF</span>, <span class="va">cmPk</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">Parameters</span><span class="op">)</span></span></code></pre></div>
 <p>Then, create table:</p>
-<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fit_table1</span> <span class="op">&lt;-</span> <span class="va">allFit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span>title <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"**Model Fit Summary Table**"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -467,23 +467,23 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">fit_table1</span></span></code></pre></div>
-<div id="dvjjjbzwvp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dvjjjbzwvp table {
+<div id="tdehexkvrc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tdehexkvrc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dvjjjbzwvp thead, #dvjjjbzwvp tbody, #dvjjjbzwvp tfoot, #dvjjjbzwvp tr, #dvjjjbzwvp td, #dvjjjbzwvp th {
+#tdehexkvrc thead, #tdehexkvrc tbody, #tdehexkvrc tfoot, #tdehexkvrc tr, #tdehexkvrc td, #tdehexkvrc th {
   border-style: none;
 }
 
-#dvjjjbzwvp p {
+#tdehexkvrc p {
   margin: 0;
   padding: 0;
 }
 
-#dvjjjbzwvp .gt_table {
+#tdehexkvrc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -509,12 +509,12 @@
   border-left-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_caption {
+#tdehexkvrc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dvjjjbzwvp .gt_title {
+#tdehexkvrc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -526,7 +526,7 @@
   border-bottom-width: 0;
 }
 
-#dvjjjbzwvp .gt_subtitle {
+#tdehexkvrc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -538,7 +538,7 @@
   border-top-width: 0;
 }
 
-#dvjjjbzwvp .gt_heading {
+#tdehexkvrc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -550,13 +550,13 @@
   border-right-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_bottom_border {
+#tdehexkvrc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_col_headings {
+#tdehexkvrc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -571,7 +571,7 @@
   border-right-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_col_heading {
+#tdehexkvrc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -591,7 +591,7 @@
   overflow-x: hidden;
 }
 
-#dvjjjbzwvp .gt_column_spanner_outer {
+#tdehexkvrc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -603,15 +603,15 @@
   padding-right: 4px;
 }
 
-#dvjjjbzwvp .gt_column_spanner_outer:first-child {
+#tdehexkvrc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dvjjjbzwvp .gt_column_spanner_outer:last-child {
+#tdehexkvrc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dvjjjbzwvp .gt_column_spanner {
+#tdehexkvrc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -623,11 +623,11 @@
   width: 100%;
 }
 
-#dvjjjbzwvp .gt_spanner_row {
+#tdehexkvrc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dvjjjbzwvp .gt_group_heading {
+#tdehexkvrc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -653,7 +653,7 @@
   text-align: left;
 }
 
-#dvjjjbzwvp .gt_empty_group_heading {
+#tdehexkvrc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -668,15 +668,15 @@
   vertical-align: middle;
 }
 
-#dvjjjbzwvp .gt_from_md > :first-child {
+#tdehexkvrc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dvjjjbzwvp .gt_from_md > :last-child {
+#tdehexkvrc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dvjjjbzwvp .gt_row {
+#tdehexkvrc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -695,7 +695,7 @@
   overflow-x: hidden;
 }
 
-#dvjjjbzwvp .gt_stub {
+#tdehexkvrc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -708,7 +708,7 @@
   padding-right: 5px;
 }
 
-#dvjjjbzwvp .gt_stub_row_group {
+#tdehexkvrc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -722,15 +722,15 @@
   vertical-align: top;
 }
 
-#dvjjjbzwvp .gt_row_group_first td {
+#tdehexkvrc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dvjjjbzwvp .gt_row_group_first th {
+#tdehexkvrc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dvjjjbzwvp .gt_summary_row {
+#tdehexkvrc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -740,16 +740,16 @@
   padding-right: 5px;
 }
 
-#dvjjjbzwvp .gt_first_summary_row {
+#tdehexkvrc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_first_summary_row.thick {
+#tdehexkvrc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dvjjjbzwvp .gt_last_summary_row {
+#tdehexkvrc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -759,7 +759,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_grand_summary_row {
+#tdehexkvrc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -769,7 +769,7 @@
   padding-right: 5px;
 }
 
-#dvjjjbzwvp .gt_first_grand_summary_row {
+#tdehexkvrc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -779,7 +779,7 @@
   border-top-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_last_grand_summary_row_top {
+#tdehexkvrc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -789,11 +789,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_striped {
+#tdehexkvrc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dvjjjbzwvp .gt_table_body {
+#tdehexkvrc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -802,7 +802,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_footnotes {
+#tdehexkvrc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -816,7 +816,7 @@
   border-right-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_footnote {
+#tdehexkvrc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -825,7 +825,7 @@
   padding-right: 5px;
 }
 
-#dvjjjbzwvp .gt_sourcenotes {
+#tdehexkvrc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -839,7 +839,7 @@
   border-right-color: #D3D3D3;
 }
 
-#dvjjjbzwvp .gt_sourcenote {
+#tdehexkvrc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -847,72 +847,72 @@
   padding-right: 5px;
 }
 
-#dvjjjbzwvp .gt_left {
+#tdehexkvrc .gt_left {
   text-align: left;
 }
 
-#dvjjjbzwvp .gt_center {
+#tdehexkvrc .gt_center {
   text-align: center;
 }
 
-#dvjjjbzwvp .gt_right {
+#tdehexkvrc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dvjjjbzwvp .gt_font_normal {
+#tdehexkvrc .gt_font_normal {
   font-weight: normal;
 }
 
-#dvjjjbzwvp .gt_font_bold {
+#tdehexkvrc .gt_font_bold {
   font-weight: bold;
 }
 
-#dvjjjbzwvp .gt_font_italic {
+#tdehexkvrc .gt_font_italic {
   font-style: italic;
 }
 
-#dvjjjbzwvp .gt_super {
+#tdehexkvrc .gt_super {
   font-size: 65%;
 }
 
-#dvjjjbzwvp .gt_footnote_marks {
+#tdehexkvrc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dvjjjbzwvp .gt_asterisk {
+#tdehexkvrc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dvjjjbzwvp .gt_indent_1 {
+#tdehexkvrc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dvjjjbzwvp .gt_indent_2 {
+#tdehexkvrc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dvjjjbzwvp .gt_indent_3 {
+#tdehexkvrc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dvjjjbzwvp .gt_indent_4 {
+#tdehexkvrc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dvjjjbzwvp .gt_indent_5 {
+#tdehexkvrc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#dvjjjbzwvp .katex-display {
+#tdehexkvrc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#dvjjjbzwvp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tdehexkvrc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1043,7 +1043,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">24.2.2.2</span> Information Criteria Plot<a class="anchor" aria-label="anchor" href="#information-criteria-plot-5"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">allFit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">LL</span><span class="op">:</span><span class="va">AWE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rowid_to_column</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1079,7 +1079,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">24.2.2.3</span> Plot GMM<a class="anchor" aria-label="anchor" href="#plot-gmm"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/plotGrowthMixtures.html">plotGrowthMixtures</a></span><span class="op">(</span><span class="va">output_gmm</span>, estimated <span class="op">=</span> <span class="cn">TRUE</span>, rawdata <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>                   time_scale <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>, alpha_range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="26-gmm_files/figure-html/unnamed-chunk-11-1.png" alt="" width="672"></div>
@@ -1091,7 +1091,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <span class="header-section-number">24.2.3</span> Covariates Growth Mixture Model<a class="anchor" aria-label="anchor" href="#covariates-growth-mixture-model"><i class="fas fa-link"></i></a>
 </h3>
 <p>Two covariates were used in the GMM analysis and were related to the latent class variable: gender and interest in science issues in 7th grade.</p>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">step1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/mplusObject.html">mplusObject</a></span><span class="op">(</span></span>
 <span>  TITLE <span class="op">=</span> <span class="st">"GMM with Covariates"</span>, </span>
@@ -1154,7 +1154,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <h4>
 <span class="header-section-number">24.2.3.1</span> Plot GMM<a class="anchor" aria-label="anchor" href="#plot-gmm-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gmm_cov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/readModels.html">readModels</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"gmm"</span>, <span class="st">"gmm_cov"</span>, <span class="st">"gmm_cov.out"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://michaelhallquist.github.io/MplusAutomation/reference/plotGrowthMixtures.html">plotGrowthMixtures</a></span><span class="op">(</span><span class="va">gmm_cov</span>, estimated <span class="op">=</span> <span class="cn">TRUE</span>, rawdata <span class="op">=</span> <span class="cn">TRUE</span>, </span>
@@ -1203,7 +1203,7 @@ VLMR = Vuong-Lo-Mendell-Rubin adjusted likelihood ratio test p-value;
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-07-30.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-08-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
