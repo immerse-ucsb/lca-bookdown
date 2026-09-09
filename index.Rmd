@@ -19,6 +19,8 @@ csl: "chicago-fullnote-bibliography.csl"
 
 Note: This book is a continuous work in progress. The code presented may be updated and/or expanded as research progresses. Please treat the material as a living document rather than a final product.
 
+Development of these resources was supported by the Institute of Education Sciences, U.S. Department of Education, through Grant R305B220021.
+
 ## Stay in touch! {.unnumbered}
 
 -   Please [visit our website](https://immerse.education.ucsb.edu/) to learn more about the IMMERSE fellowship.
@@ -33,7 +35,9 @@ Note: This book is a continuous work in progress. The code presented may be upda
 
 <img src="images/ies_logo.jpg" class="cover" width="250"/> The Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (IMMERSE) is an IES funded training grant (R305B220021) to support education scholars in integrating mixture modeling into their research.
 
-How to reference this website: Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (2025). IMMERSE Online Resources (IES No. 305B220021). Institute of Education Sciences. <https://mixture-modeling.netlify.app/>
+## How to reference this resource
+
+Arch, D., Nylund-Gibson, K., Ing, M., & Masyn, K. (n.d.). Mixture modeling with MplusAutomation: IMMERSE online resources. Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators, University of California, Santa Barbara. Retrieved [Month Day, Year], from <https://mixture-modeling.netlify.app/>
 
 ## Authors & Contributors {.unnumbered}
 

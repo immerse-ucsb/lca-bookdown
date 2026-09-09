@@ -443,7 +443,7 @@ Check all Models for:
 source(here("functions", "extract_mplus_info.R"))
 
 # Define the directory where all of the .out files are located.
-output_dir <- here("enum")
+output_dir <- here("lpa", "enum_lpa")
 
 # Get all .out files
 output_files <- list.files(output_dir, pattern = "\\.out$", full.names = TRUE)
@@ -519,8 +519,8 @@ ll_replication_tables
 Optionally, visualize and examine loglikelihood replication for each output file together.
 
 ```{r}
-ll_replication_table_all <- source(here("functions", "ll_replication_processing.R"), local = TRUE)$value
-ll_replication_table_all
+#ll_replication_table_all <- source(here("functions", "ll_replication_processing.R"), local = TRUE)$value
+#ll_replication_table_all
 ```
 
 ```{r, echo=FALSE}
