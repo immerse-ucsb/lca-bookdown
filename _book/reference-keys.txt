@@ -1,5 +1,4 @@
 tab:unnamed-chunk-4
-how-to-reference-this-resource
 r-and-rstudio
 installation
 step-0-install-r-rstudio-and-mplus

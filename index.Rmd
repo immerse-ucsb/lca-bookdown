@@ -35,7 +35,7 @@ Development of these resources was supported by the Institute of Education Scien
 
 <img src="images/ies_logo.jpg" class="cover" width="250"/> The Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators (IMMERSE) is an IES funded training grant (R305B220021) to support education scholars in integrating mixture modeling into their research.
 
-## How to reference this resource
+## How to reference this resource {.unnumbered}
 
 Arch, D., Nylund-Gibson, K., Ing, M., & Masyn, K. (n.d.). Mixture modeling with MplusAutomation: IMMERSE online resources. Institute of Mixture Modeling for Equity-Oriented Researchers, Scholars, and Educators, University of California, Santa Barbara. Retrieved [Month Day, Year], from <https://mixture-modeling.netlify.app/>
 
