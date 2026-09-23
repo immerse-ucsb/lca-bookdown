@@ -3,6 +3,7 @@ bookdown::bs4_book:
   theme:
     primary: "#047C91"
   repo: https://github.com/immerse-ucsb/lca-bookdown
+  ga: "G-GJDZ785YN7"
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
