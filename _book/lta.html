@@ -158,8 +158,8 @@
 <span><span class="va">lsay_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>,<span class="st">"lsay_lta.csv"</span><span class="op">)</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"9999"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">as.numeric</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <hr>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-bed164fedad3162d223b" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-bed164fedad3162d223b">{"x":{"diagram":" digraph model {\n\n    graph [layout = dot, overlap = true]\n\n    node [shape=box]\n    ab39m ab39t ab39u ab39w ab39x \n    ga33a ga33h ga33i ga33k ga33l;\n \n \n    node [shape=circle, fixedsize = true, width = 1.5, height = 0.5]\n    T1 [label = \"7th Grade \nScience Attitudes\n(T1)\"]\n    T2 [label = \"10th Grade \nScience Attitudes\n(T2)\"]\n    \n    edge []\n    T1 -> {ab39m ab39t ab39u ab39w ab39x}\n    T2 -> {ga33a ga33h ga33i ga33k ga33l}\n    T1 -> T2\n    {rank = same; T1; T2;}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-e16c34d0ee28e80d8ce0" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e16c34d0ee28e80d8ce0">{"x":{"diagram":" digraph model {\n\n    graph [layout = dot, overlap = true]\n\n    node [shape=box]\n    ab39m ab39t ab39u ab39w ab39x \n    ga33a ga33h ga33i ga33k ga33l;\n \n \n    node [shape=circle, fixedsize = true, width = 1.5, height = 0.5]\n    T1 [label = \"7th Grade \nScience Attitudes\n(T1)\"]\n    T2 [label = \"10th Grade \nScience Attitudes\n(T2)\"]\n    \n    edge []\n    T1 -> {ab39m ab39t ab39u ab39w ab39x}\n    T2 -> {ga33a ga33h ga33i ga33k ga33l}\n    T1 -> T2\n    {rank = same; T1; T2;}\n }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><hr>
 <div id="descriptive-statistics-9" class="section level2" number="18.1">
 <h2>
 <span class="header-section-number">18.1</span> Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics-9"><i class="fas fa-link"></i></a>
@@ -808,23 +808,23 @@
 <span>     row <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">T11_VLMR_PValue</span> <span class="op">&lt;</span> <span class="fl">.05</span> <span class="op">&amp;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lead</a></span><span class="op">(</span><span class="va">T11_VLMR_PValue</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">.05</span>, <span class="va">T11_VLMR_PValue</span> <span class="op">&lt;</span> <span class="fl">.05</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div id="iqltlzmjrd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#iqltlzmjrd table {
+<div id="wzjivhnapl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wzjivhnapl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#iqltlzmjrd thead, #iqltlzmjrd tbody, #iqltlzmjrd tfoot, #iqltlzmjrd tr, #iqltlzmjrd td, #iqltlzmjrd th {
+#wzjivhnapl thead, #wzjivhnapl tbody, #wzjivhnapl tfoot, #wzjivhnapl tr, #wzjivhnapl td, #wzjivhnapl th {
   border-style: none;
 }
 
-#iqltlzmjrd p {
+#wzjivhnapl p {
   margin: 0;
   padding: 0;
 }
 
-#iqltlzmjrd .gt_table {
+#wzjivhnapl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -850,12 +850,12 @@
   border-left-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_caption {
+#wzjivhnapl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#iqltlzmjrd .gt_title {
+#wzjivhnapl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -867,7 +867,7 @@
   border-bottom-width: 0;
 }
 
-#iqltlzmjrd .gt_subtitle {
+#wzjivhnapl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -879,7 +879,7 @@
   border-top-width: 0;
 }
 
-#iqltlzmjrd .gt_heading {
+#wzjivhnapl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -891,13 +891,13 @@
   border-right-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_bottom_border {
+#wzjivhnapl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_col_headings {
+#wzjivhnapl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -912,7 +912,7 @@
   border-right-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_col_heading {
+#wzjivhnapl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -932,7 +932,7 @@
   overflow-x: hidden;
 }
 
-#iqltlzmjrd .gt_column_spanner_outer {
+#wzjivhnapl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -944,15 +944,15 @@
   padding-right: 4px;
 }
 
-#iqltlzmjrd .gt_column_spanner_outer:first-child {
+#wzjivhnapl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#iqltlzmjrd .gt_column_spanner_outer:last-child {
+#wzjivhnapl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#iqltlzmjrd .gt_column_spanner {
+#wzjivhnapl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -964,11 +964,11 @@
   width: 100%;
 }
 
-#iqltlzmjrd .gt_spanner_row {
+#wzjivhnapl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#iqltlzmjrd .gt_group_heading {
+#wzjivhnapl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -994,7 +994,7 @@
   text-align: left;
 }
 
-#iqltlzmjrd .gt_empty_group_heading {
+#wzjivhnapl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1009,15 +1009,15 @@
   vertical-align: middle;
 }
 
-#iqltlzmjrd .gt_from_md > :first-child {
+#wzjivhnapl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#iqltlzmjrd .gt_from_md > :last-child {
+#wzjivhnapl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#iqltlzmjrd .gt_row {
+#wzjivhnapl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1036,7 +1036,7 @@
   overflow-x: hidden;
 }
 
-#iqltlzmjrd .gt_stub {
+#wzjivhnapl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1049,7 +1049,7 @@
   padding-right: 5px;
 }
 
-#iqltlzmjrd .gt_stub_row_group {
+#wzjivhnapl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1063,15 +1063,15 @@
   vertical-align: top;
 }
 
-#iqltlzmjrd .gt_row_group_first td {
+#wzjivhnapl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#iqltlzmjrd .gt_row_group_first th {
+#wzjivhnapl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#iqltlzmjrd .gt_summary_row {
+#wzjivhnapl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1081,16 +1081,16 @@
   padding-right: 5px;
 }
 
-#iqltlzmjrd .gt_first_summary_row {
+#wzjivhnapl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_first_summary_row.thick {
+#wzjivhnapl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#iqltlzmjrd .gt_last_summary_row {
+#wzjivhnapl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1100,7 +1100,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_grand_summary_row {
+#wzjivhnapl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1110,7 +1110,7 @@
   padding-right: 5px;
 }
 
-#iqltlzmjrd .gt_first_grand_summary_row {
+#wzjivhnapl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1120,7 +1120,7 @@
   border-top-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_last_grand_summary_row_top {
+#wzjivhnapl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1130,11 +1130,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_striped {
+#wzjivhnapl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#iqltlzmjrd .gt_table_body {
+#wzjivhnapl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1143,7 +1143,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_footnotes {
+#wzjivhnapl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1157,7 +1157,7 @@
   border-right-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_footnote {
+#wzjivhnapl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1166,7 +1166,7 @@
   padding-right: 5px;
 }
 
-#iqltlzmjrd .gt_sourcenotes {
+#wzjivhnapl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1180,7 +1180,7 @@
   border-right-color: #D3D3D3;
 }
 
-#iqltlzmjrd .gt_sourcenote {
+#wzjivhnapl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1188,72 +1188,72 @@
   padding-right: 5px;
 }
 
-#iqltlzmjrd .gt_left {
+#wzjivhnapl .gt_left {
   text-align: left;
 }
 
-#iqltlzmjrd .gt_center {
+#wzjivhnapl .gt_center {
   text-align: center;
 }
 
-#iqltlzmjrd .gt_right {
+#wzjivhnapl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#iqltlzmjrd .gt_font_normal {
+#wzjivhnapl .gt_font_normal {
   font-weight: normal;
 }
 
-#iqltlzmjrd .gt_font_bold {
+#wzjivhnapl .gt_font_bold {
   font-weight: bold;
 }
 
-#iqltlzmjrd .gt_font_italic {
+#wzjivhnapl .gt_font_italic {
   font-style: italic;
 }
 
-#iqltlzmjrd .gt_super {
+#wzjivhnapl .gt_super {
   font-size: 65%;
 }
 
-#iqltlzmjrd .gt_footnote_marks {
+#wzjivhnapl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#iqltlzmjrd .gt_asterisk {
+#wzjivhnapl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#iqltlzmjrd .gt_indent_1 {
+#wzjivhnapl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#iqltlzmjrd .gt_indent_2 {
+#wzjivhnapl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#iqltlzmjrd .gt_indent_3 {
+#wzjivhnapl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#iqltlzmjrd .gt_indent_4 {
+#wzjivhnapl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#iqltlzmjrd .gt_indent_5 {
+#wzjivhnapl .gt_indent_5 {
   text-indent: 25px;
 }
 
-#iqltlzmjrd .katex-display {
+#wzjivhnapl .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#iqltlzmjrd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wzjivhnapl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1796,23 +1796,23 @@ cmPk = approximate correct model probability.</span>
 <span><span class="st">    has the values rearranged by class for interpretation purposes. Classes may be arranged</span></span>
 <span><span class="st">    directly through Mplus syntax using start values."</span><span class="op">)</span>, </span>
 <span>    locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_title.html">cells_title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div id="kugtgwzcnt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kugtgwzcnt table {
+<div id="xceztcesyy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xceztcesyy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kugtgwzcnt thead, #kugtgwzcnt tbody, #kugtgwzcnt tfoot, #kugtgwzcnt tr, #kugtgwzcnt td, #kugtgwzcnt th {
+#xceztcesyy thead, #xceztcesyy tbody, #xceztcesyy tfoot, #xceztcesyy tr, #xceztcesyy td, #xceztcesyy th {
   border-style: none;
 }
 
-#kugtgwzcnt p {
+#xceztcesyy p {
   margin: 0;
   padding: 0;
 }
 
-#kugtgwzcnt .gt_table {
+#xceztcesyy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1838,12 +1838,12 @@ cmPk = approximate correct model probability.</span>
   border-left-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_caption {
+#xceztcesyy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kugtgwzcnt .gt_title {
+#xceztcesyy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1855,7 +1855,7 @@ cmPk = approximate correct model probability.</span>
   border-bottom-width: 0;
 }
 
-#kugtgwzcnt .gt_subtitle {
+#xceztcesyy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1867,7 +1867,7 @@ cmPk = approximate correct model probability.</span>
   border-top-width: 0;
 }
 
-#kugtgwzcnt .gt_heading {
+#xceztcesyy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1879,13 +1879,13 @@ cmPk = approximate correct model probability.</span>
   border-right-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_bottom_border {
+#xceztcesyy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_col_headings {
+#xceztcesyy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1900,7 +1900,7 @@ cmPk = approximate correct model probability.</span>
   border-right-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_col_heading {
+#xceztcesyy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1920,7 +1920,7 @@ cmPk = approximate correct model probability.</span>
   overflow-x: hidden;
 }
 
-#kugtgwzcnt .gt_column_spanner_outer {
+#xceztcesyy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1932,15 +1932,15 @@ cmPk = approximate correct model probability.</span>
   padding-right: 4px;
 }
 
-#kugtgwzcnt .gt_column_spanner_outer:first-child {
+#xceztcesyy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kugtgwzcnt .gt_column_spanner_outer:last-child {
+#xceztcesyy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kugtgwzcnt .gt_column_spanner {
+#xceztcesyy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1952,11 +1952,11 @@ cmPk = approximate correct model probability.</span>
   width: 100%;
 }
 
-#kugtgwzcnt .gt_spanner_row {
+#xceztcesyy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kugtgwzcnt .gt_group_heading {
+#xceztcesyy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1982,7 +1982,7 @@ cmPk = approximate correct model probability.</span>
   text-align: left;
 }
 
-#kugtgwzcnt .gt_empty_group_heading {
+#xceztcesyy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1997,15 +1997,15 @@ cmPk = approximate correct model probability.</span>
   vertical-align: middle;
 }
 
-#kugtgwzcnt .gt_from_md > :first-child {
+#xceztcesyy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kugtgwzcnt .gt_from_md > :last-child {
+#xceztcesyy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kugtgwzcnt .gt_row {
+#xceztcesyy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2024,7 +2024,7 @@ cmPk = approximate correct model probability.</span>
   overflow-x: hidden;
 }
 
-#kugtgwzcnt .gt_stub {
+#xceztcesyy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2037,7 +2037,7 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#kugtgwzcnt .gt_stub_row_group {
+#xceztcesyy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2051,15 +2051,15 @@ cmPk = approximate correct model probability.</span>
   vertical-align: top;
 }
 
-#kugtgwzcnt .gt_row_group_first td {
+#xceztcesyy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kugtgwzcnt .gt_row_group_first th {
+#xceztcesyy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kugtgwzcnt .gt_summary_row {
+#xceztcesyy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2069,16 +2069,16 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#kugtgwzcnt .gt_first_summary_row {
+#xceztcesyy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_first_summary_row.thick {
+#xceztcesyy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kugtgwzcnt .gt_last_summary_row {
+#xceztcesyy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2088,7 +2088,7 @@ cmPk = approximate correct model probability.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_grand_summary_row {
+#xceztcesyy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2098,7 +2098,7 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#kugtgwzcnt .gt_first_grand_summary_row {
+#xceztcesyy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2108,7 +2108,7 @@ cmPk = approximate correct model probability.</span>
   border-top-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_last_grand_summary_row_top {
+#xceztcesyy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2118,11 +2118,11 @@ cmPk = approximate correct model probability.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_striped {
+#xceztcesyy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kugtgwzcnt .gt_table_body {
+#xceztcesyy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2131,7 +2131,7 @@ cmPk = approximate correct model probability.</span>
   border-bottom-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_footnotes {
+#xceztcesyy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2145,7 +2145,7 @@ cmPk = approximate correct model probability.</span>
   border-right-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_footnote {
+#xceztcesyy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2154,7 +2154,7 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#kugtgwzcnt .gt_sourcenotes {
+#xceztcesyy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2168,7 +2168,7 @@ cmPk = approximate correct model probability.</span>
   border-right-color: #D3D3D3;
 }
 
-#kugtgwzcnt .gt_sourcenote {
+#xceztcesyy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2176,72 +2176,72 @@ cmPk = approximate correct model probability.</span>
   padding-right: 5px;
 }
 
-#kugtgwzcnt .gt_left {
+#xceztcesyy .gt_left {
   text-align: left;
 }
 
-#kugtgwzcnt .gt_center {
+#xceztcesyy .gt_center {
   text-align: center;
 }
 
-#kugtgwzcnt .gt_right {
+#xceztcesyy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kugtgwzcnt .gt_font_normal {
+#xceztcesyy .gt_font_normal {
   font-weight: normal;
 }
 
-#kugtgwzcnt .gt_font_bold {
+#xceztcesyy .gt_font_bold {
   font-weight: bold;
 }
 
-#kugtgwzcnt .gt_font_italic {
+#xceztcesyy .gt_font_italic {
   font-style: italic;
 }
 
-#kugtgwzcnt .gt_super {
+#xceztcesyy .gt_super {
   font-size: 65%;
 }
 
-#kugtgwzcnt .gt_footnote_marks {
+#xceztcesyy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kugtgwzcnt .gt_asterisk {
+#xceztcesyy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kugtgwzcnt .gt_indent_1 {
+#xceztcesyy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kugtgwzcnt .gt_indent_2 {
+#xceztcesyy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kugtgwzcnt .gt_indent_3 {
+#xceztcesyy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kugtgwzcnt .gt_indent_4 {
+#xceztcesyy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kugtgwzcnt .gt_indent_5 {
+#xceztcesyy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#kugtgwzcnt .katex-display {
+#xceztcesyy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#kugtgwzcnt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xceztcesyy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2371,7 +2371,7 @@ directly through Mplus syntax using start values.</span>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-09-09.</p>
+    <p>"<strong>Mixture Modeling with <code>MplusAutomation</code></strong>" was written by Dina Arch. It was last built on 2026-09-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

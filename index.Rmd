@@ -27,7 +27,9 @@ Development of these resources was supported by the Institute of Education Scien
 
 ### Learn more about IMMERSE {.unnumbered}
 
-<img src="images/immerse_hex.png" class="cover" width="250" height="193"/> - Please [visit our website](https://immerse.education.ucsb.edu/) to learn more about the IMMERSE fellowship.
+<img src="images/immerse_hex.png" class="cover" width="250" height="193"/>
+
+- Please [visit our website](https://immerse.education.ucsb.edu/) to learn more about the IMMERSE fellowship.
 
 - For all code and materials found in this Bookdown, see [here](https://github.com/immerse-ucsb/lca-bookdown).
 
