@@ -1,7 +1,7 @@
 ---
 title: "Mixture Modeling with `MplusAutomation`"
 author: "Dina Arch"
-date: "2026-09-24"
+date: "2026-09-25"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -29,6 +29,7 @@ Development of these resources was supported by the Institute of Education Scien
 
 <img src="images/immerse_hex.png" width="250" height="193" style="float: left; margin-right: 25px;"/>
 
+::: {style="overflow: hidden;"}
 - Please [visit our website](https://immerse.education.ucsb.edu/) to learn more about the IMMERSE fellowship.
 
 - For all code and materials found in this Bookdown, see [here](https://github.com/immerse-ucsb/lca-bookdown).
@@ -36,6 +37,7 @@ Development of these resources was supported by the Institute of Education Scien
 - Visit our [GitHub](https://github.com/immerse-ucsb) account to access all the IMMERSE training materials.
 
 - Follow us on [BlueSky](https://bsky.app/profile/immerse-ucsb.bsky.social) and [X](https://twitter.com/IMMERSE_UCSB) to stay-up-to date on our fellowship!
+:::
 
 ## How to reference this resource {.unnumbered}
 
